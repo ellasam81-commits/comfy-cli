@@ -421,6 +421,22 @@ def execute_upload(
                 details={"status": status, "filename": filename},
             )
             raise typer.Exit(code=1)
+        except (urllib.error.URLError, TimeoutError, ConnectionError, http.client.HTTPException) as e:
+            # A connection- or transfer-level failure — not HTTPError. A
+            # refused/DNS/timeout/TLS failure at connect raises URLError; a read
+            # timeout raises a bare TimeoutError; a reset raises ConnectionError;
+            # a truncated (e.g. chunked) response body raises
+            # http.client.IncompleteRead (an HTTPException). Surface it as a
+            # structured envelope instead of an unhandled traceback that breaks
+            # machine/NDJSON consumers.
+            reason = getattr(e, "reason", None) or e
+            renderer.error(
+                code="upload_failed",
+                message=f"Failed to upload {filename}: {reason}",
+                hint="check that the server is reachable",
+                details={"filename": filename, "reason": str(reason)},
+            )
+            raise typer.Exit(code=1)
 
         cloud_name = result.get("name", filename)
         subfolder = result.get("subfolder", "")
