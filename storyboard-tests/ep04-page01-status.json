@@ -1,0 +1,22 @@
+{
+  "state": "completed",
+  "segment": "ep04-page01",
+  "run_id": "29455905042",
+  "run_url": "https://github.com/ellasam81-commits/comfy-cli/actions/runs/29455905042",
+  "started_at": "2026-07-15T23:00:14.625012+00:00",
+  "settings": {
+    "model": "seedance-2.0-mini",
+    "duration": 15,
+    "resolution": "480p",
+    "aspect_ratio": "9:16",
+    "generate_audio": true,
+    "bitrate_mode": "standard",
+    "seed": -1,
+    "automatic_retries": 0
+  },
+  "request_id": "fad7ab57175b9fc3128b11794a2fc7a9",
+  "saved_files": [
+    "ep04-page01-1.mp4"
+  ],
+  "completed_at": "2026-07-15T23:02:45.975440+00:00"
+}
