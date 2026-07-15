@@ -1,0 +1,244 @@
+name: Segmind Storyboard to Video
+
+on:
+  workflow_dispatch:
+    inputs:
+      prompt:
+        description: Use Shot 1, Shot 2, etc. and refer to image 1, image 2, etc.
+        required: true
+        type: string
+      reference_images:
+        description: Up to 9 public URLs or repository paths, separated by commas
+        required: false
+        type: string
+      duration:
+        description: Video length in seconds
+        required: true
+        default: "15"
+        type: choice
+        options:
+          - "4"
+          - "5"
+          - "6"
+          - "8"
+          - "10"
+          - "12"
+          - "15"
+      resolution:
+        description: Output resolution
+        required: true
+        default: 480p
+        type: choice
+        options:
+          - 480p
+          - 720p
+      aspect_ratio:
+        description: Video shape
+        required: true
+        default: "9:16"
+        type: choice
+        options:
+          - "9:16"
+          - "16:9"
+          - "1:1"
+          - "3:4"
+          - "4:3"
+          - "21:9"
+          - adaptive
+      generate_audio:
+        description: Generate synchronized dialogue, sound effects, ambience, and music
+        required: true
+        default: true
+        type: boolean
+      bitrate_mode:
+        description: High gives a larger file with less compression at the same generation price
+        required: true
+        default: standard
+        type: choice
+        options:
+          - standard
+          - high
+      seed:
+        description: Use -1 for random, or a fixed number for repeatable results
+        required: true
+        default: "-1"
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Segmind client
+        run: python -m pip install "segmind>=1.1.0" requests
+
+      - name: Generate one storyboard video
+        shell: bash
+        env:
+          SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+          VIDEO_PROMPT: ${{ inputs.prompt }}
+          REFERENCE_IMAGES: ${{ inputs.reference_images }}
+          VIDEO_DURATION: ${{ inputs.duration }}
+          VIDEO_RESOLUTION: ${{ inputs.resolution }}
+          VIDEO_ASPECT_RATIO: ${{ inputs.aspect_ratio }}
+          GENERATE_AUDIO: ${{ inputs.generate_audio }}
+          BITRATE_MODE: ${{ inputs.bitrate_mode }}
+          VIDEO_SEED: ${{ inputs.seed }}
+        run: |
+          set -euo pipefail
+
+          if [[ -z "$SEGMIND_API_KEY" ]]; then
+            echo "::error::SEGMIND_API_KEY is missing from repository Actions secrets."
+            exit 1
+          fi
+
+          mkdir -p output
+
+          python - <<'PY'
+          import json
+          import os
+          import re
+          from pathlib import Path
+          from urllib.parse import quote, urlparse
+
+          import requests
+          from segmind import InferenceFailed, InferenceTimeout, SegmindClient
+
+
+          def parse_reference_images(value: str) -> list[str]:
+              items = [item.strip() for item in re.split(r"[\n,]+", value) if item.strip()]
+              if len(items) > 9:
+                  raise ValueError("Seedance 2.0 Mini accepts at most 9 reference images.")
+
+              root = Path.cwd().resolve()
+              repository = os.environ["GITHUB_REPOSITORY"]
+              commit_sha = os.environ["GITHUB_SHA"]
+              resolved = []
+
+              for item in items:
+                  parsed = urlparse(item)
+                  if parsed.scheme in {"http", "https"}:
+                      resolved.append(item)
+                      continue
+
+                  file_path = (root / item).resolve()
+                  if file_path != root and root not in file_path.parents:
+                      raise ValueError(f"Repository path is outside the checkout: {item}")
+                  if not file_path.is_file():
+                      raise FileNotFoundError(f"Storyboard image was not found: {item}")
+
+                  relative_path = file_path.relative_to(root).as_posix()
+                  encoded_path = quote(relative_path, safe="/")
+                  resolved.append(
+                      f"https://raw.githubusercontent.com/{repository}/{commit_sha}/{encoded_path}"
+                  )
+
+              return resolved
+
+
+          def collect_urls(value, found: list[str]) -> None:
+              if isinstance(value, str) and value.startswith(("https://", "http://")):
+                  found.append(value)
+              elif isinstance(value, list):
+                  for child in value:
+                      collect_urls(child, found)
+              elif isinstance(value, dict):
+                  for child in value.values():
+                      collect_urls(child, found)
+
+
+          def extension_for(data: bytes, content_type: str, url: str) -> str:
+              suffix = Path(urlparse(url).path).suffix.lower()
+              if "video/mp4" in content_type or data[4:8] == b"ftyp":
+                  return ".mp4"
+              if "video/webm" in content_type or data[:4] == bytes.fromhex("1a45dfa3"):
+                  return ".webm"
+              if "image/png" in content_type or data.startswith(b"\x89PNG"):
+                  return ".png"
+              if "image/jpeg" in content_type or data.startswith(b"\xff\xd8\xff"):
+                  return ".jpg"
+              if suffix in {".mp4", ".webm", ".mov", ".png", ".jpg", ".jpeg"}:
+                  return suffix
+              return ".bin"
+
+
+          references = parse_reference_images(os.environ.get("REFERENCE_IMAGES", ""))
+          payload = {
+              "prompt": os.environ["VIDEO_PROMPT"],
+              "duration": int(os.environ["VIDEO_DURATION"]),
+              "resolution": os.environ["VIDEO_RESOLUTION"],
+              "aspect_ratio": os.environ["VIDEO_ASPECT_RATIO"],
+              "generate_audio": os.environ["GENERATE_AUDIO"].lower() == "true",
+              "bitrate_mode": os.environ["BITRATE_MODE"],
+              "seed": int(os.environ["VIDEO_SEED"]),
+              "return_last_frame": True,
+          }
+          if references:
+              payload["reference_images"] = references
+
+          print(
+              "Submitting Seedance 2.0 Mini:",
+              f"{payload['duration']}s",
+              payload["resolution"],
+              payload["aspect_ratio"],
+              f"audio={payload['generate_audio']}",
+              f"reference_images={len(references)}",
+          )
+
+          client = SegmindClient()
+          job = client.submit_async("seedance-2.0-mini", **payload)
+          Path("output/request_id.txt").write_text(job.request_id + "\n", encoding="utf-8")
+          print("Request ID:", job.request_id)
+
+          try:
+              result = job.wait(timeout=1200, interval=3.0)
+          except InferenceTimeout as exc:
+              raise RuntimeError(f"Generation timed out. Request ID: {exc.request_id}") from exc
+          except InferenceFailed as exc:
+              raise RuntimeError(f"Generation failed: {exc.detail}") from exc
+
+          Path("output/result.json").write_text(
+              json.dumps(result, indent=2, ensure_ascii=False, default=str),
+              encoding="utf-8",
+          )
+
+          urls: list[str] = []
+          collect_urls(result.get("output", result), urls)
+          urls = list(dict.fromkeys(urls))
+          if not urls:
+              raise RuntimeError("Segmind completed but returned no downloadable output URL.")
+
+          downloaded = 0
+          for index, url in enumerate(urls, start=1):
+              response = requests.get(url, timeout=300)
+              response.raise_for_status()
+              extension = extension_for(response.content, response.headers.get("content-type", ""), url)
+              output_path = Path("output") / f"seedance-{index}{extension}"
+              output_path.write_bytes(response.content)
+              print("Saved:", output_path)
+              downloaded += 1
+
+          if downloaded == 0:
+              raise RuntimeError("No Segmind output files were downloaded.")
+          PY
+
+      - name: Upload video and final frame
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: segmind-storyboard-${{ github.run_number }}
+          path: output/*
+          if-no-files-found: warn
+          retention-days: 7
