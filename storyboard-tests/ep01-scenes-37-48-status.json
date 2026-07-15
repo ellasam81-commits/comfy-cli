@@ -1,0 +1,19 @@
+{
+  "state": "completed",
+  "workflow": "ep01-scenes-37-48",
+  "run_id": "29448462253",
+  "run_url": "https://github.com/ellasam81-commits/comfy-cli/actions/runs/29448462253",
+  "started_at": "2026-07-15T20:35:39.069248+00:00",
+  "settings": {
+    "model": "seedance-2.0-mini",
+    "duration": 15,
+    "resolution": "480p",
+    "aspect_ratio": "9:16",
+    "generate_audio": true
+  },
+  "request_id": "7c29f004337365c9318adf1be653639b",
+  "saved_files": [
+    "ep01-scenes-37-48-1.mp4"
+  ],
+  "completed_at": "2026-07-15T20:38:02.320604+00:00"
+}
