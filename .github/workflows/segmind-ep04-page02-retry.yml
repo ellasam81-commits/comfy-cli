@@ -1,0 +1,151 @@
+name: Retry EP04 Page02 Full-Screen Video
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - storyboard-tests/ep04-page02.retry
+
+permissions:
+  contents: read
+
+jobs:
+  retry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Restore reference
+        run: |
+          mkdir -p output
+          base64 --decode storyboard-tests/ep04-page02.b64 > output/ep04-page02.jpg
+
+      - name: Install Segmind client
+        run: python -m pip install "segmind==1.1.0" requests
+
+      - name: Generate corrected full-screen clip
+        env:
+          SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          from urllib.parse import urlparse
+
+          import requests
+          from segmind import SegmindClient
+
+
+          output_dir = Path("output")
+          prompt_data = json.loads(
+              Path("storyboard-tests/ep02-05-prompts.json").read_text(encoding="utf-8")
+          )
+          correction = """
+          CRITICAL RETRY CORRECTION. The previous attempt briefly displayed the input storyboard
+          page itself. Never do that. From the very first frame through the final frame, every
+          image must be a clean single full-screen cinematic shot inside the hidden clinic.
+          Never zoom out to reveal the reference image, page, grid, panels, caption boxes, header,
+          footer, contact sheet, interface, monitor collage or picture-in-picture. Use the reference
+          only to learn character identities, props and chronological action. Reconstruct all action
+          as normal full-screen 3D camera shots. No transition may show the storyboard page, even for
+          one frame. Keep the exact Mandarin dialogue and locked voices from the prompt.
+          """.strip()
+          prompt = "\n\n".join(
+              [correction] + prompt_data["common"] + prompt_data["segments"]["ep04-page02"] + [correction]
+          )
+
+          client = SegmindClient()
+          upload = client.files.upload(output_dir / "ep04-page02.jpg")
+          urls = upload.get("file_urls") or []
+          if not urls:
+              raise RuntimeError(f"Segmind upload returned no file URL: {upload}")
+
+          job = client.submit_async(
+              "seedance-2.0-mini",
+              prompt=prompt,
+              duration=15,
+              resolution="480p",
+              aspect_ratio="9:16",
+              generate_audio=True,
+              bitrate_mode="standard",
+              seed=-1,
+              return_last_frame=True,
+              reference_images=[urls[0]],
+          )
+          result = job.wait(timeout=1200, interval=3.0)
+          (output_dir / "result.json").write_text(
+              json.dumps(result, indent=2, ensure_ascii=False, default=str), encoding="utf-8"
+          )
+
+          found = []
+
+          def collect(value):
+              if isinstance(value, str) and value.startswith(("http://", "https://")):
+                  found.append(value)
+              elif isinstance(value, list):
+                  for child in value:
+                      collect(child)
+              elif isinstance(value, dict):
+                  for child in value.values():
+                      collect(child)
+
+          collect(result.get("output", result))
+          found = list(dict.fromkeys(found))
+          if not found:
+              raise RuntimeError("Segmind returned no output URL")
+
+          saved = []
+          for index, url in enumerate(found, start=1):
+              response = requests.get(url, timeout=300)
+              response.raise_for_status()
+              data = response.content
+              content_type = response.headers.get("content-type", "")
+              suffix = Path(urlparse(url).path).suffix.lower()
+              if "video/mp4" in content_type or data[4:8] == b"ftyp":
+                  extension = ".mp4"
+              elif "image/png" in content_type or data.startswith(b"\x89PNG"):
+                  extension = ".png"
+              elif "image/jpeg" in content_type or data.startswith(b"\xff\xd8\xff"):
+                  extension = ".jpg"
+              else:
+                  extension = suffix if suffix in {".mp4", ".png", ".jpg", ".jpeg"} else ".bin"
+              path = output_dir / f"ep04-page02-retry-{index}{extension}"
+              path.write_bytes(data)
+              saved.append(path.name)
+
+          (output_dir / "status.json").write_text(
+              json.dumps(
+                  {
+                      "state": "completed",
+                      "request_id": job.request_id,
+                      "saved_files": saved,
+                      "settings": {
+                          "model": "seedance-2.0-mini",
+                          "duration": 15,
+                          "resolution": "480p",
+                          "audio": True,
+                          "automatic_retries": 0
+                      }
+                  },
+                  indent=2,
+                  ensure_ascii=False,
+              ),
+              encoding="utf-8",
+          )
+          PY
+
+      - name: Upload corrected clip
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ep04-page02-retry-${{ github.run_number }}
+          path: output/*
+          if-no-files-found: warn
+          retention-days: 14
