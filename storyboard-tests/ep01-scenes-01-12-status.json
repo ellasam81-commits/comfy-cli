@@ -1,0 +1,19 @@
+{
+  "state": "completed",
+  "workflow": "EP01 scenes 01-12",
+  "run_id": "29443947039",
+  "run_url": "https://github.com/ellasam81-commits/comfy-cli/actions/runs/29443947039",
+  "started_at": "2026-07-15T19:17:38.680515+00:00",
+  "settings": {
+    "model": "seedance-2.0-mini",
+    "duration": 15,
+    "resolution": "480p",
+    "aspect_ratio": "9:16",
+    "generate_audio": true
+  },
+  "request_id": "15203c5921c8ae423708426a5d1610bf",
+  "saved_files": [
+    "ep01-scenes-01-12-1.mp4"
+  ],
+  "completed_at": "2026-07-15T19:20:13.668105+00:00"
+}
