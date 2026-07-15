@@ -1,0 +1,108 @@
+{
+  "common": [
+    "Use image 1 only as a chronological 12-panel storyboard and identity/style reference. Create one clean full-screen 9:16 cinematic animation, never a comic page, collage, split screen, panel grid, subtitle card, or still-image slideshow. Completely remove and ignore every header, panel number, caption box, speech bubble, logo, border and written character in the reference image.",
+    "This is the continuous original Chinese anime/manhua series Night Blood Forensics. Preserve the exact faces, hairstyles, apparent ages, genders, clothing, body proportions and props shown in the storyboard. Only include characters actually required by this segment. No twins, substitutions, costume changes or face drift.",
+    "Character lock: Lu Chen is the elegant pale black-haired male forensic pathologist/vampire in a white lab coat over a black turtleneck and black gloves. Lin Qian is the sharp female detective with a short dark bob and navy field coat. Zhou Yu is the young male investigator in a navy utility uniform. Xu Wei is the bruised pale young male vampire in a dark charcoal shirt. Chen Mo is the long-haired young female witness in a dark coat. Han Che is the tired bespectacled male doctor in dark green scrubs and black raincoat. Han Xia is his frail young sister. The masked morgue orderly wears a black waterproof coat, surgical mask and silver-gray gloves and is distinctly left-handed.",
+    "Voice lock, natural Mandarin Chinese for the entire series: Narrator N01 = low female alto, calm, 0.95x. Lin Qian F01 = clear female alto, firm, 1.02x. Lu Chen M01 = low male baritone, calm, 0.92x, subtle dry humor only when specified. Zhou Yu M02 = bright male mid voice, brisk, 1.00x. Xu Wei M03 = slightly hoarse male mid voice, restrained, 0.96x. Chen Mo F02 = low female voice, shaken but controlled, 0.98x. Han Xia F03 = weak breathy young female, 0.88x. Han Che M04 = warm tired male baritone, 0.94x. Mystery man X01 = lowered cold male mid voice, 0.90x. Keep each voice identical in every segment. Only the speaking character moves their mouth; use precise natural lip sync, blinking and breathing.",
+    "Audio must contain clean Mandarin dialogue, subtle rain/room/medical effects and silence where dramatic. Do not generate music; original BGM will be mixed later. Visual style: high-detail polished Chinese dark anime/manhua, cinematic forensic neo-noir, cold blue-black palette with restrained emergency red, smooth controlled camera, believable anatomy, non-graphic horror.",
+    "Hard negatives: no on-screen text, no subtitles, no captions, no comic grid, no readable monitor text, no logo, no extra dialogue, no narration except the exact lines specified, no chibi, no graphic gore, no face morphing, no extra fingers or limbs, no wardrobe changes, no random people, no camera shake, no sudden daylight. End cleanly for a direct cut into the next segment."
+  ],
+  "segments": {
+    "ep02-page01": [
+      "Continue immediately after EP01. Shot 1, 0-3.5s: the heart monitor suddenly returns; Xu Wei opens icy blue eyes and sits up. Lin Qian F01 warns: ‘别碰那把刀！’",
+      "Shot 2, 3.5-7s: Xu Wei grabs Lin Qian’s wrist; Lu Chen catches and releases his grip with controlled inhuman speed. Lu Chen M01: ‘放开她。’",
+      "Shot 3, 7-11s: Xu Wei stares at Lu Chen. Xu Wei M03: ‘你果然还活着。’ Lin Qian F01: ‘你们认识？’",
+      "Shot 4, 11-15s: Xu Wei looks genuinely confused while Zhou Yu’s blue light reveals seven blood layers. Xu Wei M03: ‘我不认识他。可他杀了我七次。’"
+    ],
+    "ep02-page02": [
+      "Shot 1, 0-3s: Lu Chen checks Xu Wei’s pupil and pulse as the chest wound keeps closing. Narrator N01: ‘身体正在删除自己的证词。’",
+      "Shot 2, 3-7s: Lu Chen M01 asks ‘名字。’ Xu Wei M03 answers ‘许未。’ Lin Qian records every change with rapid camera shutters.",
+      "Shot 3, 7-11s: brief coherent memory: room 707 doorbell, a left silver-gray glove enters, then the silver knife is sealed as evidence. No speech.",
+      "Shot 4, 11-15s: Zhou Yu compares seven fluorescent layers; the seventh stays different. Zhou Yu M02: ‘第七层凝得更慢。’ Lu Chen M01: ‘不是许未的血。’"
+    ],
+    "ep02-page03": [
+      "Shot 1, 0-3.5s: seven samples line up; six darken while the seventh stays bright red. Lu Chen M01: ‘凶手也受伤了。’",
+      "Shot 2, 3.5-7s: Zhou Yu reconstructs a left-handed attack with blue-light arcs while Lin Qian studies seven needle marks on Xu Wei’s wrist.",
+      "Shot 3, 7-11s: Xu Wei touches the marks and says in M03: ‘每次醒来，这里都会烧。’ Lu Chen detects silver salt.",
+      "Shot 4, 11-15s: macro reveal of a hollow groove and clear tube inside the silver blade. Lu Chen M01: ‘刀不是用来杀他，是用来拖慢自愈、方便取血。’"
+    ],
+    "ep02-page04": [
+      "Shot 1, 0-4s: a concise non-graphic memory loop shows Xu Wei reviving, being injected, and one vial taken after each death. Mystery man X01: ‘钥匙在哪？’",
+      "Shot 2, 4-8s: Lin Qian notices the missing necklace trace. Lin Qian F01: ‘他拿走了什么钥匙？’ Xu Wei M03: ‘停尸柜……零号。’",
+      "Shot 3, 8-11.5s: locker zero unlocks and slowly opens; Zhou Yu receives an urgent message that a new witness arrived downstairs.",
+      "Shot 4, 11.5-15s: elevator opens. Chen Mo appears soaked and blood-covered but her throat is healed. Chen Mo F02: ‘有人割开我的喉咙。’ Lu Chen M01: ‘几点？’ She: ‘十点十三分。’"
+    ],
+    "ep03-page01": [
+      "Shot 1, 0-3.5s: Chen Mo’s blood-soaked collar contrasts with a completely healed neck. Chen Mo F02: ‘他真的割开了这里。’",
+      "Shot 2, 3.5-7s: Lu Chen watches the clock and answers in M01: ‘三十九分钟。’ Lin Qian F01: ‘足够长好了。’",
+      "Shot 3, 7-10.5s: they spread and photograph the bloodied clothing; lab light confirms the blood belongs to Chen Mo. Narrator N01: ‘没有伤口，怎么证明被杀过？’",
+      "Shot 4, 10.5-15s: Chen Mo remembers a white coat and silver-gray glove. Chen Mo F02: ‘他拿走了钥匙。’ Lu Chen M01: ‘和许未的是同一把。’"
+    ],
+    "ep03-page02": [
+      "Shot 1, 0-3.5s: the team enters the service elevator; ultraviolet light reveals hidden blood spray across the low wall and floor.",
+      "Shot 2, 3.5-7s: Zhou Yu measures the lowest impact point. Lin Qian F01: ‘她当时没有站着。’ Zhou Yu M02: ‘头离地四十一厘米。’",
+      "Shot 3, 7-11s: brief reconstruction: a left hand pins Chen Mo to the elevator floor; wiping direction leads under the control panel where Lin Qian retrieves her phone.",
+      "Shot 4, 11-15s: playback contains elevator tone, breathing and one cold voice. Mystery man X01: ‘第八次，他就会想起来。’ Chen Mo F02 whispers: ‘就是他。’"
+    ],
+    "ep03-page03": [
+      "Shot 1, 0-3.5s: Lu Chen brushes fine silver powder from Chen Mo’s collar and compares it with the room 707 blade. Lin Qian F01: ‘同一个人。’",
+      "Shot 2, 3.5-7s: Chen Mo F02: ‘他身上有很重的消毒水味。’ Zhou Yu finds a medical badge entry made during the doctor’s leave; show no readable UI.",
+      "Shot 3, 7-11s: blurred surveillance shows a masked white-coated bespectacled man using only his left hand. Zhou Yu overlays the motion with the blood direction.",
+      "Shot 4, 11-15s: blue-light traces lead to basement morgue level two; Xu Wei’s key opens locker zero. The door reveals no body, only darkness and glass reflections."
+    ],
+    "ep03-page04": [
+      "Shot 1, 0-3.5s: inside locker zero are seven empty glass vials, a patient wristband and a photo of a gravely ill young woman. Xu Wei M03: ‘每次醒来，他都拿走一管。’",
+      "Shot 2, 3.5-7.5s: Lu Chen examines residue. Lin Qian F01: ‘反复杀人，是为了这些血？’ Lu Chen M01: ‘复生后三十秒的血，能续命一夜。’",
+      "Shot 3, 7.5-11s: Lin Qian realizes the cruelty. Lin Qian F01: ‘他把许未当成药袋。’ Chen Mo F02: ‘我保管钥匙，所以他来杀我。’",
+      "Shot 4, 11-15s: all basement lights die; the service elevator descends by itself toward sealed B3. In a dark security monitor, the white-coated man looks directly into the camera."
+    ],
+    "ep04-page01": [
+      "Shot 1, 0-3.5s: elevator doors open onto a flooded abandoned B3 corridor; Lin Qian leads while Lu Chen and Zhou Yu cover both sides.",
+      "Shot 2, 3.5-7s: hidden clinic reveal: seven vial slots, six empty vials and one missing slot. Xu Wei flinches at a tray of silver tools.",
+      "Shot 3, 7-11s: Lu Chen raises a matching hollow silver blade and traces its groove into a transparent tube. Lu Chen M01: ‘它不是刀，是采血针。’",
+      "Shot 4, 11-15s: Lin Qian finds six revival records; Zhou Yu finds a shattered seventh vial whose blood rapidly fades. A weak heart monitor begins behind a curtain."
+    ],
+    "ep04-page02": [
+      "Shot 1, 0-3.5s: curtain opens on frail Han Xia under an oxygen mask, receiving dark red revival blood. Lin Qian calls legitimate emergency help.",
+      "Shot 2, 3.5-7s: Lu Chen confirms she is human; her chart and failing heart imagery identify irreversible cardiopulmonary disease, with no readable text.",
+      "Shot 3, 7-11s: surveillance memory shows masked Han Che drawing Xu Wei’s blood; Xu Wei M03 recognizes him: ‘就是这个声音。’",
+      "Shot 4, 11-15s: Han Xia briefly wakes. Han Xia F03: ‘哥哥说……只借一点血。’ Lin Qian looks at six empty vials and says in F01: ‘他借了七条命。’"
+    ],
+    "ep04-page03": [
+      "Shot 1, 0-3.5s: Han Che’s tired M04 voice comes over the speaker: ‘吸血鬼会痊愈，她不会。’ Fire doors slam and white anesthetic gas pours from vents.",
+      "Shot 2, 3.5-7s: Zhou Yu blocks the vent; Lin Qian smashes the control cover and starts manual exhaust. Lu Chen shields Han Xia’s airway.",
+      "Shot 3, 7-11s: silver residue weakens Xu Wei and he drops to his knees. Han Che appears at the far corridor, left hand holding the final vial, right holding the hollow blade.",
+      "Shot 4, 11-15s: close on Han Che’s exhausted resolve. Han Che M04: ‘再一次就够了。’ He rushes past Lin Qian toward Xu Wei."
+    ],
+    "ep04-page04": [
+      "Shot 1, 0-3.5s: Lin Qian blocks the silver blade; Zhou Yu shoulder-checks Han Che and the last vial spins upward.",
+      "Shot 2, 3.5-7s: Lu Chen catches the vial one-handed. Han Che’s palm is cut, proving the different seventh blood layer. Han Che M04: ‘你每次都会好。’",
+      "Shot 3, 7-11s: Lin Qian F01: ‘没有留下疤，不代表没有痛。’ Lights die; struggle and dragging sounds happen in darkness.",
+      "Shot 4, 11-15s: emergency red lights return; Han Che and Xu Wei are gone, fading blood leads to a service tunnel. Recorded Han Che M04: ‘零点十七分，旧血站。’ Lin Qian: ‘十五分钟。出发。’"
+    ],
+    "ep05-page01": [
+      "Shot 1, 0-3.5s: stormy exterior of the abandoned old blood station; an old clock shows only five minutes remain. Inside, Xu Wei is restrained to a donation chair with a silver tube.",
+      "Shot 2, 3.5-7s: Han Che prepares the last collection vial while a brief parallel ambulance image confirms Han Xia has been evacuated safely.",
+      "Shot 3, 7-10.5s: Lin Qian assigns roles; four body cameras activate together. Narrator N01: ‘在证据消失前抓住犯罪。’",
+      "Shot 4, 10.5-15s: Lin Qian enters alone. Han Che M04: ‘把证物给我。’ Lin Qian F01: ‘再杀一次，他就不痛了吗？’ Han Che: ‘他还会醒。’"
+    ],
+    "ep05-page02": [
+      "Shot 1, 0-3.5s: Han Che inserts the silver needle; Xu Wei’s pulse collapses. Hidden Lu Chen films the exact wound angle and time.",
+      "Shot 2, 3.5-7s: Zhou Yu’s blue light reveals two distinct new footprint tracks in the tunnel. Lin Qian F01: ‘第七瓶不是给你妹妹的。’ Han Che freezes.",
+      "Shot 3, 7-11s: Lin Qian F01: ‘你把它交给了谁？’ Han Che M04: ‘我只想救韩夏。有人给了我银器、名单和诊室。’",
+      "Shot 4, 11-15s: Xu Wei revives with icy blue eyes and hears another person. Xu Wei M03: ‘707里还有另一个人。’ A left silver-gray glove pulls the master switch; blackout."
+    ],
+    "ep05-page03": [
+      "Shot 1, 0-3.5s: the masked morgue orderly emerges through a hidden door, strikes Han Che with his left hand and takes the final vial. Lin Qian traps his wrist.",
+      "Shot 2, 3.5-7s: Zhou Yu seals the tunnel; blue light exposes the attacker’s bloody shoe sole. The attacker non-graphically cuts Xu Wei’s neck-side with the hollow silver blade.",
+      "Shot 3, 7-11s: Lu Chen M01 calls ‘零点十七分十二秒。’ Four cameras record the wound angle as it visibly contracts. Lin Qian bags the blade before the body expels it.",
+      "Shot 4, 11-15s: Zhou Yu secures shoeprint and human blood. The attacker reveals a black-bat silver ring, smashes through the old window and escapes into rain; the ring remains on the wet floor."
+    ],
+    "ep05-page04": [
+      "Shot 1, 0-3.5s: Han Che gives up beside an empty vial. Han Che M04: ‘你们会好，死几次有什么关系？’ Xu Wei M03: ‘伤口会忘。我不会。’",
+      "Shot 2, 3.5-7s: Lin Qian handcuffs him. Lin Qian F01: ‘没有疤，也算犯罪。’ A hospital call confirms Han Xia is stable.",
+      "Shot 3, 7-11s: Lu Chen lays out the four-camera healing timeline, bagged blade, attacker blood and shoeprint. Zhou Yu M02: ‘这次尸体没来得及反悔。’ Lu Chen M01 dryly: ‘它意见很多。’",
+      "Shot 4, 11-15s: black-bat silver ring lies beside the vial rack. Narrator N01: ‘相信它来不及删掉的瞬间。’ Lu Chen recognizes the mark and says in M01: ‘一百九十七年前，它也出现过。’ End on his red-tinged eyes."
+    ]
+  }
+}
