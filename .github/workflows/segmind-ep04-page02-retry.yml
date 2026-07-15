@@ -56,9 +56,24 @@ jobs:
           only to learn character identities, props and chronological action. Reconstruct all action
           as normal full-screen 3D camera shots. No transition may show the storyboard page, even for
           one frame. Keep the exact Mandarin dialogue and locked voices from the prompt.
+
+          COPYRIGHT-SAFE ORIGINALITY LOCK. This is a completely original fictional production.
+          Every person must be a newly designed illustrated fictional character. Do not reproduce,
+          identify, imitate or evoke any real actor, celebrity, public figure, existing film or TV
+          character, copyrighted anime or manga character, franchise, studio style, poster or shot.
+          Treat the attached drawings only as continuity notes for generic hair, wardrobe, age range,
+          props and blocking. Keep the cast internally consistent without copying any real person's
+          facial identity. Do not display or recreate the reference sheet itself.
           """.strip()
+          safe_common = list(prompt_data["common"])
+          safe_common[1] = (
+              "This is the continuous, fully original fictional series Night Blood Forensics. "
+              "Use newly designed illustrated faces that do not resemble any real person or any "
+              "existing copyrighted character. Preserve only the generic hairstyle, wardrobe, "
+              "apparent age, gender, body proportions and props established within this original series."
+          )
           prompt = "\n\n".join(
-              [correction] + prompt_data["common"] + prompt_data["segments"]["ep04-page02"] + [correction]
+              [correction] + safe_common + prompt_data["segments"]["ep04-page02"] + [correction]
           )
 
           client = SegmindClient()
