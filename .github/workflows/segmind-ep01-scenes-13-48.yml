@@ -1,0 +1,327 @@
+name: Generate EP01 Scenes 13-48
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - storyboard-tests/ep01-scenes-13-48.run
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    name: ${{ matrix.segment }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        segment:
+          - ep01-scenes-13-24
+          - ep01-scenes-25-36
+          - ep01-scenes-37-48
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Restore storyboard image
+        env:
+          SEGMENT: ${{ matrix.segment }}
+        run: |
+          mkdir -p output
+          base64 --decode "storyboard-tests/${SEGMENT}.b64" > "output/${SEGMENT}.jpg"
+          file "output/${SEGMENT}.jpg"
+
+      - name: Install Segmind client
+        run: python -m pip install "segmind==1.1.0" requests
+
+      - name: Generate 15-second video
+        id: generation
+        continue-on-error: true
+        env:
+          SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+          SEGMENT: ${{ matrix.segment }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from datetime import datetime, timezone
+          from pathlib import Path
+          from urllib.parse import urlparse
+
+          import requests
+          from segmind import SegmindClient
+
+
+          SEGMENT = os.environ["SEGMENT"]
+          PROMPTS = {
+              "ep01-scenes-13-24": """
+              Use image 1 only as a chronological storyboard and character/style reference for
+              panels 13–24. Create one clean full-screen cinematic animation, never a comic page,
+              collage, split screen, panel grid, subtitle card, or still-image slideshow. Remove
+              and ignore all captions, speech bubbles, borders, headers, numbers, logos and text.
+
+              Preserve the same original anime characters from the preceding clip. 林浅 is a young
+              Chinese female crime-scene investigator with a short wet black bob, navy field jacket,
+              badge, black gloves and camera. 陆沉 is a tall slim Chinese male forensic doctor with
+              pale cool skin, angular features, tousled short black hair, a black high-neck shirt,
+              white forensic coat and black gloves. Keep their faces, hair, age, clothing and body
+              proportions stable. The victim wears a charcoal-gray shirt and has a silver knife in
+              his chest. Restrained non-graphic forensic horror, very little blood.
+
+              Shot 1, 0–3.5 seconds: macro view of the silver knife. Tightening muscle slowly pushes
+              it outward until it falls to the wet floor with a metallic clink. 林浅 whispers in
+              natural Mandarin: “尸体在排凶器？” 陆沉 answers dryly: “严格来说，它有意见。”
+
+              Shot 2, 3.5–7.5 seconds: the wound visibly contracts and changes direction while 林浅
+              photographs it. Smooth cut to a forensic monitor comparing the earlier downward
+              forty-five-degree wound with the new nearly frontal wound. 陆沉 says: “伤口正在改变。
+              最初向下四十五度，现在接近正面。” Camera shutters and quiet rain continue.
+
+              Shot 3, 7.5–11.5 seconds: 林浅 looks from the monitor to the body and asks: “证据自己
+              变了？” 陆沉 replies calmly: “不是变，是被身体改写。” Only the speaking character's
+              mouth moves. Keep natural blinking, breathing and restrained expressions.
+
+              Shot 4, 11.5–15 seconds: a countdown and changing wound photographs glow on the monitor,
+              but no readable interface text is needed. 陆沉 turns sharply to 林浅 and says: “快，
+              记录每一次变化。从现在开始，别相信尸体最后的样子。” End on his focused eyes and
+              the subtly shrinking wound. Audio: rain, monitor hum, two shutter clicks, low heartbeat.
+
+              Global style: high-detail Chinese anime/manhua, cinematic neo-noir, cold blue-black
+              palette, smooth controlled camera motion and stable faces and hands. No on-screen text,
+              no subtitles, no extra dialogue, no chibi, no graphic gore, no distorted faces, no extra
+              fingers, no changing outfits.
+              """.strip(),
+              "ep01-scenes-25-36": """
+              Use image 1 only as a chronological storyboard and character/style reference for
+              panels 25–36. Create one clean full-screen cinematic animation, never a comic page,
+              collage, split screen, panel grid, subtitle card, or still-image slideshow. Remove
+              and ignore all captions, speech bubbles, borders, headers, numbers, logos and text.
+
+              Preserve the same original anime characters and dark apartment from the preceding
+              clips. 林浅 has a short wet black bob, navy investigator jacket, badge, black gloves
+              and camera. 陆沉 is a tall slim pale Chinese forensic doctor with angular features,
+              tousled black hair, black high-neck shirt, white forensic coat and black gloves. 周屿
+              is a lean young Chinese male blood-spatter analyst with short black hair, navy police
+              uniform, badge, gloves and a blue forensic light. Keep every face and outfit stable.
+
+              Shot 1, 0–4 seconds: 林浅 continues photographing the shrinking chest wound. 陆沉
+              points toward the wall and says: “林浅，继续拍。周屿，测血迹。” 周屿 sweeps a blue
+              forensic light across the wet wall, revealing seven layered blood-spray arcs. He says:
+              “墙面有七层喷溅。” Audio: camera shutter, rain, soft electronic light buzz.
+
+              Shot 2, 4–8 seconds: move across the seven arcs, then back to 林浅 beside the body.
+              She asks: “一刀，为什么有七层？” 陆沉 checks the victim's black wrist monitor and
+              replies: “手环记录了六次心跳停止。” Avoid readable interface text.
+
+              Shot 3, 8–12 seconds: 林浅 realizes the pattern and says: “加上现在，是第七次。”
+              The final chest wound smooths away until almost no trace remains. 陆沉 watches and says:
+              “最后一道伤口，消失了。” A monitor tone becomes a flat continuous beep.
+
+              Shot 4, 12–15 seconds: close-up of the victim's lifeless hand. One finger suddenly
+              twitches. 陆沉 says quietly: “他不是第一次被杀。” The silent heart monitor abruptly
+              gives one returning beat. End on 林浅 and 周屿 staring at the body in shock.
+
+              Global style: high-detail Chinese anime/manhua, cinematic forensic neo-noir, cold
+              blue-black palette, realistic anatomy, smooth camera motion, stable faces and hands,
+              restrained non-graphic horror. No on-screen text, no subtitles, no extra dialogue,
+              no chibi, no graphic gore, no face distortion, no extra fingers, no changing outfits.
+              """.strip(),
+              "ep01-scenes-37-48": """
+              Use image 1 only as a chronological storyboard and character/style reference for
+              panels 37–48. Create one clean full-screen cinematic animation, never a comic page,
+              collage, split screen, panel grid, subtitle card, or still-image slideshow. Remove
+              and ignore all captions, speech bubbles, borders, headers, numbers, logos and text.
+
+              Preserve the same original anime characters, wardrobe and apartment from the preceding
+              clips. 林浅 is the short-haired female investigator in a navy jacket and black gloves.
+              陆沉 is the tall slim pale male forensic doctor with tousled black hair, black high-neck
+              shirt, white coat and black gloves. 周屿 is the young male analyst in a navy police
+              uniform. The revived victim is a gaunt Chinese man in a wet charcoal-gray shirt with
+              faint healed marks and icy blue vampire eyes. Keep all faces, hair and proportions stable.
+
+              Shot 1, 0–3.5 seconds: extreme close-up of the dead man's finger twitching again.
+              Cut to the silent heart monitor as a new pulse returns. Audio: one heavy electronic
+              heartbeat, room hum and rain. 林浅 breathes: “心跳恢复了。”
+
+              Shot 2, 3.5–7.5 seconds: the victim's eyelid trembles, then an icy blue eye snaps open.
+              He gasps and sits up with unnatural speed. 林浅 recoils and shouts: “别碰那把刀！”
+              The motion is frightening but anatomically believable, with no graphic gore.
+
+              Shot 3, 7.5–11 seconds: the revived man grabs 林浅's wrist. 陆沉 instantly catches his
+              arm and forces it away with inhuman speed. 陆沉 orders: “放开她。” The victim stares at
+              him and says weakly: “你果然还活着。” 周屿 freezes in the background.
+
+              Shot 4, 11–15 seconds: 林浅 leans close and asks: “谁杀了你？” The victim's icy eye
+              reflects 陆沉's face. He whispers: “不知道。他已经杀过我七次。” End on the blue eye
+              and a sharp ominous musical sting, then cut to black.
+
+              Global style: high-detail Chinese anime/manhua, cinematic neo-noir vampire mystery,
+              cold blue-black palette, smooth controlled camera, natural lip sync, stable faces and
+              hands. No on-screen text, no subtitles, no extra dialogue, no chibi, no graphic gore,
+              no distorted faces, no extra fingers, no changing outfits.
+              """.strip(),
+          }
+
+          output_dir = Path("output")
+          output_dir.mkdir(exist_ok=True)
+          status_path = output_dir / "status.json"
+          status = {
+              "state": "starting",
+              "workflow": SEGMENT,
+              "run_id": os.environ.get("GITHUB_RUN_ID"),
+              "run_url": (
+                  f"https://github.com/{os.environ.get('GITHUB_REPOSITORY')}/actions/runs/"
+                  f"{os.environ.get('GITHUB_RUN_ID')}"
+              ),
+              "started_at": datetime.now(timezone.utc).isoformat(),
+              "settings": {
+                  "model": "seedance-2.0-mini",
+                  "duration": 15,
+                  "resolution": "480p",
+                  "aspect_ratio": "9:16",
+                  "generate_audio": True,
+              },
+          }
+
+
+          def save_status() -> None:
+              status_path.write_text(
+                  json.dumps(status, indent=2, ensure_ascii=False, default=str),
+                  encoding="utf-8",
+              )
+
+
+          def collect_urls(value, found: list[str]) -> None:
+              if isinstance(value, str) and value.startswith(("https://", "http://")):
+                  found.append(value)
+              elif isinstance(value, list):
+                  for child in value:
+                      collect_urls(child, found)
+              elif isinstance(value, dict):
+                  for child in value.values():
+                      collect_urls(child, found)
+
+
+          def extension_for(data: bytes, content_type: str, url: str) -> str:
+              suffix = Path(urlparse(url).path).suffix.lower()
+              if "video/mp4" in content_type or data[4:8] == b"ftyp":
+                  return ".mp4"
+              if "video/webm" in content_type or data[:4] == bytes.fromhex("1a45dfa3"):
+                  return ".webm"
+              if "image/png" in content_type or data.startswith(b"\x89PNG"):
+                  return ".png"
+              if "image/jpeg" in content_type or data.startswith(b"\xff\xd8\xff"):
+                  return ".jpg"
+              if suffix in {".mp4", ".webm", ".mov", ".png", ".jpg", ".jpeg"}:
+                  return suffix
+              return ".bin"
+
+
+          try:
+              if not os.environ.get("SEGMIND_API_KEY"):
+                  raise RuntimeError("SEGMIND_API_KEY is missing from GitHub Actions secrets.")
+
+              client = SegmindClient()
+              image_path = output_dir / f"{SEGMENT}.jpg"
+              upload = client.files.upload(image_path)
+              reference_urls = upload.get("file_urls") or []
+              if not reference_urls:
+                  raise RuntimeError(f"Segmind storage upload returned no file URL: {upload}")
+
+              payload = {
+                  "prompt": PROMPTS[SEGMENT],
+                  "duration": 15,
+                  "resolution": "480p",
+                  "aspect_ratio": "9:16",
+                  "generate_audio": True,
+                  "bitrate_mode": "standard",
+                  "seed": -1,
+                  "return_last_frame": True,
+                  "reference_images": [reference_urls[0]],
+              }
+
+              job = client.submit_async("seedance-2.0-mini", **payload)
+              status["state"] = "processing"
+              status["request_id"] = job.request_id
+              save_status()
+              print("Segmind request ID:", job.request_id)
+
+              result = job.wait(timeout=1200, interval=3.0)
+              (output_dir / "result.json").write_text(
+                  json.dumps(result, indent=2, ensure_ascii=False, default=str),
+                  encoding="utf-8",
+              )
+
+              urls: list[str] = []
+              collect_urls(result.get("output", result), urls)
+              urls = list(dict.fromkeys(urls))
+              if not urls:
+                  raise RuntimeError("Segmind completed but returned no output URL.")
+
+              saved_files = []
+              for index, url in enumerate(urls, start=1):
+                  response = requests.get(url, timeout=300)
+                  response.raise_for_status()
+                  extension = extension_for(
+                      response.content,
+                      response.headers.get("content-type", ""),
+                      url,
+                  )
+                  path = output_dir / f"{SEGMENT}-{index}{extension}"
+                  path.write_bytes(response.content)
+                  saved_files.append(path.name)
+                  print("Saved:", path)
+
+              status["state"] = "completed"
+              status["saved_files"] = saved_files
+              status["completed_at"] = datetime.now(timezone.utc).isoformat()
+              save_status()
+          except Exception as exc:
+              status["state"] = "failed"
+              status["error"] = str(exc)
+              status["completed_at"] = datetime.now(timezone.utc).isoformat()
+              save_status()
+              raise
+          PY
+
+      - name: Upload generation result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.segment }}-${{ github.run_number }}
+          path: output/*
+          if-no-files-found: warn
+          retention-days: 7
+
+      - name: Publish run status
+        if: always()
+        continue-on-error: true
+        env:
+          SEGMENT: ${{ matrix.segment }}
+        run: |
+          if [[ ! -f output/status.json ]]; then
+            printf '{"state":"failed","error":"Workflow stopped before status creation","run_id":"%s"}\n' "$GITHUB_RUN_ID" > output/status.json
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin main
+          cp output/status.json "storyboard-tests/${SEGMENT}-status.json"
+          git add "storyboard-tests/${SEGMENT}-status.json"
+          if ! git diff --cached --quiet; then
+            git commit -m "Record ${SEGMENT} generation status"
+            git push
+          fi
+
+      - name: Mark failed generation
+        if: steps.generation.outcome == 'failure'
+        run: exit 1
