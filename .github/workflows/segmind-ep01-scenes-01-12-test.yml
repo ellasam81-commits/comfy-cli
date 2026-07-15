@@ -1,0 +1,241 @@
+name: Test EP01 Scenes 01-12
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - storyboard-tests/ep01-scenes-01-12.b64
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Restore storyboard image
+        run: |
+          mkdir -p output
+          base64 --decode storyboard-tests/ep01-scenes-01-12.b64 > output/ep01-scenes-01-12.jpg
+          file output/ep01-scenes-01-12.jpg
+
+      - name: Install Segmind client
+        run: python -m pip install "segmind==1.1.0" requests
+
+      - name: Generate 15-second video
+        id: generation
+        continue-on-error: true
+        env:
+          SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from datetime import datetime, timezone
+          from pathlib import Path
+          from urllib.parse import urlparse
+
+          import requests
+          from segmind import SegmindClient
+
+
+          output_dir = Path("output")
+          output_dir.mkdir(exist_ok=True)
+          status_path = output_dir / "status.json"
+          status = {
+              "state": "starting",
+              "workflow": "EP01 scenes 01-12",
+              "run_id": os.environ.get("GITHUB_RUN_ID"),
+              "run_url": (
+                  f"https://github.com/{os.environ.get('GITHUB_REPOSITORY')}/actions/runs/"
+                  f"{os.environ.get('GITHUB_RUN_ID')}"
+              ),
+              "started_at": datetime.now(timezone.utc).isoformat(),
+              "settings": {
+                  "model": "seedance-2.0-mini",
+                  "duration": 15,
+                  "resolution": "480p",
+                  "aspect_ratio": "9:16",
+                  "generate_audio": True,
+              },
+          }
+
+
+          def save_status() -> None:
+              status_path.write_text(
+                  json.dumps(status, indent=2, ensure_ascii=False, default=str),
+                  encoding="utf-8",
+              )
+
+
+          def collect_urls(value, found: list[str]) -> None:
+              if isinstance(value, str) and value.startswith(("https://", "http://")):
+                  found.append(value)
+              elif isinstance(value, list):
+                  for child in value:
+                      collect_urls(child, found)
+              elif isinstance(value, dict):
+                  for child in value.values():
+                      collect_urls(child, found)
+
+
+          def extension_for(data: bytes, content_type: str, url: str) -> str:
+              suffix = Path(urlparse(url).path).suffix.lower()
+              if "video/mp4" in content_type or data[4:8] == b"ftyp":
+                  return ".mp4"
+              if "video/webm" in content_type or data[:4] == bytes.fromhex("1a45dfa3"):
+                  return ".webm"
+              if "image/png" in content_type or data.startswith(b"\x89PNG"):
+                  return ".png"
+              if "image/jpeg" in content_type or data.startswith(b"\xff\xd8\xff"):
+                  return ".jpg"
+              if suffix in {".mp4", ".webm", ".mov", ".png", ".jpg", ".jpeg"}:
+                  return suffix
+              return ".bin"
+
+
+          prompt = """
+          Use image 1 only as a chronological storyboard and character/style reference for panels 1–12.
+          The final result must be one clean full-screen cinematic animation, never a comic page,
+          collage, split screen, panel grid, subtitle card, or still-image slideshow. Ignore and remove
+          all printed captions, speech bubbles, panel borders, page headers, numbers, logos, and text
+          from the reference image.
+
+          Preserve the same original anime characters throughout: 林浅 is a capable young Chinese
+          female crime-scene investigator with a short wet black bob, navy field jacket, badge,
+          black gloves, flashlight and camera. 陆沉 is a tall slim Chinese male forensic doctor with
+          pale cool skin, refined angular features, tousled short black hair, black high-neck shirt,
+          white forensic coat and black nitrile gloves. Keep both faces, hairstyles, ages, clothing,
+          proportions and art style stable. The victim wears a charcoal-gray shirt and has a silver
+          knife lodged in his chest, shown with restrained non-graphic horror and almost no blood.
+
+          Shot 1, 0–3.5 seconds: rainy midnight exterior of a modern Chinese high-rise. Police lights
+          reflect on wet pavement. Slow cinematic push toward the building. A calm female Mandarin
+          narrator says exactly: “零点十七分，一宗密室命案。” Audio: heavy rain and distant sirens.
+
+          Shot 2, 3.5–7.5 seconds: smooth cut to the dark wet corridor and apartment 707, visibly
+          chained from inside, then move into the dim room to reveal the victim with the silver knife.
+          Female Mandarin narration says exactly: “门窗反锁，死者胸口插着一把银刀。” Audio: rain
+          against windows, faint chain rattle, low room ambience.
+
+          Shot 3, 7.5–11.5 seconds: 林浅 examines the body with a flashlight. 陆沉 enters, kneels
+          beside the victim and studies the wound. 林浅 asks in natural Mandarin: “你就是新来的法医？”
+          陆沉 answers calmly: “陆沉。先别拔刀。” Their mouths move naturally and only the speaking
+          character talks. Audio: quiet footsteps, fabric movement, camera handling.
+
+          Shot 4, 11.5–15 seconds: close-up of 林浅 taking evidence photographs, then an extreme
+          close-up of the silver knife and skin. 陆沉 says: “再拍。每三十秒一张。” A camera shutter
+          clicks twice. The skin around the blade gives one subtle unnatural twitch and begins to
+          tighten. End on the shrinking wound and 陆沉’s focused eyes with a soft ominous heartbeat.
+
+          Global style: dark high-detail Chinese anime/manhua, cinematic neo-noir, cold blue-black
+          palette, realistic anatomy, natural blinking and breathing, smooth controlled camera motion,
+          tense forensic horror, stable faces and hands. No on-screen text, no subtitles, no extra
+          dialogue, no chibi, no graphic gore, no face distortion, no extra fingers, no changing outfits.
+          """.strip()
+
+          try:
+              if not os.environ.get("SEGMIND_API_KEY"):
+                  raise RuntimeError("SEGMIND_API_KEY is missing from GitHub Actions secrets.")
+
+              client = SegmindClient()
+              upload = client.files.upload(output_dir / "ep01-scenes-01-12.jpg")
+              reference_urls = upload.get("file_urls") or []
+              if not reference_urls:
+                  raise RuntimeError(f"Segmind storage upload returned no file URL: {upload}")
+
+              payload = {
+                  "prompt": prompt,
+                  "duration": 15,
+                  "resolution": "480p",
+                  "aspect_ratio": "9:16",
+                  "generate_audio": True,
+                  "bitrate_mode": "standard",
+                  "seed": -1,
+                  "return_last_frame": True,
+                  "reference_images": [reference_urls[0]],
+              }
+
+              job = client.submit_async("seedance-2.0-mini", **payload)
+              status["state"] = "processing"
+              status["request_id"] = job.request_id
+              save_status()
+              print("Segmind request ID:", job.request_id)
+
+              result = job.wait(timeout=1200, interval=3.0)
+              (output_dir / "result.json").write_text(
+                  json.dumps(result, indent=2, ensure_ascii=False, default=str),
+                  encoding="utf-8",
+              )
+
+              urls: list[str] = []
+              collect_urls(result.get("output", result), urls)
+              urls = list(dict.fromkeys(urls))
+              if not urls:
+                  raise RuntimeError("Segmind completed but returned no output URL.")
+
+              saved_files = []
+              for index, url in enumerate(urls, start=1):
+                  response = requests.get(url, timeout=300)
+                  response.raise_for_status()
+                  extension = extension_for(
+                      response.content,
+                      response.headers.get("content-type", ""),
+                      url,
+                  )
+                  path = output_dir / f"ep01-scenes-01-12-{index}{extension}"
+                  path.write_bytes(response.content)
+                  saved_files.append(path.name)
+                  print("Saved:", path)
+
+              status["state"] = "completed"
+              status["saved_files"] = saved_files
+              status["completed_at"] = datetime.now(timezone.utc).isoformat()
+              save_status()
+          except Exception as exc:
+              status["state"] = "failed"
+              status["error"] = str(exc)
+              status["completed_at"] = datetime.now(timezone.utc).isoformat()
+              save_status()
+              raise
+          PY
+
+      - name: Upload test result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ep01-scenes-01-12-${{ github.run_number }}
+          path: output/*
+          if-no-files-found: warn
+          retention-days: 7
+
+      - name: Publish run status
+        if: always()
+        continue-on-error: true
+        run: |
+          if [[ ! -f output/status.json ]]; then
+            printf '{"state":"failed","error":"Workflow stopped before status creation","run_id":"%s"}\n' "$GITHUB_RUN_ID" > output/status.json
+          fi
+          cp output/status.json storyboard-tests/ep01-scenes-01-12-status.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add storyboard-tests/ep01-scenes-01-12-status.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Record EP01 scenes 01-12 test status"
+            git push
+          fi
+
+      - name: Mark failed generation
+        if: steps.generation.outcome == 'failure'
+        run: exit 1
