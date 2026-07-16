@@ -1,0 +1,244 @@
+name: Segmind Remaining 15 Visual-Only Segments
+
+on:
+  push:
+    branches:
+      - agent/segmind-ep02-consistency-test
+    paths:
+      - storyboard-tests/segmind-remaining-15.run
+
+permissions:
+  contents: write
+
+concurrency:
+  group: before-healing-remaining-15-visual-only
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    name: ${{ matrix.segment }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        segment:
+          - ep02-page02
+          - ep02-page03
+          - ep02-page04
+          - ep03-page01
+          - ep03-page02
+          - ep03-page03
+          - ep03-page04
+          - ep04-page01
+          - ep04-page02
+          - ep04-page03
+          - ep04-page04
+          - ep05-page01
+          - ep05-page02
+          - ep05-page03
+          - ep05-page04
+
+    steps:
+      - name: Check out generation branch
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Restore one locked storyboard
+        env:
+          SEGMENT: ${{ matrix.segment }}
+        run: |
+          mkdir -p output
+          base64 --decode "storyboard-tests/${SEGMENT}.b64" > "output/${SEGMENT}.jpg"
+          file "output/${SEGMENT}.jpg"
+
+      - name: Install Segmind client
+        run: python -m pip install "segmind==1.1.0" requests
+
+      - name: Generate one visual-only 15-second segment
+        id: generation
+        continue-on-error: true
+        env:
+          SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+          SEGMENT: ${{ matrix.segment }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from datetime import datetime, timezone
+          from pathlib import Path
+          from urllib.parse import urlparse
+
+          import requests
+          from segmind import SegmindClient
+
+
+          segment = os.environ["SEGMENT"]
+          output_dir = Path("output")
+          status_path = output_dir / "status.json"
+          status = {
+              "state": "starting",
+              "segment": segment,
+              "run_id": os.environ.get("GITHUB_RUN_ID"),
+              "run_url": (
+                  f"https://github.com/{os.environ.get('GITHUB_REPOSITORY')}/actions/runs/"
+                  f"{os.environ.get('GITHUB_RUN_ID')}"
+              ),
+              "started_at": datetime.now(timezone.utc).isoformat(),
+              "settings": {
+                  "model": "seedance-2.0-mini",
+                  "duration": 15,
+                  "resolution": "480p",
+                  "aspect_ratio": "9:16",
+                  "generate_audio": False,
+                  "bitrate_mode": "standard",
+                  "seed": 240216,
+                  "automatic_retries": 0,
+                  "reference_images": 1,
+              },
+          }
+
+
+          def save_status():
+              status_path.write_text(
+                  json.dumps(status, indent=2, ensure_ascii=False, default=str),
+                  encoding="utf-8",
+              )
+
+
+          def collect_urls(value, found):
+              if isinstance(value, str) and value.startswith(("https://", "http://")):
+                  found.append(value)
+              elif isinstance(value, list):
+                  for child in value:
+                      collect_urls(child, found)
+              elif isinstance(value, dict):
+                  for child in value.values():
+                      collect_urls(child, found)
+
+
+          def extension_for(data, content_type, url):
+              suffix = Path(urlparse(url).path).suffix.lower()
+              if "video/mp4" in content_type or data[4:8] == b"ftyp":
+                  return ".mp4"
+              if "video/webm" in content_type or data[:4] == bytes.fromhex("1a45dfa3"):
+                  return ".webm"
+              if "image/png" in content_type or data.startswith(b"\x89PNG"):
+                  return ".png"
+              if "image/jpeg" in content_type or data.startswith(b"\xff\xd8\xff"):
+                  return ".jpg"
+              return suffix if suffix in {".mp4", ".webm", ".png", ".jpg", ".jpeg"} else ".bin"
+
+
+          try:
+              if not os.environ.get("SEGMIND_API_KEY"):
+                  raise RuntimeError("SEGMIND_API_KEY is missing from GitHub Actions secrets.")
+
+              prompt_data = json.loads(
+                  Path("storyboard-tests/ep02-05-visual-only-prompts.json").read_text(
+                      encoding="utf-8"
+                  )
+              )
+              if segment not in prompt_data["segments"]:
+                  raise RuntimeError(f"No locked visual-only prompt for {segment}")
+              prompt = "\n\n".join(
+                  prompt_data["common"] + prompt_data["segments"][segment]
+              )
+
+              client = SegmindClient()
+              storyboard = output_dir / f"{segment}.jpg"
+              upload = client.files.upload(storyboard)
+              reference_urls = upload.get("file_urls") or []
+              if not reference_urls:
+                  raise RuntimeError(f"Segmind upload returned no URL: {upload}")
+
+              job = client.submit_async(
+                  "seedance-2.0-mini",
+                  prompt=prompt,
+                  duration=15,
+                  resolution="480p",
+                  aspect_ratio="9:16",
+                  generate_audio=False,
+                  bitrate_mode="standard",
+                  seed=240216,
+                  return_last_frame=True,
+                  reference_images=[reference_urls[0]],
+              )
+              status["state"] = "processing"
+              status["request_id"] = job.request_id
+              save_status()
+              print("Segmind request ID:", job.request_id)
+
+              result = job.wait(timeout=1200, interval=3.0)
+              (output_dir / "result.json").write_text(
+                  json.dumps(result, indent=2, ensure_ascii=False, default=str),
+                  encoding="utf-8",
+              )
+              urls = []
+              collect_urls(result.get("output", result), urls)
+              urls = list(dict.fromkeys(urls))
+              if not urls:
+                  raise RuntimeError("Segmind completed but returned no output URL.")
+
+              saved_files = []
+              for index, url in enumerate(urls, start=1):
+                  response = requests.get(url, timeout=300)
+                  response.raise_for_status()
+                  extension = extension_for(
+                      response.content,
+                      response.headers.get("content-type", ""),
+                      url,
+                  )
+                  path = output_dir / f"{segment}-visual-only-{index}{extension}"
+                  path.write_bytes(response.content)
+                  saved_files.append(path.name)
+                  print("Saved:", path)
+
+              status["state"] = "completed"
+              status["saved_files"] = saved_files
+              status["completed_at"] = datetime.now(timezone.utc).isoformat()
+              save_status()
+          except Exception as exc:
+              status["state"] = "failed"
+              status["error"] = str(exc)
+              status["completed_at"] = datetime.now(timezone.utc).isoformat()
+              save_status()
+              raise
+          PY
+
+      - name: Upload segment result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.segment }}-visual-only-${{ github.run_number }}
+          path: output/*
+          if-no-files-found: warn
+          retention-days: 14
+
+      - name: Publish segment status
+        if: always()
+        continue-on-error: true
+        env:
+          SEGMENT: ${{ matrix.segment }}
+        run: |
+          if [[ ! -f output/status.json ]]; then
+            printf '{"state":"failed","error":"Workflow stopped before status creation","run_id":"%s"}\n' "$GITHUB_RUN_ID" > output/status.json
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin "$GITHUB_REF_NAME"
+          cp output/status.json "storyboard-tests/${SEGMENT}-visual-only-status.json"
+          git add "storyboard-tests/${SEGMENT}-visual-only-status.json"
+          if ! git diff --cached --quiet; then
+            git commit -m "Record ${SEGMENT} visual-only status"
+            git push origin "HEAD:$GITHUB_REF_NAME"
+          fi
+
+      - name: Mark failed generation
+        if: steps.generation.outcome == 'failure'
+        run: exit 1
