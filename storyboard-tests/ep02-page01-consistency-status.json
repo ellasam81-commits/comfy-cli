@@ -1,0 +1,23 @@
+{
+  "state": "completed",
+  "segment": "ep02-page01-consistency-test",
+  "run_id": "29481127282",
+  "run_url": "https://github.com/ellasam81-commits/comfy-cli/actions/runs/29481127282",
+  "started_at": "2026-07-16T07:47:37.843090+00:00",
+  "settings": {
+    "model": "seedance-2.0-mini",
+    "duration": 15,
+    "resolution": "480p",
+    "aspect_ratio": "9:16",
+    "generate_audio": true,
+    "bitrate_mode": "standard",
+    "seed": 240216,
+    "automatic_retries": 0,
+    "reference_images": 1
+  },
+  "request_id": "cb9f1d9ee40b9d8d5dc95ec61c55db44",
+  "saved_files": [
+    "ep02-page01-consistency-1.mp4"
+  ],
+  "completed_at": "2026-07-16T07:50:52.011234+00:00"
+}
