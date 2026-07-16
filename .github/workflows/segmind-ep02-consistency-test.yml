@@ -1,0 +1,242 @@
+name: Segmind EP02 Character Consistency Test
+
+on:
+  push:
+    branches:
+      - agent/segmind-ep02-consistency-test
+    paths:
+      - storyboard-tests/ep02-page01-consistency.run
+
+permissions:
+  contents: write
+
+concurrency:
+  group: before-healing-ep02-consistency-test
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Check out test branch
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Restore locked references
+        run: |
+          mkdir -p output
+          base64 --decode storyboard-tests/ep02-page01.b64 > output/ep02-page01.jpg
+          base64 --decode storyboard-tests/before-healing-master-cast.b64 > output/master-cast.jpg
+          file output/ep02-page01.jpg output/master-cast.jpg
+
+      - name: Install Segmind client
+        run: python -m pip install "segmind==1.1.0" requests
+
+      - name: Generate one paid 15-second test
+        id: generation
+        continue-on-error: true
+        env:
+          SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from datetime import datetime, timezone
+          from pathlib import Path
+          from urllib.parse import urlparse
+
+          import requests
+          from segmind import SegmindClient
+
+
+          output_dir = Path("output")
+          status_path = output_dir / "status.json"
+          status = {
+              "state": "starting",
+              "segment": "ep02-page01-consistency-test",
+              "run_id": os.environ.get("GITHUB_RUN_ID"),
+              "run_url": (
+                  f"https://github.com/{os.environ.get('GITHUB_REPOSITORY')}/actions/runs/"
+                  f"{os.environ.get('GITHUB_RUN_ID')}"
+              ),
+              "started_at": datetime.now(timezone.utc).isoformat(),
+              "settings": {
+                  "model": "seedance-2.0-mini",
+                  "duration": 15,
+                  "resolution": "480p",
+                  "aspect_ratio": "9:16",
+                  "generate_audio": True,
+                  "bitrate_mode": "standard",
+                  "seed": 240216,
+                  "automatic_retries": 0,
+                  "reference_images": 2,
+              },
+          }
+
+
+          def save_status():
+              status_path.write_text(
+                  json.dumps(status, indent=2, ensure_ascii=False, default=str),
+                  encoding="utf-8",
+              )
+
+
+          def collect_urls(value, found):
+              if isinstance(value, str) and value.startswith(("https://", "http://")):
+                  found.append(value)
+              elif isinstance(value, list):
+                  for child in value:
+                      collect_urls(child, found)
+              elif isinstance(value, dict):
+                  for child in value.values():
+                      collect_urls(child, found)
+
+
+          def extension_for(data, content_type, url):
+              suffix = Path(urlparse(url).path).suffix.lower()
+              if "video/mp4" in content_type or data[4:8] == b"ftyp":
+                  return ".mp4"
+              if "video/webm" in content_type or data[:4] == bytes.fromhex("1a45dfa3"):
+                  return ".webm"
+              if "image/png" in content_type or data.startswith(b"\x89PNG"):
+                  return ".png"
+              if "image/jpeg" in content_type or data.startswith(b"\xff\xd8\xff"):
+                  return ".jpg"
+              return suffix if suffix in {".mp4", ".webm", ".png", ".jpg", ".jpeg"} else ".bin"
+
+
+          try:
+              if not os.environ.get("SEGMIND_API_KEY"):
+                  raise RuntimeError("SEGMIND_API_KEY is missing from GitHub Actions secrets.")
+
+              prompt_data = json.loads(
+                  Path("storyboard-tests/ep02-05-prompts.json").read_text(encoding="utf-8")
+              )
+              common = list(prompt_data["common"])
+              common[0] = (
+                  "Image 1 is a chronological 12-panel continuity board. Never display, zoom out to, "
+                  "or recreate that board. Convert its action into exactly four clean full-screen "
+                  "vertical cinematic shots. Image 2 is the locked cast sheet: top-left Lu Chen, "
+                  "top-right Lin Qian, middle-left Zhou Yu, middle-right Xu Wei, bottom-left Chen Mo, "
+                  "bottom-right Han Che. Never display the cast sheet or merge its faces."
+              )
+              common[1] = (
+                  "This is the continuous, fully original fictional Chinese series Before Healing. "
+                  "Preserve the established illustrated identities and generic continuity without "
+                  "imitating any real person, celebrity, existing copyrighted character, studio or franchise."
+              )
+              lock = (
+                  "STRICT CONTINUITY TEST. Lu Chen must always have the same pale angular fictional face, "
+                  "neat side-parted short black hair, white lab coat, black turtleneck and black gloves. "
+                  "Lin Qian must always have the same fictional face, short wet black bob, navy field coat "
+                  "and black gloves. Zhou Yu keeps short black hair and navy utility uniform. Xu Wei keeps "
+                  "the same wet tousled black hair, blue-gray eyes and dark charcoal shirt. No face morphing, "
+                  "hair-length change, costume change, gender change, duplicate person, body fusion, extra "
+                  "limb or identity swap. Use only four shots with controlled cuts; never show a collage, "
+                  "comic grid, text, speech bubble, caption, logo or split screen."
+              )
+              prompt = "\n\n".join(
+                  [lock]
+                  + common
+                  + prompt_data["segments"]["ep02-page01"]
+                  + [lock]
+              )
+
+              client = SegmindClient()
+              reference_urls = []
+              for reference in (output_dir / "ep02-page01.jpg", output_dir / "master-cast.jpg"):
+                  upload = client.files.upload(reference)
+                  urls = upload.get("file_urls") or []
+                  if not urls:
+                      raise RuntimeError(f"Segmind upload returned no URL for {reference.name}: {upload}")
+                  reference_urls.append(urls[0])
+
+              job = client.submit_async(
+                  "seedance-2.0-mini",
+                  prompt=prompt,
+                  duration=15,
+                  resolution="480p",
+                  aspect_ratio="9:16",
+                  generate_audio=True,
+                  bitrate_mode="standard",
+                  seed=240216,
+                  return_last_frame=True,
+                  reference_images=reference_urls,
+              )
+              status["state"] = "processing"
+              status["request_id"] = job.request_id
+              save_status()
+              print("Segmind request ID:", job.request_id)
+
+              result = job.wait(timeout=1200, interval=3.0)
+              (output_dir / "result.json").write_text(
+                  json.dumps(result, indent=2, ensure_ascii=False, default=str),
+                  encoding="utf-8",
+              )
+              urls = []
+              collect_urls(result.get("output", result), urls)
+              urls = list(dict.fromkeys(urls))
+              if not urls:
+                  raise RuntimeError("Segmind completed but returned no output URL.")
+
+              saved_files = []
+              for index, url in enumerate(urls, start=1):
+                  response = requests.get(url, timeout=300)
+                  response.raise_for_status()
+                  extension = extension_for(
+                      response.content,
+                      response.headers.get("content-type", ""),
+                      url,
+                  )
+                  path = output_dir / f"ep02-page01-consistency-{index}{extension}"
+                  path.write_bytes(response.content)
+                  saved_files.append(path.name)
+                  print("Saved:", path)
+
+              status["state"] = "completed"
+              status["saved_files"] = saved_files
+              status["completed_at"] = datetime.now(timezone.utc).isoformat()
+              save_status()
+          except Exception as exc:
+              status["state"] = "failed"
+              status["error"] = str(exc)
+              status["completed_at"] = datetime.now(timezone.utc).isoformat()
+              save_status()
+              raise
+          PY
+
+      - name: Upload test result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ep02-page01-consistency-${{ github.run_number }}
+          path: output/*
+          if-no-files-found: warn
+          retention-days: 14
+
+      - name: Publish test status
+        if: always()
+        continue-on-error: true
+        run: |
+          if [[ ! -f output/status.json ]]; then
+            printf '{"state":"failed","error":"Workflow stopped before status creation","run_id":"%s"}\n' "$GITHUB_RUN_ID" > output/status.json
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin "$GITHUB_REF_NAME"
+          cp output/status.json storyboard-tests/ep02-page01-consistency-status.json
+          git add storyboard-tests/ep02-page01-consistency-status.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Record EP02 consistency test status"
+            git push origin "HEAD:$GITHUB_REF_NAME"
+          fi
+
+      - name: Mark failed generation
+        if: steps.generation.outcome == 'failure'
+        run: exit 1
