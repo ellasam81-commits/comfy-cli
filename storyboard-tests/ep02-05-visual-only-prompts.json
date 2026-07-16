@@ -1,0 +1,101 @@
+{
+  "common": [
+    "Image 1 is only a chronological 12-panel continuity board and identity reference. Never display, zoom out to, trace, or recreate that board. Convert the action into exactly four clean full-screen 9:16 cinematic shots with controlled cuts. Never show a comic page, collage, split screen, panel grid, caption box, speech bubble, header, border, logo, interface, or readable writing.",
+    "This is the continuous, fully original fictional Chinese dark-anime series Before Healing. Use polished forensic neo-noir visuals, cold blue-black rain, restrained emergency red, smooth camera movement, believable anatomy, and non-graphic horror. Do not imitate any real person, celebrity, existing copyrighted character, studio, franchise, poster, film, or television shot.",
+    "Character lock: Lu Chen always has the same pale angular fictional face, neat side-parted short black hair, white lab coat, black turtleneck and black gloves. Lin Qian always has the same fictional face, short wet black bob, navy field coat and black gloves. Zhou Yu keeps the same youthful fictional face, short black hair and navy utility uniform. Xu Wei keeps the same bruised pale fictional face, wet tousled black hair, blue-gray eyes and dark charcoal shirt. Chen Mo keeps the same long wet black hair and dark coat. Han Che keeps the same tired bespectacled face, short black hair, dark green scrubs, black raincoat and silver-gray medical gloves. Han Xia remains the same frail young woman. The masked morgue orderly remains left-handed in a black waterproof coat, surgical mask and silver-gray gloves.",
+    "SILENT VISUAL PLATE ONLY. Generate no dialogue, narration, voices, sound effects, music, subtitles, captions, labels, numbers, letters, or written characters. Do not make mouths form words. Audio and accurate subtitles will be added later in post-production.",
+    "Hard negatives: no face morphing, hair-length change, costume change, gender change, duplicate character, identity swap, body fusion, extra fingers, extra limbs, graphic gore, random people, camera shake, sudden daylight, readable monitor text, or storyboard-page transition. End cleanly for a direct cut to the next segment."
+  ],
+  "segments": {
+    "ep02-page02": [
+      "Shot 1, 0 to 3 seconds: Lu Chen checks Xu Wei's pupil and pulse while the chest wound visibly continues closing; Lin Qian photographs each change.",
+      "Shot 2, 3 to 7 seconds: Lu Chen calmly questions Xu Wei; Xu Wei answers with restrained confusion while Lin Qian records the examination with rapid camera shutters. Keep mouths neutral and silent.",
+      "Shot 3, 7 to 11 seconds: a brief coherent memory shows room 707's doorbell, one left silver-gray glove entering, and the silver knife being sealed as evidence.",
+      "Shot 4, 11 to 15 seconds: Zhou Yu compares seven fluorescent blood layers under blue forensic light; the seventh layer coagulates differently while Lu Chen studies it."
+    ],
+    "ep02-page03": [
+      "Shot 1, 0 to 3.5 seconds: seven blood samples line up under cold laboratory light; six darken while the seventh remains bright red as Lu Chen observes.",
+      "Shot 2, 3.5 to 7 seconds: Zhou Yu reconstructs a left-handed attack with blue-light arcs while Lin Qian carefully studies seven needle marks on Xu Wei's wrist.",
+      "Shot 3, 7 to 11 seconds: Xu Wei touches the burning needle marks; Lu Chen detects sparkling silver salt residue with a swab and magnifier.",
+      "Shot 4, 11 to 15 seconds: macro forensic reveal of a hollow groove and transparent collection tube concealed inside the silver blade."
+    ],
+    "ep02-page04": [
+      "Shot 1, 0 to 4 seconds: a concise non-graphic memory loop shows Xu Wei reviving, receiving an injection, and one vial being taken after each death by a left-handed shadow.",
+      "Shot 2, 4 to 8 seconds: Lin Qian notices the clean outline of a missing necklace while Xu Wei points weakly toward the morgue lockers.",
+      "Shot 3, 8 to 11.5 seconds: locker zero unlocks and slowly opens; Zhou Yu receives an urgent silent alert and turns toward the elevator.",
+      "Shot 4, 11.5 to 15 seconds: elevator doors open on soaked, blood-covered Chen Mo; her throat is already completely healed as Lu Chen and Lin Qian react."
+    ],
+    "ep03-page01": [
+      "Shot 1, 0 to 3.5 seconds: Chen Mo's blood-soaked collar contrasts with her completely healed neck as she indicates where it was cut.",
+      "Shot 2, 3.5 to 7 seconds: Lu Chen checks a clock and the healed skin while Lin Qian understands that thirty-nine minutes have erased the wound.",
+      "Shot 3, 7 to 10.5 seconds: the team spreads and photographs the bloodied clothing; laboratory light confirms the blood pattern belongs to Chen Mo.",
+      "Shot 4, 10.5 to 15 seconds: Chen Mo silently remembers a white coat and left silver-gray glove while Lu Chen compares that memory with the room 707 evidence."
+    ],
+    "ep03-page02": [
+      "Shot 1, 0 to 3.5 seconds: the team enters a service elevator; ultraviolet light reveals hidden blood spray across the low wall and wet floor.",
+      "Shot 2, 3.5 to 7 seconds: Zhou Yu measures the lowest impact point at forty-one centimeters while Lin Qian reconstructs Chen Mo's position on the floor; show no readable numbers.",
+      "Shot 3, 7 to 11 seconds: brief reconstruction of a left hand pinning Chen Mo to the elevator floor; the wiping direction leads under the control panel where Lin Qian retrieves a phone.",
+      "Shot 4, 11 to 15 seconds: the phone playback is represented only by a pulsing waveform without text; Chen Mo recognizes the unseen attacker and recoils."
+    ],
+    "ep03-page03": [
+      "Shot 1, 0 to 3.5 seconds: Lu Chen brushes fine silver powder from Chen Mo's collar and compares it with residue from the room 707 blade.",
+      "Shot 2, 3.5 to 7 seconds: Chen Mo reacts to a strong disinfectant odor; Zhou Yu finds a suspicious medical-badge access event on an abstract unreadable interface.",
+      "Shot 3, 7 to 11 seconds: blurred surveillance shows a masked, white-coated, bespectacled man moving only with his left hand while Zhou Yu compares the motion to the blood direction.",
+      "Shot 4, 11 to 15 seconds: blue-light traces lead to basement morgue level two; Xu Wei's key opens locker zero, revealing only darkness and glass reflections."
+    ],
+    "ep03-page04": [
+      "Shot 1, 0 to 3.5 seconds: locker zero contains seven empty glass vials, a plain patient wristband and a photograph of a gravely ill young woman, with no readable writing.",
+      "Shot 2, 3.5 to 7.5 seconds: Lu Chen examines dark residue inside a vial while Lin Qian realizes the blood was repeatedly harvested after revival.",
+      "Shot 3, 7.5 to 11 seconds: Lin Qian looks horrified at the cruel pattern; Chen Mo holds the recovered key and understands why she was attacked.",
+      "Shot 4, 11 to 15 seconds: every basement light dies; the service elevator descends by itself toward sealed B3 while a white-coated man stares into a dark security camera."
+    ],
+    "ep04-page01": [
+      "Shot 1, 0 to 3.5 seconds: elevator doors open onto a flooded abandoned B3 corridor; Lin Qian leads while Lu Chen and Zhou Yu protect both sides.",
+      "Shot 2, 3.5 to 7 seconds: reveal a hidden clinic with seven vial slots, six empty vials and one missing slot; Xu Wei flinches at a tray of silver tools.",
+      "Shot 3, 7 to 11 seconds: Lu Chen raises a matching hollow silver blade and traces its groove into a transparent collection tube.",
+      "Shot 4, 11 to 15 seconds: Lin Qian discovers six abstract revival records while Zhou Yu finds a shattered seventh vial whose blood rapidly fades; a weak monitor begins pulsing behind a curtain."
+    ],
+    "ep04-page02": [
+      "Shot 1, 0 to 3.5 seconds: a curtain opens on frail Han Xia under an oxygen mask receiving dark red revival blood while Lin Qian summons legitimate emergency help.",
+      "Shot 2, 3.5 to 7 seconds: Lu Chen confirms Han Xia is human; abstract medical imagery shows irreversible cardiopulmonary failure without readable text.",
+      "Shot 3, 7 to 11 seconds: a silent surveillance memory shows masked Han Che drawing Xu Wei's blood; Xu Wei recognizes Han Che's posture and left hand.",
+      "Shot 4, 11 to 15 seconds: Han Xia briefly opens her eyes; Lin Qian looks from her to six empty vials and understands the cost."
+    ],
+    "ep04-page03": [
+      "Shot 1, 0 to 3.5 seconds: Han Che's silhouette appears behind a speaker grille; fire doors slam and white anesthetic gas pours from the clinic vents.",
+      "Shot 2, 3.5 to 7 seconds: Zhou Yu blocks a vent, Lin Qian breaks the control cover and starts manual exhaust, and Lu Chen shields Han Xia's airway.",
+      "Shot 3, 7 to 11 seconds: silver residue weakens Xu Wei and he drops to his knees; Han Che appears at the far corridor holding the final vial in his left hand and hollow blade in his right.",
+      "Shot 4, 11 to 15 seconds: close on Han Che's exhausted resolve before he rushes past Lin Qian toward Xu Wei."
+    ],
+    "ep04-page04": [
+      "Shot 1, 0 to 3.5 seconds: Lin Qian blocks the silver blade; Zhou Yu shoulder-checks Han Che and the final vial spins upward in slow motion.",
+      "Shot 2, 3.5 to 7 seconds: Lu Chen catches the vial one-handed while a cut on Han Che's palm proves he supplied the different seventh blood layer.",
+      "Shot 3, 7 to 11 seconds: Lin Qian sees Han Che's lack of scars does not erase the pain; the lights die and silhouettes struggle in darkness.",
+      "Shot 4, 11 to 15 seconds: emergency red lights return; Han Che and Xu Wei are gone, and a fading blood trail leads into a service tunnel."
+    ],
+    "ep05-page01": [
+      "Shot 1, 0 to 3.5 seconds: stormy exterior of an abandoned old blood station; an old clock approaches midnight while Xu Wei is restrained to a donation chair with a silver tube.",
+      "Shot 2, 3.5 to 7 seconds: Han Che prepares the final collection vial while a brief parallel ambulance image confirms Han Xia has been evacuated safely.",
+      "Shot 3, 7 to 10.5 seconds: Lin Qian silently assigns positions; four body cameras activate together without readable indicators.",
+      "Shot 4, 10.5 to 15 seconds: Lin Qian enters alone and confronts Han Che across the wet station floor while Xu Wei watches from the chair."
+    ],
+    "ep05-page02": [
+      "Shot 1, 0 to 3.5 seconds: Han Che inserts the silver needle and Xu Wei's pulse collapses while hidden Lu Chen films the exact wound angle and timing.",
+      "Shot 2, 3.5 to 7 seconds: Zhou Yu's blue forensic light reveals two distinct fresh footprint tracks in the service tunnel; Han Che freezes when Lin Qian notices.",
+      "Shot 3, 7 to 11 seconds: Lin Qian presses Han Che for the unseen accomplice; Han Che breaks down and indicates the supplied silver tools, victim list and clinic.",
+      "Shot 4, 11 to 15 seconds: Xu Wei revives with icy blue eyes and hears another person; a left silver-gray glove pulls the master switch and the station blacks out."
+    ],
+    "ep05-page03": [
+      "Shot 1, 0 to 3.5 seconds: the masked morgue orderly emerges through a hidden door, strikes Han Che left-handed, seizes the final vial, and Lin Qian traps his wrist.",
+      "Shot 2, 3.5 to 7 seconds: Zhou Yu seals the tunnel while blue light exposes the attacker's bloody shoe sole; the attacker makes a brief non-graphic cut at Xu Wei's neck with the hollow blade.",
+      "Shot 3, 7 to 11 seconds: four body cameras capture the wound angle as it visibly contracts; Lin Qian bags the blade before Xu Wei's healing body expels it.",
+      "Shot 4, 11 to 15 seconds: Zhou Yu secures the shoeprint and human blood; the attacker reveals a black-bat silver ring, escapes through the old window into rain, and leaves the ring on the wet floor."
+    ],
+    "ep05-page04": [
+      "Shot 1, 0 to 3.5 seconds: Han Che surrenders beside an empty vial while Xu Wei silently shows that healed skin has not erased his memory of pain.",
+      "Shot 2, 3.5 to 7 seconds: Lin Qian handcuffs Han Che; a silent hospital call reassures them that Han Xia is stable, with no readable interface.",
+      "Shot 3, 7 to 11 seconds: Lu Chen lays out the four-camera healing timeline, bagged blade, attacker blood and shoeprint while Zhou Yu studies the complete evidence chain.",
+      "Shot 4, 11 to 15 seconds: the black-bat silver ring lies beside the vial rack; Lu Chen recognizes the mark from long ago and his eyes gain a restrained red tint."
+    ]
+  }
+}
