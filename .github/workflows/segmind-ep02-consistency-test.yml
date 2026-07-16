@@ -32,8 +32,7 @@ jobs:
         run: |
           mkdir -p output
           base64 --decode storyboard-tests/ep02-page01.b64 > output/ep02-page01.jpg
-          base64 --decode storyboard-tests/before-healing-master-cast.b64 > output/master-cast.jpg
-          file output/ep02-page01.jpg output/master-cast.jpg
+          file output/ep02-page01.jpg
 
       - name: Install Segmind client
         run: python -m pip install "segmind==1.1.0" requests
@@ -75,7 +74,7 @@ jobs:
                   "bitrate_mode": "standard",
                   "seed": 240216,
                   "automatic_retries": 0,
-                  "reference_images": 2,
+                  "reference_images": 1,
               },
           }
 
@@ -122,9 +121,8 @@ jobs:
               common[0] = (
                   "Image 1 is a chronological 12-panel continuity board. Never display, zoom out to, "
                   "or recreate that board. Convert its action into exactly four clean full-screen "
-                  "vertical cinematic shots. Image 2 is the locked cast sheet: top-left Lu Chen, "
-                  "top-right Lin Qian, middle-left Zhou Yu, middle-right Xu Wei, bottom-left Chen Mo, "
-                  "bottom-right Han Che. Never display the cast sheet or merge its faces."
+                  "vertical cinematic shots. Preserve the same face, hairstyle and costume for every "
+                  "recurring character visible in Image 1."
               )
               common[1] = (
                   "This is the continuous, fully original fictional Chinese series Before Healing. "
@@ -149,13 +147,11 @@ jobs:
               )
 
               client = SegmindClient()
-              reference_urls = []
-              for reference in (output_dir / "ep02-page01.jpg", output_dir / "master-cast.jpg"):
-                  upload = client.files.upload(reference)
-                  urls = upload.get("file_urls") or []
-                  if not urls:
-                      raise RuntimeError(f"Segmind upload returned no URL for {reference.name}: {upload}")
-                  reference_urls.append(urls[0])
+              reference = output_dir / "ep02-page01.jpg"
+              upload = client.files.upload(reference)
+              reference_urls = upload.get("file_urls") or []
+              if not reference_urls:
+                  raise RuntimeError(f"Segmind upload returned no URL for {reference.name}: {upload}")
 
               job = client.submit_async(
                   "seedance-2.0-mini",
