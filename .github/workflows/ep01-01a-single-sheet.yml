@@ -1,0 +1,188 @@
+name: EP01 01A - Current storyboard one-shot
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - storyboard-tests/ep01-current/RUN_EP01_01A.txt
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ep01-current-01a-attempt1
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out locked inputs
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate paid trigger
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+          TRIGGER: storyboard-tests/ep01-current/RUN_EP01_01A.txt
+          IMAGE: storyboard-tests/ep01-current/01A-storyboard.jpeg.b64
+          WORKFLOW: .github/workflows/ep01-01a-single-sheet.yml
+        run: |
+          set -euo pipefail
+          git cat-file -e "$BEFORE_SHA:$WORKFLOW"
+          git cat-file -e "$BEFORE_SHA:$IMAGE"
+          mapfile -t changed < <(git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+          [[ "${#changed[@]}" -eq 1 && "${changed[0]}" == "$TRIGGER" ]]
+          [[ "$(cat "$TRIGGER")" == "GENERATE EP01 01A ONCE" ]]
+
+      - name: Restore exact authorized Image 1
+        run: |
+          mkdir -p input output
+          base64 --decode storyboard-tests/ep01-current/01A-storyboard.jpeg.b64 > input/01A-storyboard.jpeg
+          echo "c99ae3fc733fd1fac3e3f91d762422d737c58aa46afaab786ddc6936ff202e2d  input/01A-storyboard.jpeg" | sha256sum --check --strict
+
+      - name: Check immutable attempt-one lock
+        id: paid-lock
+        uses: actions/cache/restore@v4
+        with:
+          path: output/paid-lock
+          key: segmind-ep01-current-01a-attempt1-v1
+          lookup-only: true
+
+      - name: Validate secret and lock
+        env:
+          SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+          LOCK_HIT: ${{ steps.paid-lock.outputs.cache-hit }}
+        run: |
+          [[ -n "$SEGMIND_API_KEY" ]] || { echo "::error::Missing SEGMIND_API_KEY; no paid request made"; exit 2; }
+          [[ "$LOCK_HIT" != "true" ]] || { echo "::error::Attempt 1 already used; refusing resubmission"; exit 2; }
+
+      - name: Arm immutable attempt-one lock
+        run: |
+          mkdir -p output/paid-lock
+          echo "armed by run $GITHUB_RUN_ID" > output/paid-lock/armed.txt
+
+      - name: Save immutable attempt-one lock
+        uses: actions/cache/save@v4
+        with:
+          path: output/paid-lock
+          key: segmind-ep01-current-01a-attempt1-v1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install proven Segmind client
+        run: python -m pip install "segmind==1.1.0" requests
+
+      - name: Submit exactly one paid generation
+        id: generation
+        continue-on-error: true
+        env:
+          SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+        run: |
+          python - <<'PY'
+          import json, os
+          from datetime import datetime, timezone
+          from pathlib import Path
+          from urllib.parse import urlparse
+          import requests
+          from segmind import SegmindClient
+
+          out = Path("output")
+          state_path = out / "01a-status.json"
+          state = {
+              "state": "starting", "episode": "EP01", "segment": "01A",
+              "attempt": 1, "automatic_retries": 0,
+              "run_id": os.environ["GITHUB_RUN_ID"],
+              "run_url": f"https://github.com/{os.environ['GITHUB_REPOSITORY']}/actions/runs/{os.environ['GITHUB_RUN_ID']}",
+              "settings": {"model":"seedance-2.0-mini","duration":15,"resolution":"480p","aspect_ratio":"9:16","bitrate_mode":"high","generate_audio":False,"seed":1701,"reference_images":1},
+              "started_at": datetime.now(timezone.utc).isoformat(),
+          }
+          def save(): state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
+          def urls(value, found):
+              if isinstance(value, str) and value.startswith(("https://", "http://")): found.append(value)
+              elif isinstance(value, list):
+                  for child in value: urls(child, found)
+              elif isinstance(value, dict):
+                  for child in value.values(): urls(child, found)
+          def ext(data, content_type, url):
+              suffix = Path(urlparse(url).path).suffix.lower()
+              if "video/mp4" in content_type or data[4:8] == b"ftyp": return ".mp4"
+              if "image/png" in content_type or data.startswith(b"\x89PNG"): return ".png"
+              if "image/jpeg" in content_type or data.startswith(b"\xff\xd8\xff"): return ".jpg"
+              return suffix if suffix in {".mp4", ".png", ".jpg", ".jpeg"} else ".bin"
+
+          prompt = """
+          Image 1 is only a chronological production storyboard and identity reference. Create one
+          continuous clean full-screen 9:16 cinematic animation. Never display the storyboard page,
+          12-panel grid, split screen, borders, captions, character cards, written Chinese, numbers,
+          logos or subtitles from image 1.
+
+          Preserve the exact original fictional illustrated characters shown in image 1. Lin Qian is
+          the tied-long-black-haired female investigator in fitted black field gear and gloves. Han
+          Che is the short-bearded middle-aged male police captain in black uniform. Stable faces,
+          hair, ages, outfits and proportions. Original Chinese dark 2D/2.5D forensic animation,
+          clean linework, restrained painterly cel shading, adult anatomy, cold ink-blue and steel
+          palette, believable evidence handling, subtle micro-expressions, non-graphic horror. Do not
+          copy or resemble any real public figure.
+
+          Shot 1, 0-4s: rainy midnight exterior of a modern Chinese high-rise, restrained police-light
+          reflections on wet pavement, slow push toward the entrance. No readable signage.
+          Shot 2, 4-10s: outside apartment 707 before entry, the metal security chain is visibly
+          fastened from inside. Lin Qian examines the door seam while Han Che keeps everyone behind
+          the line. A forensic photographer clearly records the intact chain before cutters approach.
+          Shot 3, 10-15s: only after documentation, cut the chain exactly once. A flashlight tracks
+          wet shoeprints extending only inward into the dark room, with no outward prints. Hold the
+          empty black doorway for the final 1.5 seconds. No random mouth movement, no extra people
+          crossing evidence, no generated text, no generated audio.
+          """.strip()
+
+          try:
+              client = SegmindClient()
+              uploaded = client.files.upload(Path("input/01A-storyboard.jpeg"))
+              refs = uploaded.get("file_urls") or []
+              if len(refs) != 1: raise RuntimeError(f"Unexpected upload response: {uploaded}")
+              job = client.submit_async("seedance-2.0-mini", prompt=prompt, duration=15,
+                  resolution="480p", aspect_ratio="9:16", generate_audio=False,
+                  bitrate_mode="high", seed=1701, return_last_frame=True,
+                  reference_images=refs)
+              state.update(state="processing", request_id=job.request_id)
+              save()
+              print("Segmind request ID:", job.request_id)
+              result = job.wait(timeout=1200, interval=3.0)
+              (out / "result.json").write_text(json.dumps(result, ensure_ascii=False, indent=2, default=str), encoding="utf-8")
+              found = []; urls(result.get("output", result), found); found = list(dict.fromkeys(found))
+              if not found: raise RuntimeError("Completed request returned no output URL")
+              saved = []
+              for i, url in enumerate(found, 1):
+                  response = requests.get(url, timeout=300); response.raise_for_status()
+                  path = out / f"EP01_01A_attempt1-{i}{ext(response.content, response.headers.get('content-type',''), url)}"
+                  path.write_bytes(response.content); saved.append(path.name)
+              state.update(state="completed", saved_files=saved, completed_at=datetime.now(timezone.utc).isoformat())
+              save()
+          except Exception as exc:
+              state.update(state="failed", error=str(exc), completed_at=datetime.now(timezone.utc).isoformat())
+              save(); raise
+          PY
+
+      - name: Upload video and audit state
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: EP01-01A-current-${{ github.run_id }}
+          path: |
+            output/EP01_01A_attempt1-*
+            output/result.json
+            output/01a-status.json
+          if-no-files-found: warn
+          retention-days: 30
+          compression-level: 0
+
+      - name: Mark generation failure
+        if: steps.generation.outcome == 'failure'
+        run: exit 1
