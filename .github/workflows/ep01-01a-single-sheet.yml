@@ -1,4 +1,4 @@
-name: EP01 01A - Current storyboard one-shot
+name: EP01 01A - Final with Segmind audio
 
 on:
   push:
@@ -10,7 +10,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: ep01-current-01a-attempt1
+  group: ep01-current-01a-final-attempt2
   cancel-in-progress: false
 
 jobs:
@@ -36,7 +36,7 @@ jobs:
           git cat-file -e "$BEFORE_SHA:$IMAGE"
           mapfile -t changed < <(git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA")
           [[ "${#changed[@]}" -eq 1 && "${changed[0]}" == "$TRIGGER" ]]
-          [[ "$(cat "$TRIGGER")" == "GENERATE EP01 01A ONCE" ]]
+          [[ "$(cat "$TRIGGER")" == "GENERATE EP01 01A FINAL ONCE" ]]
 
       - name: Restore exact authorized Image 1
         run: |
@@ -44,12 +44,12 @@ jobs:
           base64 --decode storyboard-tests/ep01-current/01A-storyboard.jpeg.b64 > input/01A-storyboard.jpeg
           echo "c99ae3fc733fd1fac3e3f91d762422d737c58aa46afaab786ddc6936ff202e2d  input/01A-storyboard.jpeg" | sha256sum --check --strict
 
-      - name: Check immutable attempt-one lock
+      - name: Check immutable final-attempt lock
         id: paid-lock
         uses: actions/cache/restore@v4
         with:
           path: output/paid-lock
-          key: segmind-ep01-current-01a-attempt1-v1
+          key: segmind-ep01-current-01a-final-attempt2-v1
           lookup-only: true
 
       - name: Validate secret and lock
@@ -58,18 +58,18 @@ jobs:
           LOCK_HIT: ${{ steps.paid-lock.outputs.cache-hit }}
         run: |
           [[ -n "$SEGMIND_API_KEY" ]] || { echo "::error::Missing SEGMIND_API_KEY; no paid request made"; exit 2; }
-          [[ "$LOCK_HIT" != "true" ]] || { echo "::error::Attempt 1 already used; refusing resubmission"; exit 2; }
+          [[ "$LOCK_HIT" != "true" ]] || { echo "::error::Final attempt already used; refusing resubmission"; exit 2; }
 
-      - name: Arm immutable attempt-one lock
+      - name: Arm immutable final-attempt lock
         run: |
           mkdir -p output/paid-lock
           echo "armed by run $GITHUB_RUN_ID" > output/paid-lock/armed.txt
 
-      - name: Save immutable attempt-one lock
+      - name: Save immutable final-attempt lock
         uses: actions/cache/save@v4
         with:
           path: output/paid-lock
-          key: segmind-ep01-current-01a-attempt1-v1
+          key: segmind-ep01-current-01a-final-attempt2-v1
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -97,10 +97,10 @@ jobs:
           state_path = out / "01a-status.json"
           state = {
               "state": "starting", "episode": "EP01", "segment": "01A",
-              "attempt": 1, "automatic_retries": 0,
+              "attempt": 2, "automatic_retries": 0,
               "run_id": os.environ["GITHUB_RUN_ID"],
               "run_url": f"https://github.com/{os.environ['GITHUB_REPOSITORY']}/actions/runs/{os.environ['GITHUB_RUN_ID']}",
-              "settings": {"model":"seedance-2.0-mini","duration":15,"resolution":"480p","aspect_ratio":"9:16","bitrate_mode":"high","generate_audio":False,"seed":1701,"reference_images":1},
+              "settings": {"model":"seedance-2.0-mini","duration":15,"resolution":"480p","aspect_ratio":"9:16","bitrate_mode":"high","generate_audio":True,"seed":1701,"reference_images":1},
               "started_at": datetime.now(timezone.utc).isoformat(),
           }
           def save(): state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -118,28 +118,49 @@ jobs:
               return suffix if suffix in {".mp4", ".png", ".jpg", ".jpeg"} else ".bin"
 
           prompt = """
-          Image 1 is only a chronological production storyboard and identity reference. Create one
-          continuous clean full-screen 9:16 cinematic animation. Never display the storyboard page,
-          12-panel grid, split screen, borders, captions, character cards, written Chinese, numbers,
-          logos or subtitles from image 1.
+          Image 1 is only a chronological storyboard and identity reference. Create one continuous
+          clean full-screen 9:16 FINAL cinematic animation. Never display the storyboard sheet,
+          panel grid, split screen, borders, character cards, written text, numbers, logos or
+          subtitles. Subtitles will be added accurately in post.
 
-          Preserve the exact original fictional illustrated characters shown in image 1. Lin Qian is
-          the tied-long-black-haired female investigator in fitted black field gear and gloves. Han
-          Che is the short-bearded middle-aged male police captain in black uniform. Stable faces,
-          hair, ages, outfits and proportions. Original Chinese dark 2D/2.5D forensic animation,
-          clean linework, restrained painterly cel shading, adult anatomy, cold ink-blue and steel
-          palette, believable evidence handling, subtle micro-expressions, non-graphic horror. Do not
+          Preserve the same original fictional illustrated characters. Lin Qian is the tied-long-
+          black-haired female investigator in fitted black field gear and gloves. Han Che is the
+          short-bearded middle-aged male police captain in black uniform. Keep stable faces, hair,
+          ages, outfits and proportions. Original Chinese dark 2D/2.5D forensic animation, clean
+          linework, restrained painterly cel shading, adult anatomy, cold ink-blue steel palette,
+          believable evidence handling, subtle micro-expressions and non-graphic horror. Do not
           copy or resemble any real public figure.
 
-          Shot 1, 0-4s: rainy midnight exterior of a modern Chinese high-rise, restrained police-light
-          reflections on wet pavement, slow push toward the entrance. No readable signage.
-          Shot 2, 4-10s: outside apartment 707 before entry, the metal security chain is visibly
-          fastened from inside. Lin Qian examines the door seam while Han Che keeps everyone behind
-          the line. A forensic photographer clearly records the intact chain before cutters approach.
-          Shot 3, 10-15s: only after documentation, cut the chain exactly once. A flashlight tracks
-          wet shoeprints extending only inward into the dark room, with no outward prints. Hold the
-          empty black doorway for the final 1.5 seconds. No random mouth movement, no extra people
-          crossing evidence, no generated text, no generated audio.
+          0-2.5s: rainy midnight exterior establishing shot of a modern Chinese residential
+          high-rise, restrained police-light reflections on wet pavement. Then cut immediately
+          INSIDE to the seventh-floor residential corridor. Do not turn apartment 707 into the
+          street-level building entrance.
+
+          2.5-9.5s: a SINGLE inward-opening apartment door marked 707 in an indoor corridor. The
+          door opens only a five-centimetre gap because a normal security chain is fastened on the
+          INTERIOR face of the door. From the corridor camera, the taut inside chain is visible only
+          through that narrow gap. No exterior padlock, no chain wrapped around the outside handle,
+          no double door. Lin Qian examines without touching. Han Che keeps everyone back. A gloved
+          forensic photographer first photographs the intact chain and scale; cutters must not
+          approach before documentation.
+
+          9.5-12s: only after the photograph is complete, bolt cutters enter through the narrow gap
+          and cut the inside security chain exactly once. The door then opens inward with one quiet
+          creak. Preserve evidence and do not let anyone step across the threshold.
+
+          12-15s: flashlight reveals wet shoeprints already inside the apartment, all oriented away
+          from the doorway and deeper into the dark room, with absolutely no outward prints. Hold
+          the empty black doorway for the final second. No extra people crossing evidence.
+
+          Generate synchronized audio. Natural restrained Mandarin Chinese, clear but low-key:
+          Han Che at about 4s: “都别碰，先拍完整。”
+          Lin Qian at about 7s: “链在里面，门只能开一条缝。”
+          Han Che at about 9s: “记录完毕，剪链。”
+          Lin Qian at about 12.5s: “脚印只有进去的。”
+          Han Che whispers near 14s: “小心，进门。”
+          Sound design: rain and distant siren outside, dry indoor corridor room tone, one camera
+          shutter, light chain rattle, one metal cut, restrained door creak, faint low suspense
+          pulse. No random speech, no narrator, no exaggerated screams.
           """.strip()
 
           try:
@@ -148,7 +169,7 @@ jobs:
               refs = uploaded.get("file_urls") or []
               if len(refs) != 1: raise RuntimeError(f"Unexpected upload response: {uploaded}")
               job = client.submit_async("seedance-2.0-mini", prompt=prompt, duration=15,
-                  resolution="480p", aspect_ratio="9:16", generate_audio=False,
+                  resolution="480p", aspect_ratio="9:16", generate_audio=True,
                   bitrate_mode="high", seed=1701, return_last_frame=True,
                   reference_images=refs)
               state.update(state="processing", request_id=job.request_id)
@@ -161,7 +182,7 @@ jobs:
               saved = []
               for i, url in enumerate(found, 1):
                   response = requests.get(url, timeout=300); response.raise_for_status()
-                  path = out / f"EP01_01A_attempt1-{i}{ext(response.content, response.headers.get('content-type',''), url)}"
+                  path = out / f"EP01_01A_FINAL-{i}{ext(response.content, response.headers.get('content-type',''), url)}"
                   path.write_bytes(response.content); saved.append(path.name)
               state.update(state="completed", saved_files=saved, completed_at=datetime.now(timezone.utc).isoformat())
               save()
@@ -174,9 +195,9 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: EP01-01A-current-${{ github.run_id }}
+          name: EP01-01A-FINAL-${{ github.run_id }}
           path: |
-            output/EP01_01A_attempt1-*
+            output/EP01_01A_FINAL-*
             output/result.json
             output/01a-status.json
           if-no-files-found: warn
