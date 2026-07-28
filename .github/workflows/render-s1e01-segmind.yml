@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - "assets/**"
-      - ".github/workflows/render-s1e01.yml"
+      - ".github/workflows/render-s1e01-segmind.yml"
   workflow_dispatch:
 
 permissions:
