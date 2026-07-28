@@ -130,3 +130,5 @@ jobs:
           retention-days: 7
 
 # Trigger S1E01 final render after workflow registration.
+
+# Run enabled: Segmind S1E01 final four segments.
