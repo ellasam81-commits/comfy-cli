@@ -128,3 +128,5 @@ jobs:
             final/S1E01_尸体锁门_四段合并.mp4
           if-no-files-found: error
           retention-days: 7
+
+# Trigger S1E01 final render after workflow registration.
