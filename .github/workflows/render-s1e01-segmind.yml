@@ -1,0 +1,130 @@
+name: Render S1E01 — 吸血法医·剑刺 (Segmind)
+
+on:
+  push:
+    paths:
+      - "assets/**"
+      - ".github/workflows/render-s1e01.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  render-and-merge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 110
+    env:
+      SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - name: Guard API key
+        run: |
+          test -n "$SEGMIND_API_KEY" || { echo "::error::Missing GitHub Actions secret SEGMIND_API_KEY"; exit 1; }
+
+      - name: Install renderer
+        run: |
+          python -m pip install --upgrade pip
+          pip install "segmind>=1.1.0" requests
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-cjk
+
+      - name: Generate four locked 15-second segments
+        run: |
+          python - <<'PY'
+          import os, requests, subprocess
+          from pathlib import Path
+          from segmind import SegmindClient
+
+          root = "https://raw.githubusercontent.com/ellasam81-commits/-LaoZhang-API-key/372663be1a70853b623a7ba26cd131ac43272229/assets"
+          chart = f"{root}/s1_character_chart.jpeg"
+          boards = [f"{root}/s1e01_board_{i:02d}.jpeg" for i in range(1,5)]
+          Path("raw").mkdir()
+          Path("final").mkdir()
+
+          common = """
+          Create one continuous 15-second, 16:9, 480p cinematic Japanese 2D anime sequence with synchronized Mandarin Chinese audio.
+          Genre: dark forensic mystery. Never chibi, never 3D, never live action, never exaggerated anime acting.
+          Character chart is the immutable lock: Jian Ci is a tall slim pale male vampire forensic doctor, short black hair, white forensic coat, black turtleneck, black gloves, restrained and observant.
+          Lin Qian is a capable female detective with short black hair and dark navy police uniform. Zhou Yu wears silver-rim glasses. Xu Wei has a high ponytail. Han Che is a mature authoritative team leader.
+          Preserve faces, hair, physique, clothing, age, palette and quiet temperaments exactly from the character chart. Never redesign a character.
+          The storyboard image is only a shot plan. Do NOT show any storyboard, frames, panel numbers, interface, border, character chart, poster, page, timecode, logo, watermark or readable source-image text.
+          Recreate its twelve shots in the exact listed order as real animation with controlled cuts, dolly, push and rack focus only when specified.
+          Acting is restrained: lower eyelid tension, slight breath pause, tiny gaze shift, minute mouth movement. No shouting, no wide-eyed surprise, no sweat symbols.
+          Vampire ability may only notice an anomaly; all deductions must follow realistic forensic evidence.
+          Add rain, footsteps, door-chain, camera shutter, paper, elevator and forensic-tool foley. Use sparse suspense score with silence and breathing space.
+          Speak every supplied Mandarin line calmly and clearly. Never generate on-screen text or subtitles; accurate Chinese subtitles are added after generation.
+          """
+          briefs = [
+          """BOARD 1: Exact twelve shots: rain-soaked exterior of Shen old mansion and police lights; corpse at inner doorway; close door-chain locked from inside; Jian Ci crouches and puts on black gloves; Lin Qian inspects sealed door; both enter; Jian Ci notices anomaly; Xu Wei photographs stopped watch; abnormal wet floor trace; Jian Ci follows water line; his pupils react; team at evidence wall.
+          Mandarin: Narrator: 凌晨零点二十七分。沈家旧宅。门链从里面锁住。一具尸体，正在等待说出真相。 林浅：门窗全封死，无外力痕迹。 检刺：先别下结论。 许未：手表停在同一时刻。 检刺：水是流动的，时间也是。我们从时间开始。""",
+          """BOARD 2: Exact twelve shots: blood-stained diary opens; Jian Ci reads under desk lamp; close repeated words 我不是祭品; Han Che reacts to blood report; Lin Qian finds torn page; silver ritual dagger in evidence tray; abnormal blood pattern; Xu Wei checks 99.3% DNA match and old storage record; Shen family relationship board; Lin Qian considers family conflict; Jian Ci connects diary and dagger; five-person meeting.
+          Mandarin: Narrator：死者留下的日记，把恐惧写成了证词。 韩彻：别被表面欺骗。 林浅：这里撕掉了一页，像是被人拿走了。 许未：登记时间五年前，由沈家老宅入库。 检刺：银刀与日记构成叙事陷阱。真正的动机，在恐惧与怨恨之间。""",
+          """BOARD 3: Exact twelve shots: Jian Ci labels blood sample A; corpse with dagger and little blood; Jian Ci observes blood; Zhou Yu reviews records; old donation form A type three months ago; Lin Qian thinks; ritual dagger grip blood trace; microscope partial blood match; insertion angle 58 degrees; Han Che considers motive; team links evidence; Jian Ci realizes first crime scene is elsewhere.
+          Mandarin：Narrator：血不说谎，只是它的语言，藏在时间、流向与浓度里。 检刺：像输血，不像一次谋杀。 林浅：血型对不上？那谁在撒谎？ 许未：成分匹配，但浓度不同。 检刺：刀刃方向和尸体姿态不符。这里不是当场流血。""",
+          """BOARD 4: Exact twelve shots: team studies timeline screen; Jian Ci points to black timeline interval; close written 20:30 library, 20:45 recipient missing, 21:00 return; Lin Qian maps evidence; Han Che watches; Jian Ci calmly states truth; stopped watch beside door-chain; Jian Ci compares watch and dagger trace; suspects in mansion hall; Xu Wei and Zhou Yu exchange glance; Jian Ci alone in rain; garage B2 entrance and blade on wet ground.
+          Mandarin：Narrator：人类以为锁住了门，就锁住了真相。 检刺：先别看后面的，只看最早记录。时间线索引着我们去看一份被忽略的生命登记。 林浅：每条线索都指向同一个人。 韩彻：证据呢？ 检刺：刀上的血，不是一个来源。 Narrator：真正的谜底，才刚开始。"""
+          ]
+
+          client = SegmindClient()
+          for i, (board, brief) in enumerate(zip(boards, briefs), 1):
+              print(f"Submitting segment {i}/4", flush=True)
+              job = client.submit_async("seedance-2.0",
+                prompt=common + "\n" + brief + "\nReference image 1 is the storyboard plan. Reference image 2 is the character chart.",
+                reference_images=[board, chart], duration=15, resolution="480p",
+                aspect_ratio="16:9", generate_audio=True, bitrate_mode="high", seed=20260728+i)
+              result = job.wait(timeout=1800, interval=5)
+              print(result, flush=True)
+              output = result.get("output") if isinstance(result, dict) else result
+              if isinstance(output, dict): url = output.get("url") or output.get("video_url") or output.get("video")
+              elif isinstance(output, list):
+                  item = output[0]; url = item.get("url") if isinstance(item,dict) else item
+              else: url = output
+              if not isinstance(url, str) or not url.startswith("http"): raise RuntimeError(f"No video URL: {result}")
+              response = requests.get(url, timeout=300); response.raise_for_status()
+              Path(f"raw/segment_{i:02d}.mp4").write_bytes(response.content)
+
+          subs = [
+          [(0,3.4,"旁白|凌晨零点二十七分。沈家旧宅。门链从里面锁住。"),(3.4,5.8,"林浅|门窗全封死，无外力痕迹。"),(5.8,7.6,"检刺|先别下结论。"),(7.6,9.8,"许未|手表停在同一时刻。"),(9.8,13.0,"检刺|水是流动的，时间也是。"),(13.0,15,"检刺|我们从时间开始。")],
+          [(0,3.0,"旁白|死者留下的日记，把恐惧写成了证词。"),(3.0,5.0,"韩彻|别被表面欺骗。"),(5.0,7.5,"林浅|这里撕掉了一页，像是被人拿走了。"),(7.5,10.5,"许未|登记时间五年前，由沈家老宅入库。"),(10.5,15,"检刺|银刀与日记构成叙事陷阱。真正的动机，在恐惧与怨恨之间。")],
+          [(0,3.0,"旁白|血不说谎，只是它的语言，藏在时间、流向与浓度里。"),(3.0,5.2,"检刺|像输血，不像一次谋杀。"),(5.2,7.7,"林浅|血型对不上？那谁在撒谎？"),(7.7,10.3,"许未|成分匹配，但浓度不同。"),(10.3,15,"检刺|刀刃方向和尸体姿态不符。这里不是当场流血。")],
+          [(0,2.5,"旁白|人类以为锁住了门，就锁住了真相。"),(2.5,5.4,"检刺|先别看后面的，只看最早记录。"),(5.4,8.2,"检刺|时间线索引着我们去看一份被忽略的生命登记。"),(8.2,10.2,"林浅|每条线索都指向同一个人。"),(10.2,11.7,"韩彻|证据呢？"),(11.7,13.2,"检刺|刀上的血，不是一个来源。"),(13.2,15,"旁白|真正的谜底，才刚开始。")]]
+          names = {"检刺":"检刺","林浅":"林浅","许未":"许未","韩彻":"韩彻"}
+          def t(sec):
+              return f"{int(sec//3600)}:{int(sec%3600//60):02d}:{sec%60:05.2f}".replace(".",",")
+          for i, lines in enumerate(subs,1):
+              header = """[Script Info]
+          ScriptType: v4.00+
+          PlayResX: 854
+          PlayResY: 480
+          [V4+ Styles]
+          Format: Name,Fontname,Fontsize,PrimaryColour,SecondaryColour,OutlineColour,BackColour,Bold,Italic,Underline,StrikeOut,ScaleX,ScaleY,Spacing,Angle,BorderStyle,Outline,Shadow,Alignment,MarginL,MarginR,MarginV,Encoding
+          Style: Dialogue,Noto Sans CJK SC,30,&H00FFFFFF,&H000000FF,&H00101010,&H80000000,0,0,0,0,100,100,0,0,1,2,1,2,35,35,30,1
+          Style: Narration,Noto Sans CJK SC,30,&H0000D7FF,&H000000FF,&H00101010,&H80000000,0,0,0,0,100,100,0,0,1,2,1,2,35,35,30,1
+          [Events]
+          Format: Layer,Start,End,Style,Name,MarginL,MarginR,MarginV,Effect,Text
+          """
+              rows = [header]
+              for start,end,line in lines:
+                  who,txt = line.split("|",1)
+                  if who == "旁白": show,style = txt,"Narration"
+                  else: show,style = "{\\c&HFFB000&}"+names[who]+"{\\c&HFFFFFF&}："+txt,"Dialogue"
+                  rows.append(f"Dialogue: 0,{t(start)},{t(end)},{style},,0,0,0,,{show}")
+              Path(f"final/segment_{i:02d}.ass").write_text("\n".join(rows),encoding="utf-8")
+              subprocess.run(["ffmpeg","-y","-i",f"raw/segment_{i:02d}.mp4","-vf",f"fps=24,scale=854:480,ass=final/segment_{i:02d}.ass","-map","0:v:0","-map","0:a?","-c:v","libx264","-crf","18","-c:a","aac","-b:a","192k",f"final/segment_{i:02d}.mp4"],check=True)
+          Path("final/concat.txt").write_text("".join(f"file 'segment_{i:02d}.mp4'\n" for i in range(1,5)))
+          subprocess.run(["ffmpeg","-y","-f","concat","-safe","0","-i","final/concat.txt","-c","copy","final/S1E01_尸体锁门_四段合并.mp4"],check=True)
+          PY
+
+      - name: Upload four segments and merged episode
+        uses: actions/upload-artifact@v4
+        with:
+          name: S1E01-吸血法医-剑刺-render
+          path: |
+            final/segment_01.mp4
+            final/segment_02.mp4
+            final/segment_03.mp4
+            final/segment_04.mp4
+            final/S1E01_尸体锁门_四段合并.mp4
+          if-no-files-found: error
+          retention-days: 7
