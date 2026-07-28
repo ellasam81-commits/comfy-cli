@@ -1,1 +1,164 @@
-Y��x-���jם��i��+��j[h��ܢ���9N�Z�����e�w�չ���-�G����ƭy�
+name: Render S1E02 — 吸血法医·剑刺 (Segmind)
+
+on:
+  push:
+    paths:
+      - "references/s1e02/run-final.txt"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: render-s1e02-final
+  cancel-in-progress: false
+
+jobs:
+  render-and-merge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 110
+    env:
+      SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - name: Guard API key
+        run: |
+          test -n "$SEGMIND_API_KEY" || { echo "::error::Missing GitHub Actions secret SEGMIND_API_KEY"; exit 1; }
+
+      - name: Install renderer and post-production tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install "segmind>=1.1.0" requests
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg fonts-noto-cjk
+
+      - name: Generate four locked 15-second segments and merge
+        run: |
+          python - <<'PY'
+          import os
+          import requests
+          import subprocess
+          from pathlib import Path
+          from segmind import SegmindClient
+
+          owner_repo = "ellasam81-commits/comfy-cli"
+          revision = os.environ["GITHUB_SHA"]
+          root = f"https://raw.githubusercontent.com/{owner_repo}/{revision}/references/s1e02"
+          boards = [f"{root}/board_{i:02d}.jpeg" for i in range(1, 5)]
+          chart = f"{root}/character_chart.jpeg"
+          Path("raw").mkdir()
+          Path("final").mkdir()
+
+          common = """
+          Produce exactly one continuous 15-second, 16:9, 480p, 24fps cinematic Japanese 2D anime sequence with synchronized native Mandarin Chinese voice, foley and sparse suspense music.
+          Dark forensic mystery, photorealistic film lighting, restrained movie-camera language. Never chibi, never 3D, never live action, never exaggerated anime acting.
+          Reference image 1 is the exact twelve-shot storyboard plan. Recreate each numbered shot in its listed order as real animation; it is not an image to show on screen.
+          Reference image 2 is the immutable character lock. Do not redesign any person. Jian Ci: slim tall pale male vampire forensic doctor, short black hair, white forensic coat, black turtleneck, black gloves, cold restrained eyes. Lin Qian: agile female detective, short black hair, dark navy police uniform. Zhou Yu: calm hearing-impaired technical officer, silver-rim glasses. Xu Wei: precise female forensic entomology specialist, high ponytail. Han Che: mature, stern team leader.
+          Preserve their face, hairstyle, body proportions, clothing, accessories, age, palette and temperament exactly. Jian Ci acts through a tiny breath pause, lower-eyelid tension, slight gaze shift and minute mouth movement only; no shouting, no wide eyes, no sweat symbols.
+          Never show the storyboard, panel borders, panel numbers, UI, timecode, paper page, poster, character chart, watermark, logo, or any readable generated text.
+          Use only the listed cuts, gentle push, dolly and rack focus; no flashy transitions. Keep evidence realistic. Vampire perception may notice an anomaly only and may never solve the case directly.
+          Add realistic rain, wet footsteps, breathing, camera shutter, paper, garage ambience, interrogatory room tone and forensic-tool foley; music remains quiet with breathing space.
+          Speak the supplied Mandarin lines calmly, with distinct fixed voices. Do not generate subtitles or any on-screen text; subtitles are added later.
+          """
+
+          briefs = [
+          """EP02, PART 1 — abandoned hospital / skeletal clue. Follow storyboard shots 1-12 exactly: rain-soaked abandoned hospital exterior with police lights; Jian Ci and Lin Qian enter; second-floor corridor finds skeletal remains; Jian Ci studies the skull; gloved skeletal hand is bound with a metal chain; Lin Qian reacts; Jian Ci examines the lower jaw; Zhou Yu checks a dark monitor; Xu Wei scans bone fragments; Han Che thinks; close forensic tweezers lift a metal particle; team agrees to trace the car evidence. Dialogue: Narrator: 暴雨夜，废弃医院外，警灯闪烁。所有会说话的骨头，都在无声之地。 林浅：这里很久没人来过了。 许未：死亡时间大概一周以上。 检刺：不是自然死亡。 骨骼里有金属微粒。 周屿：这里监控早就坏了。 检刺：赛车用零件。""",
+          """EP02, PART 2 — racing clue / the missing driver. Follow storyboard shots 1-12 exactly: Jian Ci studies the metal fragment; Lin Qian traces an abandoned race car; rain-police scene at the car; portrait of 22-year-old driver Su Wang; Jian Ci reviews his photo; Zhou Yu pulls up race data; Xu Wei reads the brake-disc report; Han Che makes a phone call; Jian Ci listens to a recorded clip; Lin Qian realizes the implication; Jian Ci close reaction; the team decides to search the repair garage. Dialogue: Narrator: 金属碎屑指向赛车事故，车手苏望成了关键。 林浅：在最近一周的赛车场。 周屿：比赛中逃逸，原因不明。 许未：遇袭前的刹车盘异常。 韩彻：让人去查苏望的行踪。 检刺：死亡时间被人为延迟。 林浅：你是说…… 检刺：凶手懂医学。""",
+          """EP02, PART 3 — garage 302 / medical trace. Follow storyboard shots 1-12 exactly: chained door marked 302; team enters a spotless abandoned garage; Jian Ci studies tire marks; tweezers lift a tiny fragment; Xu Wei opens a medical box; Zhou Yu checks a dark-web purchase record; Lin Qian compares victim photo; Han Che asks a question; Jian Ci walks toward water stains; a blood-stained glove under the water; ultraviolet light reveals incomplete blood cleanup; the team realizes evidence points to Su Wang but motive is missing. Dialogue: Narrator：真相藏在302里。 林浅：这里很干净。 检刺：螺丝油，位置却太干净。 许未：里面藏了几样移植器械。 周屿：他买过止血钳和麻醉剂。 韩彻：他在隐瞒什么？ 检刺：看着这里。 林浅：这不是他的赛车服。 检刺：血迹未完全清除。""",
+          """EP02, PART 4 — interrogation / first crack. Follow storyboard shots 1-12 exactly: interrogation room sign; Su Wang sits across from Lin Qian; Jian Ci observes his surgical trace; Su Wang close reaction; Jian Ci opens the evidence record; Han Che watches Su Wang's eyes change; skeletal image is placed in front of him; Jian Ci waits through his silence; Jian Ci presses again; Su Wang lowers his head; Su Wang turns and whispers; extreme close-up of Jian Ci's eye as the motive starts to surface. Dialogue: Narrator：沉默的人，也会开口。 林浅：苏望，别装死。 检刺：外科缝合线，麻醉剂。 苏望：你们想多了。 检刺：你知道骨头会说话吗？ 苏望：你什么意思？ 检刺：你的刹车盘，太专业了。 检刺：你不是第一次了？ 苏望：我……只是想让他醒来。 Narrator：动机出现，真相即将揭开。"""
+          ]
+
+          client = SegmindClient()
+          for index, (board, brief) in enumerate(zip(boards, briefs), 1):
+              print(f"Submitting final segment {index}/4", flush=True)
+              job = client.submit_async(
+                  "seedance-2.0",
+                  prompt=common + "\n" + brief,
+                  reference_images=[board, chart],
+                  duration=15,
+                  resolution="480p",
+                  aspect_ratio="16:9",
+                  generate_audio=True,
+                  bitrate_mode="high",
+                  seed=20260729 + index,
+              )
+              result = job.wait(timeout=1800, interval=5)
+              print(result, flush=True)
+              output = result.get("output") if isinstance(result, dict) else result
+              if isinstance(output, dict):
+                  url = output.get("url") or output.get("video_url") or output.get("video")
+              elif isinstance(output, list) and output:
+                  first = output[0]
+                  url = first.get("url") if isinstance(first, dict) else first
+              else:
+                  url = output
+              if not isinstance(url, str) or not url.startswith("http"):
+                  raise RuntimeError(f"No downloadable video URL for segment {index}: {result}")
+              response = requests.get(url, timeout=300)
+              response.raise_for_status()
+              Path(f"raw/segment_{index:02d}.mp4").write_bytes(response.content)
+
+          captions = [
+              [(0,3.2,"旁白|暴雨夜，废弃医院外，警灯闪烁。"),(3.2,5.2,"林浅|这里很久没人来过了。"),(5.2,7.3,"许未|死亡时间大概一周以上。"),(7.3,9.2,"检刺|不是自然死亡。"),(9.2,11.5,"许未|骨骼里有金属微粒。"),(11.5,13.1,"周屿|这里监控早就坏了。"),(13.1,15,"检刺|赛车用零件。")],
+              [(0,2.7,"旁白|金属碎屑指向赛车事故，车手苏望成了关键。"),(2.7,4.5,"林浅|在最近一周的赛车场。"),(4.5,6.5,"周屿|比赛中逃逸，原因不明。"),(6.5,8.7,"许未|遇袭前的刹车盘异常。"),(8.7,10.4,"韩彻|让人去查苏望的行踪。"),(10.4,12.7,"检刺|死亡时间被人为延迟。"),(12.7,15,"检刺|凶手懂医学。")],
+              [(0,2.0,"旁白|真相藏在302里。"),(2.0,3.7,"林浅|这里很干净。"),(3.7,5.7,"检刺|螺丝油，位置却太干净。"),(5.7,7.7,"许未|里面藏了几样移植器械。"),(7.7,9.5,"周屿|他买过止血钳和麻醉剂。"),(9.5,11.1,"韩彻|他在隐瞒什么？"),(11.1,12.8,"检刺|看着这里。"),(12.8,15,"检刺|血迹未完全清除。")],
+              [(0,1.8,"旁白|沉默的人，也会开口。"),(1.8,3.3,"林浅|苏望，别装死。"),(3.3,4.9,"检刺|外科缝合线，麻醉剂。"),(4.9,6.1,"苏望|你们想多了。"),(6.1,7.9,"检刺|你知道骨头会说话吗？"),(7.9,9.2,"苏望|你什么意思？"),(9.2,10.9,"检刺|你的刹车盘，太专业了。"),(10.9,12.3,"检刺|你不是第一次了？"),(12.3,13.8,"苏望|我……只是想让他醒来。"),(13.8,15,"旁白|动机出现，真相即将揭开。")],
+          ]
+
+          def stamp(seconds):
+              return f"{int(seconds // 3600)}:{int(seconds % 3600 // 60):02d}:{seconds % 60:05.2f}".replace(".", ",")
+
+          cast = {"检刺":"检刺", "林浅":"林浅", "周屿":"周屿", "许未":"许未", "韩彻":"韩彻", "苏望":"苏望"}
+          header = """[Script Info]
+          ScriptType: v4.00+
+          PlayResX: 854
+          PlayResY: 480
+          [V4+ Styles]
+          Format: Name,Fontname,Fontsize,PrimaryColour,SecondaryColour,OutlineColour,BackColour,Bold,Italic,Underline,StrikeOut,ScaleX,ScaleY,Spacing,Angle,BorderStyle,Outline,Shadow,Alignment,MarginL,MarginR,MarginV,Encoding
+          Style: Dialogue,Noto Sans CJK SC,30,&H00FFFFFF,&H000000FF,&H00101010,&H80000000,0,0,0,0,100,100,0,0,1,2,1,2,35,35,30,1
+          Style: Narration,Noto Sans CJK SC,30,&H0000D7FF,&H000000FF,&H00101010,&H80000000,0,0,0,0,100,100,0,0,1,2,1,2,35,35,30,1
+          [Events]
+          Format: Layer,Start,End,Style,Name,MarginL,MarginR,MarginV,Effect,Text
+          """
+
+          for index, lines in enumerate(captions, 1):
+              rows = [header]
+              for start, end, line in lines:
+                  speaker, words = line.split("|", 1)
+                  if speaker == "旁白":
+                      style, shown = "Narration", words
+                  else:
+                      style = "Dialogue"
+                      shown = "{\\c&HFFB000&}" + cast[speaker] + "{\\c&HFFFFFF&}：" + words
+                  rows.append(f"Dialogue: 0,{stamp(start)},{stamp(end)},{style},,0,0,0,,{shown}")
+              ass_path = Path(f"final/segment_{index:02d}.ass")
+              ass_path.write_text("\n".join(rows), encoding="utf-8")
+              subprocess.run([
+                  "ffmpeg", "-hide_banner", "-loglevel", "warning", "-y",
+                  "-i", f"raw/segment_{index:02d}.mp4",
+                  "-vf", f"fps=24,scale=854:480,ass={ass_path}",
+                  "-map", "0:v:0", "-map", "0:a?",
+                  "-c:v", "libx264", "-crf", "18", "-c:a", "aac", "-b:a", "192k",
+                  f"final/segment_{index:02d}.mp4",
+              ], check=True)
+
+          Path("final/concat.txt").write_text("".join(f"file 'segment_{i:02d}.mp4'\n" for i in range(1, 5)), encoding="utf-8")
+          subprocess.run([
+              "ffmpeg", "-hide_banner", "-loglevel", "warning", "-y",
+              "-f", "concat", "-safe", "0", "-i", "final/concat.txt", "-c", "copy",
+              "final/S1E02_会说话的骨头_四段合并_480p.mp4",
+          ], check=True)
+          PY
+
+      - name: Upload four segments and merged episode
+        uses: actions/upload-artifact@v4
+        with:
+          name: S1E02-吸血法医-剑刺-render
+          path: |
+            final/segment_01.mp4
+            final/segment_02.mp4
+            final/segment_03.mp4
+            final/segment_04.mp4
+            final/S1E02_会说话的骨头_四段合并_480p.mp4
+          if-no-files-found: error
+          retention-days: 7
