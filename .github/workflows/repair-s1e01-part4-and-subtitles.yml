@@ -1,0 +1,253 @@
+name: Repair S1E01 Part 4 and Bilingual Subtitles
+
+on:
+  push:
+    branches:
+      - render/s1e01-final
+    paths:
+      - "references/s1e01/run-part4-repair.txt"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: repair-s1e01-part4
+  cancel-in-progress: false
+
+jobs:
+  repair-and-package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    env:
+      SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download accepted S1E01 segments 1–3
+        uses: actions/download-artifact@v4
+        with:
+          name: S1E01-吸血法医-剑刺-review
+          run-id: 30660528472
+          repository: ellasam81-commits/comfy-cli
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: incoming
+
+      - name: Install renderer and post-production tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install "segmind==1.1.0" requests
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg fonts-noto-cjk
+
+      - name: Re-render only part 4, burn bilingual subtitles, and QC
+        run: |
+          python - <<'PY'
+          import base64
+          import json
+          import shutil
+          import subprocess
+          from pathlib import Path
+
+          import requests
+          from segmind import SegmindClient
+
+          SOURCE = Path("references/s1e01")
+          INCOMING = Path("incoming")
+          RUNTIME = Path("runtime")
+          RAW = Path("raw")
+          FINAL = Path("final")
+          for directory in (RUNTIME, RAW, FINAL):
+              directory.mkdir()
+
+          for index in range(1, 4):
+              source = INCOMING / f"segment_{index:02d}.mp4"
+              if not source.exists():
+                  raise RuntimeError(f"Missing accepted source segment: {source}")
+              shutil.copy2(source, FINAL / source.name)
+
+          def restore(name):
+              encoded = SOURCE / f"{name}.jpg.b64"
+              decoded = RUNTIME / f"{name}.jpg"
+              decoded.write_bytes(base64.b64decode(encoded.read_bytes()))
+              return decoded
+
+          board = restore("board_04")
+          chart = restore("character_chart")
+
+          common = """
+          Create exactly one continuous 15-second 16:9 480p 24fps premium Japanese 2D anime sequence.
+          Dark forensic mystery, realistic cinematic lighting, natural restrained performances, no chibi, 3D, live action,
+          comic-page look, poster, watermark, readable text or on-screen captions. The storyboard is production-only:
+          never show the storyboard or any of its borders, panels or captions. This is a strict single-camera-view film:
+          never use split screens, collage, montage grid, mosaic, contact sheet, picture-in-picture, evidence wall,
+          computer screen, dashboard, timeline UI, graph, card, page layout, interface overlay, panel border or image grid.
+          Never put more than one camera view in one frame. Any data clue is physical and abstract, never textual or screen-based.
+
+          Reference image 1 is the exact 12-shot production plan; recreate its shot order as ordinary continuous animation.
+          Reference image 2 is an immutable character lock. Jian Ci/检刺: tall slim pale male forensic doctor, short black hair,
+          white forensic coat, black high-neck, black gloves. Lin Qian/林浅: capable female detective, short black hair,
+          dark navy police uniform. Zhou Yu/周屿: calm male technical officer with silver-rim glasses. Xu Wei/许未:
+          precise female forensic entomology specialist with high ponytail. Han Che/韩彻: mature stern male team lead.
+          Do not redesign faces, age, wardrobe, proportions or temperament. Jian Ci uses only breath pause, minute eye shift,
+          lower-eyelid tension and slight mouth movement; never broad anime acting. Keep the cold blue-black nighttime palette.
+          Vampire perception detects an anomaly only; all deductions must follow physical forensic evidence.
+          Include realistic small foley: rain, lab room tone, tools, paper, a metal chain and breathing. Low restrained
+          suspense score beneath calm Mandarin dialogue. Fixed voices: Jian Ci low restrained male; Lin Qian steady female;
+          Zhou Yu soft analytical male; Xu Wei precise female; Han Che mature low male; narrator calm female.
+          """
+
+          brief = """
+          S1E01 PART 4 — 容器-07. Follow the twelve storyboard shots in this exact order:
+          1 rainy exterior of Nancheng forensic center at night; 2 Jian Ci labels blood sample A in black gloves;
+          3 Lin Qian studies restored old clinic photos under a desk lamp; 4 Xu Wei examines a clear residue under microscope
+          and confirms it is medical-grade clotting gel, not natural clot; 5 Zhou Yu checks the missing three seconds using a
+          physical paper timeline and a small timing device, no screen; 6 an evidence tray has a silver dagger, a door-chain
+          metal fragment and a clear gel sample; 7 a practical door-chain reconstruction shows a hidden timed mechanism release;
+          8 Han Che listens, composed; 9 Jian Ci states the lock did not move itself; 10 the team traces the clean physical
+          sequence: chain, three-second gap marker, transparent gel and dagger, all on one ordinary table shot;
+          11 Jian Ci extracts one thin transparent medical data tube from the dagger handle; 12 extreme close-up shows an
+          abstract red specimen mark on the tube, not readable text. No slideshow and no monitor.
+          Mandarin dialogue in order: Narrator: 检验中心的灯，亮到深夜。 许未：银刀上的残留，来自医疗级凝胶。
+          周屿：数据管里有编号。 林浅：门链、三秒断层、透明黏液……都不是意外。
+          检刺：它没动。是有人替它动的。 韩彻：从这个编号开始查。
+          检刺：这不是证物的终点，是下一个人的开始。
+          """
+
+          def extract_url(result):
+              output = result.get("output") if isinstance(result, dict) else result
+              if isinstance(output, dict):
+                  for candidate in (output.get("url"), output.get("video_url"), output.get("video")):
+                      if isinstance(candidate, str) and candidate.startswith("http"):
+                          return candidate
+              if isinstance(output, list) and output:
+                  first = output[0]
+                  return first.get("url") if isinstance(first, dict) else first
+              return output
+
+          client = SegmindClient()
+          def upload(path):
+              response = client.files.upload(path)
+              urls = response.get("file_urls") or []
+              if not urls:
+                  raise RuntimeError(f"No upload URL for {path}")
+              return urls[0]
+
+          job = client.submit_async(
+              "seedance-2.0-mini",
+              prompt=f"{common}\n\n{brief}",
+              reference_images=[upload(board), upload(chart)],
+              duration=15,
+              resolution="480p",
+              aspect_ratio="16:9",
+              generate_audio=True,
+              bitrate_mode="high",
+              seed=20260805,
+          )
+          result = job.wait(timeout=1800, interval=5)
+          (RAW / "part4_result.json").write_text(json.dumps(result, ensure_ascii=False, indent=2, default=str), encoding="utf-8")
+          url = extract_url(result)
+          if not isinstance(url, str) or not url.startswith("http"):
+              raise RuntimeError(f"Provider returned no Part 4 video URL: {result}")
+          video = requests.get(url, timeout=300)
+          video.raise_for_status()
+          (RAW / "segment_04.mp4").write_bytes(video.content)
+
+          subprocess.run([
+              "ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", str(RAW / "segment_04.mp4"),
+              "-vf", "fps=24,scale=854:480", "-map", "0:v:0", "-map", "0:a?", "-c:v", "libx264", "-crf", "18",
+              "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", str(FINAL / "segment_04.mp4")
+          ], check=True)
+
+          (FINAL / "concat.txt").write_text("".join(f"file 'segment_{index:02d}.mp4'\n" for index in range(1, 5)), encoding="utf-8")
+          merged = FINAL / "S1E01_上锁的人_无字幕.mp4"
+          subprocess.run([
+              "ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-f", "concat", "-safe", "0",
+              "-i", str(FINAL / "concat.txt"), "-c", "copy", str(merged)
+          ], check=True)
+
+          subprocess.run(["fc-match", "Noto Sans CJK JP"], check=True)
+          bgm = FINAL / "original_suspense_bgm.wav"
+          subprocess.run([
+              "ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-f", "lavfi", "-i",
+              "aevalsrc=0.018*sin(2*PI*55*t)+0.012*sin(2*PI*82.41*t)+0.006*sin(2*PI*110*t):s=48000:d=61",
+              "-af", "afade=t=in:st=0:d=2,afade=t=out:st=58:d=3", str(bgm)
+          ], check=True)
+          (FINAL / "title.txt").write_text("《吸血法医·剑刺》· 第1集", encoding="utf-8")
+          (FINAL / "author.txt").write_text("作者：林爱丽", encoding="utf-8")
+          release = FINAL / "S1E01_上锁的人_中英字幕_480p_正式版.mp4"
+          font = "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc"
+          vf = (
+              f"subtitles={SOURCE / 's1e01_bilingual.ass'}:fontsdir=/usr/share/fonts/opentype/noto,"
+              f"drawtext=fontfile={font}:textfile={FINAL / 'title.txt'}:fontcolor=white:fontsize=31:"
+              "borderw=2:bordercolor=black:x=(w-text_w)/2:y=28:enable='between(t,0.3,3.6)',"
+              f"drawtext=fontfile={font}:textfile={FINAL / 'author.txt'}:fontcolor=0xD5B46A:fontsize=20:"
+              "borderw=1:bordercolor=black:x=(w-text_w)/2:y=68:enable='between(t,0.3,3.6)'"
+          )
+          subprocess.run([
+              "ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", str(merged), "-i", str(bgm),
+              "-filter_complex", "[0:a][1:a]amix=inputs=2:weights='1 0.22':normalize=0[a]",
+              "-map", "0:v:0", "-map", "[a]", "-vf", vf, "-c:v", "libx264", "-crf", "18",
+              "-c:a", "aac", "-b:a", "192k", "-shortest", "-movflags", "+faststart", str(release)
+          ], check=True)
+
+          def probe(path):
+              data = json.loads(subprocess.run([
+                  "ffprobe", "-v", "error", "-show_entries",
+                  "format=duration:stream=codec_type,width,height,avg_frame_rate", "-of", "json", str(path)
+              ], check=True, capture_output=True, text=True).stdout)
+              streams = data.get("streams", [])
+              v = next((s for s in streams if s.get("codec_type") == "video"), {})
+              return {
+                  "duration_seconds": float(data.get("format", {}).get("duration", 0)),
+                  "has_audio": any(s.get("codec_type") == "audio" for s in streams),
+                  "width": v.get("width"), "height": v.get("height"), "frame_rate": v.get("avg_frame_rate")
+              }
+
+          qc = {"episode": "S1E01", "repair": "Part 4 single rerender + local bilingual subtitle fix", "segments": []}
+          for index in range(1, 5):
+              info = probe(FINAL / f"segment_{index:02d}.mp4")
+              if info["duration_seconds"] < 14.5 or info["width"] != 854 or info["height"] != 480 or not info["has_audio"]:
+                  raise RuntimeError(f"Segment {index} failed technical QC: {info}")
+              info["part"] = index
+              qc["segments"].append(info)
+          qc["release"] = probe(release)
+          qc["subtitle_style"] = "Chinese white with blue speaker names; English lower line; narration gold"
+          qc["status"] = "technical_qc_passed_pending_visual_review"
+
+          thumbs = FINAL / "thumbs"
+          thumbs.mkdir()
+          for n, second in enumerate(range(1, 60, 3), 1):
+              subprocess.run([
+                  "ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-ss", str(second), "-i", str(release),
+                  "-frames:v", "1", str(thumbs / f"f_{n:02d}.jpg")
+              ], check=True)
+          subprocess.run([
+              "ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-pattern_type", "glob", "-i", str(thumbs / "*.jpg"),
+              "-filter_complex", "scale=320:180,tile=5x4:padding=4:margin=4:color=0x111111", "-frames:v", "1",
+              str(FINAL / "S1E01_qc_contact_sheet_fixed.jpg")
+          ], check=True)
+          subprocess.run([
+              "ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-ss", "0.8", "-i", str(release),
+              "-frames:v", "1", str(FINAL / "S1E01_subtitle_proof.jpg")
+          ], check=True)
+          (FINAL / "qc_fixed.json").write_text(json.dumps(qc, ensure_ascii=False, indent=2), encoding="utf-8")
+          PY
+
+      - name: Upload repaired review package
+        uses: actions/upload-artifact@v4
+        with:
+          name: S1E01-正式版-中英字幕-review
+          path: |
+            final/segment_01.mp4
+            final/segment_02.mp4
+            final/segment_03.mp4
+            final/segment_04.mp4
+            final/S1E01_上锁的人_中英字幕_480p_正式版.mp4
+            final/S1E01_qc_contact_sheet_fixed.jpg
+            final/S1E01_subtitle_proof.jpg
+            final/qc_fixed.json
+          if-no-files-found: error
+          retention-days: 7
