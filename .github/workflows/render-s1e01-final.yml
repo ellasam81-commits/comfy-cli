@@ -1,0 +1,359 @@
+name: Render S1E01 — 吸血法医·剑刺 (Segmind)
+
+on:
+  push:
+    branches:
+      - render/s1e01-final
+    paths:
+      - "references/s1e01/run-final.txt"
+      - ".github/workflows/render-s1e01-final.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: render-s1e01-final
+  cancel-in-progress: false
+
+jobs:
+  render-and-prepare-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 110
+    env:
+      SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - name: Check out render assets
+        uses: actions/checkout@v4
+
+      - name: Guard API key
+        run: |
+          test -n "$SEGMIND_API_KEY" || { echo "::error::Missing GitHub Actions secret SEGMIND_API_KEY"; exit 1; }
+
+      - name: Install renderer and post-production tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install "segmind==1.1.0" requests
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg fonts-noto-cjk
+
+      - name: Generate, subtitle, merge and prepare quality-review package
+        run: |
+          python - <<'PY'
+          import base64
+          import json
+          import os
+          import subprocess
+          from pathlib import Path
+
+          import requests
+          from segmind import SegmindClient
+
+
+          SOURCE = Path("references/s1e01")
+          RUNTIME = Path("runtime")
+          RAW = Path("raw")
+          FINAL = Path("final")
+          RUNTIME.mkdir()
+          RAW.mkdir()
+          FINAL.mkdir()
+
+          def restore_reference(name):
+              encoded_path = SOURCE / f"{name}.jpg.b64"
+              decoded_path = RUNTIME / f"{name}.jpg"
+              decoded_path.write_bytes(base64.b64decode(encoded_path.read_bytes()))
+              return decoded_path
+
+          BOARDS = [restore_reference(f"board_{index:02d}") for index in range(1, 5)]
+          CHARACTER_CHART = restore_reference("character_chart")
+
+          COMMON = """
+          Create exactly one continuous 15-second 16:9 480p 24fps cinematic Japanese 2D anime sequence.
+          This is premium dark forensic mystery with realistic film lighting, controlled camera language and restrained acting.
+          Never chibi, 3D, live action, comic panels, split screen, slideshow, poster, UI, timecode, readable text,
+          storyboard borders, panel numbers, or watermarks.
+
+          Reference image 1 is an exact 12-shot storyboard plan. Recreate its listed shots in the same order as real animation.
+          It is never visible on screen. Reference image 2 is the immutable character lock; do not redesign any face, hairstyle,
+          proportions, age, clothing, accessory, palette or temperament. Jian Ci/检刺 is a tall slim pale male forensic doctor:
+          short black hair, white forensic coat, black high-neck shirt and black gloves. Lin Qian/林浅 is a capable female detective:
+          short black hair and dark navy police uniform. Zhou Yu/周屿 is a calm male technical officer with silver-rim glasses.
+          Xu Wei/许未 is a precise female forensic entomology specialist with a high ponytail. Han Che/韩彻 is a mature stern male team lead.
+          Zhong Ning/钟宁 is a 24-year-old anxious but composed woman in a rain-soaked khaki hooded jacket.
+
+          Jian Ci performs through a small breath pause, lower-eyelid tension, minute gaze shift and slight mouth movement only.
+          No shouting, no wide eyes, no sweat symbols and no broad anime acting. Vampire perception may notice an anomaly only;
+          every conclusion must be supported by realistic forensic evidence. Preserve a cold blue-black rainy palette.
+
+          Use only controlled cuts, gentle push, dolly and rack focus. Include real rain, wet footsteps, breathing, door-chain,
+          camera shutter, paper, lab ambience and forensic-tool foley. Keep original low-key suspense score beneath dialogue.
+          Speak every supplied Mandarin line calmly, using the same fixed voices throughout the episode: Jian Ci low restrained male,
+          Lin Qian clear steady female, Zhou Yu soft analytical male, Xu Wei precise female, Han Che mature low male,
+          Zhong Ning quiet anxious young female, narrator calm female. Do not render subtitles or any other on-screen text.
+          """.strip()
+
+          BRIEFS = [
+              """
+              S1E01 PART 1 — 雨夜报案. Follow storyboard shots 1–12 exactly: rain-soaked exterior of Nancheng old clinic with police lights;
+              Zhong Ning waits outside the cordon; macro of a rain-hit phone showing a stopped unfinished audio recording without readable UI;
+              the consultation-room door chained from inside; Jian Ci arrives and observes; Lin Qian checks the door and chain by flashlight;
+              Han Che seals the exterior scene; indoor wet footprints lead from inside toward the door and end at the threshold;
+              Jian Ci smells the rain-air and notices an abnormality; Lin Qian asks about a person entering from outside;
+              extreme close-up of Jian Ci's restrained eye response; close door-chain shows an abnormal locking mechanism from inside.
+              Mandarin dialogue, exactly in this order: Narrator: 雨夜，南城旧诊所。门链从里面锁住。 林浅：门锁扣得很死。
+              韩彻：现场封住，任何人别进去。 钟宁：我爸进去以后，就没出来。 检刺：录音停在门前。水痕却从里面出来。
+              """.strip(),
+              """
+              S1E01 PART 2 — 密室尸检. Follow storyboard shots 1–12 exactly: police open the chained clinic door with care; reveal Zhong Yuan,
+              a 64-year-old former clinic director, lying on the wet tiled floor; a silver dagger is straight in his chest with almost no blood;
+              Jian Ci in gloves collects a wound sample; Lin Qian checks the sealed rain-streaked window; close the undamaged inner door chain;
+              faded old photo shows Zhong Yuan teaching children to draw; Zhong Ning examines the photo and suppresses grief;
+              ultraviolet light reveals a very shallow trace beneath the knife; Jian Ci studies insertion angle and depth;
+              Lin Qian bags a tiny transparent trace and asks whether it is the murder weapon; Jian Ci, Lin Qian, Han Che and Zhong Ning compare
+              the bloodless locked-room evidence. Mandarin dialogue, exactly in this order: Narrator: 密室里没有第二个人，也没有足够的血。
+              检刺：刀在这里。血不在这里。 林浅：门链和窗户都没有撬动痕迹。 钟宁：这张照片，是我爸以前教孩子画画。
+              检刺：先查旧照片。再查这把刀。
+              """.strip(),
+              """
+              S1E01 PART 3 — 声音与血迹. Follow storyboard shots 1–12 exactly: Xu Wei examines a fine fibre trace under microscope;
+              macro transparent door-chain fibre fragment with scaled light; Zhou Yu in silver glasses reviews old clinic surveillance;
+              close rain-hit phone audio waveform without readable UI; Lin Qian plays the recovered recording in the evidence room;
+              phone lights up with an unknown call at 20:26 without readable UI; Xu Wei explains the transparent residue is not normal bleeding;
+              Zhou Yu locates a three-second gap in the monitor timeline using abstract blocks with no readable UI;
+              Han Che listens to the recording; Jian Ci compares the door-chain with residual trace; the full team compares phone audio,
+              monitoring stills, silver dagger and trace; a dark reflection diagram shows the three seconds align with a physically operated locking mechanism.
+              Mandarin dialogue, exactly in this order: Narrator: 一段残缺录音，少了三秒。 许未：刃口有透明黏液，不是普通出血反应。
+              周屿：监控在零点十七分，少了三秒。 检刺：有人希望他死两次。一次给凶手看，一次给我们看。
+              韩彻：把那三秒找出来。
+              """.strip(),
+              """
+              S1E01 PART 4 — 容器-07. Follow storyboard shots 1–12 exactly: rainy exterior of Nancheng forensic center at night;
+              Jian Ci labels blood sample A with black gloves; Lin Qian studies restored old clinic photos under desk lamp;
+              Xu Wei confirms under microscope that the residue is medical-grade clotting gel, not natural clot; Zhou Yu tracks the missing three seconds;
+              evidence tray holds silver dagger, door-chain metal fragment and clear gel; door-chain reconstruction shows a timed mechanism releasing;
+              Han Che listens, composed; Jian Ci says the lock did not move itself; team studies a clean time sequence of door-chain, three-second gap,
+              transparent gel and dagger with no readable UI; Jian Ci extracts a thin transparent medical data tube hidden in the dagger handle;
+              extreme close-up reveals only an abstract red-marked specimen code, without readable text. Mandarin dialogue, exactly in this order:
+              Narrator: 检验中心的灯，亮到深夜。 许未：银刀上的残留，来自医疗级凝胶。 周屿：数据管里有编号。
+              林浅：门链、三秒断层、透明黏液……都不是意外。 检刺：它没动。是有人替它动的。
+              韩彻：从这个编号开始查。 检刺：这不是证物的终点，是下一个人的开始。
+              """.strip(),
+          ]
+
+          CAPTIONS = [
+              [
+                  (0.0, 3.0, "旁白", "Narrator", "雨夜，南城旧诊所。门链从里面锁住。", "Rainy night. Nancheng's old clinic. The door chain is locked from inside."),
+                  (3.0, 5.1, "林浅", "Lin Qian", "门锁扣得很死。", "The lock is tightly fastened."),
+                  (5.1, 7.2, "韩彻", "Han Che", "现场封住，任何人别进去。", "Seal the scene. No one goes in."),
+                  (7.2, 9.5, "钟宁", "Zhong Ning", "我爸进去以后，就没出来。", "My father went in and never came back out."),
+                  (9.5, 15.0, "检刺", "Jian Ci", "录音停在门前。水痕却从里面出来。", "The recording stops at the door, but the wet trail comes out from inside."),
+              ],
+              [
+                  (0.0, 3.0, "旁白", "Narrator", "密室里没有第二个人，也没有足够的血。", "There is no second person in the room, and not enough blood."),
+                  (3.0, 5.5, "检刺", "Jian Ci", "刀在这里。血不在这里。", "The knife is here. The blood is not."),
+                  (5.5, 8.3, "林浅", "Lin Qian", "门链和窗户都没有撬动痕迹。", "Neither the chain nor the window was forced open."),
+                  (8.3, 11.5, "钟宁", "Zhong Ning", "这张照片，是我爸以前教孩子画画。", "In this photo, my father was teaching children to draw."),
+                  (11.5, 15.0, "检刺", "Jian Ci", "先查旧照片。再查这把刀。", "First the old photograph. Then the knife."),
+              ],
+              [
+                  (0.0, 2.6, "旁白", "Narrator", "一段残缺录音，少了三秒。", "A damaged recording is missing three seconds."),
+                  (2.6, 5.8, "许未", "Xu Wei", "刃口有透明黏液，不是普通出血反应。", "There is clear residue on the blade. It is not a normal bleeding response."),
+                  (5.8, 8.3, "周屿", "Zhou Yu", "监控在零点十七分，少了三秒。", "The surveillance feed is missing three seconds at 00:17."),
+                  (8.3, 12.8, "检刺", "Jian Ci", "有人希望他死两次。一次给凶手看，一次给我们看。", "Someone wanted him to die twice: once for the killer, once for us."),
+                  (12.8, 15.0, "韩彻", "Han Che", "把那三秒找出来。", "Find those three seconds."),
+              ],
+              [
+                  (0.0, 2.3, "旁白", "Narrator", "检验中心的灯，亮到深夜。", "The lights at the forensic center burn into the night."),
+                  (2.3, 4.9, "许未", "Xu Wei", "银刀上的残留，来自医疗级凝胶。", "The residue on the silver knife is medical-grade gel."),
+                  (4.9, 6.8, "周屿", "Zhou Yu", "数据管里有编号。", "There is an identification code in the data tube."),
+                  (6.8, 9.6, "林浅", "Lin Qian", "门链、三秒断层、透明黏液……都不是意外。", "The chain, the missing three seconds, the clear residue... none of it was an accident."),
+                  (9.6, 11.8, "检刺", "Jian Ci", "它没动。是有人替它动的。", "It did not move. Someone moved it for it."),
+                  (11.8, 13.3, "韩彻", "Han Che", "从这个编号开始查。", "Start with that code."),
+                  (13.3, 15.0, "检刺", "Jian Ci", "这不是证物的终点，是下一个人的开始。", "This is not where the evidence ends. It is where the next person begins."),
+              ],
+          ]
+
+          def extract_url(result):
+              output = result.get("output") if isinstance(result, dict) else result
+              if isinstance(output, dict):
+                  candidates = (output.get("url"), output.get("video_url"), output.get("video"))
+                  return next((item for item in candidates if isinstance(item, str) and item.startswith("http")), None)
+              if isinstance(output, list) and output:
+                  first = output[0]
+                  if isinstance(first, dict):
+                      return first.get("url") or first.get("video_url") or first.get("video")
+                  return first
+              return output
+
+          def timestamp(seconds):
+              return f"{int(seconds // 3600)}:{int(seconds % 3600 // 60):02d}:{seconds % 60:05.2f}".replace(".", ",")
+
+          def ass_escape(value):
+              return value.replace("\\", "\\\\").replace("{", "\\{").replace("}", "\\}").replace("\n", "\\N")
+
+          ASS_HEADER = """[Script Info]
+          ScriptType: v4.00+
+          PlayResX: 854
+          PlayResY: 480
+          ScaledBorderAndShadow: yes
+          [V4+ Styles]
+          Format: Name,Fontname,Fontsize,PrimaryColour,SecondaryColour,OutlineColour,BackColour,Bold,Italic,Underline,StrikeOut,ScaleX,ScaleY,Spacing,Angle,BorderStyle,Outline,Shadow,Alignment,MarginL,MarginR,MarginV,Encoding
+          Style: Dialogue,Noto Sans CJK SC,25,&H00FFFFFF,&H000000FF,&H00101010,&H80000000,0,0,0,0,100,100,0,0,1,2.2,1,2,36,36,26,1
+          Style: Narration,Noto Sans CJK SC,25,&H0000D7FF,&H000000FF,&H00101010,&H80000000,0,0,0,0,100,100,0,0,1,2.2,1,2,36,36,26,1
+          [Events]
+          Format: Layer,Start,End,Style,Name,MarginL,MarginR,MarginV,Effect,Text
+          """
+
+          client = SegmindClient()
+
+          def upload_reference(path):
+              upload = client.files.upload(path)
+              urls = upload.get("file_urls") or []
+              if not urls:
+                  raise RuntimeError(f"Segmind storage upload returned no file URL for {path}: {upload}")
+              return urls[0]
+
+          board_urls = [upload_reference(board) for board in BOARDS]
+          character_chart_url = upload_reference(CHARACTER_CHART)
+          qc = {"episode": "S1E01", "model": "seedance-2.0-mini", "segments": []}
+          for index, (board_url, brief, lines) in enumerate(zip(board_urls, BRIEFS, CAPTIONS), 1):
+              print(f"Submitting S1E01 segment {index}/4", flush=True)
+              job = client.submit_async(
+                  "seedance-2.0-mini",
+                  prompt=f"{COMMON}\n\n{brief}",
+                  reference_images=[board_url, character_chart_url],
+                  duration=15,
+                  resolution="480p",
+                  aspect_ratio="16:9",
+                  generate_audio=True,
+                  bitrate_mode="high",
+                  seed=20260801 + index,
+              )
+              result = job.wait(timeout=1800, interval=5)
+              (RAW / f"segment_{index:02d}_result.json").write_text(
+                  json.dumps(result, ensure_ascii=False, indent=2, default=str), encoding="utf-8"
+              )
+              url = extract_url(result)
+              if not isinstance(url, str) or not url.startswith("http"):
+                  raise RuntimeError(f"No downloadable video URL for segment {index}: {result}")
+              response = requests.get(url, timeout=300)
+              response.raise_for_status()
+              raw_path = RAW / f"segment_{index:02d}.mp4"
+              raw_path.write_bytes(response.content)
+
+              rows = [ASS_HEADER]
+              for start, end, speaker_cn, speaker_en, chinese, english in lines:
+                  if speaker_cn == "旁白":
+                      style = "Narration"
+                      display = f"{ass_escape(chinese)}\\N{{\\fs17}}{ass_escape(english)}"
+                  else:
+                      style = "Dialogue"
+                      display = (
+                          f"{{\\c&HFFB000&}}{ass_escape(speaker_cn)}{{\\c&HFFFFFF&}}：{ass_escape(chinese)}"
+                          f"\\N{{\\fs17\\c&HDDDDDD&}}{ass_escape(speaker_en)}: {ass_escape(english)}"
+                      )
+                  rows.append(f"Dialogue: 0,{timestamp(start)},{timestamp(end)},{style},,0,0,0,,{display}")
+              ass_path = FINAL / f"segment_{index:02d}.ass"
+              ass_path.write_text("\n".join(rows), encoding="utf-8")
+
+              final_path = FINAL / f"segment_{index:02d}.mp4"
+              subprocess.run([
+                  "ffmpeg", "-hide_banner", "-loglevel", "warning", "-y", "-i", str(raw_path),
+                  "-vf", f"fps=24,scale=854:480,ass={ass_path}",
+                  "-map", "0:v:0", "-map", "0:a?", "-c:v", "libx264", "-crf", "18",
+                  "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", str(final_path),
+              ], check=True)
+
+              probe = subprocess.run(
+                  ["ffprobe", "-v", "error", "-show_entries", "format=duration:stream=codec_type,width,height,avg_frame_rate", "-of", "json", str(final_path)],
+                  check=True, capture_output=True, text=True,
+              )
+              metadata = json.loads(probe.stdout)
+              streams = metadata.get("streams", [])
+              has_audio = any(stream.get("codec_type") == "audio" for stream in streams)
+              video = next((stream for stream in streams if stream.get("codec_type") == "video"), {})
+              duration = float(metadata.get("format", {}).get("duration", 0))
+              if duration < 14.5 or video.get("width") != 854 or video.get("height") != 480:
+                  raise RuntimeError(f"Segment {index} failed technical QC: {metadata}")
+              qc["segments"].append({
+                  "part": index, "duration_seconds": duration, "has_audio": has_audio,
+                  "width": video.get("width"), "height": video.get("height"), "frame_rate": video.get("avg_frame_rate"),
+              })
+
+          (FINAL / "concat.txt").write_text(
+              "".join(f"file 'segment_{index:02d}.mp4'\n" for index in range(1, 5)), encoding="utf-8"
+          )
+          merged = FINAL / "S1E01_上锁的人_无标题版.mp4"
+          subprocess.run([
+              "ffmpeg", "-hide_banner", "-loglevel", "warning", "-y", "-f", "concat", "-safe", "0",
+              "-i", str(FINAL / "concat.txt"), "-c", "copy", str(merged),
+          ], check=True)
+
+          # An original, low-volume suspense bed: no copyrighted recording and no impact on dialogue clarity.
+          background = FINAL / "original_suspense_bgm.wav"
+          subprocess.run([
+              "ffmpeg", "-hide_banner", "-loglevel", "warning", "-y", "-f", "lavfi", "-i",
+              "aevalsrc=0.018*sin(2*PI*55*t)+0.012*sin(2*PI*82.41*t)+0.006*sin(2*PI*110*t):s=48000:d=61",
+              "-af", "afade=t=in:st=0:d=2,afade=t=out:st=58:d=3", str(background),
+          ], check=True)
+          (FINAL / "title.txt").write_text("《吸血法医·剑刺》· 第1集", encoding="utf-8")
+          (FINAL / "author.txt").write_text("作者：林爱丽", encoding="utf-8")
+          release = FINAL / "S1E01_上锁的人_中英字幕_480p.mp4"
+          font = "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc"
+          video_filter = (
+              f"drawtext=fontfile={font}:textfile={FINAL / 'title.txt'}:fontcolor=white:fontsize=31:"
+              "borderw=2:bordercolor=black:x=(w-text_w)/2:y=28:enable='between(t,0.3,3.6)',"
+              f"drawtext=fontfile={font}:textfile={FINAL / 'author.txt'}:fontcolor=0xD5B46A:fontsize=20:"
+              "borderw=1:bordercolor=black:x=(w-text_w)/2:y=68:enable='between(t,0.3,3.6)'"
+          )
+          native_audio_present = all(segment["has_audio"] for segment in qc["segments"])
+          if native_audio_present:
+              audio_filter = "[0:a][1:a]amix=inputs=2:weights='1 0.22':normalize=0[a]"
+          else:
+              # Keep the review package downloadable even if the provider returns a mute clip.
+              # A missing voice track is then recorded in qc.json as a major issue, not hidden.
+              audio_filter = "[1:a]anull[a]"
+          subprocess.run([
+              "ffmpeg", "-hide_banner", "-loglevel", "warning", "-y", "-i", str(merged), "-i", str(background),
+              "-filter_complex", audio_filter,
+              "-map", "0:v:0", "-map", "[a]", "-vf", video_filter, "-c:v", "libx264", "-crf", "18",
+              "-c:a", "aac", "-b:a", "192k", "-shortest", "-movflags", "+faststart", str(release),
+          ], check=True)
+
+          thumbs = FINAL / "thumbs"
+          thumbs.mkdir()
+          for frame_index, second in enumerate(range(1, 60, 3), 1):
+              subprocess.run([
+                  "ffmpeg", "-hide_banner", "-loglevel", "warning", "-y", "-ss", str(second), "-i", str(release),
+                  "-frames:v", "1", str(thumbs / f"frame_{frame_index:02d}.jpg"),
+              ], check=True)
+          subprocess.run([
+              "ffmpeg", "-hide_banner", "-loglevel", "warning", "-y", "-pattern_type", "glob", "-i", str(thumbs / "*.jpg"),
+              "-filter_complex", "scale=320:180,tile=5x4:padding=4:margin=4:color=0x111111", "-frames:v", "1",
+              str(FINAL / "S1E01_qc_contact_sheet.jpg"),
+          ], check=True)
+          qc["native_audio_present_for_all_segments"] = native_audio_present
+          qc["status"] = "technical_qc_passed_pending_visual_and_audio_review"
+          qc["review_rules"] = [
+              "Reject a segment only for a major issue: live action, character redesign, broken anatomy, storyboard/page/UI shown, no useful audio, or clear story mismatch.",
+              "Do not regenerate small variations in lighting, rain density, or minor animation noise.",
+              "At most one paid rerender per rejected segment.",
+          ]
+          (FINAL / "qc.json").write_text(json.dumps(qc, ensure_ascii=False, indent=2), encoding="utf-8")
+          PY
+
+      - name: Upload episode review package
+        uses: actions/upload-artifact@v4
+        with:
+          name: S1E01-吸血法医-剑刺-review
+          path: |
+            final/segment_01.mp4
+            final/segment_02.mp4
+            final/segment_03.mp4
+            final/segment_04.mp4
+            final/S1E01_上锁的人_中英字幕_480p.mp4
+            final/S1E01_qc_contact_sheet.jpg
+            final/qc.json
+          if-no-files-found: error
+          retention-days: 7
