@@ -1,0 +1,52 @@
+name: Publish S1E01 official MP4 download
+
+on:
+  push:
+    branches:
+      - render/s1e01-final
+    paths:
+      - ".github/workflows/publish-s1e01-official-release.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: publish-s1e01-official-release
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Download approved official MP4 artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: S1E01-正式版-中英字幕-Part2已合并-30677815474
+          run-id: 30677815474
+          repository: ellasam81-commits/comfy-cli
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: delivery
+
+      - name: Create public release and upload exact approved MP4
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: s1e01-official
+          ASSET_NAME: S1E01_official_480p.mp4
+        run: |
+          set -euo pipefail
+          source_path="$(find delivery -type f -name 'S1E01_上锁的人_中英字幕_480p_正式版.mp4' -print -quit)"
+          test -n "$source_path"
+          cp "$source_path" "$ASSET_NAME"
+
+          if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
+            gh release upload "$RELEASE_TAG" "$ASSET_NAME" --clobber
+          else
+            gh release create "$RELEASE_TAG" "$ASSET_NAME" \
+              --title "《吸血法医·剑刺》S1E01 正式版" \
+              --notes "S1E01 official release with the author-approved Part 2 correction. No new generation was performed."
+          fi
+
+          echo "Download: https://github.com/${GITHUB_REPOSITORY}/releases/download/${RELEASE_TAG}/${ASSET_NAME}" >> "$GITHUB_STEP_SUMMARY"
