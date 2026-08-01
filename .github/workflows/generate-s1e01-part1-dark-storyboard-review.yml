@@ -1,0 +1,409 @@
+name: Generate S1E01 Part 1 — dark storyboard review (Segmind)
+
+on:
+  push:
+    branches:
+      - render/s1e01-final
+    paths:
+      - "references/s1e01/run-part1-dark-storyboard-review.txt"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: s1e01-part1-dark-storyboard-review-v1
+  cancel-in-progress: false
+
+jobs:
+  generate-review-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+      PYTHONUNBUFFERED: "1"
+
+    steps:
+      - name: Check out locked inputs
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate exact paid trigger
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+          TRIGGER: references/s1e01/run-part1-dark-storyboard-review.txt
+          BOARD: references/s1e01/board_01.jpg.b64
+          CHART: references/s1e01/character_chart.jpg.b64
+          WORKFLOW: .github/workflows/generate-s1e01-part1-dark-storyboard-review.yml
+        run: |
+          set -euo pipefail
+          git cat-file -e "$BEFORE_SHA:$WORKFLOW"
+          git cat-file -e "$BEFORE_SHA:$BOARD"
+          git cat-file -e "$BEFORE_SHA:$CHART"
+          mapfile -t changed < <(git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+          [[ "${#changed[@]}" -eq 1 && "${changed[0]}" == "$TRIGGER" ]]
+          mapfile -t added < <(git diff --diff-filter=A --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+          [[ "${#added[@]}" -eq 1 && "${added[0]}" == "$TRIGGER" ]]
+          [[ "$(cat "$TRIGGER")" == "AUTHOR-APPROVED: GENERATE ONLY S1E01 PART 1 DARK STORYBOARD REVIEW ONCE" ]]
+          board_sha="$(base64 --decode "$BOARD" | sha256sum | awk '{print $1}')"
+          chart_sha="$(base64 --decode "$CHART" | sha256sum | awk '{print $1}')"
+          [[ "$board_sha" == "77d7e9cc78c1002aab26d8d63ec1dd59c2de147876f6c940341b48c828e09dd5" ]]
+          [[ "$chart_sha" == "e0c0e0e2318d1b0cbb3e739cde4e8b7c73ba6b93f25bcada676db5fcea6f7e4e" ]]
+
+      - name: Restore one-shot paid lock
+        id: paid-lock
+        uses: actions/cache/restore@v4
+        with:
+          path: output/paid-lock
+          key: segmind-s1e01-part1-dark-storyboard-review-v1
+          lookup-only: true
+
+      - name: Validate secret and unused lock
+        env:
+          LOCK_HIT: ${{ steps.paid-lock.outputs.cache-hit }}
+        run: |
+          set -euo pipefail
+          [[ -n "$SEGMIND_API_KEY" ]] || { echo "::error::Missing SEGMIND_API_KEY; no paid request made."; exit 2; }
+          [[ "$LOCK_HIT" != "true" ]] || { echo "::error::This author-approved Part 1 review has already been submitted."; exit 2; }
+
+      - name: Arm one-shot paid lock
+        run: |
+          mkdir -p output/paid-lock
+          echo "author-approved Part 1 dark storyboard review; run $GITHUB_RUN_ID" > output/paid-lock/armed.txt
+
+      - name: Save one-shot paid lock
+        uses: actions/cache/save@v4
+        with:
+          path: output/paid-lock
+          key: segmind-s1e01-part1-dark-storyboard-review-v1
+
+      - name: Install renderer and post-production tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install "segmind==1.1.0" requests Pillow
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Generate only Part 1 and extract dark-reference evidence frames
+        run: |
+          python - <<'PY'
+          import base64
+          import json
+          import subprocess
+          from pathlib import Path
+
+          import requests
+          from PIL import Image, ImageOps
+          from segmind import SegmindClient
+
+
+          SOURCE = Path("references/s1e01")
+          RUNTIME = Path("runtime")
+          RAW = Path("raw")
+          FINAL = Path("final")
+          for directory in (RUNTIME, RAW, FINAL):
+              directory.mkdir(exist_ok=True)
+
+
+          def run(*args):
+              subprocess.run(list(args), check=True)
+
+
+          def restore_reference(name):
+              source = SOURCE / f"{name}.jpg.b64"
+              target = RUNTIME / f"{name}.jpg"
+              target.write_bytes(base64.b64decode(source.read_bytes()))
+              return target
+
+
+          def make_clean_references(board_path):
+              # Use label-free visual crops, not the production board itself. The model gets its actual
+              # rain-noir mise-en-scene in storyboard order but cannot reproduce the grid or its wording.
+              board = Image.open(board_path).convert("RGB")
+              # Coordinates are locked to the 768x512 decoded board. They deliberately exclude panel
+              # numbers, captions and borders while preserving the actual painted composition.
+              crop_boxes = (
+                  ("01_rain_old_clinic", (37, 62, 190, 138)),
+                  ("02_zhong_ning_witness", (223, 62, 381, 138)),
+                  ("03_wet_phone_recording", (414, 62, 569, 138)),
+                  ("04_inner_chain", (600, 62, 762, 138)),
+                  ("05_jian_ci_arrives", (37, 174, 190, 232)),
+                  ("06_lin_qian_examines", (223, 174, 381, 232)),
+                  ("07_han_che_holds_line", (414, 174, 569, 232)),
+                  ("08_wet_prints_at_door", (600, 174, 762, 232)),
+                  ("09_jian_ci_smells_air", (37, 288, 190, 362)),
+                  ("10_lin_qian_two_shot", (223, 288, 381, 362)),
+                  ("11_jian_ci_eye_detail", (414, 288, 569, 362)),
+                  ("12_inner_chain_moves", (600, 288, 762, 362)),
+              )
+              panels = []
+              for name, box in crop_boxes:
+                  panel = board.crop(box)
+                  panel = ImageOps.fit(panel, (640, 360), method=Image.Resampling.LANCZOS)
+                  panels.append((name, panel))
+
+              references = []
+              for index, (name, panel) in enumerate(panels[:8], 1):
+                  path = RUNTIME / f"reference_{index:02d}_{name}.jpg"
+                  panel.save(path, quality=96)
+                  references.append(path)
+
+              # Segmind permits at most nine image references. Preserve the final four literal panels in
+              # a clean, borderless contact image rather than dropping the essential smell/two-shot/eye/chain beats.
+              final_four = Image.new("RGB", (1280, 720), (5, 9, 14))
+              for index, (_, panel) in enumerate(panels[8:]):
+                  tile = ImageOps.fit(panel, (640, 360), method=Image.Resampling.LANCZOS)
+                  x = (index % 2) * 640
+                  y = (index // 2) * 360
+                  final_four.paste(tile, (x, y))
+              final_four_path = RUNTIME / "reference_09_storyboard_shots_09_to_12.jpg"
+              final_four.save(final_four_path, quality=96)
+              references.append(final_four_path)
+              return references
+
+
+          def extract_video_url(result):
+              output = result.get("output") if isinstance(result, dict) else result
+              candidates = []
+              if isinstance(output, dict):
+                  candidates.extend([output.get("video_url"), output.get("url"), output.get("video")])
+              elif isinstance(output, list):
+                  for item in output:
+                      if isinstance(item, dict):
+                          candidates.extend([item.get("video_url"), item.get("url"), item.get("video")])
+                      else:
+                          candidates.append(item)
+              else:
+                  candidates.append(output)
+              for candidate in candidates:
+                  if isinstance(candidate, str) and candidate.startswith(("https://", "http://")):
+                      return candidate
+              raise RuntimeError(f"Segmind completed without a downloadable video URL: {result}")
+
+
+          board = restore_reference("board_01")
+          references = make_clean_references(board)
+
+          common = """
+          Create exactly one continuous 15-second, 16:9, 480p, 24fps premium original Japanese 2D anime sequence.
+          This is a dark forensic locked-room mystery. The crucial visual lock is the supplied storyboard's rain-soaked
+          blue-black noir: low-key exposure, cold desaturated navy/charcoal palette, near-black shadows, wet reflections,
+          narrow practical flashlight highlights and high cinematic contrast. Keep people visible but NEVER brighten this
+          into a clean grey office, sunny street, warm apartment or evenly floodlit police scene.
+
+          References 1 through 8 are separate clean storyboard visual anchors for shots 1 through 8. Reference 9 contains
+          four clean visual anchors in reading order for shots 9, 10, 11 and 12. Use every anchor only at its correct time
+          in the described sequence. They are never physical images inside the story: never combine them into a collage,
+          split screen, storyboard, monitor,
+          evidence wall, picture-in-picture, page, frame, border, poster or slideshow. Never show labels, panel numbers,
+          Chinese/English words, letters, subtitles, logo, watermark, timecode, source-image artifacts or readable uniform
+          writing. A tiny blank or correct apartment plaque is allowed; invented letters are not.
+
+          Keep original fictional adult characters exactly stable. Jian Ci / 检刺 is tall, slim and pale, with short black
+          hair, a white forensic coat over a black high neck and black gloves: restrained, observant, quiet micro-expression.
+          Lin Qian / 林浅 has a chin-length black bob, an unlettered dark-navy field jacket and black trousers: practical and
+          calm. Han Che / 韩彻 is mature and authoritative in an unlettered dark police jacket. No real-person likeness,
+          live action, chibi, 3D plastic skin, exaggerated anime expression, extra limbs, duplicate people or distorted hands.
+          """
+
+          storyboard = """
+          S1E01 PART 1 — 雨夜报案 / rainy report at the old clinic. Follow this exact 12-shot storyboard as real animation:
+
+          1, 0.00–1.20: Wide rainy midnight exterior of the old Nancheng clinic, blue-red police reflections only in wet
+          asphalt and windows; the building is dark, cold and nearly silent.
+          2, 1.20–2.40: Zhong Ning / 钟宁, a living 24-year-old Chinese woman in a rain-darkened beige coat, stands upright
+          outside the police cordon. She is composed but grieving. She is the witness and victim's daughter, never police,
+          never injured and never a corpse.
+          3, 2.40–3.60: Tight dark insert of a rain-soaked phone on wet ground. Its unfinished voice recording stops, but
+          no readable screen, text, numbers, interface or caller ID appears.
+          4, 3.60–4.80: The old clinic's INNER room door is held by a normal security chain fastened from the INTERIOR side.
+          Only the narrow door gap and taut, reverse-buckled inner chain are seen. The chain is intact.
+          5, 4.80–6.00: Jian Ci arrives in his white forensic coat, stops before the door, studies the inner chain without
+          touching it; his face stays composed in the blue-black corridor shadow.
+          6, 6.00–7.20: Lin Qian uses a small flashlight to inspect the narrow gap and chain from outside the threshold.
+          She does not cut, pull, touch or open the door.
+          7, 7.20–8.40: Han Che holds Zhong Ning and officers behind the cordon and gives a quiet order; everyone remains
+          outside the room and no one crosses the threshold.
+          8, 8.40–9.60: Low close view of a wet interior-corridor trace. The shoeprints run from outer corridor toward the
+          locked door, from outside to inside, and disappear immediately in front of the door. No other directions appear.
+          9, 9.60–10.80: Jian Ci lightly smells the rain-damp air, a slight breath pause and lower-eyelid tension; the trace
+          does not smell like an ordinary corpse. No supernatural eye glow.
+          10, 10.80–12.00: Lin Qian looks to Jian Ci in a dark side two-shot and asks why a person who came from outside
+          could disappear at the door.
+          11, 12.00–13.20: Very restrained close-up of Jian Ci's eye and rain-damp hair, noticing a small physical anomaly.
+          12, 13.20–15.00: The intact inner chain shifts once, caused by an unseen internal physical mechanism, and a brief
+          shadow passes beyond the black gap. The door does not open and no person crosses it. This is only the arrival
+          sequence: no corpse, no blood, no silver dagger, no weapon, no body reveal, no cut chain and no forced entry appear.
+
+          Audio: synchronized quiet Mandarin, natural adult voices, rain and distant city siren, one small flashlight click,
+          subtle chain rattle, quiet hallway room tone and sparse low suspense score. No screams or random speech.
+          Narrator, 0.0–3.0s: 雨夜，南城旧诊所。门链从里面锁住。
+          林浅, 3.0–5.1s: 门锁扣得很死。
+          韩彻, 5.1–7.2s: 现场封住，任何人别进去。
+          钟宁, 7.2–9.5s: 我爸进去以后，就没出来。
+          检刺, 9.5–15.0s: 录音停在门前。水痕却从里面出来。
+          """
+
+          client = SegmindClient()
+
+          def upload(path):
+              response = client.files.upload(path)
+              urls = response.get("file_urls") or []
+              if not urls:
+                  raise RuntimeError(f"Segmind upload returned no reference URL for {path}: {response}")
+              return urls[0]
+
+          request = {
+              "model": "seedance-2.0-mini",
+              "duration": 15,
+              "resolution": "480p",
+              "aspect_ratio": "16:9",
+              "generate_audio": True,
+              "bitrate_mode": "high",
+              "seed": 202608101,
+              "reference_images": len(references),
+              "approval": "author-approved: generate only S1E01 Part 1 dark storyboard review once",
+          }
+          state = {
+              "state": "starting",
+              "episode": "S1E01",
+              "segment": "01",
+              "purpose": "dark storyboard-accurate review only; no episode merge or overwrite",
+              "settings": request,
+          }
+          state_path = FINAL / "s1e01_part1_dark_storyboard_review_status.json"
+
+          def save_state():
+              state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
+
+          save_state()
+          job = client.submit_async(
+              "seedance-2.0-mini",
+              prompt=f"{common}\n\n{storyboard}",
+              reference_images=[upload(path) for path in references],
+              duration=15,
+              resolution="480p",
+              aspect_ratio="16:9",
+              generate_audio=True,
+              bitrate_mode="high",
+              seed=202608101,
+          )
+          state.update(state="processing", request_id=job.request_id)
+          save_state()
+          print("Segmind request ID:", job.request_id, flush=True)
+
+          result = job.wait(timeout=1800, interval=5)
+          (RAW / "s1e01_part1_dark_storyboard_result.json").write_text(
+              json.dumps(result, ensure_ascii=False, indent=2, default=str), encoding="utf-8"
+          )
+          source_url = extract_video_url(result)
+          response = requests.get(source_url, timeout=300)
+          response.raise_for_status()
+          raw_video = RAW / "segment_01.mp4"
+          raw_video.write_bytes(response.content)
+
+          # Apply one modest, controlled noir grade after rendering so the output keeps the board's dark suspense palette.
+          final_video = FINAL / "segment_01.mp4"
+          run(
+              "ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", str(raw_video),
+              "-vf", (
+                  "fps=24,scale=854:480:force_original_aspect_ratio=decrease,"
+                  "pad=854:480:(ow-iw)/2:(oh-ih)/2:color=black,"
+                  "eq=brightness=-0.055:contrast=1.18:saturation=0.76:gamma=0.92,"
+                  "colorbalance=rs=-0.025:gs=-0.005:bs=0.060"
+              ),
+              "-map", "0:v:0", "-map", "0:a?", "-c:v", "libx264", "-crf", "18",
+              "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", str(final_video),
+          )
+
+          proof_times = (0.60, 6.60, 13.90)
+          proof_frames = []
+          for second in proof_times:
+              frame = FINAL / f"S1E01_Part1_dark_storyboard_proof_{second:.2f}s.jpg"
+              run(
+                  "ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-ss", f"{second:.2f}",
+                  "-i", str(final_video), "-frames:v", "1", "-q:v", "2", str(frame),
+              )
+              proof_frames.append(frame.name)
+
+          beat_frames = []
+          for index, second in enumerate((0.5, 1.7, 2.9, 4.1, 5.3, 6.5, 7.7, 8.9, 10.1, 11.3, 12.5, 14.1), 1):
+              frame = FINAL / f"S1E01_Part1_dark_storyboard_beat_{index:02d}_{second:.1f}s.jpg"
+              run(
+                  "ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-ss", str(second), "-i", str(final_video),
+                  "-frames:v", "1", str(frame),
+              )
+              beat_frames.append(frame.name)
+          run(
+              "ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-pattern_type", "glob",
+              "-i", str(FINAL / "S1E01_Part1_dark_storyboard_beat_*.jpg"),
+              "-filter_complex", "scale=320:180,tile=4x3:padding=4:margin=4:color=0x05090D",
+              "-frames:v", "1", str(FINAL / "S1E01_Part1_dark_storyboard_contact_sheet.jpg"),
+          )
+
+          probe = json.loads(subprocess.run(
+              [
+                  "ffprobe", "-v", "error", "-show_entries",
+                  "format=duration:stream=codec_type,width,height,avg_frame_rate", "-of", "json", str(final_video),
+              ],
+              check=True, capture_output=True, text=True,
+          ).stdout)
+          streams = probe.get("streams", [])
+          video_stream = next((item for item in streams if item.get("codec_type") == "video"), {})
+          technical_qc = {
+              "duration_seconds": float(probe.get("format", {}).get("duration", 0)),
+              "has_audio": any(item.get("codec_type") == "audio" for item in streams),
+              "width": video_stream.get("width"),
+              "height": video_stream.get("height"),
+              "frame_rate": video_stream.get("avg_frame_rate"),
+          }
+          if (
+              technical_qc["duration_seconds"] < 14.5
+              or technical_qc["width"] != 854
+              or technical_qc["height"] != 480
+              or not technical_qc["has_audio"]
+          ):
+              raise RuntimeError(f"Part 1 failed technical QC: {technical_qc}")
+
+          qa = {
+              "episode": "S1E01",
+              "segment": "01",
+              "technical_qc": technical_qc,
+              "evidence_frames": proof_frames,
+              "storyboard_beat_frames": beat_frames,
+              "manual_visual_gates": [
+                  "Dark blue-black noir lighting, low saturation and wet rain reflections match the supplied storyboard rather than a bright scene.",
+                  "All twelve shots appear in the authored order; no storyboard grid, captions, UI, source-image writing or split screen leaks into the animation.",
+                  "A single indoor apartment door has an intact interior security chain and is never cut in Part 1.",
+                  "The wet shoeprint trace runs from outer corridor toward the locked door and disappears immediately before it; nobody crosses the evidence line.",
+                  "No corpse, blood, silver dagger, weapon or later-segment body reveal appears in Part 1.",
+                  "Jian Ci, Lin Qian and Han Che keep their locked original appearance and restrained behaviour.",
+                  "No title, burned subtitles, merge, public release update or edits to Parts 2–4 were made.",
+              ],
+              "status": "technical_qc_passed_pending_author_visual_approval_before_any_merge",
+          }
+          (FINAL / "S1E01_Part1_dark_storyboard_QA.json").write_text(
+              json.dumps(qa, ensure_ascii=False, indent=2), encoding="utf-8"
+          )
+          state.update(state="completed", saved_files=[final_video.name, *proof_frames, *beat_frames, "S1E01_Part1_dark_storyboard_contact_sheet.jpg"])
+          save_state()
+          PY
+
+      - name: Upload review-only artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: S1E01-Part1-dark-storyboard-review-${{ github.run_id }}
+          path: |
+            final/segment_01.mp4
+            final/S1E01_Part1_dark_storyboard_proof_0.60s.jpg
+            final/S1E01_Part1_dark_storyboard_proof_6.60s.jpg
+            final/S1E01_Part1_dark_storyboard_proof_13.90s.jpg
+            final/S1E01_Part1_dark_storyboard_beat_*.jpg
+            final/S1E01_Part1_dark_storyboard_contact_sheet.jpg
+            final/S1E01_Part1_dark_storyboard_QA.json
+            final/s1e01_part1_dark_storyboard_review_status.json
+            raw/s1e01_part1_dark_storyboard_result.json
+          if-no-files-found: warn
+          retention-days: 30
