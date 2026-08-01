@@ -169,7 +169,7 @@ jobs:
           required_subtitles = (
               "钟远只有胸口这一处银刃伤",
               "Zhong Yuan has only this one silver-blade wound in the chest",
-              "钟宁是我父亲",
+              "钟远是我父亲",
               "I was outside the whole time",
           )
           if not all(line in subtitle_text for line in required_subtitles):
