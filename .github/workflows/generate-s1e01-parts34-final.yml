@@ -1,18 +1,18 @@
-name: Generate S1E01 Parts 3 and 4 — final continuity review (Segmind)
+name: Generate S1E01 Parts 3 and 4 — final continuity review v2 (Segmind)
 
 on:
   push:
     branches:
       - render/s1e01-final
     paths:
-      - "references/s1e01/run-parts34-final.txt"
+      - "references/s1e01/run-parts34-final-v2.txt"
 
 permissions:
   contents: read
   actions: read
 
 concurrency:
-  group: s1e01-parts34-final
+  group: s1e01-parts34-final-v2
   cancel-in-progress: false
 
 jobs:
@@ -34,7 +34,7 @@ jobs:
           BEFORE_SHA: ${{ github.event.before }}
           CURRENT_SHA: ${{ github.sha }}
           RUN_ATTEMPT: ${{ github.run_attempt }}
-          TRIGGER: references/s1e01/run-parts34-final.txt
+          TRIGGER: references/s1e01/run-parts34-final-v2.txt
           WORKFLOW: .github/workflows/generate-s1e01-parts34-final.yml
         run: |
           set -euo pipefail
@@ -45,7 +45,7 @@ jobs:
           mapfile -t added < <(git diff --diff-filter=A --name-only "$BEFORE_SHA" "$CURRENT_SHA")
           [[ "${#added[@]}" -eq 1 && "${added[0]}" == "$TRIGGER" ]]
           [[ -z "$(git log -1 --format=%H "$BEFORE_SHA" -- "$TRIGGER")" ]]
-          [[ "$(cat "$TRIGGER")" == "AUTHOR-APPROVED: GENERATE S1E01 PARTS 3 AND 4 ONCE EACH FOR FOUR-PART MERGE" ]]
+          [[ "$(cat "$TRIGGER")" == "AUTHOR-APPROVED: GENERATE S1E01 PARTS 3 AND 4 ONCE EACH AFTER NO-COST PREFLIGHT FIX" ]]
           declare -A expected=(
             [references/s1e01/board_03.jpg.b64]=789ea91baf2a92b755b190ce18cd4a5c4ed4c95055b6aaa5918ad0631b82e83b
             [references/s1e01/board_04.jpg.b64]=5a762f296595608eef725345da89aa3a8b326626aca7b99b9b7a62bae040be72
@@ -84,7 +84,7 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: output/paid-lock
-          key: segmind-s1e01-parts34-final
+          key: segmind-s1e01-parts34-final-v2
           lookup-only: true
 
       - name: Validate secret and unused lock
@@ -113,7 +113,7 @@ jobs:
         uses: actions/cache/save@v4
         with:
           path: output/paid-lock
-          key: segmind-s1e01-parts34-final
+          key: segmind-s1e01-parts34-final-v2
 
       - name: Generate Parts 3 and 4 and build bilingual review masters
         run: |
@@ -154,7 +154,7 @@ jobs:
           board4 = Image.open(restore("board_04")).convert("RGB")
           chart = Image.open(restore("character_chart")).convert("RGB")
           jian = Image.open(restore("jian_ci_lock_highres_20260802")).convert("RGB")
-          if board3.size != (768, 512) or board4.size != (768, 512) or chart.size != (768, 512):
+          if board3.size != (768, 512) or board4.size != (768, 512) or chart.size != (512, 768):
               raise RuntimeError("Locked reference dimensions changed")
 
           part1 = Path("prior_part1/raw/S1E01_Part1_series_standard_v2_raw.mp4")
@@ -168,8 +168,8 @@ jobs:
           identities = {
               "jian": save_ref(ImageOps.fit(jian, (480, 720), Image.Resampling.LANCZOS), "identity_jian_ci.jpg", (480, 720)),
               "lin": save_ref(lin_frame.crop((0, 0, 430, 430)), "identity_lin_qian.jpg", (480, 720)),
-              "zhou": save_ref(chart.crop((306, 30, 460, 375)), "identity_zhou_qiao.jpg", (480, 720)),
-              "xu": save_ref(chart.crop((460, 30, 614, 375)), "identity_xu_wei.jpg", (480, 720)),
+              "zhou": save_ref(chart.crop((204, 35, 307, 580)), "identity_zhou_qiao.jpg", (480, 720)),
+              "xu": save_ref(chart.crop((307, 35, 410, 580)), "identity_xu_wei.jpg", (480, 720)),
               "han": save_ref(group_frame.crop((390, 5, 700, 305)), "identity_han_che.jpg", (480, 720)),
               "zhong_ning": save_ref(group_frame.crop((145, 10, 410, 305)), "identity_zhong_ning.jpg", (480, 720)),
           }
