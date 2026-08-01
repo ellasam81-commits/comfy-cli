@@ -1,18 +1,18 @@
-name: Generate S1E01 Part 2 — series standard v3f review (Segmind)
+name: Generate S1E01 Part 2 — final allowed v4 review (Segmind)
 
 on:
   push:
     branches:
       - render/s1e01-final
     paths:
-      - "references/s1e01/run-part2-series-standard-v3f.txt"
+      - "references/s1e01/run-part2-final-v4.txt"
 
 permissions:
   contents: read
   actions: read
 
 concurrency:
-  group: s1e01-part2-series-standard-v3f
+  group: s1e01-part2-final-v4
   cancel-in-progress: false
 
 jobs:
@@ -34,7 +34,7 @@ jobs:
           BEFORE_SHA: ${{ github.event.before }}
           CURRENT_SHA: ${{ github.sha }}
           RUN_ATTEMPT: ${{ github.run_attempt }}
-          TRIGGER: references/s1e01/run-part2-series-standard-v3f.txt
+          TRIGGER: references/s1e01/run-part2-final-v4.txt
           WORKFLOW: .github/workflows/generate-s1e01-part2-series-standard-v3f.yml
           BOARD: references/s1e01/board_02.jpg.b64
           BLADE_BOARD: references/s1e01/board_04.jpg.b64
@@ -51,7 +51,7 @@ jobs:
             echo "::error::This marker path existed previously; a second paid submission is forbidden."
             exit 2
           }
-          [[ "$(cat "$TRIGGER")" == "AUTHOR-APPROVED: GENERATE ONLY S1E01 PART 2 SERIES STANDARD V3F ONCE" ]]
+          [[ "$(cat "$TRIGGER")" == "AUTHOR-APPROVED: USE THE ONE ALLOWED RETRY FOR S1E01 PART 2 FINAL V4 ONCE" ]]
 
           for path in "$BOARD" "$BLADE_BOARD" "$JIAN_LOCK"; do
             git cat-file -e "$BEFORE_SHA:$path"
@@ -85,7 +85,7 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: output/paid-lock
-          key: segmind-s1e01-part2-series-standard-v3f
+          key: segmind-s1e01-part2-final-v4
           lookup-only: true
 
       - name: Validate secret and unused lock
@@ -108,13 +108,13 @@ jobs:
       - name: Arm one-shot paid lock after preflight
         run: |
           mkdir -p output/paid-lock
-          echo "author-approved Part 2 series-standard v3f review; run $GITHUB_RUN_ID" > output/paid-lock/armed.txt
+          echo "author-approved final allowed Part 2 v4 review; run $GITHUB_RUN_ID" > output/paid-lock/armed.txt
 
       - name: Save one-shot paid lock
         uses: actions/cache/save@v4
         with:
           path: output/paid-lock
-          key: segmind-s1e01-part2-series-standard-v3f
+          key: segmind-s1e01-part2-final-v4
 
       - name: Generate only Part 2 and build deterministic bilingual review master
         run: |
@@ -200,8 +200,19 @@ jobs:
               blade_board = Image.open(blade_board_path).convert("RGB")
               if blade_board.size != (768, 512):
                   raise RuntimeError(f"Unexpected Part 4 board size: {blade_board.size}")
-              # Same clean evidence-tray dagger design used later in Part 4; tray/chain/gel are ignored.
-              save_padded(blade_board.crop((205, 180, 360, 238)), "reference_04_blade_prop.jpg")
+              # Keep only the dagger design, but rotate the source so the handle points upward and the
+              # short blade points down into a wound. This directly corrects v3f's false horizontal,
+              # loose-on-torso reading. Tray, chain and gel are excluded from the guide.
+              blade_prop = blade_board.crop((205, 180, 315, 238)).rotate(
+                  90, expand=True, resample=Image.Resampling.BICUBIC
+              )
+              blade_canvas = Image.new("RGB", (640, 360), (5, 9, 13))
+              blade_prop = ImageOps.contain(blade_prop, (190, 300), Image.Resampling.LANCZOS)
+              blade_canvas.paste(
+                  blade_prop,
+                  ((blade_canvas.width - blade_prop.width) // 2, 24),
+              )
+              save_padded(blade_canvas, "reference_04_blade_prop_vertical.jpg")
 
               save_padded(board.crop((414, 174, 569, 232)), "reference_05_teaching_photo.jpg")
 
@@ -271,9 +282,9 @@ jobs:
           geometry guide controlling ONLY the mandatory diagonal head-to-both-shoes framing, camera distance and body scale;
           never reproduce its schematic lines, colors or generic anatomy. Image 3 is a clean Part 2 crop controlling
           the correct old-clinic room, Zhong Yuan age, clothing and floor-pose style; its partial source crop never controls
-          final framing, which image 2 and the text absolutely override. Image 4 is the clean later-episode evidence-
-          tray view of the SAME dagger and controls only its black patterned handle, symmetric guard and short silver blade;
-          never copy its tray, loose chain or gel into the body scene. Image 5 controls the single faded teaching-photo
+          final framing, which image 2 and the text absolutely override. Image 4 is a neutral vertical prop guide of the
+          SAME dagger and controls its planted orientation, black patterned handle, symmetric guard and short silver blade;
+          it contains no story location. Image 5 controls the single faded teaching-photo
           content. Image 6 is living Zhong Ning's clean identity/wardrobe lock from the accepted Part 1 raw master. Image 7
           is Lin Qian's accepted Part 1 identity/wardrobe lock. Image 8 is Han Che's accepted Part 1 identity/wardrobe lock.
           Image 9 is Jian Ci's high-resolution canonical identity
@@ -301,17 +312,22 @@ jobs:
           first aid. It is not a family portrait or romance photograph. Investigators photograph it in place, then seal it
           in one transparent evidence sleeve before identification. Zhong Ning never touches it. The small pouch in shot 11
           is a different item and contains one capped sterile dry swab tube holding the trace; it never contains the blade or
-          photograph. Never place the tray gel or a loose chain from image 4 beside Zhong Yuan.
+          photograph. Never place tray gel or a loose chain beside Zhong Yuan.
 
-          BODY AND INJURY ABSOLUTE LOCK. Zhong Yuan is motionless on his back. In shot 2 keep his complete body continuously
-          visible in one uninterrupted locked 45-degree wide frame from 0.60 through 3.30 seconds: entire gray-haired head,
+          BODY AND INJURY ABSOLUTE LOCK. Zhong Yuan is motionless on his back on the wet old-clinic tile floor beside the
+          examination bed, never on top of the bed or on a modern metal gurney. In shot 2 keep his complete body continuously
+          visible in one uninterrupted locked 45-degree wide frame from 0.35 through 3.65 seconds: entire gray-haired head,
           torso, both arms and hands, both legs, both dark shoes and surrounding floor all inside the frame with generous
           lower subtitle-safe floor margin,
           head at screen-left and feet at screen-right, body occupying about seventy to eighty percent of frame. Do not cut,
-          zoom, dissolve or cover any body part during that proof hold. Zhong Yuan has exactly one injury and one weapon:
-          a single short silver blade fixed in the center of his chest over the sternum, around nipple level, clearly above
-          the lower rib edge and far above abdomen, waist and belt. The same blade never moves, turns, multiplies, is pulled
-          out or appears anywhere else. Show only one tiny dark-maroon local mark immediately around the chest entry. No
+          zoom, dissolve or cover any body part during that proof hold. Zhong Yuan has exactly one injury and one weapon.
+          The single short silver dagger is EMBEDDED PERPENDICULARLY into the center sternum around nipple level: only its
+          black patterned handle, symmetric guard and a very short exposed silver section rise upward away from the chest;
+          its point is inside the chest. It must read as one planted upright chest weapon, never a loose knife laid flat,
+          horizontal or diagonal across his torso. It is clearly above the lower rib edge and far above abdomen, waist and
+          belt. The same blade never moves, turns, multiplies, is pulled out or appears anywhere else. Show only one tiny
+          dark-maroon entry ring directly touching the embedded metal, smaller than the guard. No separate star-shaped cut,
+          long scratch, smear or red mark elsewhere. No
           second red mark, head injury, neck injury, abdominal injury, blood pool, floor blood, gore, exposed organs, torn
           limbs, second knife, sword, syringe or gun.
 
@@ -325,14 +341,15 @@ jobs:
           storyboard = r"""
           S1E01 PART 2 — 尸体与银刃 / body and silver blade. Follow this exact authored twelve-shot order and timing:
 
-          1, 0.00–0.60: Two officers carefully swing open the documented old clinic door. The released chain hangs intact
+          1, 0.00–0.35: Two officers carefully swing open the documented old clinic door. The released chain hangs intact
           from the same hardware. No forced entry and nobody steps on evidence.
-          2, 0.60–3.30: One locked 45-degree wide proof frame of Zhong Yuan beside the examination bed. Obey the complete
-          head-to-both-shoes framing and single sternum-blade injury lock above for the entire 2.70 seconds without any cut,
+          2, 0.35–3.65: One locked 45-degree wide proof frame of Zhong Yuan on the old tile floor beside the examination bed.
+          Obey the complete head-to-both-shoes framing and planted upright single sternum-blade injury lock above for the
+          entire 3.30 seconds without any cut,
           zoom, dissolve, foreground obstruction, subtitle-like text or police tape.
-          3, 3.30–4.15: Controlled close forensic insert of the same one short silver blade at the upper-center sternum and
-          the one tiny local maroon entry mark. The rest of his body and room remain geometrically consistent.
-          4, 4.15–5.25: Jian Ci, in his exact accepted white coat and black gloves, photographs the overall body and chest
+          3, 3.65–4.45: Controlled close forensic insert of the same planted upright short silver blade at the center sternum
+          and the one tiny local maroon entry ring. The metal enters the ring; there is no separate wound beside it.
+          4, 4.45–5.25: Jian Ci, in his exact accepted white coat and black gloves, photographs the overall body and chest
           with a forensic scale beside the wound. He does not sample, touch or remove the blade in this shot.
           5, 5.25–6.20: Lin Qian checks the same sealed rain-streaked window and its intact inner latch.
           6, 6.20–7.15: Close view of the same rusty chain and lock fittings, intact and hanging loose after release, with no
@@ -363,15 +380,16 @@ jobs:
           9.40–12.00 韩彻：钟宁留在外面。林浅，把残留物封存。
           12.00–15.00 检刺：韩彻，刀在这里。血不在这里。
 
-          STRICT NEGATIVE. No abdomen blade, low-rib blade, belt blade, floating blade, two blades, missing feet, cropped
-          shoes, cropped head, incomplete proof body, camera cut during 0.60–3.30, blood pool, gore, second wound, injured or
+          STRICT NEGATIVE. No horizontal knife on chest, no loose knife, no knife lying across torso, no modern gurney,
+          no bright modern hospital room, no abdomen blade, low-rib blade, belt blade, floating blade, two blades, missing feet, cropped
+          shoes, cropped head, incomplete proof body, camera cut during 0.35–3.65, blood pool, gore, second wound, injured or
           dead Zhong Ning, long-haired Zhong Ning, glasses on Jian Ci, cut chain, indoor police tape, family photo, model-
           generated subtitles, readable text, random speech, people beyond the explicitly allowed cast, duplicate body,
           mannequin-guide lines, evidence tray, gel beside the body, loose chain beside the body, collage, panels or watermark.
           """
 
           prompt = textwrap.dedent(common).strip() + "\n\n" + textwrap.dedent(storyboard).strip()
-          (RUNTIME / "S1E01_Part2_series_standard_v3f_prompt.txt").write_text(prompt, encoding="utf-8")
+          (RUNTIME / "S1E01_Part2_final_v4_prompt.txt").write_text(prompt, encoding="utf-8")
 
           client = SegmindClient()
 
@@ -389,9 +407,9 @@ jobs:
               "aspect_ratio": "16:9",
               "generate_audio": True,
               "bitrate_mode": "high",
-              "seed": 2026080202,
+              "seed": 2026080212,
               "reference_images": len(references),
-              "approval": "author-approved: generate only S1E01 Part 2 series-standard v3f review once",
+              "approval": "author-approved: use the one allowed retry for S1E01 Part 2 final v4 once",
           }
           state = {
               "state": "starting",
@@ -400,7 +418,7 @@ jobs:
               "purpose": "full-body evidence review only; no merge, public release update or overwrite",
               "settings": request,
           }
-          state_path = FINAL / "s1e01_part2_series_standard_v3f_status.json"
+          state_path = FINAL / "s1e01_part2_final_v4_status.json"
 
           def save_state():
               state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -415,20 +433,20 @@ jobs:
               aspect_ratio="16:9",
               generate_audio=True,
               bitrate_mode="high",
-              seed=2026080202,
+              seed=2026080212,
           )
           state.update(state="processing", request_id=job.request_id)
           save_state()
           print("Segmind request ID:", job.request_id, flush=True)
 
           result = job.wait(timeout=1800, interval=5)
-          (RAW / "s1e01_part2_series_standard_v3f_result.json").write_text(
+          (RAW / "s1e01_part2_final_v4_result.json").write_text(
               json.dumps(result, ensure_ascii=False, indent=2, default=str), encoding="utf-8"
           )
           source_url = extract_video_url(result)
           response = requests.get(source_url, timeout=300)
           response.raise_for_status()
-          raw_video = RAW / "S1E01_Part2_series_standard_v3f_raw.mp4"
+          raw_video = RAW / "S1E01_Part2_final_v4_raw.mp4"
           raw_video.write_bytes(response.content)
 
           subtitle_file = RUNTIME / "s1e01_part2_bilingual.ass"
@@ -460,7 +478,7 @@ jobs:
               encoding="utf-8",
           )
 
-          final_video = FINAL / "S1E01_Part2_series_standard_v3f_review.mp4"
+          final_video = FINAL / "S1E01_Part2_final_v4_review.mp4"
           run(
               "ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", str(raw_video),
               "-vf", (
@@ -527,7 +545,7 @@ jobs:
 
           raw_proof_frames = []
           final_proof_frames = []
-          for second in (1.05, 1.75, 2.45):
+          for second in (0.90, 1.80, 2.80):
               raw_frame = FINAL / f"S1E01_Part2_fullbody_RAW_proof_{second:.2f}s.jpg"
               final_frame = FINAL / f"S1E01_Part2_fullbody_FINAL_proof_{second:.2f}s.jpg"
               run(
@@ -553,7 +571,7 @@ jobs:
           beat_frames = []
           beat_times = (0.30, 1.60, 3.60, 4.55, 5.70, 6.65, 7.60, 8.60, 9.60, 10.70, 11.75, 13.40)
           for index, second in enumerate(beat_times, 1):
-              frame = FINAL / f"S1E01_Part2_series_standard_v3f_beat_{index:02d}_{second:.2f}s.jpg"
+              frame = FINAL / f"S1E01_Part2_final_v4_beat_{index:02d}_{second:.2f}s.jpg"
               run(
                   "ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-ss", f"{second:.2f}",
                   "-i", str(final_video), "-frames:v", "1", "-q:v", "3", str(frame),
@@ -561,9 +579,9 @@ jobs:
               beat_frames.append(frame.name)
           run(
               "ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-pattern_type", "glob",
-              "-i", str(FINAL / "S1E01_Part2_series_standard_v3f_beat_*.jpg"),
+              "-i", str(FINAL / "S1E01_Part2_final_v4_beat_*.jpg"),
               "-filter_complex", "scale=320:180,tile=4x3:padding=4:margin=4:color=0x05090D",
-              "-frames:v", "1", str(FINAL / "S1E01_Part2_series_standard_v3f_contact_sheet.jpg"),
+              "-frames:v", "1", str(FINAL / "S1E01_Part2_final_v4_contact_sheet.jpg"),
           )
 
           qa = {
@@ -576,8 +594,8 @@ jobs:
               "subtitle_check_frames": subtitle_frames,
               "storyboard_beat_frames": beat_frames,
               "manual_visual_gates": [
-                  "At 1.05, 1.75 and 2.45 seconds, Zhong Yuan's complete gray-haired head, torso, both hands, both legs and both dark shoes are all visible with floor margin in the same uninterrupted wide shot.",
-                  "Zhong Yuan is one 64-year-old male corpse and has exactly one small silver blade fixed at the center sternum/chest, clearly above abdomen, plus only one tiny local maroon entry mark.",
+                  "At 0.90, 1.80 and 2.80 seconds, Zhong Yuan's complete gray-haired head, torso, both hands, both legs and both dark shoes are all visible with floor margin in the same uninterrupted wide shot.",
+                  "Zhong Yuan is one 64-year-old male corpse on the old tile floor and has exactly one small silver dagger planted upright into the center sternum, clearly above abdomen, plus only one tiny local maroon entry ring touching the metal.",
                   "No second wound, second red mark, head injury, floor blood, gore, extra body or extra weapon appears anywhere.",
                   "Jian Ci, Lin Qian, Han Che and living witness Zhong Ning match their accepted Part 1 identities and clothing; Jian Ci has no glasses and Zhong Ning has no new long ponytail.",
                   "The rainy old clinic, examination bed, cabinets, rain window, opened door and intact loosened chain preserve geography and prop continuity.",
@@ -588,7 +606,7 @@ jobs:
               ],
               "status": "technical_qc_passed_pending_author_review_of_three_fullbody_frames_before_any_merge",
           }
-          qa_path = FINAL / "S1E01_Part2_series_standard_v3f_QA.json"
+          qa_path = FINAL / "S1E01_Part2_final_v4_QA.json"
           qa_path.write_text(json.dumps(qa, ensure_ascii=False, indent=2), encoding="utf-8")
           state.update(
               state="completed",
@@ -599,7 +617,7 @@ jobs:
                   *final_proof_frames,
                   *subtitle_frames,
                   *beat_frames,
-                  "S1E01_Part2_series_standard_v3f_contact_sheet.jpg",
+                  "S1E01_Part2_final_v4_contact_sheet.jpg",
                   qa_path.name,
                   subtitle_file.name,
               ],
@@ -611,20 +629,20 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: S1E01-Part2-series-standard-v3f-review-${{ github.run_id }}
+          name: S1E01-Part2-final-v4-review-${{ github.run_id }}
           path: |
-            final/S1E01_Part2_series_standard_v3f_review.mp4
+            final/S1E01_Part2_final_v4_review.mp4
             final/S1E01_Part2_fullbody_RAW_proof_*.jpg
             final/S1E01_Part2_fullbody_FINAL_proof_*.jpg
             final/S1E01_Part2_subtitle_check_*.jpg
-            final/S1E01_Part2_series_standard_v3f_beat_*.jpg
-            final/S1E01_Part2_series_standard_v3f_contact_sheet.jpg
-            final/S1E01_Part2_series_standard_v3f_QA.json
-            final/s1e01_part2_series_standard_v3f_status.json
-            runtime/S1E01_Part2_series_standard_v3f_prompt.txt
+            final/S1E01_Part2_final_v4_beat_*.jpg
+            final/S1E01_Part2_final_v4_contact_sheet.jpg
+            final/S1E01_Part2_final_v4_QA.json
+            final/s1e01_part2_final_v4_status.json
+            runtime/S1E01_Part2_final_v4_prompt.txt
             runtime/s1e01_part2_bilingual.ass
             runtime/part2_references/*.jpg
-            raw/S1E01_Part2_series_standard_v3f_raw.mp4
-            raw/s1e01_part2_series_standard_v3f_result.json
+            raw/S1E01_Part2_final_v4_raw.mp4
+            raw/s1e01_part2_final_v4_result.json
           if-no-files-found: warn
           retention-days: 30
