@@ -1,0 +1,442 @@
+name: Generate S1E01 Parts 3 and 4 — final continuity review (Segmind)
+
+on:
+  push:
+    branches:
+      - render/s1e01-final
+    paths:
+      - "references/s1e01/run-parts34-final.txt"
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: s1e01-parts34-final
+  cancel-in-progress: false
+
+jobs:
+  generate-review-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 80
+    env:
+      SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+      PYTHONUNBUFFERED: "1"
+
+    steps:
+      - name: Check out locked inputs
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate exact one-shot trigger and source hashes
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+          TRIGGER: references/s1e01/run-parts34-final.txt
+          WORKFLOW: .github/workflows/generate-s1e01-parts34-final.yml
+        run: |
+          set -euo pipefail
+          [[ "$RUN_ATTEMPT" == "1" ]] || { echo "::error::Workflow reruns are forbidden."; exit 2; }
+          git cat-file -e "$BEFORE_SHA:$WORKFLOW"
+          mapfile -t changed < <(git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+          [[ "${#changed[@]}" -eq 1 && "${changed[0]}" == "$TRIGGER" ]]
+          mapfile -t added < <(git diff --diff-filter=A --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+          [[ "${#added[@]}" -eq 1 && "${added[0]}" == "$TRIGGER" ]]
+          [[ -z "$(git log -1 --format=%H "$BEFORE_SHA" -- "$TRIGGER")" ]]
+          [[ "$(cat "$TRIGGER")" == "AUTHOR-APPROVED: GENERATE S1E01 PARTS 3 AND 4 ONCE EACH FOR FOUR-PART MERGE" ]]
+          declare -A expected=(
+            [references/s1e01/board_03.jpg.b64]=789ea91baf2a92b755b190ce18cd4a5c4ed4c95055b6aaa5918ad0631b82e83b
+            [references/s1e01/board_04.jpg.b64]=5a762f296595608eef725345da89aa3a8b326626aca7b99b9b7a62bae040be72
+            [references/s1e01/character_chart.jpg.b64]=e0c0e0e2318d1b0cbb3e739cde4e8b7c73ba6b93f25bcada676db5fcea6f7e4e
+            [references/s1e01/jian_ci_lock_highres_20260802.jpg.b64]=24e46f07579b667fbad74a0deb6933327c8a3da158e29a113f0d8f946e27590f
+          )
+          for path in "${!expected[@]}"; do
+            git cat-file -e "$BEFORE_SHA:$path"
+            actual="$(base64 --decode "$path" | sha256sum | awk '{print $1}')"
+            [[ "$actual" == "${expected[$path]}" ]]
+          done
+
+      - name: Fetch immutable accepted Parts 1 and 2 continuity sources
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p prior_part1 prior_part2
+          curl --fail --silent --show-error --location --retry 3 \
+            -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/actions/artifacts/8823938149/zip" \
+            --output prior_part1/artifact.zip
+          curl --fail --silent --show-error --location --retry 3 \
+            -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/actions/artifacts/8825438623/zip" \
+            --output prior_part2/artifact.zip
+          python -m zipfile -e prior_part1/artifact.zip prior_part1
+          python -m zipfile -e prior_part2/artifact.zip prior_part2
+          [[ "$(sha256sum prior_part1/raw/S1E01_Part1_series_standard_v2_raw.mp4 | awk '{print $1}')" == "68ee9cea28722469cabbd56996a09df6af1ef8faf679561c53ea614c31cc9c88" ]]
+          [[ "$(sha256sum prior_part2/raw/S1E01_Part2_final_v4_raw.mp4 | awk '{print $1}')" == "735fd14b5cb239cc7d1629df1c8192c4be5c2ca1d3f68f0012d7897d52b85073" ]]
+
+      - name: Restore paid lock
+        id: paid-lock
+        uses: actions/cache/restore@v4
+        with:
+          path: output/paid-lock
+          key: segmind-s1e01-parts34-final
+          lookup-only: true
+
+      - name: Validate secret and unused lock
+        env:
+          LOCK_HIT: ${{ steps.paid-lock.outputs.cache-hit }}
+        run: |
+          set -euo pipefail
+          [[ -n "$SEGMIND_API_KEY" ]] || { echo "::error::Missing SEGMIND_API_KEY; no paid request made."; exit 2; }
+          [[ "$LOCK_HIT" != "true" ]] || { echo "::error::Parts 3 and 4 have already been submitted."; exit 2; }
+
+      - name: Install renderer and post-production tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install "segmind==1.1.0" requests Pillow
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg fontconfig fonts-noto-cjk
+          fc-match "Noto Sans CJK SC" | grep -q "NotoSansCJK"
+          ffmpeg -hide_banner -filters 2>/dev/null | grep -q " subtitles "
+
+      - name: Arm and save paid lock
+        run: |
+          mkdir -p output/paid-lock
+          echo "author-approved Parts 3 and 4; one request each; run $GITHUB_RUN_ID" > output/paid-lock/armed.txt
+
+      - name: Save paid lock
+        uses: actions/cache/save@v4
+        with:
+          path: output/paid-lock
+          key: segmind-s1e01-parts34-final
+
+      - name: Generate Parts 3 and 4 and build bilingual review masters
+        run: |
+          python - <<'PY'
+          import base64
+          import json
+          import re
+          import subprocess
+          import textwrap
+          from pathlib import Path
+
+          import requests
+          from PIL import Image, ImageOps
+          from segmind import SegmindClient
+
+          SOURCE = Path("references/s1e01")
+          RUNTIME = Path("runtime")
+          RAW = Path("raw")
+          FINAL = Path("final")
+          REFS = RUNTIME / "references"
+          for directory in (RUNTIME, RAW, FINAL, REFS):
+              directory.mkdir(exist_ok=True)
+
+          def run(*args):
+              subprocess.run(list(args), check=True)
+
+          def restore(name):
+              target = RUNTIME / f"{name}.jpg"
+              target.write_bytes(base64.b64decode((SOURCE / f"{name}.jpg.b64").read_bytes()))
+              return target
+
+          def save_ref(image, name, size=(640, 360)):
+              path = REFS / name
+              ImageOps.pad(image.convert("RGB"), size, Image.Resampling.LANCZOS, color=(5, 9, 13)).save(path, quality=96)
+              return path
+
+          board3 = Image.open(restore("board_03")).convert("RGB")
+          board4 = Image.open(restore("board_04")).convert("RGB")
+          chart = Image.open(restore("character_chart")).convert("RGB")
+          jian = Image.open(restore("jian_ci_lock_highres_20260802")).convert("RGB")
+          if board3.size != (768, 512) or board4.size != (768, 512) or chart.size != (768, 512):
+              raise RuntimeError("Locked reference dimensions changed")
+
+          part1 = Path("prior_part1/raw/S1E01_Part1_series_standard_v2_raw.mp4")
+          still_lin = RUNTIME / "part1_lin.jpg"
+          still_group = RUNTIME / "part1_group.jpg"
+          run("ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-ss", "5.85", "-i", str(part1), "-frames:v", "1", str(still_lin))
+          run("ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-ss", "6.90", "-i", str(part1), "-frames:v", "1", str(still_group))
+          lin_frame = Image.open(still_lin).convert("RGB")
+          group_frame = Image.open(still_group).convert("RGB")
+
+          identities = {
+              "jian": save_ref(ImageOps.fit(jian, (480, 720), Image.Resampling.LANCZOS), "identity_jian_ci.jpg", (480, 720)),
+              "lin": save_ref(lin_frame.crop((0, 0, 430, 430)), "identity_lin_qian.jpg", (480, 720)),
+              "zhou": save_ref(chart.crop((306, 30, 460, 375)), "identity_zhou_qiao.jpg", (480, 720)),
+              "xu": save_ref(chart.crop((460, 30, 614, 375)), "identity_xu_wei.jpg", (480, 720)),
+              "han": save_ref(group_frame.crop((390, 5, 700, 305)), "identity_han_che.jpg", (480, 720)),
+              "zhong_ning": save_ref(group_frame.crop((145, 10, 410, 305)), "identity_zhong_ning.jpg", (480, 720)),
+          }
+
+          part3_refs = [
+              save_ref(board3.crop((200, 60, 385, 150)), "part3_petri_scene.jpg"),
+              save_ref(board3.crop((585, 168, 758, 260)), "part3_surveillance_scene.jpg"),
+              save_ref(board3.crop((395, 278, 580, 370)), "part3_group_scene.jpg"),
+              identities["jian"], identities["lin"], identities["zhou"],
+              identities["xu"], identities["han"], identities["zhong_ning"],
+          ]
+          part4_refs = [
+              save_ref(board4.crop((10, 60, 190, 150)), "part4_center_exterior.jpg"),
+              save_ref(board4.crop((200, 168, 385, 260)), "part4_evidence_tray.jpg"),
+              save_ref(board4.crop((395, 168, 580, 260)), "part4_reconstruction.jpg"),
+              save_ref(board4.crop((395, 278, 580, 370)), "part4_blade_handle.jpg"),
+              identities["jian"], identities["lin"], identities["zhou"],
+              identities["xu"], identities["han"],
+          ]
+
+          common = r"""
+          OUTPUT LOCK. Create one continuous 15-second, 16:9, 480p, 24fps original cinematic Japanese 2D manga/anime
+          crime-noir sequence with synchronized Mandarin Chinese speech. Exactly twelve sequential full-screen shots, in
+          the listed order, joined by clean hard cuts. Never display the storyboard sheet, input borders, grid, collage,
+          split screen, panel number, source caption, watermark, logo, timecode, UI or generated subtitles. Deterministic
+          bilingual subtitles and the persistent title are added in post.
+
+          SERIES LOOK LOCK. Match the authored boards and accepted Parts 1 and 2: extremely dark rainy blue-black manga noir,
+          cold desaturated navy and charcoal, near-black shadows, wet reflections, narrow practical light, fine ink lines,
+          high cinematic contrast, suspense-crime with restrained horror and one dry humorous beat. No bright modern TV-anime
+          palette, no warm room, no photorealism, glossy 3D, chibi, slapstick, magic glow or supernatural explanation.
+
+          CHARACTER LOCK. Jian Ci / 检刺 is a tall slim pale adult Chinese male forensic doctor, short tousled black hair,
+          white knee-length forensic coat, black high-neck shirt, black trousers and black gloves; restrained, observant and
+          NEVER wearing glasses. Lin Qian / 林浅 is the same adult Chinese female detective with chin-length black bob and
+          unlettered dark-navy field uniform. Zhou Qiao / 周峤 is the same slim adult Chinese male digital-forensics officer,
+          messy black hair, silver-rim glasses and one subtle hearing device. Xu Wei / 许未 is the same athletic adult Chinese
+          female trace examiner with high ponytail, olive forensic coverall and black gloves. Han Che / 韩彻 is the same mature
+          stern Chinese male team leader in an unlettered dark jacket. Zhong Ning / 钟宁, when present, is the same living,
+          uninjured 24-year-old daughter/witness with short chin-length dark hair and rain-darkened beige coat. Preserve each
+          reference face, age, body, hairstyle, costume, voice, handedness and quiet temperament across every cut. No identity
+          swaps, morphing, duplicates, wardrobe changes, extra people or long ponytail on Zhong Ning.
+
+          CONTINUITY AND FORENSIC LOCK. Interior action uses one coherent Nancheng forensic center night laboratory: dark
+          steel worktables, blue-black monitors, the same evidence lockers, rain-streaked windows and realistic task lighting.
+          The same wet black phone has a cracked upper-right corner and incomplete 1:20 audio with only 17 seconds recovered.
+          The same short silver dagger has black patterned handle, symmetric guard and clean silver blade; after removal at
+          autopsy it stays sealed on one labeled evidence tray and is never casually handled. The same rusty chain/lock sample
+          and faint transparent adhesive trace remain separately packaged. Gloves, evidence labels, seals, scales and chain
+          of custody are realistic. Postmortem wound edges may lack vital reaction and hemorrhagic infiltration; never claim
+          impossible instant certainty, DNA magic, supernatural clotting gel or a talking corpse.
+          """
+
+          part3 = r"""
+          S1E01 PART 3 — traces, deleted time and the witness. Input images 1-3 lock the Part 3 laboratory, surveillance and
+          group compositions. Images 4-9 lock Jian Ci, Lin Qian, Zhou Qiao, Xu Wei, Han Che and living Zhong Ning respectively.
+          Follow this exact twelve-shot order:
+          1. Xu Wei uses a microscope to compare wound-edge microfibers, calm and methodical.
+          2. Macro petri dish: faint transparent sticky trace from the old door-lock gap beside matching microfibers.
+          3. Zhou Qiao, silver glasses and hearing device unchanged, reviews original surveillance in the same dark lab.
+          4. The same wet cracked black phone plays an incomplete waveform; no readable generated interface text.
+          5. Lin Qian listens to the recovered recording, one controlled worried glance.
+          6. The same phone receives one unknown call at 20:26; show vibration and generic call icon only, no generated text.
+          7. Xu Wei explains that the wound edges lack vital reaction and obvious hemorrhagic infiltration.
+          8. Surveillance review reveals the original three-second interval was overwritten; show repeated visual frames only.
+          9. Han Che listens through a headset, pauses, then chooses restraint instead of anger.
+          10. Jian Ci, without glasses, documents the same sealed dagger and transparent trace through the tray cover.
+          11. One coherent six-person table shot: Zhou Qiao, Lin Qian, Jian Ci, Xu Wei, Han Che and living Zhong Ning; nobody
+          is duplicated and Zhong Ning remains a witness, not a victim.
+          12. A dark window reflection aligns chain, three-second gap and a physical timing geometry; it is a real mechanism,
+          never a ghost, magic diagram or supernatural portal.
+
+          AUDIO LOCK, Mandarin only, clear natural adult voices, no overlap, exact speakers and wording:
+          0.00-2.70 旁白：许未比对创口纤维与门锁黏痕。
+          2.70-5.50 许未：检刺，创缘缺乏生活反应，也没有明显出血浸润。
+          5.50-7.80 林浅：周峤，监控被覆盖了三秒。
+          7.80-10.20 周峤：原始帧正在恢复，录音只剩十七秒。
+          10.20-12.20 韩彻：钟宁的证词呢？
+          12.20-15.00 检刺：有人希望钟远死两次：一次给凶手看，一次给我们看。
+          """
+
+          part4 = r"""
+          S1E01 PART 4 — physical reconstruction and Container-07. Input images 1-4 lock the rainy forensic-center exterior,
+          evidence tray, reconstruction and blade-handle geometry. Images 5-9 lock Jian Ci, Lin Qian, Zhou Qiao, Xu Wei and
+          Han Che respectively. Follow this exact twelve-shot order:
+          1. Rainy night exterior of the same Nancheng forensic center, windows glowing cold blue.
+          2. Jian Ci seals and labels sample bag A; chain-of-custody signature and tamper strip are credible.
+          3. Lin Qian compares old-clinic scene photographs under one desk lamp.
+          4. Xu Wei identifies silicone lubricant from a timer mechanism, not clotting gel and not supernatural residue.
+          5. Zhou Qiao aligns the unedited original surveillance and isolates the same three-second gap.
+          6. Evidence tray: the same sealed dagger, separately sealed chain/lock sample and transparent trace never touch.
+          7. Controlled lab reconstruction, clearly an experiment: an inert same-mass replica releases a chain hook into a
+          catch tray. The real evidence dagger remains sealed and is NEVER used as a test weight.
+          8. Han Che reacts, then composes himself with one dry beat.
+          9. Jian Ci calmly states that the lock did not move itself.
+          10. One physical evidence board connects chain, three-second gap, transparent trace and dagger; no split screen.
+          11. Under an evidence hood, Jian Ci uses sterile tools to expose a thin transparent medical-data tube hidden inside
+          the same dagger handle, without contaminating the blade.
+          12. Macro of the sealed tube in its new evidence pouch; the pouch label stays visually blank because the exact
+          deterministic Container-07 annotation is added in post.
+
+          AUDIO LOCK, Mandarin only, clear natural adult voices, no overlap, exact speakers and wording:
+          0.00-2.50 旁白：南城刑侦法医中心，灯亮到深夜。
+          2.50-5.20 许未：检刺，黏痕是定时机构的硅基润滑剂。
+          5.20-7.70 林浅：周峤，三秒断层正好覆盖机关动作。
+          7.70-9.80 韩彻：它没动，是有人替它动的。
+          9.80-12.30 检刺：韩彻，锁不会自己撒谎，人会。
+          12.30-15.00 检刺：刀柄里……容器-07。
+          """
+
+          negatives = r"""
+          STRICT NEGATIVE. No wrong name Zhou Yu, no glasses on Jian Ci, no dead or injured Zhong Ning, no new corpse,
+          no second dagger, no loose evidence, no bare hands, no evidence contamination, no magical trace, no fantasy UI,
+          no generated readable labels, no bright clean hospital, no location reset, no hairstyle or costume change, no
+          random dialogue, no English speech, no collage, split-screen, storyboard page, subtitles, logo or watermark.
+          """
+
+          client = SegmindClient()
+
+          def upload(path):
+              result = client.files.upload(path)
+              urls = result.get("file_urls") or []
+              if not urls:
+                  raise RuntimeError(f"No Segmind reference URL: {result}")
+              return urls[0]
+
+          def video_url(result):
+              output = result.get("output") if isinstance(result, dict) else result
+              candidates = []
+              if isinstance(output, dict):
+                  candidates += [output.get("video_url"), output.get("url"), output.get("video")]
+              elif isinstance(output, list):
+                  for item in output:
+                      candidates += [item.get("video_url"), item.get("url"), item.get("video")] if isinstance(item, dict) else [item]
+              else:
+                  candidates.append(output)
+              for value in candidates:
+                  if isinstance(value, str) and value.startswith(("https://", "http://")):
+                      return value
+              raise RuntimeError(f"No downloadable video URL: {result}")
+
+          subtitles = {
+              3: [
+                  (0.00,2.70,"旁白：许未比对创口纤维与门锁黏痕。","Narrator: Xu Wei compares wound fibers with the adhesive trace from the door lock."),
+                  (2.70,5.50,"许未：检刺，创缘缺乏生活反应，也没有明显出血浸润。","Xu Wei: Jian Ci, the wound lacks vital reaction and obvious hemorrhagic infiltration."),
+                  (5.50,7.80,"林浅：周峤，监控被覆盖了三秒。","Lin Qian: Zhou Qiao, three seconds of surveillance were overwritten."),
+                  (7.80,10.20,"周峤：原始帧正在恢复，录音只剩十七秒。","Zhou Qiao: I am restoring the original frames. Only seventeen seconds of audio remain."),
+                  (10.20,12.20,"韩彻：钟宁的证词呢？","Han Che: What about Zhong Ning's testimony?"),
+                  (12.20,15.10,"检刺：有人希望钟远死两次：一次给凶手看，一次给我们看。","Jian Ci: Someone wanted Zhong Yuan to die twice: once for the killer, once for us."),
+              ],
+              4: [
+                  (0.00,2.50,"旁白：南城刑侦法医中心，灯亮到深夜。","Narrator: At Nancheng Forensic Center, the lights burn late into the night."),
+                  (2.50,5.20,"许未：检刺，黏痕是定时机构的硅基润滑剂。","Xu Wei: Jian Ci, the trace is silicone lubricant from a timer mechanism."),
+                  (5.20,7.70,"林浅：周峤，三秒断层正好覆盖机关动作。","Lin Qian: Zhou Qiao, the three-second gap covers the mechanism's movement."),
+                  (7.70,9.80,"韩彻：它没动，是有人替它动的。","Han Che: It did not move. Someone moved it."),
+                  (9.80,12.30,"检刺：韩彻，锁不会自己撒谎，人会。","Jian Ci: Han Che, a lock cannot lie by itself. People can."),
+                  (12.30,15.10,"检刺：刀柄里……容器-07。","Jian Ci: Inside the handle... Container-07."),
+              ],
+          }
+
+          state = {"state":"starting", "episode":"S1E01", "model":"seedance-2.0-mini", "requests":[]}
+          state_path = FINAL / "s1e01_parts34_status.json"
+          def save_state():
+              state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
+          save_state()
+
+          def make_ass(part):
+              rows = [textwrap.dedent(r"""
+              [Script Info]
+              ScriptType: v4.00+
+              PlayResX: 854
+              PlayResY: 480
+              WrapStyle: 0
+              ScaledBorderAndShadow: yes
+              YCbCr Matrix: TV.601
+              [V4+ Styles]
+              Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+              Style: Header,Noto Sans CJK SC,20,&H00FFFFFF,&H000000FF,&H78000000,&H78000000,-1,0,0,0,100,100,0,0,3,2,0,8,16,16,12,1
+              Style: Sub,Noto Sans CJK SC,22,&H00FFFFFF,&H000000FF,&H70000000,&H70000000,0,0,0,0,100,100,0,0,3,2,0,2,20,20,18,1
+              Style: Evidence,Noto Sans CJK SC,24,&H0000D7FF,&H000000FF,&H78000000,&H78000000,-1,0,0,0,100,100,0,0,3,2,0,9,20,30,82,1
+              [Events]
+              Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+              Dialogue: 10,0:00:00.00,0:00:30.00,Header,,0,0,0,,《吸血法医·剑刺》｜S1E01《上锁的人》｜作者：林爱丽
+              """).strip()]
+              def ts(v):
+                  return f"0:00:{v:05.2f}"
+              for start, end, zh, en in subtitles[part]:
+                  rows.append(f"Dialogue: 20,{ts(start)},{ts(end)},Sub,,0,0,0,,{zh}\\N{{\\fs17}}{en}")
+              if part == 4:
+                  rows.append("Dialogue: 25,0:00:12.30,0:00:15.10,Evidence,,0,0,0,,物证：容器-07\\N{\\fs17}EVIDENCE: CONTAINER-07")
+              path = RUNTIME / f"s1e01_part{part}_bilingual.ass"
+              path.write_text("\n".join(rows) + "\n", encoding="utf-8")
+              return path
+
+          def generate(part, refs, specific, seed):
+              prompt = "\n\n".join(textwrap.dedent(x).strip() for x in (common, specific, negatives))
+              (RUNTIME / f"S1E01_Part{part}_final_prompt.txt").write_text(prompt, encoding="utf-8")
+              job = client.submit_async(
+                  "seedance-2.0-mini", prompt=prompt,
+                  reference_images=[upload(path) for path in refs], duration=15,
+                  resolution="480p", aspect_ratio="16:9", generate_audio=True,
+                  bitrate_mode="high", seed=seed,
+              )
+              state["requests"].append({"part":part, "request_id":job.request_id, "seed":seed})
+              state["state"] = f"part_{part}_processing"
+              save_state()
+              print(f"Part {part} Segmind request ID: {job.request_id}", flush=True)
+              result = job.wait(timeout=1800, interval=5)
+              (RAW / f"s1e01_part{part}_result.json").write_text(json.dumps(result, ensure_ascii=False, indent=2, default=str), encoding="utf-8")
+              response = requests.get(video_url(result), timeout=300)
+              response.raise_for_status()
+              raw = RAW / f"S1E01_Part{part}_raw.mp4"
+              raw.write_bytes(response.content)
+              ass = make_ass(part)
+              final = FINAL / f"S1E01_Part{part}_review.mp4"
+              run(
+                  "ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", str(raw),
+                  "-vf", "fps=24,scale=854:480:force_original_aspect_ratio=decrease,pad=854:480:(ow-iw)/2:(oh-ih)/2:color=black,eq=brightness=-0.055:contrast=1.18:saturation=0.76:gamma=0.92,colorbalance=rs=-0.025:gs=-0.005:bs=0.060,setsar=1,subtitles=filename=" + str(ass) + ":fontsdir=/usr/share/fonts/opentype/noto",
+                  "-af", "loudnorm=I=-16:TP=-1.5:LRA=11", "-map", "0:v:0", "-map", "0:a:0?",
+                  "-c:v", "libx264", "-preset", "medium", "-crf", "18", "-pix_fmt", "yuv420p",
+                  "-c:a", "aac", "-b:a", "192k", "-ar", "32000", "-ac", "2",
+                  "-t", "15.1", "-movflags", "+faststart", str(final),
+              )
+              beats = []
+              for index, second in enumerate((0.45,1.55,2.70,3.85,5.00,6.15,7.30,8.45,9.60,10.75,11.90,13.55), 1):
+                  frame = FINAL / f"S1E01_Part{part}_beat_{index:02d}_{second:.2f}s.jpg"
+                  run("ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-ss", str(second), "-i", str(final), "-frames:v", "1", "-q:v", "3", str(frame))
+                  beats.append(frame.name)
+              run("ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-pattern_type", "glob", "-i", str(FINAL / f"S1E01_Part{part}_beat_*.jpg"), "-filter_complex", "scale=320:180,tile=4x3:padding=4:margin=4:color=0x05090D", "-frames:v", "1", str(FINAL / f"S1E01_Part{part}_contact_sheet.jpg"))
+              probe = json.loads(subprocess.run(["ffprobe","-v","error","-show_entries","format=duration:stream=codec_type,codec_name,width,height,avg_frame_rate,sample_rate,channels","-of","json",str(final)], check=True, capture_output=True, text=True).stdout)
+              video = next(x for x in probe["streams"] if x["codec_type"] == "video")
+              audio = next((x for x in probe["streams"] if x["codec_type"] == "audio"), {})
+              qc = {"part":part, "duration":float(probe["format"]["duration"]), "video":video, "audio":audio, "beats":beats}
+              if qc["duration"] < 14.5 or video.get("width") != 854 or video.get("height") != 480 or video.get("avg_frame_rate") != "24/1" or audio.get("codec_name") != "aac" or audio.get("channels") != 2:
+                  raise RuntimeError(f"Part {part} technical QC failed; no automatic rerun: {qc}")
+              (FINAL / f"S1E01_Part{part}_QA.json").write_text(json.dumps(qc, ensure_ascii=False, indent=2), encoding="utf-8")
+              return final
+
+          generate(3, part3_refs, part3, 2026080203)
+          generate(4, part4_refs, part4, 2026080204)
+          state["state"] = "completed_pending_manual_visual_review_before_four_part_merge"
+          save_state()
+          PY
+
+      - name: Upload Parts 3 and 4 review artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: S1E01-Parts34-final-review-${{ github.run_id }}
+          path: |
+            final/S1E01_Part3_review.mp4
+            final/S1E01_Part4_review.mp4
+            final/S1E01_Part3_beat_*.jpg
+            final/S1E01_Part4_beat_*.jpg
+            final/S1E01_Part3_contact_sheet.jpg
+            final/S1E01_Part4_contact_sheet.jpg
+            final/S1E01_Part3_QA.json
+            final/S1E01_Part4_QA.json
+            final/s1e01_parts34_status.json
+            runtime/S1E01_Part3_final_prompt.txt
+            runtime/S1E01_Part4_final_prompt.txt
+            runtime/s1e01_part3_bilingual.ass
+            runtime/s1e01_part4_bilingual.ass
+            runtime/references/*.jpg
+            raw/S1E01_Part3_raw.mp4
+            raw/S1E01_Part4_raw.mp4
+            raw/s1e01_part3_result.json
+            raw/s1e01_part4_result.json
+          if-no-files-found: warn
+          retention-days: 30
