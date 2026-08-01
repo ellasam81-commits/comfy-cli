@@ -1,0 +1,630 @@
+name: Generate S1E01 Part 2 — series standard v3f review (Segmind)
+
+on:
+  push:
+    branches:
+      - render/s1e01-final
+    paths:
+      - "references/s1e01/run-part2-series-standard-v3f.txt"
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: s1e01-part2-series-standard-v3f
+  cancel-in-progress: false
+
+jobs:
+  generate-review-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    env:
+      SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+      PYTHONUNBUFFERED: "1"
+
+    steps:
+      - name: Check out locked inputs
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate exact paid trigger and locked source hashes
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+          TRIGGER: references/s1e01/run-part2-series-standard-v3f.txt
+          WORKFLOW: .github/workflows/generate-s1e01-part2-series-standard-v3f.yml
+          BOARD: references/s1e01/board_02.jpg.b64
+          BLADE_BOARD: references/s1e01/board_04.jpg.b64
+          JIAN_LOCK: references/s1e01/jian_ci_lock_highres_20260802.jpg.b64
+        run: |
+          set -euo pipefail
+          [[ "$RUN_ATTEMPT" == "1" ]] || { echo "::error::Workflow reruns are forbidden for this one-shot generation."; exit 2; }
+          git cat-file -e "$BEFORE_SHA:$WORKFLOW"
+          mapfile -t changed < <(git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+          [[ "${#changed[@]}" -eq 1 && "${changed[0]}" == "$TRIGGER" ]]
+          mapfile -t added < <(git diff --diff-filter=A --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+          [[ "${#added[@]}" -eq 1 && "${added[0]}" == "$TRIGGER" ]]
+          [[ -z "$(git log -1 --format=%H "$BEFORE_SHA" -- "$TRIGGER")" ]] || {
+            echo "::error::This marker path existed previously; a second paid submission is forbidden."
+            exit 2
+          }
+          [[ "$(cat "$TRIGGER")" == "AUTHOR-APPROVED: GENERATE ONLY S1E01 PART 2 SERIES STANDARD V3F ONCE" ]]
+
+          for path in "$BOARD" "$BLADE_BOARD" "$JIAN_LOCK"; do
+            git cat-file -e "$BEFORE_SHA:$path"
+          done
+          board_sha="$(base64 --decode "$BOARD" | sha256sum | awk '{print $1}')"
+          blade_board_sha="$(base64 --decode "$BLADE_BOARD" | sha256sum | awk '{print $1}')"
+          jian_sha="$(base64 --decode "$JIAN_LOCK" | sha256sum | awk '{print $1}')"
+          [[ "$board_sha" == "fcd320886ac0b5265be6ddf8cfebae33fbc887494e764bea7eed1f549f447626" ]]
+          [[ "$blade_board_sha" == "5a762f296595608eef725345da89aa3a8b326626aca7b99b9b7a62bae040be72" ]]
+          [[ "$jian_sha" == "24e46f07579b667fbad74a0deb6933327c8a3da158e29a113f0d8f946e27590f" ]]
+
+      - name: Fetch immutable accepted Part 1 continuity source
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p prior_part1
+          curl --fail --silent --show-error --location --retry 3 \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/actions/artifacts/8823938149/zip" \
+            --output prior_part1/artifact.zip
+          python -m zipfile -e prior_part1/artifact.zip prior_part1
+          PART1_RAW="prior_part1/raw/S1E01_Part1_series_standard_v2_raw.mp4"
+          [[ -s "$PART1_RAW" ]]
+          [[ "$(sha256sum "$PART1_RAW" | awk '{print $1}')" == "68ee9cea28722469cabbd56996a09df6af1ef8faf679561c53ea614c31cc9c88" ]]
+
+      - name: Restore one-shot paid lock
+        id: paid-lock
+        uses: actions/cache/restore@v4
+        with:
+          path: output/paid-lock
+          key: segmind-s1e01-part2-series-standard-v3f
+          lookup-only: true
+
+      - name: Validate secret and unused lock
+        env:
+          LOCK_HIT: ${{ steps.paid-lock.outputs.cache-hit }}
+        run: |
+          set -euo pipefail
+          [[ -n "$SEGMIND_API_KEY" ]] || { echo "::error::Missing SEGMIND_API_KEY; no paid request made."; exit 2; }
+          [[ "$LOCK_HIT" != "true" ]] || { echo "::error::This author-approved Part 2 review has already been submitted."; exit 2; }
+
+      - name: Install and preflight renderer and post-production tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install "segmind==1.1.0" requests Pillow
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg fontconfig fonts-noto-cjk
+          fc-match "Noto Sans CJK SC" | grep -q "NotoSansCJK"
+          ffmpeg -hide_banner -filters 2>/dev/null | grep -q " subtitles "
+
+      - name: Arm one-shot paid lock after preflight
+        run: |
+          mkdir -p output/paid-lock
+          echo "author-approved Part 2 series-standard v3f review; run $GITHUB_RUN_ID" > output/paid-lock/armed.txt
+
+      - name: Save one-shot paid lock
+        uses: actions/cache/save@v4
+        with:
+          path: output/paid-lock
+          key: segmind-s1e01-part2-series-standard-v3f
+
+      - name: Generate only Part 2 and build deterministic bilingual review master
+        run: |
+          python - <<'PY'
+          import base64
+          import json
+          import re
+          import subprocess
+          import textwrap
+          from pathlib import Path
+
+          import requests
+          from PIL import Image, ImageDraw, ImageOps
+          from segmind import SegmindClient
+
+
+          SOURCE = Path("references/s1e01")
+          RUNTIME = Path("runtime")
+          RAW = Path("raw")
+          FINAL = Path("final")
+          AUDIT_REFS = RUNTIME / "part2_references"
+          for directory in (RUNTIME, RAW, FINAL, AUDIT_REFS):
+              directory.mkdir(exist_ok=True)
+
+
+          def run(*args):
+              subprocess.run(list(args), check=True)
+
+
+          def restore_reference(name):
+              source = SOURCE / f"{name}.jpg.b64"
+              target = RUNTIME / f"{name}.jpg"
+              target.write_bytes(base64.b64decode(source.read_bytes()))
+              return target
+
+
+          def make_clean_references(board_path, blade_board_path, jian_lock_path, part1_raw):
+              board = Image.open(board_path).convert("RGB")
+              if board.size != (768, 512):
+                  raise RuntimeError(f"Unexpected Part 2 board size: {board.size}")
+              clean = []
+
+              def save_padded(image, name, size=(640, 360)):
+                  image = ImageOps.pad(
+                      image, size, method=Image.Resampling.LANCZOS, color=(5, 9, 13)
+                  )
+                  path = AUDIT_REFS / name
+                  image.save(path, quality=96)
+                  clean.append(path)
+
+              # Door and hardware identity only. The x=92 crop removes the vertical clinic sign.
+              save_padded(board.crop((92, 62, 190, 138)), "reference_01_door_hardware.jpg")
+
+              # Neutral geometry-only mannequin guide: complete head, both hands, both legs and both shoes.
+              # It supplies framing only and carries no face, wardrobe, room, injury, text or story content.
+              guide = Image.new("RGB", (640, 360), (6, 11, 17))
+              draw = ImageDraw.Draw(guide)
+              for x in range(40, 641, 80):
+                  draw.line((x, 40, x - 80, 340), fill=(10, 20, 29), width=1)
+              for y in range(70, 341, 55):
+                  draw.line((20, y, 620, y), fill=(10, 20, 29), width=1)
+              fill = (73, 87, 100)
+              edge = (128, 151, 168)
+              draw.ellipse((72, 70, 132, 130), fill=fill, outline=edge, width=3)
+              draw.polygon(
+                  ((125, 105), (185, 115), (315, 195), (285, 235), (155, 165)),
+                  fill=fill, outline=edge,
+              )
+              draw.line((160, 135, 120, 220, 90, 245), fill=edge, width=26, joint="curve")
+              draw.line((185, 140, 255, 105, 305, 118), fill=edge, width=24, joint="curve")
+              draw.ellipse((76, 232, 102, 258), fill=fill, outline=edge, width=2)
+              draw.ellipse((294, 106, 320, 132), fill=fill, outline=edge, width=2)
+              draw.line((295, 215, 410, 253, 522, 286), fill=edge, width=31, joint="curve")
+              draw.line((300, 205, 425, 218, 545, 236), fill=edge, width=31, joint="curve")
+              draw.polygon(((510, 273), (570, 288), (566, 310), (518, 304)), fill=fill, outline=edge)
+              draw.polygon(((533, 223), (593, 232), (592, 254), (540, 254)), fill=fill, outline=edge)
+              save_padded(guide, "reference_02_fullbody_geometry_only.jpg")
+
+              # Part 2 panel 2 supplies the correct old-clinic room, Zhong Yuan age/clothing and floor-pose style;
+              # its source crop is never allowed to control camera framing because input image 2 does that.
+              save_padded(board.crop((223, 62, 381, 138)), "reference_03_zhong_yuan_room_style.jpg")
+
+              blade_board = Image.open(blade_board_path).convert("RGB")
+              if blade_board.size != (768, 512):
+                  raise RuntimeError(f"Unexpected Part 4 board size: {blade_board.size}")
+              # Same clean evidence-tray dagger design used later in Part 4; tray/chain/gel are ignored.
+              save_padded(blade_board.crop((205, 180, 360, 238)), "reference_04_blade_prop.jpg")
+
+              save_padded(board.crop((414, 174, 569, 232)), "reference_05_teaching_photo.jpg")
+
+              if not part1_raw.is_file():
+                  raise RuntimeError(f"Accepted Part 1 raw continuity source missing: {part1_raw}")
+              lin_still = RUNTIME / "accepted_part1_5.85s.jpg"
+              group_still = RUNTIME / "accepted_part1_6.90s.jpg"
+              run(
+                  "ffmpeg", "-nostdin", "-hide_banner", "-loglevel", "error", "-y",
+                  "-ss", "5.85", "-i", str(part1_raw), "-frames:v", "1", "-q:v", "2", str(lin_still),
+              )
+              run(
+                  "ffmpeg", "-nostdin", "-hide_banner", "-loglevel", "error", "-y",
+                  "-ss", "6.90", "-i", str(part1_raw), "-frames:v", "1", "-q:v", "2", str(group_still),
+              )
+              lin_frame = Image.open(lin_still).convert("RGB")
+              group_frame = Image.open(group_still).convert("RGB")
+              save_padded(group_frame.crop((145, 10, 410, 305)), "reference_06_zhong_ning_accepted.jpg", (480, 720))
+              save_padded(lin_frame.crop((0, 0, 430, 430)), "reference_07_lin_qian_accepted.jpg", (480, 720))
+              save_padded(group_frame.crop((390, 5, 700, 305)), "reference_08_han_che_accepted.jpg", (480, 720))
+
+              jian = Image.open(jian_lock_path).convert("RGB")
+              jian = ImageOps.fit(jian, (480, 720), method=Image.Resampling.LANCZOS)
+              jian_path = AUDIT_REFS / "reference_09_jian_ci_identity.jpg"
+              jian.save(jian_path, quality=96)
+              clean.append(jian_path)
+              return clean
+
+
+          board = restore_reference("board_02")
+          blade_board = restore_reference("board_04")
+          jian_lock = restore_reference("jian_ci_lock_highres_20260802")
+          accepted_part1_raw = Path("prior_part1/raw/S1E01_Part1_series_standard_v2_raw.mp4")
+          references = make_clean_references(board, blade_board, jian_lock, accepted_part1_raw)
+
+
+          def extract_video_url(result):
+              output = result.get("output") if isinstance(result, dict) else result
+              candidates = []
+              if isinstance(output, dict):
+                  candidates.extend([output.get("video_url"), output.get("url"), output.get("video")])
+              elif isinstance(output, list):
+                  for item in output:
+                      if isinstance(item, dict):
+                          candidates.extend([item.get("video_url"), item.get("url"), item.get("video")])
+                      else:
+                          candidates.append(item)
+              else:
+                  candidates.append(output)
+              for candidate in candidates:
+                  if isinstance(candidate, str) and candidate.startswith(("https://", "http://")):
+                      return candidate
+              raise RuntimeError(f"Segmind completed without a downloadable video URL: {result}")
+
+
+          common = r"""
+          OUTPUT LOCK. Make one continuous 15-second, 16:9, 480p, 24fps original cinematic 2D manga/anime
+          crime-noir sequence. Use exactly twelve sequential full-screen shots connected only by clean hard cuts. One shot
+          fills the entire frame at a time. The input-image frames, edges, padding and layouts are production controls and
+          never appear in the story. The sole exception is the depicted CONTENT of image 5: it becomes one physical,
+          faded teaching photograph prop, without any source border, panel number or caption. Never show a storyboard sheet,
+          grid, collage, split screen, picture-in-picture, poster, page border, panel number, source caption, logo, watermark,
+          timecode, model-generated subtitle, UI or readable uniform lettering.
+
+          INPUT IMAGE MAP. Image 1 is a clean Part 2 storyboard crop controlling the old door, hardware and entry style;
+          its chain state does not override the released-loose state specified below. Image 2 is a neutral mannequin
+          geometry guide controlling ONLY the mandatory diagonal head-to-both-shoes framing, camera distance and body scale;
+          never reproduce its schematic lines, colors or generic anatomy. Image 3 is a clean Part 2 crop controlling
+          the correct old-clinic room, Zhong Yuan age, clothing and floor-pose style; its partial source crop never controls
+          final framing, which image 2 and the text absolutely override. Image 4 is the clean later-episode evidence-
+          tray view of the SAME dagger and controls only its black patterned handle, symmetric guard and short silver blade;
+          never copy its tray, loose chain or gel into the body scene. Image 5 controls the single faded teaching-photo
+          content. Image 6 is living Zhong Ning's clean identity/wardrobe lock from the accepted Part 1 raw master. Image 7
+          is Lin Qian's accepted Part 1 identity/wardrobe lock. Image 8 is Han Che's accepted Part 1 identity/wardrobe lock.
+          Image 9 is Jian Ci's high-resolution canonical identity
+          and wardrobe lock. These role assignments are absolute and do not mix.
+
+          CHARACTER LOCK. Jian Ci / 检刺 is the same tall slim pale adult Chinese man from image 9: short tousled black
+          hair, white knee-length forensic coat, black high-neck shirt, black trousers and black gloves, restrained expression.
+          Jian Ci never wears glasses. Lin Qian / 林浅 is the same adult Chinese woman from image 7 with the same chin-
+          length black bob, unlettered dark-navy field uniform, black trousers and gloves. Han Che / 韩彻 is the same mature,
+          stern Chinese man from image 8 in an unlettered dark police jacket. Zhong Ning / 钟宁 is the same living
+          24-year-old daughter and witness from image 6, upright and uninjured in her rain-darkened beige coat. Preserve
+          the accepted short chin-length front bob silhouette for Zhong Ning; from side or back there may be only a tiny low
+          nape tie, never a new long ponytail. Zhong Yuan / 钟远 is one deceased 64-year-old Chinese man: weathered face,
+          short gray hair, gray-white old doctor's coat open over a charcoal shirt, dark trousers and dark shoes. Preserve
+          faces, proportions, costumes, screen direction and prop positions across every cut. The only allowed people are
+          two anonymous uniformed door officers visible only in shot 1, Zhong Yuan, Jian Ci, Lin Qian, Han Che and Zhong Ning.
+          No identity swaps, morphing, wardrobe changes, duplicate people, extra corpse, bystander or additional character.
+
+          SCENE AND PROP LOCK. The entire clinic action is the same rainy old Nancheng clinic established in Part 1: cold
+          blue-black low-key lighting, wet black-gray square tile, old dark wooden door on the left, the same rusty chain
+          hardware, examination bed center-back, glass cabinets and shelves on the back wall, and the same rain-streaked
+          window. Police have documented and opened the door after the internal mechanism released the chain. Whenever the
+          chain reappears it is intact, loosened and hanging from the same fittings, never cut and never impossibly latched
+          across an open door. Use one and only one faded photograph: younger Zhong Yuan teaching several children basic
+          first aid. It is not a family portrait or romance photograph. Investigators photograph it in place, then seal it
+          in one transparent evidence sleeve before identification. Zhong Ning never touches it. The small pouch in shot 11
+          is a different item and contains one capped sterile dry swab tube holding the trace; it never contains the blade or
+          photograph. Never place the tray gel or a loose chain from image 4 beside Zhong Yuan.
+
+          BODY AND INJURY ABSOLUTE LOCK. Zhong Yuan is motionless on his back. In shot 2 keep his complete body continuously
+          visible in one uninterrupted locked 45-degree wide frame from 0.60 through 3.30 seconds: entire gray-haired head,
+          torso, both arms and hands, both legs, both dark shoes and surrounding floor all inside the frame with generous
+          lower subtitle-safe floor margin,
+          head at screen-left and feet at screen-right, body occupying about seventy to eighty percent of frame. Do not cut,
+          zoom, dissolve or cover any body part during that proof hold. Zhong Yuan has exactly one injury and one weapon:
+          a single short silver blade fixed in the center of his chest over the sternum, around nipple level, clearly above
+          the lower rib edge and far above abdomen, waist and belt. The same blade never moves, turns, multiplies, is pulled
+          out or appears anywhere else. Show only one tiny dark-maroon local mark immediately around the chest entry. No
+          second red mark, head injury, neck injury, abdominal injury, blood pool, floor blood, gore, exposed organs, torn
+          limbs, second knife, sword, syringe or gun.
+
+          VISUAL LOCK. Match the authored storyboard: extremely dark rain-soaked blue-black manga noir, cold desaturated
+          navy and charcoal, near-black shadows, fine ink lines, wet reflections, narrow flashlight and alternative-light
+          accents, high cinematic contrast, restrained realistic motion and credible forensic procedure. Keep faces and the
+          proof body readable without making the scene warm, bright or evenly lit. Suspense, crime and subtle horror dominate;
+          humor exists only as dry timing. No live action, photorealism, glossy 3D skin, chibi, slapstick or supernatural glow.
+          """
+
+          storyboard = r"""
+          S1E01 PART 2 — 尸体与银刃 / body and silver blade. Follow this exact authored twelve-shot order and timing:
+
+          1, 0.00–0.60: Two officers carefully swing open the documented old clinic door. The released chain hangs intact
+          from the same hardware. No forced entry and nobody steps on evidence.
+          2, 0.60–3.30: One locked 45-degree wide proof frame of Zhong Yuan beside the examination bed. Obey the complete
+          head-to-both-shoes framing and single sternum-blade injury lock above for the entire 2.70 seconds without any cut,
+          zoom, dissolve, foreground obstruction, subtitle-like text or police tape.
+          3, 3.30–4.15: Controlled close forensic insert of the same one short silver blade at the upper-center sternum and
+          the one tiny local maroon entry mark. The rest of his body and room remain geometrically consistent.
+          4, 4.15–5.25: Jian Ci, in his exact accepted white coat and black gloves, photographs the overall body and chest
+          with a forensic scale beside the wound. He does not sample, touch or remove the blade in this shot.
+          5, 5.25–6.20: Lin Qian checks the same sealed rain-streaked window and its intact inner latch.
+          6, 6.20–7.15: Close view of the same rusty chain and lock fittings, intact and hanging loose after release, with no
+          tool marks, cut link or forced entry.
+          7, 7.15–8.15: Investigators first photograph, then seal the same faded image in one transparent evidence sleeve.
+          Its content clearly depicts younger Zhong Yuan teaching several children basic first aid; no readable writing.
+          8, 8.15–9.20: At the documented doorway boundary, Lin Qian holds that sealed sleeve inside the scene while living
+          Zhong Ning identifies it from outside without touching it, upright and uninjured, suppressing grief.
+          9, 9.20–10.15: A blue-violet alternative forensic light reveals one faint transparent trace immediately beside the
+          same blade; it is subtle, physical residue, not magical light and not extra blood.
+          10, 10.15–11.25: Jian Ci calmly documents the same blade's apparent entry angle and exposed length with a ruler
+          beside it. Procedure reserves wound-depth conclusions for imaging or autopsy; he never removes the blade and never
+          creates another wound or speaks an extra line.
+          11, 11.25–12.30: Lin Qian caps one sterile dry swab tube containing the faint residue, then seals that tube inside
+          a small transparent evidence pouch. The blade and teaching photo never enter the pouch.
+          12, 12.30–15.00: One coherent threshold group frame: Jian Ci, Lin Qian and Han Che remain just inside the documented
+          clinic edge while living Zhong Ning stays outside. They compare the bloodless locked-room evidence across the same
+          doorway boundary. Zhong Yuan remains offscreen but in the same documented position. Eyelines and geography remain
+          continuous, serious and realistic.
+
+          SPOKEN AUDIO LOCK. Mandarin Chinese only. Use clear natural adult voices, correct speakers and exact wording below.
+          Do not overlap lines, add words, change names or replace speech with music. Keep rain, quiet clinic room tone, camera
+          shutter, one evidence-bag rustle and sparse low suspense score well below the voices.
+          0.00–3.30 旁白：警方进入诊所。死者钟远，六十四岁，曾任医生。
+          3.30–5.60 检刺：林浅，拍全身。钟远只有一处胸骨银刃伤。
+          5.60–7.40 林浅：检刺，窗锁和门链都完好。
+          7.40–9.40 钟宁：韩彻警官，照片里是我父亲钟远。
+          9.40–12.00 韩彻：钟宁留在外面。林浅，把残留物封存。
+          12.00–15.00 检刺：韩彻，刀在这里。血不在这里。
+
+          STRICT NEGATIVE. No abdomen blade, low-rib blade, belt blade, floating blade, two blades, missing feet, cropped
+          shoes, cropped head, incomplete proof body, camera cut during 0.60–3.30, blood pool, gore, second wound, injured or
+          dead Zhong Ning, long-haired Zhong Ning, glasses on Jian Ci, cut chain, indoor police tape, family photo, model-
+          generated subtitles, readable text, random speech, people beyond the explicitly allowed cast, duplicate body,
+          mannequin-guide lines, evidence tray, gel beside the body, loose chain beside the body, collage, panels or watermark.
+          """
+
+          prompt = textwrap.dedent(common).strip() + "\n\n" + textwrap.dedent(storyboard).strip()
+          (RUNTIME / "S1E01_Part2_series_standard_v3f_prompt.txt").write_text(prompt, encoding="utf-8")
+
+          client = SegmindClient()
+
+          def upload(path):
+              response = client.files.upload(path)
+              urls = response.get("file_urls") or []
+              if not urls:
+                  raise RuntimeError(f"Segmind upload returned no reference URL for {path}: {response}")
+              return urls[0]
+
+          request = {
+              "model": "seedance-2.0-mini",
+              "duration": 15,
+              "resolution": "480p",
+              "aspect_ratio": "16:9",
+              "generate_audio": True,
+              "bitrate_mode": "high",
+              "seed": 2026080202,
+              "reference_images": len(references),
+              "approval": "author-approved: generate only S1E01 Part 2 series-standard v3f review once",
+          }
+          state = {
+              "state": "starting",
+              "episode": "S1E01",
+              "segment": "02",
+              "purpose": "full-body evidence review only; no merge, public release update or overwrite",
+              "settings": request,
+          }
+          state_path = FINAL / "s1e01_part2_series_standard_v3f_status.json"
+
+          def save_state():
+              state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
+
+          save_state()
+          job = client.submit_async(
+              "seedance-2.0-mini",
+              prompt=prompt,
+              reference_images=[upload(path) for path in references],
+              duration=15,
+              resolution="480p",
+              aspect_ratio="16:9",
+              generate_audio=True,
+              bitrate_mode="high",
+              seed=2026080202,
+          )
+          state.update(state="processing", request_id=job.request_id)
+          save_state()
+          print("Segmind request ID:", job.request_id, flush=True)
+
+          result = job.wait(timeout=1800, interval=5)
+          (RAW / "s1e01_part2_series_standard_v3f_result.json").write_text(
+              json.dumps(result, ensure_ascii=False, indent=2, default=str), encoding="utf-8"
+          )
+          source_url = extract_video_url(result)
+          response = requests.get(source_url, timeout=300)
+          response.raise_for_status()
+          raw_video = RAW / "S1E01_Part2_series_standard_v3f_raw.mp4"
+          raw_video.write_bytes(response.content)
+
+          subtitle_file = RUNTIME / "s1e01_part2_bilingual.ass"
+          subtitle_file.write_text(
+              textwrap.dedent(r"""
+              [Script Info]
+              ScriptType: v4.00+
+              PlayResX: 854
+              PlayResY: 480
+              WrapStyle: 0
+              ScaledBorderAndShadow: yes
+              YCbCr Matrix: TV.601
+
+              [V4+ Styles]
+              Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+              Style: Header,Noto Sans CJK SC,20,&H00FFFFFF,&H000000FF,&H78000000,&H78000000,-1,0,0,0,100,100,0,0,3,2,0,8,16,16,12,1
+              Style: Sub,Noto Sans CJK SC,22,&H00FFFFFF,&H000000FF,&H70000000,&H70000000,0,0,0,0,100,100,0,0,3,2,0,2,20,20,18,1
+
+              [Events]
+              Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+              Dialogue: 10,0:00:00.00,0:00:30.00,Header,,0,0,0,,《吸血法医·剑刺》｜S1E01《上锁的人》｜作者：林爱丽
+              Dialogue: 20,0:00:00.00,0:00:03.30,Sub,,0,0,0,,旁白：警方进入诊所。死者钟远，六十四岁，曾任医生。\N{\fs17}Narrator: Police enter. The deceased: Zhong Yuan, 64, a former doctor.
+              Dialogue: 20,0:00:03.30,0:00:05.60,Sub,,0,0,0,,检刺：林浅，拍全身。钟远只有一处胸骨银刃伤。\N{\fs17}Jian Ci: Lin Qian, full-body photos first. Zhong Yuan has one silver-blade sternum wound.
+              Dialogue: 20,0:00:05.60,0:00:07.40,Sub,,0,0,0,,林浅：检刺，窗锁和门链都完好。\N{\fs17}Lin Qian: Jian Ci, the window lock and door chain are intact.
+              Dialogue: 20,0:00:07.40,0:00:09.40,Sub,,0,0,0,,钟宁：韩彻警官，照片里是我父亲钟远。\N{\fs17}Zhong Ning: Officer Han Che, that is my father Zhong Yuan in the photograph.
+              Dialogue: 20,0:00:09.40,0:00:12.00,Sub,,0,0,0,,韩彻：钟宁留在外面。林浅，把残留物封存。\N{\fs17}Han Che: Zhong Ning, stay outside. Lin Qian, seal the residue.
+              Dialogue: 20,0:00:12.00,0:00:15.20,Sub,,0,0,0,,检刺：韩彻，刀在这里。血不在这里。\N{\fs17}Jian Ci: Han Che, the blade is here. The blood isn't.
+              """).strip() + "\n",
+              encoding="utf-8",
+          )
+
+          final_video = FINAL / "S1E01_Part2_series_standard_v3f_review.mp4"
+          run(
+              "ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", str(raw_video),
+              "-vf", (
+                  "fps=24,scale=854:480:force_original_aspect_ratio=decrease,"
+                  "pad=854:480:(ow-iw)/2:(oh-ih)/2:color=black,"
+                  "eq=brightness=-0.055:contrast=1.18:saturation=0.76:gamma=0.92,"
+                  "colorbalance=rs=-0.025:gs=-0.005:bs=0.060,"
+                  "setsar=1,subtitles=filename=runtime/s1e01_part2_bilingual.ass:"
+                  "fontsdir=/usr/share/fonts/opentype/noto"
+              ),
+              "-af", "loudnorm=I=-16:TP=-1.5:LRA=11",
+              "-map", "0:v:0", "-map", "0:a:0?", "-c:v", "libx264", "-preset", "medium",
+              "-crf", "18", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k",
+              "-ar", "32000", "-ac", "2",
+              "-t", "15.1", "-movflags", "+faststart", str(final_video),
+          )
+
+          probe = json.loads(subprocess.run(
+              [
+                  "ffprobe", "-v", "error", "-show_entries",
+                  "format=duration:stream=codec_type,codec_name,width,height,avg_frame_rate,sample_rate,channels",
+                  "-of", "json", str(final_video),
+              ],
+              check=True, capture_output=True, text=True,
+          ).stdout)
+          streams = probe.get("streams", [])
+          video_stream = next((item for item in streams if item.get("codec_type") == "video"), {})
+          audio_stream = next((item for item in streams if item.get("codec_type") == "audio"), {})
+          volume_result = subprocess.run(
+              [
+                  "ffmpeg", "-hide_banner", "-nostats", "-i", str(final_video),
+                  "-vn", "-af", "volumedetect", "-f", "null", "-",
+              ],
+              check=True, capture_output=True, text=True,
+          )
+          max_match = re.search(r"max_volume:\s*(-inf|[-+]?\d+(?:\.\d+)?)\s*dB", volume_result.stderr)
+          mean_match = re.search(r"mean_volume:\s*(-inf|[-+]?\d+(?:\.\d+)?)\s*dB", volume_result.stderr)
+          max_volume = None if not max_match or max_match.group(1) == "-inf" else float(max_match.group(1))
+          mean_volume = None if not mean_match or mean_match.group(1) == "-inf" else float(mean_match.group(1))
+          technical_qc = {
+              "duration_seconds": float(probe.get("format", {}).get("duration", 0)),
+              "has_audio": bool(audio_stream),
+              "audio_codec": audio_stream.get("codec_name"),
+              "sample_rate": audio_stream.get("sample_rate"),
+              "channels": audio_stream.get("channels"),
+              "mean_volume_db": mean_volume,
+              "max_volume_db": max_volume,
+              "width": video_stream.get("width"),
+              "height": video_stream.get("height"),
+              "frame_rate": video_stream.get("avg_frame_rate"),
+          }
+          if (
+              technical_qc["duration_seconds"] < 14.5
+              or technical_qc["width"] != 854
+              or technical_qc["height"] != 480
+              or technical_qc["frame_rate"] != "24/1"
+              or technical_qc["audio_codec"] != "aac"
+              or technical_qc["sample_rate"] != "32000"
+              or technical_qc["channels"] != 2
+              or technical_qc["max_volume_db"] is None
+              or technical_qc["max_volume_db"] < -60.0
+          ):
+              raise RuntimeError(f"Part 2 failed technical/audio QC; automatic rerun is forbidden: {technical_qc}")
+
+          raw_proof_frames = []
+          final_proof_frames = []
+          for second in (1.05, 1.75, 2.45):
+              raw_frame = FINAL / f"S1E01_Part2_fullbody_RAW_proof_{second:.2f}s.jpg"
+              final_frame = FINAL / f"S1E01_Part2_fullbody_FINAL_proof_{second:.2f}s.jpg"
+              run(
+                  "ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-ss", f"{second:.2f}",
+                  "-i", str(raw_video), "-frames:v", "1", "-q:v", "2", str(raw_frame),
+              )
+              run(
+                  "ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-ss", f"{second:.2f}",
+                  "-i", str(final_video), "-frames:v", "1", "-q:v", "2", str(final_frame),
+              )
+              raw_proof_frames.append(raw_frame.name)
+              final_proof_frames.append(final_frame.name)
+
+          subtitle_frames = []
+          for index, second in enumerate((1.40, 4.20, 6.20, 8.30, 10.30, 13.00), 1):
+              frame = FINAL / f"S1E01_Part2_subtitle_check_{index:02d}_{second:.2f}s.jpg"
+              run(
+                  "ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-ss", f"{second:.2f}",
+                  "-i", str(final_video), "-frames:v", "1", "-q:v", "2", str(frame),
+              )
+              subtitle_frames.append(frame.name)
+
+          beat_frames = []
+          beat_times = (0.30, 1.60, 3.60, 4.55, 5.70, 6.65, 7.60, 8.60, 9.60, 10.70, 11.75, 13.40)
+          for index, second in enumerate(beat_times, 1):
+              frame = FINAL / f"S1E01_Part2_series_standard_v3f_beat_{index:02d}_{second:.2f}s.jpg"
+              run(
+                  "ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-ss", f"{second:.2f}",
+                  "-i", str(final_video), "-frames:v", "1", "-q:v", "3", str(frame),
+              )
+              beat_frames.append(frame.name)
+          run(
+              "ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-pattern_type", "glob",
+              "-i", str(FINAL / "S1E01_Part2_series_standard_v3f_beat_*.jpg"),
+              "-filter_complex", "scale=320:180,tile=4x3:padding=4:margin=4:color=0x05090D",
+              "-frames:v", "1", str(FINAL / "S1E01_Part2_series_standard_v3f_contact_sheet.jpg"),
+          )
+
+          qa = {
+              "episode": "S1E01",
+              "segment": "02",
+              "generation_policy": "one paid Seedance 2 Mini call; no automatic retry",
+              "technical_qc": technical_qc,
+              "raw_fullbody_evidence_frames": raw_proof_frames,
+              "final_fullbody_evidence_frames": final_proof_frames,
+              "subtitle_check_frames": subtitle_frames,
+              "storyboard_beat_frames": beat_frames,
+              "manual_visual_gates": [
+                  "At 1.05, 1.75 and 2.45 seconds, Zhong Yuan's complete gray-haired head, torso, both hands, both legs and both dark shoes are all visible with floor margin in the same uninterrupted wide shot.",
+                  "Zhong Yuan is one 64-year-old male corpse and has exactly one small silver blade fixed at the center sternum/chest, clearly above abdomen, plus only one tiny local maroon entry mark.",
+                  "No second wound, second red mark, head injury, floor blood, gore, extra body or extra weapon appears anywhere.",
+                  "Jian Ci, Lin Qian, Han Che and living witness Zhong Ning match their accepted Part 1 identities and clothing; Jian Ci has no glasses and Zhong Ning has no new long ponytail.",
+                  "The rainy old clinic, examination bed, cabinets, rain window, opened door and intact loosened chain preserve geography and prop continuity.",
+                  "The faded photograph always shows younger Zhong Yuan teaching several children basic first aid; the evidence bag contains only a micro-swab.",
+                  "The top title remains visible; all six deterministic Chinese and English subtitle pairs are clear and correctly spell every character name.",
+                  "Mandarin voices are audible and the exact speakers naturally say Zhong Yuan, Jian Ci, Lin Qian, Han Che and Zhong Ning.",
+                  "No merge, public release update or edits to Parts 1, 3 or 4 were made.",
+              ],
+              "status": "technical_qc_passed_pending_author_review_of_three_fullbody_frames_before_any_merge",
+          }
+          qa_path = FINAL / "S1E01_Part2_series_standard_v3f_QA.json"
+          qa_path.write_text(json.dumps(qa, ensure_ascii=False, indent=2), encoding="utf-8")
+          state.update(
+              state="completed",
+              technical_qc=technical_qc,
+              saved_files=[
+                  final_video.name,
+                  *raw_proof_frames,
+                  *final_proof_frames,
+                  *subtitle_frames,
+                  *beat_frames,
+                  "S1E01_Part2_series_standard_v3f_contact_sheet.jpg",
+                  qa_path.name,
+                  subtitle_file.name,
+              ],
+          )
+          save_state()
+          PY
+
+      - name: Upload review-only artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: S1E01-Part2-series-standard-v3f-review-${{ github.run_id }}
+          path: |
+            final/S1E01_Part2_series_standard_v3f_review.mp4
+            final/S1E01_Part2_fullbody_RAW_proof_*.jpg
+            final/S1E01_Part2_fullbody_FINAL_proof_*.jpg
+            final/S1E01_Part2_subtitle_check_*.jpg
+            final/S1E01_Part2_series_standard_v3f_beat_*.jpg
+            final/S1E01_Part2_series_standard_v3f_contact_sheet.jpg
+            final/S1E01_Part2_series_standard_v3f_QA.json
+            final/s1e01_part2_series_standard_v3f_status.json
+            runtime/S1E01_Part2_series_standard_v3f_prompt.txt
+            runtime/s1e01_part2_bilingual.ass
+            runtime/part2_references/*.jpg
+            raw/S1E01_Part2_series_standard_v3f_raw.mp4
+            raw/s1e01_part2_series_standard_v3f_result.json
+          if-no-files-found: warn
+          retention-days: 30
