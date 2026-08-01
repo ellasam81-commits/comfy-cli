@@ -1,0 +1,341 @@
+name: Generate S1E01 Part 2 — complete-body review (Segmind)
+
+on:
+  push:
+    branches:
+      - render/s1e01-final
+    paths:
+      - "references/s1e01/run-part2-complete-body-review.txt"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: s1e01-part2-complete-body-review-v1
+  cancel-in-progress: false
+
+jobs:
+  generate-review-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+      PYTHONUNBUFFERED: "1"
+
+    steps:
+      - name: Check out locked inputs
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate exact paid trigger
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+          TRIGGER: references/s1e01/run-part2-complete-body-review.txt
+          BOARD: references/s1e01/board_02.jpg.b64
+          CHART: references/s1e01/character_chart.jpg.b64
+          WORKFLOW: .github/workflows/generate-s1e01-part2-complete-body-review.yml
+        run: |
+          set -euo pipefail
+          git cat-file -e "$BEFORE_SHA:$WORKFLOW"
+          git cat-file -e "$BEFORE_SHA:$BOARD"
+          git cat-file -e "$BEFORE_SHA:$CHART"
+          mapfile -t changed < <(git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+          [[ "${#changed[@]}" -eq 1 && "${changed[0]}" == "$TRIGGER" ]]
+          [[ "$(cat "$TRIGGER")" == "GENERATE S1E01 PART 2 COMPLETE BODY REVIEW ONCE" ]]
+
+      - name: Restore one-shot paid lock
+        id: paid-lock
+        uses: actions/cache/restore@v4
+        with:
+          path: output/paid-lock
+          key: segmind-s1e01-part2-complete-body-review-v1
+          lookup-only: true
+
+      - name: Validate secret and unused lock
+        env:
+          LOCK_HIT: ${{ steps.paid-lock.outputs.cache-hit }}
+        run: |
+          set -euo pipefail
+          [[ -n "$SEGMIND_API_KEY" ]] || { echo "::error::Missing SEGMIND_API_KEY; no paid request made."; exit 2; }
+          [[ "$LOCK_HIT" != "true" ]] || { echo "::error::This one-shot review generation has already been submitted."; exit 2; }
+
+      - name: Arm one-shot paid lock
+        run: |
+          mkdir -p output/paid-lock
+          echo "armed by run $GITHUB_RUN_ID" > output/paid-lock/armed.txt
+
+      - name: Save one-shot paid lock
+        uses: actions/cache/save@v4
+        with:
+          path: output/paid-lock
+          key: segmind-s1e01-part2-complete-body-review-v1
+
+      - name: Install renderer and post-production tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install "segmind==1.1.0" requests
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Generate only Part 2 and extract evidence frames
+        run: |
+          python - <<'PY'
+          import base64
+          import json
+          import subprocess
+          from pathlib import Path
+
+          import requests
+          from segmind import SegmindClient
+
+
+          SOURCE = Path("references/s1e01")
+          RUNTIME = Path("runtime")
+          RAW = Path("raw")
+          FINAL = Path("final")
+          for directory in (RUNTIME, RAW, FINAL):
+              directory.mkdir(exist_ok=True)
+
+
+          def run(*args):
+              subprocess.run(list(args), check=True)
+
+
+          def restore_reference(name):
+              source = SOURCE / f"{name}.jpg.b64"
+              target = RUNTIME / f"{name}.jpg"
+              target.write_bytes(base64.b64decode(source.read_bytes()))
+              return target
+
+
+          def extract_video_url(result):
+              output = result.get("output") if isinstance(result, dict) else result
+              candidates = []
+              if isinstance(output, dict):
+                  candidates.extend([output.get("video_url"), output.get("url"), output.get("video")])
+              elif isinstance(output, list):
+                  for item in output:
+                      if isinstance(item, dict):
+                          candidates.extend([item.get("video_url"), item.get("url"), item.get("video")])
+                      else:
+                          candidates.append(item)
+              else:
+                  candidates.append(output)
+              for candidate in candidates:
+                  if isinstance(candidate, str) and candidate.startswith(("https://", "http://")):
+                      return candidate
+              raise RuntimeError(f"Segmind completed without a downloadable video URL: {result}")
+
+
+          board = restore_reference("board_02")
+          character_chart = restore_reference("character_chart")
+
+          common = """
+          Create exactly one continuous 15-second 16:9 480p 24fps premium Japanese 2D anime sequence.
+          Original dark forensic mystery, cold rain-blue and charcoal palette, realistic cinematic lighting,
+          mature adult anatomy, professional evidence handling, restrained micro-expressions and stable hands.
+          Never live action, celebrity likeness, chibi, 3D plastic skin, comic page, still-image slideshow,
+          split screen, collage, picture-in-picture, poster, interface, monitor dashboard, evidence wall,
+          panel border, readable text, subtitle, watermark, logo, timecode or source-image text.
+
+          Reference image 1 supplies only the locked room, anime style, staff identities and intended beat order.
+          It must never be shown. Do not copy its old close crop of the victim: the full-body composition instructions
+          below override that crop. Reference image 2 is the immutable staff-character lock. Jian Ci / 剑刺 is the tall
+          slim pale adult East Asian forensic doctor with short black hair, white forensic coat, black high-neck shirt
+          and black gloves. Lin Qian / 林浅 has a chin-length black bob, dark navy field jacket and black trousers.
+          Keep their face, hair, age, wardrobe, proportions and quiet professional temperament unchanged.
+          Jian Ci uses only a slight breath pause, minute gaze shift, lower-eyelid tension and restrained mouth movement.
+
+          Generate synchronized calm Mandarin dialogue, restrained rain and room ambience, camera shutters,
+          evidence-bag rustle, metal ruler and low original suspense score. No random speech, scream or extra people.
+          Do not render any on-screen captions; subtitles are added later.
+          """
+
+          brief = """
+          S1E01 PART 2 — 密室尸检 / locked-room examination. This is a corrective continuity render.
+          The deceased is Zhong Yuan / 钟远: a 64-year-old Chinese male former clinic director. Zhong Ning / 钟宁 is
+          his living 24-year-old adult daughter and the first witness. She is never the corpse, never injured, never
+          unconscious, and never lies on the floor. There is only one body in the room: Zhong Yuan.
+
+          Absolute anatomy and injury lock for Zhong Yuan: show one complete, intact adult male body from head through
+          both feet and shoes. He lies diagonally on the wet tiled clinic floor, wholly visible inside the examination
+          room. Head, neck, torso, pelvis, both arms, both thighs, knees, calves, ankles and both shoes must all be
+          attached, proportionate, visible and unobstructed. Never crop at the chest, waist, hips, thighs or feet.
+          Never hide the lower body behind a door, furniture, cloth, foreground person or shadow. No missing lower body,
+          no amputation, no severed limb, no fused or duplicated limb, no deformed anatomy and no second corpse.
+          Zhong Yuan wears a rain-damp charcoal clinic shirt, dark trousers and dark shoes.
+
+          He has exactly one visible injury: one silver short dagger embedded in the upper chest/sternum through the
+          charcoal shirt, with only a small, localized, non-graphic blood mark at that entry point. No wound to the
+          head, face, neck, arms, abdomen, pelvis, legs or feet; no other weapon; no blood spray; no gore. The body
+          remains motionless and the dagger stays fixed. Later close details must match the same face, clothing, diagonal
+          pose, chest location and dagger angle shown in the full-body evidence shot.
+
+          Exact 15-second action order:
+          0.0–0.6s — Police carefully open the already-documented old clinic door; rain ambience remains outside.
+          0.6–2.8s — MANDATORY locked-off wide forensic evidence shot, held without a cut. Show Zhong Yuan head-to-toe,
+          including both shoes, in one unbroken 16:9 frame. No one blocks him. This exact view must be present at
+          1.20s, 1.70s and 2.20s for three evidence-frame extracts.
+          2.8–5.4s — Jian Ci remains outside the body perimeter and photographs the chest injury with a ruler; the
+          lower body remains visibly intact in the same wider composition.
+          5.4–7.3s — Lin Qian checks the rain-streaked sealed window and inner chain without changing the room.
+          7.3–9.4s — A faded old family photo is found near the scene; Zhong Ning is alive behind the cordon, quietly
+          identifying it as her father. Her body is upright and separate from the victim.
+          9.4–12.3s — Oblique forensic light reveals faint residue near the fixed silver dagger; Jian Ci observes entry
+          angle without touching or removing it. Keep a full-body evidence view long enough to confirm the same victim.
+          12.3–15.0s — Lin Qian bags a trace; Jian Ci, Lin Qian and Zhong Ning remain calm as the locked-room evidence
+          is documented on an ordinary table. No data screen, UI or montage.
+
+          Mandarin dialogue in this order, quiet and natural:
+          Narrator: 雨没有停，钟远的诊室却已经没有第二个人。
+          剑刺: 先固定全身位置。钟远只有胸口这一处银刃伤。
+          林浅: 门链和窗户都没有被撬过。
+          林浅: 钟宁，留在警戒线外。你是第一发现人。
+          钟宁: 钟远是我父亲。我一直在门外。
+          剑刺: 先封存门链、血样和刃口残留。
+
+          Negative requirements: torso-only body, cropped body, cropped waist, cropped hips, cropped thighs, cropped feet,
+          missing lower body, missing legs, missing feet, amputation, severed limb, extra limb, fused legs, anatomy failure,
+          blanket covering the body, foreground obstruction, second corpse, Zhong Ning as corpse, Zhong Ning lying down,
+          extra injury, extra weapon, blood spray, graphic gore, corpse movement, knife removal, knife rotation,
+          storyboard panel, text, UI, watermark.
+          """
+
+          client = SegmindClient()
+
+          def upload(path):
+              response = client.files.upload(path)
+              urls = response.get("file_urls") or []
+              if not urls:
+                  raise RuntimeError(f"Segmind upload returned no reference URL for {path}: {response}")
+              return urls[0]
+
+          request = {
+              "model": "seedance-2.0-mini",
+              "duration": 15,
+              "resolution": "480p",
+              "aspect_ratio": "16:9",
+              "generate_audio": True,
+              "bitrate_mode": "high",
+              "seed": 20260808,
+              "reference_images": 2,
+          }
+          state = {
+              "state": "starting",
+              "episode": "S1E01",
+              "segment": "02",
+              "purpose": "full-body evidence review only; no episode merge",
+              "settings": request,
+          }
+          state_path = FINAL / "s1e01_part2_review_status.json"
+
+          def save_state():
+              state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
+
+          save_state()
+          job = client.submit_async(
+              "seedance-2.0-mini",
+              prompt=f"{common}\n\n{brief}",
+              reference_images=[upload(board), upload(character_chart)],
+              duration=15,
+              resolution="480p",
+              aspect_ratio="16:9",
+              generate_audio=True,
+              bitrate_mode="high",
+              seed=20260808,
+          )
+          state.update(state="processing", request_id=job.request_id)
+          save_state()
+          print("Segmind request ID:", job.request_id, flush=True)
+
+          result = job.wait(timeout=1800, interval=5)
+          (RAW / "s1e01_part2_result.json").write_text(
+              json.dumps(result, ensure_ascii=False, indent=2, default=str), encoding="utf-8"
+          )
+          source_url = extract_video_url(result)
+          response = requests.get(source_url, timeout=300)
+          response.raise_for_status()
+          raw_video = RAW / "segment_02.mp4"
+          raw_video.write_bytes(response.content)
+
+          final_video = FINAL / "segment_02.mp4"
+          run(
+              "ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", str(raw_video),
+              "-vf", "fps=24,scale=854:480:force_original_aspect_ratio=decrease,pad=854:480:(ow-iw)/2:(oh-ih)/2",
+              "-map", "0:v:0", "-map", "0:a?", "-c:v", "libx264", "-crf", "18",
+              "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", str(final_video),
+          )
+
+          proof_times = (1.20, 1.70, 2.20)
+          proof_frames = []
+          for second in proof_times:
+              frame = FINAL / f"S1E01_Part2_complete_body_proof_{second:.2f}s.jpg"
+              run(
+                  "ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", str(final_video),
+                  "-ss", f"{second:.2f}", "-frames:v", "1", "-q:v", "2", str(frame),
+              )
+              proof_frames.append(frame.name)
+
+          probe = json.loads(subprocess.run(
+              [
+                  "ffprobe", "-v", "error", "-show_entries",
+                  "format=duration:stream=codec_type,width,height,avg_frame_rate", "-of", "json", str(final_video),
+              ],
+              check=True, capture_output=True, text=True,
+          ).stdout)
+          streams = probe.get("streams", [])
+          video_stream = next((item for item in streams if item.get("codec_type") == "video"), {})
+          technical_qc = {
+              "duration_seconds": float(probe.get("format", {}).get("duration", 0)),
+              "has_audio": any(item.get("codec_type") == "audio" for item in streams),
+              "width": video_stream.get("width"),
+              "height": video_stream.get("height"),
+              "frame_rate": video_stream.get("avg_frame_rate"),
+          }
+          if (
+              technical_qc["duration_seconds"] < 14.5
+              or technical_qc["width"] != 854
+              or technical_qc["height"] != 480
+              or not technical_qc["has_audio"]
+          ):
+              raise RuntimeError(f"Part 2 failed technical QC: {technical_qc}")
+
+          qa = {
+              "episode": "S1E01",
+              "segment": "02",
+              "technical_qc": technical_qc,
+              "evidence_frames": proof_frames,
+              "manual_visual_gates": [
+                  "钟远 is the only corpse and is a 64-year-old male.",
+                  "Each evidence frame must show Zhong Yuan from head through both feet/shoes.",
+                  "Only one upper-chest silver dagger wound is visible.",
+                  "钟宁 is alive, upright, and identified only as the daughter/witness.",
+                  "No merge, title card, subtitles, or edits to Parts 1, 3, or 4 were made.",
+              ],
+              "status": "technical_qc_passed_pending_author_visual_approval_before_merge",
+          }
+          (FINAL / "S1E01_Part2_complete_body_QA.json").write_text(
+              json.dumps(qa, ensure_ascii=False, indent=2), encoding="utf-8"
+          )
+          state.update(state="completed", saved_files=[final_video.name, *proof_frames])
+          save_state()
+          PY
+
+      - name: Upload review-only artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: S1E01-Part2-complete-body-review-${{ github.run_id }}
+          path: |
+            final/segment_02.mp4
+            final/S1E01_Part2_complete_body_proof_1.20s.jpg
+            final/S1E01_Part2_complete_body_proof_1.70s.jpg
+            final/S1E01_Part2_complete_body_proof_2.20s.jpg
+            final/S1E01_Part2_complete_body_QA.json
+            final/s1e01_part2_review_status.json
+            raw/s1e01_part2_result.json
+          if-no-files-found: warn
+          retention-days: 30
+          compression-level: 0
