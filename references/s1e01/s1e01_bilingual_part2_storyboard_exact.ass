@@ -1,0 +1,39 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 854
+PlayResY: 480
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name,Fontname,Fontsize,PrimaryColour,SecondaryColour,OutlineColour,BackColour,Bold,Italic,Underline,StrikeOut,ScaleX,ScaleY,Spacing,Angle,BorderStyle,Outline,Shadow,Alignment,MarginL,MarginR,MarginV,Encoding
+Style: Dialogue,Noto Sans CJK SC,24,&H00FFFFFF,&H000000FF,&H00101010,&H80000000,0,0,0,0,100,100,0,0,1,2.2,1,2,34,34,26,1
+Style: Narration,Noto Sans CJK SC,24,&H0000D7FF,&H000000FF,&H00101010,&H80000000,0,0,0,0,100,100,0,0,1,2.2,1,2,34,34,26,1
+
+[Events]
+Format: Layer,Start,End,Style,Name,MarginL,MarginR,MarginV,Effect,Text
+Dialogue: 0,0:00:00.00,0:00:03.00,Narration,,0,0,0,,雨夜，南城旧诊所。门链从里面锁住。\N{\fs17}Rainy night. Nancheng's old clinic. The door chain is locked from inside.
+Dialogue: 0,0:00:03.00,0:00:05.10,Dialogue,,0,0,0,,{\c&HFF8C3F&}林浅{\c&HFFFFFF&}：门锁扣得很死。\N{\fs17\c&HDDDDDD&}Lin Qian: The lock is tightly fastened.
+Dialogue: 0,0:00:05.10,0:00:07.20,Dialogue,,0,0,0,,{\c&HFF8C3F&}韩彻{\c&HFFFFFF&}：现场封住，任何人别进去。\N{\fs17\c&HDDDDDD&}Han Che: Seal the scene. No one goes in.
+Dialogue: 0,0:00:07.20,0:00:09.50,Dialogue,,0,0,0,,{\c&HFF8C3F&}钟宁{\c&HFFFFFF&}：我爸进去以后，就没出来。\N{\fs17\c&HDDDDDD&}Zhong Ning: My father went in and never came back out.
+Dialogue: 0,0:00:09.50,0:00:15.10,Dialogue,,0,0,0,,{\c&HFF8C3F&}检刺{\c&HFFFFFF&}：录音停在门前。水痕却从里面出来。\N{\fs17\c&HDDDDDD&}Jian Ci: The recording stops at the door, but the wet trail comes out from inside.
+
+Dialogue: 0,0:00:15.10,0:00:17.30,Narration,,0,0,0,,雨没有停，钟远的诊室却已经没有第二个人。\N{\fs17}The rain has not stopped, but there is no second person in Zhong Yuan's clinic.
+Dialogue: 0,0:00:17.30,0:00:19.70,Dialogue,,0,0,0,,{\c&HFF8C3F&}检刺{\c&HFFFFFF&}：先固定全身位置。钟远只有胸口这一处银刃伤。\N{\fs17\c&HDDDDDD&}Jian Ci: First fix the full-body position. Zhong Yuan has only this one silver-blade wound in the chest.
+Dialogue: 0,0:00:19.70,0:00:21.80,Dialogue,,0,0,0,,{\c&HFF8C3F&}林浅{\c&HFFFFFF&}：门链和窗户都没有被撬过。\N{\fs17\c&HDDDDDD&}Lin Qian: Neither the chain nor the window was forced open.
+Dialogue: 0,0:00:21.80,0:00:24.60,Dialogue,,0,0,0,,{\c&HFF8C3F&}林浅{\c&HFFFFFF&}：钟宁，留在警戒线外。你是第一发现人。\N{\fs17\c&HDDDDDD&}Lin Qian: Zhong Ning, stay outside the cordon. You were the first to find him.
+Dialogue: 0,0:00:24.60,0:00:27.10,Dialogue,,0,0,0,,{\c&HFF8C3F&}钟宁{\c&HFFFFFF&}：钟远是我父亲。我一直在门外。\N{\fs17\c&HDDDDDD&}Zhong Ning: Zhong Yuan is my father. I was outside the whole time.
+Dialogue: 0,0:00:27.10,0:00:30.20,Dialogue,,0,0,0,,{\c&HFF8C3F&}检刺{\c&HFFFFFF&}：先封存门链、血样和刃口残留。\N{\fs17\c&HDDDDDD&}Jian Ci: First seal the chain, blood sample, and blade residue.
+
+Dialogue: 0,0:00:30.20,0:00:32.80,Narration,,0,0,0,,一段残缺录音，少了三秒。\N{\fs17}A damaged recording is missing three seconds.
+Dialogue: 0,0:00:32.80,0:00:36.00,Dialogue,,0,0,0,,{\c&HFF8C3F&}许未{\c&HFFFFFF&}：刃口有透明黏液，不是普通出血反应。\N{\fs17\c&HDDDDDD&}Xu Wei: There is clear residue on the blade. It is not a normal bleeding response.
+Dialogue: 0,0:00:36.00,0:00:38.50,Dialogue,,0,0,0,,{\c&HFF8C3F&}周屿{\c&HFFFFFF&}：监控在零点十七分，少了三秒。\N{\fs17\c&HDDDDDD&}Zhou Yu: The surveillance feed is missing three seconds at 00:17.
+Dialogue: 0,0:00:38.50,0:00:43.00,Dialogue,,0,0,0,,{\c&HFF8C3F&}检刺{\c&HFFFFFF&}：有人希望他死两次。一次给凶手看，一次给我们看。\N{\fs17\c&HDDDDDD&}Jian Ci: Someone wanted him to die twice: once for the killer, once for us.
+Dialogue: 0,0:00:43.00,0:00:45.30,Dialogue,,0,0,0,,{\c&HFF8C3F&}韩彻{\c&HFFFFFF&}：把那三秒找出来。\N{\fs17\c&HDDDDDD&}Han Che: Find those three seconds.
+
+Dialogue: 0,0:00:45.30,0:00:47.60,Narration,,0,0,0,,检验中心的灯，亮到深夜。\N{\fs17}The lights at the forensic center burn into the night.
+Dialogue: 0,0:00:47.60,0:00:50.20,Dialogue,,0,0,0,,{\c&HFF8C3F&}许未{\c&HFFFFFF&}：银刀上的残留，来自医疗级凝胶。\N{\fs17\c&HDDDDDD&}Xu Wei: The residue on the silver knife is medical-grade gel.
+Dialogue: 0,0:00:50.20,0:00:52.10,Dialogue,,0,0,0,,{\c&HFF8C3F&}周屿{\c&HFFFFFF&}：数据管里有编号。\N{\fs17\c&HDDDDDD&}Zhou Yu: There is an identification code in the data tube.
+Dialogue: 0,0:00:52.10,0:00:54.90,Dialogue,,0,0,0,,{\c&HFF8C3F&}林浅{\c&HFFFFFF&}：门链、三秒断层、透明黏液……都不是意外。\N{\fs17\c&HDDDDDD&}Lin Qian: The chain, the missing three seconds, the clear residue... none of it was an accident.
+Dialogue: 0,0:00:54.90,0:00:57.10,Dialogue,,0,0,0,,{\c&HFF8C3F&}检刺{\c&HFFFFFF&}：它没动。是有人替它动的。\N{\fs17\c&HDDDDDD&}Jian Ci: It did not move. Someone moved it for it.
+Dialogue: 0,0:00:57.10,0:00:58.60,Dialogue,,0,0,0,,{\c&HFF8C3F&}韩彻{\c&HFFFFFF&}：从这个编号开始查。\N{\fs17\c&HDDDDDD&}Han Che: Start with that code.
+Dialogue: 0,0:00:58.60,0:01:00.40,Dialogue,,0,0,0,,{\c&HFF8C3F&}检刺{\c&HFFFFFF&}：这不是证物的终点，是下一个人的开始。\N{\fs17\c&HDDDDDD&}Jian Ci: This is not where the evidence ends. It is where the next person begins.
