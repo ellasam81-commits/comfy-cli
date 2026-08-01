@@ -75,7 +75,7 @@ jobs:
 
 
           ACCEPTED = Path("accepted")
-          APPROVED = Path("approved-part2")
+          APPROVED_ARCHIVE = Path("approved-part2")
           SOURCE = Path("references/s1e01")
           FINAL = Path("final")
           FINAL.mkdir()
@@ -110,6 +110,14 @@ jobs:
                   "frame_rate": video.get("avg_frame_rate"),
               }
 
+
+          # The review artifact contains both final/ and raw/ directories; resolve its final package explicitly.
+          APPROVED = next(
+              (candidate for candidate in (APPROVED_ARCHIVE, APPROVED_ARCHIVE / "final") if (candidate / "segment_02.mp4").exists()),
+              None,
+          )
+          if APPROVED is None:
+              raise RuntimeError(f"Approved Part 2 artifact lacks final/segment_02.mp4: {APPROVED_ARCHIVE}")
 
           # Preserve the previous accepted/repaired package exactly for Parts 1, 3 and 4.
           sources = {
