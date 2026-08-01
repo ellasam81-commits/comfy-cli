@@ -1,0 +1,270 @@
+name: Package S1E01 Official Release — approved Part 2
+
+on:
+  push:
+    branches:
+      - render/s1e01-final
+    paths:
+      - "references/s1e01/merge-part2-storyboard-exact-approved.txt"
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: package-s1e01-part2-storyboard-exact-official-v1
+  cancel-in-progress: false
+
+jobs:
+  package-official-release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Check out approved release inputs
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate exact merge-only trigger
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+          TRIGGER: references/s1e01/merge-part2-storyboard-exact-approved.txt
+          WORKFLOW: .github/workflows/package-s1e01-part2-storyboard-exact-official.yml
+          SUBTITLES: references/s1e01/s1e01_bilingual_part2_storyboard_exact.ass
+        run: |
+          set -euo pipefail
+          git cat-file -e "$BEFORE_SHA:$WORKFLOW"
+          git cat-file -e "$BEFORE_SHA:$SUBTITLES"
+          mapfile -t changed < <(git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+          [[ "${#changed[@]}" -eq 1 && "${changed[0]}" == "$TRIGGER" ]]
+          [[ "$(cat "$TRIGGER")" == "AUTHOR APPROVED: PACKAGE S1E01 OFFICIAL RELEASE WITH STORYBOARD-EXACT PART 2" ]]
+          ! grep -Eqi 'submit[_]async|SEGMIND[_]API[_]KEY|from[[:space:]]+segmind|import[[:space:]]+segmind' "$WORKFLOW"
+
+      - name: Download accepted Parts 1, 3, 4 and repaired Part 4 package
+        uses: actions/download-artifact@v4
+        with:
+          name: S1E01-正式版-中英字幕-review
+          run-id: 30661926644
+          repository: ellasam81-commits/comfy-cli
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: accepted
+
+      - name: Download author-approved Part 2
+        uses: actions/download-artifact@v4
+        with:
+          name: S1E01-Part2-storyboard-exact-review-30676864007
+          run-id: 30676864007
+          repository: ellasam81-commits/comfy-cli
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: approved-part2
+
+      - name: Install merge and subtitle tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg fonts-noto-cjk
+
+      - name: Replace only Part 2, package official release, and QC
+        run: |
+          python - <<'PY'
+          import hashlib
+          import json
+          import shutil
+          import subprocess
+          from pathlib import Path
+
+
+          ACCEPTED = Path("accepted")
+          APPROVED = Path("approved-part2")
+          SOURCE = Path("references/s1e01")
+          FINAL = Path("final")
+          FINAL.mkdir()
+
+
+          def run(*args):
+              subprocess.run(list(args), check=True)
+
+
+          def sha256(path):
+              return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+          def probe(path):
+              data = json.loads(subprocess.run(
+                  [
+                      "ffprobe", "-v", "error", "-show_entries",
+                      "format=duration:stream=codec_type,codec_name,width,height,avg_frame_rate", "-of", "json", str(path),
+                  ],
+                  check=True, capture_output=True, text=True,
+              ).stdout)
+              streams = data.get("streams", [])
+              video = next((stream for stream in streams if stream.get("codec_type") == "video"), {})
+              audio = next((stream for stream in streams if stream.get("codec_type") == "audio"), {})
+              return {
+                  "duration_seconds": float(data.get("format", {}).get("duration", 0)),
+                  "video_codec": video.get("codec_name"),
+                  "audio_codec": audio.get("codec_name"),
+                  "has_audio": bool(audio),
+                  "width": video.get("width"),
+                  "height": video.get("height"),
+                  "frame_rate": video.get("avg_frame_rate"),
+              }
+
+
+          # Preserve the previous accepted/repaired package exactly for Parts 1, 3 and 4.
+          sources = {
+              1: ACCEPTED / "segment_01.mp4",
+              2: APPROVED / "segment_02.mp4",
+              3: ACCEPTED / "segment_03.mp4",
+              4: ACCEPTED / "segment_04.mp4",
+          }
+          for index, source in sources.items():
+              if not source.exists():
+                  raise RuntimeError(f"Missing required approved source for Part {index}: {source}")
+              destination = FINAL / f"segment_{index:02d}.mp4"
+              shutil.copy2(source, destination)
+
+          old_part2 = ACCEPTED / "segment_02.mp4"
+          new_part2 = FINAL / "segment_02.mp4"
+          if sha256(old_part2) == sha256(new_part2):
+              raise RuntimeError("Part 2 replacement was not applied: old and approved videos are identical")
+
+          segment_qc = []
+          for index in range(1, 5):
+              item = probe(FINAL / f"segment_{index:02d}.mp4")
+              if (
+                  item["duration_seconds"] < 14.5
+                  or item["width"] != 854
+                  or item["height"] != 480
+                  or item["frame_rate"] != "24/1"
+                  or not item["has_audio"]
+              ):
+                  raise RuntimeError(f"Part {index} failed merge-input QC: {item}")
+              item["part"] = index
+              item["sha256"] = sha256(FINAL / f"segment_{index:02d}.mp4")
+              segment_qc.append(item)
+
+          concat = FINAL / "concat.txt"
+          concat.write_text(
+              "".join(f"file 'segment_{index:02d}.mp4'\n" for index in range(1, 5)), encoding="utf-8"
+          )
+          merged = FINAL / "S1E01_上锁的人_无字幕_已替换Part2.mp4"
+          run(
+              "ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-f", "concat", "-safe", "0",
+              "-i", str(concat), "-c", "copy", "-movflags", "+faststart", str(merged),
+          )
+
+          subtitle_file = SOURCE / "s1e01_bilingual_part2_storyboard_exact.ass"
+          if not subtitle_file.exists():
+              raise RuntimeError(f"Missing approved bilingual subtitle script: {subtitle_file}")
+          subtitle_text = subtitle_file.read_text(encoding="utf-8")
+          required_subtitles = (
+              "钟远只有胸口这一处银刃伤",
+              "Zhong Yuan has only this one silver-blade wound in the chest",
+              "钟宁是我父亲",
+              "I was outside the whole time",
+          )
+          if not all(line in subtitle_text for line in required_subtitles):
+              raise RuntimeError("Part 2 bilingual subtitle replacement is incomplete")
+
+          run("fc-match", "Noto Sans CJK JP")
+          bgm = FINAL / "original_low_suspense_bgm.wav"
+          run(
+              "ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-f", "lavfi", "-i",
+              "aevalsrc=0.018*sin(2*PI*55*t)+0.012*sin(2*PI*82.41*t)+0.006*sin(2*PI*110*t):s=48000:d=61",
+              "-af", "afade=t=in:st=0:d=2,afade=t=out:st=58:d=3", str(bgm),
+          )
+          title = FINAL / "title.txt"
+          author = FINAL / "author.txt"
+          title.write_text("《吸血法医·剑刺》· 第1集", encoding="utf-8")
+          author.write_text("作者：林爱丽", encoding="utf-8")
+          release = FINAL / "S1E01_上锁的人_中英字幕_480p_正式版.mp4"
+          font = "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc"
+          vf = (
+              f"subtitles={subtitle_file}:fontsdir=/usr/share/fonts/opentype/noto,"
+              f"drawtext=fontfile={font}:textfile={title}:fontcolor=white:fontsize=31:"
+              "borderw=2:bordercolor=black:x=(w-text_w)/2:y=28:enable='between(t,0.3,3.6)',"
+              f"drawtext=fontfile={font}:textfile={author}:fontcolor=0xD5B46A:fontsize=20:"
+              "borderw=1:bordercolor=black:x=(w-text_w)/2:y=68:enable='between(t,0.3,3.6)'"
+          )
+          run(
+              "ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", str(merged), "-i", str(bgm),
+              "-filter_complex", "[0:a][1:a]amix=inputs=2:weights='1 0.22':normalize=0[a]",
+              "-map", "0:v:0", "-map", "[a]", "-vf", vf, "-c:v", "libx264", "-crf", "18",
+              "-c:a", "aac", "-b:a", "192k", "-shortest", "-movflags", "+faststart", str(release),
+          )
+
+          release_qc = probe(release)
+          if (
+              release_qc["duration_seconds"] < 59.5
+              or release_qc["duration_seconds"] > 61.5
+              or release_qc["width"] != 854
+              or release_qc["height"] != 480
+              or release_qc["frame_rate"] != "24/1"
+              or not release_qc["has_audio"]
+          ):
+              raise RuntimeError(f"Official release failed technical QC: {release_qc}")
+
+          thumbs = FINAL / "thumbs"
+          thumbs.mkdir()
+          for number, second in enumerate(range(1, 60, 3), 1):
+              run(
+                  "ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-ss", str(second), "-i", str(release),
+                  "-frames:v", "1", str(thumbs / f"f_{number:02d}.jpg"),
+              )
+          run(
+              "ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-pattern_type", "glob", "-i", str(thumbs / "*.jpg"),
+              "-filter_complex", "scale=320:180,tile=5x4:padding=4:margin=4:color=0x111111", "-frames:v", "1",
+              str(FINAL / "S1E01_qc_contact_sheet_part2_merged.jpg"),
+          )
+          run(
+              "ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-ss", "0.8", "-i", str(release),
+              "-frames:v", "1", str(FINAL / "S1E01_title_subtitle_proof.jpg"),
+          )
+          run(
+              "ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-ss", "17.8", "-i", str(release),
+              "-frames:v", "1", str(FINAL / "S1E01_part2_subtitle_proof.jpg"),
+          )
+          run(
+              "ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-ss", "16.2", "-i", str(release),
+              "-frames:v", "1", str(FINAL / "S1E01_part2_fullbody_proof_merged.jpg"),
+          )
+
+          qc = {
+              "episode": "S1E01",
+              "operation": "merge-only; no Segmind call; Part 2 replaced with author-approved storyboard-exact review artifact",
+              "source_runs": {
+                  "accepted_parts_1_3_4_and_part4_repair": 30661926644,
+                  "approved_part2": 30676864007,
+              },
+              "segments": segment_qc,
+              "release": release_qc,
+              "title": "《吸血法医·剑刺》· 第1集",
+              "author": "林爱丽",
+              "subtitles": "Chinese and English two-line fixed layout; Part 2 updated for Zhong Yuan/Zhong Ning continuity",
+              "bgm": "low-volume original suspense bed",
+              "status": "technical_qc_passed_official_release_packaged",
+          }
+          (FINAL / "qc_part2_storyboard_exact_merged.json").write_text(
+              json.dumps(qc, ensure_ascii=False, indent=2), encoding="utf-8"
+          )
+          PY
+
+      - name: Upload official release package
+        uses: actions/upload-artifact@v4
+        with:
+          name: S1E01-正式版-中英字幕-Part2已合并-${{ github.run_id }}
+          path: |
+            final/segment_01.mp4
+            final/segment_02.mp4
+            final/segment_03.mp4
+            final/segment_04.mp4
+            final/S1E01_上锁的人_中英字幕_480p_正式版.mp4
+            final/S1E01_qc_contact_sheet_part2_merged.jpg
+            final/S1E01_title_subtitle_proof.jpg
+            final/S1E01_part2_subtitle_proof.jpg
+            final/S1E01_part2_fullbody_proof_merged.jpg
+            final/qc_part2_storyboard_exact_merged.json
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 0
