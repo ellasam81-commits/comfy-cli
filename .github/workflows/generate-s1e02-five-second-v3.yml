@@ -58,7 +58,7 @@ jobs:
           }
           [[ "$(cat "$TRIGGER")" == "AUTHOR-APPROVED: GENERATE S1E02 AS TWELVE FIVE-SECOND CLIPS V3 ONCE" ]]
           [[ "$(sha256sum "$PLAN" | awk '{print $1}')" == "0e6d4cc75aae39aa3d9a817268e7a64dedfc35720fa8eb6dea64344793ac374e" ]]
-          [[ "$(sha256sum "$SCRIPT" | awk '{print $1}')" == "260b04b7f83d9acacd4a6ff92778e222513dacb724638d4ace4e7ad5cfaa4018" ]]
+          [[ "$(sha256sum "$SCRIPT" | awk '{print $1}')" == "e78b652b064f509464e6f12e22e1d98a542d51ce5ef5d65d922ebc7315e679bb" ]]
           [[ "$(sha256sum references/s1e02/board_01.jpeg | awk '{print $1}')" == "08774c9d45d48c3e23b15c20700477b565ef211b96c0e8b1b7a4b74c1f592ed0" ]]
           [[ "$(sha256sum references/s1e02/board_02.jpeg | awk '{print $1}')" == "dd9fd496c9ce6f723a3699540b4ad93addd5bb9887a2ba1692bdc3c8850bbc87" ]]
           [[ "$(sha256sum references/s1e02/board_03.jpeg | awk '{print $1}')" == "0db528498e3d2c28cca7b7dbe1cbb73eed41708244ec14ae6425ffd4b6bcfa54" ]]
@@ -169,5 +169,4 @@ jobs:
           if-no-files-found: warn
           compression-level: 0
           retention-days: 7
-
 
