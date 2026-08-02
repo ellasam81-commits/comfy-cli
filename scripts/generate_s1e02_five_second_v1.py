@@ -18,6 +18,7 @@ from typing import Any
 from urllib.parse import urlparse
 
 import requests
+from faster_whisper import WhisperModel
 from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageOps
 from segmind import SegmindClient
 
@@ -276,6 +277,8 @@ def build_reference_list(
     if len(specs) > 9:
         specs = [spec for spec in specs if not spec[0].startswith("ordered four-shot")]
     if len(specs) > 9:
+        specs = [spec for spec in specs if "previous accepted" not in spec[0]]
+    if len(specs) > 9:
         raise RuntimeError(f"Too many references for clip {clip['id']}: {len(specs)}")
     return specs
 
@@ -303,6 +306,11 @@ def build_prompt(clip: dict[str, Any], reference_specs: list[tuple[str, Path]]) 
         if any("previous accepted" in label for label, _ in reference_specs)
         else "No previous-frame reference is supplied; establish the location directly from the four storyboard shots."
     )
+    text_rule = (
+        "The only permitted readable in-world text is the simple room plaque 302 in shot 1; do not create any other text."
+        if clip["id"] == "07"
+        else "Do not create any readable in-world text."
+    )
     return f"""
 ORIGINAL SERIES PRODUCTION LOCK. Animate one clean five-second 16:9 clip for
 《吸血法医·剑刺》 S1E02《会说话的骨头》, clip {clip['id']} of 12. This is an
@@ -313,8 +321,9 @@ franchise or copyrighted character.
 ABSOLUTE STORYBOARD RULE. Render four distinct full-screen shots in the exact
 left-to-right reference order. Use hard cuts near 1.25, 2.50 and 3.75 seconds.
 Every shot must fill the 16:9 frame. Never show a four-panel grid, storyboard
-page, split screen, panel border, number, prompt, UI, watermark, logo, title or
-subtitle. Do not repeat, skip, swap or merge shots.
+page, split screen, panel border, storyboard panel number, prompt, UI,
+watermark, logo, title or subtitle. {text_rule} Do not repeat, skip, swap or
+merge shots.
 
 REFERENCE MAP:
 {reference_map}
@@ -409,7 +418,12 @@ def download_video(result: Any, target: Path) -> str:
     raise RuntimeError(f"Segmind output contained no video URL: {urls}")
 
 
-def probe_and_verify(video_path: Path, clip_id: str) -> dict[str, Any]:
+def probe_and_verify(
+    video_path: Path,
+    clip_id: str,
+    speech_model: WhisperModel,
+    expected_dialogue: list[dict[str, Any]],
+) -> dict[str, Any]:
     if video_path.stat().st_size < 200_000:
         raise RuntimeError(f"Clip {clip_id} is unexpectedly small")
     probe_result = run(
@@ -435,6 +449,11 @@ def probe_and_verify(video_path: Path, clip_id: str) -> dict[str, Any]:
     duration = float(probe.get("format", {}).get("duration") or 0)
     if not 4.3 <= duration <= 5.8:
         raise RuntimeError(f"Clip {clip_id} duration is invalid: {duration}")
+    audio_duration = float(audio_streams[0].get("duration") or duration)
+    if audio_duration < 4.0:
+        raise RuntimeError(
+            f"Clip {clip_id} audio stream is too short: {audio_duration}"
+        )
 
     loudness = subprocess.run(
         [
@@ -459,6 +478,49 @@ def probe_and_verify(video_path: Path, clip_id: str) -> dict[str, Any]:
     if not match or match.group(1) == "-inf" or float(match.group(1)) < -55:
         raise RuntimeError(f"Clip {clip_id} audio is silent or too quiet")
 
+    segment_iterator, speech_info = speech_model.transcribe(
+        str(video_path),
+        language="zh",
+        task="transcribe",
+        beam_size=1,
+        temperature=0,
+        vad_filter=True,
+        vad_parameters={"min_silence_duration_ms": 250},
+        condition_on_previous_text=False,
+    )
+    speech_segments = [
+        {
+            "start": float(segment.start),
+            "end": float(segment.end),
+            "text": segment.text.strip(),
+        }
+        for segment in segment_iterator
+        if segment.text.strip()
+    ]
+    transcript = "".join(segment["text"] for segment in speech_segments)
+    speech_seconds = sum(
+        max(0.0, segment["end"] - segment["start"])
+        for segment in speech_segments
+    )
+    cjk_count = len(re.findall(r"[\u3400-\u9fff]", transcript))
+    speech_audit = {
+        "clip_id": clip_id,
+        "language_forced": "zh",
+        "reported_language": getattr(speech_info, "language", None),
+        "language_probability": getattr(speech_info, "language_probability", None),
+        "transcript": transcript,
+        "cjk_character_count": cjk_count,
+        "detected_speech_seconds": speech_seconds,
+        "segments": speech_segments,
+        "expected_dialogue": [line["zh"] for line in expected_dialogue],
+        "purpose": "Fail-fast detection of missing Mandarin speech; not a word-perfect transcript.",
+    }
+    write_json(AUDIT_DIR / f"clip_{clip_id}_speech_check.json", speech_audit)
+    if speech_seconds < 0.40 or cjk_count < 2:
+        raise RuntimeError(
+            f"Clip {clip_id} has an audio track but no verifiable Mandarin speech"
+        )
+
     write_json(AUDIT_DIR / f"clip_{clip_id}_ffprobe.json", probe)
     (AUDIT_DIR / f"clip_{clip_id}_loudness.txt").write_text(
         loudness_text,
@@ -472,7 +534,10 @@ def probe_and_verify(video_path: Path, clip_id: str) -> dict[str, Any]:
         "height": video_streams[0].get("height"),
         "audio_codec": audio_streams[0].get("codec_name"),
         "audio_channels": audio_streams[0].get("channels"),
+        "audio_duration": audio_duration,
         "max_volume_db": float(match.group(1)),
+        "detected_speech_seconds": speech_seconds,
+        "asr_transcript": transcript,
     }
 
 
@@ -541,6 +606,12 @@ def main() -> None:
 
     plan = load_and_validate_plan()
     identity_paths = prepare_references(plan)
+    speech_model = WhisperModel(
+        "tiny",
+        device="cpu",
+        compute_type="int8",
+        download_root=os.environ.get("WHISPER_CACHE_DIR", "whisper_cache"),
+    )
     client = SegmindClient()
     completed: list[dict[str, Any]] = []
     previous_last_frame: Path | None = None
@@ -607,6 +678,8 @@ def main() -> None:
             request_audit["status"] = "submitting_once"
             request_audit["request_count"] = 1
             write_json(request_path, request_audit)
+            manifest["request_count"] += 1
+            write_json(manifest_path, manifest)
 
             # This is the only paid submission statement in the script. The loop
             # reaches it once for each clip and stops immediately on any failure.
@@ -636,7 +709,12 @@ def main() -> None:
             video_path = RAW_DIR / f"S1E02_clip_{clip_id}_raw.mp4"
             output_url = download_video(result, video_path)
             request_audit["output_url"] = output_url
-            technical_qc = probe_and_verify(video_path, clip_id)
+            technical_qc = probe_and_verify(
+                video_path,
+                clip_id,
+                speech_model,
+                clip["dialogue"],
+            )
             previous_last_frame = make_proof(video_path, clip_id)
 
             request_audit["status"] = "completed"
@@ -648,7 +726,6 @@ def main() -> None:
 
             completed.append(request_audit)
             manifest["completed_clips"] = len(completed)
-            manifest["request_count"] = len(completed)
             known_costs = [
                 item["actual_provider_cost_usd"]
                 for item in completed
