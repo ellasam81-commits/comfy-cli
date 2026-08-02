@@ -57,8 +57,8 @@
         "Zhou Qiao, silver-rim glasses and hearing device, analyzes the clue on a dark portable terminal."
       ],
       "dialogue": [
-        {"start": 0.15, "end": 2.35, "speaker_zh": "林浅", "speaker_en": "Lin Qian", "zh": "钟远为何藏进刀柄？", "en": "Why did Zhong Yuan hide it in the handle?"},
-        {"start": 2.45, "end": 4.75, "speaker_zh": "检刺", "speaker_en": "Jian Ci", "zh": "有人想埋掉旧案。", "en": "Someone wanted the old case buried."}
+        {"start": 0.15, "end": 2.45, "speaker_zh": "林浅", "speaker_en": "Lin Qian", "zh": "检刺，钟远为何藏进刀柄？", "en": "Jian Ci, why did Zhong Yuan hide it in the handle?"},
+        {"start": 2.55, "end": 4.75, "speaker_zh": "检刺", "speaker_en": "Jian Ci", "zh": "有人想埋掉旧案。", "en": "Someone wanted the old case buried."}
       ]
     },
     {
@@ -77,7 +77,7 @@
         "The five-person team confers in the same corridor and decides on composition comparison."
       ],
       "dialogue": [
-        {"start": 0.20, "end": 4.75, "speaker_zh": "检刺", "speaker_en": "Jian Ci", "zh": "遗骸暴露数周，骨内还有金属微粒。", "en": "The remains were exposed for weeks, and metal particles are lodged in the bone."}
+        {"start": 0.20, "end": 4.75, "speaker_zh": "检刺", "speaker_en": "Jian Ci", "zh": "许未，遗骸暴露数周，骨内有金属微粒。", "en": "Xu Wei, the remains were exposed for weeks, and there are metal particles in the bone."}
       ]
     },
     {
@@ -116,7 +116,7 @@
       ],
       "dialogue": [
         {"start": 0.15, "end": 2.65, "speaker_zh": "周峤", "speaker_en": "Zhou Qiao", "zh": "比赛中，苏望突然逃逸。", "en": "During the race, Su Wang suddenly fled."},
-        {"start": 2.75, "end": 4.80, "speaker_zh": "韩彻", "speaker_en": "Han Che", "zh": "查他的行踪。", "en": "Trace his whereabouts."}
+        {"start": 2.75, "end": 4.80, "speaker_zh": "韩彻", "speaker_en": "Han Che", "zh": "周峤，查他的行踪。", "en": "Zhou Qiao, trace his whereabouts."}
       ]
     },
     {
@@ -135,8 +135,8 @@
         "The five-person team gathers around the evidence and chooses garage 302 as the next search location."
       ],
       "dialogue": [
-        {"start": 0.20, "end": 2.65, "speaker_zh": "检刺", "speaker_en": "Jian Ci", "zh": "死亡时间被人为延后。", "en": "The apparent time of death was deliberately delayed."},
-        {"start": 2.75, "end": 4.70, "speaker_zh": "检刺", "speaker_en": "Jian Ci", "zh": "凶手懂医学。", "en": "The killer understands medicine."}
+        {"start": 0.20, "end": 2.75, "speaker_zh": "检刺", "speaker_en": "Jian Ci", "zh": "林浅，死亡时间被人为延后。", "en": "Lin Qian, the apparent time of death was deliberately delayed."},
+        {"start": 2.85, "end": 4.70, "speaker_zh": "检刺", "speaker_en": "Jian Ci", "zh": "凶手懂医学。", "en": "The killer understands medicine."}
       ]
     },
     {
@@ -176,8 +176,9 @@
         "Han Che gives a restrained stern reaction and asks what Su Wang concealed."
       ],
       "dialogue": [
-        {"start": 0.15, "end": 2.40, "speaker_zh": "许未", "speaker_en": "Xu Wei", "zh": "这里藏着移植器械。", "en": "Transplant instruments were hidden here."},
-        {"start": 2.50, "end": 4.85, "speaker_zh": "周峤", "speaker_en": "Zhou Qiao", "zh": "苏望买过止血钳和麻醉剂。", "en": "Su Wang bought hemostats and anesthetic."}
+        {"start": 0.10, "end": 1.55, "speaker_zh": "许未", "speaker_en": "Xu Wei", "zh": "藏着移植器械。", "en": "Transplant instruments were hidden here."},
+        {"start": 1.65, "end": 3.35, "speaker_zh": "周峤", "speaker_en": "Zhou Qiao", "zh": "苏望买过麻醉剂。", "en": "Su Wang bought anesthetic."},
+        {"start": 3.45, "end": 4.85, "speaker_zh": "林浅", "speaker_en": "Lin Qian", "zh": "韩彻，证据齐了。", "en": "Han Che, the evidence is complete."}
       ]
     },
     {
