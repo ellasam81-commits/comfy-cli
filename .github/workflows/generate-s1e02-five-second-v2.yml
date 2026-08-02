@@ -1,0 +1,170 @@
+name: Generate S1E02 — twelve five-second storyboard clips (one-shot V2)
+
+on:
+  push:
+    branches:
+      - render/s1e02-final
+    paths:
+      - "references/s1e02/run-five-second-v2.txt"
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: s1e02-twelve-five-second-v2
+  cancel-in-progress: false
+
+jobs:
+  generate-sequential-review-clips:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+      WHISPER_CACHE_DIR: /tmp/faster-whisper-s1e02-v2
+      PYTHONUNBUFFERED: "1"
+
+    steps:
+      - name: Check out locked inputs
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate author approval, immutable inputs and one-shot trigger
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+          TRIGGER: references/s1e02/run-five-second-v2.txt
+          WORKFLOW: .github/workflows/generate-s1e02-five-second-v2.yml
+          PLAN: references/s1e02/five_second_v1_plan.json
+          SCRIPT: scripts/generate_s1e02_five_second_v1.py
+        run: |
+          set -euo pipefail
+          [[ "$RUN_ATTEMPT" == "1" ]] || { echo "::error::Workflow reruns are forbidden."; exit 2; }
+          git cat-file -e "$BEFORE_SHA:$WORKFLOW"
+          git cat-file -e "$BEFORE_SHA:$PLAN"
+          git cat-file -e "$BEFORE_SHA:$SCRIPT"
+          mapfile -t changed < <(git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+          [[ "${#changed[@]}" -eq 1 && "${changed[0]}" == "$TRIGGER" ]] || {
+            echo "::error::The trigger commit must change exactly one file."; exit 2;
+          }
+          mapfile -t added < <(git diff --diff-filter=A --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+          [[ "${#added[@]}" -eq 1 && "${added[0]}" == "$TRIGGER" ]] || {
+            echo "::error::The trigger must be a newly added file."; exit 2;
+          }
+          [[ -z "$(git log -1 --format=%H "$BEFORE_SHA" -- "$TRIGGER")" ]] || {
+            echo "::error::This one-shot trigger existed before the approved commit."; exit 2;
+          }
+          [[ "$(cat "$TRIGGER")" == "AUTHOR-APPROVED: GENERATE S1E02 AS TWELVE FIVE-SECOND CLIPS V2 ONCE" ]]
+          [[ "$(sha256sum "$PLAN" | awk '{print $1}')" == "0e6d4cc75aae39aa3d9a817268e7a64dedfc35720fa8eb6dea64344793ac374e" ]]
+          [[ "$(sha256sum "$SCRIPT" | awk '{print $1}')" == "71a13e5f4f547fba29b5d08b82fdb353af62bb1a15ec080fc130032775dd3374" ]]
+          [[ "$(sha256sum references/s1e02/board_01.jpeg | awk '{print $1}')" == "08774c9d45d48c3e23b15c20700477b565ef211b96c0e8b1b7a4b74c1f592ed0" ]]
+          [[ "$(sha256sum references/s1e02/board_02.jpeg | awk '{print $1}')" == "dd9fd496c9ce6f723a3699540b4ad93addd5bb9887a2ba1692bdc3c8850bbc87" ]]
+          [[ "$(sha256sum references/s1e02/board_03.jpeg | awk '{print $1}')" == "0db528498e3d2c28cca7b7dbe1cbb73eed41708244ec14ae6425ffd4b6bcfa54" ]]
+          [[ "$(sha256sum references/s1e02/board_04.jpeg | awk '{print $1}')" == "5e57e3ac26230ba85a33b4d1d21f25110d39840af41d170a52bd0130d7e0ff06" ]]
+          [[ "$(sha256sum references/s1e02/character_chart.jpeg | awk '{print $1}')" == "7b86e7122f8501cb4641ee62c67537538948a2d96e35491b25a953e0152e6e6b" ]]
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          plan = json.loads(Path("references/s1e02/five_second_v1_plan.json").read_text())
+          assert plan["episode"] == "S1E02"
+          assert plan["model"] == "seedance-2.0-mini"
+          assert plan["duration_seconds_per_clip"] == 5
+          assert plan["clip_count"] == 12
+          assert len(plan["clips"]) == 12
+          assert plan["automatic_retries"] == 0
+          assert plan["estimated_usd_total"] == 2.112
+          PY
+
+      - name: Restore global paid lock
+        id: paid-lock
+        uses: actions/cache/restore@v4
+        with:
+          path: output/paid-lock
+          key: segmind-s1e02-twelve-five-second-v2
+          lookup-only: true
+
+      - name: Validate secret and unused paid lock
+        env:
+          LOCK_HIT: ${{ steps.paid-lock.outputs.cache-hit }}
+        run: |
+          set -euo pipefail
+          [[ -n "$SEGMIND_API_KEY" ]] || {
+            echo "::error::Missing SEGMIND_API_KEY; no paid request made."; exit 2;
+          }
+          [[ "$LOCK_HIT" != "true" ]] || {
+            echo "::error::This twelve-clip batch was already armed or submitted."; exit 2;
+          }
+
+      - name: Install generation and inspection tools
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          pip install "segmind==1.1.0" "faster-whisper==1.2.1" requests Pillow
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Preload Mandarin speech detector before paid lock
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import os
+          import wave
+          from faster_whisper import WhisperModel
+          model = WhisperModel(
+              "tiny",
+              device="cpu",
+              compute_type="int8",
+              download_root=os.environ["WHISPER_CACHE_DIR"],
+          )
+          preflight = os.path.join(os.environ["RUNNER_TEMP"], "whisper-preflight.wav")
+          with wave.open(preflight, "wb") as handle:
+              handle.setnchannels(1)
+              handle.setsampwidth(2)
+              handle.setframerate(16000)
+              handle.writeframes(b"\x00\x00" * 16000)
+          segments, _ = model.transcribe(
+              preflight,
+              language="zh",
+              beam_size=1,
+              vad_filter=True,
+          )
+          list(segments)
+          print("Mandarin speech detector is ready; no paid request made.")
+          PY
+
+      - name: Arm global paid lock before any submission
+        run: |
+          set -euo pipefail
+          mkdir -p output/paid-lock
+          printf '%s\n' \
+            "Author approved twelve sequential five-second Seedance Mini requests." \
+            "No paid retries. Stop on first failure. GitHub run $GITHUB_RUN_ID." \
+            > output/paid-lock/armed.txt
+
+      - name: Save global paid lock
+        uses: actions/cache/save@v4
+        with:
+          path: output/paid-lock
+          key: segmind-s1e02-twelve-five-second-v2
+
+      - name: Generate twelve clips sequentially with fail-fast
+        id: generation
+        run: python scripts/generate_s1e02_five_second_v1.py
+
+      - name: Upload raw clips, proofs and complete audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: S1E02-Twelve-Five-Second-v2
+          path: |
+            raw/
+            audit/
+            proof/
+            last_frames/
+            references/s1e02/five_second_v1_plan.json
+          if-no-files-found: warn
+          compression-level: 0
+          retention-days: 7
+
