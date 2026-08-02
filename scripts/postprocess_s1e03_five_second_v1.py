@@ -687,7 +687,11 @@ def validate_raw_clip(
     duration = duration_from_probe(probe)
     if not 4.3 <= duration <= 5.8:
         raise RuntimeError(f"Raw clip {clip_id} duration is invalid: {duration:.3f}s")
-    audio_duration = float(audio.get("duration") or duration)
+    # Count decoded 48 kHz sample frames instead of trusting only container
+    # metadata.  Some MP4s omit per-stream duration even when the video track
+    # is longer than a truncated audio track.
+    decoded_source_samples = decoded_audio_samples(path)
+    audio_duration = decoded_source_samples / SAMPLE_RATE
     if audio_duration + 0.02 < required_audio_seconds:
         raise RuntimeError(
             f"Raw clip {clip_id} audio is too short to preserve the planned dialogue: "
@@ -712,6 +716,7 @@ def validate_raw_clip(
         "audio_sample_rate": audio.get("sample_rate"),
         "audio_channels": audio.get("channels"),
         "audio_duration_seconds": audio_duration,
+        "decoded_source_audio_samples_at_48000": decoded_source_samples,
         "required_audio_through_seconds": required_audio_seconds,
         "max_volume_db": peak,
     }
