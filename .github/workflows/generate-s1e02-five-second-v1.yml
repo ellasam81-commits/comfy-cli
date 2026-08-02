@@ -57,7 +57,7 @@ jobs:
             echo "::error::This one-shot trigger existed before the approved commit."; exit 2;
           }
           [[ "$(cat "$TRIGGER")" == "AUTHOR-APPROVED: GENERATE S1E02 AS TWELVE FIVE-SECOND CLIPS V1 ONCE" ]]
-          [[ "$(sha256sum "$PLAN" | awk '{print $1}')" == "fd10577ac18dfad69c70849a74f22bd5abba0204fe2cb1101b8a653501deaca9" ]]
+          [[ "$(sha256sum "$PLAN" | awk '{print $1}')" == "0e6d4cc75aae39aa3d9a817268e7a64dedfc35720fa8eb6dea64344793ac374e" ]]
           [[ "$(sha256sum "$SCRIPT" | awk '{print $1}')" == "71a13e5f4f547fba29b5d08b82fdb353af62bb1a15ec080fc130032775dd3374" ]]
           [[ "$(sha256sum references/s1e02/board_01.jpeg | awk '{print $1}')" == "08774c9d45d48c3e23b15c20700477b565ef211b96c0e8b1b7a4b74c1f592ed0" ]]
           [[ "$(sha256sum references/s1e02/board_02.jpeg | awk '{print $1}')" == "dd9fd496c9ce6f723a3699540b4ad93addd5bb9887a2ba1692bdc3c8850bbc87" ]]
