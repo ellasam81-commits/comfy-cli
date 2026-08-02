@@ -73,7 +73,13 @@ CLIP01_REPAIR_END_FRAME = 54  # exclusive; repaired frames are 30 through 53
 CLIP01_FREEZE_SOURCE_FRAME = 54
 CLIP01_MATCH_SSIM_MIN = 0.990
 CLIP01_DISTINCT_SSIM_MAX = 0.980
-CLIP07_REPLACEMENT_FRAMES = 29
+CLIP02_EXTRA_WORD_MUTE_START = 3.65
+CLIP02_EXTRA_WORD_MUTE_END = 4.70
+# Raw Clip07 does not cut from the blank generated tube label to the archive
+# until frame 41, and the archive insert itself contains generated pseudo-text.
+# Hold the locked exact Container-07 image through frame 79, then resume on the
+# clean Lin Qian/Han Che/Zhong Yuan evidence shot at frame 80.
+CLIP07_REPLACEMENT_FRAMES = 80
 CLIP12_BODY_FRAMES = 115
 CLIP12_BLACK_FRAMES = 5
 
@@ -1036,6 +1042,44 @@ def patch_clip01_accepted_gate(base: Path, destination: Path) -> None:
     )
 
 
+def patch_clip02_remove_extra_spoken_name(base: Path, destination: Path) -> None:
+    """Mute the isolated unintended spoken name after Clip02's sentence."""
+    audio_filter = (
+        "volume=volume=0:"
+        f"enable='between(t,{CLIP02_EXTRA_WORD_MUTE_START},"
+        f"{CLIP02_EXTRA_WORD_MUTE_END})',"
+        f"apad=pad_dur=5,atrim=end_sample={SAMPLES_PER_CLIP},asetpts=N/SR/TB"
+    )
+    run_command(
+        [
+            "ffmpeg",
+            "-hide_banner",
+            "-loglevel",
+            "warning",
+            "-y",
+            "-i",
+            str(base),
+            "-map",
+            "0:v:0",
+            "-map",
+            "0:a:0",
+            "-c:v",
+            "copy",
+            "-af",
+            audio_filter,
+            "-c:a",
+            "pcm_s16le",
+            "-ar",
+            str(SAMPLE_RATE),
+            "-ac",
+            str(CHANNELS),
+            "-map_metadata",
+            "-1",
+            str(destination),
+        ]
+    )
+
+
 def patch_clip07(base: Path, image: Path, destination: Path) -> None:
     filter_complex = (
         f"[1:v:0]scale={WIDTH}:{HEIGHT}:force_original_aspect_ratio=decrease:flags=lanczos,"
@@ -1832,7 +1876,9 @@ def final_qc(
         ].is_file(),
         "clip07_exact_source_hash": sha256(container_path)
         == plan["source_sha256"]["source_refs/container07_exact.png"],
-        "clip07_replacement_is_29_frames": CLIP07_REPLACEMENT_FRAMES == 29,
+        "clip07_replacement_covers_raw_pseudotext_through_frame79": (
+            CLIP07_REPLACEMENT_FRAMES == 80
+        ),
         "clip12_black_is_5_frames": CLIP12_BLACK_FRAMES == 5,
         "no_normalized_clip_below_minus38_lufs": all(
             float(record["pre_global_loudness"]["input_i"]) >= -38.0
@@ -1923,10 +1969,21 @@ def final_qc(
                     },
                 },
             },
+            "clip02": {
+                "audio_tail_mute_seconds": [
+                    CLIP02_EXTRA_WORD_MUTE_START,
+                    CLIP02_EXTRA_WORD_MUTE_END,
+                ],
+                "basis": (
+                    "waveform/ASR QA found the intended sentence complete before "
+                    "an isolated unintended spoken name"
+                ),
+                "picture": "original normalized clip02 picture retained",
+            },
             "clip07": {
                 "source": str(container_path),
                 "source_sha256": sha256(container_path),
-                "replacement_frames": [0, 28],
+                "replacement_frames": [0, CLIP07_REPLACEMENT_FRAMES - 1],
                 "replacement_duration_at_24fps": CLIP07_REPLACEMENT_FRAMES / FPS,
                 "audio": "original normalized clip07 audio retained without timing change",
             },
@@ -2021,6 +2078,9 @@ def main() -> None:
             effective = normalized_dir / "S1E03_clip_01_norm_repaired.mkv"
             patch_clip01_accepted_gate(base, effective)
             clip01_effective = effective
+        elif clip_id == "02":
+            effective = normalized_dir / "S1E03_clip_02_norm_tail_muted.mkv"
+            patch_clip02_remove_extra_spoken_name(base, effective)
         elif clip_id == "07":
             effective = normalized_dir / "S1E03_clip_07_norm_container07.mkv"
             patch_clip07(base, container_path, effective)
@@ -2044,7 +2104,9 @@ def main() -> None:
             "replace_red_eye_frames_8_11_with_black_eye_frame12_and_"
             "split_screen_frames_30_53_with_fullscreen_frame54"
             if clip_id == "01"
-            else "container07_first_29_frames"
+            else "mute_unintended_tail_utterance_3_65_to_4_70"
+            if clip_id == "02"
+            else "container07_frames_0_to_79"
             if clip_id == "07"
             else "black_frames_115_to_119"
             if clip_id == "12"
