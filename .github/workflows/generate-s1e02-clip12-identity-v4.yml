@@ -1,0 +1,198 @@
+name: Generate S1E02 clip 12 identity V4 once
+
+on:
+  push:
+    branches:
+      - render/s1e02-clip12-v4
+    paths:
+      - "references/s1e02/run-clip12-identity-v4.txt"
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: s1e02-clip12-identity-v4-once
+  cancel-in-progress: false
+
+jobs:
+  generate-clip12-review-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      WHISPER_CACHE_DIR: /tmp/faster-whisper-s1e02-clip12-v4
+      PYTHONUNBUFFERED: "1"
+
+    steps:
+      - name: Check out locked clip 12 inputs
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate author approval and isolated one-shot trigger
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+          TRIGGER: references/s1e02/run-clip12-identity-v4.txt
+          WORKFLOW: .github/workflows/generate-s1e02-clip12-identity-v4.yml
+          PLAN: references/s1e02/clip12_identity_v4_plan.json
+          SUBTITLES: references/s1e02/clip12_identity_v4_subtitles.ass
+          SCRIPT: scripts/generate_s1e02_clip12_identity_v4.py
+        run: |
+          set -euo pipefail
+          [[ "$RUN_ATTEMPT" == "1" ]] || {
+            echo "::error::Workflow reruns are forbidden for this paid request."; exit 2;
+          }
+          for locked in \
+            "$WORKFLOW" "$PLAN" "$SUBTITLES" "$SCRIPT" \
+            references/s1e02/clip12_identity_v4/clip12_storyboard_composition.jpg \
+            references/s1e02/clip12_identity_v4/jian_ci_identity.jpg \
+            references/s1e02/clip12_identity_v4/jian_ci_scene.jpg \
+            references/s1e02/clip12_identity_v4/su_wang_identity.jpg
+          do
+            git cat-file -e "$BEFORE_SHA:$locked"
+          done
+          mapfile -t changed < <(git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+          [[ "${#changed[@]}" -eq 1 && "${changed[0]}" == "$TRIGGER" ]] || {
+            echo "::error::The paid trigger commit must change exactly one file."; exit 2;
+          }
+          mapfile -t added < <(git diff --diff-filter=A --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+          [[ "${#added[@]}" -eq 1 && "${added[0]}" == "$TRIGGER" ]] || {
+            echo "::error::The paid trigger must be a newly added file."; exit 2;
+          }
+          [[ -z "$(git log -1 --format=%H "$BEFORE_SHA" -- "$TRIGGER")" ]] || {
+            echo "::error::This one-shot trigger existed before the approval commit."; exit 2;
+          }
+          [[ "$(cat "$TRIGGER")" == "AUTHOR-APPROVED: GENERATE ONLY S1E02 CLIP 12 AS ONE FIVE-SECOND SEEDANCE MINI REVIEW V4 ONCE" ]]
+          [[ "$(sha256sum "$PLAN" | awk '{print $1}')" == "41206b9d164c753001e9c68243bdd3790ad3005507dc5da36769a7280a4e343e" ]]
+          [[ "$(sha256sum "$SUBTITLES" | awk '{print $1}')" == "3f649a38b862c9f27bf9b9c5449030f61af6a49a9687bc14a5008586fb217e11" ]]
+          [[ "$(sha256sum "$SCRIPT" | awk '{print $1}')" == "70668145db4eb8bd0067389c8c4559fc318a3b89c6e3a59cbece2d72dca0e003" ]]
+          [[ "$(sha256sum references/s1e02/clip12_identity_v4/clip12_storyboard_composition.jpg | awk '{print $1}')" == "ca7889f14f3ddcae0069f0230b6a6e325fd7541c2b5f743823f4105c34339ae0" ]]
+          [[ "$(sha256sum references/s1e02/clip12_identity_v4/jian_ci_identity.jpg | awk '{print $1}')" == "d0e24c788ef8e7ba7040eb35e33a3b9614e7ab3f9ff981ce465a5ab07a8ec46e" ]]
+          [[ "$(sha256sum references/s1e02/clip12_identity_v4/jian_ci_scene.jpg | awk '{print $1}')" == "696b1e18b0240179561ec0f8dfa1d171f2d2df9d6e5c7fb8bc83f1d49c0ecb64" ]]
+          [[ "$(sha256sum references/s1e02/clip12_identity_v4/su_wang_identity.jpg | awk '{print $1}')" == "51c762397680597ee9dbb9625e1004e71b6071e7085084be9d70f8f76c8e5e01" ]]
+          python - <<'PY'
+          import ast
+          import json
+          from pathlib import Path
+
+          plan = json.loads(Path("references/s1e02/clip12_identity_v4_plan.json").read_text())
+          assert plan["episode"] == "S1E02"
+          assert plan["clip_id"] == "12"
+          assert plan["model"] == "seedance-2.0-mini"
+          assert plan["duration_seconds"] == 5
+          assert plan["seed"] == 20260825
+          assert plan["generate_audio"] is True
+          assert plan["automatic_retries"] == 0
+          assert plan["review_only"] is True
+          assert plan["merge_after_generation"] is False
+          assert len(plan["references"]) == 4
+          assert len(plan["shots"]) == 4
+
+          source = Path("scripts/generate_s1e02_clip12_identity_v4.py").read_text()
+          tree = ast.parse(source)
+          calls = [
+              node for node in ast.walk(tree)
+              if isinstance(node, ast.Call)
+              and isinstance(node.func, ast.Attribute)
+              and node.func.attr == "submit_async"
+          ]
+          assert len(calls) == 1, "There must be exactly one paid submit statement."
+          assert "reference_videos" not in source
+          PY
+
+      - name: Restore clip 12 global paid lock
+        id: paid-lock
+        uses: actions/cache/restore@v4
+        with:
+          path: output/paid-lock
+          key: segmind-s1e02-clip12-identity-v4-once
+          lookup-only: true
+
+      - name: Validate secret and unused paid lock
+        env:
+          LOCK_HIT: ${{ steps.paid-lock.outputs.cache-hit }}
+          SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+        run: |
+          set -euo pipefail
+          [[ -n "$SEGMIND_API_KEY" ]] || {
+            echo "::error::Missing SEGMIND_API_KEY; no paid request made."; exit 2;
+          }
+          [[ "$LOCK_HIT" != "true" ]] || {
+            echo "::error::Clip 12 identity V4 was already armed or submitted."; exit 2;
+          }
+
+      - name: Install generation, audio and subtitle tools
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          pip install "segmind==1.1.0" "faster-whisper==1.2.1" requests Pillow
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg fonts-noto-cjk
+
+      - name: Preload Mandarin speech detector before paid lock
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import os
+          import wave
+          from faster_whisper import WhisperModel
+
+          model = WhisperModel(
+              "tiny",
+              device="cpu",
+              compute_type="int8",
+              download_root=os.environ["WHISPER_CACHE_DIR"],
+          )
+          preflight = os.path.join(os.environ["RUNNER_TEMP"], "whisper-preflight.wav")
+          with wave.open(preflight, "wb") as handle:
+              handle.setnchannels(1)
+              handle.setsampwidth(2)
+              handle.setframerate(16000)
+              handle.writeframes(b"\x00\x00" * 16000)
+          segments, _ = model.transcribe(preflight, language="zh", beam_size=1, vad_filter=True)
+          list(segments)
+          print("Mandarin speech detector ready; no paid request made.")
+          PY
+
+      - name: Validate clip 12 plan and every reference before paid lock
+        run: python scripts/generate_s1e02_clip12_identity_v4.py --prepare-only
+
+      - name: Arm clip 12 global paid lock before submission
+        run: |
+          set -euo pipefail
+          mkdir -p output/paid-lock
+          printf '%s\n' \
+            "Author approved exactly one five-second Seedance Mini request for S1E02 clip 12." \
+            "No paid retry, no other clip, no episode merge. GitHub run $GITHUB_RUN_ID." \
+            > output/paid-lock/armed.txt
+
+      - name: Save clip 12 global paid lock
+        uses: actions/cache/save@v4
+        with:
+          path: output/paid-lock
+          key: segmind-s1e02-clip12-identity-v4-once
+
+      - name: Generate only clip 12 once and build review copy
+        id: generation
+        env:
+          SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+        run: python scripts/generate_s1e02_clip12_identity_v4.py
+
+      - name: Upload clip 12 raw, review, proofs and audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: S1E02-Clip12-Identity-V4-Review
+          path: |
+            raw/
+            review/
+            proof/
+            audit/
+            references/s1e02/clip12_identity_v4/
+            references/s1e02/clip12_identity_v4_plan.json
+            references/s1e02/clip12_identity_v4_subtitles.ass
+          if-no-files-found: warn
+          compression-level: 0
+          retention-days: 14

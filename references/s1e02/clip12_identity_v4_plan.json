@@ -1,0 +1,101 @@
+{
+  "episode": "S1E02",
+  "episode_title": "会说话的骨头",
+  "clip_id": "12",
+  "model": "seedance-2.0-mini",
+  "duration_seconds": 5,
+  "resolution": "480p",
+  "aspect_ratio": "16:9",
+  "generate_audio": true,
+  "automatic_retries": 0,
+  "seed": 20260825,
+  "estimated_usd": 0.177233,
+  "review_only": true,
+  "merge_after_generation": false,
+  "references": [
+    {
+      "file": "clip12_identity_v4/clip12_storyboard_composition.jpg",
+      "role": "Exact storyboard shot order and composition only; identity authority is explicitly excluded.",
+      "width": 1280,
+      "height": 720,
+      "sha256": "ca7889f14f3ddcae0069f0230b6a6e325fd7541c2b5f743823f4105c34339ae0"
+    },
+    {
+      "file": "clip12_identity_v4/jian_ci_identity.jpg",
+      "role": "Primary Jian Ci identity, face, hair and wardrobe authority.",
+      "width": 960,
+      "height": 720,
+      "sha256": "d0e24c788ef8e7ba7040eb35e33a3b9614e7ab3f9ff981ce465a5ab07a8ec46e"
+    },
+    {
+      "file": "clip12_identity_v4/jian_ci_scene.jpg",
+      "role": "Jian Ci full-body scene, costume and dark interrogation-suite continuity authority.",
+      "width": 720,
+      "height": 1080,
+      "sha256": "696b1e18b0240179561ec0f8dfa1d171f2d2df9d6e5c7fb8bc83f1d49c0ecb64"
+    },
+    {
+      "file": "clip12_identity_v4/su_wang_identity.jpg",
+      "role": "Primary Su Wang identity and civilian wardrobe authority; he must remain visibly different from Jian Ci.",
+      "width": 960,
+      "height": 720,
+      "sha256": "51c762397680597ee9dbb9625e1004e71b6071e7085084be9d70f8f76c8e5e01"
+    }
+  ],
+  "shots": [
+    {
+      "start": 0.0,
+      "end": 1.15,
+      "visible_character": "检刺",
+      "eyes": "normal dark",
+      "dialogue": "林浅画外：采购记录也吻合。"
+    },
+    {
+      "start": 1.15,
+      "end": 2.0,
+      "visible_character": "苏望",
+      "eyes": "normal dark",
+      "dialogue": "none"
+    },
+    {
+      "start": 2.0,
+      "end": 4.2,
+      "visible_character": "检刺",
+      "eyes": "normal dark",
+      "dialogue": "检刺：苏望，你想让谁醒来？ 苏望画外：我只想让他醒来。"
+    },
+    {
+      "start": 4.2,
+      "end": 5.0,
+      "visible_character": "检刺",
+      "eyes": "both irises restrained deep burgundy",
+      "dialogue": "none"
+    }
+  ],
+  "dialogue": [
+    {
+      "start": 0.1,
+      "end": 1.05,
+      "speaker_zh": "林浅（画外）",
+      "speaker_en": "Lin Qian (O.S.)",
+      "zh": "采购记录也吻合。",
+      "en": "The purchase records match too."
+    },
+    {
+      "start": 2.05,
+      "end": 3.2,
+      "speaker_zh": "检刺",
+      "speaker_en": "Jian Ci",
+      "zh": "苏望，你想让谁醒来？",
+      "en": "Su Wang, whom did you want to wake?"
+    },
+    {
+      "start": 3.3,
+      "end": 4.12,
+      "speaker_zh": "苏望（画外）",
+      "speaker_en": "Su Wang (O.S.)",
+      "zh": "我只想让他醒来。",
+      "en": "I only wanted him to wake up."
+    }
+  ]
+}

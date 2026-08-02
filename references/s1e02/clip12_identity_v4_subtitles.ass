@@ -1,0 +1,19 @@
+[Script Info]
+Title: S1E02 Clip 12 Identity V4 Review
+ScriptType: v4.00+
+PlayResX: 1280
+PlayResY: 720
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Header,Noto Sans CJK SC,22,&H00F0F0F0,&H000000FF,&H00101822,&H98000000,-1,0,0,0,100,100,0,0,1,1.4,0,8,24,24,14,1
+Style: Subtitle,Noto Sans CJK SC,30,&H00FFFFFF,&H000000FF,&H00101822,&H88000000,-1,0,0,0,100,100,0,0,1,2.0,0,2,45,45,32,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:05.00,Header,,0,0,0,,《吸血法医·剑刺》｜S1E02《会说话的骨头》｜制作：林爱丽
+Dialogue: 0,0:00:00.10,0:00:01.05,Subtitle,林浅,0,0,0,,林浅（画外）：采购记录也吻合。\NLin Qian (O.S.): The purchase records match too.
+Dialogue: 0,0:00:02.05,0:00:03.20,Subtitle,检刺,0,0,0,,检刺：苏望，你想让谁醒来？\NJian Ci: Su Wang, whom did you want to wake?
+Dialogue: 0,0:00:03.30,0:00:04.12,Subtitle,苏望,0,0,0,,苏望（画外）：我只想让他醒来。\NSu Wang (O.S.): I only wanted him to wake up.
