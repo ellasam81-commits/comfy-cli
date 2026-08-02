@@ -68,7 +68,7 @@
       "panels": [9, 10, 11, 12],
       "scene": "stormy abandoned hospital",
       "seed": 20260821,
-      "characters": ["xu_wei", "han_che", "jian_ci"],
+      "characters": ["xu_wei", "han_che", "jian_ci", "lin_qian", "zhou_qiao"],
       "use_previous_last_frame": true,
       "shots": [
         "Xu Wei, high ponytail and olive forensic coverall, photographs and collects a subtle trace.",
@@ -126,7 +126,7 @@
       "panels": [9, 10, 11, 12],
       "scene": "racing evidence chain",
       "seed": 20260822,
-      "characters": ["jian_ci", "lin_qian"],
+      "characters": ["jian_ci", "lin_qian", "zhou_qiao", "xu_wei", "han_che"],
       "use_previous_last_frame": false,
       "shots": [
         "Jian Ci listens to the recorded racing evidence and notices only a subtle anomaly.",
@@ -146,7 +146,7 @@
       "panels": [1, 2, 3, 4],
       "scene": "garage 302",
       "seed": 20260823,
-      "characters": ["jian_ci", "lin_qian"],
+      "characters": ["jian_ci", "lin_qian", "zhou_qiao", "xu_wei", "han_che"],
       "use_previous_last_frame": false,
       "shots": [
         "Exterior close shot of the half-open garage 302 door; do not create readable extra text beyond the simple number plaque.",
@@ -187,7 +187,7 @@
       "panels": [9, 10, 11, 12],
       "scene": "garage 302",
       "seed": 20260823,
-      "characters": ["jian_ci", "lin_qian"],
+      "characters": ["jian_ci", "lin_qian", "zhou_qiao", "xu_wei", "han_che"],
       "use_previous_last_frame": true,
       "shots": [
         "Jian Ci in the white forensic coat notices a water stain and directs the team to it.",
@@ -230,10 +230,10 @@
       "characters": ["jian_ci", "su_wang", "han_che"],
       "use_previous_last_frame": true,
       "shots": [
-        "Jian Ci opens the evidence record with black-gloved hands; white cuffs remain visible.",
-        "Su Wang, clearly different softer face and dark civilian shirt, calmly says that he tried to save the victim.",
-        "Sealed remains photograph, metal-particle vial and brake-disc alloy comparison are placed on the table.",
-        "Jian Ci observes Su Wang's stress response; Han Che remains behind observation glass."
+        "Jian Ci opens the evidence record with black-gloved hands and white cuffs visible while Su Wang says offscreen that he tried to save the victim.",
+        "Su Wang, clearly different softer face and dark civilian shirt, finishes his line while Jian Ci begins the alloy explanation offscreen.",
+        "Sealed remains photograph, metal-particle vial and brake-disc alloy comparison fill the frame while Jian Ci continues the explanation offscreen.",
+        "Jian Ci observes Su Wang's stress response as Su Wang challenges the proof offscreen; Han Che remains behind observation glass."
       ],
       "dialogue": [
         {"start": 0.10, "end": 1.55, "speaker_zh": "苏望", "speaker_en": "Su Wang", "zh": "我救过他。", "en": "I tried to save him."},
@@ -251,7 +251,7 @@
       "characters": ["jian_ci", "su_wang", "lin_qian"],
       "use_previous_last_frame": true,
       "shots": [
-        "Jian Ci in the unmistakable white coat states that cleanup traces and purchase records corroborate one another.",
+        "Jian Ci in the unmistakable white coat watches silently while Lin Qian states offscreen that the purchase records also match.",
         "Su Wang in the dark rolled-sleeve shirt lowers his head, guarded but not melodramatic.",
         "Jian Ci is held chest-up with his white coat and angular pale face clearly visible while he asks whom Su Wang wanted to wake; Su Wang answers offscreen.",
         "Direct match cut from the same Jian Ci face to an extreme close-up of both Jian Ci irises turning deep burgundy for 0.8 seconds, then cut to black."
