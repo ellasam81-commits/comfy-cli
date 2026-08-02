@@ -1,0 +1,224 @@
+name: Generate S1E02 Part 4 — final character-separation rerun (Segmind one-shot)
+
+on:
+  push:
+    branches:
+      - render/s1e02-final
+    paths:
+      - "references/s1e02/run-part4-final-v3.txt"
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: s1e02-part4-final-v3
+  cancel-in-progress: false
+
+jobs:
+  generate-review-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+      PYTHONUNBUFFERED: "1"
+
+    steps:
+      - name: Check out locked inputs
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate final one-shot trigger and references
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+          TRIGGER: references/s1e02/run-part4-final-v3.txt
+          WORKFLOW: .github/workflows/generate-s1e02-part4-final-v3.yml
+        run: |
+          set -euo pipefail
+          [[ "$RUN_ATTEMPT" == "1" ]] || { echo "::error::Workflow reruns are forbidden."; exit 2; }
+          git cat-file -e "$BEFORE_SHA:$WORKFLOW"
+          mapfile -t changed < <(git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+          [[ "${#changed[@]}" -eq 1 && "${changed[0]}" == "$TRIGGER" ]]
+          mapfile -t added < <(git diff --diff-filter=A --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+          [[ "${#added[@]}" -eq 1 && "${added[0]}" == "$TRIGGER" ]]
+          [[ -z "$(git log -1 --format=%H "$BEFORE_SHA" -- "$TRIGGER")" ]]
+          [[ "$(cat "$TRIGGER")" == "AUTHOR-APPROVED: GENERATE S1E02 PART 4 FINAL V3 ONCE" ]]
+          [[ "$(sha256sum references/s1e02/board_04.jpeg | awk '{print $1}')" == "5e57e3ac26230ba85a33b4d1d21f25110d39840af41d170a52bd0130d7e0ff06" ]]
+          [[ "$(sha256sum references/s1e02/character_chart.jpeg | awk '{print $1}')" == "7b86e7122f8501cb4641ee62c67537538948a2d96e35491b25a953e0152e6e6b" ]]
+
+      - name: Restore paid lock
+        id: paid-lock
+        uses: actions/cache/restore@v4
+        with:
+          path: output/paid-lock
+          key: segmind-s1e02-part4-final-v3
+          lookup-only: true
+
+      - name: Validate secret and unused lock
+        env:
+          LOCK_HIT: ${{ steps.paid-lock.outputs.cache-hit }}
+        run: |
+          set -euo pipefail
+          [[ -n "$SEGMIND_API_KEY" ]] || { echo "::error::Missing SEGMIND_API_KEY; no paid request made."; exit 2; }
+          [[ "$LOCK_HIT" != "true" ]] || { echo "::error::Final Part 4 rerun has already been submitted."; exit 2; }
+
+      - name: Install renderer and reference tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install "segmind==1.1.0" requests Pillow
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Arm paid lock before final submission
+        run: |
+          mkdir -p output/paid-lock
+          echo "author-approved final Part 4 rerun; one request; run $GITHUB_RUN_ID" > output/paid-lock/armed.txt
+
+      - name: Save paid lock
+        uses: actions/cache/save@v4
+        with:
+          path: output/paid-lock
+          key: segmind-s1e02-part4-final-v3
+
+      - name: Generate exactly one final character-separated Part 4
+        run: |
+          python - <<'PY'
+          import json
+          import subprocess
+          from pathlib import Path
+
+          import requests
+          from PIL import Image, ImageEnhance, ImageOps
+          from segmind import SegmindClient
+
+          source = Path("references/s1e02")
+          refs = Path("runtime_refs")
+          raw = Path("raw")
+          refs.mkdir(exist_ok=True)
+          raw.mkdir(exist_ok=True)
+
+          board = Image.open(source / "board_04.jpeg").convert("RGB")
+          chart = Image.open(source / "character_chart.jpeg").convert("RGB")
+          if board.size != (512, 341) or chart.size != (384, 576):
+              raise RuntimeError("Locked reference dimensions changed")
+
+          def save_crop(image, box, name, size=(480, 720), contrast=1.15):
+              crop = image.crop(box).convert("RGB")
+              crop = ImageEnhance.Contrast(crop).enhance(contrast)
+              target = refs / name
+              ImageOps.pad(crop, size, Image.Resampling.LANCZOS, color=(4, 8, 13)).save(target, quality=97)
+              return target
+
+          # Image 1 remains the complete shot-order authority.
+          board_path = source / "board_04.jpeg"
+          chart_path = source / "character_chart.jpeg"
+
+          # Jian Ci: isolated from the official chart, then reinforced by white-coat storyboard panels 4 and 5.
+          jian_chart = save_crop(chart, (0, 45, 78, 390), "identity_jian_ci_chart.jpg")
+          jian_board = save_crop(board, (382, 55, 510, 232), "identity_jian_ci_white_coat.jpg")
+
+          # Su Wang: isolated ONLY from current storyboard panel 10. Never reuse the rejected generated Su Wang.
+          su_board = save_crop(board, (128, 232, 254, 323), "identity_su_wang_current_board.jpg")
+
+          prompt = r"""
+          FINAL RERUN / OUTPUT LOCK. Create exactly one continuous 15-second, 16:9, 480p, 24fps cinematic Japanese 2D manga/anime crime-noir sequence with synchronized native Mandarin voices, restrained interrogation-room foley and sparse low-frequency suspense music. It is 《吸血法医·剑刺》 S1E02 Part 4. The prior attempt failed because Jian Ci and Su Wang looked like the same man and several closeups repeated. Correct those exact failures. Use twelve sequential, visually distinct, full-screen shots in the exact storyboard order, one shot per storyboard panel, approximately 1.0–1.25 seconds each. Use clean hard cuts, one tiny push and one rack focus only. Never show the storyboard, character chart, reference crop, collage, split screen, panel border, panel number, UI, timecode, poster, watermark, logo, readable generated text or generated subtitles. Persistent title and deterministic bilingual subtitles are added later.
+
+          REFERENCE ORDER AND IDENTITY AUTHORITY. Reference image 1 is the complete current S1E02 Part 4 storyboard and is the exact composition and shot-order authority. Reference image 2 is the official core character chart and series-style authority. Reference images 3 and 4 are Jian Ci only: preserve his angular narrow pale face, layered side-swept black hair, narrow dark eyes, tall slim body, unmistakable white knee-length forensic coat, black high-neck shirt and black gloves. Reference image 5 is Su Wang only, extracted from current storyboard panel 10: preserve his clearly different younger softer rounder face, warmer skin, straight black fringe falling forward, broader jaw, dark charcoal civilian shirt with rolled sleeves and bare hands. Jian Ci and Su Wang MUST remain visibly different people in every shot.
+
+          ABSOLUTE CHARACTER-SEPARATION RULES. Jian Ci / 检刺 is approximately early thirties, taller and slimmer, very pale, sharp cheekbones, narrow eyes, layered side-part hair, always wearing the white forensic coat and black gloves; his voice is young, low and restrained. Su Wang / 苏望 is 22, slightly shorter and broader, warmer skin, softer round face, wider eyes, blunt forward fringe, dark charcoal rolled-sleeve civilian shirt, bare hands, no badge, no uniform, no white coat and no gloves. Never copy Jian Ci's face onto Su Wang. Never give Jian Ci Su Wang's fringe or dark civilian shirt. Never give Su Wang the white coat, black gloves, ID badge, red eyes or Jian Ci's facial structure. Lin Qian / 林浅 is the same adult Chinese woman with chin-length black bob and dark-navy police uniform. Han Che / 韩彻 is the same mature square-faced team leader with short dark hair and dark jacket. No other person, duplicate, twin, face swap, morph or wardrobe exchange.
+
+          SERIES LOOK. Match the current board: dark cold blue-black low-saturation manga noir, near-black concrete interrogation room, steel table, two narrow overhead lamps, observation glass, rain reflections, fine ink lines and high controlled contrast. Keep one spatially coherent room. No bright wall, warm fill, live action, photorealism, glossy 3D, chibi, overacting, melodrama, torture or fantasy glow.
+
+          FORENSIC CONTINUITY. Part 3 found residual blood, incomplete cleanup, anesthetic, surgical supplies and purchase records in garage 302. The bone metal particles were composition-matched to racing brake-disc alloy. Suture and anesthetic possession alone do not prove murder; the team presents independent corroborating evidence and Su Wang may challenge it. Jian Ci's vampire perception notices stress only and is never proof of guilt.
+
+          EXACT TWELVE DISTINCT SHOTS — NO REPETITION:
+          1. Empty corridor and interrogation-room door silhouette, no readable generated sign.
+          2. Wide two-shot matching panel 2: Su Wang in dark rolled-sleeve civilian shirt sits on the RIGHT; Lin Qian sits opposite on the LEFT; Jian Ci is not mistaken for Su Wang.
+          3. Lin Qian medium close-up, chin-length bob and navy uniform unmistakable, placing a sealed residual-blood report on the table.
+          4. Jian Ci medium close-up matching panel 4: white forensic coat, black turtleneck, angular pale face clearly visible; this establishes him as a separate person.
+          5. Jian Ci's black-gloved hands open the evidence file; white cuffs and coat remain visible.
+          6. Han Che, older square-faced man, watches through observation glass; he is not Su Wang or Jian Ci.
+          7. Sealed skeletal-remains photograph and metal particle vial on the table, handled with gloves; no loose bone and no generated text.
+          8. Jian Ci profile in white coat pauses and watches Su Wang; distinctly angular face, no shot reuse.
+          9. Jian Ci three-quarter close-up calmly explains the composition match; white collar visible, different angle from shots 4 and 8.
+          10. Su Wang close-up matching reference image 5: softer warmer face, blunt fringe, dark rolled-sleeve shirt, bare hands; he challenges the evidence.
+          11. Jian Ci chest-up in unmistakable WHITE COAT reacts to Su Wang's off-camera final line; half-beat breath pause, lower eyelid tightens. Hold long enough to identify Jian Ci.
+          12. DIRECT MATCH CUT from shot 11 to an extreme close-up of JIAN CI'S eyes only: both irises become clearly deep burgundy red with natural catchlights for 0.8–1.0 second; a narrow strip of his pale cheek and black layered side-part hair matches shot 11. No glow aura, beam, fangs or magic conclusion. Su Wang never has red eyes. Cut to black.
+
+          AUDIO LOCK. Mandarin only, distinct natural adult voices, no overlap, calm tense pace, exact speakers and wording:
+          0.00-1.70 旁白：三零二室的残血，把苏望带进了审讯室。
+          1.70-3.40 林浅：苏望，残血检出了你的DNA。
+          3.40-5.20 检刺：麻醉剂和缝合线，只能说明你处理过伤。
+          5.20-6.80 苏望：我救过他，不是杀他。
+          6.80-8.70 检刺：骨内微粒，与赛车刹车盘合金吻合。
+          8.70-10.30 苏望：那不能证明是我。
+          10.30-12.20 林浅：清理痕迹和采购记录，可以互相印证。
+          12.20-13.50 检刺：苏望，你想让谁醒来？
+          13.50-15.00 苏望（画外音）：我……只是想让他醒来。
+
+          STRICT NEGATIVE. No same face for Jian Ci and Su Wang, no male twins, no identity drift, no repeated closeup, no skipped panel, no white coat on Su Wang, no dark civilian shirt on Jian Ci, no police uniform on Su Wang, no red eyes on Su Wang, no glasses on Jian Ci, no bare hands on Jian Ci, no black gloves on Su Wang, no wrong name, no extra person, no new corpse, no loose bones, no blood spray, no torture, no forced confession, no supernatural proof, no readable generated label, no English speech, no bright palette, no location reset, no random dialogue, no collage, subtitles, logo or watermark.
+          """
+
+          client = SegmindClient()
+          def upload(path):
+              result = client.files.upload(path)
+              urls = result.get("file_urls") or []
+              if not urls:
+                  raise RuntimeError(f"No Segmind reference URL: {result}")
+              return urls[0]
+
+          state = {
+              "episode": "S1E02", "part": 4, "attempt": "final-v3",
+              "model": "seedance-2.0-mini", "request_count": 1,
+              "automatic_retries": 0, "status": "submitting"
+          }
+          status_path = raw / "request.json"
+          status_path.write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
+          job = client.submit_async(
+              "seedance-2.0-mini",
+              prompt=prompt,
+              reference_images=[upload(x) for x in (board_path, chart_path, jian_chart, jian_board, su_board)],
+              duration=15,
+              resolution="480p",
+              aspect_ratio="16:9",
+              generate_audio=True,
+              bitrate_mode="high",
+              seed=20260805,
+          )
+          state["request_id"] = job.request_id
+          state["status"] = "processing"
+          status_path.write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
+          print(f"Final S1E02 Part 4 request ID: {job.request_id}", flush=True)
+          result = job.wait(timeout=1800, interval=5)
+          state["status"] = "completed"
+          state["result"] = result
+          status_path.write_text(json.dumps(state, ensure_ascii=False, indent=2, default=str), encoding="utf-8")
+
+          output = result.get("output") if isinstance(result, dict) else result
+          if isinstance(output, dict):
+              url = output.get("video_url") or output.get("url") or output.get("video")
+          elif isinstance(output, list) and output:
+              first = output[0]
+              url = (first.get("video_url") or first.get("url") or first.get("video")) if isinstance(first, dict) else first
+          else:
+              url = output
+          if not isinstance(url, str) or not url.startswith("http"):
+              raise RuntimeError(f"No downloadable video URL: {result}")
+          response = requests.get(url, timeout=300)
+          response.raise_for_status()
+          video = raw / "S1E02_Part4_final_character_separation_raw.mp4"
+          video.write_bytes(response.content)
+          probe = subprocess.run(["ffprobe", "-v", "error", "-show_streams", "-show_format", "-of", "json", str(video)], check=True, capture_output=True, text=True)
+          (raw / "ffprobe.json").write_text(probe.stdout, encoding="utf-8")
+          PY
+
+      - name: Upload final raw review artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: S1E02-Part4-Final-Character-Separation
+          path: raw/
+          if-no-files-found: error
+          retention-days: 7
