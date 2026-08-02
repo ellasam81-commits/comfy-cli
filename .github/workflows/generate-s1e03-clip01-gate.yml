@@ -1,0 +1,217 @@
+name: Generate S1E03 — clip 01 continuity gate (one shot)
+
+on:
+  push:
+    branches:
+      - render/s1e03-final-v1
+    paths:
+      - "references/s1e03/run-clip01-gate.txt"
+
+permissions:
+  contents: read
+  actions: read
+  statuses: write
+
+concurrency:
+  group: s1e03-clip01-gate-v1
+  cancel-in-progress: false
+
+jobs:
+  generate-clip01-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    env:
+      SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+      WHISPER_CACHE_DIR: /tmp/faster-whisper-s1e03-gate
+      GENERATION_OUTPUT_DIR: output/s1e03-gate
+      PYTHONUNBUFFERED: "1"
+      STATUS_CONTEXT: segmind/s1e03-gate
+
+    steps:
+      - name: Publish run-ID handshake
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, os, urllib.request
+          run_id = os.environ["GITHUB_RUN_ID"]
+          repo = os.environ["GITHUB_REPOSITORY"]
+          sha = os.environ["GITHUB_SHA"]
+          url = f"https://api.github.com/repos/{repo}/statuses/{sha}"
+          payload = json.dumps({
+              "state": "pending",
+              "context": os.environ["STATUS_CONTEXT"],
+              "description": f"S1E03 gate run {run_id} started",
+              "target_url": f"https://github.com/{repo}/actions/runs/{run_id}",
+          }).encode()
+          request = urllib.request.Request(url, data=payload, method="POST", headers={
+              "Authorization": f"Bearer {os.environ['GH_TOKEN']}",
+              "Accept": "application/vnd.github+json",
+              "X-GitHub-Api-Version": "2022-11-28",
+              "Content-Type": "application/json",
+          })
+          with urllib.request.urlopen(request, timeout=30) as response:
+              assert response.status == 201
+          print(f"Published run handshake for {run_id}.")
+          PY
+
+      - name: Check out locked inputs
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate immutable inputs and one-shot authorization
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+          TRIGGER: references/s1e03/run-clip01-gate.txt
+          WORKFLOW: .github/workflows/generate-s1e03-clip01-gate.yml
+          PLAN: references/s1e03/five_second_v1_plan.json
+          SCRIPT: scripts/generate_s1e03_five_second_v1.py
+        run: |
+          set -euo pipefail
+          [[ "$RUN_ATTEMPT" == "1" ]] || { echo "::error::Workflow reruns are forbidden."; exit 2; }
+          git cat-file -e "$BEFORE_SHA:$WORKFLOW"
+          git cat-file -e "$BEFORE_SHA:$PLAN"
+          git cat-file -e "$BEFORE_SHA:$SCRIPT"
+          mapfile -t changed < <(git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+          [[ "${#changed[@]}" -eq 1 && "${changed[0]}" == "$TRIGGER" ]] || {
+            echo "::error::Trigger commit must add exactly the gate trigger."; exit 2;
+          }
+          mapfile -t added < <(git diff --diff-filter=A --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+          [[ "${#added[@]}" -eq 1 && "${added[0]}" == "$TRIGGER" ]] || {
+            echo "::error::Gate trigger must be newly added."; exit 2;
+          }
+          [[ "$(cat "$TRIGGER")" == "AUTHOR-APPROVED: GENERATE S1E03 CLIP 01 GATE ONCE" ]]
+          [[ "$(sha256sum "$PLAN" | awk '{print $1}')" == "1dd264a682ab4efc35e97d15a02fb12daae7ef3619ac401aec6daad2a9549e2c" ]]
+          [[ "$(sha256sum "$SCRIPT" | awk '{print $1}')" == "65016f6eb8be3e24d90be0670e8889cf6d42a132418cf27b047c957651a14ef7" ]]
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          plan = json.loads(Path("references/s1e03/five_second_v1_plan.json").read_text())
+          assert plan["episode"] == "S1E03"
+          assert plan["model"] == "seedance-2.0-mini"
+          assert plan["duration_seconds_per_clip"] == 5
+          assert plan["clip_count"] == 12
+          assert plan["shots_per_clip"] == 3
+          assert plan["automatic_retries"] == 0
+          assert plan["stages"]["gate"]["clip_ids"] == ["01"]
+          PY
+
+      - name: Restore global paid lock
+        id: paid-lock
+        uses: actions/cache/restore@v4
+        with:
+          path: output/paid-lock-s1e03-gate
+          key: segmind-s1e03-clip01-gate-v1
+          lookup-only: true
+
+      - name: Validate secret and unused paid lock
+        env:
+          LOCK_HIT: ${{ steps.paid-lock.outputs.cache-hit }}
+        run: |
+          set -euo pipefail
+          [[ -n "$SEGMIND_API_KEY" ]] || {
+            echo "::error::Missing SEGMIND_API_KEY; no paid request made."; exit 2;
+          }
+          [[ "$LOCK_HIT" != "true" ]] || {
+            echo "::error::S1E03 gate was already armed or submitted."; exit 2;
+          }
+
+      - name: Install generation and inspection tools
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          pip install "segmind==1.1.0" "faster-whisper==1.2.1" requests Pillow
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Preload Mandarin speech detector
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import os, wave
+          from faster_whisper import WhisperModel
+          model = WhisperModel("tiny", device="cpu", compute_type="int8", download_root=os.environ["WHISPER_CACHE_DIR"])
+          path = os.path.join(os.environ["RUNNER_TEMP"], "whisper-preflight.wav")
+          with wave.open(path, "wb") as handle:
+              handle.setnchannels(1); handle.setsampwidth(2); handle.setframerate(16000)
+              handle.writeframes(b"\x00\x00" * 16000)
+          segments, _ = model.transcribe(path, language="zh", beam_size=1, vad_filter=True)
+          list(segments)
+          print("Mandarin detector ready; no paid request made.")
+          PY
+
+      - name: Validate every gate reference and prompt before paid lock
+        run: python scripts/generate_s1e03_five_second_v1.py --stage gate --prepare-only
+
+      - name: Arm gate paid lock
+        run: |
+          set -euo pipefail
+          mkdir -p output/paid-lock-s1e03-gate
+          printf '%s\n' \
+            "Author approved one Seedance Mini request for S1E03 clip 01." \
+            "No paid retry. GitHub run $GITHUB_RUN_ID." \
+            > output/paid-lock-s1e03-gate/armed.txt
+
+      - name: Save gate paid lock
+        uses: actions/cache/save@v4
+        with:
+          path: output/paid-lock-s1e03-gate
+          key: segmind-s1e03-clip01-gate-v1
+
+      - name: Generate clip 01 once
+        run: python scripts/generate_s1e03_five_second_v1.py --stage gate
+
+      - name: Upload gate clip, proofs and complete audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: S1E03-Clip01-Gate
+          path: |
+            output/s1e03-gate/raw/
+            output/s1e03-gate/audit/
+            output/s1e03-gate/proof/
+            output/s1e03-gate/last_frames/
+            output/s1e03-gate/runtime_refs/
+            references/s1e03/five_second_v1_plan.json
+          if-no-files-found: warn
+          compression-level: 0
+          retention-days: 30
+
+      - name: Publish final gate status
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          JOB_STATE: ${{ job.status }}
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, os, urllib.request
+          state = os.environ["JOB_STATE"]
+          api_state = state if state in {"success", "failure"} else "error"
+          run_id = os.environ["GITHUB_RUN_ID"]
+          repo = os.environ["GITHUB_REPOSITORY"]
+          sha = os.environ["GITHUB_SHA"]
+          payload = json.dumps({
+              "state": api_state,
+              "context": os.environ["STATUS_CONTEXT"],
+              "description": f"S1E03 gate run {run_id}: {state}",
+              "target_url": f"https://github.com/{repo}/actions/runs/{run_id}",
+          }).encode()
+          request = urllib.request.Request(
+              f"https://api.github.com/repos/{repo}/statuses/{sha}",
+              data=payload,
+              method="POST",
+              headers={
+                  "Authorization": f"Bearer {os.environ['GH_TOKEN']}",
+                  "Accept": "application/vnd.github+json",
+                  "X-GitHub-Api-Version": "2022-11-28",
+                  "Content-Type": "application/json",
+              },
+          )
+          with urllib.request.urlopen(request, timeout=30) as response:
+              assert response.status == 201
+          PY

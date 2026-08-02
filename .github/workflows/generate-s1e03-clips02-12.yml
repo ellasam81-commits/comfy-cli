@@ -1,0 +1,279 @@
+name: Generate S1E03 — clips 02-12 after accepted gate (one shot each)
+
+on:
+  push:
+    branches:
+      - render/s1e03-final-v1
+    paths:
+      - "references/s1e03/run-clips02-12.json"
+
+permissions:
+  contents: read
+  actions: read
+  statuses: write
+
+concurrency:
+  group: s1e03-clips02-12-v1
+  cancel-in-progress: false
+
+jobs:
+  generate-clips02-12:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+      WHISPER_CACHE_DIR: /tmp/faster-whisper-s1e03-remainder
+      GENERATION_OUTPUT_DIR: output/s1e03-remainder
+      PYTHONUNBUFFERED: "1"
+      STATUS_CONTEXT: segmind/s1e03-remainder
+
+    steps:
+      - name: Publish run-ID handshake
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, os, urllib.request
+          run_id = os.environ["GITHUB_RUN_ID"]
+          repo = os.environ["GITHUB_REPOSITORY"]
+          sha = os.environ["GITHUB_SHA"]
+          payload = json.dumps({
+              "state": "pending",
+              "context": os.environ["STATUS_CONTEXT"],
+              "description": f"S1E03 remainder run {run_id} started",
+              "target_url": f"https://github.com/{repo}/actions/runs/{run_id}",
+          }).encode()
+          request = urllib.request.Request(
+              f"https://api.github.com/repos/{repo}/statuses/{sha}",
+              data=payload,
+              method="POST",
+              headers={
+                  "Authorization": f"Bearer {os.environ['GH_TOKEN']}",
+                  "Accept": "application/vnd.github+json",
+                  "X-GitHub-Api-Version": "2022-11-28",
+                  "Content-Type": "application/json",
+              },
+          )
+          with urllib.request.urlopen(request, timeout=30) as response:
+              assert response.status == 201
+          print(f"Published run handshake for {run_id}.")
+          PY
+
+      - name: Check out locked inputs
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install gate-artifact validation tools
+        run: |
+          set -euo pipefail
+          pip install Pillow
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Validate immutable inputs and accepted-gate authorization
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+          TRIGGER: references/s1e03/run-clips02-12.json
+          WORKFLOW: .github/workflows/generate-s1e03-clips02-12.yml
+          PLAN: references/s1e03/five_second_v1_plan.json
+          SCRIPT: scripts/generate_s1e03_five_second_v1.py
+        run: |
+          set -euo pipefail
+          [[ "$RUN_ATTEMPT" == "1" ]] || { echo "::error::Workflow reruns are forbidden."; exit 2; }
+          git cat-file -e "$BEFORE_SHA:$WORKFLOW"
+          git cat-file -e "$BEFORE_SHA:$PLAN"
+          git cat-file -e "$BEFORE_SHA:$SCRIPT"
+          mapfile -t changed < <(git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+          [[ "${#changed[@]}" -eq 1 && "${changed[0]}" == "$TRIGGER" ]] || {
+            echo "::error::Trigger commit must add exactly the remainder trigger."; exit 2;
+          }
+          mapfile -t added < <(git diff --diff-filter=A --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+          [[ "${#added[@]}" -eq 1 && "${added[0]}" == "$TRIGGER" ]] || {
+            echo "::error::Remainder trigger must be newly added."; exit 2;
+          }
+          [[ "$(sha256sum "$PLAN" | awk '{print $1}')" == "1dd264a682ab4efc35e97d15a02fb12daae7ef3619ac401aec6daad2a9549e2c" ]]
+          [[ "$(sha256sum "$SCRIPT" | awk '{print $1}')" == "65016f6eb8be3e24d90be0670e8889cf6d42a132418cf27b047c957651a14ef7" ]]
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          trigger = json.loads(Path("references/s1e03/run-clips02-12.json").read_text())
+          assert trigger["authorization"] == "AUTHOR-APPROVED: GENERATE S1E03 CLIPS 02-12 ONCE"
+          assert isinstance(trigger["gate_run_id"], int) and trigger["gate_run_id"] > 0
+          assert trigger["gate_artifact_name"] == "S1E03-Clip01-Gate"
+          for key in ("gate_video_sha256", "gate_continuity_frame_sha256"):
+              assert len(trigger[key]) == 64 and all(ch in "0123456789abcdef" for ch in trigger[key])
+          with open(os.environ["GITHUB_ENV"], "a", encoding="utf-8") as handle:
+              handle.write(f"GATE_RUN_ID={trigger['gate_run_id']}\n")
+              handle.write(f"GATE_ARTIFACT_NAME={trigger['gate_artifact_name']}\n")
+              handle.write(f"GATE_VIDEO_SHA256={trigger['gate_video_sha256']}\n")
+              handle.write(f"GATE_FRAME_SHA256={trigger['gate_continuity_frame_sha256']}\n")
+          plan = json.loads(Path("references/s1e03/five_second_v1_plan.json").read_text())
+          assert plan["stages"]["remainder"]["clip_ids"] == [f"{n:02d}" for n in range(2, 13)]
+          assert plan["automatic_retries"] == 0
+          PY
+
+      - name: Download the exact accepted gate artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: S1E03-Clip01-Gate
+          path: gate_input
+          run-id: ${{ env.GATE_RUN_ID }}
+          github-token: ${{ github.token }}
+
+      - name: Validate gate manifest, video, audio and continuity frame
+        run: |
+          set -euo pipefail
+          GATE_ROOT=gate_input/output/s1e03-gate
+          GATE_VIDEO="$GATE_ROOT/raw/S1E03_clip_01_raw.mp4"
+          GATE_FRAME="$GATE_ROOT/last_frames/clip_01_continuity.jpg"
+          GATE_MANIFEST="$GATE_ROOT/audit/generation_manifest.json"
+          [[ -f "$GATE_VIDEO" && -f "$GATE_FRAME" && -f "$GATE_MANIFEST" ]]
+          [[ "$(sha256sum "$GATE_VIDEO" | awk '{print $1}')" == "$GATE_VIDEO_SHA256" ]]
+          [[ "$(sha256sum "$GATE_FRAME" | awk '{print $1}')" == "$GATE_FRAME_SHA256" ]]
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from PIL import Image
+          manifest = json.loads(Path("gate_input/output/s1e03-gate/audit/generation_manifest.json").read_text())
+          assert manifest["episode"] == "S1E03"
+          assert manifest["stage"] == "gate"
+          assert manifest["status"] == "completed"
+          assert manifest["planned_clip_ids"] == ["01"]
+          assert manifest["planned_clips"] == 1
+          assert manifest["completed_clips"] == 1
+          assert manifest["request_count"] == 1
+          assert manifest["automatic_retries"] == 0
+          with Image.open("gate_input/output/s1e03-gate/last_frames/clip_01_continuity.jpg") as image:
+              image.verify()
+          PY
+          ffprobe -v error -select_streams v:0 -show_entries stream=codec_type -of csv=p=0 "$GATE_VIDEO" | grep -qx video
+          ffprobe -v error -select_streams a:0 -show_entries stream=codec_type -of csv=p=0 "$GATE_VIDEO" | grep -qx audio
+
+      - name: Restore remainder paid lock
+        id: paid-lock
+        uses: actions/cache/restore@v4
+        with:
+          path: output/paid-lock-s1e03-remainder
+          key: segmind-s1e03-clips02-12-v1
+          lookup-only: true
+
+      - name: Validate secret and unused remainder lock
+        env:
+          LOCK_HIT: ${{ steps.paid-lock.outputs.cache-hit }}
+        run: |
+          set -euo pipefail
+          [[ -n "$SEGMIND_API_KEY" ]] || {
+            echo "::error::Missing SEGMIND_API_KEY; no paid request made."; exit 2;
+          }
+          [[ "$LOCK_HIT" != "true" ]] || {
+            echo "::error::S1E03 clips 02-12 were already armed or submitted."; exit 2;
+          }
+
+      - name: Install generation and inspection tools
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          pip install "segmind==1.1.0" "faster-whisper==1.2.1" requests Pillow
+
+      - name: Preload Mandarin speech detector
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import os, wave
+          from faster_whisper import WhisperModel
+          model = WhisperModel("tiny", device="cpu", compute_type="int8", download_root=os.environ["WHISPER_CACHE_DIR"])
+          path = os.path.join(os.environ["RUNNER_TEMP"], "whisper-preflight.wav")
+          with wave.open(path, "wb") as handle:
+              handle.setnchannels(1); handle.setsampwidth(2); handle.setframerate(16000)
+              handle.writeframes(b"\x00\x00" * 16000)
+          segments, _ = model.transcribe(path, language="zh", beam_size=1, vad_filter=True)
+          list(segments)
+          print("Mandarin detector ready; no paid request made.")
+          PY
+
+      - name: Validate all clips 02-12 before paid lock
+        run: |
+          python scripts/generate_s1e03_five_second_v1.py \
+            --stage remainder \
+            --prepare-only \
+            --initial-continuity-frame gate_input/output/s1e03-gate/last_frames/clip_01_continuity.jpg \
+            --expected-initial-sha256 "$GATE_FRAME_SHA256"
+
+      - name: Arm remainder paid lock
+        run: |
+          set -euo pipefail
+          mkdir -p output/paid-lock-s1e03-remainder
+          printf '%s\n' \
+            "Author approved eleven sequential Seedance Mini requests for S1E03 clips 02-12." \
+            "Accepted gate run $GATE_RUN_ID; no paid retries. GitHub run $GITHUB_RUN_ID." \
+            > output/paid-lock-s1e03-remainder/armed.txt
+
+      - name: Save remainder paid lock
+        uses: actions/cache/save@v4
+        with:
+          path: output/paid-lock-s1e03-remainder
+          key: segmind-s1e03-clips02-12-v1
+
+      - name: Generate clips 02-12 sequentially once each
+        run: |
+          python scripts/generate_s1e03_five_second_v1.py \
+            --stage remainder \
+            --initial-continuity-frame gate_input/output/s1e03-gate/last_frames/clip_01_continuity.jpg \
+            --expected-initial-sha256 "$GATE_FRAME_SHA256"
+
+      - name: Upload clips 02-12, proofs and complete audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: S1E03-Clips02-12
+          path: |
+            output/s1e03-remainder/raw/
+            output/s1e03-remainder/audit/
+            output/s1e03-remainder/proof/
+            output/s1e03-remainder/last_frames/
+            output/s1e03-remainder/runtime_refs/
+            references/s1e03/five_second_v1_plan.json
+            references/s1e03/run-clips02-12.json
+            gate_input/output/s1e03-gate/audit/generation_manifest.json
+          if-no-files-found: warn
+          compression-level: 0
+          retention-days: 30
+
+      - name: Publish final remainder status
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          JOB_STATE: ${{ job.status }}
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, os, urllib.request
+          state = os.environ["JOB_STATE"]
+          api_state = state if state in {"success", "failure"} else "error"
+          run_id = os.environ["GITHUB_RUN_ID"]
+          repo = os.environ["GITHUB_REPOSITORY"]
+          sha = os.environ["GITHUB_SHA"]
+          payload = json.dumps({
+              "state": api_state,
+              "context": os.environ["STATUS_CONTEXT"],
+              "description": f"S1E03 remainder run {run_id}: {state}",
+              "target_url": f"https://github.com/{repo}/actions/runs/{run_id}",
+          }).encode()
+          request = urllib.request.Request(
+              f"https://api.github.com/repos/{repo}/statuses/{sha}",
+              data=payload,
+              method="POST",
+              headers={
+                  "Authorization": f"Bearer {os.environ['GH_TOKEN']}",
+                  "Accept": "application/vnd.github+json",
+                  "X-GitHub-Api-Version": "2022-11-28",
+                  "Content-Type": "application/json",
+              },
+          )
+          with urllib.request.urlopen(request, timeout=30) as response:
+              assert response.status == 201
+          PY
