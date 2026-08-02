@@ -1,0 +1,216 @@
+name: Generate S1E02 Part 4 — storyboard exact final v2 (Segmind one-shot)
+
+on:
+  push:
+    branches:
+      - render/s1e02-final
+    paths:
+      - "references/s1e02/run-part4-final-v2.txt"
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: s1e02-part4-final-v2
+  cancel-in-progress: false
+
+jobs:
+  generate-review-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+      PYTHONUNBUFFERED: "1"
+
+    steps:
+      - name: Check out locked inputs
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate exact one-shot trigger and references
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+          TRIGGER: references/s1e02/run-part4-final-v2.txt
+          WORKFLOW: .github/workflows/generate-s1e02-part4-final-v2.yml
+        run: |
+          set -euo pipefail
+          [[ "$RUN_ATTEMPT" == "1" ]] || { echo "::error::Workflow reruns are forbidden."; exit 2; }
+          git cat-file -e "$BEFORE_SHA:$WORKFLOW"
+          mapfile -t changed < <(git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+          [[ "${#changed[@]}" -eq 1 && "${changed[0]}" == "$TRIGGER" ]]
+          mapfile -t added < <(git diff --diff-filter=A --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+          [[ "${#added[@]}" -eq 1 && "${added[0]}" == "$TRIGGER" ]]
+          [[ -z "$(git log -1 --format=%H "$BEFORE_SHA" -- "$TRIGGER")" ]]
+          [[ "$(cat "$TRIGGER")" == "AUTHOR-APPROVED: GENERATE S1E02 PART 4 FINAL V2 ONCE" ]]
+          [[ "$(sha256sum references/s1e02/board_04.jpeg | awk '{print $1}')" == "5e57e3ac26230ba85a33b4d1d21f25110d39840af41d170a52bd0130d7e0ff06" ]]
+          [[ "$(sha256sum references/s1e02/character_chart.jpeg | awk '{print $1}')" == "7b86e7122f8501cb4641ee62c67537538948a2d96e35491b25a953e0152e6e6b" ]]
+
+      - name: Fetch immutable accepted episode continuity sources
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p prior
+          curl --fail --silent --show-error --location --retry 3 \
+            -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/actions/artifacts/8703669749/zip" \
+            --output prior/artifact.zip
+          python -m zipfile -e prior/artifact.zip prior
+          [[ "$(sha256sum prior/segment_03.mp4 | awk '{print $1}')" == "1be77aa4c0f2d26894c1edc4a06df08d0498f49306f2e35eed0cf9b7b5731267" ]]
+          [[ "$(sha256sum prior/segment_04.mp4 | awk '{print $1}')" == "4a05c92bf6aeab1948c3d40879a8ae0b221ba4cd4946be1791d8b28b973aaf6a" ]]
+
+      - name: Restore paid lock
+        id: paid-lock
+        uses: actions/cache/restore@v4
+        with:
+          path: output/paid-lock
+          key: segmind-s1e02-part4-final-v2
+          lookup-only: true
+
+      - name: Validate secret and unused lock
+        env:
+          LOCK_HIT: ${{ steps.paid-lock.outputs.cache-hit }}
+        run: |
+          set -euo pipefail
+          [[ -n "$SEGMIND_API_KEY" ]] || { echo "::error::Missing SEGMIND_API_KEY; no paid request made."; exit 2; }
+          [[ "$LOCK_HIT" != "true" ]] || { echo "::error::S1E02 Part 4 final v2 has already been submitted."; exit 2; }
+
+      - name: Install renderer and inspection tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install "segmind==1.1.0" requests Pillow
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Arm paid lock before submission
+        run: |
+          mkdir -p output/paid-lock
+          echo "author-approved one Part 4 request; run $GITHUB_RUN_ID" > output/paid-lock/armed.txt
+
+      - name: Save paid lock
+        uses: actions/cache/save@v4
+        with:
+          path: output/paid-lock
+          key: segmind-s1e02-part4-final-v2
+
+      - name: Generate exactly one S1E02 Part 4
+        run: |
+          python - <<'PY'
+          import json
+          import subprocess
+          from pathlib import Path
+
+          import requests
+          from PIL import Image, ImageOps
+          from segmind import SegmindClient
+
+          raw = Path("raw")
+          refs = Path("runtime_refs")
+          raw.mkdir(exist_ok=True)
+          refs.mkdir(exist_ok=True)
+
+          def run(*args):
+              subprocess.run(list(args), check=True)
+
+          def normalized_still(video, second, name):
+              extracted = refs / f"_{name}"
+              run("ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-ss", str(second), "-i", str(video), "-frames:v", "1", str(extracted))
+              image = Image.open(extracted).convert("RGB")
+              target = refs / name
+              ImageOps.pad(image, (640, 360), Image.Resampling.LANCZOS, color=(4, 8, 13)).save(target, quality=96)
+              return target
+
+          board = Path("references/s1e02/board_04.jpeg")
+          chart = Path("references/s1e02/character_chart.jpeg")
+          jian_continuity = normalized_still(Path("prior/segment_03.mp4"), 14.20, "jian_ci_part3_continuity.jpg")
+          room_continuity = normalized_still(Path("prior/segment_04.mp4"), 2.10, "interrogation_room_continuity.jpg")
+          su_identity = normalized_still(Path("prior/segment_04.mp4"), 11.70, "su_wang_identity.jpg")
+
+          prompt = r"""
+          OUTPUT LOCK. Create exactly one continuous 15-second, 16:9, 480p, 24fps cinematic Japanese 2D manga/anime crime-noir sequence with synchronized native Mandarin Chinese voices, realistic interrogation-room foley and very sparse low-frequency suspense music. This is 《吸血法医·剑刺》 S1E02 Part 4. Use twelve sequential full-screen shots in the exact storyboard order, averaging 1.0–1.25 seconds, with restrained hard cuts, tiny pushes and rack focus. Never show the storyboard sheet, character chart, reference image, collage, split screen, panel border, panel number, poster, UI, timecode, logo, watermark, readable generated text or generated subtitles. Deterministic bilingual subtitles and the persistent title are added in post.
+
+          REFERENCE AUTHORITY. Image 1 is the exact twelve-shot S1E02 Part 4 storyboard and composition/order authority; animate its panels rather than displaying them. Image 2 is the immutable core character chart. Image 3 locks Jian Ci's accepted Part 3 face, hair, eyes, white coat and dark blue-black series palette. Image 4 locks the same narrow concrete interrogation room, steel table, two overhead lamps, observation glass and spatial orientation. Image 5 locks suspect Su Wang's established face, black hair, age and dark civilian clothing. Do not redesign or swap anyone.
+
+          SERIES AND CHARACTER LOCK. Cold blue-black low-saturation manga noir, high contrast, rain reflections outside observation glass, near-black shadows, narrow practical light, no bright walls or fill light. No live action, photorealism, glossy 3D, chibi, exaggerated anime acting or fantasy effects. Jian Ci / 检刺 is the same tall slim pale adult Chinese male vampire forensic doctor: short layered black hair, white knee-length forensic coat, black high-neck shirt, black trousers and black gloves, no glasses; young low restrained male voice, half-beat pause before conclusions, micro-expressions only. Lin Qian / 林浅 is the same adult Chinese female detective with chin-length black bob and dark-navy field uniform. Han Che / 韩彻 is the same mature stern Chinese male team leader in a dark jacket. Su Wang / 苏望 is the same 22-year-old adult Chinese male racing driver/suspect from image 5, dark civilian shirt, tired and guarded, never in police uniform or a white coat. No duplicate people, identity morph, wardrobe change, extra interrogator or face replacement.
+
+          CONTINUITY AND FORENSIC LOCK. Part 3 ended after the team found incomplete blood cleanup, medical instruments, anesthetic and purchase records in garage 302. Part 4 interrogates Su Wang using corroborated physical evidence. Surgical sutures and anesthetic alone do not prove homicide; the relevant links are the residual blood DNA, purchase records, cleanup pattern and the metal-particle composition comparison with racing brake alloy. Preserve sealed evidence handling and procedural realism. Jian Ci's vampire perception can notice a stress response only and never proves guilt or replaces tests, records or testimony.
+
+          EXACT TWELVE-SHOT FLOW. 1) Exterior corridor plaque/door silhouette of the same interrogation room, no readable generated letters. 2) Locked wide shot: Lin Qian faces Su Wang across the steel table; Jian Ci observes from the side. 3) Lin Qian places a sealed garage-302 blood-result summary on the table, with no readable generated text. 4) Close Su Wang's guarded reaction and controlled breathing. 5) Jian Ci opens the evidence record with black-gloved hands. 6) Han Che watches through the observation glass, stern and still. 7) A sealed evidence photograph of the skeletal remains and metal particle is placed before Su Wang. 8) Jian Ci waits through silence, half-beat breath pause, slight lower-eyelid tension. 9) Jian Ci calmly presses the chain of corroborating evidence. 10) Su Wang lowers his head; shoulders tighten, no melodrama. 11) Su Wang turns and whispers the final line. 12) Extreme close-up of Jian Ci: both irises become clearly deep burgundy red with natural catchlights for only 0.8–1.0 second, subtle heartbeat, no beam, glow aura, fangs or magical conclusion; they return dark as the shot cuts to black.
+
+          AUDIO LOCK. Mandarin only, distinct natural adult voices, no overlap, calm but tense pace, exact names/speakers and wording:
+          0.00-1.70 旁白：三零二室的残血，把苏望带进了审讯室。
+          1.70-3.40 林浅：苏望，残血检出了你的DNA。
+          3.40-5.20 检刺：麻醉剂和缝合线，只能说明你处理过伤。
+          5.20-6.80 苏望：我救过他，不是杀他。
+          6.80-8.70 检刺：骨内微粒，与赛车刹车盘合金吻合。
+          8.70-10.30 苏望：那不能证明是我。
+          10.30-12.20 林浅：清理痕迹和采购记录，可以互相印证。
+          12.20-13.50 检刺：苏望，你想让谁醒来？
+          13.50-15.00 苏望：我……只是想让他醒来。
+
+          STRICT NEGATIVE. No wrong name 周屿, no glasses on Jian Ci, no police uniform on Su Wang, no second corpse, no loose bones, no fantasy sword, no blood spray, no torture, no coerced confession, no conclusion of guilt solely from red eyes, no readable generated label, no English speech, no bright palette, no location reset, no duplicated face, no random dialogue, no collage, subtitles, logo or watermark.
+          """
+
+          client = SegmindClient()
+          def upload(path):
+              result = client.files.upload(path)
+              urls = result.get("file_urls") or []
+              if not urls:
+                  raise RuntimeError(f"No Segmind reference URL: {result}")
+              return urls[0]
+
+          state = {
+              "episode": "S1E02", "part": 4, "model": "seedance-2.0-mini",
+              "request_count": 1, "automatic_retries": 0, "status": "submitting"
+          }
+          Path("raw/request.json").write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
+          job = client.submit_async(
+              "seedance-2.0-mini",
+              prompt=prompt,
+              reference_images=[upload(x) for x in (board, chart, jian_continuity, room_continuity, su_identity)],
+              duration=15,
+              resolution="480p",
+              aspect_ratio="16:9",
+              generate_audio=True,
+              bitrate_mode="high",
+              seed=20260804,
+          )
+          state["request_id"] = job.request_id
+          state["status"] = "processing"
+          Path("raw/request.json").write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
+          print(f"Single S1E02 Part 4 request ID: {job.request_id}", flush=True)
+          result = job.wait(timeout=1800, interval=5)
+          state["status"] = "completed"
+          state["result"] = result
+          Path("raw/request.json").write_text(json.dumps(state, ensure_ascii=False, indent=2, default=str), encoding="utf-8")
+
+          output = result.get("output") if isinstance(result, dict) else result
+          if isinstance(output, dict):
+              url = output.get("video_url") or output.get("url") or output.get("video")
+          elif isinstance(output, list) and output:
+              first = output[0]
+              url = first.get("video_url") or first.get("url") or first.get("video") if isinstance(first, dict) else first
+          else:
+              url = output
+          if not isinstance(url, str) or not url.startswith("http"):
+              raise RuntimeError(f"No downloadable video URL: {result}")
+          response = requests.get(url, timeout=300)
+          response.raise_for_status()
+          video = raw / "S1E02_Part4_storyboard_exact_v2_raw.mp4"
+          video.write_bytes(response.content)
+          probe = subprocess.run(["ffprobe", "-v", "error", "-show_streams", "-show_format", "-of", "json", str(video)], check=True, capture_output=True, text=True)
+          (raw / "ffprobe.json").write_text(probe.stdout, encoding="utf-8")
+          PY
+
+      - name: Upload raw review artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: S1E02-Part4-Storyboard-Exact-v2
+          path: raw/
+          if-no-files-found: error
+          retention-days: 7
