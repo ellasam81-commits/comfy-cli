@@ -230,9 +230,12 @@ def prepare_references(plan: dict[str, Any]) -> dict[str, Path]:
             panel.save(target, quality=97)
             panel_images.append(panel)
 
-        row_canvas = Image.new("RGB", (2560, 360), (3, 7, 12))
+        row_canvas = Image.new("RGB", (1280, 720), (3, 7, 12))
         for shot_index, panel in enumerate(panel_images):
-            row_canvas.paste(panel, (shot_index * 640, 0))
+            row_canvas.paste(
+                panel,
+                ((shot_index % 2) * 640, (shot_index // 2) * 360),
+            )
         row_target = RUNTIME_DIR / f"clip_{clip['id']}_ordered_row.jpg"
         row_canvas.save(row_target, quality=97)
 
@@ -262,7 +265,7 @@ def build_reference_list(
     ]
     specs.append(
         (
-            "ordered four-shot storyboard strip, left-to-right timing authority",
+            "ordered four-shot storyboard contact sheet; read top-left, top-right, bottom-left, bottom-right",
             RUNTIME_DIR / f"clip_{clip['id']}_ordered_row.jpg",
         )
     )
@@ -295,6 +298,14 @@ def validate_reference_image(path: Path) -> None:
             f"Reference image dimensions are outside provider limits: "
             f"{path} is {width}x{height}; each side must be 300-6000px"
         )
+    ratio = width / height
+    if not 0.4 <= ratio <= 2.5:
+        raise RuntimeError(
+            f"Reference image aspect ratio is outside provider limits: "
+            f"{path} is {width}x{height} ({ratio:.3f}); allowed ratio is 0.4-2.5"
+        )
+    if path.stat().st_size >= 30 * 1024 * 1024:
+        raise RuntimeError(f"Reference image exceeds the 30MB provider limit: {path}")
 
 
 def build_prompt(clip: dict[str, Any], reference_specs: list[tuple[str, Path]]) -> str:
@@ -772,7 +783,7 @@ def prepare_only() -> None:
         specs = build_reference_list(clip, identity_paths, None)
         counts[clip["id"]] = len(specs)
     print(
-        "All static references satisfy the provider's 300-6000px limits: "
+        "All static references satisfy provider side, aspect-ratio and size limits: "
         + json.dumps(counts, sort_keys=True),
         flush=True,
     )
