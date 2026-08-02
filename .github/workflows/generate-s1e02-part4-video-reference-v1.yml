@@ -1,0 +1,265 @@
+name: Generate S1E02 Part 4 — video-reference identity repair (Segmind one-shot)
+
+on:
+  push:
+    branches:
+      - render/s1e02-final
+    paths:
+      - "references/s1e02/run-part4-video-reference-v1.txt"
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: s1e02-part4-video-reference-v1
+  cancel-in-progress: false
+
+jobs:
+  generate-review-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+      PYTHONUNBUFFERED: "1"
+
+    steps:
+      - name: Check out locked inputs
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate one-shot trigger and references
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+          TRIGGER: references/s1e02/run-part4-video-reference-v1.txt
+          WORKFLOW: .github/workflows/generate-s1e02-part4-video-reference-v1.yml
+        run: |
+          set -euo pipefail
+          [[ "$RUN_ATTEMPT" == "1" ]] || { echo "::error::Workflow reruns are forbidden."; exit 2; }
+          git cat-file -e "$BEFORE_SHA:$WORKFLOW"
+          mapfile -t changed < <(git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+          [[ "${#changed[@]}" -eq 1 && "${changed[0]}" == "$TRIGGER" ]]
+          mapfile -t added < <(git diff --diff-filter=A --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+          [[ "${#added[@]}" -eq 1 && "${added[0]}" == "$TRIGGER" ]]
+          [[ -z "$(git log -1 --format=%H "$BEFORE_SHA" -- "$TRIGGER")" ]]
+          [[ "$(cat "$TRIGGER")" == "AUTHOR-APPROVED: GENERATE S1E02 PART 4 VIDEO REFERENCE V1 ONCE" ]]
+          [[ "$(sha256sum references/s1e02/board_04.jpeg | awk '{print $1}')" == "5e57e3ac26230ba85a33b4d1d21f25110d39840af41d170a52bd0130d7e0ff06" ]]
+          [[ "$(sha256sum references/s1e02/character_chart.jpeg | awk '{print $1}')" == "7b86e7122f8501cb4641ee62c67537538948a2d96e35491b25a953e0152e6e6b" ]]
+
+      - name: Download immutable rejected v2 as motion reference
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p prior
+          curl --fail --silent --show-error --location --retry 3 \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/actions/artifacts/8827496083/zip" \
+            --output prior/artifact.zip
+          python -m zipfile -e prior/artifact.zip prior
+          [[ "$(sha256sum prior/S1E02_Part4_storyboard_exact_v2_raw.mp4 | awk '{print $1}')" == "17404117f271be16f82dda9dfec1495886581201c1b293c4dba89ca7ec3b893f" ]]
+
+      - name: Restore paid lock
+        id: paid-lock
+        uses: actions/cache/restore@v4
+        with:
+          path: output/paid-lock
+          key: segmind-s1e02-part4-video-reference-v1
+          lookup-only: true
+
+      - name: Validate secret and unused lock
+        env:
+          LOCK_HIT: ${{ steps.paid-lock.outputs.cache-hit }}
+        run: |
+          set -euo pipefail
+          [[ -n "$SEGMIND_API_KEY" ]] || { echo "::error::Missing SEGMIND_API_KEY; no paid request made."; exit 2; }
+          [[ "$LOCK_HIT" != "true" ]] || { echo "::error::This video-reference request has already been submitted."; exit 2; }
+
+      - name: Install reference and inspection tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install "segmind==1.1.0" requests Pillow
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Prepare clean fifteen-second motion reference
+        run: |
+          set -euo pipefail
+          mkdir -p runtime_refs raw
+          ffmpeg -hide_banner -loglevel error -y \
+            -i prior/S1E02_Part4_storyboard_exact_v2_raw.mp4 \
+            -t 14.95 -an \
+            -vf "scale=854:480:force_original_aspect_ratio=decrease,pad=854:480:(ow-iw)/2:(oh-ih)/2:black,fps=24" \
+            -c:v libx264 -preset medium -crf 25 -pix_fmt yuv420p -movflags +faststart \
+            runtime_refs/video_1_motion_only.mp4
+          duration="$(ffprobe -v error -show_entries format=duration -of default=nw=1:nk=1 runtime_refs/video_1_motion_only.mp4)"
+          python - "$duration" <<'PY'
+          import sys
+          duration = float(sys.argv[1])
+          if not 14.8 <= duration <= 15.0:
+              raise SystemExit(f"invalid reference duration: {duration}")
+          PY
+
+      - name: Arm paid lock before the single submission
+        run: |
+          mkdir -p output/paid-lock
+          echo "author-approved one Seedance Mini video-reference request; run $GITHUB_RUN_ID" > output/paid-lock/armed.txt
+
+      - name: Save paid lock
+        uses: actions/cache/save@v4
+        with:
+          path: output/paid-lock
+          key: segmind-s1e02-part4-video-reference-v1
+
+      - name: Generate exactly one video-reference identity repair
+        run: |
+          python - <<'PY'
+          import json
+          import subprocess
+          from pathlib import Path
+
+          import requests
+          from PIL import Image, ImageEnhance, ImageOps
+          from segmind import SegmindClient
+
+          source = Path("references/s1e02")
+          refs = Path("runtime_refs")
+          raw = Path("raw")
+          raw.mkdir(exist_ok=True)
+
+          board = Image.open(source / "board_04.jpeg").convert("RGB")
+          chart = Image.open(source / "character_chart.jpeg").convert("RGB")
+          if board.size != (512, 341) or chart.size != (384, 576):
+              raise RuntimeError("Locked reference dimensions changed")
+
+          def save_crop(image, box, name, size=(480, 720), contrast=1.12):
+              crop = ImageEnhance.Contrast(image.crop(box).convert("RGB")).enhance(contrast)
+              target = refs / name
+              ImageOps.pad(crop, size, Image.Resampling.LANCZOS, color=(4, 8, 13)).save(target, quality=96)
+              return target
+
+          jian = save_crop(chart, (0, 45, 78, 390), "image_3_jian_ci.jpg")
+          jian_coat = save_crop(board, (382, 55, 510, 232), "image_4_jian_white_coat.jpg")
+          su = save_crop(board, (128, 232, 254, 323), "image_5_su_wang.jpg")
+
+          prompt = r"""
+          ORIGINAL SERIES REPAIR. Create one continuous 15-second, 16:9, 480p, 24fps original 2D illustrated dark forensic crime-noir scene with synchronized natural Mandarin dialogue, restrained room foley and sparse suspense music. This is 《吸血法医·剑刺》 S1E02 Part 4. Do not imitate any existing franchise, copyrighted character, living artist, actor or studio style.
+
+          VIDEO REFERENCE INSTRUCTION. Video 1 is the rejected prior render. Use video 1 ONLY for its interrogation-room geography, motion, camera rhythm, timing and hard-cut sequence. Do not copy its character faces, identity ambiguity, repeated Jian closeups, old dialogue, text or audio. Repair the exact defects: Jian Ci and Su Wang looked like the same man; some of the intended twelve storyboard views became repeated Jian closeups; the final red eyes were not clearly identifiable as Jian Ci.
+
+          IMAGE AUTHORITY. Image 1 is the original twelve-panel storyboard: preserve its exact chronological shot order and dark blue-black suspense compositions, but animate full-screen shots rather than displaying a page or grid. Image 2 is the original character chart. Images 3 and 4 are Jian Ci only. Image 5 is Su Wang only.
+
+          IDENTITY LOCK. Jian Ci / 检刺 is an early-thirties tall slim pale forensic doctor with an angular narrow face, sharp cheekbones, layered side-swept black hair and narrow eyes. In every visible shot he has an unmistakable white knee-length forensic coat over a black high-neck shirt and black gloves. Su Wang / 苏望 is 22, slightly shorter and broader, with warmer skin, a softer rounder face, wider eyes, a blunt forward black fringe, a dark-charcoal rolled-sleeve civilian shirt and bare hands. Su Wang has no badge, uniform, coat or gloves. They must remain obviously different people: no twins, face swap, morph, wardrobe exchange or identity drift. Lin Qian / 林浅 is the adult woman with chin-length black bob and navy police uniform. Han Che / 韩彻 is the mature square-faced team leader in a dark jacket.
+
+          SHOT REPAIR. Retain twelve distinct full-screen shots in storyboard order: corridor door; wide Lin Qian versus Su Wang across the table; Lin Qian places sealed blood report; Jian Ci in white coat; Jian's black-gloved evidence handling; Han Che behind observation glass; sealed remains photograph and metal-particle vial; Jian profile in white coat; a different Jian three-quarter angle; Su Wang closeup with soft face and dark rolled sleeves; Jian chest-up with WHITE COAT reacting to Su Wang's off-camera line; direct match cut to an extreme closeup of JIAN CI'S eyes. Do not repeat or skip shots. In the penultimate shot hold Jian's white coat and angular face long enough to identify him. Only then cut to the same Jian face and both irises turn deep burgundy red for 0.8–1.0 second with natural catchlights. Su Wang never has red eyes. No glow, beam, fangs or supernatural conclusion.
+
+          FORENSIC LOGIC. Residual blood, cleanup pattern and purchase records corroborate one another. Suture and anesthetic possession alone do not prove murder. Bone metal particles are composition-matched to racing brake-disc alloy. Jian's vampire perception notices stress only and never proves guilt.
+
+          AUDIO. Generate audible synchronized Mandarin Chinese speech with distinct speakers, no overlap and these exact words:
+          0.00-1.70 旁白：三零二室的残血，把苏望带进了审讯室。
+          1.70-3.40 林浅：苏望，残血检出了你的DNA。
+          3.40-5.20 检刺：麻醉剂和缝合线，只能说明你处理过伤。
+          5.20-6.80 苏望：我救过他，不是杀他。
+          6.80-8.70 检刺：骨内微粒，与赛车刹车盘合金吻合。
+          8.70-10.30 苏望：那不能证明是我。
+          10.30-12.20 林浅：清理痕迹和采购记录，可以互相印证。
+          12.20-13.50 检刺：苏望，你想让谁醒来？
+          13.50-15.00 苏望（画外音）：我……只是想让他醒来。
+
+          VISUAL LOCK. Cold blue-black, low saturation, high contrast, fine ink lines, near-black concrete room, steel table, two narrow overhead lamps, observation glass and rain reflections. No bright wall, live action, photorealism, glossy 3D, chibi, melodrama, torture or fantasy aura. No storyboard page, collage, split screen, panel border, UI, generated subtitle, readable text, title, logo, timecode or watermark; deterministic Chinese/English subtitles and the persistent series title are added after approval.
+          """
+
+          client = SegmindClient()
+
+          def upload(path):
+              result = client.files.upload(path)
+              urls = result.get("file_urls") or []
+              if not urls:
+                  raise RuntimeError(f"No Segmind reference URL: {result}")
+              return urls[0]
+
+          state = {
+              "episode": "S1E02",
+              "part": 4,
+              "attempt": "video-reference-v1",
+              "model": "seedance-2.0-mini",
+              "reference_mode": "one silent motion video plus five identity/story images",
+              "known_input_problem": "Jian Ci and Su Wang same-face ambiguity, repeated Jian closeups, unclear ownership of final red eyes",
+              "request_count": 1,
+              "automatic_retries": 0,
+              "status": "uploading_references",
+          }
+          status_path = raw / "request.json"
+          status_path.write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
+
+          video_url = upload(refs / "video_1_motion_only.mp4")
+          image_paths = [source / "board_04.jpeg", source / "character_chart.jpeg", jian, jian_coat, su]
+          image_urls = [upload(path) for path in image_paths]
+          state["status"] = "submitting"
+          state["uploaded_reference_video_count"] = 1
+          state["uploaded_reference_image_count"] = len(image_urls)
+          status_path.write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
+
+          try:
+              job = client.submit_async(
+                  "seedance-2.0-mini",
+                  prompt=prompt,
+                  reference_videos=[video_url],
+                  reference_images=image_urls,
+                  duration=15,
+                  resolution="480p",
+                  aspect_ratio="16:9",
+                  generate_audio=True,
+                  bitrate_mode="high",
+                  seed=20260806,
+              )
+              state["request_id"] = job.request_id
+              state["status"] = "processing"
+              status_path.write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
+              print(f"Single video-reference request ID: {job.request_id}", flush=True)
+              result = job.wait(timeout=1800, interval=5)
+          except Exception as exc:
+              state["status"] = "failed"
+              state["error_type"] = type(exc).__name__
+              state["error"] = str(exc)
+              status_path.write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
+              raise
+
+          state["status"] = "completed"
+          state["result"] = result
+          status_path.write_text(json.dumps(state, ensure_ascii=False, indent=2, default=str), encoding="utf-8")
+
+          output = result.get("output") if isinstance(result, dict) else result
+          if isinstance(output, dict):
+              url = output.get("video_url") or output.get("url") or output.get("video")
+          elif isinstance(output, list) and output:
+              first = output[0]
+              url = (first.get("video_url") or first.get("url") or first.get("video")) if isinstance(first, dict) else first
+          else:
+              url = output
+          if not isinstance(url, str) or not url.startswith("http"):
+              raise RuntimeError(f"No downloadable video URL: {result}")
+          response = requests.get(url, timeout=300)
+          response.raise_for_status()
+          video = raw / "S1E02_Part4_video_reference_v1_raw.mp4"
+          video.write_bytes(response.content)
+          probe = subprocess.run(
+              ["ffprobe", "-v", "error", "-show_streams", "-show_format", "-of", "json", str(video)],
+              check=True, capture_output=True, text=True,
+          )
+          (raw / "ffprobe.json").write_text(probe.stdout, encoding="utf-8")
+          PY
+
+      - name: Upload raw review and request record
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: S1E02-Part4-Video-Reference-v1
+          path: raw/
+          if-no-files-found: warn
+          retention-days: 7
