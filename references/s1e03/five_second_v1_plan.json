@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "episode": "S1E03",
   "episode_title_zh": "醒不过来的人",
   "episode_title_en": "The One Who Would Not Wake",
@@ -35,16 +35,16 @@
     "board_01.png": "c796657258c91e511d5c50d340c8492e7993e1bd9cda0418355019d433014c25",
     "board_02.png": "d0921b339cbdb40d4c67160bc99c1440e7e2c66f804cea47c514cb2da1328f79",
     "board_03.png": "253b7cc049383dd571647e17e00babeaa45b08ebb837f1f332440cb01da0628e",
-    "board_04.png": "fe763681f23d120849d6d244f74f83b8ec05d220dce5d0ef7aa52b5f04238065",
+    "board_04_time1054.jpg": "fdd07a3c1a77ede84de5795027a23daec03a2c6b0689d8f306a7bfc989bae105",
     "source_refs/character_chart_highres.jpeg": "5c22e5fe632f2e6d08436b48037656d7e8e05a73b4b4feb9ecfcf1df5969dad4",
     "source_refs/jian_ci_identity.jpg": "d0e24c788ef8e7ba7040eb35e33a3b9614e7ab3f9ff981ce465a5ab07a8ec46e",
     "continuity/su_wang_identity_accepted.jpg": "51c762397680597ee9dbb9625e1004e71b6071e7085084be9d70f8f76c8e5e01",
     "continuity/s1e02_interrogation_cast_clean.jpg": "7862908922935d8ee05aaafbec4ca9c92e38f75f7b6c44672330c6734ff4cac7",
-    "source_refs/s1e02_final_red_eye.jpg": "7107fc4e32f0481e8065060f5256b9171f43da82bb384bb2e76920bb5953ddca",
+    "source_refs/s1e02_final_red_eye_clean.jpg": "7019806a1aa6ffe2d019e34a8b95a2e597b10f96f3a2375ef92978dad87522ac",
     "source_refs/container07_exact.png": "6705d26f7cfaf30060c99248e51f21e44116d20438c9a7138992708099c91320",
     "continuity/s1e02_clip12_bridge_clean.mp4": "bac1e1df053ffc576d9de09435f6344b687c717965a6641bd6ab3e7a97062eac"
   },
-  "global_story_lock": "Cheng Ye was Su Wang's rally teammate. He still had a pulse after the crash. Team doctor Shen Heng falsely described repeated marrow aspiration as an intraosseous rescue procedure, then refrigerated and moved the remains. Su Wang supplied garage 302 and concealed evidence but was not the direct killer. Container-07 is an illegal donor identifier, never a resurrection medicine. Vampire perception may suggest a test but is never legal proof.",
+  "global_story_lock": "Cheng Ye was Su Wang's rally teammate. He still had a pulse after the crash. Team doctor Shen Heng falsely described repeated high-volume marrow aspiration as an intraosseous rescue procedure; pathology and synchronized monitor/device logs establish fatal blood loss during Shen Heng's continued extraction. Shen Heng then refrigerated and moved the remains. Su Wang supplied garage 302 and concealed evidence but was not the direct killer. Container-07 is an illegal donor identifier, never a resurrection medicine. Vampire perception may suggest a test but is never legal proof.",
   "global_negative": "wrong series or episode; 夜血法医; 陆沉; 周屿; 陈默; English speech; silent track; invented dialogue; generated subtitle, header, caption, logo, watermark, timecode, readable UI or gibberish label; comic grid, storyboard page, split screen, collage or picture-in-picture; live action, celebrity likeness, photoreal skin, glossy 3D, chibi, bright fantasy, comedy face, shaky camera, fast spin; face swap, twin, duplicate, body or wardrobe drift; Jian Ci wearing glasses; Su Wang in white coat or with red eyes; Xu Wei as male or short-haired; Lin Qian with long hair; Zhou Qiao without glasses or hearing device; Han Che and Shen Heng sharing a face; Chen Mo becoming Lin Qian, Xu Wei, a corpse or an injured neck; bare-hand evidence handling; unsealed evidence; prop teleport; luxury new hospital; supernatural power as proof; red eyes as conviction; fangs, biting, aura, beam, instant regeneration; graphic gore, surgery, throat-cutting, blood spray, organs, dismemberment, insect swarm or irrelevant crowd",
   "clips": [
     {
@@ -58,29 +58,29 @@
       "use_previous_last_frame": false,
       "continuity_frame_second": 4.60,
       "extra_reference_images": [
-        {"file": "source_refs/s1e02_final_red_eye.jpg", "label": "accepted S1E02 final red-eye composition and Jian Ci face authority"},
+        {"file": "source_refs/s1e02_final_red_eye_clean.jpg", "label": "text-free crop of the accepted S1E02 final red-eye composition and Jian Ci face authority"},
         {"file": "continuity/s1e02_interrogation_cast_clean.jpg", "label": "accepted S1E02 interrogation room, cast scale and wardrobe authority"}
       ],
       "reference_videos": [
         {"file": "continuity/s1e02_clip12_bridge_clean.mp4", "label": "accepted S1E02 ending motion, room and screen direction only; never text or dialogue authority", "duration_min": 4.60, "duration_max": 4.80}
       ],
       "shots": [
-        "0.00-0.30 exact visual continuation of Jian Ci's face and controlled burgundy irises from S1E02; no fade and no black leader.",
-        "0.30-1.25 same Jian Ci and same camera axis; both eyes return naturally dark as he silently looks toward Su Wang.",
+        "0.00-0.30 exact visual continuation of Jian Ci's face and controlled burgundy irises from S1E02; Jian Ci stays silent with his mouth closed; no fade and no black leader.",
+        "0.30-1.25 same Jian Ci and same camera axis; both eyes return naturally dark as he silently looks toward Su Wang, mouth still closed while Su Wang speaks off-screen.",
         "1.25-5.00 Su Wang remains seated in the same charcoal rolled-sleeve shirt, holds a hospital photograph of Cheng Ye after the crash, and answers the prior episode's question with controlled guilt."
       ],
       "dialogue": [
-        {"start": 0.35, "end": 2.15, "speaker_zh": "苏望", "speaker_en": "Su Wang", "zh": "他叫程野，我的队友。", "en": "His name was Cheng Ye, my teammate."},
+        {"start": 0.35, "end": 2.15, "speaker_zh": "苏望（画外）", "speaker_en": "Su Wang (O.S.)", "zh": "他叫程野，我的队友。", "en": "His name was Cheng Ye, my teammate."},
         {"start": 2.35, "end": 4.70, "speaker_zh": "苏望", "speaker_en": "Su Wang", "zh": "撞车后，他还有脉搏。", "en": "After the crash, he still had a pulse."}
       ],
-      "special_negative": "Do not change the room, camera direction, faces or clothes. Cheng Ye in the photograph must not resemble Su Wang. Jian Ci's eyes return dark within 0.30 seconds; no fangs."
+      "special_negative": "Do not change the room, camera direction, faces or clothes. Cheng Ye in the photograph must not resemble Su Wang. Jian Ci's eyes return dark within 0.30 seconds; no fangs. Jian Ci never speaks or lip-syncs in this clip; the opening off-screen voice belongs only to Su Wang."
     },
     {
       "id": "02",
       "board": "board_01.png",
       "row": 2,
       "panels": [4, 5, 6],
-      "scene": "same S1E02 interrogation room with one restrained evidence-memory insert of garage 302",
+      "scene": "same S1E02 interrogation room, same steel table, evidence layout, seating, observation window and cold ceiling light",
       "seed": 20260831,
       "characters": ["su_wang", "lin_qian", "jian_ci", "shen_heng"],
       "use_previous_last_frame": true,
@@ -89,8 +89,8 @@
       "reference_videos": [],
       "shots": [
         "0.00-1.25 macro on the steel table: Cheng Ye hospital photo, one sealed vial and neutral blank evidence tag; no readable writing.",
-        "1.25-3.50 Lin Qian questions Su Wang while Jian Ci stands separately in the exact same room; a restrained memory shows Shen Heng preparing a marrow aspirator in garage 302 and taking over the still-breathing Cheng Ye.",
-        "3.50-5.00 Su Wang identifies team doctor Shen Heng, a distinct lean middle-aged man with receding hairline, half-rim glasses, green scrubs, gray medical coat and blue gloves."
+        "1.25-3.50 Lin Qian questions Su Wang while Jian Ci stands separately in the exact same room; keep one full-screen interrogation shot with no flashback or picture-in-picture.",
+        "3.50-5.00 Su Wang points to a sealed team photograph and identifies team doctor Shen Heng, a distinct lean middle-aged man with receding hairline, half-rim glasses, green scrubs, gray medical coat and blue gloves."
       ],
       "dialogue": [
         {"start": 0.25, "end": 4.65, "speaker_zh": "苏望（画外）", "speaker_en": "Su Wang (O.S.)", "zh": "队医沈衡说，骨内输液能把程野救醒。", "en": "Team doctor Shen Heng said an intraosseous infusion could wake Cheng Ye."}
@@ -115,7 +115,7 @@
         "3.55-5.00 clear sealed scan and portrait identify Cheng Ye, a late-twenties male rally co-driver with cropped hair and a longer face, distinct from all core cast."
       ],
       "dialogue": [
-        {"start": 0.25, "end": 4.65, "speaker_zh": "周峤", "speaker_en": "Zhou Qiao", "zh": "牙科记录、旧植入物和DNA都吻合。遗骸是程野。", "en": "The dental record, old implant and DNA all match. The remains are Cheng Ye."}
+        {"start": 0.25, "end": 4.65, "speaker_zh": "旁白", "speaker_en": "Narrator", "zh": "第三天。牙科、旧植入物和DNA吻合，遗骸是程野。", "en": "Day three. Dental records, the old implant and DNA matched. The remains were Cheng Ye."}
       ],
       "special_negative": "Do not imply instant testing; this is explicitly the third day. Identification is multi-source, not vampire intuition."
     },
@@ -137,7 +137,7 @@
         "2.50-5.00 Jian Ci compares a sealed marrow aspirator's diameter and rotational microgrooves against the defects; his eyes remain dark except a 0.20-second subtle burgundy reflection that suggests a test, never guilt."
       ],
       "dialogue": [
-        {"start": 0.25, "end": 4.65, "speaker_zh": "检刺", "speaker_en": "Jian Ci", "zh": "刹车屑只证实撞车；髂骨孔是反复取髓。", "en": "The brake fragments prove only the crash; the iliac holes show repeated marrow harvesting."}
+        {"start": 0.25, "end": 4.65, "speaker_zh": "检刺（画外）", "speaker_en": "Jian Ci (O.S.)", "zh": "刹车屑只证实撞车；髂骨孔是反复取髓。", "en": "The brake fragments prove only the crash; the iliac holes show repeated marrow harvesting."}
       ],
       "special_negative": "Brake fragments do not prove murder. Tool marks and red eyes alone do not establish cause or guilt. No soft tissue or moving skeleton."
     },
@@ -146,7 +146,7 @@
       "board": "board_02.png",
       "row": 2,
       "panels": [4, 5, 6],
-      "scene": "same forensic evidence laboratory with sealed entomology tray, microscope and cold-storage reconstruction",
+      "scene": "same forensic evidence laboratory with sealed entomology tray, microscope and a conservative exposure-window reconstruction",
       "seed": 20260832,
       "characters": ["xu_wei"],
       "use_previous_last_frame": true,
@@ -156,10 +156,10 @@
       "shots": [
         "0.00-1.20 a small number of pupal casings stay sealed under clean evidence glass, never an insect swarm.",
         "1.20-2.45 Xu Wei, brown high ponytail and olive forensic coverall, compares developmental stages under a microscope with black gloves.",
-        "2.45-5.00 restrained reconstruction: frost on a sealed body bag in the old cold room, then transfer to the rain-dark abandoned hospital, with no corpse exposure."
+        "2.45-5.00 Xu Wei marks a deliberately broad recent-exposure interval using non-readable visual shapes while the team recalculates the death window; do not yet claim a storage cause."
       ],
       "dialogue": [
-        {"start": 0.20, "end": 4.70, "speaker_zh": "许未", "speaker_en": "Xu Wei", "zh": "虫龄比暴露时间短，遗骸曾被冷藏。", "en": "The insects are younger than the exposure interval. The remains had been refrigerated."}
+        {"start": 0.20, "end": 4.70, "speaker_zh": "许未（画外）", "speaker_en": "Xu Wei (O.S.)", "zh": "虫龄只支持近期暴露，死亡时间要重算。", "en": "The insect age supports only recent exposure. We need to recalculate the death window."}
       ],
       "special_negative": "Do not claim an exact minute of death from insects. No disgusting swarm, exposed body or bare-hand handling."
     },
@@ -168,7 +168,7 @@
       "board": "board_02.png",
       "row": 3,
       "panels": [7, 8, 9],
-      "scene": "same forensic evidence laboratory with rally onboard record and old cold-room security imagery",
+      "scene": "same forensic evidence laboratory with independent cold-room temperature record, access record, rally onboard record and old security imagery",
       "seed": 20260832,
       "characters": ["zhou_qiao", "su_wang", "shen_heng"],
       "use_previous_last_frame": true,
@@ -176,12 +176,12 @@
       "extra_reference_images": [],
       "reference_videos": [],
       "shots": [
-        "0.00-1.20 Zhou Qiao and the team remain around the same dark terminal in the same evidence laboratory.",
+        "0.00-1.20 Zhou Qiao and the team compare a validated cold-room temperature curve with the matching access event on the same dark terminal; no readable UI.",
         "1.20-2.50 rally onboard image clearly shows the accepted younger Su Wang driving on track; abstract telemetry only and no text.",
         "2.50-5.00 old cold-room security angle clearly shows the distinct Shen Heng entering alone with an insulated medical case while Zhou Qiao reports from his tablet."
       ],
       "dialogue": [
-        {"start": 0.20, "end": 4.70, "speaker_zh": "周峤", "speaker_en": "Zhou Qiao", "zh": "修正死亡窗后，苏望在赛道；沈衡进了冷库。", "en": "With the death window corrected, Su Wang was on the track; Shen Heng entered the cold room."}
+        {"start": 0.20, "end": 4.70, "speaker_zh": "周峤", "speaker_en": "Zhou Qiao", "zh": "冷库温度与门禁吻合；苏望在赛道，沈衡在冷库。", "en": "The cold-room temperature and access records agree: Su Wang was on the track, and Shen Heng was in the cold room."}
       ],
       "special_negative": "This excludes Su Wang only from the direct killing window, not from concealment. Su Wang must not resemble Jian Ci. No readable timestamps."
     },
@@ -206,7 +206,7 @@
         "2.45-5.00 Lin Qian and Han Che inspect the sealed tube beside an old photograph of deceased 64-year-old Zhong Yuan and conclude he hid evidence."
       ],
       "dialogue": [
-        {"start": 0.20, "end": 2.55, "speaker_zh": "林浅", "speaker_en": "Lin Qian", "zh": "容器-07不是药，是供者编号。", "en": "Container-07 wasn't medicine. It was a donor number."},
+        {"start": 0.20, "end": 2.55, "speaker_zh": "林浅（画外）", "speaker_en": "Lin Qian (O.S.)", "zh": "容器-07不是药，是供者编号。", "en": "Container-07 wasn't medicine. It was a donor number."},
         {"start": 2.65, "end": 4.70, "speaker_zh": "韩彻", "speaker_en": "Han Che", "zh": "钟远藏的是证据。", "en": "Zhong Yuan hid evidence."}
       ],
       "special_negative": "Never regenerate or misspell Container-07. Zhong Yuan appears only in an old photograph and never revives. The tube is not real resurrection medicine."
@@ -229,7 +229,7 @@
         "2.35-5.00 Han Che and Lin Qian control the doorway; Shen Heng slowly puts down the tool, raises empty hands and is calmly handcuffed."
       ],
       "dialogue": [
-        {"start": 0.40, "end": 3.60, "speaker_zh": "韩彻", "speaker_en": "Han Che", "zh": "沈衡，放下取髓器。你被捕了。", "en": "Shen Heng, put down the marrow aspirator. You're under arrest."}
+        {"start": 0.40, "end": 3.60, "speaker_zh": "韩彻（画外）", "speaker_en": "Han Che (O.S.)", "zh": "沈衡，放下取髓器。你被捕了。", "en": "Shen Heng, put down the marrow aspirator. You're under arrest."}
       ],
       "special_negative": "No gunfight, chase, martial arts, blood spray or broken sample. Square-faced Han Che and lean glasses-wearing Shen Heng must never swap faces or clothes."
     },
@@ -238,7 +238,7 @@
       "board": "board_03.png",
       "row": 3,
       "panels": [7, 8, 9],
-      "scene": "same forensic evidence laboratory and observation glass, three independent sealed evidence groups",
+      "scene": "same forensic evidence laboratory and observation glass, with pathology, tool-and-blood comparison, and validated synchronized monitor/device records",
       "seed": 20260832,
       "characters": ["zhou_qiao", "jian_ci", "shen_heng"],
       "use_previous_last_frame": false,
@@ -246,19 +246,18 @@
       "extra_reference_images": [],
       "reference_videos": [],
       "shots": [
-        "0.00-1.20 microscope comparison matches the marrow aspirator microgrooves to iliac tool marks beside a sealed Cheng Ye blood swab.",
-        "1.20-2.45 Zhou Qiao shows abstract life-monitor geometry plus cold-room access imagery without readable UI; the wider frame retains all three evidence groups.",
-        "2.45-5.00 Jian Ci, normal dark eyes, states the conclusion while Shen Heng remains visible behind observation glass and the tool, blood and access evidence stay in frame."
+        "0.00-1.20 pathology and the sealed Cheng Ye blood evidence establish fatal blood loss beside the matched marrow-aspirator microgrooves and iliac tool marks.",
+        "1.20-2.45 Zhou Qiao shows validated synchronized monitor and extraction-device geometry: Cheng Ye still has cardiac activity when Shen Heng begins, continued high-volume extraction precedes cardiac arrest, and the device identifier and time align; no readable UI.",
+        "2.45-5.00 Zhou Qiao states the evidence-chain conclusion as Jian Ci listens with normal dark eyes; Shen Heng remains visible behind observation glass and the independent pathology, tool, blood, device-log and access groups stay in frame."
       ],
       "dialogue": [
-        {"start": 0.20, "end": 2.20, "speaker_zh": "周峤", "speaker_en": "Zhou Qiao", "zh": "取髓时，程野还活着。", "en": "Cheng Ye was alive when the marrow was taken."},
-        {"start": 2.35, "end": 4.70, "speaker_zh": "检刺", "speaker_en": "Jian Ci", "zh": "骨头开口了。凶手是沈衡。", "en": "The bones have spoken. The killer is Shen Heng."}
+        {"start": 0.20, "end": 4.70, "speaker_zh": "周峤（画外）", "speaker_en": "Zhou Qiao (O.S.)", "zh": "病理与日志确认：沈衡持续取髓，程野因失血死亡。", "en": "Pathology and the logs confirm it: Shen Heng continued the extraction, and Cheng Ye died from blood loss."}
       ],
-      "special_negative": "No single waveform or bone mark proves guilt. Keep tool match, Cheng Ye blood and cold-room access as independent corroboration. No red-eye conviction or magical replay."
+      "special_negative": "No single waveform or bone mark proves guilt. The fatal-blood-loss pathology, matched tool marks, Cheng Ye blood, synchronized monitor/device records, device identifier, time and cold-room access must corroborate one another. No red-eye conviction or magical replay."
     },
     {
       "id": "10",
-      "board": "board_04.png",
+      "board": "board_04_time1054.jpg",
       "row": 1,
       "panels": [1, 2, 3],
       "scene": "return to the exact accepted S1E02 interrogation room with identical table, seating, observation window, clothes and cast scale",
@@ -283,7 +282,7 @@
     },
     {
       "id": "11",
-      "board": "board_04.png",
+      "board": "board_04_time1054.jpg",
       "row": 2,
       "panels": [4, 5, 6],
       "scene": "same narrow gray-blue forensic-center service elevator and wet corridor at rainy night",
@@ -299,14 +298,14 @@
         "2.45-5.00 Chen Mo touches her intact neck and states her name and claim as Lin Qian and Jian Ci approach, all three faces clearly different."
       ],
       "dialogue": [
-        {"start": 0.20, "end": 1.35, "speaker_zh": "陈沫", "speaker_en": "Chen Mo", "zh": "我叫陈沫。", "en": "My name is Chen Mo."},
+        {"start": 0.20, "end": 1.35, "speaker_zh": "陈沫（画外）", "speaker_en": "Chen Mo (O.S.)", "zh": "我叫陈沫。", "en": "My name is Chen Mo."},
         {"start": 1.45, "end": 4.80, "speaker_zh": "陈沫", "speaker_en": "Chen Mo", "zh": "十点十三分，有人割开我的喉咙。", "en": "At 10:13, someone cut my throat."}
       ],
       "special_negative": "Chen Mo never becomes a corpse, falls or shows an open wound. Blood is only on clothing; neck skin remains intact. She must not become Lin Qian or Xu Wei. Do not show the attack."
     },
     {
       "id": "12",
-      "board": "board_04.png",
+      "board": "board_04_time1054.jpg",
       "row": 3,
       "panels": [7, 8, 9],
       "scene": "same forensic-center service elevator and adjacent evidence intake bench, same wet corridor and old security-camera angle",
@@ -316,16 +315,17 @@
       "continuity_frame_second": 4.70,
       "extra_reference_images": [],
       "reference_videos": [],
+      "postprocess": {"add_exact_time_card": "10:54", "start": 2.45, "end": 4.80, "clock_face_must_be_covered_if_incorrect": true},
       "shots": [
         "0.00-1.15 macro on Chen Mo's completely intact clean neck above blood-soaked fabric while Lin Qian's gloved hand takes a fabric swab; no wound or scar.",
         "1.15-2.45 Lin Qian photographs and seals the clothing sample without claiming an instant DNA result, then looks at the flawless neck.",
-        "2.45-4.80 Jian Ci checks an analog wall clock; both irises flash restrained burgundy for an instant while an old grayscale monitor behind him shows only an ambiguous white sleeve and silver-gray left glove leaving the elevator. 4.80-5.00 hard cut to black."
+        "2.45-4.80 Jian Ci checks the wall clock at the verified time 10:54; both irises flash restrained burgundy for an instant while an old grayscale monitor behind him shows only an ambiguous white sleeve and silver-gray left glove leaving the elevator. The exact 10:54 display is added deterministically in post, so do not invent readable digits or contradictory clock hands. 4.80-5.00 hard cut to black."
       ],
       "dialogue": [
-        {"start": 0.20, "end": 1.05, "speaker_zh": "林浅", "speaker_en": "Lin Qian", "zh": "伤口呢？", "en": "Where is the wound?"},
-        {"start": 1.20, "end": 4.60, "speaker_zh": "检刺", "speaker_en": "Jian Ci", "zh": "四十一分钟。足够长好了。", "en": "Forty-one minutes. Long enough to heal."}
+        {"start": 0.20, "end": 1.05, "speaker_zh": "林浅（画外）", "speaker_en": "Lin Qian (O.S.)", "zh": "伤口呢？", "en": "Where is the wound?"},
+        {"start": 1.20, "end": 4.60, "speaker_zh": "检刺（画外）", "speaker_en": "Jian Ci (O.S.)", "zh": "四十一分钟。足够长好了。", "en": "Forty-one minutes. Long enough to heal."}
       ],
-      "special_negative": "Jian Ci's inference is only an investigative lead, never courtroom proof. No fangs, healing beam, magic effect or scar. The silver-gray glove is only the next-case clue; do not announce a culprit."
+      "special_negative": "Jian Ci's inference is only an investigative lead, never courtroom proof. No fangs, healing beam, magic effect or scar. The silver-gray glove is only the next-case clue; do not announce a culprit. Do not show a readable generated time or a clock face that contradicts 10:54; post-production supplies the exact time."
     }
   ]
 }

@@ -162,7 +162,7 @@ def safe_source_path(relative: str) -> Path:
 def load_and_validate_plan() -> dict[str, Any]:
     plan = json.loads(PLAN_PATH.read_text(encoding="utf-8"))
     required = {
-        "schema_version": 2,
+        "schema_version": 3,
         "episode": "S1E03",
         "model": "seedance-2.0-mini",
         "duration_seconds_per_clip": 5,
@@ -194,8 +194,16 @@ def load_and_validate_plan() -> dict[str, Any]:
         if sha256(path) != expected_digest:
             raise RuntimeError(f"Locked source hash changed: {relative}")
 
-    for board_index in range(1, 5):
-        board = safe_source_path(f"board_{board_index:02d}.png")
+    expected_boards = [
+        "board_01.png",
+        "board_02.png",
+        "board_03.png",
+        "board_04_time1054.jpg",
+    ]
+    if sorted({clip["board"] for clip in clips}) != sorted(expected_boards):
+        raise RuntimeError("The four locked storyboard files changed")
+    for board_file in expected_boards:
+        board = safe_source_path(board_file)
         with Image.open(board) as image:
             if image.size != BOARD_SIZE:
                 raise RuntimeError(f"Locked board size changed: {board} {image.size}")
@@ -288,7 +296,7 @@ def prepare_references(
 
     board_01 = Image.open(safe_source_path("board_01.png")).convert("RGB")
     board_03 = Image.open(safe_source_path("board_03.png")).convert("RGB")
-    board_04 = Image.open(safe_source_path("board_04.png")).convert("RGB")
+    board_04 = Image.open(safe_source_path("board_04_time1054.jpg")).convert("RGB")
     derived = {
         "cheng_ye": [clean_panel(board_01, 3, 3), clean_panel(board_01, 2, 1)],
         "shen_heng": [clean_panel(board_01, 2, 3), clean_panel(board_03, 2, 2)],
@@ -448,7 +456,7 @@ ABSOLUTE STORYBOARD RULE. Render exactly three distinct full-screen cinematic
 shots in the exact reference order and timing below, using ordinary hard cuts.
 Every shot fills the 16:9 frame. Never display the three panels together, a
 storyboard page, grid, split screen, border, panel number, prompt, UI, title,
-subtitle, logo or watermark. Do not repeat, skip, swap or merge shots. Do not
+subtitle, logo or watermark. Do not repeat, skip, swap or merge shots.
 {text_rule}
 
 REFERENCE IMAGE MAP:
