@@ -62,9 +62,73 @@ TARGET_LRA = 7.0
 TARGET_TP = -2.0
 DEFAULT_DRONE_GAIN_DB = -36.0
 
+CLIP01_ACCEPTED_RAW_SHA256 = (
+    "718f7c311028f610d4d6de3d52b6cc63ca403a9de84814ad853a0a427dc623fb"
+)
+CLIP01_EYE_REPAIR_START_FRAME = 8
+CLIP01_EYE_REPAIR_END_FRAME = 12  # exclusive; repaired frames are 8 through 11
+CLIP01_BLACK_EYE_SOURCE_FRAME = 12
+CLIP01_REPAIR_START_FRAME = 30
+CLIP01_REPAIR_END_FRAME = 54  # exclusive; repaired frames are 30 through 53
+CLIP01_FREEZE_SOURCE_FRAME = 54
+CLIP01_MATCH_SSIM_MIN = 0.990
+CLIP01_DISTINCT_SSIM_MAX = 0.980
 CLIP07_REPLACEMENT_FRAMES = 29
 CLIP12_BODY_FRAMES = 115
 CLIP12_BLACK_FRAMES = 5
+
+
+def validate_clip01_repair_lock() -> dict[str, Any]:
+    """Validate the accepted-gate repair independently of the story plan."""
+    if len(CLIP01_ACCEPTED_RAW_SHA256) != 64 or not re.fullmatch(
+        r"[0-9a-f]{64}", CLIP01_ACCEPTED_RAW_SHA256
+    ):
+        raise RuntimeError("Clip01 accepted-gate SHA-256 lock is malformed")
+    if (
+        CLIP01_EYE_REPAIR_START_FRAME != 8
+        or CLIP01_EYE_REPAIR_END_FRAME != 12
+        or CLIP01_BLACK_EYE_SOURCE_FRAME != 12
+        or CLIP01_REPAIR_START_FRAME != 30
+        or CLIP01_REPAIR_END_FRAME != 54
+        or CLIP01_FREEZE_SOURCE_FRAME != 54
+    ):
+        raise RuntimeError("Clip01 split-screen repair frame lock changed")
+    if not (
+        0 < CLIP01_EYE_REPAIR_START_FRAME
+        < CLIP01_EYE_REPAIR_END_FRAME
+        == CLIP01_BLACK_EYE_SOURCE_FRAME
+        < CLIP01_REPAIR_START_FRAME
+        < CLIP01_REPAIR_END_FRAME
+        == CLIP01_FREEZE_SOURCE_FRAME
+        < FRAMES_PER_CLIP
+    ):
+        raise RuntimeError("Clip01 split-screen repair frame lock is internally invalid")
+    if not (
+        0.98 <= CLIP01_MATCH_SSIM_MIN <= 1.0
+        and 0.0 < CLIP01_DISTINCT_SSIM_MAX < CLIP01_MATCH_SSIM_MIN
+    ):
+        raise RuntimeError("Clip01 repair SSIM thresholds are internally invalid")
+    return {
+        "accepted_raw_sha256": CLIP01_ACCEPTED_RAW_SHA256,
+        "preserved_red_to_black_transition_frame": CLIP01_EYE_REPAIR_START_FRAME - 1,
+        "black_eye_replaced_frames": [
+            CLIP01_EYE_REPAIR_START_FRAME,
+            CLIP01_EYE_REPAIR_END_FRAME - 1,
+        ],
+        "black_eye_freeze_source_frame": CLIP01_BLACK_EYE_SOURCE_FRAME,
+        "first_unmodified_black_eye_frame": CLIP01_EYE_REPAIR_END_FRAME,
+        "black_eye_replacement_frame_count": CLIP01_EYE_REPAIR_END_FRAME
+        - CLIP01_EYE_REPAIR_START_FRAME,
+        "preserved_jian_ci_frame": CLIP01_REPAIR_START_FRAME - 1,
+        "replaced_frames": [CLIP01_REPAIR_START_FRAME, CLIP01_REPAIR_END_FRAME - 1],
+        "fullscreen_su_wang_freeze_source_frame": CLIP01_FREEZE_SOURCE_FRAME,
+        "first_unmodified_fullscreen_su_wang_frame": CLIP01_REPAIR_END_FRAME,
+        "replacement_frame_count": CLIP01_REPAIR_END_FRAME
+        - CLIP01_REPAIR_START_FRAME,
+        "preservation_ssim_min": CLIP01_MATCH_SSIM_MIN,
+        "jian_vs_su_wang_ssim_max": CLIP01_DISTINCT_SSIM_MAX,
+        "plan_independent": True,
+    }
 
 
 def parse_args() -> argparse.Namespace:
@@ -537,7 +601,14 @@ def validate_tools() -> dict[str, str]:
     filters = run_command(
         [ffmpeg, "-hide_banner", "-filters"], capture=True, quiet=True
     ).stdout
-    for required_filter in ("ass", "fps", "loudnorm", "sidechaincompress", "tile"):
+    for required_filter in (
+        "ass",
+        "fps",
+        "loudnorm",
+        "sidechaincompress",
+        "ssim",
+        "tile",
+    ):
         if not re.search(rf"\b{re.escape(required_filter)}\b", filters):
             raise RuntimeError(f"ffmpeg is missing required filter: {required_filter}")
     encoders = run_command(
@@ -551,6 +622,7 @@ def validate_tools() -> dict[str, str]:
 
 def prepare_only(args: argparse.Namespace) -> None:
     plan = load_and_validate_plan()
+    clip01_lock = validate_clip01_repair_lock()
     tools = validate_tools()
     font_files, font_family, font_directory = resolve_font_bundle(args.fonts_dir)
     ass = build_ass(plan, font_family)
@@ -566,6 +638,7 @@ def prepare_only(args: argparse.Namespace) -> None:
             safe_source_path("source_refs/container07_exact.png")
         ),
         "clip_ids": CLIP_IDS,
+        "clip01_plan_independent_repairs": clip01_lock,
         "clip07_replacement_frames": CLIP07_REPLACEMENT_FRAMES,
         "clip12_black_frames": CLIP12_BLACK_FRAMES,
         "ass_sha256": sha256_text(ass),
@@ -758,6 +831,39 @@ def decoded_audio_samples(path: Path) -> int:
     return byte_count // bytes_per_sample_frame
 
 
+def decoded_audio_sha256(path: Path) -> str:
+    command = [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-i",
+        str(path),
+        "-map",
+        "0:a:0",
+        "-ac",
+        str(CHANNELS),
+        "-ar",
+        str(SAMPLE_RATE),
+        "-f",
+        "s16le",
+        "pipe:1",
+    ]
+    process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    if process.stdout is None or process.stderr is None:
+        raise RuntimeError("Could not open ffmpeg audio-hash pipes")
+    digest = hashlib.sha256()
+    while True:
+        chunk = process.stdout.read(1024 * 1024)
+        if not chunk:
+            break
+        digest.update(chunk)
+    stderr = process.stderr.read().decode("utf-8", errors="replace")
+    return_code = process.wait()
+    if return_code:
+        raise RuntimeError(f"Audio decode failed for {path}:\n{stderr[-4000:]}")
+    return digest.hexdigest()
+
+
 def normalized_summary(path: Path, expected_frames: int, expected_samples: int) -> dict[str, Any]:
     probe = probe_media(path, count_frames=True)
     video = first_stream(probe, "video")
@@ -867,6 +973,69 @@ def normalize_clip(source: Path, destination: Path) -> None:
     run_command(command)
 
 
+def patch_clip01_accepted_gate(base: Path, destination: Path) -> None:
+    """Apply both accepted-gate picture-only repairs to Clip01.
+
+    Frames 0-7 remain untouched; black-eye frame 12 supplies output frames
+    8-11 and the original stream resumes at frame 12.  Frames 12-29 then remain
+    untouched; full-screen Su Wang frame 54 supplies output frames 30-53 and
+    the original stream resumes at frame 54.  Both joins share their freeze
+    source with the first resumed frame.  The complete normalized PCM audio is
+    stream-copied without retiming.
+    """
+    eye_replacement_count = (
+        CLIP01_EYE_REPAIR_END_FRAME - CLIP01_EYE_REPAIR_START_FRAME
+    )
+    replacement_count = CLIP01_REPAIR_END_FRAME - CLIP01_REPAIR_START_FRAME
+    filter_complex = (
+        "[0:v:0]split=5[eyeheadsrc][eyefreezesrc][midsrc][gridsrc][tailsrc];"
+        f"[eyeheadsrc]trim=end_frame={CLIP01_EYE_REPAIR_START_FRAME},"
+        f"setpts=N/({FPS}*TB),format=yuv420p[eyehead];"
+        f"[eyefreezesrc]trim=start_frame={CLIP01_BLACK_EYE_SOURCE_FRAME}:"
+        f"end_frame={CLIP01_BLACK_EYE_SOURCE_FRAME + 1},setpts=N/({FPS}*TB),"
+        f"tpad=stop_mode=clone:stop_duration=1,trim=end_frame={eye_replacement_count},"
+        f"setpts=N/({FPS}*TB),format=yuv420p[eyefreeze];"
+        f"[midsrc]trim=start_frame={CLIP01_EYE_REPAIR_END_FRAME}:"
+        f"end_frame={CLIP01_REPAIR_START_FRAME},setpts=N/({FPS}*TB),"
+        "format=yuv420p[mid];"
+        f"[gridsrc]trim=start_frame={CLIP01_FREEZE_SOURCE_FRAME}:"
+        f"end_frame={CLIP01_FREEZE_SOURCE_FRAME + 1},setpts=N/({FPS}*TB),"
+        f"tpad=stop_mode=clone:stop_duration=1,trim=end_frame={replacement_count},"
+        f"setpts=N/({FPS}*TB),format=yuv420p[gridfreeze];"
+        f"[tailsrc]trim=start_frame={CLIP01_REPAIR_END_FRAME}:"
+        f"end_frame={FRAMES_PER_CLIP},setpts=N/({FPS}*TB),format=yuv420p[tail];"
+        f"[eyehead][eyefreeze][mid][gridfreeze][tail]concat=n=5:v=1:a=0,fps={FPS},"
+        f"trim=end_frame={FRAMES_PER_CLIP},setpts=N/({FPS}*TB),format=yuv420p[v]"
+    )
+    run_command(
+        [
+            "ffmpeg",
+            "-hide_banner",
+            "-loglevel",
+            "warning",
+            "-y",
+            "-i",
+            str(base),
+            "-filter_complex",
+            filter_complex,
+            "-map",
+            "[v]",
+            "-map",
+            "0:a:0",
+            "-frames:v",
+            str(FRAMES_PER_CLIP),
+            "-fps_mode",
+            "cfr",
+            *x264_intermediate_options(),
+            "-c:a",
+            "copy",
+            "-map_metadata",
+            "-1",
+            str(destination),
+        ]
+    )
+
+
 def patch_clip07(base: Path, image: Path, destination: Path) -> None:
     filter_complex = (
         f"[1:v:0]scale={WIDTH}:{HEIGHT}:force_original_aspect_ratio=decrease:flags=lanczos,"
@@ -952,6 +1121,156 @@ def patch_clip12_black(base: Path, destination: Path) -> None:
         str(destination),
     ]
     run_command(command)
+
+
+def measure_ssim(
+    first: Path,
+    second: Path,
+    *,
+    first_filter: str,
+    second_filter: str,
+) -> float:
+    filter_complex = (
+        f"[0:v:0]{first_filter},setpts=N/({FPS}*TB)[first];"
+        f"[1:v:0]{second_filter},setpts=N/({FPS}*TB)[second];"
+        "[first][second]ssim"
+    )
+    result = run_command(
+        [
+            "ffmpeg",
+            "-hide_banner",
+            "-nostats",
+            "-i",
+            str(first),
+            "-i",
+            str(second),
+            "-filter_complex",
+            filter_complex,
+            "-an",
+            "-f",
+            "null",
+            "-",
+        ],
+        capture=True,
+        quiet=True,
+    )
+    matches = re.findall(r"All:([0-9]+(?:\.[0-9]+)?)", result.stderr)
+    if not matches:
+        raise RuntimeError(f"Could not parse SSIM result:\n{result.stderr[-4000:]}")
+    return float(matches[-1])
+
+
+def clip01_repair_metrics(repaired: Path, normalized_base: Path) -> dict[str, Any]:
+    eye_replacement_count = (
+        CLIP01_EYE_REPAIR_END_FRAME - CLIP01_EYE_REPAIR_START_FRAME
+    )
+    replacement_count = CLIP01_REPAIR_END_FRAME - CLIP01_REPAIR_START_FRAME
+    preserved_frame7 = measure_ssim(
+        repaired,
+        normalized_base,
+        first_filter="trim=start_frame=7:end_frame=8",
+        second_filter="trim=start_frame=7:end_frame=8",
+    )
+    black_eye_freeze8_11 = measure_ssim(
+        repaired,
+        normalized_base,
+        first_filter=(
+            f"trim=start_frame={CLIP01_EYE_REPAIR_START_FRAME}:"
+            f"end_frame={CLIP01_EYE_REPAIR_END_FRAME}"
+        ),
+        second_filter=(
+            f"trim=start_frame={CLIP01_BLACK_EYE_SOURCE_FRAME}:"
+            f"end_frame={CLIP01_BLACK_EYE_SOURCE_FRAME + 1},setpts=N/({FPS}*TB),"
+            f"tpad=stop_mode=clone:stop_duration=1,trim=end_frame={eye_replacement_count}"
+        ),
+    )
+    resumed_frame12 = measure_ssim(
+        repaired,
+        normalized_base,
+        first_filter="trim=start_frame=12:end_frame=13",
+        second_filter="trim=start_frame=12:end_frame=13",
+    )
+    transition_frame7_vs_black_frame12 = measure_ssim(
+        repaired,
+        normalized_base,
+        first_filter="trim=start_frame=7:end_frame=8",
+        second_filter="trim=start_frame=12:end_frame=13",
+    )
+    preserved_frame29 = measure_ssim(
+        repaired,
+        normalized_base,
+        first_filter="trim=start_frame=29:end_frame=30",
+        second_filter="trim=start_frame=29:end_frame=30",
+    )
+    freeze_to_fullscreen54 = measure_ssim(
+        repaired,
+        normalized_base,
+        first_filter=(
+            f"trim=start_frame={CLIP01_REPAIR_START_FRAME}:"
+            f"end_frame={CLIP01_REPAIR_END_FRAME}"
+        ),
+        second_filter=(
+            f"trim=start_frame={CLIP01_FREEZE_SOURCE_FRAME}:"
+            f"end_frame={CLIP01_FREEZE_SOURCE_FRAME + 1},setpts=N/({FPS}*TB),"
+            f"tpad=stop_mode=clone:stop_duration=1,trim=end_frame={replacement_count}"
+        ),
+    )
+    resumed_frame54 = measure_ssim(
+        repaired,
+        normalized_base,
+        first_filter="trim=start_frame=54:end_frame=55",
+        second_filter="trim=start_frame=54:end_frame=55",
+    )
+    jian_frame29_vs_su_wang_frame54 = measure_ssim(
+        repaired,
+        normalized_base,
+        first_filter="trim=start_frame=29:end_frame=30",
+        second_filter="trim=start_frame=54:end_frame=55",
+    )
+    base_audio_pcm_sha256 = decoded_audio_sha256(normalized_base)
+    repaired_audio_pcm_sha256 = decoded_audio_sha256(repaired)
+    checks = {
+        "frame7_red_to_black_transition_preserved": (
+            preserved_frame7 >= CLIP01_MATCH_SSIM_MIN
+        ),
+        "frames8_11_match_black_eye_frame12": (
+            black_eye_freeze8_11 >= CLIP01_MATCH_SSIM_MIN
+        ),
+        "frame12_resumes_on_same_black_eye_frame": (
+            resumed_frame12 >= CLIP01_MATCH_SSIM_MIN
+        ),
+        "frame7_transition_is_distinct_from_black_eye_frame12": (
+            transition_frame7_vs_black_frame12 <= CLIP01_DISTINCT_SSIM_MAX
+        ),
+        "frame29_preserved": preserved_frame29 >= CLIP01_MATCH_SSIM_MIN,
+        "frames30_53_match_fullscreen_frame54": (
+            freeze_to_fullscreen54 >= CLIP01_MATCH_SSIM_MIN
+        ),
+        "frame54_resumes_on_same_fullscreen_frame": (
+            resumed_frame54 >= CLIP01_MATCH_SSIM_MIN
+        ),
+        "frame29_jian_is_distinct_from_frame54_su_wang": (
+            jian_frame29_vs_su_wang_frame54 <= CLIP01_DISTINCT_SSIM_MAX
+        ),
+        "normalized_audio_is_bit_exact_after_repair": (
+            base_audio_pcm_sha256 == repaired_audio_pcm_sha256
+        ),
+    }
+    return {
+        "preserved_frame7_ssim": preserved_frame7,
+        "frames8_11_to_black_eye_frame12_ssim": black_eye_freeze8_11,
+        "resumed_frame12_to_source_frame12_ssim": resumed_frame12,
+        "frame7_to_frame12_ssim": transition_frame7_vs_black_frame12,
+        "preserved_frame29_ssim": preserved_frame29,
+        "frames30_53_to_fullscreen_frame54_ssim": freeze_to_fullscreen54,
+        "resumed_frame54_to_source_frame54_ssim": resumed_frame54,
+        "frame29_to_frame54_ssim": jian_frame29_vs_su_wang_frame54,
+        "base_audio_pcm_sha256": base_audio_pcm_sha256,
+        "repaired_audio_pcm_sha256": repaired_audio_pcm_sha256,
+        "match_ssim_min": CLIP01_MATCH_SSIM_MIN,
+        "distinct_ssim_max": CLIP01_DISTINCT_SSIM_MAX,
+        "checks": checks,
+    }
 
 
 def ffconcat_path(path: Path) -> str:
@@ -1300,6 +1619,64 @@ def render_contact_sheet(final_video: Path, destination: Path) -> None:
     )
 
 
+def render_clip01_repair_proof(repaired_clip: Path, destination: Path) -> None:
+    frame_indices = [29, 30, 41, 53, 54]
+    expression = "+".join(f"eq(n,{frame})" for frame in frame_indices)
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    run_command(
+        [
+            "ffmpeg",
+            "-hide_banner",
+            "-loglevel",
+            "warning",
+            "-y",
+            "-i",
+            str(repaired_clip),
+            "-vf",
+            (
+                f"select='{expression}',scale=256:144:flags=lanczos,"
+                "tile=5x1:padding=4:margin=4:color=black"
+            ),
+            "-frames:v",
+            "1",
+            "-update",
+            "1",
+            "-q:v",
+            "2",
+            str(destination),
+        ]
+    )
+
+
+def render_clip01_eye_repair_proof(repaired_clip: Path, destination: Path) -> None:
+    frame_indices = [7, 8, 10, 11, 12]
+    expression = "+".join(f"eq(n,{frame})" for frame in frame_indices)
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    run_command(
+        [
+            "ffmpeg",
+            "-hide_banner",
+            "-loglevel",
+            "warning",
+            "-y",
+            "-i",
+            str(repaired_clip),
+            "-vf",
+            (
+                f"select='{expression}',scale=256:144:flags=lanczos,"
+                "tile=5x1:padding=4:margin=4:color=black"
+            ),
+            "-frames:v",
+            "1",
+            "-update",
+            "1",
+            "-q:v",
+            "2",
+            str(destination),
+        ]
+    )
+
+
 def render_proof_frame(final_video: Path, second: float, destination: Path) -> None:
     run_command(
         [
@@ -1392,6 +1769,13 @@ def final_qc(
     loudness = analyze_loudness(final_video)
     integrated = float(loudness["input_i"])
     true_peak = float(loudness["input_tp"])
+    clip01_raw = next(record for record in raw_records if record["clip_id"] == "01")
+    clip01_normalized = next(
+        record for record in normalized_records if record["clip_id"] == "01"
+    )
+    clip01_metrics = clip01_normalized["clip01_repair_metrics"]
+    clip01_metric_checks = clip01_metrics["checks"]
+    clip01_lock = validate_clip01_repair_lock()
     checks = {
         "duration_60_seconds": abs(duration - PROGRAM_SECONDS) <= 0.02,
         "resolution_1280x720": (
@@ -1406,6 +1790,46 @@ def final_qc(
         "decoded_audio_near_2880000_samples": abs(decoded_samples - TOTAL_SAMPLES) <= 1_024,
         "integrated_loudness_minus16_plusminus0_5": -16.5 <= integrated <= -15.5,
         "true_peak_at_or_below_minus1_5": true_peak <= -1.5,
+        "clip01_is_exact_accepted_gate": (
+            clip01_raw["sha256"] == CLIP01_ACCEPTED_RAW_SHA256
+        ),
+        "clip01_plan_independent_frame_lock": (
+            clip01_lock["black_eye_replaced_frames"] == [8, 11]
+            and clip01_lock["black_eye_freeze_source_frame"] == 12
+            and clip01_lock["replaced_frames"] == [30, 53]
+            and clip01_lock["fullscreen_su_wang_freeze_source_frame"] == 54
+        ),
+        "clip01_frame7_red_to_black_transition_preserved": bool(
+            clip01_metric_checks["frame7_red_to_black_transition_preserved"]
+        ),
+        "clip01_frames8_11_are_black_eye_frame12": bool(
+            clip01_metric_checks["frames8_11_match_black_eye_frame12"]
+        ),
+        "clip01_frame12_has_no_composition_jump": bool(
+            clip01_metric_checks["frame12_resumes_on_same_black_eye_frame"]
+        ),
+        "clip01_frame7_transition_distinct_from_frame12_black_eye": bool(
+            clip01_metric_checks["frame7_transition_is_distinct_from_black_eye_frame12"]
+        ),
+        "clip01_frame29_preserved_from_accepted_gate": bool(
+            clip01_metric_checks["frame29_preserved"]
+        ),
+        "clip01_frames30_53_are_fullscreen_frame54": bool(
+            clip01_metric_checks["frames30_53_match_fullscreen_frame54"]
+        ),
+        "clip01_frame54_has_no_composition_jump": bool(
+            clip01_metric_checks["frame54_resumes_on_same_fullscreen_frame"]
+        ),
+        "clip01_frame29_jian_distinct_from_frame54_su_wang": bool(
+            clip01_metric_checks["frame29_jian_is_distinct_from_frame54_su_wang"]
+        ),
+        "clip01_audio_bit_exact_after_picture_only_repair": bool(
+            clip01_metric_checks["normalized_audio_is_bit_exact_after_repair"]
+        ),
+        "clip01_repair_proof_exists": output_paths["clip01_repair_proof"].is_file(),
+        "clip01_eye_repair_proof_exists": output_paths[
+            "clip01_eye_repair_proof"
+        ].is_file(),
         "clip07_exact_source_hash": sha256(container_path)
         == plan["source_sha256"]["source_refs/container07_exact.png"],
         "clip07_replacement_is_29_frames": CLIP07_REPLACEMENT_FRAMES == 29,
@@ -1466,6 +1890,39 @@ def final_qc(
             "font_files": [str(path) for path in font_files],
         },
         "deterministic_picture_repairs": {
+            "clip01": {
+                **clip01_lock,
+                "repair_method": (
+                    "freeze accepted normalized black-eye frame12 over frames8-11; "
+                    "freeze accepted normalized full-screen frame54 over frames30-53"
+                ),
+                "audio": "complete normalized clip01 PCM retained by stream copy without retiming",
+                "metrics": clip01_metrics,
+                "proofs": {
+                    "black_eye": {
+                        "path": str(output_paths["clip01_eye_repair_proof"]),
+                        "frame_order_left_to_right": [7, 8, 10, 11, 12],
+                        "expected_content": [
+                            "preserved red-to-black transition",
+                            "black-eye source frame12 freeze",
+                            "black-eye source frame12 freeze",
+                            "black-eye source frame12 freeze",
+                            "black-eye original frame12 resumes",
+                        ],
+                    },
+                    "split_screen": {
+                        "path": str(output_paths["clip01_repair_proof"]),
+                        "frame_order_left_to_right": [29, 30, 41, 53, 54],
+                        "expected_content": [
+                            "Jian Ci",
+                            "full-screen Su Wang holding photograph",
+                            "full-screen Su Wang holding photograph",
+                            "full-screen Su Wang holding photograph",
+                            "full-screen Su Wang holding photograph; original motion resumes",
+                        ],
+                    },
+                },
+            },
             "clip07": {
                 "source": str(container_path),
                 "source_sha256": sha256(container_path),
@@ -1541,6 +1998,13 @@ def main() -> None:
                 required_audio_seconds=required_audio_seconds,
             )
         )
+    actual_clip01_hash = sha256(raw_clips["01"])
+    if actual_clip01_hash != CLIP01_ACCEPTED_RAW_SHA256:
+        raise RuntimeError(
+            "Clip01 is not the accepted gate covered by the plan-independent "
+            f"split-screen repair lock: expected {CLIP01_ACCEPTED_RAW_SHA256}, "
+            f"got {actual_clip01_hash}"
+        )
     print("All twelve raw clips contain picture, non-silent audio and valid duration.")
 
     container_path = safe_source_path(
@@ -1548,21 +2012,39 @@ def main() -> None:
     )
     effective_clips: list[Path] = []
     normalized_records: list[dict[str, Any]] = []
+    clip01_effective: Path | None = None
     for clip_id in CLIP_IDS:
         base = normalized_dir / f"S1E03_clip_{clip_id}_norm_base.mkv"
         normalize_clip(raw_clips[clip_id], base)
         effective = base
-        if clip_id == "07":
+        if clip_id == "01":
+            effective = normalized_dir / "S1E03_clip_01_norm_repaired.mkv"
+            patch_clip01_accepted_gate(base, effective)
+            clip01_effective = effective
+        elif clip_id == "07":
             effective = normalized_dir / "S1E03_clip_07_norm_container07.mkv"
             patch_clip07(base, container_path, effective)
         elif clip_id == "12":
             effective = normalized_dir / "S1E03_clip_12_norm_black_end.mkv"
             patch_clip12_black(base, effective)
         summary = normalized_summary(effective, FRAMES_PER_CLIP, SAMPLES_PER_CLIP)
+        if clip_id == "01":
+            repair_metrics = clip01_repair_metrics(effective, base)
+            if not all(repair_metrics["checks"].values()):
+                failed = [
+                    name for name, passed in repair_metrics["checks"].items() if not passed
+                ]
+                raise RuntimeError(
+                    f"Clip01 deterministic split-screen repair failed: {', '.join(failed)}"
+                )
+            summary["clip01_repair_metrics"] = repair_metrics
         summary["pre_global_loudness"] = analyze_loudness(effective)
         summary["clip_id"] = clip_id
         summary["deterministic_patch"] = (
-            "container07_first_29_frames"
+            "replace_red_eye_frames_8_11_with_black_eye_frame12_and_"
+            "split_screen_frames_30_53_with_fullscreen_frame54"
+            if clip_id == "01"
+            else "container07_first_29_frames"
             if clip_id == "07"
             else "black_frames_115_to_119"
             if clip_id == "12"
@@ -1570,6 +2052,9 @@ def main() -> None:
         )
         normalized_records.append(summary)
         effective_clips.append(effective)
+
+    if clip01_effective is None:
+        raise RuntimeError("Clip01 deterministic repair was not applied")
 
     clean_master = work_dir / "S1E03_clean_master_60s.mkv"
     concat_list = work_dir / "concat_normalized.txt"
@@ -1609,8 +2094,14 @@ def main() -> None:
 
     contact_sheet = proof_dir / "S1E03_contact_sheet_12x5s.jpg"
     render_contact_sheet(final_video, contact_sheet)
+    clip01_eye_repair_proof = (
+        proof_dir / "S1E03_clip01_eye_repair_frames_7_8_10_11_12.jpg"
+    )
+    clip01_repair_proof = proof_dir / "S1E03_clip01_repair_frames_29_30_41_53_54.jpg"
     container_proof = proof_dir / "S1E03_clip07_container07_proof.jpg"
     clock_proof = proof_dir / "S1E03_clip12_10-54_proof.jpg"
+    render_clip01_eye_repair_proof(clip01_effective, clip01_eye_repair_proof)
+    render_clip01_repair_proof(clip01_effective, clip01_repair_proof)
     render_proof_frame(final_video, 30.50, container_proof)
     render_proof_frame(final_video, 58.00, clock_proof)
 
@@ -1620,6 +2111,8 @@ def main() -> None:
         "ass": ass_path,
         "qc_json": qc_path,
         "contact_sheet": contact_sheet,
+        "clip01_eye_repair_proof": clip01_eye_repair_proof,
+        "clip01_repair_proof": clip01_repair_proof,
         "container07_proof": container_proof,
         "clock_10_54_proof": clock_proof,
         "clean_master": clean_master,

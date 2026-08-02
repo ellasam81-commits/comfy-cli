@@ -70,8 +70,8 @@
         "1.25-5.00 Su Wang remains seated in the same charcoal rolled-sleeve shirt, holds a hospital photograph of Cheng Ye after the crash, and answers the prior episode's question with controlled guilt."
       ],
       "dialogue": [
-        {"start": 0.35, "end": 2.15, "speaker_zh": "苏望（画外）", "speaker_en": "Su Wang (O.S.)", "zh": "他叫程野，我的队友。", "en": "His name was Cheng Ye, my teammate."},
-        {"start": 2.35, "end": 4.70, "speaker_zh": "苏望", "speaker_en": "Su Wang", "zh": "撞车后，他还有脉搏。", "en": "After the crash, he still had a pulse."}
+        {"start": 0.02, "end": 2.10, "speaker_zh": "苏望（画外）", "speaker_en": "Su Wang (O.S.)", "zh": "他叫程野，我的队友。", "en": "His name was Cheng Ye, my teammate."},
+        {"start": 2.10, "end": 4.79, "speaker_zh": "苏望", "speaker_en": "Su Wang", "zh": "撞车后，他还有脉搏。", "en": "After the crash, he still had a pulse."}
       ],
       "special_negative": "Do not change the room, camera direction, faces or clothes. Cheng Ye in the photograph must not resemble Su Wang. Jian Ci's eyes return dark within 0.30 seconds; no fangs. Jian Ci never speaks or lip-syncs in this clip; the opening off-screen voice belongs only to Su Wang."
     },

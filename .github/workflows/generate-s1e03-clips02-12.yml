@@ -95,7 +95,7 @@ jobs:
           [[ "${#added[@]}" -eq 1 && "${added[0]}" == "$TRIGGER" ]] || {
             echo "::error::Remainder trigger must be newly added."; exit 2;
           }
-          [[ "$(sha256sum "$PLAN" | awk '{print $1}')" == "81a3c4cf4c166d1ac090e5289fd0b999ba8ec161a043f05b803ec781d8ae0d82" ]]
+          [[ "$(sha256sum "$PLAN" | awk '{print $1}')" == "45ede2821d0a383e2df4aca6f1c402ea8886fb1974c2f5cf704876c8bafbf891" ]]
           [[ "$(sha256sum "$SCRIPT" | awk '{print $1}')" == "a00f9bc1fd9f48e26870b20916778949e51aa131cb2a2318e5138a9ac441af78" ]]
           python - <<'PY'
           import json, os
