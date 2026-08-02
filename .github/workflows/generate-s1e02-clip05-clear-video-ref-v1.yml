@@ -1,0 +1,313 @@
+name: Generate S1E02 Clip 05 — clear 480p video-reference repair (one-shot)
+
+on:
+  push:
+    branches:
+      - render/s1e02-clip05-clear-v1
+    paths:
+      - "references/s1e02/run-clip05-clear-video-ref-v1.txt"
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: s1e02-clip05-clear-video-ref-v1
+  cancel-in-progress: false
+
+jobs:
+  generate-review-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+      PYTHONUNBUFFERED: "1"
+
+    steps:
+      - name: Check out locked inputs
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate one-shot approval and immutable source inputs
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+          TRIGGER: references/s1e02/run-clip05-clear-video-ref-v1.txt
+          WORKFLOW: .github/workflows/generate-s1e02-clip05-clear-video-ref-v1.yml
+          PLAN: references/s1e02/five_second_v1_plan.json
+          SCRIPT: scripts/generate_s1e02_five_second_v1.py
+        run: |
+          set -euo pipefail
+          [[ "$RUN_ATTEMPT" == "1" ]] || { echo "::error::Workflow reruns are forbidden."; exit 2; }
+          git cat-file -e "$BEFORE_SHA:$WORKFLOW"
+          git cat-file -e "$BEFORE_SHA:$PLAN"
+          git cat-file -e "$BEFORE_SHA:$SCRIPT"
+          mapfile -t changed < <(git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+          [[ "${#changed[@]}" -eq 1 && "${changed[0]}" == "$TRIGGER" ]] || {
+            echo "::error::The trigger commit must add exactly one file."; exit 2;
+          }
+          mapfile -t added < <(git diff --diff-filter=A --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+          [[ "${#added[@]}" -eq 1 && "${added[0]}" == "$TRIGGER" ]] || {
+            echo "::error::The one-shot trigger must be newly added."; exit 2;
+          }
+          [[ -z "$(git log -1 --format=%H "$BEFORE_SHA" -- "$TRIGGER")" ]]
+          [[ "$(cat "$TRIGGER")" == "AUTHOR-APPROVED: GENERATE S1E02 CLIP 05 CLEAR 480P VIDEO REFERENCE V1 ONCE" ]]
+          [[ "$(sha256sum "$PLAN" | awk '{print $1}')" == "0e6d4cc75aae39aa3d9a817268e7a64dedfc35720fa8eb6dea64344793ac374e" ]]
+          [[ "$(sha256sum "$SCRIPT" | awk '{print $1}')" == "e78b652b064f509464e6f12e22e1d98a542d51ce5ef5d65d922ebc7315e679bb" ]]
+          [[ "$(sha256sum references/s1e02/board_02.jpeg | awk '{print $1}')" == "dd9fd496c9ce6f723a3699540b4ad93addd5bb9887a2ba1692bdc3c8850bbc87" ]]
+          [[ "$(sha256sum references/s1e02/character_chart.jpeg | awk '{print $1}')" == "7b86e7122f8501cb4641ee62c67537538948a2d96e35491b25a953e0152e6e6b" ]]
+          [[ "$(grep -Foc 'client.submit_async(' "$WORKFLOW")" -eq 1 ]] || {
+            echo "::error::The workflow must contain exactly one paid submission statement."; exit 2;
+          }
+          [[ "$(grep -Foc 'automatic_retries\": 0' "$WORKFLOW")" -eq 1 ]] || {
+            echo "::error::The no-retry audit lock is missing or duplicated."; exit 2;
+          }
+
+      - name: Restore paid lock
+        id: paid-lock
+        uses: actions/cache/restore@v4
+        with:
+          path: output/paid-lock
+          key: segmind-s1e02-clip05-clear-video-ref-v1
+          lookup-only: true
+
+      - name: Validate secret and unused lock
+        env:
+          LOCK_HIT: ${{ steps.paid-lock.outputs.cache-hit }}
+        run: |
+          set -euo pipefail
+          [[ -n "$SEGMIND_API_KEY" ]] || { echo "::error::Missing SEGMIND_API_KEY; no paid request made."; exit 2; }
+          [[ "$LOCK_HIT" != "true" ]] || { echo "::error::This paid request was already armed or submitted."; exit 2; }
+
+      - name: Install reference and inspection tools
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          pip install "segmind==1.1.0" requests Pillow "faster-whisper==1.2.1"
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Download and validate immutable original Clip 05
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p prior runtime_refs raw audit
+          curl --fail --silent --show-error --location --retry 3 \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/actions/artifacts/8832182321/zip" \
+            --output prior/artifact.zip
+          python -m zipfile -e prior/artifact.zip prior/extracted
+          mapfile -t candidates < <(find prior/extracted -type f -name 'S1E02_clip_05_raw.mp4' -print)
+          [[ "${#candidates[@]}" -eq 1 ]] || { echo "::error::Expected exactly one original Clip 05."; exit 2; }
+          cp "${candidates[0]}" prior/S1E02_clip_05_raw.mp4
+          [[ "$(sha256sum prior/S1E02_clip_05_raw.mp4 | awk '{print $1}')" == "d4dce15cbc0b9d54250d5cd1859ae22bd2629a0f4d871d855858fe68ef44e942" ]]
+
+      - name: Prepare locked identity images and silent motion reference
+        run: |
+          set -euo pipefail
+          python scripts/generate_s1e02_five_second_v1.py --prepare-only
+          ffmpeg -hide_banner -loglevel error -y \
+            -i prior/S1E02_clip_05_raw.mp4 -t 5 -an \
+            -vf "scale=854:480:force_original_aspect_ratio=decrease,pad=854:480:(ow-iw)/2:(oh-ih)/2:black,fps=24" \
+            -c:v libx264 -preset medium -crf 23 -pix_fmt yuv420p -movflags +faststart \
+            runtime_refs/clip_05_motion_only.mp4
+          duration="$(ffprobe -v error -show_entries format=duration -of default=nw=1:nk=1 runtime_refs/clip_05_motion_only.mp4)"
+          python - "$duration" <<'PY'
+          import sys
+          duration = float(sys.argv[1])
+          if not 4.95 <= duration <= 5.05:
+              raise SystemExit(f"invalid reference duration: {duration}")
+          PY
+          test -s runtime_refs/clip_05_ordered_row.jpg
+          test -s runtime_refs/identity_jian_ci.jpg
+          test -s runtime_refs/identity_zhou_qiao.jpg
+          test -s runtime_refs/identity_xu_wei.jpg
+          test -s runtime_refs/identity_han_che.jpg
+
+      - name: Arm paid lock before the single submission
+        run: |
+          set -euo pipefail
+          mkdir -p output/paid-lock
+          printf '%s\n' \
+            "Author approved exactly one 5-second 480p Seedance Mini video-reference request." \
+            "No automatic retry. GitHub run $GITHUB_RUN_ID." \
+            > output/paid-lock/armed.txt
+
+      - name: Save paid lock
+        uses: actions/cache/save@v4
+        with:
+          path: output/paid-lock
+          key: segmind-s1e02-clip05-clear-video-ref-v1
+
+      - name: Generate exactly one clear 480p video-reference repair
+        run: |
+          python - <<'PY'
+          import hashlib
+          import json
+          import subprocess
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          import requests
+          from segmind import SegmindClient
+
+          refs = Path("runtime_refs")
+          raw = Path("raw")
+          audit = Path("audit")
+          raw.mkdir(exist_ok=True)
+          audit.mkdir(exist_ok=True)
+
+          def now():
+              return datetime.now(timezone.utc).isoformat()
+
+          def write_state(payload):
+              (audit / "clip_05_clear_request.json").write_text(
+                  json.dumps(payload, ensure_ascii=False, indent=2, default=str),
+                  encoding="utf-8",
+              )
+
+          def upload(client, path):
+              result = client.files.upload(path)
+              urls = result.get("file_urls") or []
+              if not urls:
+                  raise RuntimeError(f"No Segmind reference URL returned for {path.name}")
+              return urls[0]
+
+          prompt = r"""
+          ORIGINAL SERIES CLARITY REPAIR. Re-render the supplied five-second reference as one sharp, clean, high-detail 2D illustrated crime-noir clip for the original series 《吸血法医·剑刺》 S1E02. This is an original production; do not imitate an existing franchise, copyrighted character, living artist, actor, or studio style.
+
+          VIDEO 1 IS THE MOTION AND EDIT AUTHORITY. Preserve its exact 5-second chronology, four full-screen shots, hard-cut timing, camera angles, poses, actions, cold blue-black palette, laboratory/terminal settings, evidence props, and restrained movement. Do not invent, omit, merge, reorder, or extend any shot. Improve only visual definition: crisp stable ink contours, clearly drawn eyes and facial features, clean hair strands, readable silhouettes, defined hands and clothing seams, sharp terminal/evidence edges, controlled film grain, high local contrast. Eliminate soft focus, motion smear, compression mush, watercolor bleeding, waxy faces, doubled lines, ghosting, and low-detail faces. No artificial oversharpening halos.
+
+          IMAGE 1 shows the authoritative four-shot order. Images 2-5 are the identity authorities. Keep four different people unmistakable and stable; never combine them or exchange wardrobe.
+          SHOT 1, 0.00-1.25: Jian Ci checks the lab comparison report. Jian Ci is a tall slim pale Chinese man in his early thirties with an angular narrow face, sharp cheekbones, layered side-part black hair, narrow dark eyes, a white knee-length forensic coat over a black high-neck shirt, and black gloves. He has NO GLASSES.
+          SHOT 2, 1.25-2.50: Zhou Qiao analyzes race telemetry on a dark terminal. Zhou Qiao is a young Chinese male technical officer with messy black hair, silver-rim glasses, a small hearing device, and a dark technical field jacket. Only Zhou Qiao wears glasses.
+          SHOT 3, 2.50-3.75: Xu Wei compares the brake-disc report with the sealed particle result. Xu Wei is an adult Chinese woman with long brown hair in a high ponytail, an olive forensic coverall, and black examination gloves.
+          SHOT 4, 3.75-5.00: Han Che gives a concise phone order to trace Su Wang. Han Che is a mature Chinese man with a square weathered face, short dark hair, a dark command jacket, and a restrained stern expression.
+
+          LOCKS. Exactly one person is featured in each shot. No two white-coat men, twins, face swap, morphing, identity drift, wardrobe drift, extra people, or repeated closeup. Natural restrained mouth movement only; the approved Mandarin audio will be restored separately. No generated speech, soundtrack, subtitles, readable text, title, logo, UI overlay, panel border, collage, split screen, timecode, or watermark. No live action, photorealism, glossy 3D, chibi, fantasy aura, gore, red eyes, fangs, or melodrama.
+          """
+
+          client = SegmindClient()
+          state = {
+              "episode": "S1E02",
+              "clip_id": "05",
+              "attempt": "clear-video-reference-v1",
+              "model": "seedance-2.0-mini",
+              "duration": 5,
+              "resolution": "480p",
+              "aspect_ratio": "16:9",
+              "generate_audio": False,
+              "bitrate_mode": "high",
+              "seed": 20260822,
+              "request_count": 1,
+              "automatic_retries": 0,
+              "estimated_usd_range": [0.22, 0.23],
+              "started_at": now(),
+              "status": "uploading_references",
+          }
+          write_state(state)
+
+          video_url = upload(client, refs / "clip_05_motion_only.mp4")
+          image_paths = [
+              refs / "clip_05_ordered_row.jpg",
+              refs / "identity_jian_ci.jpg",
+              refs / "identity_zhou_qiao.jpg",
+              refs / "identity_xu_wei.jpg",
+              refs / "identity_han_che.jpg",
+          ]
+          image_urls = [upload(client, path) for path in image_paths]
+          state["uploaded_reference_video_count"] = 1
+          state["uploaded_reference_image_count"] = 5
+          state["status"] = "submitting_once"
+          write_state(state)
+
+          try:
+              # This is the workflow's only paid submission statement.
+              job = client.submit_async(
+                  "seedance-2.0-mini",
+                  prompt=prompt,
+                  reference_videos=[video_url],
+                  reference_images=image_urls,
+                  duration=5,
+                  resolution="480p",
+                  aspect_ratio="16:9",
+                  generate_audio=False,
+                  bitrate_mode="high",
+                  seed=20260822,
+              )
+              state["request_id"] = job.request_id
+              state["status"] = "processing"
+              write_state(state)
+              print(f"Single Clip 05 video-reference request ID: {job.request_id}", flush=True)
+              result = job.wait(timeout=1800, interval=5)
+          except Exception as exc:
+              state["status"] = "failed"
+              state["failed_at"] = now()
+              state["error_type"] = type(exc).__name__
+              state["error"] = str(exc)
+              write_state(state)
+              raise
+
+          (audit / "clip_05_clear_result.json").write_text(
+              json.dumps(result, ensure_ascii=False, indent=2, default=str),
+              encoding="utf-8",
+          )
+          output = result.get("output") if isinstance(result, dict) else result
+          if isinstance(output, dict):
+              url = output.get("video_url") or output.get("url") or output.get("video")
+          elif isinstance(output, list) and output:
+              first = output[0]
+              url = (first.get("video_url") or first.get("url") or first.get("video")) if isinstance(first, dict) else first
+          else:
+              url = output
+          if not isinstance(url, str) or not url.startswith("http"):
+              raise RuntimeError(f"No downloadable video URL: {result}")
+          response = requests.get(url, timeout=300)
+          response.raise_for_status()
+          video = raw / "S1E02_clip_05_clear_video_ref_v1_raw.mp4"
+          video.write_bytes(response.content)
+          probe = subprocess.run(
+              ["ffprobe", "-v", "error", "-show_streams", "-show_format", "-of", "json", str(video)],
+              check=True, capture_output=True, text=True,
+          )
+          probe_data = json.loads(probe.stdout)
+          duration = float(probe_data["format"]["duration"])
+          video_stream = next(stream for stream in probe_data["streams"] if stream["codec_type"] == "video")
+          if not 4.8 <= duration <= 5.3:
+              raise RuntimeError(f"Unexpected generated duration: {duration}")
+          if int(video_stream["width"]) < 800 or int(video_stream["height"]) < 450:
+              raise RuntimeError(f"Unexpected generated dimensions: {video_stream['width']}x{video_stream['height']}")
+          (audit / "clip_05_clear_ffprobe.json").write_text(probe.stdout, encoding="utf-8")
+          state["status"] = "completed"
+          state["completed_at"] = now()
+          state["output_url"] = url
+          state["actual_provider_cost_usd"] = (
+              result.get("cost") or result.get("price") or result.get("credits_used")
+              if isinstance(result, dict) else None
+          )
+          state["video_sha256"] = hashlib.sha256(video.read_bytes()).hexdigest()
+          state["technical_qc"] = {
+              "duration": duration,
+              "width": int(video_stream["width"]),
+              "height": int(video_stream["height"]),
+              "size_bytes": video.stat().st_size,
+          }
+          write_state(state)
+          PY
+
+      - name: Upload raw review and complete audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: S1E02-Clip05-Clear-Video-Ref-v1
+          path: |
+            raw/
+            audit/
+          if-no-files-found: warn
+          compression-level: 0
+          retention-days: 7
