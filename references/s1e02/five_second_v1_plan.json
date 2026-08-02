@@ -1,0 +1,266 @@
+{
+  "schema_version": 1,
+  "episode": "S1E02",
+  "episode_title_zh": "会说话的骨头",
+  "series_title_zh": "吸血法医·剑刺",
+  "maker_zh": "林爱丽",
+  "model": "seedance-2.0-mini",
+  "duration_seconds_per_clip": 5,
+  "clip_count": 12,
+  "resolution": "480p",
+  "aspect_ratio": "16:9",
+  "generate_audio": true,
+  "estimated_usd_per_clip": 0.176,
+  "estimated_usd_total": 2.112,
+  "pricing_checked_on": "2026-08-02",
+  "automatic_retries": 0,
+  "source_sha256": {
+    "board_01.jpeg": "08774c9d45d48c3e23b15c20700477b565ef211b96c0e8b1b7a4b74c1f592ed0",
+    "board_02.jpeg": "dd9fd496c9ce6f723a3699540b4ad93addd5bb9887a2ba1692bdc3c8850bbc87",
+    "board_03.jpeg": "0db528498e3d2c28cca7b7dbe1cbb73eed41708244ec14ae6425ffd4b6bcfa54",
+    "board_04.jpeg": "5e57e3ac26230ba85a33b4d1d21f25110d39840af41d170a52bd0130d7e0ff06",
+    "character_chart.jpeg": "7b86e7122f8501cb4641ee62c67537538948a2d96e35491b25a953e0152e6e6b"
+  },
+  "clips": [
+    {
+      "id": "01",
+      "board": "board_01.jpeg",
+      "row": 1,
+      "panels": [1, 2, 3, 4],
+      "scene": "stormy abandoned hospital",
+      "seed": 20260821,
+      "characters": ["jian_ci", "lin_qian"],
+      "use_previous_last_frame": false,
+      "shots": [
+        "Stormy night exterior of the same abandoned hospital, police lights reflected on wet ground.",
+        "Jian Ci in a white forensic coat and Lin Qian in navy uniform enter with flashlights.",
+        "A restrained non-graphic skeletal-remains discovery in the dark second-floor corridor.",
+        "Jian Ci kneels in his white coat and studies the remains without touching unsealed evidence."
+      ],
+      "dialogue": [
+        {"start": 0.20, "end": 4.80, "speaker_zh": "旁白", "speaker_en": "Narrator", "zh": "容器-07来自钟远旧案，登记地就是这家医院。", "en": "Container-07 came from Zhong Yuan's old case; it was registered to this hospital."}
+      ]
+    },
+    {
+      "id": "02",
+      "board": "board_01.jpeg",
+      "row": 2,
+      "panels": [5, 6, 7, 8],
+      "scene": "stormy abandoned hospital",
+      "seed": 20260821,
+      "characters": ["jian_ci", "lin_qian", "zhou_qiao"],
+      "use_previous_last_frame": true,
+      "shots": [
+        "Forensic close shot of ribs and a black-gloved examination tool; no gore.",
+        "Lin Qian gives a controlled questioning reaction, chin-length black bob and navy uniform clear.",
+        "Jian Ci points out an abnormal joint and a metal trace while keeping chain-of-custody discipline.",
+        "Zhou Qiao, silver-rim glasses and hearing device, analyzes the clue on a dark portable terminal."
+      ],
+      "dialogue": [
+        {"start": 0.15, "end": 2.35, "speaker_zh": "林浅", "speaker_en": "Lin Qian", "zh": "钟远为何藏进刀柄？", "en": "Why did Zhong Yuan hide it in the handle?"},
+        {"start": 2.45, "end": 4.75, "speaker_zh": "检刺", "speaker_en": "Jian Ci", "zh": "有人想埋掉旧案。", "en": "Someone wanted the old case buried."}
+      ]
+    },
+    {
+      "id": "03",
+      "board": "board_01.jpeg",
+      "row": 3,
+      "panels": [9, 10, 11, 12],
+      "scene": "stormy abandoned hospital",
+      "seed": 20260821,
+      "characters": ["xu_wei", "han_che", "jian_ci"],
+      "use_previous_last_frame": true,
+      "shots": [
+        "Xu Wei, high ponytail and olive forensic coverall, photographs and collects a subtle trace.",
+        "Han Che, mature square face and dark jacket, makes a restrained procedural judgment.",
+        "Macro evidence shot: clean tweezers lift one tiny metal particle into a sealed sample container.",
+        "The five-person team confers in the same corridor and decides on composition comparison."
+      ],
+      "dialogue": [
+        {"start": 0.20, "end": 4.75, "speaker_zh": "检刺", "speaker_en": "Jian Ci", "zh": "遗骸暴露数周，骨内还有金属微粒。", "en": "The remains were exposed for weeks, and metal particles are lodged in the bone."}
+      ]
+    },
+    {
+      "id": "04",
+      "board": "board_02.jpeg",
+      "row": 1,
+      "panels": [1, 2, 3, 4],
+      "scene": "racing evidence chain",
+      "seed": 20260822,
+      "characters": ["jian_ci", "lin_qian", "su_wang"],
+      "use_previous_last_frame": false,
+      "shots": [
+        "Jian Ci reviews the sealed metal-composition result in the cold forensic lab.",
+        "Lin Qian traces a recent racing lead by phone and case terminal.",
+        "A red racing car cuts through rain on a closed track; no crash spectacle.",
+        "Clear first identity portrait of Su Wang, age 22, warmer softer rounder face, blunt forward fringe and dark civilian racing clothing."
+      ],
+      "dialogue": [
+        {"start": 0.15, "end": 4.80, "speaker_zh": "旁白", "speaker_en": "Narrator", "zh": "碎屑来自赛车刹车盘，车手苏望成了关键。", "en": "The fragments came from a racing brake disc; driver Su Wang became the key."}
+      ]
+    },
+    {
+      "id": "05",
+      "board": "board_02.jpeg",
+      "row": 2,
+      "panels": [5, 6, 7, 8],
+      "scene": "racing evidence chain",
+      "seed": 20260822,
+      "characters": ["jian_ci", "zhou_qiao", "xu_wei", "han_che"],
+      "use_previous_last_frame": false,
+      "shots": [
+        "Jian Ci checks the lab comparison report, white coat and black gloves unmistakable.",
+        "Zhou Qiao analyzes race telemetry on a dark terminal, glasses and hearing device visible.",
+        "Xu Wei compares the brake-disc report with the sealed particle result.",
+        "Han Che gives a concise phone order to trace Su Wang."
+      ],
+      "dialogue": [
+        {"start": 0.15, "end": 2.65, "speaker_zh": "周峤", "speaker_en": "Zhou Qiao", "zh": "比赛中，苏望突然逃逸。", "en": "During the race, Su Wang suddenly fled."},
+        {"start": 2.75, "end": 4.80, "speaker_zh": "韩彻", "speaker_en": "Han Che", "zh": "查他的行踪。", "en": "Trace his whereabouts."}
+      ]
+    },
+    {
+      "id": "06",
+      "board": "board_02.jpeg",
+      "row": 3,
+      "panels": [9, 10, 11, 12],
+      "scene": "racing evidence chain",
+      "seed": 20260822,
+      "characters": ["jian_ci", "lin_qian"],
+      "use_previous_last_frame": false,
+      "shots": [
+        "Jian Ci listens to the recorded racing evidence and notices only a subtle anomaly.",
+        "Lin Qian realizes the medical implication without exaggerated acting.",
+        "Extreme close shot of Jian Ci's eyes with a very brief deep-burgundy glint; this is only perception, never proof.",
+        "The five-person team gathers around the evidence and chooses garage 302 as the next search location."
+      ],
+      "dialogue": [
+        {"start": 0.20, "end": 2.65, "speaker_zh": "检刺", "speaker_en": "Jian Ci", "zh": "死亡时间被人为延后。", "en": "The apparent time of death was deliberately delayed."},
+        {"start": 2.75, "end": 4.70, "speaker_zh": "检刺", "speaker_en": "Jian Ci", "zh": "凶手懂医学。", "en": "The killer understands medicine."}
+      ]
+    },
+    {
+      "id": "07",
+      "board": "board_03.jpeg",
+      "row": 1,
+      "panels": [1, 2, 3, 4],
+      "scene": "garage 302",
+      "seed": 20260823,
+      "characters": ["jian_ci", "lin_qian"],
+      "use_previous_last_frame": false,
+      "shots": [
+        "Exterior close shot of the half-open garage 302 door; do not create readable extra text beyond the simple number plaque.",
+        "The team enters the same narrow abandoned repair garage with flashlights.",
+        "Jian Ci studies the unusually clean floor and tire-thread oil trace.",
+        "Macro view of the wiped streak and one thin physical trace, collected with black gloves."
+      ],
+      "dialogue": [
+        {"start": 0.10, "end": 1.65, "speaker_zh": "旁白", "speaker_en": "Narrator", "zh": "真相藏在三零二。", "en": "The truth is hidden in Room 302."},
+        {"start": 1.75, "end": 3.15, "speaker_zh": "林浅", "speaker_en": "Lin Qian", "zh": "这里太干净了。", "en": "This place is too clean."},
+        {"start": 3.25, "end": 4.80, "speaker_zh": "检刺", "speaker_en": "Jian Ci", "zh": "却有螺丝油。", "en": "Yet there is thread oil."}
+      ]
+    },
+    {
+      "id": "08",
+      "board": "board_03.jpeg",
+      "row": 2,
+      "panels": [5, 6, 7, 8],
+      "scene": "garage 302",
+      "seed": 20260823,
+      "characters": ["xu_wei", "zhou_qiao", "lin_qian", "han_che"],
+      "use_previous_last_frame": true,
+      "shots": [
+        "Xu Wei opens a concealed medical box containing transplant tools, anesthetic and sutures; no surgical procedure is shown.",
+        "Zhou Qiao retrieves the hemostat and anesthetic purchase records on his terminal.",
+        "Lin Qian compares the sealed DNA and victim records.",
+        "Han Che gives a restrained stern reaction and asks what Su Wang concealed."
+      ],
+      "dialogue": [
+        {"start": 0.15, "end": 2.40, "speaker_zh": "许未", "speaker_en": "Xu Wei", "zh": "这里藏着移植器械。", "en": "Transplant instruments were hidden here."},
+        {"start": 2.50, "end": 4.85, "speaker_zh": "周峤", "speaker_en": "Zhou Qiao", "zh": "苏望买过止血钳和麻醉剂。", "en": "Su Wang bought hemostats and anesthetic."}
+      ]
+    },
+    {
+      "id": "09",
+      "board": "board_03.jpeg",
+      "row": 3,
+      "panels": [9, 10, 11, 12],
+      "scene": "garage 302",
+      "seed": 20260823,
+      "characters": ["jian_ci", "lin_qian"],
+      "use_previous_last_frame": true,
+      "shots": [
+        "Jian Ci in the white forensic coat notices a water stain and directs the team to it.",
+        "A dark-red residual blood trace is found beneath the wiped surface; restrained and non-graphic.",
+        "Ultraviolet blue light reveals an incomplete cleanup pattern across the same surface.",
+        "The team confirms that the independent traces point toward Su Wang while motive remains unknown."
+      ],
+      "dialogue": [
+        {"start": 0.25, "end": 4.70, "speaker_zh": "检刺", "speaker_en": "Jian Ci", "zh": "看这里，血迹没有清干净。", "en": "Look here—the blood was not completely cleaned away."}
+      ]
+    },
+    {
+      "id": "10",
+      "board": "board_04.jpeg",
+      "row": 1,
+      "panels": [1, 2, 3, 4],
+      "scene": "interrogation room",
+      "seed": 20260824,
+      "characters": ["su_wang", "lin_qian", "jian_ci"],
+      "use_previous_last_frame": false,
+      "shots": [
+        "Dark corridor and interrogation-room door silhouette; no generated readable sign.",
+        "Wide shot: Su Wang in a dark rolled-sleeve civilian shirt sits opposite Lin Qian; Jian Ci stands separately in his white forensic coat.",
+        "Lin Qian places the sealed residual-blood DNA report on the steel table.",
+        "Jian Ci in white coat and black gloves explains the evidentiary limit of anesthetic and sutures."
+      ],
+      "dialogue": [
+        {"start": 0.10, "end": 1.65, "speaker_zh": "旁白", "speaker_en": "Narrator", "zh": "残血把苏望带进审讯室。", "en": "Residual blood brought Su Wang into interrogation."},
+        {"start": 1.75, "end": 3.15, "speaker_zh": "林浅", "speaker_en": "Lin Qian", "zh": "DNA是你的。", "en": "The DNA is yours."},
+        {"start": 3.25, "end": 4.85, "speaker_zh": "检刺", "speaker_en": "Jian Ci", "zh": "但只证明你处理过伤。", "en": "But it only proves you treated an injury."}
+      ]
+    },
+    {
+      "id": "11",
+      "board": "board_04.jpeg",
+      "row": 2,
+      "panels": [5, 6, 7, 8],
+      "scene": "interrogation room",
+      "seed": 20260824,
+      "characters": ["jian_ci", "su_wang", "han_che"],
+      "use_previous_last_frame": true,
+      "shots": [
+        "Jian Ci opens the evidence record with black-gloved hands; white cuffs remain visible.",
+        "Su Wang, clearly different softer face and dark civilian shirt, calmly says that he tried to save the victim.",
+        "Sealed remains photograph, metal-particle vial and brake-disc alloy comparison are placed on the table.",
+        "Jian Ci observes Su Wang's stress response; Han Che remains behind observation glass."
+      ],
+      "dialogue": [
+        {"start": 0.10, "end": 1.55, "speaker_zh": "苏望", "speaker_en": "Su Wang", "zh": "我救过他。", "en": "I tried to save him."},
+        {"start": 1.65, "end": 3.35, "speaker_zh": "检刺", "speaker_en": "Jian Ci", "zh": "骨内微粒吻合刹车盘。", "en": "The particles in the bone match the brake disc."},
+        {"start": 3.45, "end": 4.85, "speaker_zh": "苏望", "speaker_en": "Su Wang", "zh": "那不证明是我。", "en": "That does not prove it was me."}
+      ]
+    },
+    {
+      "id": "12",
+      "board": "board_04.jpeg",
+      "row": 3,
+      "panels": [9, 10, 11, 12],
+      "scene": "interrogation room",
+      "seed": 20260824,
+      "characters": ["jian_ci", "su_wang", "lin_qian"],
+      "use_previous_last_frame": true,
+      "shots": [
+        "Jian Ci in the unmistakable white coat states that cleanup traces and purchase records corroborate one another.",
+        "Su Wang in the dark rolled-sleeve shirt lowers his head, guarded but not melodramatic.",
+        "Jian Ci is held chest-up with his white coat and angular pale face clearly visible while he asks whom Su Wang wanted to wake; Su Wang answers offscreen.",
+        "Direct match cut from the same Jian Ci face to an extreme close-up of both Jian Ci irises turning deep burgundy for 0.8 seconds, then cut to black."
+      ],
+      "dialogue": [
+        {"start": 0.10, "end": 1.55, "speaker_zh": "林浅", "speaker_en": "Lin Qian", "zh": "采购记录也吻合。", "en": "The purchase records also match."},
+        {"start": 1.65, "end": 3.35, "speaker_zh": "检刺", "speaker_en": "Jian Ci", "zh": "苏望，你想让谁醒来？", "en": "Su Wang, whom did you want to wake?"},
+        {"start": 3.45, "end": 4.85, "speaker_zh": "苏望", "speaker_en": "Su Wang", "zh": "我只想让他醒来。", "en": "I only wanted him to wake up."}
+      ]
+    }
+  ]
+}
