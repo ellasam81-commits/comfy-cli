@@ -1,0 +1,173 @@
+name: Generate S1E02 Part 1 — S1E01 continuity bridge (Segmind one-shot)
+
+on:
+  push:
+    branches:
+      - render/s1e02-final
+    paths:
+      - "references/s1e02/run-part1-bridge-final.txt"
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: s1e02-part1-bridge-final
+  cancel-in-progress: false
+
+jobs:
+  generate-review-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    env:
+      SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+      PYTHONUNBUFFERED: "1"
+
+    steps:
+      - name: Check out locked inputs
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate exact one-shot trigger
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+          TRIGGER: references/s1e02/run-part1-bridge-final.txt
+          WORKFLOW: .github/workflows/generate-s1e02-part1-bridge.yml
+        run: |
+          set -euo pipefail
+          [[ "$RUN_ATTEMPT" == "1" ]] || { echo "::error::Workflow reruns are forbidden."; exit 2; }
+          git cat-file -e "$BEFORE_SHA:$WORKFLOW"
+          mapfile -t changed < <(git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+          [[ "${#changed[@]}" -eq 1 && "${changed[0]}" == "$TRIGGER" ]]
+          mapfile -t added < <(git diff --diff-filter=A --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+          [[ "${#added[@]}" -eq 1 && "${added[0]}" == "$TRIGGER" ]]
+          [[ -z "$(git log -1 --format=%H "$BEFORE_SHA" -- "$TRIGGER")" ]]
+          [[ "$(cat "$TRIGGER")" == "AUTHOR-APPROVED: GENERATE S1E02 PART 1 CONTINUITY BRIDGE ONCE" ]]
+          test -f references/s1e02/board_01.jpeg
+          test -f references/s1e02/character_chart.jpeg
+
+      - name: Restore paid lock
+        id: paid-lock
+        uses: actions/cache/restore@v4
+        with:
+          path: output/paid-lock
+          key: segmind-s1e02-part1-bridge-final
+          lookup-only: true
+
+      - name: Validate secret and unused lock
+        env:
+          LOCK_HIT: ${{ steps.paid-lock.outputs.cache-hit }}
+        run: |
+          set -euo pipefail
+          [[ -n "$SEGMIND_API_KEY" ]] || { echo "::error::Missing SEGMIND_API_KEY; no paid request made."; exit 2; }
+          [[ "$LOCK_HIT" != "true" ]] || { echo "::error::Part 1 bridge has already been submitted."; exit 2; }
+
+      - name: Install Segmind client and inspection tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install "segmind==1.1.0" requests
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Arm paid lock before submission
+        run: |
+          mkdir -p output/paid-lock
+          echo "author-approved one request; run $GITHUB_RUN_ID" > output/paid-lock/armed.txt
+
+      - name: Save paid lock
+        uses: actions/cache/save@v4
+        with:
+          path: output/paid-lock
+          key: segmind-s1e02-part1-bridge-final
+
+      - name: Generate exactly one 15-second continuity bridge
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import subprocess
+          from pathlib import Path
+
+          import requests
+          from segmind import SegmindClient
+
+          raw = Path("raw")
+          raw.mkdir(exist_ok=True)
+          root = f"https://raw.githubusercontent.com/{os.environ['GITHUB_REPOSITORY']}/{os.environ['GITHUB_SHA']}/references/s1e02"
+          board = f"{root}/board_01.jpeg"
+          chart = f"{root}/character_chart.jpeg"
+
+          prompt = r"""
+          OUTPUT LOCK. Create exactly one continuous 15-second, 16:9, 480p, 24fps cinematic Japanese 2D manga/anime crime-noir sequence with synchronized native Mandarin Chinese voices, rain/forensic foley and very sparse suspense music. This is S1E02 Part 1 of 《吸血法医·剑刺》 and must directly continue S1E01. Use clean hard cuts and restrained film directing. Never show the storyboard sheet, reference page, collage, split screen, panel borders, numbers, UI, timecode, watermark, logo, readable generated text or generated subtitles; deterministic bilingual subtitles and the persistent series title are added in post.
+
+          VISUAL AND SCENE LOCK. Reference image 1 is the exact twelve-shot visual storyboard and shot-order authority, not an object to display. Recreate its dark rainy abandoned-hospital images as full-screen animation: cold blue-black manga noir, near-black shadows, weak flickering practical lights, wet concrete, realistic police light reflections, fine ink lines, controlled horror and dry forensic restraint. Keep this one abandoned hospital, corridor and discovery site spatially consistent in every cut. Preserve the same rain, door, corridor, skeletal remains, rusty chain, evidence bags, tweezers and metal particle. No bright modern TV-anime palette, warm room, photoreal live action, glossy 3D, chibi, magic glow, fantasy sword, body mutation, extra wounds or visual comedy.
+
+          CHARACTER LOCK. Reference image 2 is immutable. Jian Ci / 检刺 is the same tall slim pale adult Chinese male vampire forensic doctor: short tousled black hair, white knee-length forensic coat, black high-neck shirt, black trousers and black gloves, never glasses. Lin Qian / 林浅 is the same adult Chinese female detective: chin-length black bob and dark-navy field uniform. Zhou Qiao / 周峤 is the same slim adult Chinese male digital-forensics officer: messy black hair, silver-rim glasses and one subtle hearing device. Xu Wei / 许未 is the same athletic adult Chinese female trace examiner: high ponytail, olive forensic coverall and black gloves. Han Che / 韩彻 is the same mature stern Chinese male team leader in an unlettered dark jacket. Preserve every face, age, hairstyle, body, costume, accessory, voice and temperament exactly. No identity swap, morph, duplicate, wardrobe change or extra team member. The correct name is 周峤, never 周屿.
+
+          STORY CONTINUITY LOCK. S1E01 ended when the team found the medical-data tube “Container-07” hidden inside the dagger handle in victim Zhong Yuan's case. This part must verbally and logically establish that Container-07 came from an earlier case personally handled by Zhong Yuan and its registration record points to this abandoned hospital. Do not imply that Jian Ci's vampire ability proves anything. The skeletal remains have been exposed for at least several weeks; final postmortem interval requires lab confirmation. The metal particle is collected with clean tools, bagged and sent for composition comparison. Keep all forensic handling realistic.
+
+          EXACT SHOT FLOW. 1) Rain-soaked abandoned hospital exterior and police lights during narration. 2) A brief insert of a sealed transparent medical-data tube/evidence pouch, visually blank, then Zhou Qiao's tablet map without readable text. 3) Zhou Qiao gestures from the record toward the hospital. 4) Jian Ci and Lin Qian enter the same dark doorway. 5) Corridor discovery of chained skeletal remains matching the board. 6) Lin Qian reacts with controlled concern. 7) Jian Ci kneels and examines skull and jaw without moving evidence. 8) Xu Wei checks exposure and bone surface. 9) Close tweezers lift one metal particle into a sample vial. 10) Jian Ci notices the anomaly; for only 0.8 to 1.0 second both irises become clearly visible deep burgundy red with natural catchlights, subtle low heartbeat, no glow beam, no fangs and no magic conclusion; they immediately return dark. 11) Han Che watches as evidence is sealed. 12) Team leaves the particle for laboratory composition comparison, suspenseful cut to black.
+
+          AUDIO LOCK. Mandarin only, natural fixed adult voices, clear pronunciation, no overlapping speech, restrained pace, exact speakers and wording:
+          0.00-3.20 旁白：刀柄里的“容器-07”，来自钟远经手的一宗旧案。
+          3.20-5.50 周峤：登记地点，是这座废弃医院。
+          5.50-7.20 林浅：钟远为什么把它藏进刀柄？
+          7.20-9.30 检刺：有人不想旧案重见天日。
+          9.30-11.40 许未：这具遗骸至少暴露数周。
+          11.40-13.30 检刺：骨骼里有金属微粒。
+          13.30-15.00 检刺：先做成分比对。
+          """
+
+          state = {
+              "episode": "S1E02",
+              "part": 1,
+              "purpose": "S1E01 continuity bridge",
+              "model": "seedance-2.0-mini",
+              "request_count": 1,
+              "status": "submitting",
+          }
+          Path("raw/request.json").write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
+          client = SegmindClient()
+          print("Submitting the single author-approved Segmind request", flush=True)
+          job = client.submit_async(
+              "seedance-2.0-mini",
+              prompt=prompt,
+              reference_images=[board, chart],
+              duration=15,
+              resolution="480p",
+              aspect_ratio="16:9",
+              generate_audio=True,
+              bitrate_mode="high",
+              seed=20260802,
+          )
+          result = job.wait(timeout=1800, interval=5)
+          state["status"] = "completed"
+          state["result"] = result
+          Path("raw/request.json").write_text(json.dumps(state, ensure_ascii=False, indent=2, default=str), encoding="utf-8")
+          output = result.get("output") if isinstance(result, dict) else result
+          if isinstance(output, dict):
+              url = output.get("url") or output.get("video_url") or output.get("video")
+          elif isinstance(output, list) and output:
+              first = output[0]
+              url = first.get("url") if isinstance(first, dict) else first
+          else:
+              url = output
+          if not isinstance(url, str) or not url.startswith("http"):
+              raise RuntimeError(f"No downloadable video URL: {result}")
+          response = requests.get(url, timeout=300)
+          response.raise_for_status()
+          video = raw / "S1E02_Part1_continuity_bridge_raw.mp4"
+          video.write_bytes(response.content)
+          subprocess.run(["ffprobe", "-v", "error", "-show_streams", "-show_format", "-of", "json", str(video)], check=True, stdout=open(raw / "ffprobe.json", "w"))
+          PY
+
+      - name: Upload raw review artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: S1E02-Part1-Continuity-Bridge
+          path: raw/
+          if-no-files-found: error
+          retention-days: 7
