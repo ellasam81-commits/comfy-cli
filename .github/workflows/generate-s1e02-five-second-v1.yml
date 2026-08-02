@@ -21,7 +21,7 @@ jobs:
     timeout-minutes: 180
     env:
       SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
-      WHISPER_CACHE_DIR: ${{ runner.temp }}/faster-whisper
+      WHISPER_CACHE_DIR: /tmp/faster-whisper-s1e02-v1
       PYTHONUNBUFFERED: "1"
 
     steps:
