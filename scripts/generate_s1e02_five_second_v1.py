@@ -12,6 +12,7 @@ import json
 import os
 import re
 import subprocess
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -229,9 +230,9 @@ def prepare_references(plan: dict[str, Any]) -> dict[str, Path]:
             panel.save(target, quality=97)
             panel_images.append(panel)
 
-        row_canvas = Image.new("RGB", (1280, 180), (3, 7, 12))
+        row_canvas = Image.new("RGB", (2560, 360), (3, 7, 12))
         for shot_index, panel in enumerate(panel_images):
-            row_canvas.paste(panel.resize((320, 180), Image.Resampling.LANCZOS), (shot_index * 320, 0))
+            row_canvas.paste(panel, (shot_index * 640, 0))
         row_target = RUNTIME_DIR / f"clip_{clip['id']}_ordered_row.jpg"
         row_canvas.save(row_target, quality=97)
 
@@ -280,7 +281,20 @@ def build_reference_list(
         specs = [spec for spec in specs if "previous accepted" not in spec[0]]
     if len(specs) > 9:
         raise RuntimeError(f"Too many references for clip {clip['id']}: {len(specs)}")
+    for _, path in specs:
+        validate_reference_image(path)
     return specs
+
+
+def validate_reference_image(path: Path) -> None:
+    with Image.open(path) as image:
+        width, height = image.size
+        image.verify()
+    if not (300 <= width <= 6000 and 300 <= height <= 6000):
+        raise RuntimeError(
+            f"Reference image dimensions are outside provider limits: "
+            f"{path} is {width}x{height}; each side must be 300-6000px"
+        )
 
 
 def build_prompt(clip: dict[str, Any], reference_specs: list[tuple[str, Path]]) -> str:
@@ -750,5 +764,22 @@ def main() -> None:
     print("All twelve five-second clips completed exactly once.", flush=True)
 
 
+def prepare_only() -> None:
+    plan = load_and_validate_plan()
+    identity_paths = prepare_references(plan)
+    counts: dict[str, int] = {}
+    for clip in plan["clips"]:
+        specs = build_reference_list(clip, identity_paths, None)
+        counts[clip["id"]] = len(specs)
+    print(
+        "All static references satisfy the provider's 300-6000px limits: "
+        + json.dumps(counts, sort_keys=True),
+        flush=True,
+    )
+
+
 if __name__ == "__main__":
-    main()
+    if "--prepare-only" in sys.argv:
+        prepare_only()
+    else:
+        main()
