@@ -1,0 +1,237 @@
+name: Generate S1E03 Zhong Yuan Audio Repair
+
+on:
+  push:
+    branches:
+      - render/s1e03-final-v1
+    paths:
+      - references/s1e03/run-zhong-yuan-audio-repair-v1.txt
+
+permissions:
+  contents: read
+
+concurrency:
+  group: s1e03-zhong-yuan-audio-repair-v1
+  cancel-in-progress: false
+
+jobs:
+  generate-one-audio-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Check out repair branch
+        uses: actions/checkout@v4
+
+      - name: Verify one-shot trigger
+        shell: bash
+        run: |
+          set -euo pipefail
+          token="$(tr -d '\r\n' < references/s1e03/run-zhong-yuan-audio-repair-v1.txt)"
+          test "$token" = "S1E03_ZHONG_YUAN_AUDIO_REPAIR_V1"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install one-shot generator and speech audit
+        run: python -m pip install "segmind>=1.1.0" requests "faster-whisper>=1.1.0"
+
+      - name: Submit exactly one Seedance request
+        env:
+          SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+          WHISPER_CACHE_DIR: ${{ github.workspace }}/whisper-cache
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$SEGMIND_API_KEY"
+          mkdir -p output
+
+          python - <<'PY'
+          import json
+          import os
+          import re
+          from pathlib import Path
+          from urllib.parse import quote, urlparse
+
+          import requests
+          from faster_whisper import WhisperModel
+          from segmind import SegmindClient
+
+
+          ROOT = Path.cwd().resolve()
+          OUTPUT = ROOT / "output"
+          REPOSITORY = os.environ["GITHUB_REPOSITORY"]
+          COMMIT = os.environ["GITHUB_SHA"]
+          REFERENCE_FILES = [
+              "references/s1e03/board_03.png",
+              "references/s1e03/source_refs/character_chart_highres.jpeg",
+              "references/s1e03/source_refs/container07_exact.png",
+          ]
+
+
+          def raw_url(relative: str) -> str:
+              path = (ROOT / relative).resolve()
+              if ROOT not in path.parents or not path.is_file():
+                  raise RuntimeError(f"Missing locked reference: {relative}")
+              return (
+                  f"https://raw.githubusercontent.com/{REPOSITORY}/{COMMIT}/"
+                  f"{quote(relative, safe='/')}"
+              )
+
+
+          def collect_urls(value, found: list[str]) -> None:
+              if isinstance(value, str) and value.startswith(("https://", "http://")):
+                  found.append(value)
+              elif isinstance(value, list):
+                  for child in value:
+                      collect_urls(child, found)
+              elif isinstance(value, dict):
+                  for child in value.values():
+                      collect_urls(child, found)
+
+
+          def is_video(data: bytes, content_type: str, url: str) -> bool:
+              suffix = Path(urlparse(url).path).suffix.lower()
+              return (
+                  "video/" in content_type.lower()
+                  or data[4:8] == b"ftyp"
+                  or data[:4] == bytes.fromhex("1a45dfa3")
+                  or suffix in {".mp4", ".mov", ".webm"}
+              )
+
+
+          prompt = r'''
+          ORIGINAL SERIES AUDIO REPAIR. Generate one five-second 16:9 dark
+          forensic manga-noir clip for 《吸血法医·剑刺》 S1E03. The picture is a
+          temporary carrier and will be discarded; audio accuracy is the only
+          priority. Keep a stable full-screen evidence composition based on the
+          supplied Container-07 and Zhong Yuan storyboard references. No grid,
+          split screen, title, subtitle, logo, watermark or readable invented
+          text.
+
+          AUDIO IS THE HARD LOCK. Generate clear native Mandarin in one calm,
+          mature female narrator voice, centered, dry and louder than restrained
+          forensic-room ambience. Speak only this exact line, once, from 0.10 to
+          4.85 seconds, at a brisk but intelligible pace:
+
+          “钟远死于麻醉剂中毒造成的呼吸抑制，银刃是死后机关刺入的伪装。”
+
+          Do not say a speaker label. Do not add, omit, paraphrase or repeat any
+          word. Do not speak English. No music, no singing, no second voice and
+          no long silent gap. This is a forensic conclusion only; do not name or
+          show a killer. The silver blade is a postmortem disguise, never the
+          cause of death.
+          '''.strip()
+
+          payload = {
+              "prompt": prompt,
+              "reference_images": [raw_url(item) for item in REFERENCE_FILES],
+              "duration": 5,
+              "resolution": "480p",
+              "aspect_ratio": "16:9",
+              "generate_audio": True,
+              "bitrate_mode": "high",
+              "return_last_frame": True,
+              "seed": 20260832,
+          }
+
+          manifest = {
+              "episode": "S1E03",
+              "purpose": "Zhong Yuan canonical cause-of-death narration only",
+              "model": "seedance-2.0-mini",
+              "request_count": 0,
+              "automatic_retries": 0,
+              "estimated_provider_cost_usd": 0.176,
+              "expected_line": "钟远死于麻醉剂中毒造成的呼吸抑制，银刃是死后机关刺入的伪装。",
+              "status": "prepared",
+          }
+          (OUTPUT / "manifest.json").write_text(
+              json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8"
+          )
+
+          client = SegmindClient()
+          manifest["request_count"] = 1
+          manifest["status"] = "submitted_once"
+          (OUTPUT / "manifest.json").write_text(
+              json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8"
+          )
+
+          job = client.submit_async("seedance-2.0-mini", **payload)
+          manifest["request_id"] = job.request_id
+          (OUTPUT / "request_id.txt").write_text(job.request_id + "\n", encoding="utf-8")
+          result = job.wait(timeout=1800, interval=5)
+          (OUTPUT / "result.json").write_text(
+              json.dumps(result, ensure_ascii=False, indent=2, default=str), encoding="utf-8"
+          )
+
+          urls: list[str] = []
+          collect_urls(result.get("output", result) if isinstance(result, dict) else result, urls)
+          urls = list(dict.fromkeys(urls))
+          video_path = OUTPUT / "S1E03_ZhongYuan_audio_source.mp4"
+          for url in urls:
+              response = requests.get(url, timeout=300)
+              response.raise_for_status()
+              if is_video(response.content, response.headers.get("content-type", ""), url):
+                  video_path.write_bytes(response.content)
+                  break
+          if not video_path.is_file() or video_path.stat().st_size < 200_000:
+              raise RuntimeError("Segmind returned no valid audio-carrying video")
+
+          speech_model = WhisperModel(
+              "tiny", device="cpu", compute_type="int8",
+              download_root=os.environ["WHISPER_CACHE_DIR"]
+          )
+          segments_iter, info = speech_model.transcribe(
+              str(video_path), language="zh", task="transcribe", beam_size=1,
+              temperature=0, vad_filter=True,
+              vad_parameters={"min_silence_duration_ms": 200},
+              condition_on_previous_text=False,
+          )
+          segments = [
+              {"start": float(item.start), "end": float(item.end), "text": item.text.strip()}
+              for item in segments_iter if item.text.strip()
+          ]
+          transcript = "".join(item["text"] for item in segments)
+          speech_seconds = sum(max(0.0, item["end"] - item["start"]) for item in segments)
+          audit = {
+              "language": getattr(info, "language", None),
+              "language_probability": getattr(info, "language_probability", None),
+              "transcript": transcript,
+              "segments": segments,
+              "speech_seconds": speech_seconds,
+              "expected_line": manifest["expected_line"],
+          }
+          (OUTPUT / "speech_audit.json").write_text(
+              json.dumps(audit, ensure_ascii=False, indent=2), encoding="utf-8"
+          )
+          if speech_seconds < 2.5 or len(re.findall(r"[\u3400-\u9fff]", transcript)) < 12:
+              raise RuntimeError("Generated source lacks enough verifiable Mandarin speech")
+
+          metrics = result.get("metrics", {}) if isinstance(result, dict) else {}
+          cost = None
+          if isinstance(metrics, dict):
+              cost = metrics.get("cost") or metrics.get("cost_usd") or metrics.get("price")
+          manifest.update({
+              "status": "completed",
+              "actual_provider_cost_usd": cost,
+              "asr_transcript": transcript,
+              "speech_seconds": speech_seconds,
+              "output_size_bytes": video_path.stat().st_size,
+          })
+          (OUTPUT / "manifest.json").write_text(
+              json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8"
+          )
+          print(json.dumps(manifest, ensure_ascii=False, indent=2))
+          PY
+
+      - name: Upload the single repair source
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: S1E03-ZhongYuan-Audio-Repair-V1
+          path: output/*
+          if-no-files-found: error
+          retention-days: 7
+
