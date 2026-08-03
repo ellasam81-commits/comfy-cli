@@ -1,5 +1,5 @@
 {
-  "schema_version": 3,
+  "schema_version": 4,
   "episode": "S1E03",
   "episode_title_zh": "醒不过来的人",
   "episode_title_en": "The One Who Would Not Wake",
@@ -28,6 +28,16 @@
       "planned_requests": 11,
       "estimated_usd": 1.936,
       "requires_gate_artifact": true
+    },
+    "zhong_yuan_audio_repair": {
+      "clip_ids": ["07"],
+      "request_count": 1,
+      "automatic_retries": 0,
+      "actual_usd": 0.177233,
+      "request_id": "e0a2030d9a854845f37f74a497ad6b8a",
+      "source_sha256": "f6321f9e9367bc269bdb92298365c1a556d442ccc4e8ce9d733aa7641455b44c",
+      "expected_line_zh": "钟远死于麻醉剂中毒造成的呼吸抑制，银刃是死后机关刺入的伪装。",
+      "purpose": "state Zhong Yuan's canonical forensic cause of death without changing the accepted picture"
     }
   },
   "persistent_header": "《吸血法医·剑刺》｜S1E03《醒不过来的人》｜制作：林爱丽",
@@ -44,7 +54,7 @@
     "source_refs/container07_exact.png": "6705d26f7cfaf30060c99248e51f21e44116d20438c9a7138992708099c91320",
     "continuity/s1e02_clip12_bridge_clean.mp4": "bac1e1df053ffc576d9de09435f6344b687c717965a6641bd6ab3e7a97062eac"
   },
-  "global_story_lock": "Cheng Ye was Su Wang's rally teammate. He still had a pulse after the crash. Team doctor Shen Heng falsely described repeated high-volume marrow aspiration as an intraosseous rescue procedure; pathology and synchronized monitor/device logs establish fatal blood loss during Shen Heng's continued extraction. Shen Heng then refrigerated and moved the remains. Su Wang supplied garage 302 and concealed evidence but was not the direct killer. Container-07 is an illegal donor identifier, never a resurrection medicine. Vampire perception may suggest a test but is never legal proof.",
+  "global_story_lock": "Cheng Ye was Su Wang's rally teammate. He still had a pulse after the crash. Team doctor Shen Heng falsely described repeated high-volume marrow aspiration as an intraosseous rescue procedure; pathology and synchronized monitor/device logs establish fatal blood loss during Shen Heng's continued extraction. Shen Heng then refrigerated and moved the remains. Su Wang supplied garage 302 and concealed evidence but was not the direct killer. Zhong Yuan died from respiratory depression caused by anesthetic toxicity; the silver blade was inserted postmortem by a timed mechanism as a disguise and was not his cause of death. Container-07 is an illegal donor identifier, never a resurrection medicine. Vampire perception may suggest a test but is never legal proof.",
   "global_negative": "wrong series or episode; 夜血法医; 陆沉; 周屿; 陈默; English speech; silent track; invented dialogue; generated subtitle, header, caption, logo, watermark, timecode, readable UI or gibberish label; comic grid, storyboard page, split screen, collage or picture-in-picture; live action, celebrity likeness, photoreal skin, glossy 3D, chibi, bright fantasy, comedy face, shaky camera, fast spin; face swap, twin, duplicate, body or wardrobe drift; Jian Ci wearing glasses; Su Wang in white coat or with red eyes; Xu Wei as male or short-haired; Lin Qian with long hair; Zhou Qiao without glasses or hearing device; Han Che and Shen Heng sharing a face; Chen Mo becoming Lin Qian, Xu Wei, a corpse or an injured neck; bare-hand evidence handling; unsealed evidence; prop teleport; luxury new hospital; supernatural power as proof; red eyes as conviction; fangs, biting, aura, beam, instant regeneration; graphic gore, surgery, throat-cutting, blood spray, organs, dismemberment, insect swarm or irrelevant crowd",
   "clips": [
     {
@@ -93,7 +103,7 @@
         "3.50-5.00 Su Wang points to a sealed team photograph and identifies team doctor Shen Heng, a distinct lean middle-aged man with receding hairline, half-rim glasses, green scrubs, gray medical coat and blue gloves."
       ],
       "dialogue": [
-        {"start": 0.25, "end": 4.65, "speaker_zh": "苏望（画外）", "speaker_en": "Su Wang (O.S.)", "zh": "队医沈衡说，骨内输液能把程野救醒。", "en": "Team doctor Shen Heng said an intraosseous infusion could wake Cheng Ye."}
+        {"start": 0.25, "end": 3.25, "speaker_zh": "苏望（画外）", "speaker_en": "Su Wang (O.S.)", "zh": "队医沈衡说，骨内输液能把程野救醒。", "en": "Team doctor Shen Heng said an intraosseous infusion could wake Cheng Ye."}
       ],
       "special_negative": "Shen Heng's claim is a lie, not effective therapy. No needle entering flesh, surgery, blood spray or awakening corpse."
     },
@@ -203,13 +213,13 @@
       "shots": [
         "0.00-1.20 composition of the exact accepted ornate blade handle and glass tube; keep the generated label blank because the precise Container-07 shot is replaced in post.",
         "1.20-2.45 old donor archive and seventh rack position with blank paper files and no readable writing.",
-        "2.45-5.00 Lin Qian and Han Che inspect the sealed tube beside an old photograph of deceased 64-year-old Zhong Yuan and conclude he hid evidence."
+        "2.45-5.00 Lin Qian and Han Che inspect the sealed tube beside an old photograph of deceased 64-year-old Zhong Yuan while the forensic narration states his canonical cause of death and identifies the postmortem silver-blade mechanism as a disguise."
       ],
       "dialogue": [
-        {"start": 0.20, "end": 2.55, "speaker_zh": "林浅（画外）", "speaker_en": "Lin Qian (O.S.)", "zh": "容器-07不是药，是供者编号。", "en": "Container-07 wasn't medicine. It was a donor number."},
-        {"start": 2.65, "end": 4.70, "speaker_zh": "韩彻", "speaker_en": "Han Che", "zh": "钟远藏的是证据。", "en": "Zhong Yuan hid evidence."}
+        {"start": 0.20, "end": 2.75, "speaker_zh": "旁白", "speaker_en": "Narrator", "zh": "钟远死于麻醉剂中毒造成的呼吸抑制。", "en": "Zhong Yuan died of anesthetic-induced respiratory depression."},
+        {"start": 2.85, "end": 4.95, "speaker_zh": "旁白", "speaker_en": "Narrator", "zh": "银刃是死后机关刺入的伪装。", "en": "A mechanism inserted the silver blade postmortem as a disguise."}
       ],
-      "special_negative": "Never regenerate or misspell Container-07. Zhong Yuan appears only in an old photograph and never revives. The tube is not real resurrection medicine."
+      "special_negative": "Never regenerate or misspell Container-07. Zhong Yuan appears only in an old photograph and never revives. The tube is not real resurrection medicine. The silver blade is never stated to be Zhong Yuan's cause of death, and the forensic conclusion never names a killer."
     },
     {
       "id": "08",
