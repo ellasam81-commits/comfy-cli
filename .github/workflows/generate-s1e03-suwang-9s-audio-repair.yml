@@ -1,0 +1,211 @@
+name: Generate S1E03 Su Wang 9s Audio Repair
+
+on:
+  push:
+    branches:
+      - render/s1e03-final-v1
+    paths:
+      - references/s1e03/run-suwang-9s-audio-repair-v1.txt
+
+permissions:
+  contents: write
+
+concurrency:
+  group: s1e03-suwang-9s-audio-repair-v1
+  cancel-in-progress: false
+
+jobs:
+  generate-one-voice-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Check out repair branch
+        uses: actions/checkout@v4
+        with:
+          token: ${{ github.token }}
+
+      - name: Verify one-shot trigger
+        shell: bash
+        run: |
+          set -euo pipefail
+          token="$(tr -d '\r\n' < references/s1e03/run-suwang-9s-audio-repair-v1.txt)"
+          test "$token" = "S1E03_SUWANG_9S_AUDIO_REPAIR_V1"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install one-shot generator and audio audit
+        run: |
+          python -m pip install "segmind>=1.1.0" requests "faster-whisper>=1.1.0"
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Submit exactly one Seedance request
+        env:
+          SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+          WHISPER_CACHE_DIR: ${{ github.workspace }}/whisper-cache
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$SEGMIND_API_KEY"
+          mkdir -p output
+
+          python - <<'PY'
+          import base64
+          import json
+          import os
+          import re
+          import subprocess
+          from pathlib import Path
+          from urllib.parse import urlparse
+
+          import requests
+          from faster_whisper import WhisperModel
+          from segmind import SegmindClient
+
+
+          ROOT = Path.cwd().resolve()
+          OUTPUT = ROOT / "output"
+          REFERENCES = [
+              ROOT / "references/s1e03/continuity/su_wang_identity_accepted.jpg",
+              ROOT / "references/s1e03/board_01.png",
+          ]
+          VIDEO_REFERENCE = ROOT / "references/s1e03/continuity/s1e02_clip12_bridge_clean.mp4"
+          expected = "是他，沈衡。"
+
+
+          def collect_urls(value, found):
+              if isinstance(value, str) and value.startswith(("https://", "http://")):
+                  found.append(value)
+              elif isinstance(value, list):
+                  for child in value:
+                      collect_urls(child, found)
+              elif isinstance(value, dict):
+                  for child in value.values():
+                      collect_urls(child, found)
+
+
+          def is_video(data, content_type, url):
+              suffix = Path(urlparse(url).path).suffix.lower()
+              return "video/" in content_type.lower() or data[4:8] == b"ftyp" or suffix in {".mp4", ".mov", ".webm"}
+
+
+          for reference in [*REFERENCES, VIDEO_REFERENCE]:
+              if not reference.is_file():
+                  raise RuntimeError(f"Missing locked reference: {reference}")
+
+          prompt = r'''
+          ORIGINAL SERIES AUDIO REPAIR. Generate one five-second 16:9 dark
+          forensic manga-noir carrier clip for 《吸血法医·剑刺》 S1E03. The picture
+          will be discarded. Keep the supplied Su Wang identity and interrogation
+          reference only for voice and character continuity; no title, subtitle,
+          logo, readable text, montage, split screen or watermark.
+
+          AUDIO IS THE HARD LOCK. Use Su Wang's established voice: a young adult
+          Chinese man, controlled guilt, restrained breath, natural Mandarin.
+          Speak only this exact sentence once, clearly, at 0.35–1.60 seconds:
+
+          “是他，沈衡。”
+
+          No speaker label. No English. No second voice. No music. No added words,
+          repetition, paraphrase, shouting, sobbing or long spoken tail. Leave only
+          quiet interrogation-room ambience before and after. The line identifies
+          the team doctor in the photograph; it does not accuse him of murder.
+          '''.strip()
+
+          client = SegmindClient()
+          image_urls = [client.files.upload(item)["file_urls"][0] for item in REFERENCES]
+          video_url = client.files.upload(VIDEO_REFERENCE)["file_urls"][0]
+          manifest = {
+              "episode": "S1E03",
+              "purpose": "Su Wang short dialogue at global 8.42–9.70 seconds only",
+              "model": "seedance-2.0-mini",
+              "request_count": 1,
+              "automatic_retries": 0,
+              "expected_line": expected,
+              "status": "submitted_once",
+          }
+          (OUTPUT / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
+          job = client.submit_async(
+              "seedance-2.0-mini",
+              prompt=prompt,
+              reference_images=image_urls,
+              reference_videos=[video_url],
+              duration=5,
+              resolution="480p",
+              aspect_ratio="16:9",
+              generate_audio=True,
+              bitrate_mode="high",
+              seed=20260833,
+          )
+          manifest["request_id"] = job.request_id
+          (OUTPUT / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
+          result = job.wait(timeout=1800, interval=5)
+          (OUTPUT / "result.json").write_text(json.dumps(result, ensure_ascii=False, indent=2, default=str), encoding="utf-8")
+
+          urls = []
+          collect_urls(result.get("output", result) if isinstance(result, dict) else result, urls)
+          source = OUTPUT / "S1E03_SuWang_9s_voice_source.mp4"
+          for url in dict.fromkeys(urls):
+              response = requests.get(url, timeout=300)
+              response.raise_for_status()
+              if is_video(response.content, response.headers.get("content-type", ""), url):
+                  source.write_bytes(response.content)
+                  break
+          if not source.is_file() or source.stat().st_size < 150_000:
+              raise RuntimeError("Seedance returned no usable audio-carrying video")
+
+          voice = OUTPUT / "S1E03_SuWang_9s_voice_source.m4a"
+          subprocess.run([
+              "ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", str(source),
+              "-vn", "-c:a", "aac", "-b:a", "128k", "-ar", "48000", "-ac", "2", str(voice),
+          ], check=True)
+
+          model = WhisperModel("tiny", device="cpu", compute_type="int8", download_root=os.environ["WHISPER_CACHE_DIR"])
+          segments_iter, info = model.transcribe(str(voice), language="zh", task="transcribe", beam_size=1, temperature=0, vad_filter=True, condition_on_previous_text=False)
+          segments = [{"start": float(s.start), "end": float(s.end), "text": s.text.strip()} for s in segments_iter if s.text.strip()]
+          transcript = "".join(item["text"] for item in segments)
+          audit = {"language": getattr(info, "language", None), "language_probability": getattr(info, "language_probability", None), "transcript": transcript, "segments": segments, "expected_line": expected}
+          (OUTPUT / "speech_audit.json").write_text(json.dumps(audit, ensure_ascii=False, indent=2), encoding="utf-8")
+          if "沈衡" not in transcript or len(re.findall(r"[\u3400-\u9fff]", transcript)) < 3:
+              raise RuntimeError(f"Generated speech audit did not verify the required Su Wang line: {transcript}")
+
+          metrics = result.get("metrics", {}) if isinstance(result, dict) else {}
+          manifest.update({
+              "status": "completed",
+              "actual_provider_cost_usd": metrics.get("cost") or metrics.get("cost_usd") or metrics.get("price"),
+              "asr_transcript": transcript,
+              "voice_file_bytes": voice.stat().st_size,
+          })
+          (OUTPUT / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
+          (OUTPUT / "S1E03_SuWang_9s_voice_source.m4a.b64").write_text(base64.encodebytes(voice.read_bytes()).decode("ascii"), encoding="ascii")
+          print(json.dumps(manifest, ensure_ascii=False, indent=2))
+          PY
+
+      - name: Save approved one-shot audio source to repair branch
+        if: success()
+        shell: bash
+        run: |
+          set -euo pipefail
+          target='references/s1e03/generated/suwang-9s-audio-repair-v1'
+          mkdir -p "$target"
+          cp output/manifest.json "$target/manifest.json"
+          cp output/speech_audit.json "$target/speech_audit.json"
+          cp output/S1E03_SuWang_9s_voice_source.m4a.b64 "$target/S1E03_SuWang_9s_voice_source.m4a.b64"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$target"
+          git commit -m 'Store S1E03 Su Wang 9s one-shot audio repair source'
+          git push origin HEAD:render/s1e03-final-v1
+
+      - name: Upload repair audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: S1E03-SuWang-9s-Audio-Repair-V1
+          path: output/*
+          if-no-files-found: warn
+          retention-days: 7
