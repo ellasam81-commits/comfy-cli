@@ -162,7 +162,7 @@ def safe_source_path(relative: str) -> Path:
 def load_and_validate_plan() -> dict[str, Any]:
     plan = json.loads(PLAN_PATH.read_text(encoding="utf-8"))
     required = {
-        "schema_version": 3,
+        "schema_version": 4,
         "episode": "S1E03",
         "model": "seedance-2.0-mini",
         "duration_seconds_per_clip": 5,
