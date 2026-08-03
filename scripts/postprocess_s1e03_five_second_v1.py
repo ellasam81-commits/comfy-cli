@@ -3,10 +3,10 @@
 
 This script performs no paid generation.  It discovers clip 01 in the gate
 artifact and clips 02-12 in the remainder artifact, normalizes every clip,
-applies the two deterministic picture fixes, builds one clean 60-second
-master, creates a global bilingual ASS file, mixes an optional low suspense
-drone, normalizes the complete programme to EBU R128, and renders the final
-delivery plus machine-readable QC and a contact sheet.
+applies the deterministic picture and audio repairs, builds one clean
+60-second master, creates a global bilingual ASS file, mixes an optional low
+suspense drone, normalizes the complete programme to EBU R128, and renders the
+final delivery plus machine-readable QC and a contact sheet.
 
 Run from any directory.  Static validation does not require generated clips::
 
@@ -17,6 +17,7 @@ Render after downloading both artifacts::
     python scripts/postprocess_s1e03_five_second_v1.py \
       --gate-dir gate_input \
       --remainder-dir remainder_input \
+      --clip07-repair-audio S1E03_ZhongYuan_audio_source.mp4 \
       --out-dir output/s1e03-final-v1
 """
 
@@ -75,6 +76,14 @@ CLIP01_MATCH_SSIM_MIN = 0.990
 CLIP01_DISTINCT_SSIM_MAX = 0.980
 CLIP02_EXTRA_WORD_MUTE_START = 3.65
 CLIP02_EXTRA_WORD_MUTE_END = 4.70
+CLIP02_CUE_FIRST_START = 3.80
+CLIP02_CUE_SECOND_START = 4.01
+CLIP02_CUE_CHIRP_START = 4.13
+CLIP02_CUE_END = 4.31
+CLIP07_REPAIR_AUDIO_MIN_SECONDS = 5.0
+CLIP07_REPAIR_AUDIO_SHA256 = (
+    "f6321f9e9367bc269bdb92298365c1a556d442ccc4e8ce9d733aa7641455b44c"
+)
 # Raw Clip07 does not cut from the blank generated tube label to the archive
 # until frame 41, and the archive insert itself contains generated pseudo-text.
 # Hold the locked exact Container-07 image through frame 79, then resume on the
@@ -156,6 +165,14 @@ def parse_args() -> argparse.Namespace:
         type=Path,
         default=ROOT / "output" / "s1e03-final-v1",
         help="Delivery directory (default: output/s1e03-final-v1).",
+    )
+    parser.add_argument(
+        "--clip07-repair-audio",
+        type=Path,
+        help=(
+            "One-shot Seedance Mandarin source containing the approved Zhong Yuan "
+            "cause-of-death narration; its picture is discarded."
+        ),
     )
     parser.add_argument(
         "--fonts-dir",
@@ -258,7 +275,7 @@ def load_and_validate_plan() -> dict[str, Any]:
         raise RuntimeError(f"S1E03 plan is missing: {PLAN_PATH}")
     plan = json.loads(PLAN_PATH.read_text(encoding="utf-8"))
     required = {
-        "schema_version": 3,
+        "schema_version": 4,
         "episode": EPISODE,
         "duration_seconds_per_clip": 5,
         "clip_count": 12,
@@ -274,6 +291,17 @@ def load_and_validate_plan() -> dict[str, Any]:
     clips = plan.get("clips")
     if not isinstance(clips, list) or [clip.get("id") for clip in clips] != CLIP_IDS:
         raise RuntimeError("Plan must contain clips 01 through 12 exactly once and in order")
+
+    repair_stage = plan.get("stages", {}).get("zhong_yuan_audio_repair")
+    if not isinstance(repair_stage, dict):
+        raise RuntimeError("Plan is missing the locked Zhong Yuan audio-repair stage")
+    if (
+        repair_stage.get("source_sha256") != CLIP07_REPAIR_AUDIO_SHA256
+        or repair_stage.get("request_count") != 1
+        or repair_stage.get("automatic_retries") != 0
+        or repair_stage.get("actual_usd") != 0.177233
+    ):
+        raise RuntimeError("Zhong Yuan audio-repair provenance lock changed")
 
     expected_header = (
         f"《{plan['series_title_zh']}》｜{plan['episode']}"
@@ -646,6 +674,7 @@ def prepare_only(args: argparse.Namespace) -> None:
         "clip_ids": CLIP_IDS,
         "clip01_plan_independent_repairs": clip01_lock,
         "clip07_replacement_frames": CLIP07_REPLACEMENT_FRAMES,
+        "clip07_repair_audio_sha256_lock": CLIP07_REPAIR_AUDIO_SHA256,
         "clip12_black_frames": CLIP12_BLACK_FRAMES,
         "ass_sha256": sha256_text(ass),
         "persistent_header": plan["persistent_header"],
@@ -752,6 +781,43 @@ def max_volume_db(path: Path) -> float:
     return float(match.group(1))
 
 
+def max_volume_db_segment(path: Path, start: float, end: float) -> float:
+    if not 0.0 <= start < end:
+        raise RuntimeError(f"Invalid audio inspection interval: {start}..{end}")
+    result = subprocess.run(
+        [
+            "ffmpeg",
+            "-hide_banner",
+            "-nostats",
+            "-ss",
+            f"{start:.6f}",
+            "-t",
+            f"{end - start:.6f}",
+            "-i",
+            str(path),
+            "-map",
+            "0:a:0",
+            "-af",
+            "volumedetect",
+            "-f",
+            "null",
+            "-",
+        ],
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    if result.returncode:
+        raise RuntimeError(
+            f"Could not measure audio interval {start}..{end}: {path}\n"
+            f"{result.stderr[-4000:]}"
+        )
+    match = re.search(r"max_volume:\s*(-?inf|-?\d+(?:\.\d+)?)\s*dB", result.stderr)
+    if not match or match.group(1) == "-inf":
+        return float("-inf")
+    return float(match.group(1))
+
+
 def validate_raw_clip(
     clip_id: str,
     path: Path,
@@ -798,6 +864,58 @@ def validate_raw_clip(
         "decoded_source_audio_samples_at_48000": decoded_source_samples,
         "required_audio_through_seconds": required_audio_seconds,
         "max_volume_db": peak,
+    }
+
+
+def validate_clip07_repair_audio(path: Path) -> dict[str, Any]:
+    source = path.expanduser().resolve()
+    if not source.is_file():
+        raise RuntimeError(f"Clip07 repair audio source does not exist: {source}")
+    if source.stat().st_size < 100_000:
+        raise RuntimeError(f"Clip07 repair audio source is unexpectedly small: {source}")
+    probe = probe_media(source)
+    audio = first_stream(probe, "audio")
+    duration = duration_from_probe(probe)
+    decoded_samples = decoded_audio_samples(source)
+    decoded_seconds = decoded_samples / SAMPLE_RATE
+    peak = max_volume_db(source)
+    actual_sha256 = sha256(source)
+    if actual_sha256 != CLIP07_REPAIR_AUDIO_SHA256:
+        raise RuntimeError(
+            "Clip07 repair audio is not the approved one-shot source: "
+            f"expected {CLIP07_REPAIR_AUDIO_SHA256}, got {actual_sha256}"
+        )
+    if duration < CLIP07_REPAIR_AUDIO_MIN_SECONDS:
+        raise RuntimeError(
+            "Clip07 repair audio container is too short for the approved narration: "
+            f"{duration:.3f}s < {CLIP07_REPAIR_AUDIO_MIN_SECONDS:.3f}s"
+        )
+    if decoded_seconds < CLIP07_REPAIR_AUDIO_MIN_SECONDS:
+        raise RuntimeError(
+            "Clip07 repair audio decodes too short for the approved narration: "
+            f"{decoded_seconds:.3f}s < {CLIP07_REPAIR_AUDIO_MIN_SECONDS:.3f}s"
+        )
+    if peak < -30.0:
+        raise RuntimeError(
+            f"Clip07 repair narration is too quiet to use: {peak:.1f} dB"
+        )
+    return {
+        "path": str(source),
+        "sha256": actual_sha256,
+        "size_bytes": source.stat().st_size,
+        "duration_seconds": duration,
+        "decoded_audio_seconds_at_48000": decoded_seconds,
+        "audio_codec": audio.get("codec_name"),
+        "audio_sample_rate": audio.get("sample_rate"),
+        "audio_channels": audio.get("channels"),
+        "max_volume_db": peak,
+        "approved_line_zh": (
+            "钟远死于麻醉剂中毒造成的呼吸抑制，"
+            "银刃是死后机关刺入的伪装。"
+        ),
+        "request_count": 1,
+        "automatic_retries": 0,
+        "actual_provider_cost_usd": 0.177233,
     }
 
 
@@ -1042,13 +1160,75 @@ def patch_clip01_accepted_gate(base: Path, destination: Path) -> None:
     )
 
 
-def patch_clip02_remove_extra_spoken_name(base: Path, destination: Path) -> None:
-    """Mute the isolated unintended spoken name after Clip02's sentence."""
+def synthesize_clip02_forensic_cue(path: Path) -> None:
+    """Write a deterministic, phone-audible evidence-camera cue at second nine."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    total_frames = SAMPLES_PER_CLIP
+    clicks = (
+        (CLIP02_CUE_FIRST_START, 0.075, 0.28, 1_050.0),
+        (CLIP02_CUE_SECOND_START, 0.085, 0.32, 780.0),
+    )
+    chirp_duration = CLIP02_CUE_END - CLIP02_CUE_CHIRP_START
+    with wave.open(str(path), "wb") as output:
+        output.setnchannels(CHANNELS)
+        output.setsampwidth(2)
+        output.setframerate(SAMPLE_RATE)
+        chunk_frames = 4_800
+        for first in range(0, total_frames, chunk_frames):
+            payload = array("h")
+            last = min(total_frames, first + chunk_frames)
+            for index in range(first, last):
+                t = index / SAMPLE_RATE
+                value = 0.0
+                for start, duration, amplitude, frequency in clicks:
+                    tau = t - start
+                    if 0.0 <= tau < duration:
+                        attack = min(1.0, tau / 0.0025)
+                        envelope = attack * math.exp(-42.0 * tau)
+                        hashed = math.sin((index + 1) * 12.9898) * 43_758.5453
+                        noise = 2.0 * (hashed - math.floor(hashed)) - 1.0
+                        texture = (
+                            0.62 * noise
+                            + 0.28 * math.sin(2.0 * math.pi * frequency * tau)
+                            + 0.10 * math.sin(2.0 * math.pi * frequency * 2.37 * tau)
+                        )
+                        value += amplitude * envelope * texture
+                chirp_tau = t - CLIP02_CUE_CHIRP_START
+                if 0.0 <= chirp_tau < chirp_duration:
+                    window = math.sin(math.pi * chirp_tau / chirp_duration) ** 2
+                    chirp_rate = (2_050.0 - 1_350.0) / chirp_duration
+                    phase = 2.0 * math.pi * (
+                        1_350.0 * chirp_tau
+                        + 0.5 * chirp_rate * chirp_tau * chirp_tau
+                    )
+                    value += 0.10 * window * math.sin(phase)
+                sample = max(-0.72, min(0.72, value))
+                left = round(sample * 32_767)
+                right = round(sample * 32_767 * 0.97)
+                payload.append(left)
+                payload.append(right)
+            if sys.byteorder == "big":
+                payload.byteswap()
+            output.writeframesraw(payload.tobytes())
+
+
+def patch_clip02_remove_extra_spoken_name(base: Path, destination: Path) -> Path:
+    """Mute the unintended spoken name and replace the dead gap with a clean cue."""
+    cue_path = destination.with_name("S1E03_clip_02_forensic_evidence_cue.wav")
+    synthesize_clip02_forensic_cue(cue_path)
     audio_filter = (
-        "volume=volume=0:"
+        "[0:a:0]volume=volume=0:"
         f"enable='between(t,{CLIP02_EXTRA_WORD_MUTE_START},"
         f"{CLIP02_EXTRA_WORD_MUTE_END})',"
-        f"apad=pad_dur=5,atrim=end_sample={SAMPLES_PER_CLIP},asetpts=N/SR/TB"
+        f"apad=pad_dur=5,atrim=end_sample={SAMPLES_PER_CLIP},"
+        "asetpts=N/SR/TB[clean];"
+        f"[1:a:0]aresample={SAMPLE_RATE}:async=0:first_pts=0,"
+        f"aformat=sample_fmts=s16:sample_rates={SAMPLE_RATE}:channel_layouts=stereo,"
+        f"apad=pad_dur=5,atrim=end_sample={SAMPLES_PER_CLIP},"
+        "asetpts=N/SR/TB[cue];"
+        "[clean][cue]amix=inputs=2:duration=first:dropout_transition=0:normalize=0,"
+        f"alimiter=limit=0.92,apad=pad_dur=5,"
+        f"atrim=end_sample={SAMPLES_PER_CLIP},asetpts=N/SR/TB[a]"
     )
     run_command(
         [
@@ -1059,14 +1239,16 @@ def patch_clip02_remove_extra_spoken_name(base: Path, destination: Path) -> None
             "-y",
             "-i",
             str(base),
+            "-i",
+            str(cue_path),
+            "-filter_complex",
+            audio_filter,
             "-map",
             "0:v:0",
             "-map",
-            "0:a:0",
+            "[a]",
             "-c:v",
             "copy",
-            "-af",
-            audio_filter,
             "-c:a",
             "pcm_s16le",
             "-ar",
@@ -1078,9 +1260,15 @@ def patch_clip02_remove_extra_spoken_name(base: Path, destination: Path) -> None
             str(destination),
         ]
     )
+    return cue_path
 
 
-def patch_clip07(base: Path, image: Path, destination: Path) -> None:
+def patch_clip07(
+    base: Path,
+    image: Path,
+    repair_audio: Path,
+    destination: Path,
+) -> None:
     filter_complex = (
         f"[1:v:0]scale={WIDTH}:{HEIGHT}:force_original_aspect_ratio=decrease:flags=lanczos,"
         f"pad={WIDTH}:{HEIGHT}:(ow-iw)/2:(oh-ih)/2:color=black,setsar=1,fps={FPS},"
@@ -1089,7 +1277,10 @@ def patch_clip07(base: Path, image: Path, destination: Path) -> None:
         f"[0:v:0]trim=start_frame={CLIP07_REPLACEMENT_FRAMES}:end_frame={FRAMES_PER_CLIP},"
         f"setpts=N/({FPS}*TB),setsar=1,format=yuv420p[tail];"
         f"[head][tail]concat=n=2:v=1:a=0,fps={FPS},"
-        f"trim=end_frame={FRAMES_PER_CLIP},setpts=N/({FPS}*TB),format=yuv420p[v]"
+        f"trim=end_frame={FRAMES_PER_CLIP},setpts=N/({FPS}*TB),format=yuv420p[v];"
+        f"[2:a:0]aresample={SAMPLE_RATE}:async=1:first_pts=0,"
+        f"aformat=sample_fmts=s16:sample_rates={SAMPLE_RATE}:channel_layouts=stereo,"
+        f"apad=pad_dur=5,atrim=end_sample={SAMPLES_PER_CLIP},asetpts=N/SR/TB[a]"
     )
     command = [
         "ffmpeg",
@@ -1105,19 +1296,25 @@ def patch_clip07(base: Path, image: Path, destination: Path) -> None:
         str(FPS),
         "-i",
         str(image),
+        "-i",
+        str(repair_audio),
         "-filter_complex",
         filter_complex,
         "-map",
         "[v]",
         "-map",
-        "0:a:0",
+        "[a]",
         "-frames:v",
         str(FRAMES_PER_CLIP),
         "-fps_mode",
         "cfr",
         *x264_intermediate_options(),
         "-c:a",
-        "copy",
+        "pcm_s16le",
+        "-ar",
+        str(SAMPLE_RATE),
+        "-ac",
+        str(CHANNELS),
         "-map_metadata",
         "-1",
         str(destination),
@@ -1801,6 +1998,8 @@ def final_qc(
     drone_enabled: bool,
     drone_gain_db: float,
     container_path: Path,
+    clip02_cue_path: Path,
+    clip07_repair_audio_record: dict[str, Any],
     output_paths: dict[str, Path],
 ) -> dict[str, Any]:
     probe = probe_media(final_video, count_frames=True)
@@ -1820,6 +2019,8 @@ def final_qc(
     clip01_metrics = clip01_normalized["clip01_repair_metrics"]
     clip01_metric_checks = clip01_metrics["checks"]
     clip01_lock = validate_clip01_repair_lock()
+    clip02_cue_peak = max_volume_db(clip02_cue_path)
+    second_nine_peak = max_volume_db_segment(final_video, 8.84, 9.12)
     checks = {
         "duration_60_seconds": abs(duration - PROGRAM_SECONDS) <= 0.02,
         "resolution_1280x720": (
@@ -1879,6 +2080,16 @@ def final_qc(
         "clip07_replacement_covers_raw_pseudotext_through_frame79": (
             CLIP07_REPLACEMENT_FRAMES == 80
         ),
+        "clip07_uses_approved_zhong_yuan_repair_audio": (
+            clip07_repair_audio_record["sha256"]
+            == CLIP07_REPAIR_AUDIO_SHA256
+            == sha256(Path(clip07_repair_audio_record["path"]))
+            and clip07_repair_audio_record["actual_provider_cost_usd"] == 0.177233
+            and clip07_repair_audio_record["request_count"] == 1
+            and clip07_repair_audio_record["automatic_retries"] == 0
+        ),
+        "clip02_forensic_cue_source_is_phone_audible": clip02_cue_peak >= -24.0,
+        "global_second_nine_is_audible": second_nine_peak >= -28.0,
         "clip12_black_is_5_frames": CLIP12_BLACK_FRAMES == 5,
         "no_normalized_clip_below_minus38_lufs": all(
             float(record["pre_global_loudness"]["input_i"]) >= -38.0
@@ -1918,6 +2129,11 @@ def final_qc(
             "drone_enabled": drone_enabled,
             "drone_gain_db_before_dialogue_ducking": drone_gain_db if drone_enabled else None,
             "drone_sidechain_ducked_by_program_audio": drone_enabled,
+            "spot_checks": {
+                "clip02_forensic_cue_source_peak_db": clip02_cue_peak,
+                "global_8_84_to_9_12_peak_db": second_nine_peak,
+                "global_8_84_to_9_12_requirement_db": -28.0,
+            },
         },
         "subtitles": {
             "path": str(ass_path),
@@ -1978,6 +2194,19 @@ def final_qc(
                     "waveform/ASR QA found the intended sentence complete before "
                     "an isolated unintended spoken name"
                 ),
+                "replacement_cue": {
+                    "path": str(clip02_cue_path),
+                    "sha256": sha256(clip02_cue_path),
+                    "clip_relative_seconds": [
+                        CLIP02_CUE_FIRST_START,
+                        CLIP02_CUE_END,
+                    ],
+                    "global_seconds": [
+                        5.0 + CLIP02_CUE_FIRST_START,
+                        5.0 + CLIP02_CUE_END,
+                    ],
+                    "description": "deterministic evidence-camera double click and scan chirp",
+                },
                 "picture": "original normalized clip02 picture retained",
             },
             "clip07": {
@@ -1985,7 +2214,9 @@ def final_qc(
                 "source_sha256": sha256(container_path),
                 "replacement_frames": [0, CLIP07_REPLACEMENT_FRAMES - 1],
                 "replacement_duration_at_24fps": CLIP07_REPLACEMENT_FRAMES / FPS,
-                "audio": "original normalized clip07 audio retained without timing change",
+                "audio": "approved one-shot Zhong Yuan forensic narration replaces the original clip07 audio",
+                "repair_audio_source": clip07_repair_audio_record,
+                "repair_audio_sha256_lock": CLIP07_REPAIR_AUDIO_SHA256,
             },
             "clip12": {
                 "body_frames": [0, 114],
@@ -2010,14 +2241,25 @@ def main() -> None:
         prepare_only(args)
         return
 
-    if args.gate_dir is None or args.remainder_dir is None:
-        raise RuntimeError("--gate-dir and --remainder-dir are required unless --prepare-only is used")
+    if (
+        args.gate_dir is None
+        or args.remainder_dir is None
+        or args.clip07_repair_audio is None
+    ):
+        raise RuntimeError(
+            "--gate-dir, --remainder-dir and --clip07-repair-audio are required "
+            "unless --prepare-only is used"
+        )
     if not -60.0 <= args.drone_gain_db <= -30.0:
         raise RuntimeError("--drone-gain-db must remain between -60 and -30 dB")
 
     plan = load_and_validate_plan()
     validate_tools()
     font_sources, font_family, _ = resolve_font_bundle(args.fonts_dir)
+    clip07_repair_audio_record = validate_clip07_repair_audio(
+        args.clip07_repair_audio
+    )
+    clip07_repair_audio = Path(clip07_repair_audio_record["path"])
 
     out_dir = args.out_dir.expanduser().resolve()
     work_dir = out_dir / "work"
@@ -2070,6 +2312,7 @@ def main() -> None:
     effective_clips: list[Path] = []
     normalized_records: list[dict[str, Any]] = []
     clip01_effective: Path | None = None
+    clip02_cue_path: Path | None = None
     for clip_id in CLIP_IDS:
         base = normalized_dir / f"S1E03_clip_{clip_id}_norm_base.mkv"
         normalize_clip(raw_clips[clip_id], base)
@@ -2080,10 +2323,10 @@ def main() -> None:
             clip01_effective = effective
         elif clip_id == "02":
             effective = normalized_dir / "S1E03_clip_02_norm_tail_muted.mkv"
-            patch_clip02_remove_extra_spoken_name(base, effective)
+            clip02_cue_path = patch_clip02_remove_extra_spoken_name(base, effective)
         elif clip_id == "07":
             effective = normalized_dir / "S1E03_clip_07_norm_container07.mkv"
-            patch_clip07(base, container_path, effective)
+            patch_clip07(base, container_path, clip07_repair_audio, effective)
         elif clip_id == "12":
             effective = normalized_dir / "S1E03_clip_12_norm_black_end.mkv"
             patch_clip12_black(base, effective)
@@ -2104,9 +2347,9 @@ def main() -> None:
             "replace_red_eye_frames_8_11_with_black_eye_frame12_and_"
             "split_screen_frames_30_53_with_fullscreen_frame54"
             if clip_id == "01"
-            else "mute_unintended_tail_utterance_3_65_to_4_70"
+            else "mute_unintended_tail_utterance_3_65_to_4_70_and_add_second_nine_forensic_cue"
             if clip_id == "02"
-            else "container07_frames_0_to_79"
+            else "container07_frames_0_to_79_and_approved_zhong_yuan_audio"
             if clip_id == "07"
             else "black_frames_115_to_119"
             if clip_id == "12"
@@ -2117,6 +2360,8 @@ def main() -> None:
 
     if clip01_effective is None:
         raise RuntimeError("Clip01 deterministic repair was not applied")
+    if clip02_cue_path is None:
+        raise RuntimeError("Clip02 deterministic second-nine cue was not applied")
 
     clean_master = work_dir / "S1E03_clean_master_60s.mkv"
     concat_list = work_dir / "concat_normalized.txt"
@@ -2179,6 +2424,8 @@ def main() -> None:
         "clock_10_54_proof": clock_proof,
         "clean_master": clean_master,
         "normalized_audio": final_audio,
+        "clip02_forensic_cue": clip02_cue_path,
+        "clip07_repair_audio_source": clip07_repair_audio,
     }
     qc = final_qc(
         final_video,
@@ -2193,6 +2440,8 @@ def main() -> None:
         drone_enabled=drone_enabled,
         drone_gain_db=args.drone_gain_db,
         container_path=container_path,
+        clip02_cue_path=clip02_cue_path,
+        clip07_repair_audio_record=clip07_repair_audio_record,
         output_paths=outputs,
     )
     write_json(qc_path, qc)
