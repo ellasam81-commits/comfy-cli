@@ -199,10 +199,19 @@ conscious, full-body visible in shot 2, with a completely uninjured neck. Blood
 is only on the outside of her ivory blouse collar. No face swaps, duplicates,
 extra people or wardrobe changes.
 
-LOOK AND DIRECTION. {clip['scene']}. Use the supplied storyboard's exact
-low-saturation cold blue-black, rain-dark, ink-detailed 2D manga suspense
-look. Cinematic crime direction: stable camera axis, motivated medium / full
-body / macro / monitor progression, restrained parallax, no shake or spin.
+LOOK AND DIRECTION. {clip['scene']}. The storyboard controls only the four
+shot actions, framing and props; it must NOT control paint texture or turn the
+video into a concept-art poster. Match the accepted earlier episodes: clean
+mature Japanese 2D cinematic animation, crisp thin ink linework, restrained
+cel shading with realistic cinematic light falloff, natural depth and subtle
+live camera movement. Keep cold blue-grey low saturation and rain-dark
+surfaces, but use clean animated line edges and coherent moving space. Never
+use oil paint, thick painterly brush texture, key-visual poster rendering,
+static illustration, graphic-novel hatching, frozen character pose, a separate
+monitor illustration, or an exaggerated black vignette. Cinematic crime
+direction: stable camera axis, motivated medium / full body / macro / monitor
+progression, restrained parallax, natural blink/breath movement, no shake or
+spin.
 Gloved evidence handling and sealed chain of custody only. No gore.
 
 MANDARIN AUDIO LOCK. Generate synchronized native Mandarin audio. Speak only
