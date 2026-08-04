@@ -1,0 +1,29 @@
+{
+  "episode": "S1E04",
+  "episode_title_zh": "十点十三分的伤口",
+  "series_title_zh": "吸血法医·剑刺",
+  "maker_zh": "林爱丽",
+  "model": "seedance-2.0-mini",
+  "duration_seconds_per_clip": 5,
+  "clip_count": 1,
+  "shots_per_clip": 4,
+  "resolution": "480p",
+  "aspect_ratio": "16:9",
+  "generate_audio": true,
+  "bitrate_mode": "high",
+  "automatic_retries": 0,
+  "global_negative": "live action, 3D, photoreal, chibi, bright fantasy, title, logo, watermark, generated subtitles, readable UI, readable labels, comic page, grid, split screen, picture-in-picture, duplicate person, face swap, wardrobe drift, incorrect hair, wrong gender, extra crowd, bare-hand evidence handling, blood spray, gore, corpse movement, neck injury on Chen Mo, speaking English, silence, invented dialogue",
+  "clip": {
+    "id": "01",
+    "characters": ["jian_ci", "lin_qian", "chen_mo"],
+    "previous_frame": true,
+    "scene": "rain-dark elevator crime scene, cold blue-black forensic manga noir, same wet steel walls and evidence camera",
+    "shots": [
+      "0.00-1.25 exact continuation from the S1E03 final frame: Jian Ci in white coat studies the sealed-monitor area, a white sleeve with a silver-gray left glove appears only as distant reflected evidence.",
+      "1.25-2.50 full-body Chen Mo stands conscious in the elevator doorway, intact uninjured neck clearly visible; only her outer ivory collar is bloodstained.",
+      "2.50-3.75 Lin Qian in navy uniform photographs the outer collar with gloved hands and a scale card.",
+      "3.75-5.00 return to the monitor reflection: the white sleeve and silver-gray left glove withdraw through the rain-dark corridor."
+    ],
+    "dialogue": [{"start": 0.20, "end": 3.30, "speaker": "旁白", "zh": "会好，不等于没发生。"}]
+  }
+}

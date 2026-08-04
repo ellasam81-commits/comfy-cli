@@ -1,0 +1,111 @@
+name: Generate S1E04 — clip 01 continuity gate (one shot)
+
+on:
+  push:
+    branches: [render/s1e04-final-v1]
+    paths: ["references/s1e04/run-clip01-gate.txt"]
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: s1e04-clip01-gate-v1
+  cancel-in-progress: false
+
+jobs:
+  generate-clip01-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    env:
+      SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+      WHISPER_CACHE_DIR: /tmp/faster-whisper-s1e04-gate
+      GENERATION_OUTPUT_DIR: output/s1e04-clip01-gate
+      PYTHONUNBUFFERED: "1"
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Enforce one-shot authorization and immutable setup
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+        run: |
+          set -euo pipefail
+          [[ "$RUN_ATTEMPT" == "1" ]] || { echo "::error::Workflow reruns are forbidden."; exit 2; }
+          mapfile -t changed < <(git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+          [[ "${#changed[@]}" -eq 1 && "${changed[0]}" == "references/s1e04/run-clip01-gate.txt" ]] || {
+            echo "::error::Only the authorization trigger may change."; exit 2;
+          }
+          [[ "$(cat references/s1e04/run-clip01-gate.txt)" == "AUTHOR-APPROVED: GENERATE S1E04 CLIP 01 ONCE" ]] || {
+            echo "::error::Invalid authorization text."; exit 2;
+          }
+          [[ -f scripts/generate_s1e04_clip01_gate.py && -f references/s1e04/clip01_gate_plan.json ]] || exit 2
+
+      - name: Restore global paid-request lock
+        id: paid-lock
+        uses: actions/cache/restore@v4
+        with:
+          path: output/paid-lock-s1e04-clip01
+          key: segmind-s1e04-clip01-gate-v1
+          lookup-only: true
+
+      - name: Validate unused lock and configured secret
+        env:
+          LOCK_HIT: ${{ steps.paid-lock.outputs.cache-hit }}
+        run: |
+          set -euo pipefail
+          [[ -n "$SEGMIND_API_KEY" ]] || { echo "::error::Missing SEGMIND_API_KEY; no paid request made."; exit 2; }
+          [[ "$LOCK_HIT" != "true" ]] || { echo "::error::Gate was already submitted; no paid retry allowed."; exit 2; }
+
+      - name: Install generation and QC dependencies
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          pip install "segmind==1.1.0" "faster-whisper==1.2.1" requests Pillow
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Preload Mandarin ASR and validate every reference
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import os
+          from faster_whisper import WhisperModel
+          WhisperModel("tiny", device="cpu", compute_type="int8", download_root=os.environ["WHISPER_CACHE_DIR"])
+          print("Mandarin ASR ready; no paid request made.")
+          PY
+          python scripts/generate_s1e04_clip01_gate.py --prepare-only
+
+      - name: Arm permanent paid-request lock
+        run: |
+          set -euo pipefail
+          mkdir -p output/paid-lock-s1e04-clip01
+          printf '%s\n' "S1E04 clip 01 authorized once in run $GITHUB_RUN_ID." > output/paid-lock-s1e04-clip01/armed.txt
+
+      - name: Save permanent paid-request lock
+        uses: actions/cache/save@v4
+        with:
+          path: output/paid-lock-s1e04-clip01
+          key: segmind-s1e04-clip01-gate-v1
+
+      - name: Generate clip 01 once and run audio QC
+        run: python scripts/generate_s1e04_clip01_gate.py
+
+      - name: Upload video, evidence frames, prompt and audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: S1E04-Clip01-Gate
+          path: |
+            output/s1e04-clip01-gate/raw/
+            output/s1e04-clip01-gate/audit/
+            output/s1e04-clip01-gate/proof/
+            output/s1e04-clip01-gate/last_frames/
+            output/s1e04-clip01-gate/runtime_refs/
+          if-no-files-found: warn
+          compression-level: 0
+          retention-days: 30
