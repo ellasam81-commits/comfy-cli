@@ -1,0 +1,65 @@
+name: Generate S1E04 — clip 12 only (one shot)
+
+on:
+  push:
+    branches: [render/s1e04-final-v1]
+    paths: ["references/s1e04/run-clip12-final.txt"]
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: s1e04-clip12-final-v1
+  cancel-in-progress: false
+
+jobs:
+  generate-clip12:
+    runs-on: ubuntu-latest
+    timeout-minutes: 80
+    env:
+      SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+      WHISPER_CACHE_DIR: /tmp/faster-whisper-s1e04-clip12
+      GENERATION_OUTPUT_DIR: output/s1e04-clip12
+      ONLY_CLIP_ID: "12"
+      PREVIOUS_VIDEO_URL: https://images.segmind.com/generations/e68d42dd-ccf9-4db0-9b7f-b20e205bd739/a233528f5672293ac4139c7f06a2090d.mp4
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - name: Enforce one initial request only
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+        run: |
+          set -euo pipefail
+          [[ "$RUN_ATTEMPT" == "1" ]] || { echo "::error::Workflow reruns are forbidden."; exit 2; }
+          mapfile -t changed < <(git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+          [[ "${#changed[@]}" -eq 1 && "${changed[0]}" == "references/s1e04/run-clip12-final.txt" ]] || { echo "::error::Only trigger may change."; exit 2; }
+          [[ "$(cat references/s1e04/run-clip12-final.txt)" == "AUTHOR-APPROVED: GENERATE S1E04 CLIP 12 ONCE" ]] || exit 2
+          [[ -n "$SEGMIND_API_KEY" ]] || { echo "::error::Missing SEGMIND_API_KEY; no paid request made."; exit 2; }
+      - name: Install generation and QC tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install "segmind==1.1.0" "faster-whisper==1.2.1" requests Pillow
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+      - name: Validate inputs before paid request
+        run: python -m py_compile scripts/generate_s1e04_remainder.py
+      - name: Generate clip 12 once and check Mandarin audio
+        run: python scripts/generate_s1e04_remainder.py
+      - name: Upload raw clip, proof frames and audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: S1E04-Clip12-Final
+          path: |
+            output/s1e04-clip12/raw/
+            output/s1e04-clip12/audit/
+            output/s1e04-clip12/proof/
+            output/s1e04-clip12/last_frames/
+            output/s1e04-clip12/runtime_refs/
+          if-no-files-found: warn
+          compression-level: 0
+          retention-days: 30
