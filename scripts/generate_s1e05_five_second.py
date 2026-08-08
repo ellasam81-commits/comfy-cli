@@ -56,7 +56,10 @@ def shell(command: list[str]) -> subprocess.CompletedProcess[str]:
 
 
 def image_ok(path: Path) -> None:
-    if not path.is_file() or path.stat().st_size < 10_000 or path.stat().st_size > 30 * 1024 * 1024:
+    # Flat maps and clean evidence diagrams compress unusually well; 5 KiB is
+    # still sufficient for a valid 640×360 locked panel while rejecting any
+    # empty or truncated reference before a paid request.
+    if not path.is_file() or path.stat().st_size < 5_000 or path.stat().st_size > 30 * 1024 * 1024:
         raise RuntimeError(f"Invalid reference: {path}")
     with Image.open(path) as image:
         width, height = image.size
