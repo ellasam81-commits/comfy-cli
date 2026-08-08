@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "episode": "S1E04",
+  "case_title_zh": "十点十三分的伤口",
+  "series_title_zh": "吸血法医·剑刺",
+  "maker_zh": "林爱丽",
+  "model": "seedance-2.0-mini",
+  "status": "ready_for_paid_generation",
+  "reason": "User explicitly requested the earlier S1E04 version; use the existing locked 12-clip plan and high-resolution storyboard set.",
+  "authoritative_boards": [
+    {"directory": "references/s1e04/boards_hd_v2", "count": 12, "format": "PNG", "source": "existing high-resolution 12-board set"},
+    {"directory": "references/s1e04/continuity", "source": "accepted S1E03 final frame"}
+  ],
+  "verified_story_facts": [
+    "Use the existing S1E04 12-clip plan exactly; do not substitute the newer 会说话的骨头 board pages.",
+    "Chen Mo remains alive; blood is limited to the outer collar and the white sleeve/silver-gray left glove remain unresolved evidence.",
+    "Jian Ci's vampire perception is only a restrained visual hint and never legal proof.",
+    "Use native Mandarin dialogue, persistent series/episode/maker header and deterministic Chinese/English subtitles after QC."
+  ],
+  "audio_lock": "native Mandarin dialogue, restrained room/elevator ambience, clear speech, no silence; Chinese and English subtitles are deterministic post-production only",
+  "global_negative": "会说话的骨头 alternate plot, missing 41 minutes plot, storyboard page visible in video, grid, collage, split screen, unreadable generated text, English speech, silent audio, extra characters, wardrobe drift, gore, supernatural evidence, random fangs or red eyes"
+}
