@@ -1,0 +1,115 @@
+{
+  "episode": "S01E05",
+  "case_title_zh": "借来的血",
+  "episode_title_zh": "血是谁的",
+  "episode_title_en": "Whose Blood Is It?",
+  "maker_zh": "林爱丽",
+  "model": "seedance-2.0-mini",
+  "resolution": "480p",
+  "aspect_ratio": "16:9",
+  "duration_seconds_per_clip": 5,
+  "clip_count": 12,
+  "shots_per_clip": 3,
+  "persistent_header": "《吸血法医·剑刺》｜S01E05《血是谁的》｜制作：林爱丽",
+  "continuity_lock": "Immediately after S01E04: Zhou Qiao's recovered-phone alert transfers a new legal-aid-fund case file. The new victim Shen Mi is never sensationalised. All evidence is gloved, sealed and independently verified. Jian Ci may notice an anomaly but never uses vampire ability as proof.",
+  "character_lock": "Jian Ci: pale adult Chinese male forensic doctor, short layered black side-part hair, white forensic coat over black high neck and black gloves. Lin Qian: adult Chinese female investigator, chin-length straight black bob, dark navy field uniform and black gloves. Zhou Qiao: young Chinese technical officer, silver-rim glasses, small hearing device, dark charcoal technical jacket. Xu Wei: adult Chinese female trace analyst, brown high ponytail, olive forensic coverall, black examination gloves. Han Che: mature Chinese male commander, square face, short gray-black hair, dark navy command jacket and old mechanical watch. Shen Mi: deceased adult Chinese female legal-aid fund lawyer, shown only respectfully and non-graphically.",
+  "global_negative": "live action, photoreal, 3D, chibi, bright fantasy, comic page, grid, visible panel borders, visible storyboard, generated title, generated subtitles, logo, watermark, readable UI, readable medical report, face swap, duplicate person, wardrobe drift, bare-hand evidence handling, blood spray, gore, corpse movement, fangs, red eyes, supernatural power as evidence, English speech, invented dialogue, silence",
+  "clips": [
+    {
+      "id": "01",
+      "title": "转入的新案卷",
+      "characters": ["zhou_qiao", "jian_ci", "lin_qian"],
+      "scene": "same blue-black forensic corridor from S01E04; an untouched recovered phone gives a silent non-readable evidence alert; a new sealed legal-aid-fund case envelope arrives",
+      "shots": ["0.00–1.67 Zhou Qiao watches the recovered phone light on an evidence table without opening its display.", "1.67–3.34 Lin Qian places a freshly sealed legal-aid-fund case envelope beside it.", "3.34–5.00 Jian Ci looks from the new envelope to the corridor, then takes a procedural evidence camera."],
+      "dialogue": [{"speaker": "旁白", "zh": "凌晨一点，新案卷被重新打开。", "en": "At one in the morning, a new case file opens."}]
+    },
+    {
+      "id": "02",
+      "title": "律师的办公室",
+      "characters": ["jian_ci", "lin_qian", "shen_mi"],
+      "scene": "rain-dark legal-aid fund office; shattered water glass, modest desk accounts, a respectful covered-body composition; blue-white forensic work light",
+      "shots": ["0.00–1.67 exterior rain on the legal-aid-fund office, then a controlled entrance past a police seal.", "1.67–3.34 Jian Ci photographs Shen Mi's shallow neck compression mark with scale and gloved hands; no gore.", "3.34–5.00 Lin Qian looks at the shattered glass and the small blood trace that begins beside Shen Mi's chair."],
+      "dialogue": [{"speaker": "林浅", "zh": "死者，沈弥。基金律师。", "en": "The victim is Shen Mi, a fund lawyer."}]
+    },
+    {
+      "id": "03",
+      "title": "血迹先说话",
+      "characters": ["jian_ci", "lin_qian", "xu_wei", "shen_mi"],
+      "scene": "same legal-aid office, close controlled evidence photography of Shen Mi's right palm wound, desk-edge blood direction and shallow neck compression",
+      "shots": ["0.00–1.67 macro: a small right-palm cut and blood direction move from the seated position toward broken glass.", "1.67–3.34 Xu Wei swabs the desk-edge blood, seals it and photographs the evidence tag without readable text.", "3.34–5.00 Jian Ci indicates the neck compression direction from a respectful side angle."],
+      "dialogue": [{"speaker": "剑刺", "zh": "先确认谁流血，再解释为什么像哥哥。", "en": "First identify whose blood it is, then explain why it resembles her brother's."}]
+    },
+    {
+      "id": "04",
+      "title": "不是同一份样本",
+      "characters": ["xu_wei", "zhou_qiao", "lin_qian"],
+      "scene": "cold blue-black laboratory, separate sealed blood, cheek-swab and hair-follicle samples; abstract non-readable comparison monitor",
+      "shots": ["0.00–1.67 Xu Wei places three separately sealed sample tubes into a controlled comparison rack.", "1.67–3.34 Zhou Qiao aligns the chain-of-custody times on a non-readable abstract display.", "3.34–5.00 Lin Qian watches as the samples remain clearly separate on the bench."],
+      "dialogue": [{"speaker": "许未", "zh": "血液、口腔、毛囊，分开看。", "en": "Blood, cheek cells, and follicles—read them separately."}]
+    },
+    {
+      "id": "05",
+      "title": "供者型的血",
+      "characters": ["jian_ci", "lin_qian"],
+      "scene": "same laboratory whiteboard with a simple illustrated marrow-donation arrow, clean non-readable medical diagram; no floating holograms",
+      "shots": ["0.00–1.67 Jian Ci uses a marker to draw one simple donor-to-recipient arrow on the whiteboard.", "1.67–3.34 close on the simple diagram: bone marrow donation leading to newly made blood cells.", "3.34–5.00 Jian Ci turns to Lin Qian, leaving the diagram clear and human-scale."],
+      "dialogue": [{"speaker": "剑刺", "zh": "移植后，她造出的血细胞可以带哥哥的 DNA。", "en": "After a transplant, her blood cells can carry her brother's DNA."}]
+    },
+    {
+      "id": "06",
+      "title": "两套结果",
+      "characters": ["xu_wei", "jian_ci", "lin_qian"],
+      "scene": "same laboratory, legally sealed comparison samples and a clean microscope, never readable test printouts",
+      "shots": ["0.00–1.67 a blood tube is placed beside a hair follicle slide and a cheek-swab tube, all sealed.", "1.67–3.34 Xu Wei compares the samples with a microscope and a controlled head turn.", "3.34–5.00 Jian Ci and Lin Qian absorb the result without claiming a suspect."],
+      "dialogue": [{"speaker": "许未", "zh": "血像哥哥，毛囊仍像她。", "en": "Her blood resembles her brother's; her follicles remain hers."}]
+    },
+    {
+      "id": "07",
+      "title": "不是伪造 DNA",
+      "characters": ["xu_wei", "lin_qian", "jian_ci"],
+      "scene": "same laboratory, gentle visual comparison of the three sealed samples, restrained motion and no artificial text",
+      "shots": ["0.00–1.67 Xu Wei adds the cheek-swab tube to the three-way evidence arrangement.", "1.67–3.34 Lin Qian looks from the samples to a photo of Shen Mi's old medical alert bracelet.", "3.34–5.00 Jian Ci returns the bracelet photo to the case file with a gloved hand."],
+      "dialogue": [{"speaker": "许未", "zh": "一个人，可以有两套结果。", "en": "One person can yield two genetic results."}]
+    },
+    {
+      "id": "08",
+      "title": "血没有离开",
+      "characters": ["lin_qian", "jian_ci", "shen_mi"],
+      "scene": "return to Shen Mi's office, same desk, broken glass, careful blood-direction reconstruction with no body movement",
+      "shots": ["0.00–1.67 Lin Qian rechecks the desk-edge blood direction beside the empty chair.", "1.67–3.34 a measured top-down angle shows no departing blood footprints, only the path from Shen Mi's seated position to broken glass.", "3.34–5.00 Jian Ci photographs the stable trace from a respectful distance."],
+      "dialogue": [{"speaker": "林浅", "zh": "所谓凶手的血，是沈弥自己的。", "en": "The so-called killer's blood is Shen Mi's own."}]
+    },
+    {
+      "id": "09",
+      "title": "叫错的名字",
+      "characters": ["lin_qian", "jian_ci", "zhou_qiao"],
+      "scene": "same office and evidence corridor; camera follows the true blood direction back to Shen Mi's chair, cold legal-aid archive shelves",
+      "shots": ["0.00–1.67 slow forensic camera travels from the shattered glass back to Shen Mi's chair.", "1.67–3.34 Lin Qian pins the brother's verified travel photo beside the office evidence map.", "3.34–5.00 Zhou Qiao adds one sealed transit-record envelope, keeping the map non-readable."],
+      "dialogue": [{"speaker": "林浅", "zh": "有人故意让我们叫错名字。", "en": "Someone wanted us to name the wrong person."}]
+    },
+    {
+      "id": "10",
+      "title": "知道病史的人",
+      "characters": ["lin_qian", "zhou_qiao", "han_che"],
+      "scene": "briefing room timeline with three portrait cards turned face-down, colored route strings and sealed documents, no readable names or UI",
+      "shots": ["0.00–1.67 three face-down portrait cards sit beneath the same medical-alert symbol on a clean evidence board.", "1.67–3.34 Zhou Qiao traces the brother's cross-city route with one blue line, then stops.", "3.34–5.00 Han Che moves the cleaning supervisor's verified transit envelope to the excluded side of the board."],
+      "dialogue": [{"speaker": "林浅", "zh": "知道移植史的人有三个。", "en": "Three people knew the transplant history."}]
+    },
+    {
+      "id": "11",
+      "title": "机会不是知识",
+      "characters": ["lin_qian", "zhou_qiao", "han_che", "jian_ci"],
+      "scene": "same briefing room, sober procedural reconstruction: cross-city travel, bus-and-gate alibi and one remaining late office entry are separate sealed evidence groups",
+      "shots": ["0.00–1.67 sealed travel records establish the brother's continuous cross-city alibi.", "1.67–3.34 sealed transit and home-gate records establish the cleaner's departure and no return.", "3.34–5.00 only one anonymous access card remains at the late office-entry position; Jian Ci watches without making a supernatural claim."],
+      "dialogue": [{"speaker": "林浅", "zh": "知道，不等于做得到。", "en": "Knowing isn't the same as having the chance."}]
+    },
+    {
+      "id": "12",
+      "title": "二十点零八分",
+      "characters": ["lin_qian", "zhou_qiao", "jian_ci"],
+      "scene": "rain-dark legal-aid office corridor; a professional adult Chinese woman, Tao Wen, arrives at a controlled interview door; she is not yet declared guilty",
+      "shots": ["0.00–1.67 a late-entry access event is represented only as a sealed evidence card and a time marker added later in post, never generated text.", "1.67–3.34 Tao Wen pauses outside the interview room in a tailored dark office suit, face controlled but not villainous.", "3.34–5.00 Lin Qian and Jian Ci observe from the glass corridor as Zhou Qiao seals the access evidence, ending on the unopened interview-room door."],
+      "dialogue": [{"speaker": "林浅", "zh": "能在当晚利用它的人，只剩一个。", "en": "Only one person could use it that night."}]
+    }
+  ]
+}
