@@ -85,7 +85,7 @@
       "characters": ["lin_qian", "jian_ci", "zhou_qiao"],
       "scene": "same office and evidence corridor; camera follows the true blood direction back to Shen Mi's chair, cold legal-aid archive shelves",
       "shots": ["0.00–1.67 slow forensic camera travels from the shattered glass back to Shen Mi's chair.", "1.67–3.34 Lin Qian pins the brother's verified travel photo beside the office evidence map.", "3.34–5.00 Zhou Qiao adds one sealed transit-record envelope, keeping the map non-readable."],
-      "dialogue": [{"speaker": "林浅", "zh": "林浅，有人故意让我们把沈弥叫成了哥哥。", "en": "Lin Qian, someone wanted us to call Shen Mi by her brother's name."}]
+      "dialogue": [{"speaker": "剑刺", "zh": "林浅，有人故意让我们把沈弥叫成了哥哥。", "en": "Lin Qian, someone wanted us to call Shen Mi by her brother's name."}]
     },
     {
       "id": "10",
@@ -109,7 +109,7 @@
       "characters": ["lin_qian", "zhou_qiao", "jian_ci"],
       "scene": "rain-dark legal-aid office corridor; a professional adult Chinese woman, Tao Wen, arrives at a controlled interview door; she is not yet declared guilty",
       "shots": ["0.00–1.67 a late-entry access event is represented only as a sealed evidence card and a time marker added later in post, never generated text.", "1.67–3.34 Tao Wen pauses outside the interview room in a tailored dark office suit, face controlled but not villainous.", "3.34–5.00 Lin Qian and Jian Ci observe from the glass corridor as Zhou Qiao seals the access evidence, ending on the unopened interview-room door."],
-      "dialogue": [{"speaker": "林浅", "zh": "林浅，陶文的时间线还要重查。", "en": "Lin Qian, Tao Wen's timeline needs another check."}]
+      "dialogue": [{"speaker": "剑刺", "zh": "林浅，陶文的时间线还要重查。", "en": "Lin Qian, Tao Wen's timeline needs another check."}]
     }
   ]
 }
