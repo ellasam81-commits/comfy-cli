@@ -19,6 +19,7 @@ jobs:
     timeout-minutes: 360
     env:
       SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+      GITHUB_TOKEN: ${{ github.token }}
       WHISPER_CACHE_DIR: /tmp/faster-whisper-s1e04-remainder
       GENERATION_OUTPUT_DIR: output/s1e04-remainder
       PYTHONUNBUFFERED: "1"
