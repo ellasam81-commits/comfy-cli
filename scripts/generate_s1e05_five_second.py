@@ -25,6 +25,7 @@ RUNTIME, RAW, AUDIT, PROOF, LAST = [OUTPUT / item for item in ("runtime_refs", "
 S1E03_REFS = ROOT / "references" / "s1e03" / "source_refs"
 JIAN_IDENTITY = S1E03_REFS / "jian_ci_identity.jpg"
 CHARACTER_CHART = S1E03_REFS / "character_chart_highres.jpeg"
+SHEN_MI_IDENTITY = SOURCE / "identity_refs" / "shen_mi_deceased.jpg"
 IDENTITY_CROPS = {
     "lin_qian": (208, 245, 408, 661),
     "zhou_qiao": (411, 245, 613, 661),
@@ -88,6 +89,9 @@ def identity(name: str) -> Path:
     if name == "jian_ci":
         image_ok(JIAN_IDENTITY)
         return JIAN_IDENTITY
+    if name == "shen_mi":
+        image_ok(SHEN_MI_IDENTITY)
+        return SHEN_MI_IDENTITY
     if name not in IDENTITY_CROPS:
         raise RuntimeError(f"Unknown character identity: {name}")
     target = RUNTIME / f"identity_{name}.jpg"
@@ -134,10 +138,20 @@ def load_plan() -> tuple[dict[str, Any], list[dict[str, Any]]]:
     if not isinstance(clips, list) or [item.get("id") for item in clips] != [f"{i:02d}" for i in range(1, 13)]:
         raise RuntimeError("Plan must contain clips 01 through 12 in order")
     selected = os.environ.get("ONLY_CLIP_ID")
+    selected_many = os.environ.get("ONLY_CLIP_IDS")
+    if selected and selected_many:
+        raise RuntimeError("Set ONLY_CLIP_ID or ONLY_CLIP_IDS, never both")
     if selected:
         clips = [item for item in clips if item.get("id") == selected]
         if len(clips) != 1:
             raise RuntimeError("ONLY_CLIP_ID must name exactly one locked clip")
+    if selected_many:
+        wanted = [value.strip() for value in selected_many.split(",") if value.strip()]
+        if not wanted or wanted != sorted(set(wanted)) or any(not re.fullmatch(r"(?:0[1-9]|1[0-2])", value) for value in wanted):
+            raise RuntimeError("ONLY_CLIP_IDS must be a unique ascending comma-separated clip list")
+        clips = [item for item in clips if item.get("id") in wanted]
+        if [item.get("id") for item in clips] != wanted:
+            raise RuntimeError("ONLY_CLIP_IDS must name locked clips exactly")
     for clip in clips:
         if len(clip.get("shots", [])) != 3 or not clip.get("dialogue"):
             raise RuntimeError(f"Clip {clip.get('id')} is not a three-shot spoken clip")
@@ -146,7 +160,7 @@ def load_plan() -> tuple[dict[str, Any], list[dict[str, Any]]]:
             end = float(line.get("end", 4.55))
             if not 0 <= start < end <= 5:
                 raise RuntimeError(f"Invalid dialogue timing in clip {clip['id']}")
-    for path in [PLAN_PATH, JIAN_IDENTITY, CHARACTER_CHART]:
+    for path in [PLAN_PATH, JIAN_IDENTITY, CHARACTER_CHART, SHEN_MI_IDENTITY]:
         image_ok(path) if path.suffix.lower() in {".jpg", ".jpeg", ".png"} else None
     return plan, clips
 
@@ -269,13 +283,17 @@ def main() -> None:
 
     model = WhisperModel("tiny", device="cpu", compute_type="int8", download_root=os.environ.get("WHISPER_CACHE_DIR", "whisper_cache"))
     client = SegmindClient()
+    if clips[0]["id"] != "01" and not os.environ.get("PREVIOUS_VIDEO_URL"):
+        raise RuntimeError("A later S01E05 clip batch needs PREVIOUS_VIDEO_URL; no paid request made")
+    previous: Path | None = None
     manifest: dict[str, Any] = {"episode": "S01E05", "clips": [], "request_count": 0, "automatic_retries": 0, "status": "running", "started_at": stamp(), "plan_sha256": sha(PLAN_PATH)}
     manifest_path = AUDIT / "generation_manifest.json"
     dump(manifest_path, manifest)
     try:
         for clip in clips:
             panels, identities = prepare(clip)
-            previous = initial_frame(panels)
+            if previous is None:
+                previous = initial_frame(panels)
             refs = [*panels, *identities, previous]
             if len(refs) > 9:
                 raise RuntimeError(f"Too many references for clip {clip['id']}")
