@@ -1,0 +1,44 @@
+name: Repair S1E05 — clips 09 and 12 speakers (one each)
+
+on:
+  push:
+    branches: [render/s1e05-final-v1]
+    paths: ["references/s1e05/run-clips09-12-speaker-repair.txt"]
+
+permissions:
+  contents: read
+
+jobs:
+  repair-09:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+      WHISPER_CACHE_DIR: /tmp/whisper-repair-09
+      GENERATION_OUTPUT_DIR: output/s1e05-speaker-repair-09
+      ONLY_CLIP_ID: "09"
+      PREVIOUS_VIDEO_URL: "https://images.segmind.com/generations/e68d42dd-ccf9-4db0-9b7f-b20e205bd739/b7d3126c0616fb41c64cfc552449490d.mp4"
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install "segmind==1.1.0" "faster-whisper==1.2.1" requests Pillow && sudo apt-get update && sudo apt-get install -y ffmpeg
+      - run: python scripts/generate_s1e05_five_second.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: S1E05-Speaker-Repair-09, path: output/s1e05-speaker-repair-09, compression-level: 0}
+
+  repair-12:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+      WHISPER_CACHE_DIR: /tmp/whisper-repair-12
+      GENERATION_OUTPUT_DIR: output/s1e05-speaker-repair-12
+      ONLY_CLIP_ID: "12"
+      PREVIOUS_VIDEO_URL: "https://images.segmind.com/generations/e68d42dd-ccf9-4db0-9b7f-b20e205bd739/fbc5c707a58bbf2c72766aa576fe490a.mp4"
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install "segmind==1.1.0" "faster-whisper==1.2.1" requests Pillow && sudo apt-get update && sudo apt-get install -y ffmpeg
+      - run: python scripts/generate_s1e05_five_second.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: S1E05-Speaker-Repair-12, path: output/s1e05-speaker-repair-12, compression-level: 0}
