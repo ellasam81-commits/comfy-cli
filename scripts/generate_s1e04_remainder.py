@@ -192,7 +192,10 @@ def main()->None:
             record={"clip_id":cid,"request_count":1,"automatic_retries":0,"status":"submitting_once","references":[str(x) for x in refs],"started_at":stamp()}; dump(AUDIT/f"clip_{cid}_request.json",record)
             urls=[upload(client,x) for x in refs]
             # Sole paid request for this clip; no retry path exists.
-            job=client.submit_async("seedance-2.0-mini",prompt=text,reference_images=urls,duration=5,resolution="480p",aspect_ratio="16:9",generate_audio=True,bitrate_mode="high",return_last_frame=True,seed=int(clip["seed"]))
+            # The locked legacy plan predates per-clip seed fields. Use a deterministic
+            # non-repeating fallback so the first paid request cannot fail on a missing key.
+            seed = int(clip.get("seed", 20260804 + int(cid)))
+            job=client.submit_async("seedance-2.0-mini",prompt=text,reference_images=urls,duration=5,resolution="480p",aspect_ratio="16:9",generate_audio=True,bitrate_mode="high",return_last_frame=True,seed=seed)
             record["request_id"]=job.request_id; record["status"]="processing"; dump(AUDIT/f"clip_{cid}_request.json",record); manifest["request_count"]+=1; dump(manifest_path,manifest)
             result=job.wait(timeout=1800,interval=5); dump(AUDIT/f"clip_{cid}_result.json",result)
             video=RAW/f"S1E04_clip_{cid}_raw.mp4"; record["output_url"]=fetch_video(result,video); record["technical_qc"]=verify(video,cid,clip["dialogue"],model); previous=make_proof(video,cid)
