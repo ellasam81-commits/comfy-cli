@@ -68,6 +68,19 @@ def image_ok(path: Path) -> None:
     if w < 300 or h < 250 or path.stat().st_size > 30 * 1024 * 1024: raise RuntimeError(f"Invalid reference {path}")
 
 def initial_frame() -> Path:
+    previous_video_url = os.environ.get("PREVIOUS_VIDEO_URL")
+    if previous_video_url:
+        import requests
+        raw = OUT / "accepted_previous.mp4"
+        response = requests.get(previous_video_url, timeout=300)
+        response.raise_for_status()
+        raw.write_bytes(response.content)
+        if raw.stat().st_size < 200000:
+            raise RuntimeError("Accepted previous video download is invalid; no paid request made")
+        frame = RUNTIME / "accepted_previous_last.jpg"
+        shell(["ffmpeg","-hide_banner","-loglevel","error","-y","-ss","4.70","-i",str(raw),"-frames:v","1","-q:v","2",str(frame)])
+        image_ok(frame)
+        return frame
     token = os.environ.get("GITHUB_TOKEN")
     if not token: raise RuntimeError("GITHUB_TOKEN is missing; no paid request made")
     archive = OUT / "clip01_gate.zip"
@@ -174,8 +187,12 @@ def main()->None:
         raise RuntimeError("S1E04 remainder is blocked: story lock is not the user-approved earlier version; no paid request made")
     plan=json.loads(PLAN.read_text(encoding="utf-8"))
     if plan.get("episode")!="S1E04" or plan.get("model")!="seedance-2.0-mini" or plan.get("clip_count")!=12 or plan.get("shots_per_clip")!=3 or plan.get("automatic_retries")!=0: raise RuntimeError("S1E04 plan lock invalid")
-    clips=plan.get("clips",[])[1:]
-    if [c.get("id") for c in clips] != [f"{x:02d}" for x in range(2,13)]: raise RuntimeError("Remainder must be clips 02-12 only")
+    all_clips=plan.get("clips",[])[1:]
+    if [c.get("id") for c in all_clips] != [f"{x:02d}" for x in range(2,13)]: raise RuntimeError("Remainder must be clips 02-12 only")
+    only_clip_id = os.environ.get("ONLY_CLIP_ID")
+    clips = [c for c in all_clips if c.get("id") == only_clip_id] if only_clip_id else all_clips
+    if only_clip_id and len(clips) != 1:
+        raise RuntimeError("ONLY_CLIP_ID must name exactly one locked S1E04 remainder clip")
     if any(len(c.get("shots", [])) != 3 for c in clips): raise RuntimeError("Each remainder clip must contain exactly three shots")
     identities,panels,previous=prepare(plan)
     if not os.environ.get("SEGMIND_API_KEY"): raise RuntimeError("SEGMIND_API_KEY is missing; no paid request made")
