@@ -85,7 +85,7 @@
       "characters": ["lin_qian", "jian_ci", "zhou_qiao"],
       "scene": "same office and evidence corridor; camera follows the true blood direction back to Shen Mi's chair, cold legal-aid archive shelves",
       "shots": ["0.00–1.67 slow forensic camera travels from the shattered glass back to Shen Mi's chair.", "1.67–3.34 Lin Qian pins the brother's verified travel photo beside the office evidence map.", "3.34–5.00 Zhou Qiao adds one sealed transit-record envelope, keeping the map non-readable."],
-      "dialogue": [{"speaker": "林浅", "zh": "有人故意让我们叫错名字。", "en": "Someone wanted us to name the wrong person."}]
+      "dialogue": [{"speaker": "林浅", "zh": "林浅，有人故意让我们把沈弥叫成了哥哥。", "en": "Lin Qian, someone wanted us to call Shen Mi by her brother's name."}]
     },
     {
       "id": "10",
@@ -93,7 +93,7 @@
       "characters": ["lin_qian", "zhou_qiao", "han_che"],
       "scene": "briefing room timeline with three portrait cards turned face-down, colored route strings and sealed documents, no readable names or UI",
       "shots": ["0.00–1.67 three face-down portrait cards sit beneath the same medical-alert symbol on a clean evidence board.", "1.67–3.34 Zhou Qiao traces the brother's cross-city route with one blue line, then stops.", "3.34–5.00 Han Che moves the cleaning supervisor's verified transit envelope to the excluded side of the board."],
-      "dialogue": [{"speaker": "林浅", "zh": "知道移植史的人有三个。", "en": "Three people knew the transplant history."}]
+      "dialogue": [{"speaker": "林浅", "zh": "周峤，知道沈弥移植史的人有三个。", "en": "Zhou Qiao, three people knew Shen Mi's transplant history."}]
     },
     {
       "id": "11",
@@ -101,7 +101,7 @@
       "characters": ["lin_qian", "zhou_qiao", "han_che", "jian_ci"],
       "scene": "same briefing room, sober procedural reconstruction: cross-city travel, bus-and-gate alibi and one remaining late office entry are separate sealed evidence groups",
       "shots": ["0.00–1.67 sealed travel records establish the brother's continuous cross-city alibi.", "1.67–3.34 sealed transit and home-gate records establish the cleaner's departure and no return.", "3.34–5.00 only one anonymous access card remains at the late office-entry position; Jian Ci watches without making a supernatural claim."],
-      "dialogue": [{"speaker": "林浅", "zh": "知道，不等于做得到。", "en": "Knowing isn't the same as having the chance."}]
+      "dialogue": [{"speaker": "林浅", "zh": "韩彻，知道不等于做得到。", "en": "Han Che, knowing isn't the same as having the chance."}]
     },
     {
       "id": "12",
@@ -109,7 +109,7 @@
       "characters": ["lin_qian", "zhou_qiao", "jian_ci"],
       "scene": "rain-dark legal-aid office corridor; a professional adult Chinese woman, Tao Wen, arrives at a controlled interview door; she is not yet declared guilty",
       "shots": ["0.00–1.67 a late-entry access event is represented only as a sealed evidence card and a time marker added later in post, never generated text.", "1.67–3.34 Tao Wen pauses outside the interview room in a tailored dark office suit, face controlled but not villainous.", "3.34–5.00 Lin Qian and Jian Ci observe from the glass corridor as Zhou Qiao seals the access evidence, ending on the unopened interview-room door."],
-      "dialogue": [{"speaker": "林浅", "zh": "能在当晚利用它的人，只剩一个。", "en": "Only one person could use it that night."}]
+      "dialogue": [{"speaker": "林浅", "zh": "林浅，陶文的时间线还要重查。", "en": "Lin Qian, Tao Wen's timeline needs another check."}]
     }
   ]
 }
