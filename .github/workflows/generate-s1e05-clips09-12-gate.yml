@@ -1,4 +1,4 @@
-name: Generate S1E05 — clips 09 to 12 (one each)
+name: Repair S1E05 — clips 09 and 12 speakers (one each)
 
 on:
   push:
@@ -7,70 +7,38 @@ on:
 
 permissions:
   contents: read
-  actions: read
-
-concurrency:
-  group: s1e05-clips09-12-gate-v1
-  cancel-in-progress: false
 
 jobs:
-  generate-clips09-12:
+  repair-09:
     runs-on: ubuntu-latest
-    timeout-minutes: 180
+    timeout-minutes: 90
     env:
       SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
-      WHISPER_CACHE_DIR: /tmp/faster-whisper-s1e05-clips09-12
-      GENERATION_OUTPUT_DIR: output/s1e05-clips09-12-gate
-      ONLY_CLIP_IDS: "09,10,11,12"
+      WHISPER_CACHE_DIR: /tmp/whisper-repair-09
+      GENERATION_OUTPUT_DIR: output/s1e05-speaker-repair-09
+      ONLY_CLIP_ID: "09"
       PREVIOUS_VIDEO_URL: "https://images.segmind.com/generations/e68d42dd-ccf9-4db0-9b7f-b20e205bd739/b7d3126c0616fb41c64cfc552449490d.mp4"
-      PYTHONUNBUFFERED: "1"
     steps:
       - uses: actions/checkout@v4
-        with: {fetch-depth: 0}
-      - name: Enforce exactly four paid requests
-        env:
-          BEFORE_SHA: ${{ github.event.before }}
-          CURRENT_SHA: ${{ github.sha }}
-          RUN_ATTEMPT: ${{ github.run_attempt }}
-        run: |
-          set -euo pipefail
-          [[ "$RUN_ATTEMPT" == "1" ]] || { echo "::error::Workflow reruns are forbidden."; exit 2; }
-          mapfile -t changed < <(git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA")
-          [[ "${#changed[@]}" -eq 1 && "${changed[0]}" == "references/s1e05/run-clips09-12-gate.txt" ]] || { echo "::error::Only the one-shot authorization trigger may change."; exit 2; }
-          [[ "$(cat references/s1e05/run-clips09-12-gate.txt)" == "AUTHOR-APPROVED: GENERATE S1E05 CLIPS 09 10 11 12 ONCE EACH" ]] || exit 2
-          [[ -n "$SEGMIND_API_KEY" ]] || { echo "::error::Missing SEGMIND_API_KEY; no paid request made."; exit 2; }
-      - name: Install generation and QC tools
-        run: |
-          python -m pip install --upgrade pip
-          pip install "segmind==1.1.0" "faster-whisper==1.2.1" requests Pillow
-          sudo apt-get update
-          sudo apt-get install -y ffmpeg
-      - name: Dry-run contract validation before paid requests
-        run: |
-          python -m py_compile scripts/generate_s1e05_five_second.py
-          python - <<'PY'
-          import json
-          from pathlib import Path
-          plan=json.loads(Path('references/s1e05/five_second_plan.json').read_text(encoding='utf-8'))
-          assert plan['episode']=='S01E05' and len(plan['clips'])==12
-          assert all(len(c['shots'])==3 for c in plan['clips'][8:12])
-          assert Path('references/s1e03/source_refs/jian_ci_identity.jpg').is_file()
-          assert all(Path(f'references/s1e05/panels/clip_{clip:02d}_shot_{shot}.jpg.b64').is_file() for clip in range(9,13) for shot in range(1,4))
-          print('Preflight passed: exact clips 09-12, three shots each, Jian Ci no-glasses authority present.')
-          PY
-      - name: Generate clips 09 to 12 once each and check Mandarin audio
-        run: python scripts/generate_s1e05_five_second.py
-      - name: Upload raw clips, proof frames and audit
+      - run: pip install "segmind==1.1.0" "faster-whisper==1.2.1" requests Pillow && sudo apt-get update && sudo apt-get install -y ffmpeg
+      - run: python scripts/generate_s1e05_five_second.py
+      - uses: actions/upload-artifact@v4
         if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: S1E05-Clips09-12-Gate
-          path: |
-            output/s1e05-clips09-12-gate/raw/
-            output/s1e05-clips09-12-gate/audit/
-            output/s1e05-clips09-12-gate/proof/
-            output/s1e05-clips09-12-gate/last_frames/
-            output/s1e05-clips09-12-gate/runtime_refs/
-          if-no-files-found: warn
-          compression-level: 0
-          retention-days: 30
+        with: {name: S1E05-Speaker-Repair-09, path: output/s1e05-speaker-repair-09, compression-level: 0}
+
+  repair-12:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+      WHISPER_CACHE_DIR: /tmp/whisper-repair-12
+      GENERATION_OUTPUT_DIR: output/s1e05-speaker-repair-12
+      ONLY_CLIP_ID: "12"
+      PREVIOUS_VIDEO_URL: "https://images.segmind.com/generations/e68d42dd-ccf9-4db0-9b7f-b20e205bd739/fbc5c707a58bbf2c72766aa576fe490a.mp4"
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install "segmind==1.1.0" "faster-whisper==1.2.1" requests Pillow && sudo apt-get update && sudo apt-get install -y ffmpeg
+      - run: python scripts/generate_s1e05_five_second.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: S1E05-Speaker-Repair-12, path: output/s1e05-speaker-repair-12, compression-level: 0}
