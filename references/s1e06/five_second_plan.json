@@ -1,0 +1,115 @@
+{
+  "episode": "S01E06",
+  "case_title_zh": "借来的血",
+  "episode_title_zh": "被数字选中的凶手",
+  "episode_title_en": "The Killer Chosen by Numbers",
+  "maker_zh": "林爱丽",
+  "model": "seedance-2.0-mini",
+  "resolution": "480p",
+  "aspect_ratio": "16:9",
+  "duration_seconds_per_clip": 5,
+  "clip_count": 12,
+  "shots_per_clip": 4,
+  "persistent_header": "《吸血法医·剑刺》｜S01E06《被数字选中的凶手》｜制作：林爱丽",
+  "continuity_lock": "S01E06 starts from the accepted S01E05 tail: Jian Ci says, ‘Lin Qian, Tao Wen’s timeline needs another check,’ in the rain-dark inquiry corridor. Reuse the final 0.7 seconds as the opening video reference; then match cut through the same inquiry-room door. Maintain the established blue-black 16:9 cinematic look. Tao Wen is the legal-aid-fund partner under interview. The case is resolved only by corroborated bank transfers, access/corridor opportunity, glass, strap fibres, blood-transfer direction and the broad neck-pressure injury. Jian Ci may notice anomalies but cannot use vampire ability as proof.",
+  "character_lock": "Jian Ci: adult Chinese male forensic doctor, short layered black side-part hair, faint mole below left eye, white forensic coat over black high neck, black gloves, no glasses, restrained low male Mandarin voice. Lin Qian: adult Chinese female investigator, chin-length straight black bob, navy field uniform, black gloves, stable low female Mandarin voice. Zhou Qiao: adult Chinese technical officer, short black hair, silver-rim glasses and small hearing device, charcoal technical jacket; he alone wears glasses. Xu Wei: adult Chinese trace analyst, brown high ponytail, olive forensic coverall, black gloves. Tao Wen: adult Chinese legal-aid fund partner, low black ponytail, charcoal business suit, controlled expression. Shen Zhou: adult Chinese male, plain dark travel jacket, dignified grief. Shen Mi: adult Chinese legal-aid fund lawyer, only shown respectfully and non-graphically in evidence reconstruction.",
+  "global_negative": "vertical video, live action, photoreal, 3D, chibi, bright fantasy, visible comic-page title, generated title, generated subtitles, logo, watermark, readable UI, readable reports, face swap, duplicate people, wardrobe drift, bare-hand evidence handling, gore, blood spray, corpse movement, fangs, red eyes, magic effects, supernatural proof, invented speech, English speech, silence",
+  "clips": [
+    {
+      "id": "01",
+      "title": "只剩一个",
+      "characters": ["jian_ci", "lin_qian", "zhou_qiao", "tao_wen"],
+      "scene": "reuse S01E05's accepted rain-dark inquiry-door tail for the first 0.70 seconds, then match cut to the same cold-grey interrogation room where Tao Wen sits calmly opposite Lin Qian",
+      "shots": ["0.00–0.70 exact S01E05 tail: Jian Ci completes the previous line in the rain-dark corridor; do not regenerate this portion.", "0.70–1.85 slow move to the same frosted inquiry-room door and brushed-metal handle.", "1.85–3.20 match cut to a small non-readable red recorder indicator beside the table.", "3.20–5.00 Tao Wen waits at the table, Lin Qian opposite, Jian Ci a partial white-coat edge; no confession."],
+      "dialogue": [{"speaker": "剑刺", "start": 0.20, "end": 4.45, "zh": "林浅，陶文的时间线还要重查。", "en": "Lin Qian, Tao Wen’s timeline needs another check."}]
+    },
+    {
+      "id": "02",
+      "title": "随访与钱",
+      "characters": ["lin_qian", "tao_wen", "jian_ci"],
+      "scene": "same interrogation room and table; unreadable medical follow-up folder and fund-account folder are placed side by side",
+      "shots": ["0.00–1.25 same medium two-shot, Lin Qian facing Tao Wen.", "1.25–2.75 Lin Qian gloved hand slides two unreadable files to the center.", "2.75–3.85 low close-up on separate files and Lin’s hand.", "3.85–5.00 Tao Wen’s hand stops beside the files without turning them into a confession."],
+      "dialogue": [{"speaker": "林浅", "start": 0.30, "end": 4.45, "zh": "你替她办随访，也替基金转走了钱。", "en": "You handled her follow-ups—and moved the fund’s money."}]
+    },
+    {
+      "id": "03",
+      "title": "错的DNA",
+      "characters": ["tao_wen", "lin_qian"],
+      "scene": "same cold-grey interrogation room; Tao Wen keeps composed and only looks from files to Lin Qian",
+      "shots": ["0.00–1.20 Tao Wen lowers her eyes to the files.", "1.20–2.25 she lifts her eyes, controlled and intelligent.", "2.25–4.10 slow close-up on her calm delivery.", "4.10–5.00 Lin Qian listens in profile; recorder glow stays soft behind."],
+      "dialogue": [{"speaker": "陶文", "start": 0.35, "end": 4.35, "zh": "你只有一份错的DNA。", "en": "All you have is one wrong DNA result."}]
+    },
+    {
+      "id": "04",
+      "title": "二十点零八",
+      "characters": ["zhou_qiao", "lin_qian"],
+      "scene": "blue-black digital-evidence review room, one sealed access-card sleeve and a blurred original corridor-video source shown separately",
+      "shots": ["0.00–1.10 Zhou Qiao places one sealed access-card sleeve on the desk.", "1.10–2.55 he compares it to a non-readable corridor-video source.", "2.55–3.95 over-shoulder: the two sources remain separate records.", "3.95–5.00 Lin Qian absorbs that it proves entry and opportunity, not violence."],
+      "dialogue": [{"speaker": "周峤", "start": 0.35, "end": 4.35, "zh": "二十点零八，她本人刷卡进入。", "en": "At 20:08, she badged herself in."}]
+    },
+    {
+      "id": "05",
+      "title": "袖口的玻璃",
+      "characters": ["xu_wei", "lin_qian"],
+      "scene": "same cold trace-evidence laboratory; sealed sleeve micro-particles and separately sealed broken-glass fragments under a practical microscope lamp",
+      "shots": ["0.00–1.20 Xu Wei places two separate preparations.", "1.20–2.25 objective macro of the two different samples.", "2.25–3.85 Xu Wei compares them at the microscope.", "3.85–5.00 Lin Qian observes while samples remain separate."],
+      "dialogue": [{"speaker": "许未", "start": 0.35, "end": 4.35, "zh": "袖口玻璃，与现场碎片相符。", "en": "The glass on her sleeve matches the scene fragments."}]
+    },
+    {
+      "id": "06",
+      "title": "包带的纤维",
+      "characters": ["xu_wei", "lin_qian"],
+      "scene": "same trace laboratory; separate pale neck-side fibre and dark laptop-bag-strap fibre in individual evidence packets",
+      "shots": ["0.00–1.20 focus moves from glass to two separate fibre packets.", "1.20–2.30 microscope macro of two fibres on distinct slides.", "2.30–3.80 Xu Wei aligns the slides under the microscope.", "3.80–5.00 she holds two sealed packets apart for independent comparison."],
+      "dialogue": [{"speaker": "许未", "start": 0.35, "end": 4.35, "zh": "颈侧纤维，与她的包带相符。", "en": "The neck fibres also match her laptop-bag strap."}]
+    },
+    {
+      "id": "07",
+      "title": "不能单独定罪",
+      "characters": ["xu_wei", "lin_qian"],
+      "scene": "same physical evidence board in the laboratory; motive papers, opportunity record, and contact traces are spatially separate and unreadable",
+      "shots": ["0.00–1.10 Xu Wei adds sealed glass evidence to a supporting contact group.", "1.10–2.25 she adds a separate fibre packet to the same group.", "2.25–3.60 Lin Qian adds the sealed access card in another group.", "3.60–5.00 wide board: motive, opportunity and contact remain separate, with room for blood and injury evidence."],
+      "dialogue": [{"speaker": "许未", "start": 0.30, "end": 4.45, "zh": "单项不能定罪，合起来证明接触。", "en": "None convicts alone. Together, they prove contact."}]
+    },
+    {
+      "id": "08",
+      "title": "杯子先碎",
+      "characters": ["shen_mi", "lin_qian"],
+      "scene": "evidence-supported reconstruction of the same rain-dark legal-aid office; broken water glass at desk edge and Shen Mi’s small right-palm cut are non-graphic",
+      "shots": ["0.00–1.15 a water glass tips from the desk edge.", "1.15–2.35 Shen Mi’s right hand withdraws from a small cut; no spectacle.", "2.35–3.55 one small blood drop appears beside broken glass.", "3.55–5.00 Lin Qian later photographs the fixed table-edge trace with scale."],
+      "dialogue": [{"speaker": "林浅", "start": 0.30, "end": 4.45, "zh": "杯子碎了，沈弥割伤了右掌。", "en": "The glass broke. Shen Mi cut her right palm."}]
+    },
+    {
+      "id": "09",
+      "title": "伤痕只认带状物",
+      "characters": ["shen_mi", "tao_wen", "jian_ci"],
+      "scene": "tactful reconstruction only from behind and shoulder level, followed by Jian Ci’s non-graphic evidence-scale examination of a broad neck pressure mark",
+      "shots": ["0.00–1.10 a broad dark laptop-bag strap is applied from behind at shoulder level; faces mostly out of frame.", "1.10–2.25 side silhouette shows broad-band contact, no struggle spectacle.", "2.25–3.80 match cut to Jian Ci placing evidence scale beside a respectful non-graphic broad pressure mark.", "3.80–5.00 Jian Ci’s calm eyes remain procedural, no supernatural claim."],
+      "dialogue": [{"speaker": "剑刺", "start": 0.30, "end": 4.45, "zh": "伤痕只认带状物，不认拉带子的人。", "en": "The injury identifies a strap—not who pulled it."}]
+    },
+    {
+      "id": "10",
+      "title": "伪造解释",
+      "characters": ["shen_mi", "lin_qian"],
+      "scene": "restrained reconstruction and then actual evidence comparison in the legal-aid office; the right palm is guided around one glass fragment, while the true desk-edge blood origin is distinct from a misleading outward route",
+      "shots": ["0.00–1.20 black-gloved hands guide an injured right hand around one glass fragment; no face or force.", "1.20–2.35 overhead geometry holds desk-edge blood and glass in place.", "2.35–3.75 Lin Qian compares the fixed trace to an unreadable reconstruction photograph.", "3.75–5.00 Lin Qian’s focused profile understands the false interpretation, not a false DNA sample."],
+      "dialogue": [{"speaker": "林浅", "start": 0.30, "end": 4.45, "zh": "她没伪造DNA，只伪造了我们的解释。", "en": "She didn’t fake the DNA—only our interpretation."}]
+    },
+    {
+      "id": "11",
+      "title": "数字也要证人",
+      "characters": ["shen_zhou", "lin_qian", "jian_ci"],
+      "scene": "quiet rain-blue police corridor; Lin Qian returns Shen Mi’s medical-alert tag and sealed personal-effects receipt to Shen Zhou, without an embrace",
+      "shots": ["0.00–1.20 Lin Qian offers tag and receipt across respectful distance.", "1.20–2.30 Shen Zhou receives the tag; fingers tense then release.", "2.30–3.45 he looks down with controlled grief.", "3.45–5.00 Jian Ci remains a blurred white-coat figure in background and speaks only off-screen."],
+      "dialogue": [{"speaker": "沈舟", "start": 0.30, "end": 2.20, "zh": "数字差点定我的罪。", "en": "The numbers nearly convicted me."}, {"speaker": "剑刺", "start": 2.55, "end": 4.60, "zh": "所以，数字也要证人。", "en": "That’s why numbers need witnesses."}]
+    },
+    {
+      "id": "12",
+      "title": "她还在直播",
+      "characters": ["jiang_lan"],
+      "scene": "new-case hook; medical-alert-tag circular reflection match cuts to a red live-status dot on a dark computer monitor. Jiang Lan appears only as a small blurred streaming-window plate to be composited later, while an unmoving hand and shoulder rest in the foreground",
+      "shots": ["0.00–1.00 medical-alert tag reflection matches to a small red live-status dot; no generated text.", "1.00–2.20 slow pull focus reveals dark computer monitor and a small blurred host window.", "2.20–3.80 an adult woman’s still hand and shoulder rest beside keyboard in foreground; no movement.", "3.80–5.00 final composition stays perfectly still; no fade to black or end card."],
+      "dialogue": []
+    }
+  ]
+}
