@@ -1,0 +1,1 @@
+READ-ONLY: inspect existing S01E05 clips 09 and 12 repair runs; do not call Segmind.
