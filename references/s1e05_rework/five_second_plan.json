@@ -1,0 +1,254 @@
+{
+  "episode": "S01E05",
+  "case_title_zh": "会说话的骨头",
+  "episode_title_zh": "消失的四十一分钟",
+  "episode_title_en": "The Missing Forty-One Minutes",
+  "persistent_header": "《吸血法医·剑刺》｜S01E05《消失的四十一分钟》｜制作：林爱丽",
+  "continuity_lock": "Begins directly on S01E04's recovered phone inside a wet metal cold-chain transport case. The new episode traces a 10:13–10:54 gap, never declares Cheng Yue guilty before the independent evidence closes. The ending freight-lift cart wheel notch is the exact opening of S01E06.",
+  "maker_zh": "林爱丽",
+  "model": "seedance-2.0-mini",
+  "resolution": "480p",
+  "aspect_ratio": "16:9",
+  "duration_seconds_per_clip": 5,
+  "clip_count": 12,
+  "shots_per_clip": 3,
+  "visual_lock": "Dark blue-black and iron-gray 2D anime forensic noir, restrained cinematic camera movement, clean ink lines and controlled cel shading; never live action or 3D. Core cast identity, costumes, heights, gloves and props must remain consistent with S01E04.",
+  "character_lock": "Jian Ci/剑刺: tall slim pale adult Chinese male forensic doctor, short black side-part hair, white forensic coat, black high-neck shirt, black gloves, no glasses, low restrained adult male Mandarin voice. Lin Qian/林浅: adult Chinese woman investigator, chin-length straight black bob, dark navy uniform and black gloves, calm mid-low female Mandarin voice. Zhou Qiao/周峤: young adult Chinese male technical officer, tousled black short hair, silver-rim glasses and small hearing device, charcoal technical jacket, clear slightly quick adult Mandarin voice. Xu Wei/许未: adult Chinese woman trace analyst, brown high ponytail, olive forensic coverall and black gloves, clear adult Mandarin voice. Han Che/韩彻: mature adult Chinese man commander, square face, short gray-black hair, dark command jacket, steady adult Mandarin voice. Chen Mo/陈沫: adult Chinese woman with wet black medium hair, dark brown coat and white shirt whose outer collar bears dark red blood only; her neck stays wholly intact. Cheng Yue/程越: 38-year-old ordinary slim Chinese male cold-chain supervisor, short black hair, navy cold-chain uniform; during the cold-room sequence only, white disposable PPE overshirt and silver-gray LEFT glove; not a caricatured villain.",
+  "global_negative": "live action, photorealism, 3D, chibi, comic page, grid, panels, title card, generated subtitles, logo, watermark, readable report, readable interface, face swap, duplicate person, wardrobe drift, wrong glasses, Jian Ci glasses, bare-hand evidence handling, extra crowd, gore, blood spray, corpse movement, fangs, glowing red eyes, supernatural power used as evidence, English speech, invented dialogue, silence",
+  "clips": [
+    {
+      "id": "01",
+      "title": "恢复联网",
+      "characters": [
+        "zhou_qiao",
+        "lin_qian",
+        "jian_ci"
+      ],
+      "scene": "same blue-black evidence corridor and wet metal cold-chain transport case as S01E04; phone is already sealed in a transparent evidence bag",
+      "shots": "0.00–1.50 close: a sealed phone in the wet metal transport case regains a network indicator, no readable screen. 1.50–3.30 Zhou Qiao observes through the bag without touching the phone. 3.30–5.00 slow move from phone to cold metal inner lining while Jian Ci and Lin Qian enter background.",
+      "dialogue": [
+        {
+          "speaker": "周峤",
+          "zh": "不是刚开机，是刚恢复联网。",
+          "en": "It did not just boot. It just rejoined the network.",
+          "start": 0.55,
+          "end": 4.25
+        }
+      ]
+    },
+    {
+      "id": "02",
+      "title": "正好四十一分钟",
+      "characters": [
+        "lin_qian",
+        "jian_ci",
+        "zhou_qiao"
+      ],
+      "scene": "evidence lab table with separately bagged phone, service-lift record and elevator-clock photograph; no readable UI",
+      "shots": "0.00–1.55 gloved hands place three sealed evidence groups separately. 1.55–3.45 Lin Qian aligns an abstract time strip from 10:13 to 10:54 without readable text. 3.45–5.00 Jian Ci looks down the same cold-storage corridor.",
+      "dialogue": [
+        {
+          "speaker": "林浅",
+          "zh": "十点十三到十点五十四，正好四十一分钟。",
+          "en": "From 10:13 to 10:54—exactly forty-one minutes.",
+          "start": 0.35,
+          "end": 4.55
+        }
+      ]
+    },
+    {
+      "id": "03",
+      "title": "重复的雨滴",
+      "characters": [
+        "zhou_qiao",
+        "lin_qian"
+      ],
+      "scene": "dark technical review station beside the cold-room door, external rain reflected in glass; original and checksum copy stored separately",
+      "shots": "0.00–1.45 Zhou Qiao advances non-readable frames. 1.45–3.20 a rain droplet at the door edge repeats three times in the same position. 3.20–5.00 he seals the original and checksum copy into two separate sleeves as Lin Qian watches.",
+      "dialogue": [
+        {
+          "speaker": "周峤",
+          "zh": "雨滴重复了三次。监控不是断线，是循环播放。",
+          "en": "The same drop repeats three times. The feed was looped, not lost.",
+          "start": 0.35,
+          "end": 4.75
+        }
+      ]
+    },
+    {
+      "id": "04",
+      "title": "报废留样",
+      "characters": [
+        "xu_wei",
+        "lin_qian"
+      ],
+      "scene": "cold forensic lab, collar-blood sample and discarded pre-op sample remain in separate evidence tubes, microscope and abstract comparison monitor",
+      "shots": "0.00–1.50 Xu Wei sets two separately sealed tubes into a comparison rack. 1.50–3.35 close: microscope and abstract matching colors, no generated text. 3.35–5.00 Lin Qian observes the distinct evidence groups.",
+      "dialogue": [
+        {
+          "speaker": "许未",
+          "zh": "衣领上的血，来自一份报废术前留样。",
+          "en": "The collar blood came from a discarded pre-op sample.",
+          "start": 0.35,
+          "end": 4.45
+        }
+      ]
+    },
+    {
+      "id": "05",
+      "title": "陈沫查到的事",
+      "characters": [
+        "chen_mo",
+        "lin_qian",
+        "jian_ci"
+      ],
+      "scene": "controlled interview room; Chen Mo in same dark brown coat and white shirt, blood only on outer collar; neck completely intact; sealed temperature logger",
+      "shots": "0.00–1.50 full upper-body Chen Mo, intact neck visibly clear, pushes a sealed temperature logger across table. 1.50–3.40 Lin Qian receives it with gloves, not interrupting. 3.40–5.00 Jian Ci watches from side rear, composed.",
+      "dialogue": [
+        {
+          "speaker": "陈沫",
+          "zh": "我查到有人把报废血样换进运输箱。",
+          "en": "I found someone switching discarded blood samples into transport cases.",
+          "start": 0.45,
+          "end": 4.6
+        }
+      ]
+    },
+    {
+      "id": "06",
+      "title": "十点二十六",
+      "characters": [
+        "zhou_qiao",
+        "lin_qian"
+      ],
+      "scene": "technical evidence bench, phone and temperature logger in their own sealed bags, abstract Bluetooth event point at midpoint only",
+      "shots": "0.00–1.50 Zhou Qiao opens a lawful mirror copy on a non-readable abstract timeline. 1.50–3.35 phone and logger remain bagged side by side, a single connection event at the middle. 3.35–5.00 Lin Qian registers the result.",
+      "dialogue": [
+        {
+          "speaker": "周峤",
+          "zh": "十点二十六，记录器连过这台手机。",
+          "en": "At 10:26, the logger connected to this phone.",
+          "start": 0.45,
+          "end": 4.4
+        }
+      ]
+    },
+    {
+      "id": "07",
+      "title": "白袖只能缩小范围",
+      "characters": [
+        "xu_wei",
+        "lin_qian"
+      ],
+      "scene": "trace lab; white-sleeve fibres, cold-chain PPE samples and contact evidence each individually sealed",
+      "shots": "0.00–1.45 Xu Wei transfers a white fibre with tweezers into an individual slide. 1.45–3.25 cold-chain PPE and scene fibre are presented separately. 3.25–5.00 Lin Qian puts it into a contact-evidence group, not identity evidence.",
+      "dialogue": [
+        {
+          "speaker": "许未",
+          "zh": "纤维属于冷链防护服，只能缩小范围。",
+          "en": "The fibre is from cold-chain PPE. It narrows the field—nothing more.",
+          "start": 0.35,
+          "end": 4.7
+        }
+      ]
+    },
+    {
+      "id": "08",
+      "title": "破损的箱扣",
+      "characters": [
+        "jian_ci",
+        "xu_wei"
+      ],
+      "scene": "same metal transport case with damaged RIGHT-side latch, aluminium dust sample and fracture casting; documentation stand",
+      "shots": "0.00–1.45 Jian Ci examines the damaged latch on the case's right side. 1.45–3.25 Xu Wei secures aluminium dust and fracture casting separately. 3.25–5.00 under a photo stand, the two fracture faces physically fit, no text.",
+      "dialogue": [
+        {
+          "speaker": "剑刺",
+          "zh": "铝粉只说明同类；断口吻合，才说明同一个箱扣。",
+          "en": "Aluminium dust shows a class. A fracture fit shows the same latch.",
+          "start": 0.3,
+          "end": 4.75
+        }
+      ]
+    },
+    {
+      "id": "09",
+      "title": "只剩两个人",
+      "characters": [
+        "han_che",
+        "lin_qian",
+        "zhou_qiao"
+      ],
+      "scene": "minimal evidence briefing board: access permission and camera-maintenance permission are separate sealed groups, two anonymous portrait cards face down",
+      "shots": "0.00–1.50 Han Che places separate authorization envelopes onto a clean board. 1.50–3.30 two anonymous portrait cards remain face down in the center. 3.30–5.00 Zhou Qiao seals the permission list as Lin Qian reads it.",
+      "dialogue": [
+        {
+          "speaker": "韩彻",
+          "zh": "能进旧冷库，又能改监控的，只剩两个人。",
+          "en": "Only two people could enter the old cold room and alter the feed.",
+          "start": 0.4,
+          "end": 4.55
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "title": "程越的工牌",
+      "characters": [
+        "lin_qian",
+        "cheng_yue",
+        "jian_ci"
+      ],
+      "scene": "same controlled interview room; Cheng Yue wears navy cold-chain supervisor uniform, no PPE; sealed access card between him and Lin Qian; Jian Ci outside glass",
+      "shots": "0.00–1.45 Lin Qian sets a sealed access card on the table. 1.45–3.30 Cheng Yue in navy supervisor uniform looks at it without touching. 3.30–5.00 Jian Ci watches through the glass, no red eyes.",
+      "dialogue": [
+        {
+          "speaker": "林浅",
+          "zh": "程越，你的工牌进了冷库，你却说自己在家。",
+          "en": "Cheng Yue, your badge entered the cold room while you claimed to be home.",
+          "start": 0.3,
+          "end": 4.75
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "title": "工牌可以借",
+      "characters": [
+        "cheng_yue",
+        "lin_qian"
+      ],
+      "scene": "same interview room, unchanged card and seats; restrained performance",
+      "shots": "0.00–1.45 Cheng Yue glances at the sealed card, hands visible and still. 1.45–3.30 he explains without melodrama. 3.30–5.00 Lin Qian stays silent; the tense empty space between them holds.",
+      "dialogue": [
+        {
+          "speaker": "程越",
+          "zh": "工牌可以借，防护服谁都能穿。",
+          "en": "A badge can be borrowed. Anyone can wear that protective suit.",
+          "start": 0.35,
+          "end": 4.4
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "title": "门外的货梯",
+      "characters": [
+        "zhou_qiao",
+        "lin_qian",
+        "jian_ci"
+      ],
+      "scene": "freight-lift service area adjoining cold storage; independent control record, wet reflection reveals a handcart with a notch in the RIGHT wheel; no suspect face",
+      "shots": "0.00–1.35 Zhou Qiao opens an independent freight-lift record on a non-readable screen. 1.35–3.25 lift-door reflection catches a handcart rolling, its RIGHT wheel makes one small regular hop. 3.25–5.00 macro freezes only on the tyre notch, with no face or guilty declaration.",
+      "dialogue": [
+        {
+          "speaker": "周峤",
+          "zh": "他说得对。所以我查了循环监控之外的货梯。",
+          "en": "He is right. So I checked the freight lift outside the loop.",
+          "start": 0.35,
+          "end": 4.7
+        }
+      ]
+    }
+  ]
+}
