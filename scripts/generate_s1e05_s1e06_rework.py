@@ -55,7 +55,7 @@ def video_ok(path: Path):
     a=[s for s in streams if s.get("codec_type")=="audio"]
     if path.stat().st_size<200000 or not v or not a or not 4.3<=dur<=5.8: raise RuntimeError(f"Technical A/V QC failed: {path}")
     loud=subprocess.run(["ffmpeg","-hide_banner","-nostats","-i",str(path),"-vn","-af","volumedetect","-f","null","-"],capture_output=True,text=True).stderr
-    m=re.search(r"max_volume:\s*(-?inf|-?\d+(?:\.\d+)?)\s*dB",loud)
+    m=re.search(r"max_volume:\s*(-?inf|-?\d(?:\.\d+)?)\s*dB",loud)
     if not m or m.group(1)=="-inf" or float(m.group(1))<-55: raise RuntimeError(f"Silent output: {path}")
     return {"duration":dur,"width":v[0].get("width"),"height":v[0].get("height"),"audio":a[0].get("codec_name"),"max_volume_db":float(m.group(1))}
 def find_file(names: list[str]):
