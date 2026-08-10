@@ -70,8 +70,10 @@ def prepare_prior():
         "chen_mo": recursive("chen_mo_e4_identity.jpg"),
     }
 def cheng_identity():
-    source=ROOT / "references" / "s1e05_rework" / "identity" / "cheng_yue_identity_v1.jpg.b64"
-    target=RUNTIME / "cheng_yue_identity_v1.jpg"
+    # The provider rejected the first small portrait (228px narrow side) before rendering.
+    # This normalized 576px portrait keeps the exact approved identity but is safely sized.
+    source=ROOT / "references" / "s1e05_rework" / "identity" / "cheng_yue_identity_v2.jpg.b64"
+    target=RUNTIME / "cheng_yue_identity_v2.jpg"
     target.parent.mkdir(parents=True,exist_ok=True)
     target.write_bytes(base64.b64decode(source.read_text(encoding="ascii")))
     image_ok(target); return target
