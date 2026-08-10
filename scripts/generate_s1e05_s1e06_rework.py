@@ -55,7 +55,7 @@ def video_ok(path: Path):
     a=[s for s in streams if s.get("codec_type")=="audio"]
     if path.stat().st_size<200000 or not v or not a or not 4.3<=dur<=5.8: raise RuntimeError(f"Technical A/V QC failed: {path}")
     loud=subprocess.run(["ffmpeg","-hide_banner","-nostats","-i",str(path),"-vn","-af","volumedetect","-f","null","-"],capture_output=True,text=True).stderr
-    m=re.search(r"max_volume:\s*(-?inf|-?\\d+(?:\\.\\d+)?)\\s*dB",loud)
+    m=re.search(r"max_volume:\s*(-?inf|-?\d+(?:\.\d+)?)\s*dB",loud)
     if not m or m.group(1)=="-inf" or float(m.group(1))<-55: raise RuntimeError(f"Silent output: {path}")
     return {"duration":dur,"width":v[0].get("width"),"height":v[0].get("height"),"audio":a[0].get("codec_name"),"max_volume_db":float(m.group(1))}
 def find_file(names: list[str]):
@@ -124,8 +124,8 @@ def plan_ok(plan):
         for d in c["dialogue"]:
             if not 0<=float(d["start"])<float(d["end"])<=5: raise RuntimeError("Invalid dialogue cue")
 def prompt(plan, clip, refs):
-    shot_text="\\n".join(f"{i+1}. {x}" for i,x in enumerate(clip["shots"]))
-    line_text="\\n".join(f"{d['start']:.2f}-{d['end']:.2f} {d['speaker']}: {d['zh']}" for d in clip["dialogue"])
+    shot_text="\n".join(f"{i+1}. {x}" for i,x in enumerate(clip["shots"]))
+    line_text="\n".join(f"{d['start']:.2f}-{d['end']:.2f} {d['speaker']}: {d['zh']}" for d in clip["dialogue"])
     cast=", ".join(clip["characters"])
     return f"""ORIGINAL SERIES PRODUCTION LOCK. Render exactly one 5-second full-screen 16:9 animated clip for 《吸血法医·剑刺》 {plan['episode']}《{plan['episode_title_zh']}》, clip {clip['id']} of 12. The first reference is a prior-episode visual-language reference only. The following identity images lock the named core cast. The final reference is the immediately previous accepted frame and locks opening light and screen direction. Do not show any reference as a board, collage, grid or split screen.
 Exactly three continuous cinematic shots:
@@ -149,7 +149,7 @@ def assemble(plan, raw_paths):
         dst=norm/f"{i:02d}.mp4"
         run(["ffmpeg","-hide_banner","-loglevel","error","-y","-i",str(src),"-vf","scale=864:496:force_original_aspect_ratio=decrease,pad=864:496:(ow-iw)/2:(oh-ih)/2:black,fps=24","-c:v","libx264","-preset","medium","-crf","18","-c:a","aac","-ar","48000","-ac","2","-b:a","160k",str(dst)])
         concat.append(dst)
-    listfile=stage/"concat.txt"; listfile.write_text("".join(f"file '{p.resolve()}'\\n" for p in concat),encoding="utf-8")
+    listfile=stage/"concat.txt"; listfile.write_text("".join(f"file '{p.resolve()}'\n" for p in concat),encoding="utf-8")
     joined=stage/"joined.mp4"; run(["ffmpeg","-hide_banner","-loglevel","error","-y","-f","concat","-safe","0","-i",str(listfile),"-c","copy",str(joined)])
     ass=stage/"bilingual.ass"
     rows=["[Script Info]","ScriptType: v4.00+","PlayResX: 864","PlayResY: 496","ScaledBorderAndShadow: yes","","[V4+ Styles]","Format: Name,Fontname,Fontsize,PrimaryColour,SecondaryColour,OutlineColour,BackColour,Bold,Italic,Underline,StrikeOut,ScaleX,ScaleY,Spacing,Angle,BorderStyle,Outline,Shadow,Alignment,MarginL,MarginR,MarginV,Encoding","Style: Header,Noto Sans CJK SC,19,&H00FFFFFF,&H000000FF,&H00101010,&H90000000,1,0,0,0,100,100,0,0,1,1.5,0,8,18,18,13,1","Style: CN,Noto Sans CJK SC,21,&H00FFFFFF,&H000000FF,&H00101010,&H80000000,1,0,0,0,100,100,0,0,1,2.1,0.6,2,32,32,34,1","Style: EN,DejaVu Sans,13,&H00F4F4F4,&H000000FF,&H00101010,&H80000000,0,0,0,0,100,100,0,0,1,1.4,0.5,2,32,32,14,1","","[Events]","Format: Layer,Start,End,Style,Name,MarginL,MarginR,MarginV,Effect,Text"]
