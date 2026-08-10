@@ -1,0 +1,60 @@
+name: Repair S1E05-06 — five approved clips only
+
+on:
+  push:
+    branches: [render/s1e05-s1e06-targeted-repair-v1]
+    paths: ["references/s1e05_rework/targeted-repair-approved.txt"]
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: s1e05-s1e06-targeted-repair-v1
+  cancel-in-progress: false
+
+jobs:
+  repair-once:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - name: Enforce the five-clip author-approved scope
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+        run: |
+          set -euo pipefail
+          [[ "$RUN_ATTEMPT" == "1" ]] || { echo "::error::Workflow reruns are forbidden."; exit 2; }
+          mapfile -t changed < <(git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+          [[ "${#changed[@]}" -eq 1 && "${changed[0]}" == "references/s1e05_rework/targeted-repair-approved.txt" ]] || { echo "::error::Only the approved repair gate may trigger this workflow."; exit 2; }
+          [[ "$(cat references/s1e05_rework/targeted-repair-approved.txt)" == "AUTHOR-APPROVED: REPAIR ONLY S01E05 CLIPS 10-11 AND S01E06 CLIPS 10-12 ONCE" ]] || { echo "::error::Authorization text mismatch."; exit 2; }
+          [[ -n "$SEGMIND_API_KEY" ]] || { echo "::error::Missing SEGMIND_API_KEY; no paid request made."; exit 2; }
+      - name: Restore the stopped one-pass result
+        uses: actions/download-artifact@v4
+        with:
+          name: S1E05-S1E06-Rework-Results
+          run-id: 31387971512
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: prior_results
+      - name: Install locked render tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install "segmind==1.1.0" requests Pillow
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg fonts-noto-cjk
+      - name: Generate exactly the five approved target clips
+        run: python scripts/repair_s1e05_s1e06_targeted.py
+      - name: Upload repaired episode files and verification proof
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: S1E05-S1E06-Targeted-Repair-Results
+          path: output/s1e05-s1e06-targeted-repair/
+          if-no-files-found: warn
+          compression-level: 0
+          retention-days: 30
