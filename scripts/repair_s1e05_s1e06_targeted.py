@@ -72,10 +72,10 @@ def prepare_prior():
 def cheng_identity():
     # The provider rejected the first small portrait (228px narrow side) before rendering.
     # This normalized 576px portrait keeps the exact approved identity but is safely sized.
-    source=ROOT / "references" / "s1e05_rework" / "identity" / "cheng_yue_identity_v2.jpg.b64"
+    source=ROOT / "references" / "s1e05_rework" / "identity" / "cheng_yue_identity_v2.jpg"
     target=RUNTIME / "cheng_yue_identity_v2.jpg"
     target.parent.mkdir(parents=True,exist_ok=True)
-    target.write_bytes(base64.b64decode(source.read_text(encoding="ascii")))
+    shutil.copy2(source,target)
     image_ok(target); return target
 def style(ep, cid):
     source=recursive(f"style_{cid}.jpg")
