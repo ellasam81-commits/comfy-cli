@@ -24,7 +24,11 @@
         "lin_qian"
       ],
       "scene": "direct continuation of the wet freight-lift reflection and handcart with a missing notch in its RIGHT wheel; forensic comparison photographs",
-      "shots": "0.00–1.35 exact wet reflection: right wheel makes one fixed hop per rotation. 1.35–3.20 Xu Wei records wheel-track photos and the cart tyre separately. 3.20–5.00 comparison shows notch position, width and wear direction correspond, no readable report.",
+      "shots": [
+        "0.00–1.35 exact wet reflection: right wheel makes one fixed hop per rotation.",
+        "1.35–3.20 Xu Wei records wheel-track photos and the cart tyre separately.",
+        "3.20–5.00 comparison shows notch position, width and wear direction correspond, no readable report."
+      ],
       "dialogue": [
         {
           "speaker": "许未",
@@ -43,7 +47,11 @@
         "han_che"
       ],
       "scene": "briefing table with wheel tracks, access record, looped footage and temperature logger in four clearly separate evidence groups",
-      "shots": "0.00–1.45 wheel tracks, access and looped-video evidence lie in three separate groups. 1.45–3.20 Lin Qian adds the temperature logger as a fourth. 3.20–5.00 Han Che confirms the next legal step, no arrest celebration.",
+      "shots": [
+        "0.00–1.45 wheel tracks, access and looped-video evidence lie in three separate groups.",
+        "1.45–3.20 Lin Qian adds the temperature logger as a fourth.",
+        "3.20–5.00 Han Che confirms the next legal step, no arrest celebration."
+      ],
       "dialogue": [
         {
           "speaker": "林浅",
@@ -63,7 +71,11 @@
         "lin_qian"
       ],
       "scene": "forensic toxicology lab, Chen Mo's already sealed blood and urine samples, abstract chromatogram only; Chen Mo listens safely in background",
-      "shots": "0.00–1.45 Xu Wei checks separately sealed toxicology samples. 1.45–3.25 abstract chromatogram peaks, no readable report. 3.25–5.00 Chen Mo listens calmly from a separate seated area, neck visibly intact.",
+      "shots": [
+        "0.00–1.45 Xu Wei checks separately sealed toxicology samples.",
+        "1.45–3.25 abstract chromatogram peaks, no readable report.",
+        "3.25–5.00 Chen Mo listens calmly from a separate seated area, neck visibly intact."
+      ],
       "dialogue": [
         {
           "speaker": "许未",
@@ -83,7 +95,11 @@
         "lin_qian"
       ],
       "scene": "non-violent forensic reconstruction only: blindfold silhouette, cold blunt metal near an intact neck, warm sample blood on outer white collar; no blade penetration",
-      "shots": "0.00–1.45 neutral reconstruction silhouette: a blindfolded figure feels cold blunt metal held near the side of an intact neck. 1.45–3.25 warm sample blood soaks only the outer white collar. 3.25–5.00 medical side photo confirms Chen Mo's unbroken neck while Lin Qian watches.",
+      "shots": [
+        "0.00–1.45 neutral reconstruction silhouette: a blindfolded figure feels cold blunt metal held near the side of an intact neck.",
+        "1.45–3.25 warm sample blood soaks only the outer white collar.",
+        "3.25–5.00 medical side photo confirms Chen Mo's unbroken neck while Lin Qian watches."
+      ],
       "dialogue": [
         {
           "speaker": "剑刺",
@@ -102,7 +118,11 @@
         "lin_qian"
       ],
       "scene": "lab table: discarded pre-op sample, collar blood sample and missing inventory route in three sealed independent tracks; transport-case receipt photograph",
-      "shots": "0.00–1.45 Xu Wei presents three sealed evidence tracks separately. 1.45–3.20 their batch route meets visually without merging samples. 3.20–5.00 Lin Qian looks at a transport-case receipt photo tied to Cheng Yue, no readable text.",
+      "shots": [
+        "0.00–1.45 Xu Wei presents three sealed evidence tracks separately.",
+        "1.45–3.20 their batch route meets visually without merging samples.",
+        "3.20–5.00 Lin Qian looks at a transport-case receipt photo tied to Cheng Yue, no readable text."
+      ],
       "dialogue": [
         {
           "speaker": "许未",
@@ -152,7 +172,11 @@
         "han_che"
       ],
       "scene": "briefing room: three missing transport cases represented only by non-readable inventory photos; finance and inventory evidence remain separately sealed",
-      "shots": "0.00–1.45 Chen Mo points to three non-readable inventory photographs. 1.45–3.20 Lin Qian separately seals finance and inventory evidence. 3.20–5.00 Han Che confirms the samples were diverted illegally, never as a flashy reveal.",
+      "shots": [
+        "0.00–1.45 Chen Mo points to three non-readable inventory photographs.",
+        "1.45–3.20 Lin Qian separately seals finance and inventory evidence.",
+        "3.20–5.00 Han Che confirms the samples were diverted illegally, never as a flashy reveal."
+      ],
       "dialogue": [
         {
           "speaker": "陈沫",
@@ -171,7 +195,11 @@
         "lin_qian"
       ],
       "scene": "same interview room; photo of Chen Mo's intact neck lies in a sealed sleeve; Cheng Yue has no gloves and never touches evidence",
-      "shots": "0.00–1.45 Cheng Yue looks at the sealed photo of Chen Mo's intact neck. 1.45–3.25 his fingers tighten on the table but never touch evidence. 3.25–5.00 Lin Qian holds a calm direct gaze.",
+      "shots": [
+        "0.00–1.45 Cheng Yue looks at the sealed photo of Chen Mo's intact neck.",
+        "1.45–3.25 his fingers tighten on the table but never touch evidence.",
+        "3.25–5.00 Lin Qian holds a calm direct gaze."
+      ],
       "dialogue": [
         {
           "speaker": "程越",
@@ -191,7 +219,11 @@
         "xu_wei"
       ],
       "scene": "large clean evidence board: looped video, toxicology, tyre notch, broken right latch and finance route are five distinct groups; white PPE and silver-gray LEFT glove sealed separately",
-      "shots": "0.00–1.45 Lin Qian indicates five separately framed evidence groups one after another. 1.45–3.15 Xu Wei seals white PPE and silver-gray LEFT glove as separate items. 3.15–5.00 the camera holds the complete evidence structure, no illegal report text.",
+      "shots": [
+        "0.00–1.45 Lin Qian indicates five separately framed evidence groups one after another.",
+        "1.45–3.15 Xu Wei seals white PPE and silver-gray LEFT glove as separate items.",
+        "3.15–5.00 the camera holds the complete evidence structure, no illegal report text."
+      ],
       "dialogue": [
         {
           "speaker": "林浅",
@@ -210,7 +242,11 @@
         "lin_qian"
       ],
       "scene": "same interview room, recording light and Cheng Yue's still hands in frame; no triumphant expression",
-      "shots": "0.00–1.45 recording indicator and Cheng Yue's still hands share the frame. 1.45–3.20 his controlled face turns tired; he admits motive in a quiet voice. 3.20–5.00 Lin Qian remains professional, without celebration.",
+      "shots": [
+        "0.00–1.45 recording indicator and Cheng Yue's still hands share the frame.",
+        "1.45–3.20 his controlled face turns tired; he admits motive in a quiet voice.",
+        "3.20–5.00 Lin Qian remains professional, without celebration."
+      ],
       "dialogue": [
         {
           "speaker": "程越",
@@ -230,7 +266,11 @@
         "lin_qian"
       ],
       "scene": "quiet corridor; Chen Mo signs a statement, same clothes and intact neck; sealed silver-gray LEFT glove visible in evidence bag",
-      "shots": "0.00–1.45 Chen Mo signs her statement in the corridor. 1.45–3.20 Jian Ci transfers the statement to Lin Qian with gloved hands, never touching Chen Mo. 3.20–5.00 Chen Mo looks at the sealed silver-gray left glove.",
+      "shots": [
+        "0.00–1.45 Chen Mo signs her statement in the corridor.",
+        "1.45–3.20 Jian Ci transfers the statement to Lin Qian with gloved hands, never touching Chen Mo.",
+        "3.20–5.00 Chen Mo looks at the sealed silver-gray left glove."
+      ],
       "dialogue": [
         {
           "speaker": "剑刺",
@@ -250,7 +290,11 @@
         "zhou_qiao"
       ],
       "scene": "closing evidence room: Chen Mo case cabinet shuts; recovered phone is still bagged; a new sealed file labeled only in post 'Shen Mi' is placed beside it; rain-night corridor",
-      "shots": "0.00–1.45 evidence cabinet closes and bagged recovered phone remains on table. 1.45–3.15 new sealed Shen Mi case file is placed beside it, no generated label. 3.15–5.00 Lin Qian and Jian Ci turn down the rain-dark corridor toward a new scene as Zhou Qiao remains at the evidence desk.",
+      "shots": [
+        "0.00–1.45 evidence cabinet closes and bagged recovered phone remains on table.",
+        "1.45–3.15 new sealed Shen Mi case file is placed beside it, no generated label.",
+        "3.15–5.00 Lin Qian and Jian Ci turn down the rain-dark corridor toward a new scene as Zhou Qiao remains at the evidence desk."
+      ],
       "dialogue": [
         {
           "speaker": "旁白",
