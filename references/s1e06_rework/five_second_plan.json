@@ -1,0 +1,265 @@
+{
+  "episode": "S01E06",
+  "case_title_zh": "会说话的骨头",
+  "episode_title_zh": "没有伤口的证词",
+  "episode_title_en": "Testimony Without a Wound",
+  "persistent_header": "《吸血法医·剑刺》｜S01E06《没有伤口的证词》｜制作：林爱丽",
+  "continuity_lock": "Clip 01 begins on the exact freight-lift reflection and notched RIGHT wheel from S01E05 clip 12. The episode closes the Chen Mo coercion and illegal-sample diversion case with multiple independent evidentiary strands, not a confession or vampire ability. Final shot places sealed file marked Shen Mi beside the recovered phone to bridge S01E07.",
+  "maker_zh": "林爱丽",
+  "model": "seedance-2.0-mini",
+  "resolution": "480p",
+  "aspect_ratio": "16:9",
+  "duration_seconds_per_clip": 5,
+  "clip_count": 12,
+  "shots_per_clip": 3,
+  "visual_lock": "Dark blue-black and iron-gray 2D anime forensic noir, restrained cinematic camera movement, clean ink lines and controlled cel shading; never live action or 3D. Core cast identity, costumes, heights, gloves and props must remain consistent with S01E04.",
+  "character_lock": "Jian Ci/剑刺: tall slim pale adult Chinese male forensic doctor, short black side-part hair, white forensic coat, black high-neck shirt, black gloves, no glasses, low restrained adult male Mandarin voice. Lin Qian/林浅: adult Chinese woman investigator, chin-length straight black bob, dark navy uniform and black gloves, calm mid-low female Mandarin voice. Zhou Qiao/周峤: young adult Chinese male technical officer, tousled black short hair, silver-rim glasses and small hearing device, charcoal technical jacket, clear slightly quick adult Mandarin voice. Xu Wei/许未: adult Chinese woman trace analyst, brown high ponytail, olive forensic coverall and black gloves, clear adult Mandarin voice. Han Che/韩彻: mature adult Chinese man commander, square face, short gray-black hair, dark command jacket, steady adult Mandarin voice. Chen Mo/陈沫: adult Chinese woman with wet black medium hair, dark brown coat and white shirt whose outer collar bears dark red blood only; her neck stays wholly intact. Cheng Yue/程越: 38-year-old ordinary slim Chinese male cold-chain supervisor, short black hair, navy cold-chain uniform; during the cold-room sequence only, white disposable PPE overshirt and silver-gray LEFT glove; not a caricatured villain.",
+  "global_negative": "live action, photorealism, 3D, chibi, comic page, grid, panels, title card, generated subtitles, logo, watermark, readable report, readable interface, face swap, duplicate person, wardrobe drift, wrong glasses, Jian Ci glasses, bare-hand evidence handling, extra crowd, gore, blood spray, corpse movement, fangs, glowing red eyes, supernatural power used as evidence, English speech, invented dialogue, silence",
+  "clips": [
+    {
+      "id": "01",
+      "title": "缺了一块的轮胎",
+      "characters": [
+        "xu_wei",
+        "lin_qian"
+      ],
+      "scene": "direct continuation of the wet freight-lift reflection and handcart with a missing notch in its RIGHT wheel; forensic comparison photographs",
+      "shots": "0.00–1.35 exact wet reflection: right wheel makes one fixed hop per rotation. 1.35–3.20 Xu Wei records wheel-track photos and the cart tyre separately. 3.20–5.00 comparison shows notch position, width and wear direction correspond, no readable report.",
+      "dialogue": [
+        {
+          "speaker": "许未",
+          "zh": "缺口的位置、宽度和磨损方向，都相符。",
+          "en": "The notch position, width and wear direction all correspond.",
+          "start": 0.35,
+          "end": 4.65
+        }
+      ]
+    },
+    {
+      "id": "02",
+      "title": "不是一条轮痕定罪",
+      "characters": [
+        "lin_qian",
+        "han_che"
+      ],
+      "scene": "briefing table with wheel tracks, access record, looped footage and temperature logger in four clearly separate evidence groups",
+      "shots": "0.00–1.45 wheel tracks, access and looped-video evidence lie in three separate groups. 1.45–3.20 Lin Qian adds the temperature logger as a fourth. 3.20–5.00 Han Che confirms the next legal step, no arrest celebration.",
+      "dialogue": [
+        {
+          "speaker": "林浅",
+          "zh": "轮痕证明这辆车来过，不单独证明谁推的。",
+          "en": "The track proves the cart was here—not, by itself, who pushed it.",
+          "start": 0.35,
+          "end": 4.55
+        }
+      ]
+    },
+    {
+      "id": "03",
+      "title": "药物留下的时间",
+      "characters": [
+        "xu_wei",
+        "chen_mo",
+        "lin_qian"
+      ],
+      "scene": "forensic toxicology lab, Chen Mo's already sealed blood and urine samples, abstract chromatogram only; Chen Mo listens safely in background",
+      "shots": "0.00–1.45 Xu Wei checks separately sealed toxicology samples. 1.45–3.25 abstract chromatogram peaks, no readable report. 3.25–5.00 Chen Mo listens calmly from a separate seated area, neck visibly intact.",
+      "dialogue": [
+        {
+          "speaker": "许未",
+          "zh": "检出咪达唑仑代谢物，时间覆盖十点十三分。",
+          "en": "Midazolam metabolites were present, covering the 10:13 window.",
+          "start": 0.35,
+          "end": 4.65
+        }
+      ]
+    },
+    {
+      "id": "04",
+      "title": "她为什么以为被割喉",
+      "characters": [
+        "jian_ci",
+        "chen_mo",
+        "lin_qian"
+      ],
+      "scene": "non-violent forensic reconstruction only: blindfold silhouette, cold blunt metal near an intact neck, warm sample blood on outer white collar; no blade penetration",
+      "shots": "0.00–1.45 neutral reconstruction silhouette: a blindfolded figure feels cold blunt metal held near the side of an intact neck. 1.45–3.25 warm sample blood soaks only the outer white collar. 3.25–5.00 medical side photo confirms Chen Mo's unbroken neck while Lin Qian watches.",
+      "dialogue": [
+        {
+          "speaker": "剑刺",
+          "zh": "冷金属贴颈，温血浸透衣领；恐惧替她补上了伤口。",
+          "en": "Cold metal touched her neck; warm blood soaked the collar. Fear supplied the wound.",
+          "start": 0.2,
+          "end": 4.8
+        }
+      ]
+    },
+    {
+      "id": "05",
+      "title": "血没有撒谎",
+      "characters": [
+        "xu_wei",
+        "lin_qian"
+      ],
+      "scene": "lab table: discarded pre-op sample, collar blood sample and missing inventory route in three sealed independent tracks; transport-case receipt photograph",
+      "shots": "0.00–1.45 Xu Wei presents three sealed evidence tracks separately. 1.45–3.20 their batch route meets visually without merging samples. 3.20–5.00 Lin Qian looks at a transport-case receipt photo tied to Cheng Yue, no readable text.",
+      "dialogue": [
+        {
+          "speaker": "许未",
+          "zh": "血没有撒谎。撒谎的是它离开冷库的理由。",
+          "en": "The blood did not lie. Its reason for leaving the cold room did.",
+          "start": 0.35,
+          "end": 4.65
+        }
+      ]
+    },
+    {
+      "id": "06",
+      "title": "私人补给",
+      "characters": [
+        "jian_ci",
+        "lin_qian"
+      ],
+      "scene": "separate staff rest room, far from all evidence; Jian Ci discreetly drinks an opaque personal nutrition pouch through a black straw; only a blink-length small fang reflection",
+      "shots": [
+        "0.00–1.35 Jian Ci alone in staff break room drinks from an opaque personal nutrition pouch through a black straw, evidence nowhere nearby.",
+        "1.35–2.30 door opens; an extremely brief small fang reflection vanishes before anyone sees it.",
+        "2.30–5.00 Lin Qian enters with a case folder; Jian Ci lowers the straw and gives a dry answer, she does not notice anything abnormal."
+      ],
+      "dialogue": [
+        {
+          "speaker": "林浅",
+          "zh": "又是私人补给？",
+          "en": "Private replenishment again?",
+          "start": 0.35,
+          "end": 1.6
+        },
+        {
+          "speaker": "剑刺",
+          "zh": "至少证物不能喝。",
+          "en": "At least evidence is off the menu.",
+          "start": 2.35,
+          "end": 3.85
+        }
+      ]
+    },
+    {
+      "id": "07",
+      "title": "真正的动机",
+      "characters": [
+        "chen_mo",
+        "lin_qian",
+        "han_che"
+      ],
+      "scene": "briefing room: three missing transport cases represented only by non-readable inventory photos; finance and inventory evidence remain separately sealed",
+      "shots": "0.00–1.45 Chen Mo points to three non-readable inventory photographs. 1.45–3.20 Lin Qian separately seals finance and inventory evidence. 3.20–5.00 Han Che confirms the samples were diverted illegally, never as a flashy reveal.",
+      "dialogue": [
+        {
+          "speaker": "陈沫",
+          "zh": "我查到三箱样本被卖掉，所以程越要我闭嘴。",
+          "en": "I found three cases of samples had been sold. Cheng Yue needed me silent.",
+          "start": 0.3,
+          "end": 4.75
+        }
+      ]
+    },
+    {
+      "id": "08",
+      "title": "没有伤口的辩解",
+      "characters": [
+        "cheng_yue",
+        "lin_qian"
+      ],
+      "scene": "same interview room; photo of Chen Mo's intact neck lies in a sealed sleeve; Cheng Yue has no gloves and never touches evidence",
+      "shots": "0.00–1.45 Cheng Yue looks at the sealed photo of Chen Mo's intact neck. 1.45–3.25 his fingers tighten on the table but never touch evidence. 3.25–5.00 Lin Qian holds a calm direct gaze.",
+      "dialogue": [
+        {
+          "speaker": "程越",
+          "zh": "她没有伤口，你们凭什么说我伤害她？",
+          "en": "She had no wound. How can you say I harmed her?",
+          "start": 0.35,
+          "end": 4.55
+        }
+      ]
+    },
+    {
+      "id": "09",
+      "title": "证据闭环",
+      "characters": [
+        "lin_qian",
+        "cheng_yue",
+        "xu_wei"
+      ],
+      "scene": "large clean evidence board: looped video, toxicology, tyre notch, broken right latch and finance route are five distinct groups; white PPE and silver-gray LEFT glove sealed separately",
+      "shots": "0.00–1.45 Lin Qian indicates five separately framed evidence groups one after another. 1.45–3.15 Xu Wei seals white PPE and silver-gray LEFT glove as separate items. 3.15–5.00 the camera holds the complete evidence structure, no illegal report text.",
+      "dialogue": [
+        {
+          "speaker": "林浅",
+          "zh": "伤口没有留下；你的路线、药物和箱扣都留下了。",
+          "en": "The wound did not remain. Your route, the drug and the broken latch did.",
+          "start": 0.3,
+          "end": 4.7
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "title": "只是想吓她",
+      "characters": [
+        "cheng_yue",
+        "lin_qian"
+      ],
+      "scene": "same interview room, recording light and Cheng Yue's still hands in frame; no triumphant expression",
+      "shots": "0.00–1.45 recording indicator and Cheng Yue's still hands share the frame. 1.45–3.20 his controlled face turns tired; he admits motive in a quiet voice. 3.20–5.00 Lin Qian remains professional, without celebration.",
+      "dialogue": [
+        {
+          "speaker": "程越",
+          "zh": "我只是想让她闭嘴。",
+          "en": "I only wanted to silence her.",
+          "start": 0.75,
+          "end": 3.65
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "title": "证词仍然有效",
+      "characters": [
+        "chen_mo",
+        "jian_ci",
+        "lin_qian"
+      ],
+      "scene": "quiet corridor; Chen Mo signs a statement, same clothes and intact neck; sealed silver-gray LEFT glove visible in evidence bag",
+      "shots": "0.00–1.45 Chen Mo signs her statement in the corridor. 1.45–3.20 Jian Ci transfers the statement to Lin Qian with gloved hands, never touching Chen Mo. 3.20–5.00 Chen Mo looks at the sealed silver-gray left glove.",
+      "dialogue": [
+        {
+          "speaker": "剑刺",
+          "zh": "你记错了伤口，但没有记错那只手。",
+          "en": "You remembered the wound incorrectly—not the hand.",
+          "start": 0.3,
+          "end": 4.45
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "title": "下一份案卷",
+      "characters": [
+        "lin_qian",
+        "jian_ci",
+        "zhou_qiao"
+      ],
+      "scene": "closing evidence room: Chen Mo case cabinet shuts; recovered phone is still bagged; a new sealed file labeled only in post 'Shen Mi' is placed beside it; rain-night corridor",
+      "shots": "0.00–1.45 evidence cabinet closes and bagged recovered phone remains on table. 1.45–3.15 new sealed Shen Mi case file is placed beside it, no generated label. 3.15–5.00 Lin Qian and Jian Ci turn down the rain-dark corridor toward a new scene as Zhou Qiao remains at the evidence desk.",
+      "dialogue": [
+        {
+          "speaker": "旁白",
+          "zh": "同一晚，沈弥的案卷送到了。",
+          "en": "That same night, Shen Mi's file arrived.",
+          "start": 0.3,
+          "end": 4.55
+        }
+      ]
+    }
+  ]
+}
