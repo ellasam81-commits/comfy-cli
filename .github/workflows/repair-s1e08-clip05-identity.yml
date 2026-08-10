@@ -1,0 +1,77 @@
+name: Repair S1E08 Clip 05 — remove duplicate Lin Qian
+
+on:
+  push:
+    branches: [render/s1e08-clip05-identity-fix-v1]
+    paths: ["references/s1e06/repair/run-identity-fix.txt"]
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: s1e08-clip05-identity-fix-v1
+  cancel-in-progress: false
+
+jobs:
+  repair-once:
+    runs-on: ubuntu-latest
+    timeout-minutes: 70
+    env:
+      SEGMIND_API_KEY: \${{ secrets.SEGMIND_API_KEY }}
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Enforce one authorized paid repair
+        env:
+          BEFORE_SHA: \${{ github.event.before }}
+          CURRENT_SHA: \${{ github.sha }}
+          RUN_ATTEMPT: \${{ github.run_attempt }}
+        run: |
+          set -euo pipefail
+          [[ "$RUN_ATTEMPT" == "1" ]] || { echo "::error::Workflow reruns are forbidden."; exit 2; }
+          mapfile -t changed < <(git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+          [[ "\${#changed[@]}" -eq 1 && "\${changed[0]}" == "references/s1e06/repair/run-identity-fix.txt" ]] || { echo "::error::Only the authorization gate may change."; exit 2; }
+          [[ "$(cat references/s1e06/repair/run-identity-fix.txt)" == "AUTHOR-APPROVED: REPAIR S1E08 CLIP 05 IDENTITY ONCE" ]] || exit 2
+          [[ -n "$SEGMIND_API_KEY" ]] || { echo "::error::Missing SEGMIND_API_KEY; no paid request made."; exit 2; }
+      - name: Install repair tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install "segmind==1.1.0" requests Pillow
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+      - name: Restore accepted raw clip 05 from the original S01E06 run
+        uses: actions/download-artifact@v4
+        with:
+          name: S1E06-The-Killer-Chosen-by-Numbers-Final
+          run-id: 31325208161
+          github-token: \${{ secrets.GITHUB_TOKEN }}
+          path: original-s1e06-artifact
+      - name: Derive the correct first 3.65 seconds as the video reference
+        run: |
+          set -euo pipefail
+          source_clip="$(find original-s1e06-artifact -type f -name 'S1E06_clip_05_raw.mp4' -print -quit)"
+          test -n "$source_clip"
+          mkdir -p references/s1e06/repair
+          ffmpeg -hide_banner -loglevel error -i "$source_clip" -t 3.65 -an -r 24 \
+            -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -movflags +faststart \
+            -y references/s1e06/repair/clip05_correct_prefix_reference.mp4
+      - name: Validate repair contract without a paid request
+        run: |
+          python -m py_compile scripts/repair_s1e08_clip05_identity.py
+          test -s references/s1e06/repair/clip05_correct_prefix_reference.mp4
+          for i in 1 2 3 4; do test -s "references/s1e06/panels/clip_05_shot_\${i}.jpg.b64"; done
+          test -s references/s1e03/source_refs/character_chart_highres.jpeg
+      - name: Submit exactly one Seedance 2 mini repair
+        run: python scripts/repair_s1e08_clip05_identity.py
+      - name: Upload repaired clip and proof
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: S1E08-Clip05-Identity-Repair
+          path: output/s1e08-clip05-identity-repair/
+          if-no-files-found: warn
+          compression-level: 0
+          retention-days: 30
