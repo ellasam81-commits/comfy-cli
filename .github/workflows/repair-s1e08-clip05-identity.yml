@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 70
     env:
-      SEGMIND_API_KEY: \${{ secrets.SEGMIND_API_KEY }}
+      SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
       PYTHONUNBUFFERED: "1"
     steps:
       - uses: actions/checkout@v4
@@ -26,14 +26,14 @@ jobs:
           fetch-depth: 0
       - name: Enforce one authorized paid repair
         env:
-          BEFORE_SHA: \${{ github.event.before }}
-          CURRENT_SHA: \${{ github.sha }}
-          RUN_ATTEMPT: \${{ github.run_attempt }}
+          BEFORE_SHA: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
         run: |
           set -euo pipefail
           [[ "$RUN_ATTEMPT" == "1" ]] || { echo "::error::Workflow reruns are forbidden."; exit 2; }
           mapfile -t changed < <(git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA")
-          [[ "\${#changed[@]}" -eq 1 && "\${changed[0]}" == "references/s1e06/repair/run-identity-fix.txt" ]] || { echo "::error::Only the authorization gate may change."; exit 2; }
+          [[ "${#changed[@]}" -eq 1 && "${changed[0]}" == "references/s1e06/repair/run-identity-fix.txt" ]] || { echo "::error::Only the authorization gate may change."; exit 2; }
           [[ "$(cat references/s1e06/repair/run-identity-fix.txt)" == "AUTHOR-APPROVED: REPAIR S1E08 CLIP 05 IDENTITY ONCE" ]] || exit 2
           [[ -n "$SEGMIND_API_KEY" ]] || { echo "::error::Missing SEGMIND_API_KEY; no paid request made."; exit 2; }
       - name: Install repair tools
@@ -47,7 +47,7 @@ jobs:
         with:
           name: S1E06-The-Killer-Chosen-by-Numbers-Final
           run-id: 31325208161
-          github-token: \${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           path: original-s1e06-artifact
       - name: Derive the correct first 3.65 seconds as the video reference
         run: |
@@ -62,7 +62,7 @@ jobs:
         run: |
           python -m py_compile scripts/repair_s1e08_clip05_identity.py
           test -s references/s1e06/repair/clip05_correct_prefix_reference.mp4
-          for i in 1 2 3 4; do test -s "references/s1e06/panels/clip_05_shot_\${i}.jpg.b64"; done
+          for i in 1 2 3 4; do test -s "references/s1e06/panels/clip_05_shot_${i}.jpg.b64"; done
           test -s references/s1e03/source_refs/character_chart_highres.jpeg
       - name: Submit exactly one Seedance 2 mini repair
         run: python scripts/repair_s1e08_clip05_identity.py
