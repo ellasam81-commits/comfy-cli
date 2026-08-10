@@ -1,0 +1,78 @@
+name: Generate reworked S1E05–S1E06 — one submission per clip
+
+on:
+  push:
+    branches: [render/s1e05-s1e06-rework-v1]
+    paths: ["references/s1e05_rework/run-approved.txt"]
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: s1e05-s1e06-rework-v1
+  cancel-in-progress: false
+
+jobs:
+  generate-once:
+    runs-on: ubuntu-latest
+    timeout-minutes: 160
+    env:
+      SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Enforce author-approved one-pass scope
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+        run: |
+          set -euo pipefail
+          [[ "$RUN_ATTEMPT" == "1" ]] || { echo "::error::Workflow reruns are forbidden."; exit 2; }
+          mapfile -t changed < <(git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+          [[ "${#changed[@]}" -eq 1 && "${changed[0]}" == "references/s1e05_rework/run-approved.txt" ]] || { echo "::error::Only the one-pass authorization gate may change."; exit 2; }
+          [[ "$(cat references/s1e05_rework/run-approved.txt)" == "AUTHOR-APPROVED: GENERATE REWORKED S01E05 AND S01E06 ONCE" ]] || { echo "::error::Authorization text mismatch."; exit 2; }
+          [[ -n "$SEGMIND_API_KEY" ]] || { echo "::error::Missing SEGMIND_API_KEY; no paid request made."; exit 2; }
+      - name: Install locked render and subtitle tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install "segmind==1.1.0" requests Pillow
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg fonts-noto-cjk
+      - name: Restore accepted S01E04 clip 01 reference
+        uses: actions/download-artifact@v4
+        with:
+          name: S1E04-Clip01-Style-Repair
+          run-id: 30902962928
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: prior_e4/clip01
+      - name: Restore accepted S01E04 clips 02–11 references
+        uses: actions/download-artifact@v4
+        with:
+          name: S1E04-Remainder-02-12
+          run-id: 31254812142
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: prior_e4/remainder
+      - name: Restore accepted S01E04 clip 12 bridge
+        uses: actions/download-artifact@v4
+        with:
+          name: S1E04-Clip12-Final
+          run-id: 31256158971
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: prior_e4/clip12
+      - name: Full preflight before any paid request
+        run: python scripts/generate_s1e05_s1e06_rework.py --preflight
+      - name: Generate each locked five-second clip exactly once
+        run: python scripts/generate_s1e05_s1e06_rework.py
+      - name: Upload generation results and per-clip proof
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: S1E05-S1E06-Rework-Results
+          path: output/s1e05-s1e06-rework/
+          if-no-files-found: warn
+          compression-level: 0
+          retention-days: 30
