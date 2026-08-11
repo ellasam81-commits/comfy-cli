@@ -3,7 +3,7 @@ name: Generate S1E10 clip 01 — storyboard proof (one shot only)
 on:
   push:
     branches: [render/s1e10-s1e12-final-v1]
-    paths: ["references/s1e10-12/run-s1e10-clip01-proof-gate.txt"]
+    paths: ["references/s1e10-12/run-s1e10-clip01-proof-gate-v2.txt"]
 
 permissions:
   contents: read
@@ -33,8 +33,8 @@ jobs:
           set -euo pipefail
           [[ "$RUN_ATTEMPT" == "1" ]] || { echo "::error::Workflow reruns are forbidden."; exit 2; }
           mapfile -t changed < <(git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA")
-          [[ "${#changed[@]}" -eq 1 && "${changed[0]}" == "references/s1e10-12/run-s1e10-clip01-proof-gate.txt" ]] || { echo "::error::Only the approved proof gate may change."; exit 2; }
-          [[ "$(cat references/s1e10-12/run-s1e10-clip01-proof-gate.txt)" == "AUTHOR-APPROVED: GENERATE S01E10 CLIP 01 STORYBOARD PROOF ONCE" ]] || exit 2
+          [[ "${#changed[@]}" -eq 1 && "${changed[0]}" == "references/s1e10-12/run-s1e10-clip01-proof-gate-v2.txt" ]] || { echo "::error::Only the approved proof gate may change."; exit 2; }
+          [[ "$(cat references/s1e10-12/run-s1e10-clip01-proof-gate-v2.txt)" == "AUTHOR-APPROVED: GENERATE S01E10 CLIP 01 STORYBOARD PROOF V2 ONCE" ]] || exit 2
           [[ -n "$SEGMIND_API_KEY" ]] || { echo "::error::Missing SEGMIND_API_KEY; no paid request made."; exit 2; }
       - name: Install proof generation and QC tools
         run: |
