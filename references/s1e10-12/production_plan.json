@@ -1,0 +1,263 @@
+{
+  "series_title_zh": "吸血法医·剑刺",
+  "maker_zh": "林爱丽",
+  "model": "seedance-2.0-mini",
+  "resolution": "480p",
+  "aspect_ratio": "16:9",
+  "duration_seconds_per_clip": 5,
+  "clips_per_episode": 12,
+  "shots_per_clip": 3,
+  "automatic_retries": 0,
+  "visual_lock": "Original premium 2D manga-noir forensic animation. Cold blue-black and iron-gray palette, fine clean ink linework, restrained cel shading, cinematic rain-dark lighting, realistic adult proportions, natural blink and breath, stable screen direction. Never live action, photorealism, 3D, chibi, static key-art poster, bright fantasy, visible panels, generated text or readable UI.",
+  "character_lock": "Jian Ci / 剑刺: tall slim pale adult Chinese male forensic doctor, short layered black side-part hair, faint mole under his left eye, white forensic coat over black high neck, black gloves, never glasses, low restrained Mandarin male voice. Lin Qian / 林浅: adult Chinese female investigator, chin-length straight black bob, fitted navy field uniform and black gloves, steady mid-low Mandarin female voice. Zhou Qiao / 周峤: young adult Chinese male digital-forensics officer, tousled short black hair, silver-rim glasses and small hearing device, charcoal technical jacket, precise calm Mandarin male voice. Xu Wei / 许未: adult Chinese female forensic analyst, brown high ponytail, olive forensic coverall and black examination gloves, clear firm Mandarin female voice. Han Che / 韩彻: mature Chinese male commander, square weathered face, short gray-black hair, dark command jacket and old mechanical watch, calm authoritative Mandarin male voice. Tang Yun / 唐筠: Chinese woman, 42 to 48, narrow oval face, dark-brown practical low bun, charcoal cardigan over muted blue blouse, dark slacks, analog watch, tired controlled eyes, never villain-coded. Yao Qing / 姚青: adult Chinese female night-care worker, treated respectfully as a covered decedent only; no gore.",
+  "global_negative": "face swap, duplicate person, extra crowd, wardrobe drift, wrong glasses, Jian Ci with glasses, Zhou Qiao without glasses, distorted hands, bare-hand evidence handling, invented character, gory corpse, blood spray, corpse movement, visible teeth, persistent red eyes, supernatural power as evidence, inaccurate medical claim, readable computer UI, readable medical report, generated subtitles, generated title, watermark, logo, English speech, invented dialogue, silence",
+  "case_continuity": "Immediately after S01E09《死后的加班》: Jiang Lan's scheduled source file has finished sending and the red live dot has gone dark. A new emergency call takes the team to a private elder-care centre. Jian Ci's vampire hunger is worsening, but it never proves any fact and he never harms a person. The evidence chain remains human, sealed, photographed and independently verified.",
+  "episodes": [
+    {
+      "episode": "S01E10",
+      "title_zh": "干燥的尸体",
+      "title_en": "The Dry Body",
+      "case_zh": "无水溺亡",
+      "case_en": "Drowning Without Water",
+      "continuity": "The dark blue indicator on Jiang Lan's sealed drive fades into a new dispatch light. Rain continues outside, but the new elder-care scene is dry, quiet and clinically controlled.",
+      "clips": [
+        {
+          "id": "01", "title": "蓝灯之后", "characters": ["lin_qian", "jian_ci", "han_che"],
+          "scene": "Direct visual bridge from S01E09: a sealed black drive with a faint blue indicator lies on a wet steel desk; a new emergency dispatch light reflects across it in the same blue-black forensic corridor.",
+          "shots": ["0.00-1.66 macro of the sealed black drive, blue indicator fading on wet steel", "1.66-3.33 Lin Qian receives a discreet emergency call in profile", "3.33-5.00 Han Che and Jian Ci turn toward the rain-dark corridor, procedural and controlled"],
+          "dialogue": [{"speaker": "旁白", "zh": "直播熄灭四十分钟后，新的报警来了。", "en": "Forty minutes after the stream went dark, a new call came.", "start": 0.35, "end": 4.35}]
+        },
+        {
+          "id": "02", "title": "干燥的储物间", "characters": ["lin_qian", "jian_ci", "yao_qing"],
+          "scene": "Private elder-care centre, dry linen-storage room under cold practical light. Yao Qing is respectfully fully covered on a gurney beside an empty wheeled linen cart; no water is visible.",
+          "shots": ["0.00-1.66 controlled entry past a care-centre corridor and sealed doorway", "1.66-3.33 Lin Qian photographs the dry floor and wheeled linen cart with gloves", "3.33-5.00 Jian Ci stands by the respectfully covered Yao Qing, taking in the dry room"],
+          "dialogue": [{"speaker": "林浅", "zh": "死者姚青，养老院夜班护理员。", "en": "The victim is Yao Qing, the night-shift care worker.", "start": 0.35, "end": 4.20}]
+        },
+        {
+          "id": "03", "title": "看不见的水", "characters": ["jian_ci", "lin_qian", "yao_qing"],
+          "scene": "Same dry storage room. Jian Ci performs only ordinary visual and temperature observations at the covered wrist; Lin Qian keeps a clear evidence distance.",
+          "shots": ["0.00-1.66 close clinical temperature check at the covered wrist", "1.66-3.33 Jian Ci observes dry sleeves, collar and the surrounding floor", "3.33-5.00 Jian Ci faces Lin Qian with restrained forensic focus"],
+          "dialogue": [{"speaker": "剑刺", "zh": "衣服干了，不代表她没有进过水。", "en": "Dry clothes do not mean she was never in water.", "start": 0.35, "end": 4.30}]
+        },
+        {
+          "id": "04", "title": "先别下结论", "characters": ["xu_wei", "lin_qian", "yao_qing"],
+          "scene": "Same room. Xu Wei carefully photographs a small non-graphic foam residue near the covered face, then seals a swab; nothing is exaggerated.",
+          "shots": ["0.00-1.66 Xu Wei positions a scale beside a tiny non-graphic residue", "1.66-3.33 she seals a swab and photographs the evidence tag without readable text", "3.33-5.00 Lin Qian watches Xu Wei keep the sample separate from all other items"],
+          "dialogue": [{"speaker": "许未", "zh": "这些只支持方向，不能单独定案。", "en": "These support a direction, not a conclusion by themselves.", "start": 0.30, "end": 4.30}]
+        },
+        {
+          "id": "05", "title": "车轮留下的路", "characters": ["lin_qian", "zhou_qiao"],
+          "scene": "Dry corridor outside the storage room. Lin Qian studies one faint cart-wheel track while Zhou Qiao measures it with a small evidence ruler; no readable screens.",
+          "shots": ["0.00-1.66 low angle follows a faint wheel trace across the dry floor", "1.66-3.33 Lin Qian photographs the trace from a measured height", "3.33-5.00 Zhou Qiao compares the cart wheel silently against the trace"],
+          "dialogue": [{"speaker": "林浅", "zh": "地面是干的，车轮却不是。", "en": "The floor is dry, but the wheels are not.", "start": 0.42, "end": 4.15}]
+        },
+        {
+          "id": "06", "title": "控制", "characters": ["jian_ci", "xu_wei"],
+          "scene": "Cold service corridor just outside the scene. Jian Ci pauses beside a sealed biological-sample cooler; in a stainless reflection, only a fleeting red tint reaches one iris. Xu Wei approaches from a safe distance.",
+          "shots": ["0.00-1.66 Jian Ci grips the edge of a steel counter, breathing controlled", "1.66-3.33 one momentary red reflection appears in a steel panel and disappears", "3.33-5.00 Xu Wei notices his condition; Jian Ci steps away from the sealed cooler"],
+          "dialogue": [{"speaker": "剑刺", "zh": "许未，样本你先接手。", "en": "Xu Wei, take the samples for now.", "start": 0.42, "end": 4.10}]
+        },
+        {
+          "id": "07", "title": "十点锁池", "characters": ["han_che", "lin_qian", "tang_yun"],
+          "scene": "Care-centre briefing nook. Tang Yun stands beside a simple physical building plan with no readable labels; Han Che and Lin Qian listen without accusing her.",
+          "shots": ["0.00-1.66 Tang Yun points to the pool wing on a non-readable paper plan", "1.66-3.33 Han Che observes her exact wording", "3.33-5.00 Lin Qian marks the claimed lock time on her own sealed notebook"],
+          "dialogue": [{"speaker": "唐筠", "zh": "水疗池十点已经上锁。", "en": "The hydrotherapy pool was locked at ten.", "start": 0.35, "end": 4.10}]
+        },
+        {
+          "id": "08", "title": "第一处矛盾", "characters": ["zhou_qiao", "lin_qian"],
+          "scene": "Digital-forensics station in the same centre. Zhou Qiao views an abstract non-readable lock-event pattern while Lin Qian holds the physical key log separately.",
+          "shots": ["0.00-1.66 Zhou Qiao in profile, glasses and hearing device clearly visible", "1.66-3.33 abstract lock-event line shows one late disturbance without readable text", "3.33-5.00 Lin Qian compares it with a sealed physical key-log envelope"],
+          "dialogue": [{"speaker": "周峤", "zh": "十点零七分，池盖又开过一次。", "en": "At 10:07, the pool cover opened again.", "start": 0.35, "end": 4.20}]
+        },
+        {
+          "id": "09", "title": "能改的记录", "characters": ["lin_qian", "zhou_qiao", "han_che"],
+          "scene": "Evidence table. Digital lock data, a paper key log and a sealed access card remain on three separated trays, connected only by Lin Qian's measured gesture.",
+          "shots": ["0.00-1.66 three separate evidence trays sit in a controlled top-down composition", "1.66-3.33 Lin Qian looks from the paper log to the sealed card", "3.33-5.00 Han Che gives a small order to preserve every source"],
+          "dialogue": [{"speaker": "林浅", "zh": "记录会被改，留下记录的人也会。", "en": "Records can be changed. So can the people who leave them.", "start": 0.30, "end": 4.40}]
+        },
+        {
+          "id": "10", "title": "没有干透的颗粒", "characters": ["xu_wei", "jian_ci"],
+          "scene": "Forensic lab under cold light. Xu Wei examines a sealed cuff sample beside a separate water sample using a microscope and a simple non-readable comparison card.",
+          "shots": ["0.00-1.66 sealed cuff fibre sample is placed under a microscope", "1.66-3.33 Xu Wei compares it with a separately sealed water sample", "3.33-5.00 Jian Ci stays behind the marked clean boundary and listens"],
+          "dialogue": [{"speaker": "许未", "zh": "她袖口里的颗粒，来自循环池。", "en": "The particles in her cuff came from a recirculating pool.", "start": 0.35, "end": 4.25}]
+        },
+        {
+          "id": "11", "title": "离开水的路", "characters": ["jian_ci", "lin_qian"],
+          "scene": "Service elevator threshold. Jian Ci and Lin Qian stand over a simple physical route reconstruction: damp wheel arc, elevator seam and dry-storage doorway, all photographed.",
+          "shots": ["0.00-1.66 slow floor-level move from damp wheel arc to elevator seam", "1.66-3.33 Jian Ci photographs the route without touching it", "3.33-5.00 Lin Qian follows the route toward the storage corridor"],
+          "dialogue": [{"speaker": "剑刺", "zh": "我们不找水，我们找她离开水的路。", "en": "We do not look for water. We trace how she left it.", "start": 0.35, "end": 4.38}]
+        },
+        {
+          "id": "12", "title": "通往地下", "characters": ["lin_qian", "zhou_qiao"],
+          "scene": "Dark service elevator opens toward the blue-black underground hydrotherapy level. The damp cart track continues inside; Lin Qian and Zhou Qiao enter with evidence lights.",
+          "shots": ["0.00-1.66 elevator doors reveal an unlit underground corridor", "1.66-3.33 the faint damp wheel track crosses the elevator threshold", "3.33-5.00 Lin Qian and Zhou Qiao enter toward the pool wing, ending on black water reflection"],
+          "dialogue": [{"speaker": "旁白", "zh": "车轮留下的路，通往地下。", "en": "The wheel tracks led underground.", "start": 0.42, "end": 4.10}]
+        }
+      ]
+    },
+    {
+      "episode": "S01E11",
+      "title_zh": "肺里的水",
+      "title_en": "Water in the Lungs",
+      "case_zh": "无水溺亡",
+      "case_en": "Drowning Without Water",
+      "continuity": "Begins from S01E10's underground pool reflection. The team now tests the route and mechanism. Tang Yun stays a witness under investigation, never a cartoon villain.",
+      "clips": [
+        {
+          "id": "01", "title": "水疗池", "characters": ["lin_qian", "zhou_qiao"],
+          "scene": "Underground hydrotherapy room before dawn: still black water beneath a retracted pool cover, muted blue safety light, no guests present.",
+          "shots": ["0.00-1.66 black water reflects the blue safety light", "1.66-3.33 Lin Qian photographs the retracted cover and drainage edge", "3.33-5.00 Zhou Qiao checks the sealed control unit without readable UI"],
+          "dialogue": [{"speaker": "林浅", "zh": "尸体被藏起来前，先来过这里。", "en": "Before the body was hidden, it was here.", "start": 0.35, "end": 4.12}]
+        },
+        {
+          "id": "02", "title": "支持，不是结论", "characters": ["xu_wei", "jian_ci"],
+          "scene": "Forensic lab. Lung findings, cuff particles and pool water stay in separate sealed systems; Jian Ci lets Xu Wei lead the explanation.",
+          "shots": ["0.00-1.66 Xu Wei places three sealed evidence groups apart on the bench", "1.66-3.33 simple clinical comparison card shows matching direction, not a verdict", "3.33-5.00 Jian Ci listens from outside Xu Wei's workspace"],
+          "dialogue": [{"speaker": "许未", "zh": "肺部改变支持溺水，但还不够。", "en": "The lung changes support drowning, but they are not enough.", "start": 0.30, "end": 4.25}]
+        },
+        {
+          "id": "03", "title": "被拔掉的警铃", "characters": ["zhou_qiao", "lin_qian"],
+          "scene": "Pool equipment cabinet. A safety-alarm cable is visibly unplugged but not damaged; Zhou Qiao documents it while Lin Qian seals the maintenance cover.",
+          "shots": ["0.00-1.66 close evidence view of an unplugged alarm connector", "1.66-3.33 Zhou Qiao photographs the connector and its unbroken cable", "3.33-5.00 Lin Qian seals the cabinet after documentation"],
+          "dialogue": [{"speaker": "周峤", "zh": "警铃不是坏了，是被人拔掉。", "en": "The alarm was not broken. Someone unplugged it.", "start": 0.35, "end": 4.22}]
+        },
+        {
+          "id": "04", "title": "唯一的目击者", "characters": ["lin_qian", "fang"],
+          "scene": "Quiet elder-care sitting room at dawn. Elderly resident Fang sits safely in a wheelchair with a blanket. Lin Qian crouches at eye level, no pressure, no recording device in her face.",
+          "shots": ["0.00-1.66 warm-cool low light in the quiet sitting room", "1.66-3.33 Lin Qian crouches beside Fang's wheelchair, open posture", "3.33-5.00 Fang looks toward the distant pool corridor, searching memory"],
+          "dialogue": [{"speaker": "林浅", "zh": "方阿姨，只说您亲眼看见的。", "en": "Mrs. Fang, tell us only what you saw yourself.", "start": 0.32, "end": 4.18}]
+        },
+        {
+          "id": "05", "title": "先把人推上来", "characters": ["fang", "lin_qian"],
+          "scene": "Respectful memory reconstruction with no fantasy: Fang's trembling hand indicates the pool edge; an empty rescue chair and wet tile are shown, never a literal replay of drowning.",
+          "shots": ["0.00-1.66 Fang's hand points toward a physical pool-edge photograph", "1.66-3.33 empty rescue chair beside the pool, no person in danger shown", "3.33-5.00 Lin Qian absorbs the statement, compassionate but precise"],
+          "dialogue": [{"speaker": "方阿姨", "zh": "姚青先把我推上来，自己没上来。", "en": "Yao Qing pushed me up first. She did not come up herself.", "start": 0.30, "end": 4.30}]
+        },
+        {
+          "id": "06", "title": "交出检材", "characters": ["jian_ci", "xu_wei"],
+          "scene": "Cold laboratory corridor. A sealed blood sample moves past Jian Ci; his hand tightens, then he deliberately turns away and hands Xu Wei the chain-of-custody clipboard.",
+          "shots": ["0.00-1.66 sealed sample passes beneath cold laboratory light", "1.66-3.33 Jian Ci's gloved hand tightens, then releases without touching it", "3.33-5.00 he gives Xu Wei the clipboard and steps behind the clean boundary"],
+          "dialogue": [{"speaker": "剑刺", "zh": "记录由你签，我退出这一项。", "en": "You sign the record. I am stepping away from this item.", "start": 0.35, "end": 4.20}]
+        },
+        {
+          "id": "07", "title": "没有药物捷径", "characters": ["xu_wei", "lin_qian"],
+          "scene": "Toxicology bench. Xu Wei returns a sealed report to Lin Qian, making clear that no simplifying drug explanation exists.",
+          "shots": ["0.00-1.66 Xu Wei removes a sealed vial from an analytical tray", "1.66-3.33 she places a sealed report envelope on a separate evidence mat", "3.33-5.00 Lin Qian reads the result without visible text"],
+          "dialogue": [{"speaker": "许未", "zh": "毒理没有替我们省事。", "en": "Toxicology did not give us an easy answer.", "start": 0.42, "end": 4.00}]
+        },
+        {
+          "id": "08", "title": "唐筠来了", "characters": ["tang_yun", "lin_qian", "han_che"],
+          "scene": "Interview corridor with rain at the window. Tang Yun's locked reference appearance: low bun, charcoal cardigan, muted blue blouse, analog watch. She is tired and frightened, not melodramatic.",
+          "shots": ["0.00-1.66 Tang Yun pauses outside the interview room, profile controlled", "1.66-3.33 Lin Qian meets her without accusation", "3.33-5.00 Han Che stands by the door, formal and calm"],
+          "dialogue": [{"speaker": "林浅", "zh": "唐筠，报警线为什么断了？", "en": "Tang Yun, why was the alarm line disconnected?", "start": 0.35, "end": 4.18}]
+        },
+        {
+          "id": "09", "title": "补写的夜班", "characters": ["zhou_qiao", "lin_qian", "tang_yun"],
+          "scene": "Briefing table. Zhou Qiao compares a physical paper duty sheet with device-event timing; Tang Yun's earlier staff record remains sealed at a distance.",
+          "shots": ["0.00-1.66 Zhou Qiao aligns two non-readable time strips", "1.66-3.33 Lin Qian places Tang Yun's sealed statement beside them", "3.33-5.00 Tang Yun sees the timing gap, face tightening but not breaking down"],
+          "dialogue": [{"speaker": "周峤", "zh": "夜班记录，是凌晨补写的。", "en": "The night-shift log was written after midnight.", "start": 0.35, "end": 4.15}]
+        },
+        {
+          "id": "10", "title": "遗体走过的电梯", "characters": ["lin_qian", "zhou_qiao"],
+          "scene": "Service elevator forensic reconstruction. Cart-wheel residue and elevator seam fibres are documented, not reenacted with a body.",
+          "shots": ["0.00-1.66 Lin Qian photographs a fibre at the elevator seam", "1.66-3.33 Zhou Qiao compares wheel width using a simple ruler", "3.33-5.00 top-down view links pool corridor, elevator and storage doorway with physical markers"],
+          "dialogue": [{"speaker": "林浅", "zh": "有人把姚青从池边推走了。", "en": "Someone moved Yao Qing from the poolside.", "start": 0.38, "end": 4.14}]
+        },
+        {
+          "id": "11", "title": "错过的急救", "characters": ["han_che", "lin_qian", "tang_yun"],
+          "scene": "Interview room. Tang Yun sits upright, hands visible on the table. Han Che presents the alarm and duty evidence gently but firmly; Lin Qian watches her reaction.",
+          "shots": ["0.00-1.66 Han Che places two sealed evidence bags on the table", "1.66-3.33 Tang Yun looks at the unplugged-alarm photograph", "3.33-5.00 Lin Qian waits without interrupting the silence"],
+          "dialogue": [{"speaker": "韩彻", "zh": "她不是没人看见，是没人愿意报警。", "en": "It was not that no one saw her. No one was willing to call for help.", "start": 0.30, "end": 4.42}]
+        },
+        {
+          "id": "12", "title": "二十二点十四分", "characters": ["lin_qian", "tang_yun"],
+          "scene": "Close but respectful interview shot. Lin Qian turns Tang Yun's analog watch toward its stopped time, then sets it down; rain reflects in the glass behind them.",
+          "shots": ["0.00-1.66 Tang Yun's old analog watch rests beside her empty hands", "1.66-3.33 Lin Qian notices its stopped time and compares it to the emergency timeline", "3.33-5.00 Tang Yun looks toward rain-dark glass, realizing the cover story has ended"],
+          "dialogue": [{"speaker": "林浅", "zh": "二十二点十四分，急救没有被叫。", "en": "At 10:14 p.m., no emergency call was made.", "start": 0.32, "end": 4.30}]
+        }
+      ]
+    },
+    {
+      "episode": "S01E12",
+      "title_zh": "被搬走的死亡",
+      "title_en": "A Death Moved Away",
+      "case_zh": "无水溺亡",
+      "case_en": "Drowning Without Water",
+      "continuity": "Begins from Tang Yun's stopped watch at 22:14. This episode resolves the care-centre cover-up through witness testimony plus independent forensic and access evidence; it does not turn grief or poverty into villainy.",
+      "clips": [
+        {
+          "id": "01", "title": "同一条时间线", "characters": ["lin_qian", "zhou_qiao", "xu_wei"],
+          "scene": "Forensic briefing room. Three independent evidence stations—pool alarm, elevator route, postmortem findings—form one clean physical timeline without readable labels.",
+          "shots": ["0.00-1.66 Lin Qian sets a small analog clock marker at 22:14", "1.66-3.33 Zhou Qiao adds the alarm and elevator event markers", "3.33-5.00 Xu Wei adds the sealed forensic finding at the same point"],
+          "dialogue": [{"speaker": "林浅", "zh": "三条线，在同一分钟交上了。", "en": "Three timelines meet in the same minute.", "start": 0.35, "end": 4.10}]
+        },
+        {
+          "id": "02", "title": "无水溺亡", "characters": ["jian_ci", "lin_qian"],
+          "scene": "Clean glass briefing board, no generated text. Jian Ci explains with a simple pool-to-storage route diagram, keeping the science modest and clear.",
+          "shots": ["0.00-1.66 Jian Ci draws a simple pool-to-storage route on glass", "1.66-3.33 close on one blue route, one cart symbol and one clock symbol", "3.33-5.00 Lin Qian watches the explanation, understanding the evidence chain"],
+          "dialogue": [{"speaker": "剑刺", "zh": "她死在水里，被人搬到干地上。", "en": "She died in water and was moved onto dry ground.", "start": 0.38, "end": 4.10}]
+        },
+        {
+          "id": "03", "title": "唐筠的解释", "characters": ["tang_yun", "lin_qian"],
+          "scene": "Interview room, same locked Tang Yun appearance. She faces Lin Qian with exhausted honesty, hands still visible and empty.",
+          "shots": ["0.00-1.66 Tang Yun sits upright under soft cold interview light", "1.66-3.33 she looks toward the alarm photograph without touching it", "3.33-5.00 Lin Qian holds eye contact, neither comforting nor attacking"],
+          "dialogue": [{"speaker": "唐筠", "zh": "我怕中心关门，怕所有老人被赶走。", "en": "I feared the centre would close and every resident would be sent away.", "start": 0.28, "end": 4.35}]
+        },
+        {
+          "id": "04", "title": "没有人值班", "characters": ["han_che", "lin_qian", "tang_yun"],
+          "scene": "Same interview. A physical staffing board has only empty slots and simple figures, no readable names. Han Che makes the institutional failure explicit.",
+          "shots": ["0.00-1.66 Han Che reveals an empty night-shift staffing board", "1.66-3.33 Tang Yun sees the missing qualified responder slot", "3.33-5.00 Lin Qian keeps the evidence groups separate on the table"],
+          "dialogue": [{"speaker": "韩彻", "zh": "不是事故，是你们把夜班削没了。", "en": "It was not an accident. You cut the night shift away.", "start": 0.30, "end": 4.30}]
+        },
+        {
+          "id": "05", "title": "被搬走的死亡", "characters": ["lin_qian", "zhou_qiao", "tang_yun"],
+          "scene": "Procedural reconstruction in the empty service corridor: cart, elevator seam and dry storage door. No body is shown; only physically placed markers and evidence photography.",
+          "shots": ["0.00-1.66 a clean cart rolls empty beside evidence markers", "1.66-3.33 Zhou Qiao checks the elevator route against sealed event records", "3.33-5.00 Lin Qian photographs the final dry-storage doorway"],
+          "dialogue": [{"speaker": "林浅", "zh": "你们搬走的不是尸体，是责任。", "en": "You moved more than a body. You moved responsibility.", "start": 0.30, "end": 4.34}]
+        },
+        {
+          "id": "06", "title": "先救了别人", "characters": ["fang", "lin_qian"],
+          "scene": "Sitting room. Fang steadies herself with a blanket, while Lin Qian listens from the same respectful distance; no manipulation of her testimony.",
+          "shots": ["0.00-1.66 Fang holds a folded blanket, looking fragile but clear", "1.66-3.33 Lin Qian listens without notebook raised", "3.33-5.00 an empty pool rescue chair rests in the distant reflected window"],
+          "dialogue": [{"speaker": "方阿姨", "zh": "姚青先救了我，她一直喊人。", "en": "Yao Qing saved me first. She kept calling for help.", "start": 0.30, "end": 4.25}]
+        },
+        {
+          "id": "07", "title": "程序之外", "characters": ["han_che", "tang_yun"],
+          "scene": "Interview hallway after the statement. Tang Yun is escorted respectfully; Han Che stops briefly, neither excusing nor humiliating her.",
+          "shots": ["0.00-1.66 Tang Yun stands at the interview-room threshold", "1.66-3.33 Han Che speaks quietly, hands visible and non-threatening", "3.33-5.00 Tang Yun walks toward the lawful interview exit, not handcuffed on screen"],
+          "dialogue": [{"speaker": "韩彻", "zh": "你可以解释，但要先对姚青负责。", "en": "You may explain, but first you must answer to Yao Qing.", "start": 0.32, "end": 4.20}]
+        },
+        {
+          "id": "08", "title": "许未的签名", "characters": ["xu_wei", "jian_ci"],
+          "scene": "Forensic laboratory. Xu Wei signs the final sealed evidence record while Jian Ci stays behind the marked line, visibly accepting her authority.",
+          "shots": ["0.00-1.66 Xu Wei checks a final sealed evidence bag", "1.66-3.33 she signs a non-readable chain-of-custody form", "3.33-5.00 Jian Ci gives a small acknowledging nod from behind the clean boundary"],
+          "dialogue": [{"speaker": "许未", "zh": "结论由证据签字，不由任何人替它说话。", "en": "Evidence signs the conclusion. No one speaks for it.", "start": 0.28, "end": 4.42}]
+        },
+        {
+          "id": "09", "title": "林浅的选择", "characters": ["lin_qian", "jian_ci"],
+          "scene": "Empty blue-black service corridor after the case. Lin Qian finds Jian Ci alone beside a rain-streaked window; she notices he has kept distance from everyone.",
+          "shots": ["0.00-1.66 Jian Ci stands alone by a rain-streaked window", "1.66-3.33 Lin Qian approaches but deliberately stops several steps away", "3.33-5.00 Jian Ci looks at her reflection, not directly at her"],
+          "dialogue": [{"speaker": "林浅", "zh": "你说离远一点时，我会照做。", "en": "When you tell me to keep back, I will.", "start": 0.35, "end": 4.15}]
+        },
+        {
+          "id": "10", "title": "差一步", "characters": ["jian_ci", "lin_qian"],
+          "scene": "Same corridor. A small paper cut on Lin Qian's gloved hand has left a tiny non-graphic red mark on the outer glove. Jian Ci reflexively takes one step forward, then violently turns toward the cold glass; only the audience catches a one-frame red reflection.",
+          "shots": ["0.00-1.66 tiny red mark on Lin Qian's outer glove, non-graphic", "1.66-3.33 Jian Ci takes one involuntary step forward and stops", "3.33-5.00 he turns sharply to the glass; red reflection flashes once and is gone"],
+          "dialogue": [{"speaker": "剑刺", "zh": "别再靠近。现在。", "en": "Do not come closer. Not now.", "start": 0.30, "end": 4.05}]
+        },
+        {
+          "id": "11", "title": "没有被说出的事", "characters": ["lin_qian"],
+          "scene": "Lin Qian alone in the corridor after Jian Ci leaves. She does not pursue him; she closes the evidence-room door and looks at the untouched medical cooler, quietly concerned.",
+          "shots": ["0.00-1.66 Lin Qian watches Jian Ci's white coat disappear around a corner", "1.66-3.33 she closes the evidence-room door with a gloved hand", "3.33-5.00 she looks at the sealed cooler, concern held back"],
+          "dialogue": [{"speaker": "旁白", "zh": "林浅没有追问，但她记住了。", "en": "Lin Qian did not ask. But she remembered.", "start": 0.38, "end": 4.15}]
+        },
+        {
+          "id": "12", "title": "下一袋血", "characters": ["zhou_qiao", "lin_qian"],
+          "scene": "Police evidence corridor. Zhou Qiao receives a new emergency alert beside an unmarked insulated medical cooler, while Lin Qian looks from it to the dark corridor Jian Ci left. The cooler remains sealed and unreadable.",
+          "shots": ["0.00-1.66 unmarked insulated medical cooler sits sealed on a steel evidence table", "1.66-3.33 Zhou Qiao receives an emergency alert, glasses and hearing device clear", "3.33-5.00 Lin Qian looks toward the dark corridor, then back to the cooler"],
+          "dialogue": [{"speaker": "周峤", "zh": "城东发现一名失血昏迷者，伤口很小。", "en": "An unconscious victim was found in the east, severely blood-depleted with only a small wound.", "start": 0.26, "end": 4.45}]
+        }
+      ]
+    }
+  ]
+}
