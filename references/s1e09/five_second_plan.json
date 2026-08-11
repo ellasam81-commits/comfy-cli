@@ -1,0 +1,100 @@
+{
+  "episode": "S01E09",
+  "title_zh": "死后的加班",
+  "case_zh": "死者直播",
+  "model": "seedance-2.0-mini",
+  "duration_seconds_per_clip": 5,
+  "clip_count": 12,
+  "shots_per_clip": 4,
+  "resolution": "480p",
+  "aspect_ratio": "16:9",
+  "author": "林爱丽",
+  "character_lock": "剑刺 / Jian Ci: tall pale adult Chinese forensic doctor, short black side-part hair, white forensic coat over black high-neck shirt, black gloves, never glasses, restrained low male Mandarin voice. 林浅 / Lin Qian: adult Chinese investigator, chin-length black bob, navy uniform, black gloves, steady mid-low female Mandarin voice. 周峤 / Zhou Qiao: adult Chinese digital-forensics expert, silver-rim glasses and hearing device, charcoal technical jacket, measured male Mandarin voice. 许未 / Xu Wei: adult Chinese forensic analyst, brown high ponytail, olive forensic coverall, black gloves, clear female Mandarin voice. 李凯 / Li Kai: ordinary adult Chinese male, short black hair, charcoal-gray hoodie under dark tech jacket, no glasses, anxious but not villainous. 江岚 / Jiang Lan: adult Chinese woman with shoulder-length black hair and dark gray top; show respectfully only in pre-recorded screen images or tactful covered-scene context.",
+  "global_negative": "No face swap, no duplicate person, no wardrobe drift, no extra crowd, no distorted hands, no readable text, no subtitles, no title card, no watermark, no visible interface, no real footage, no photorealism, no 3D, no chibi, no gore, no blood, no fangs, no red eyes, no supernatural proof, no static concept poster.",
+  "clips": [
+    {
+      "id": "01",
+      "characters": ["lin_qian", "jiang_lan"],
+      "scene": "Direct match-cut from S01E08: the same wet blue-black metal desk, black laptop and tiny red live-status dot; Jiang Lan remains blurred and still on the screen. Lin Qian protects the evidence without interrupting the feed.",
+      "shots": ["Same E08 laptop and red live dot, Jiang Lan blurred on screen", "Macro of the dot reflected in wet steel", "Lin Qian enters in profile, alert and calm", "Her gloved hand places an evidence tent beside the keyboard"],
+      "dialogue": [{"speaker": "旁白", "zh": "凌晨零点十七分，江岚的直播还在继续。", "en": "At 12:17 a.m., Jiang Lan's livestream is still running.", "start": 0.35, "end": 4.20}]
+    },
+    {
+      "id": "02",
+      "characters": ["lin_qian", "zhou_qiao"],
+      "scene": "Jiang Lan's apartment studio is cold and intact. Lin Qian photographs and bags devices methodically while Zhou Qiao monitors the still-live stream from a separate station.",
+      "shots": ["High overhead of sealed livestream desk", "Lin photographs the webcam without touching it", "She bags a phone while the red light remains", "Zhou receives a sealed cable at the monitor"],
+      "dialogue": [{"speaker": "林浅", "zh": "设备全部封存，先别断网。", "en": "Seal every device. Do not cut the network yet.", "start": 0.40, "end": 4.10}]
+    },
+    {
+      "id": "03",
+      "characters": ["zhou_qiao", "lin_qian"],
+      "scene": "Digital-forensics lab. Zhou Qiao compares repeated presenter gestures and audio peaks, while Lin Qian sees the artificial repetition for the first time.",
+      "shots": ["Zhou in profile, glasses and hearing device clear", "Abstract repeated presenter gestures and red dot on monitor", "Gloved finger aligns waveform peaks", "Lin sees the repeated motion over Zhou's shoulder"],
+      "dialogue": [{"speaker": "周峤", "zh": "弹幕回复不是实时的。", "en": "Those comment replies are not live.", "start": 0.38, "end": 3.90}]
+    },
+    {
+      "id": "04",
+      "characters": ["jian_ci", "lin_qian", "jiang_lan"],
+      "scene": "Tactful mortuary examination. Jiang Lan is fully covered; Jian Ci uses ordinary temperature and postmortem observations, while the live red dot persists only in the distant background.",
+      "shots": ["Jian opens a stainless examination case by the covered gurney", "Close clinical temperature check at the covered wrist", "Jian studies clock and condensation while Lin waits", "Jian turns calmly toward Lin, laptop dot far behind"],
+      "dialogue": [{"speaker": "剑刺", "zh": "死亡时间早于这场直播。", "en": "Her death predates this livestream.", "start": 0.46, "end": 3.80}]
+    },
+    {
+      "id": "05",
+      "characters": ["zhou_qiao", "lin_qian"],
+      "scene": "Zhou identifies a pre-recorded broadcast branch built the previous day. Devices remain isolated and no data screen is readable.",
+      "shots": ["Zhou studies a branch-network monitor", "One abstract source splits into two blue paths", "He compares two sealed drives", "Lin and Zhou understand the branch without celebration"],
+      "dialogue": [{"speaker": "周峤", "zh": "昨天就建好了预录分支。", "en": "The prerecorded branch was created yesterday.", "start": 0.42, "end": 4.05}]
+    },
+    {
+      "id": "06",
+      "characters": ["lin_qian", "zhou_qiao", "li_kai"],
+      "scene": "A chipped black tablet is separately isolated. Zhou traces its connection as a trigger source; Li Kai arrives, but the team makes no accusation.",
+      "shots": ["Lin's gloves place the chipped tablet on an evidence table", "Zhou traces an abstract device-source line", "Lin receives a notification in profile", "Li Kai waits at interview-room glass; tablet remains sealed foreground"],
+      "dialogue": [{"speaker": "周峤", "zh": "触发它的，是李凯的平板。", "en": "Li Kai's tablet triggered it.", "start": 0.45, "end": 3.95}]
+    },
+    {
+      "id": "07",
+      "characters": ["lin_qian", "jian_ci", "li_kai"],
+      "scene": "Interview room. Lin Qian questions Li Kai with the tablet kept sealed between them. Jian Ci observes through glass; no supernatural reaction and no premature blame.",
+      "shots": ["Wide through observation glass: Lin faces Li Kai", "Lin sets the sealed tablet bag on the table", "Li Kai's empty hands and uneasy face", "Jian Ci observes silently through one-way glass"],
+      "dialogue": [{"speaker": "林浅", "zh": "李凯，你为什么碰过她的平板？", "en": "Li Kai, why did you touch her tablet?", "start": 0.40, "end": 4.20}]
+    },
+    {
+      "id": "08",
+      "characters": ["lin_qian", "li_kai"],
+      "scene": "Lin presents a revenue-share lead with a folder and an abstract split-reflection graphic. It is motive only, not a conclusion.",
+      "shots": ["Lin reads a folder at evidence wall", "Abstract split coin-like reflection, no words", "Li Kai processes the implication behind glass", "Lin sets the folder beside untouched sealed tablet"],
+      "dialogue": [{"speaker": "林浅", "zh": "她死后，你会多拿一半分成。", "en": "After she died, your share would double.", "start": 0.42, "end": 4.05}]
+    },
+    {
+      "id": "09",
+      "characters": ["xu_wei", "jian_ci"],
+      "scene": "Forensic chemistry lab. Xu Wei keeps an unmarked, sealed personal spray item separate from a blood sample, then reports a sedative metabolite finding. Never state a dose, recipe, or method; toxicology explains a mechanism, not an identity.",
+      "shots": ["Xu prepares a sealed blood vial", "Autosampler receives one vial while an unmarked sealed spray item stays on a separate tray", "Abstract spectral peak on blank dark monitor", "Xu hands sealed toxicology envelope to Jian"],
+      "dialogue": [{"speaker": "许未", "zh": "质谱检出镇静药代谢物；毒理不负责认人。", "en": "Mass spectrometry found sedative metabolites; toxicology does not identify the person.", "start": 0.34, "end": 4.35}]
+    },
+    {
+      "id": "10",
+      "characters": ["lin_qian", "zhou_qiao", "xu_wei"],
+      "scene": "Fingerprint work, backend trace and toxicology occupy separate evidence stations, then form one cautious visual chain without mixing the evidence.",
+      "shots": ["Lin dusts tablet edge for prints", "Zhou follows abstract backend trace", "Xu places a sealed vial on separate tray", "Overhead: three evidence islands linked only by thin lines"],
+      "dialogue": [{"speaker": "林浅", "zh": "每一项都不够；合起来才够。", "en": "No single piece is enough. Together, they are.", "start": 0.48, "end": 4.10}]
+    },
+    {
+      "id": "11",
+      "characters": ["jian_ci", "lin_qian", "jiang_lan"],
+      "scene": "Respectful lab/morgue. Jiang Lan remains covered. Jian Ci explains the evidentiary distinction to Lin with the ongoing red dot in the distance.",
+      "shots": ["Covered gurney and Jian at evidence bench", "Jian speaks calmly to Lin", "Small red live dot reflected behind his white coat", "Lin considers three separate evidence trays"],
+      "dialogue": [{"speaker": "剑刺", "zh": "直播没结束，不等于江岚还活着。", "en": "A livestream still running does not mean Jiang Lan is alive.", "start": 0.38, "end": 4.25}]
+    },
+    {
+      "id": "12",
+      "characters": ["lin_qian", "jian_ci"],
+      "scene": "An automated original file completes sending. The red live dot fades out. A sealed unmarked drive with a faint blue indicator remains as the bridge to the next episode.",
+      "shots": ["Dark laptop, red dot dims", "Lin holds sealed storage drive", "Jian and Lin see the stream go dark", "Final close: black drive on metal desk, faint blue light toward corridor"],
+      "dialogue": [{"speaker": "旁白", "zh": "预设文件发出后，直播终于熄灭。", "en": "When the scheduled file was sent, the stream finally went dark.", "start": 0.40, "end": 4.20}]
+    }
+  ]
+}
