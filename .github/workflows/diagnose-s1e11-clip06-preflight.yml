@@ -3,7 +3,7 @@ name: "Diagnose S1E11 Clip 06 Repair Preflight"
 on:
   push:
     branches: [render/s1e10-s1e12-final-v1]
-    paths: ["references/s1e10-12/run-s1e11-clip06-preflight-diagnose-v1.txt"]
+    paths: ["references/s1e10-12/run-s1e11-clip06-preflight-diagnose-v2.txt"]
 
 permissions:
   contents: read
@@ -31,7 +31,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: S01E11-Clip06-Preflight-Diagnostic-v1
+          name: S01E11-Clip06-Preflight-Diagnostic-v2
           path: repair-preflight-diagnostic.txt
           if-no-files-found: error
           retention-days: 7
