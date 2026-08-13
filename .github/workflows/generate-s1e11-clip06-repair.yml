@@ -3,7 +3,7 @@ name: "Repair S1E11 Clip 06 (one request only)"
 on:
   push:
     branches: [render/s1e10-s1e12-final-v1]
-    paths: ["references/s1e10-12/run-s1e11-clip06-repair-gate-v3.txt"]
+    paths: ["references/s1e10-12/run-s1e11-clip06-repair-gate-v4.txt"]
 
 permissions:
   contents: read
@@ -31,8 +31,8 @@ jobs:
           set -euo pipefail
           [[ "$RUN_ATTEMPT" == "1" ]] || { echo "::error::Workflow reruns are forbidden."; exit 2; }
           mapfile -t changed < <(git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA")
-          [[ "${#changed[@]}" -eq 1 && "${changed[0]}" == "references/s1e10-12/run-s1e11-clip06-repair-gate-v3.txt" ]] || { echo "::error::Only the approved Clip 06 repair gate may change."; exit 2; }
-          [[ "$(cat references/s1e10-12/run-s1e11-clip06-repair-gate-v3.txt)" == "AUTHOR-APPROVED: REGENERATE S01E11 CLIP 06 ONCE; JIAN CI STAYS ON CASE; 480P; 5S; AUDIO REQUIRED; NO AUTOMATIC RETRIES" ]] || exit 2
+          [[ "${#changed[@]}" -eq 1 && "${changed[0]}" == "references/s1e10-12/run-s1e11-clip06-repair-gate-v4.txt" ]] || { echo "::error::Only the approved Clip 06 repair gate may change."; exit 2; }
+          [[ "$(cat references/s1e10-12/run-s1e11-clip06-repair-gate-v4.txt)" == "AUTHOR-APPROVED: REGENERATE S01E11 CLIP 06 ONCE; JIAN CI STAYS ON CASE; 480P; 5S; AUDIO REQUIRED; NO AUTOMATIC RETRIES" ]] || exit 2
           [[ -n "$SEGMIND_API_KEY" ]] || { echo "::error::Missing SEGMIND_API_KEY; no paid request made."; exit 2; }
       - name: Restore accepted S01E11 clips for a one-clip replacement
         uses: actions/download-artifact@v4
@@ -65,7 +65,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: S01E11-LungWater-Clip06-Repair-v3
+          name: S01E11-LungWater-Clip06-Repair-v4
           path: |
             output/repaired/s1e11-all/S01E11/
             output/repaired/s1e11-final-repair/
