@@ -68,10 +68,11 @@ jobs:
           out=output/s1e10-final-v1
           mkdir -p "$out/normalised"
           find_one() {
-            local pattern="$1"
+            local artifact_dir="$1"
+            local pattern="$2"
             local match
-            match=$(find sources -type f -name "$pattern" -print -quit)
-            [[ -n "$match" ]] || { echo "::error::Missing source $pattern"; exit 2; }
+            match=$(find "sources/$artifact_dir" -type f -name "$pattern" -print -quit)
+            [[ -n "$match" ]] || { echo "::error::Missing source $artifact_dir/$pattern"; exit 2; }
             printf '%s\n' "$match"
           }
           normalise() {
@@ -82,18 +83,18 @@ jobs:
               -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p \
               -c:a aac -b:a 192k -ar 48000 -ac 2 -movflags +faststart "$output"
           }
-          clip01=$(find_one 'S01E10_clip_01_storyboard_proof_final.mp4')
-          clip02=$(find_one 'S01E10_clip_02_final.mp4')
-          clip03=$(find_one 'S01E10_clip_03_final.mp4')
-          clip04=$(find_one 'S01E10_clip_04_final.mp4')
-          clip05=$(find_one 'S01E10_clip_05_final.mp4')
-          clip06=$(find_one 'S01E10_clip_06_final.mp4')
-          clip07=$(find_one 'S01E10_clip_07_final.mp4')
-          clip08=$(find_one 'S01E10_clip_08_final.mp4')
-          clip09=$(find_one 'S01E10_clip_09_final.mp4')
-          clip10=$(find_one 'S01E10_clip_10_final.mp4')
-          clip11=$(find_one 'S01E10_clip_11_final.mp4')
-          clip12=$(find_one 'S01E10_clip_12_final.mp4')
+          clip01=$(find_one clip01 'S01E10_clip_01_storyboard_proof_final.mp4')
+          clip02=$(find_one clips02-05 'S01E10_clip_02_final.mp4')
+          clip03=$(find_one clips02-05 'S01E10_clip_03_final.mp4')
+          clip04=$(find_one clips02-05 'S01E10_clip_04_final.mp4')
+          clip05=$(find_one clips02-05 'S01E10_clip_05_final.mp4')
+          clip06=$(find_one clip06 'S01E10_clip_06_final.mp4')
+          clip07=$(find_one clips07-12 'S01E10_clip_07_final.mp4')
+          clip08=$(find_one clips07-12 'S01E10_clip_08_final.mp4')
+          clip09=$(find_one clips07-12 'S01E10_clip_09_final.mp4')
+          clip10=$(find_one clips07-12 'S01E10_clip_10_final.mp4')
+          clip11=$(find_one clips07-12 'S01E10_clip_11_final.mp4')
+          clip12=$(find_one clips07-12 'S01E10_clip_12_final.mp4')
           normalise "$clip01" "$out/normalised/01.mp4"
           normalise "$clip02" "$out/normalised/02.mp4"
           normalise "$clip03" "$out/normalised/03.mp4"
