@@ -3,7 +3,7 @@ name: "Repair S1E11 Clip 06 (one request only)"
 on:
   push:
     branches: [render/s1e10-s1e12-final-v1]
-    paths: ["references/s1e10-12/run-s1e11-clip06-repair-gate-v2.txt"]
+    paths: ["references/s1e10-12/run-s1e11-clip06-repair-gate-v3.txt"]
 
 permissions:
   contents: read
@@ -31,8 +31,8 @@ jobs:
           set -euo pipefail
           [[ "$RUN_ATTEMPT" == "1" ]] || { echo "::error::Workflow reruns are forbidden."; exit 2; }
           mapfile -t changed < <(git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA")
-          [[ "${#changed[@]}" -eq 1 && "${changed[0]}" == "references/s1e10-12/run-s1e11-clip06-repair-gate-v2.txt" ]] || { echo "::error::Only the approved Clip 06 repair gate may change."; exit 2; }
-          [[ "$(cat references/s1e10-12/run-s1e11-clip06-repair-gate-v2.txt)" == "AUTHOR-APPROVED: REGENERATE S01E11 CLIP 06 ONCE; JIAN CI STAYS ON CASE; 480P; 5S; AUDIO REQUIRED; NO AUTOMATIC RETRIES" ]] || exit 2
+          [[ "${#changed[@]}" -eq 1 && "${changed[0]}" == "references/s1e10-12/run-s1e11-clip06-repair-gate-v3.txt" ]] || { echo "::error::Only the approved Clip 06 repair gate may change."; exit 2; }
+          [[ "$(cat references/s1e10-12/run-s1e11-clip06-repair-gate-v3.txt)" == "AUTHOR-APPROVED: REGENERATE S01E11 CLIP 06 ONCE; JIAN CI STAYS ON CASE; 480P; 5S; AUDIO REQUIRED; NO AUTOMATIC RETRIES" ]] || exit 2
           [[ -n "$SEGMIND_API_KEY" ]] || { echo "::error::Missing SEGMIND_API_KEY; no paid request made."; exit 2; }
       - name: Restore accepted S01E11 clips for a one-clip replacement
         uses: actions/download-artifact@v4
@@ -47,10 +47,12 @@ jobs:
           pip install "segmind==1.1.0" "faster-whisper==1.2.1" requests Pillow
           sudo apt-get update
           sudo apt-get install -y ffmpeg zip fonts-noto-cjk
-      - name: Validate the locked Clip 06 repair before its paid request
+      - name: Validate scripts and the locked S01E11 Clip 06
         run: |
           python -m py_compile scripts/generate_s1e10_12_five_second.py scripts/assemble_s1e10_12_final.py
           python scripts/generate_s1e10_12_five_second.py --preflight --episode S01E11 --clip 06
+      - name: Confirm accepted Clip 05 and Clip 07 continuity material
+        run: |
           test -s output/repaired/s1e11-all/S01E11/last_frames/clip_05_continuity.jpg
           test -s output/repaired/s1e11-all/S01E11/raw/S01E11_clip_07_raw.mp4
       - name: Regenerate only S01E11 Clip 06 once with Mandarin-audio QC
@@ -63,7 +65,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: S01E11-LungWater-Clip06-Repair-v2
+          name: S01E11-LungWater-Clip06-Repair-v3
           path: |
             output/repaired/s1e11-all/S01E11/
             output/repaired/s1e11-final-repair/
