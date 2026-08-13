@@ -29,10 +29,7 @@ CHART = S1E03 / "character_chart_highres.jpeg"
 TANG = SOURCE / "identity_refs" / "tang_yun.jpg"
 E09_PANEL_1 = ROOT / "references" / "s1e09" / "panels" / "clip_01_shot_1.jpg.b64"
 E09_PANEL_12 = ROOT / "references" / "s1e09" / "panels" / "clip_12_shot_4.jpg.b64"
-STORYBOARD_SOURCES = {
-    "S01E11": (SOURCE / "s1e11_storyboard_refs", "S01E11"),
-    "S01E12": (SOURCE / "s1e12_storyboard_refs", "S01E12"),
-}
+S1E11_BOARDS = SOURCE / "s1e11_storyboard_refs"
 
 IDENTITY_CROPS = {
     "lin_qian": (208, 245, 408, 661),
@@ -139,13 +136,11 @@ def identity(name: str, runtime: Path) -> Path:
 
 
 def storyboard_board(episode: str, clip_id: str, runtime: Path) -> Path | None:
-    """Decode a locked board for that exact five-second clip when supplied."""
-    source_info = STORYBOARD_SOURCES.get(episode)
-    if source_info is None:
+    """Decode S01E11's locked board for that exact five-second clip."""
+    if episode != "S01E11":
         return None
-    board_dir, prefix = source_info
-    source = board_dir / f"{prefix}_{clip_id}_board.jpg.b64"
-    target = runtime / f"{prefix}_{clip_id}_board.jpg"
+    source = S1E11_BOARDS / f"S01E11_{clip_id}_board.jpg.b64"
+    target = runtime / f"S01E11_{clip_id}_board.jpg"
     return decode_b64(source, target)
 
 
@@ -276,9 +271,8 @@ def load_plan() -> dict[str, Any]:
     image_ok(JIAN)
     image_ok(CHART)
     image_ok(TANG)
-    for board_dir, prefix in STORYBOARD_SOURCES.values():
-        for clip_id in (f"{value:02d}" for value in range(1, 13)):
-            locked_b64_image_ok(board_dir / f"{prefix}_{clip_id}_board.jpg.b64")
+    for clip_id in (f"{value:02d}" for value in range(1, 13)):
+        locked_b64_image_ok(S1E11_BOARDS / f"S01E11_{clip_id}_board.jpg.b64")
     return plan
 
 
@@ -335,8 +329,8 @@ def preflight(episode_code: str | None = None, clip_code: str | None = None) -> 
 def generate(episode_code: str | None = None, clip_code: str | None = None, previous_frame: Path | None = None) -> None:
     if clip_code is not None and episode_code is None:
         raise RuntimeError("A targeted clip requires one locked episode")
-    if previous_frame is not None and clip_code is None:
-        raise RuntimeError("A continuity frame is only valid for one targeted clip")
+    if previous_frame is not None and episode_code is None:
+        raise RuntimeError("An external continuity frame requires one locked episode")
     plan = load_plan()
     episodes = selected_episodes(plan, episode_code)
     if previous_frame is not None:
