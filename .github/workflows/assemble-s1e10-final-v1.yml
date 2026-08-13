@@ -1,0 +1,179 @@
+name: Assemble S1E10 — final v1 (no paid generation)
+
+on:
+  push:
+    branches: [render/s1e10-s1e12-final-v1]
+    paths: ["references/s1e10-12/assemble-s1e10-final-v1-gate.txt"]
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: s1e10-final-v1-assembly
+  cancel-in-progress: false
+
+jobs:
+  assemble:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - name: Enforce approved no-cost assembly only
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+        run: |
+          set -euo pipefail
+          [[ "$RUN_ATTEMPT" == "1" ]] || { echo "::error::Workflow reruns are forbidden."; exit 2; }
+          mapfile -t changed < <(git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+          [[ "${#changed[@]}" -eq 1 && "${changed[0]}" == "references/s1e10-12/assemble-s1e10-final-v1-gate.txt" ]] || { echo "::error::Only the approved S01E10 assembly gate may change."; exit 2; }
+          [[ "$(cat references/s1e10-12/assemble-s1e10-final-v1-gate.txt)" == "AUTHOR-APPROVED: ASSEMBLE S01E10 CLIPS 01-12 WITH NO-PAID CLIP 06-07 TRANSITION" ]] || { echo "::error::Authorisation text mismatch."; exit 2; }
+          ! git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA" | grep -q '^\.github/workflows/' || { echo "::error::No workflow edits may trigger assembly."; exit 2; }
+      - name: Download accepted source artifacts
+        uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 31545642342
+          name: S01E10-Clip01-Storyboard-Proof
+          path: sources/clip01
+      - name: Download clips 02-05 source artifact
+        uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 31664780714
+          name: S01E10-Clips02-12-Storyboard-Locked
+          path: sources/clips02-05
+      - name: Download corrected clip 06 artifact
+        uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 31713761583
+          name: S01E10-Clip06-Bridge-Recovery
+          path: sources/clip06
+      - name: Download clips 07-12 recovery artifact
+        uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 31709584435
+          name: S01E10-Clips07-12-Recovery
+          path: sources/clips07-12
+      - name: Assemble, add clip 06 to 07 transition, and QC
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg fonts-noto-cjk
+          out=output/s1e10-final-v1
+          mkdir -p "$out/normalised"
+          find_one() {
+            local pattern="$1"
+            local match
+            match=$(find sources -type f -name "$pattern" -print -quit)
+            [[ -n "$match" ]] || { echo "::error::Missing source $pattern"; exit 2; }
+            printf '%s\n' "$match"
+          }
+          normalise() {
+            local input="$1"
+            local output="$2"
+            ffmpeg -hide_banner -loglevel error -y -i "$input" \
+              -map 0:v:0 -map 0:a:0 -vf "scale=864:496:flags=lanczos,setsar=1,fps=24" \
+              -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p \
+              -c:a aac -b:a 192k -ar 48000 -ac 2 -movflags +faststart "$output"
+          }
+          clip01=$(find_one 'S01E10_clip_01_storyboard_proof_final.mp4')
+          clip02=$(find_one 'S01E10_clip_02_final.mp4')
+          clip03=$(find_one 'S01E10_clip_03_final.mp4')
+          clip04=$(find_one 'S01E10_clip_04_final.mp4')
+          clip05=$(find_one 'S01E10_clip_05_final.mp4')
+          clip06=$(find_one 'S01E10_clip_06_final.mp4')
+          clip07=$(find_one 'S01E10_clip_07_final.mp4')
+          clip08=$(find_one 'S01E10_clip_08_final.mp4')
+          clip09=$(find_one 'S01E10_clip_09_final.mp4')
+          clip10=$(find_one 'S01E10_clip_10_final.mp4')
+          clip11=$(find_one 'S01E10_clip_11_final.mp4')
+          clip12=$(find_one 'S01E10_clip_12_final.mp4')
+          normalise "$clip01" "$out/normalised/01.mp4"
+          normalise "$clip02" "$out/normalised/02.mp4"
+          normalise "$clip03" "$out/normalised/03.mp4"
+          normalise "$clip04" "$out/normalised/04.mp4"
+          normalise "$clip05" "$out/normalised/05.mp4"
+          ffmpeg -hide_banner -loglevel error -y -i "$clip06" \
+            -filter_complex "[0:v]scale=864:496:flags=lanczos,setsar=1,fps=24,fade=t=out:st=4.55:d=0.45[v];[0:a]afade=t=out:st=4.55:d=0.45[a]" \
+            -map "[v]" -map "[a]" -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p \
+            -c:a aac -b:a 192k -ar 48000 -ac 2 -movflags +faststart "$out/normalised/06.mp4"
+          ffmpeg -hide_banner -loglevel error -y -i "$clip07" \
+            -filter_complex "[0:v]scale=864:496:flags=lanczos,setsar=1,fps=24,fade=t=in:st=0:d=0.25[v];[0:a]afade=t=in:st=0:d=0.20[a]" \
+            -map "[v]" -map "[a]" -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p \
+            -c:a aac -b:a 192k -ar 48000 -ac 2 -movflags +faststart "$out/normalised/07.mp4"
+          normalise "$clip08" "$out/normalised/08.mp4"
+          normalise "$clip09" "$out/normalised/09.mp4"
+          normalise "$clip10" "$out/normalised/10.mp4"
+          normalise "$clip11" "$out/normalised/11.mp4"
+          normalise "$clip12" "$out/normalised/12.mp4"
+          python - <<'PY'
+          from pathlib import Path
+          out = Path("output/s1e10-final-v1")
+          (out / "concat.txt").write_text(
+              "".join(f"file 'normalised/{n:02d}.mp4'\n" for n in range(1, 13)),
+              encoding="utf-8",
+          )
+          PY
+          ffmpeg -hide_banner -loglevel error -y -f concat -safe 0 -i "$out/concat.txt" \
+            -c copy -movflags +faststart "$out/S01E10_干燥的尸体_final_v1.mp4"
+          ffprobe -v error -show_entries format=duration -show_entries stream=codec_type,codec_name,width,height -of json \
+            "$out/S01E10_干燥的尸体_final_v1.mp4" > "$out/final_ffprobe.json"
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          out = Path("output/s1e10-final-v1")
+          probe = json.loads((out / "final_ffprobe.json").read_text())
+          duration = float(probe["format"]["duration"])
+          streams = probe["streams"]
+          video = [s for s in streams if s["codec_type"] == "video"]
+          audio = [s for s in streams if s["codec_type"] == "audio"]
+          if not (60.0 <= duration <= 62.0):
+              raise SystemExit(f"unexpected episode duration: {duration}")
+          if len(video) != 1 or len(audio) != 1:
+              raise SystemExit("final must contain exactly one video and one audio stream")
+          if (video[0].get("width"), video[0].get("height")) != (864, 496):
+              raise SystemExit("final video dimensions are incorrect")
+          manifest = {
+              "episode": "S01E10",
+              "status": "completed",
+              "paid_generation_requests": 0,
+              "source_artifacts": {
+                  "clip_01": 9122435999,
+                  "clips_02_05": 9167825459,
+                  "clip_06_corrected": 9186485071,
+                  "clips_07_12": 9185262793,
+              },
+              "transition": {
+                  "from": "06",
+                  "to": "07",
+                  "video": "clip 06 fades to black for final 0.45 seconds; clip 07 fades in for first 0.25 seconds",
+                  "audio": "clip 06 fades out for final 0.45 seconds; clip 07 fades in for first 0.20 seconds",
+              },
+              "technical_qc": {
+                  "duration": duration,
+                  "width": video[0]["width"],
+                  "height": video[0]["height"],
+                  "video_codec": video[0]["codec_name"],
+                  "audio_codec": audio[0]["codec_name"],
+                  "clip_count": 12,
+              },
+          }
+          (out / "final_manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
+          PY
+          ffmpeg -hide_banner -loglevel error -y -i "$out/S01E10_干燥的尸体_final_v1.mp4" \
+            -vf "fps=1/5,scale=320:184:force_original_aspect_ratio=decrease,pad=320:184:(ow-iw)/2:(oh-ih)/2:black,tile=4x3:padding=4:margin=4" \
+            -frames:v 1 -q:v 2 "$out/S01E10_final_v1_12_clip_contact.jpg"
+      - name: Upload final video and audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: S01E10-Final-v1-Assembly
+          path: output/s1e10-final-v1/
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 30
