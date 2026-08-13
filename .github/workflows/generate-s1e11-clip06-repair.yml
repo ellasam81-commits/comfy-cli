@@ -1,1 +1,72 @@
-bmFtZTogUmVwYWlyIFMxRTExIENsaXAgMDYg4oCUIEppYW4gQ2kgc3RheXMgb24gY2FzZSAob25lIHJlcXVlc3Qgb25seSkKCm9uOgogIHB1c2g6CiAgICBicmFuY2hlczogW3JlbmRlci9zMWUxMC1zMWUxMi1maW5hbC12MV0KICAgIHBhdGhzOiBbInJlZmVyZW5jZXMvczFlMTAtMTIvcnVuLXMxZTExLWNsaXAwNi1yZXBhaXItZ2F0ZS12MS50eHQiXQoKcGVybWlzc2lvbnM6CiAgY29udGVudHM6IHJlYWQKICBhY3Rpb25zOiByZWFkCgpjb25jdXJyZW5jeToKICBncm91cDogczFlMTEtY2xpcDA2LXJlcGFpci1vbmUtc2hvdAogIGNhbmNlbC1pbi1wcm9ncmVzczogZmFsc2UKCmpvYnM6CiAgcmVwYWlyLWFuZC1hc3NlbWJsZToKICAgIHJ1bnMtb246IHVidW50dS1sYXRlc3QKICAgIHRpbWVvdXQtbWludXRlczogOTAKICAgIGVudjoKICAgICAgU0VHTUlORF9BUElfS0VZOiAke3sgc2VjcmV0cy5TRUdNSU5EX0FQSV9LRVkgfX0KICAgICAgV0hJU1BFUl9DQUNIRV9ESVI6IC90bXAvZmFzdGVyLXdoaXNwZXItczFlMTEtY2xpcDA2LXJlcGFpcgogICAgICBHRU5FUkFUSU9OX09VVFBVVF9ESVI6IG91dHB1dC9yZXBhaXJlZC9zMWUxMS1hbGwKICAgICAgRklOQUxfT1VUUFVUX0RJUjogb3V0cHV0L3JlcGFpcmVkL3MxZTExLWZpbmFsLXJlcGFpcgogICAgICBQWVRIT05VTkJVRkZFUkVEOiAiMSIKICAgIHN0ZXBzOgogICAgICAtIHVzZXM6IGFjdGlvbnMvY2hlY2tvdXRAdjQKICAgICAgICB3aXRoOiB7ZmV0Y2gtZGVwdGg6IDB9CiAgICAgIC0gbmFtZTogRW5mb3JjZSBleGFjdGx5IG9uZSBhcHByb3ZlZCByZXBhaXIgcmVxdWVzdAogICAgICAgIGVudjoKICAgICAgICAgIEJFRk9SRV9TSEE6ICR7eyBnaXRodWIuZXZlbnQuYmVmb3JlIH19CiAgICAgICAgICBDVVJSRU5UX1NIQTogJHt7IGdpdGh1Yi5zaGEgfX0KICAgICAgICAgIFJVTl9BVFRFTVBUOiAke3sgZ2l0aHViLnJ1bl9hdHRlbXB0IH19CiAgICAgICAgcnVuOiB8CiAgICAgICAgICBzZXQgLWV1byBwaXBlZmFpbAogICAgICAgICAgW1sgIiRSVU5fQVRURU1QVCIgPT0gIjEiIF1dIHx8IHsgZWNobyAiOjplcnJvcjo6V29ya2Zsb3cgcmVydW5zIGFyZSBmb3JiaWRkZW4uIjsgZXhpdCAyOyB9CiAgICAgICAgICBtYXBmaWxlIC10IGNoYW5nZWQgPCA8KGdpdCBkaWZmIC0tbmFtZS1vbmx5ICIkQkVGT1JFX1NIQSIgIiRDVVJSRU5UX1NIQSIpCiAgICAgICAgICBbWyAiJHsjY2hhbmdlZFtAXX0iIC1lcSAxICYmICIke2NoYW5nZWRbMF19IiA9PSAicmVmZXJlbmNlcy9zMWUxMC0xMi9ydW4tczFlMTEtY2xpcDA2LXJlcGFpci1nYXRlLXYxLnR4dCIgXV0gfHwgeyBlY2hvICI6OmVycm9yOjpPbmx5IHRoZSBhcHByb3ZlZCBDbGlwIDA2IHJlcGFpciBnYXRlIG1heSBjaGFuZ2UuIjsgZXhpdCAyOyB9CiAgICAgICAgICBbWyAiJChjYXQgcmVmZXJlbmNlcy9zMWUxMC0xMi9ydW4tczFlMTEtY2xpcDA2LXJlcGFpci1nYXRlLXYxLnR4dCkiID09ICJBVVRIT1ItQVBQUk9WRUQ6IFJFR0VORVJBVEUgUzAxRTExIENMSVAgMDYgT05DRTsgSklBTiBDSSBTVEFZUyBPTiBDQVNFOyA0ODBQOyA1UzsgQVVESU8gUkVRVUlSRUQ7IE5PIEFVVE9NQVRJQyBSRVRSSUVTIiBdXSB8fCBleGl0IDIKICAgICAgICAgIFtbIC1uICIkU0VHTUlORF9BUElfS0VZIiBdXSB8fCB7IGVjaG8gIjo6ZXJyb3I6Ok1pc3NpbmcgU0VHTUlORF9BUElfS0VZOyBubyBwYWlkIHJlcXVlc3QgbWFkZS4iOyBleGl0IDI7IH0KICAgICAgLSBuYW1lOiBSZXN0b3JlIGFjY2VwdGVkIFMwMUUxMSBjbGlwcyBmb3IgYSBvbmUtY2xpcCByZXBsYWNlbWVudAogICAgICAgIHVzZXM6IGFjdGlvbnMvZG93bmxvYWQtYXJ0aWZhY3RAdjQKICAgICAgICB3aXRoOgogICAgICAgICAgbmFtZTogUzAxRTExLUx1bmdXYXRlci1GaW5hbAogICAgICAgICAgcnVuLWlkOiAzMTczMjA3MjcwMAogICAgICAgICAgZ2l0aHViLXRva2VuOiAke3sgZ2l0aHViLnRva2VuIH19CiAgICAgICAgICBwYXRoOiBvdXRwdXQvcmVwYWlyZWQKICAgICAgLSBuYW1lOiBJbnN0YWxsIGdlbmVyYXRpb24sIGF1ZGlvLVFDIGFuZCBhc3NlbWJseSB0b29scwogICAgICAgIHJ1bjogfAogICAgICAgICAgcHl0aG9uIC1tIHBpcCBpbnN0YWxsIC0tdXBncmFkZSBwaXAKICAgICAgICAgIHBpcCBpbnN0YWxsICJzZWdtaW5kPT0xLjEuMCIgImZhc3Rlci13aGlzcGVyPT0xLjIuMSIgcmVxdWVzdHMgUGlsbG93CiAgICAgICAgICBzdWRvIGFwdC1nZXQgdXBkYXRlCiAgICAgICAgICBzdWRvIGFwdC1nZXQgaW5zdGFsbCAteSBmZm1wZWcgemlwIGZvbnRzLW5vdG8tY2prCiAgICAgIC0gbmFtZTogVmFsaWRhdGUgdGhlIGxvY2tlZCBDbGlwIDA2IHJlcGFpciBiZWZvcmUgaXRzIHBhaWQgcmVxdWVzdAogICAgICAgIHJ1bjogfAogICAgICAgICAgcHl0aG9uIC1tIHB5X2NvbXBpbGUgc2NyaXB0cy9nZW5lcmF0ZV9zMWUxMF8xMl9maXZlX3NlY29uZC5weSBzY3JpcHRzL2Fzc2VtYmxlX3MxZTEwXzEyX2ZpbmFsLnB5CiAgICAgICAgICBweXRob24gc2NyaXB0cy9nZW5lcmF0ZV9zMWUxMF8xMl9maXZlX3NlY29uZC5weSAtLXByZWZsaWdodCAtLWVwaXNvZGUgUzAxRTExIC0tY2xpcCAwNgogICAgICAgICAgdGVzdCAtcyBvdXRwdXQvcmVwYWlyZWQvczFlMTEtYWxsL1MwMUUxMS9sYXN0X2ZyYW1lcy9jbGlwXzA1X2NvbnRpbnVpdHkuanBnCiAgICAgICAgICB0ZXN0IC1zIG91dHB1dC9yZXBhaXJlZC9zMWUxMS1hbGwvUzAxRTExL3Jhdy9TMDFFMTFfY2xpcF8wN19yYXcubXA0CiAgICAgIC0gbmFtZTogUmVnZW5lcmF0ZSBvbmx5IFMwMUUxMSBDbGlwIDA2IG9uY2Ugd2l0aCBNYW5kYXJpbi1hdWRpbyBRQwogICAgICAgIHJ1bjogPi0KICAgICAgICAgIHB5dGhvbiBzY3JpcHRzL2dlbmVyYXRlX3MxZTEwXzEyX2ZpdmVfc2Vjb25kLnB5IC0tZXBpc29kZSBTMDFFMTEgLS1jbGlwIDA2CiAgICAgICAgICAtLXByZXZpb3VzLWZyYW1lIG91dHB1dC9yZXBhaXJlZC9zMWUxMS1hbGwvUzAxRTExL2xhc3RfZnJhbWVzL2NsaXBfMDVfY29udGludWl0eS5qcGcKICAgICAgLSBuYW1lOiBSZWFzc2VtYmxlIFMwMUUxMSB3aXRoIHRoZSByZXBhaXJlZCBDbGlwIDA2IGFuZCBidXJuIGJpbGluZ3VhbCBzdWJ0aXRsZXMKICAgICAgICBydW46IHB5dGhvbiBzY3JpcHRzL2Fzc2VtYmxlX3MxZTEwXzEyX2ZpbmFsLnB5IC0tZXBpc29kZSBTMDFFMTEKICAgICAgLSBuYW1lOiBVcGxvYWQgcmVwYWlyZWQgcmF3IENsaXAgMDYsIFFDLCBmaW5hbCBNUDQgYW5kIFpJUAogICAgICAgIGlmOiBhbHdheXMoKQogICAgICAgIHVzZXM6IGFjdGlvbnMvdXBsb2FkLWFydGlmYWN0QHY0CiAgICAgICAgd2l0aDoKICAgICAgICAgIG5hbWU6IFMwMUUxMS1MdW5nV2F0ZXItQ2xpcDA2LVJlcGFpci12MQogICAgICAgICAgcGF0aDogfAogICAgICAgICAgICBvdXRwdXQvcmVwYWlyZWQvczFlMTEtYWxsL1MwMUUxMS8KICAgICAgICAgICAgb3V0cHV0L3JlcGFpcmVkL3MxZTExLWZpbmFsLXJlcGFpci8KICAgICAgICAgIGlmLW5vLWZpbGVzLWZvdW5kOiB3YXJuCiAgICAgICAgICBjb21wcmVzc2lvbi1sZXZlbDogMAogICAgICAgICAgcmV0ZW50aW9uLWRheXM6IDMwCg==
+name: "Repair S1E11 Clip 06 (one request only)"
+
+on:
+  push:
+    branches: [render/s1e10-s1e12-final-v1]
+    paths: ["references/s1e10-12/run-s1e11-clip06-repair-gate-v2.txt"]
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  repair-and-assemble:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+      WHISPER_CACHE_DIR: /tmp/faster-whisper-s1e11-clip06-repair
+      GENERATION_OUTPUT_DIR: output/repaired/s1e11-all
+      FINAL_OUTPUT_DIR: output/repaired/s1e11-final-repair
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - name: Enforce exactly one approved repair request
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+        run: |
+          set -euo pipefail
+          [[ "$RUN_ATTEMPT" == "1" ]] || { echo "::error::Workflow reruns are forbidden."; exit 2; }
+          mapfile -t changed < <(git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+          [[ "${#changed[@]}" -eq 1 && "${changed[0]}" == "references/s1e10-12/run-s1e11-clip06-repair-gate-v2.txt" ]] || { echo "::error::Only the approved Clip 06 repair gate may change."; exit 2; }
+          [[ "$(cat references/s1e10-12/run-s1e11-clip06-repair-gate-v2.txt)" == "AUTHOR-APPROVED: REGENERATE S01E11 CLIP 06 ONCE; JIAN CI STAYS ON CASE; 480P; 5S; AUDIO REQUIRED; NO AUTOMATIC RETRIES" ]] || exit 2
+          [[ -n "$SEGMIND_API_KEY" ]] || { echo "::error::Missing SEGMIND_API_KEY; no paid request made."; exit 2; }
+      - name: Restore accepted S01E11 clips for a one-clip replacement
+        uses: actions/download-artifact@v4
+        with:
+          name: S01E11-LungWater-Final
+          run-id: "31732072700"
+          github-token: ${{ github.token }}
+          path: output/repaired
+      - name: Install generation, audio-QC and assembly tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install "segmind==1.1.0" "faster-whisper==1.2.1" requests Pillow
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg zip fonts-noto-cjk
+      - name: Validate the locked Clip 06 repair before its paid request
+        run: |
+          python -m py_compile scripts/generate_s1e10_12_five_second.py scripts/assemble_s1e10_12_final.py
+          python scripts/generate_s1e10_12_five_second.py --preflight --episode S01E11 --clip 06
+          test -s output/repaired/s1e11-all/S01E11/last_frames/clip_05_continuity.jpg
+          test -s output/repaired/s1e11-all/S01E11/raw/S01E11_clip_07_raw.mp4
+      - name: Regenerate only S01E11 Clip 06 once with Mandarin-audio QC
+        run: >-
+          python scripts/generate_s1e10_12_five_second.py --episode S01E11 --clip 06
+          --previous-frame output/repaired/s1e11-all/S01E11/last_frames/clip_05_continuity.jpg
+      - name: Reassemble S01E11 with the repaired Clip 06 and burn bilingual subtitles
+        run: python scripts/assemble_s1e10_12_final.py --episode S01E11
+      - name: Upload repaired raw Clip 06, QC, final MP4 and ZIP
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: S01E11-LungWater-Clip06-Repair-v2
+          path: |
+            output/repaired/s1e11-all/S01E11/
+            output/repaired/s1e11-final-repair/
+          if-no-files-found: warn
+          compression-level: 0
+          retention-days: 30
