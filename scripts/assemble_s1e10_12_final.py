@@ -3,14 +3,16 @@
 from __future__ import annotations
 
 import json
+import os
 import subprocess
+import argparse
 from pathlib import Path
 
 
 ROOT = Path.cwd()
 PLAN = ROOT / "references" / "s1e10-12" / "production_plan.json"
-RAW_ROOT = ROOT / "output" / "s1e10-12-all"
-OUT = ROOT / "output" / "s1e10-12-final"
+RAW_ROOT = ROOT / os.environ.get("GENERATION_OUTPUT_DIR", "output/s1e10-12-all")
+OUT = ROOT / os.environ.get("FINAL_OUTPUT_DIR", "output/s1e10-12-final")
 FONTS = ROOT / "references" / "fonts"
 SYSTEM_CJK_FONTS = Path("/usr/share/fonts/opentype/noto")
 WIDTH, HEIGHT = 864, 496
@@ -141,15 +143,19 @@ def assemble_episode(plan: dict, episode: dict, fonts: Path) -> Path:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--episode", choices=["S01E10", "S01E11", "S01E12"])
+    args = parser.parse_args()
     plan = json.loads(PLAN.read_text(encoding="utf-8"))
     expected = ["S01E10", "S01E11", "S01E12"]
     if [episode.get("episode") for episode in plan.get("episodes", [])] != expected:
         raise RuntimeError("Assembly plan episode order is locked")
     OUT.mkdir(parents=True, exist_ok=True)
     fonts = font_dir()
-    finals = [assemble_episode(plan, episode, fonts) for episode in plan["episodes"]]
-    package = OUT / "S01E10_S01E12_NoWaterDrowning_Final.zip"
-    pending = OUT / "S01E10_S01E12_NoWaterDrowning_Final.pending.zip"
+    episodes = [episode for episode in plan["episodes"] if args.episode is None or episode["episode"] == args.episode]
+    finals = [assemble_episode(plan, episode, fonts) for episode in episodes]
+    package = OUT / (f"{args.episode}_NoWaterDrowning_Final.zip" if args.episode else "S01E10_S01E12_NoWaterDrowning_Final.zip")
+    pending = OUT / f"{package.stem}.pending.zip"
     run(["zip", "-j", "-9", str(pending), *(str(item) for item in finals)])
     pending.replace(package)
     print(json.dumps({"finals": [str(item) for item in finals], "zip": str(package)}, ensure_ascii=False))

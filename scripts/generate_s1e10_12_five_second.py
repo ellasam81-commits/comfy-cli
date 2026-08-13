@@ -11,6 +11,7 @@ import subprocess
 import sys
 from base64 import b64decode
 from datetime import datetime, timezone
+from io import BytesIO
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
@@ -28,6 +29,7 @@ CHART = S1E03 / "character_chart_highres.jpeg"
 TANG = SOURCE / "identity_refs" / "tang_yun.jpg"
 E09_PANEL_1 = ROOT / "references" / "s1e09" / "panels" / "clip_01_shot_1.jpg.b64"
 E09_PANEL_12 = ROOT / "references" / "s1e09" / "panels" / "clip_12_shot_4.jpg.b64"
+S1E11_BOARDS = SOURCE / "s1e11_storyboard_refs"
 
 IDENTITY_CROPS = {
     "lin_qian": (208, 245, 408, 661),
@@ -91,6 +93,21 @@ def decode_b64(source: Path, target: Path) -> Path:
     return target
 
 
+def locked_b64_image_ok(source: Path) -> None:
+    """Validate every board during preflight, before any paid request can start."""
+    if not source.is_file():
+        raise RuntimeError(f"Missing locked reference: {source}")
+    try:
+        data = b64decode(source.read_text(encoding="ascii"), validate=True)
+        with Image.open(BytesIO(data)) as image:
+            width, height = image.size
+            image.verify()
+    except Exception as exc:
+        raise RuntimeError(f"Invalid locked base64 reference: {source}") from exc
+    if not 5_000 <= len(data) <= 30 * 1024 * 1024 or width < 200 or height < 200:
+        raise RuntimeError(f"Invalid locked reference dimensions: {source}")
+
+
 def episode_dirs(code: str) -> dict[str, Path]:
     root = OUT / code
     result = {name: root / name for name in ("runtime_refs", "raw", "audit", "proof", "last_frames")}
@@ -116,6 +133,15 @@ def identity(name: str, runtime: Path) -> Path:
             ImageOps.fit(crop, (320, 480), Image.Resampling.LANCZOS).save(target, quality=95)
     image_ok(target)
     return target
+
+
+def storyboard_board(episode: str, clip_id: str, runtime: Path) -> Path | None:
+    """Decode S01E11's locked board for that exact five-second clip."""
+    if episode != "S01E11":
+        return None
+    source = S1E11_BOARDS / f"S01E11_{clip_id}_board.jpg.b64"
+    target = runtime / f"S01E11_{clip_id}_board.jpg"
+    return decode_b64(source, target)
 
 
 def find_urls(data: Any, results: list[str]) -> None:
@@ -245,16 +271,18 @@ def load_plan() -> dict[str, Any]:
     image_ok(JIAN)
     image_ok(CHART)
     image_ok(TANG)
+    for clip_id in (f"{value:02d}" for value in range(1, 13)):
+        locked_b64_image_ok(S1E11_BOARDS / f"S01E11_{clip_id}_board.jpg.b64")
     return plan
 
 
-def build_prompt(plan: dict[str, Any], episode: dict[str, Any], clip: dict[str, Any], reference_names: list[str]) -> str:
+def build_prompt(plan: dict[str, Any], episode: dict[str, Any], clip: dict[str, Any], reference_names: list[str], has_board: bool) -> str:
     shots = "\n".join(f"{index + 1}. {item}" for index, item in enumerate(clip["shots"]))
     cue = clip["dialogue"][0]
     names = ", ".join(reference_names) if reference_names else "no additional recurring character"
     return f"""ORIGINAL SERIES PRODUCTION LOCK. Render exactly one clean five-second 16:9 animated clip for 《吸血法医·剑刺》{episode['episode']}《{episode['title_zh']}》, case《{episode['case_zh']}》, clip {clip['id']} of 12. Original dark forensic manga-noir only; never imitate a named artist, studio, franchise or copyrighted character.
 
-REFERENCE ORDER IS LOCKED. References 1 and 2 are visual-style and cinematic-lighting authorities from the accepted series. The following images are fixed identity authorities for {names}; the final image is the previous accepted continuity frame, controlling only the opening light, screen direction and scene geography. Never render a board, grid, panel, split-screen, title, subtitle, logo, watermark, readable UI, readable report or generated text.
+REFERENCE ORDER IS LOCKED. References 1 and 2 are visual-style and cinematic-lighting authorities from the accepted series. The following images are fixed identity authorities for {names}.{" The next image is the locked S01E11 storyboard authority for this exact clip: preserve its cast, wardrobe, props, location, framing and the three-shot order, but render a full-screen moving scene rather than a board." if has_board else ""} The final image is the previous accepted continuity frame, controlling only the opening light, screen direction and scene geography. Never render a board, grid, panel, split-screen, title, subtitle, logo, watermark, readable UI, readable report or generated text.
 
 RENDER EXACTLY THREE FULL-SCREEN CINEMATIC SHOTS IN THE GIVEN TIMING:
 {shots}
@@ -270,13 +298,25 @@ Do not generate visible subtitles. The permanent title header and clear Chinese/
 STRICT NEGATIVE: {plan['global_negative']}"""
 
 
-def preflight() -> None:
-    plan = load_plan()
-    print(f"Preflight passed: {len(plan['episodes'])} episodes, 36 ordered clips, three shots per clip, 480p Seedance 2 mini, audio + bilingual subtitle QA, no automatic retries.")
+def selected_episodes(plan: dict[str, Any], episode_code: str | None) -> list[dict[str, Any]]:
+    episodes = plan["episodes"]
+    if episode_code is None:
+        return episodes
+    selected = [episode for episode in episodes if episode["episode"] == episode_code]
+    if len(selected) != 1:
+        raise RuntimeError(f"Unknown locked episode: {episode_code}")
+    return selected
 
 
-def generate() -> None:
+def preflight(episode_code: str | None = None) -> None:
     plan = load_plan()
+    episodes = selected_episodes(plan, episode_code)
+    print(f"Preflight passed: {[episode['episode'] for episode in episodes]}, {len(episodes) * 12} ordered clips, three shots per clip, 480p Seedance 2 mini, audio + bilingual subtitle QA, no automatic retries.")
+
+
+def generate(episode_code: str | None = None) -> None:
+    plan = load_plan()
+    episodes = selected_episodes(plan, episode_code)
     if not os.environ.get("SEGMIND_API_KEY"):
         raise RuntimeError("SEGMIND_API_KEY is missing; no paid request made")
     from faster_whisper import WhisperModel
@@ -289,14 +329,14 @@ def generate() -> None:
     style_two = decode_b64(E09_PANEL_12, style_runtime / "s1e09_style_blue_drive.jpg")
     previous: Path = style_two
     manifest: dict[str, Any] = {
-        "episodes": [item["episode"] for item in plan["episodes"]], "request_count": 0,
+        "episodes": [item["episode"] for item in episodes], "request_count": 0,
         "automatic_retries": 0, "status": "running", "started_at": stamp(), "plan_sha256": sha(PLAN_PATH), "clips": [],
     }
     manifest_path = OUT / "generation_manifest.json"
     dump(manifest_path, manifest)
     request_index = 0
     try:
-        for episode in plan["episodes"]:
+        for episode in episodes:
             folders = episode_dirs(episode["episode"])
             for clip in episode["clips"]:
                 request_index += 1
@@ -306,12 +346,13 @@ def generate() -> None:
                     if name in {"jian_ci", "lin_qian", "zhou_qiao", "xu_wei", "han_che", "tang_yun"}
                 ]
                 names = [name for name in clip["characters"] if name in {"jian_ci", "lin_qian", "zhou_qiao", "xu_wei", "han_che", "tang_yun"}]
-                refs = [style_one, style_two, *ids, previous]
+                board = storyboard_board(episode["episode"], clip["id"], folders["runtime_refs"])
+                refs = [style_one, style_two, *ids, *([board] if board else []), previous]
                 if len(refs) > 9:
                     raise RuntimeError(f"Too many references for {episode['episode']} clip {clip['id']}")
                 for path in refs:
                     image_ok(path)
-                prompt = build_prompt(plan, episode, clip, names)
+                prompt = build_prompt(plan, episode, clip, names, board is not None)
                 prompt_file = folders["audit"] / f"clip_{clip['id']}_prompt.txt"
                 prompt_file.write_text(prompt, encoding="utf-8")
                 record: dict[str, Any] = {
@@ -350,12 +391,13 @@ def generate() -> None:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--preflight", action="store_true")
+    parser.add_argument("--episode", choices=["S01E10", "S01E11", "S01E12"])
     args = parser.parse_args()
     try:
         if args.preflight:
-            preflight()
+            preflight(args.episode)
         else:
-            generate()
+            generate(args.episode)
     except Exception as exc:
         print(f"ERROR: {type(exc).__name__}: {exc}", file=sys.stderr)
         raise
