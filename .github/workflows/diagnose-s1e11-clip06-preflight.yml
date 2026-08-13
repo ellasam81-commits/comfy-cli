@@ -1,0 +1,37 @@
+name: "Diagnose S1E11 Clip 06 Repair Preflight"
+
+on:
+  push:
+    branches: [render/s1e10-s1e12-final-v1]
+    paths: ["references/s1e10-12/run-s1e11-clip06-preflight-diagnose-v1.txt"]
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install preflight dependencies only
+        run: pip install Pillow
+      - name: Run preflight and preserve its diagnostic
+        run: |
+          set +e
+          python scripts/generate_s1e10_12_five_second.py --preflight --episode S01E11 --clip 06 > preflight.log 2>&1
+          result=$?
+          {
+            echo "result=$result"
+            sha256sum scripts/generate_s1e10_12_five_second.py references/s1e10-12/production_plan.json
+            cat preflight.log
+          } > repair-preflight-diagnostic.txt
+          exit $result
+      - name: Upload the no-generation diagnostic
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: S01E11-Clip06-Preflight-Diagnostic-v1
+          path: repair-preflight-diagnostic.txt
+          if-no-files-found: error
+          retention-days: 7
