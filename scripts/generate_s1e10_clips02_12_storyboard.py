@@ -21,6 +21,9 @@ OUT = ROOT / os.environ.get("GENERATION_OUTPUT_DIR", "output/s1e10-clips02-12")
 REFS = ROOT / "references/s1e10-12/storyboard_video_refs"
 RAW = ROOT / "references/s1e10-12/storyboard_raw"
 PREVIOUS_B64 = REFS / "S01E10_01_continuity.jpg.b64"
+START_CLIP = int(os.environ.get("S01E10_START_CLIP", "2"))
+END_CLIP = int(os.environ.get("S01E10_END_CLIP", "12"))
+CONTINUITY_B64 = Path(os.environ.get("S01E10_CONTINUITY_B64", str(PREVIOUS_B64)))
 RECURRING = {"jian_ci", "lin_qian", "zhou_qiao", "xu_wei", "han_che", "tang_yun"}
 
 
@@ -117,29 +120,36 @@ def make_final_contact(final: Path, folders: dict[str, Path], clip_id: str) -> N
     base.image_ok(contact)
 
 
+def selected_clips(episode: dict) -> list[dict]:
+    if not (2 <= START_CLIP <= END_CLIP <= 12):
+        raise RuntimeError("S01E10 clip range must be within 02 through 12")
+    clips = [clip for clip in episode["clips"] if START_CLIP <= int(clip["id"]) <= END_CLIP]
+    expected = [f"{item:02d}" for item in range(START_CLIP, END_CLIP + 1)]
+    if episode["episode"] != "S01E10" or [clip["id"] for clip in clips] != expected:
+        raise RuntimeError(f"This runner is locked to S01E10 clips {expected[0]} through {expected[-1]}")
+    return clips
+
+
 def preflight() -> None:
     plan = base.load_plan()
     episode = plan["episodes"][0]
-    if episode["episode"] != "S01E10" or [clip["id"] for clip in episode["clips"][1:]] != [f"{item:02d}" for item in range(2, 13)]:
-        raise RuntimeError("This runner is locked to S01E10 clips 02 through 12")
+    clips = selected_clips(episode)
     preflight_dir = OUT / "preflight_refs"
-    for clip in episode["clips"][1:]:
+    for clip in clips:
         for index in range(1, 4):
             encoded = REFS / f"S01E10_{clip['id']}_shot_{index}.jpg.b64"
             decoded = base.decode_b64(encoded, preflight_dir / f"S01E10_{clip['id']}_shot_{index}.jpg")
             provider_image_ok(decoded)
-    if not PREVIOUS_B64.is_file():
-        raise RuntimeError(f"Missing proof continuity reference: {PREVIOUS_B64}")
-    provider_image_ok(base.decode_b64(PREVIOUS_B64, preflight_dir / "S01E10_01_continuity.jpg"))
-    print("Preflight passed: S01E10 clips 02-12, one request per clip, storyboard refs ≥300px, audio/subtitle QC, no retries.")
+    if not CONTINUITY_B64.is_file():
+        raise RuntimeError(f"Missing proof continuity reference: {CONTINUITY_B64}")
+    provider_image_ok(base.decode_b64(CONTINUITY_B64, preflight_dir / "S01E10_recovery_continuity.jpg"))
+    print(f"Preflight passed: S01E10 clips {START_CLIP:02d}-{END_CLIP:02d}, one request per clip, storyboard refs ≥300px, audio/subtitle QC, no retries.")
 
 
 def main() -> None:
     plan = base.load_plan()
     episode = plan["episodes"][0]
-    clips = episode["clips"][1:]
-    if episode["episode"] != "S01E10" or [clip["id"] for clip in clips] != [f"{item:02d}" for item in range(2, 13)]:
-        raise RuntimeError("This runner is locked to S01E10 clips 02 through 12")
+    clips = selected_clips(episode)
     if not os.environ.get("SEGMIND_API_KEY"):
         raise RuntimeError("SEGMIND_API_KEY is missing; no paid request made")
 
@@ -152,14 +162,15 @@ def main() -> None:
         base.decode_b64(base.E09_PANEL_1, style_dir / "s1e09_style_rain_laptop.jpg"),
         base.decode_b64(base.E09_PANEL_12, style_dir / "s1e09_style_blue_drive.jpg"),
     ]
-    previous = base.decode_b64(PREVIOUS_B64, folders["runtime_refs"] / "S01E10_clip_01_accepted_continuity.jpg")
+    previous = base.decode_b64(CONTINUITY_B64, folders["runtime_refs"] / f"S01E10_clip_{START_CLIP - 1:02d}_accepted_continuity.jpg")
     provider_image_ok(previous)
     whisper = WhisperModel("tiny", device="cpu", compute_type="int8", download_root=os.environ.get("WHISPER_CACHE_DIR", "whisper_cache"))
     client = SegmindClient()
     manifest_path = OUT / "generation_manifest.json"
     manifest = {
         "episode": "S01E10", "clips": [], "request_count": 0, "automatic_retries": 0,
-        "status": "running", "started_at": base.stamp(), "proof_clip_01": "already accepted",
+        "status": "running", "started_at": base.stamp(), "range": f"{START_CLIP:02d}-{END_CLIP:02d}",
+        "continuity_source": str(CONTINUITY_B64),
     }
     base.dump(manifest_path, manifest)
     try:
@@ -186,7 +197,7 @@ def main() -> None:
             job = client.submit_async(
                 "seedance-2.0-mini", prompt=prompt, reference_images=urls, duration=5,
                 resolution="480p", aspect_ratio="16:9", generate_audio=True, bitrate_mode="high",
-                return_last_frame=True, seed=202608112 + request_number,
+                return_last_frame=True, seed=202608112 + int(clip["id"]) - 1,
             )
             record.update({"request_id": job.request_id, "status": "processing"})
             manifest["request_count"] += 1
