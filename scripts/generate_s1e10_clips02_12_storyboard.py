@@ -24,6 +24,9 @@ PREVIOUS_B64 = REFS / "S01E10_01_continuity.jpg.b64"
 START_CLIP = int(os.environ.get("S01E10_START_CLIP", "2"))
 END_CLIP = int(os.environ.get("S01E10_END_CLIP", "12"))
 CONTINUITY_B64 = Path(os.environ.get("S01E10_CONTINUITY_B64", str(PREVIOUS_B64)))
+END_CONTINUITY_B64_VALUE = os.environ.get("S01E10_END_CONTINUITY_B64", "")
+END_CONTINUITY_B64 = Path(END_CONTINUITY_B64_VALUE) if END_CONTINUITY_B64_VALUE else None
+SEED_OFFSET = int(os.environ.get("S01E10_SEED_OFFSET", "0"))
 RECURRING = {"jian_ci", "lin_qian", "zhou_qiao", "xu_wei", "han_che", "tang_yun"}
 
 
@@ -92,7 +95,7 @@ def write_ass(path: Path, episode: dict, clip: dict) -> None:
     )
 
 
-def storyboard_prompt(plan: dict, episode: dict, clip: dict, names: list[str]) -> str:
+def storyboard_prompt(plan: dict, episode: dict, clip: dict, names: list[str], has_end_continuity: bool = False) -> str:
     prompt = base.build_prompt(plan, episode, clip, names)
     old = (
         f"References 1 and 2 are visual-style and cinematic-lighting authorities from the accepted series. "
@@ -104,6 +107,12 @@ def storyboard_prompt(plan: dict, episode: dict, clip: dict, names: list[str]) -
         "References 3, 4 and 5 are the locked storyboard visuals for shots 1, 2 and 3 respectively: reproduce their shot order, composition, subjects, props, costume and action, but never render a triptych or text. "
         "The next reference images are fixed character-identity authorities. The final image controls only the opening light, screen direction and scene geography from the immediately previous accepted clip."
     )
+    if has_end_continuity:
+        new = (
+            "References 1 and 2 are accepted-series visual-style and cinematic-lighting authorities. "
+            "References 3, 4 and 5 are the locked storyboard visuals for shots 1, 2 and 3 respectively: reproduce their shot order, composition, subjects, props, costume and action, but never render a triptych or text. "
+            "The next reference images are fixed character-identity authorities. The final two reference images are continuity authorities only: the first controls the opening frame, light and screen direction from the immediately previous accepted clip; the final image controls the intended handoff. Begin from the prior evidence-route geography, then finish with a calm visual handoff toward the hydrotherapy-pool floor-plan briefing; do not copy or generate any text from either continuity image."
+        )
     if old not in prompt:
         raise RuntimeError(f"Could not lock storyboard-reference ordering for S01E10 clip {clip['id']}")
     return prompt.replace(old, new)
@@ -143,6 +152,10 @@ def preflight() -> None:
     if not CONTINUITY_B64.is_file():
         raise RuntimeError(f"Missing proof continuity reference: {CONTINUITY_B64}")
     provider_image_ok(base.decode_b64(CONTINUITY_B64, preflight_dir / "S01E10_recovery_continuity.jpg"))
+    if END_CONTINUITY_B64 is not None:
+        if not END_CONTINUITY_B64.is_file():
+            raise RuntimeError(f"Missing end continuity reference: {END_CONTINUITY_B64}")
+        provider_image_ok(base.decode_b64(END_CONTINUITY_B64, preflight_dir / "S01E10_end_continuity.jpg"))
     print(f"Preflight passed: S01E10 clips {START_CLIP:02d}-{END_CLIP:02d}, one request per clip, storyboard refs ≥300px, audio/subtitle QC, no retries.")
 
 
@@ -164,6 +177,10 @@ def main() -> None:
     ]
     previous = base.decode_b64(CONTINUITY_B64, folders["runtime_refs"] / f"S01E10_clip_{START_CLIP - 1:02d}_accepted_continuity.jpg")
     provider_image_ok(previous)
+    end_continuity = None
+    if END_CONTINUITY_B64 is not None:
+        end_continuity = base.decode_b64(END_CONTINUITY_B64, folders["runtime_refs"] / f"S01E10_clip_{END_CLIP + 1:02d}_opening_continuity.jpg")
+        provider_image_ok(end_continuity)
     whisper = WhisperModel("tiny", device="cpu", compute_type="int8", download_root=os.environ.get("WHISPER_CACHE_DIR", "whisper_cache"))
     client = SegmindClient()
     manifest_path = OUT / "generation_manifest.json"
@@ -171,6 +188,8 @@ def main() -> None:
         "episode": "S01E10", "clips": [], "request_count": 0, "automatic_retries": 0,
         "status": "running", "started_at": base.stamp(), "range": f"{START_CLIP:02d}-{END_CLIP:02d}",
         "continuity_source": str(CONTINUITY_B64),
+        "end_continuity_source": str(END_CONTINUITY_B64) if END_CONTINUITY_B64 is not None else None,
+        "seed_offset": SEED_OFFSET,
     }
     base.dump(manifest_path, manifest)
     try:
@@ -179,11 +198,13 @@ def main() -> None:
             names = [name for name in clip["characters"] if name in RECURRING]
             identities = [base.identity(name, folders["runtime_refs"]) for name in names]
             refs = [*styles, *boards, *identities, previous]
+            if end_continuity is not None:
+                refs.append(end_continuity)
             if len(refs) > 9:
                 raise RuntimeError(f"Too many locked references for S01E10 clip {clip['id']}")
             for image in refs:
                 provider_image_ok(image)
-            prompt = storyboard_prompt(plan, episode, clip, names)
+            prompt = storyboard_prompt(plan, episode, clip, names, end_continuity is not None)
             prompt_path = folders["audit"] / f"clip_{clip['id']}_prompt.txt"
             prompt_path.write_text(prompt, encoding="utf-8")
             record = {
@@ -197,7 +218,7 @@ def main() -> None:
             job = client.submit_async(
                 "seedance-2.0-mini", prompt=prompt, reference_images=urls, duration=5,
                 resolution="480p", aspect_ratio="16:9", generate_audio=True, bitrate_mode="high",
-                return_last_frame=True, seed=202608112 + int(clip["id"]) - 1,
+                return_last_frame=True, seed=202608112 + int(clip["id"]) - 1 + SEED_OFFSET,
             )
             record.update({"request_id": job.request_id, "status": "processing"})
             manifest["request_count"] += 1
