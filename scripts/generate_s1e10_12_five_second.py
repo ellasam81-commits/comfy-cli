@@ -29,7 +29,10 @@ CHART = S1E03 / "character_chart_highres.jpeg"
 TANG = SOURCE / "identity_refs" / "tang_yun.jpg"
 E09_PANEL_1 = ROOT / "references" / "s1e09" / "panels" / "clip_01_shot_1.jpg.b64"
 E09_PANEL_12 = ROOT / "references" / "s1e09" / "panels" / "clip_12_shot_4.jpg.b64"
-S1E11_BOARDS = SOURCE / "s1e11_storyboard_refs"
+STORYBOARD_SOURCES = {
+    "S01E11": (SOURCE / "s1e11_storyboard_refs", "S01E11"),
+    "S01E12": (SOURCE / "s1e12_storyboard_refs", "S01E12"),
+}
 
 IDENTITY_CROPS = {
     "lin_qian": (208, 245, 408, 661),
@@ -136,11 +139,13 @@ def identity(name: str, runtime: Path) -> Path:
 
 
 def storyboard_board(episode: str, clip_id: str, runtime: Path) -> Path | None:
-    """Decode S01E11's locked board for that exact five-second clip."""
-    if episode != "S01E11":
+    """Decode a locked board for that exact five-second clip when supplied."""
+    source_info = STORYBOARD_SOURCES.get(episode)
+    if source_info is None:
         return None
-    source = S1E11_BOARDS / f"S01E11_{clip_id}_board.jpg.b64"
-    target = runtime / f"S01E11_{clip_id}_board.jpg"
+    board_dir, prefix = source_info
+    source = board_dir / f"{prefix}_{clip_id}_board.jpg.b64"
+    target = runtime / f"{prefix}_{clip_id}_board.jpg"
     return decode_b64(source, target)
 
 
@@ -271,8 +276,9 @@ def load_plan() -> dict[str, Any]:
     image_ok(JIAN)
     image_ok(CHART)
     image_ok(TANG)
-    for clip_id in (f"{value:02d}" for value in range(1, 13)):
-        locked_b64_image_ok(S1E11_BOARDS / f"S01E11_{clip_id}_board.jpg.b64")
+    for board_dir, prefix in STORYBOARD_SOURCES.values():
+        for clip_id in (f"{value:02d}" for value in range(1, 13)):
+            locked_b64_image_ok(board_dir / f"{prefix}_{clip_id}_board.jpg.b64")
     return plan
 
 
@@ -282,7 +288,7 @@ def build_prompt(plan: dict[str, Any], episode: dict[str, Any], clip: dict[str, 
     names = ", ".join(reference_names) if reference_names else "no additional recurring character"
     return f"""ORIGINAL SERIES PRODUCTION LOCK. Render exactly one clean five-second 16:9 animated clip for 《吸血法医·剑刺》{episode['episode']}《{episode['title_zh']}》, case《{episode['case_zh']}》, clip {clip['id']} of 12. Original dark forensic manga-noir only; never imitate a named artist, studio, franchise or copyrighted character.
 
-REFERENCE ORDER IS LOCKED. References 1 and 2 are visual-style and cinematic-lighting authorities from the accepted series. The following images are fixed identity authorities for {names}.{" The next image is the locked S01E11 storyboard authority for this exact clip: preserve its cast, wardrobe, props, location, framing and the three-shot order, but render a full-screen moving scene rather than a board." if has_board else ""} The final image is the previous accepted continuity frame, controlling only the opening light, screen direction and scene geography. Never render a board, grid, panel, split-screen, title, subtitle, logo, watermark, readable UI, readable report or generated text.
+REFERENCE ORDER IS LOCKED. References 1 and 2 are visual-style and cinematic-lighting authorities from the accepted series. The following images are fixed identity authorities for {names}.{" The next image is the locked storyboard authority for this exact clip: preserve its cast, wardrobe, props, location, framing and the three-shot order, but render a full-screen moving scene rather than a board." if has_board else ""} The final image is the previous accepted continuity frame, controlling only the opening light, screen direction and scene geography. Never render a board, grid, panel, split-screen, title, subtitle, logo, watermark, readable UI, readable report or generated text.
 
 RENDER EXACTLY THREE FULL-SCREEN CINEMATIC SHOTS IN THE GIVEN TIMING:
 {shots}

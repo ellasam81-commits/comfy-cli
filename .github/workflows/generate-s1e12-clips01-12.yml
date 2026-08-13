@@ -1,0 +1,75 @@
+name: Generate S1E12 — A Death Moved Away (one request per clip)
+
+on:
+  push:
+    branches: [render/s1e10-s1e12-final-v1]
+    paths: ["references/s1e10-12/run-s1e12-clips01-12-gate-v1.txt"]
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: s1e12-clips01-12-one-shot
+  cancel-in-progress: false
+
+jobs:
+  generate-and-assemble:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    env:
+      SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+      WHISPER_CACHE_DIR: /tmp/faster-whisper-s1e12
+      GENERATION_OUTPUT_DIR: output/s1e12-all
+      FINAL_OUTPUT_DIR: output/s1e12-final
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - name: Enforce one approved S01E12 batch only
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+        run: |
+          set -euo pipefail
+          [[ "$RUN_ATTEMPT" == "1" ]] || { echo "::error::Workflow reruns are forbidden."; exit 2; }
+          mapfile -t changed < <(git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+          [[ "${#changed[@]}" -eq 1 && "${changed[0]}" == "references/s1e10-12/run-s1e12-clips01-12-gate-v1.txt" ]] || { echo "::error::Only the S01E12 approval gate may change."; exit 2; }
+          [[ "$(cat references/s1e10-12/run-s1e12-clips01-12-gate-v1.txt)" == "AUTHOR-APPROVED: GENERATE S01E12 CLIPS 01-12 STORYBOARD LOCKED ONCE EACH; SEEDANCE 2.0 MINI; 480P; 5S; AUDIO REQUIRED; NO AUTOMATIC RETRIES" ]] || exit 2
+          [[ -n "$SEGMIND_API_KEY" ]] || { echo "::error::Missing SEGMIND_API_KEY; no paid request made."; exit 2; }
+      - name: Restore accepted S01E11 final continuity frame
+        uses: actions/download-artifact@v4
+        with:
+          name: S01E11-LungWater-Clip06-Repair-v4
+          run-id: "31739019164"
+          github-token: ${{ github.token }}
+          path: output/s1e11-accepted
+      - name: Install generation, audio-QC and assembly tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install "segmind==1.1.0" "faster-whisper==1.2.1" requests Pillow
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg zip fonts-noto-cjk
+      - name: Validate the locked S01E12 batch before paid requests
+        run: |
+          python -m py_compile scripts/generate_s1e10_12_five_second.py scripts/assemble_s1e10_12_final.py
+          python scripts/generate_s1e10_12_five_second.py --preflight --episode S01E12
+          test -s output/s1e11-accepted/s1e11-all/S01E11/last_frames/clip_12_continuity.jpg
+      - name: Generate S01E12 clips 01-12 once each with Mandarin-audio QC
+        run: >-
+          python scripts/generate_s1e10_12_five_second.py --episode S01E12
+          --previous-frame output/s1e11-accepted/s1e11-all/S01E11/last_frames/clip_12_continuity.jpg
+      - name: Burn voice-synchronous Chinese and English subtitles and package S01E12
+        run: python scripts/assemble_s1e10_12_final.py --episode S01E12
+      - name: Upload S01E12 raw clips, proof frames, QC, final MP4 and ZIP
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: S01E12-ADeathMovedAway-Final
+          path: |
+            output/s1e12-all/
+            output/s1e12-final/
+          if-no-files-found: warn
+          compression-level: 0
+          retention-days: 30
