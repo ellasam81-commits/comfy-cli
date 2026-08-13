@@ -1,0 +1,28 @@
+name: Verify S1E11 Clip 06 Repair Channel
+
+on:
+  push:
+    branches: [render/s1e10-s1e12-final-v1]
+    paths: ["references/s1e10-12/run-s1e11-clip06-repair-preflight-gate-v1.txt"]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Confirm the safe repair preflight gate
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+        run: |
+          set -euo pipefail
+          [[ "$RUN_ATTEMPT" == "1" ]] || exit 2
+          mapfile -t changed < <(git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+          [[ "${#changed[@]}" -eq 1 && "${changed[0]}" == "references/s1e10-12/run-s1e11-clip06-repair-preflight-gate-v1.txt" ]] || exit 2
+          [[ "$(cat references/s1e10-12/run-s1e11-clip06-repair-preflight-gate-v1.txt)" == "VERIFY ONLY: S01E11 CLIP 06 REPAIR CHANNEL; NO GENERATION; NO PAID REQUEST" ]] || exit 2
+          echo "Repair channel verified; no generation request was made."
