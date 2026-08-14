@@ -1,4 +1,100 @@
-Y™Áäx-ÆÈ‹j◊ù¢Îi∫⁄+äßj[hëÈ‹¢ÈÌ€~ˆNãZñã≠¶Îeäw¨‘åÑΩ’Õ»Ωâ•∏ΩïπÿÅ¡Â—°Ω∏Ã(ààâïπï…Ö—îÅ±Ωç≠ïêÅL¿≈ƒÃÅç±•¡ÃÅï·Öç—±‰ÅΩπçîÅïÖç†∞Å›•—†ÅπºÅ…ï—…‰Å¡Ö—†∏ààà)ô…Ω¥Å}}ô’—’…ï}|Å•µ¡Ω…–ÅÖππΩ—Ö—•ΩπÃ()•µ¡Ω…–ÅÖ…ù¡Ö…Õî)•µ¡Ω…–Å©ÕΩ∏)•µ¡Ω…–ÅΩÃ)•µ¡Ω…–ÅÕÂÃ)ô…Ω¥Å¡Ö—°±•àÅ•µ¡Ω…–ÅAÖ—†)ô…Ω¥Å—Â¡•πúÅ•µ¡Ω…–Åπ‰()•µ¡Ω…–Åùïπï…Ö—ï}Ã≈îƒ¡|ƒ…}ô•Ÿï}ÕïçΩπêÅÖÃÅâÖÕî(()I==PÄÙÅAÖ—†πç›ê†§)A19}AQ ÄÙÅI==PÄºÄâ…ïôï…ïπçïÃàÄºÄâÃ≈îƒÃàÄºÄâ¡…Ωë’ç—•Ωπ}¡±Ö∏π©ÕΩ∏à)	=ILÄÙÅI==PÄºÄâ…ïôï…ïπçïÃàÄºÄâÃ≈îƒÕ}Õ—Ω…ÂâΩÖ…ë}…ïôÃà()Y=%}1=,ÄÙÅÏ(ÄÄÄÄãñ&Gñ"ËàËÄâ±Ω‹∞Å…ïÕ—…Ö•πïêÅÖë’±–Å5ÖπëÖ…•∏ÅµÖ±îÅŸΩ•çîà∞(ÄÄÄÄãöz_ö÷àËÄâÕ—ïÖë‰Åµ•êµ±Ω‹ÅÖë’±–Å5ÖπëÖ…•∏ÅôïµÖ±îÅ•πŸïÕ—•ùÖ—Ω»ÅŸΩ•çîà∞(ÄÄÄÄãñF£ñŒêàËÄâ¡…ïç•ÕîÅµïÖÕ’…ïêÅÂΩ’πúÅÖë’±–Å5ÖπëÖ…•∏ÅµÖ±îÅŸΩ•çîà∞(ÄÄÄÄã¢∫„ör®àËÄâç±ïÖ»∞Åô•…¥ÅÖë’±–Å5ÖπëÖ…•∏ÅôïµÖ±îÅôΩ…ïπÕ•åÅŸΩ•çîà∞(ÄÄÄÄã¶~ßñˆÏàËÄâçÖ±¥ÅÖ’—°Ω…•—Ö—•ŸîÅµÖ—’…îÅ5ÖπëÖ…•∏ÅµÖ±îÅŸΩ•çîà∞(ÄÄÄÄãö^ûfÙàËÄâ≈’•ï–∞Åù…Ω’πëïêÅ5ÖπëÖ…•∏ÅπÖ……Ö—Ω»ÅŸΩ•çîà∞)Ù)%9Q%Qe}95LÄÙÅÏâ©•Öπ}ç§à∞Äâ±•π}≈•Ö∏à∞ÄâÈ°Ω’}≈•Öºà∞Äâ·’}›ï§à∞Äâ°Öπ}ç°îâÙ(()ëïòÅ±ΩÖë}¡±Ö∏†§Ä¥¯Åë•ç—mÕ—»∞ÅπÂtË(ÄÄÄÅ¡±Ö∏ÄÙÅ©ÕΩ∏π±ΩÖëÃ°A19}AQ π…ïÖë}—ï·–°ïπçΩë•πúÙâ’—ò¥‡à§§(ÄÄÄÅ±Ωç¨ÄÙÅÏ(ÄÄÄÄÄÄÄÄâµΩëï∞àËÄâÕïïëÖπçî¥»∏¿µµ•π§à∞(ÄÄÄÄÄÄÄÄâ…ïÕΩ±’—•Ω∏àËÄà–‡¡¿à∞(ÄÄÄÄÄÄÄÄâÖÕ¡ïç—}…Ö—•ºàËÄàƒÿË‰à∞(ÄÄÄÄÄÄÄÄâë’…Ö—•Ωπ}ÕïçΩπëÕ}¡ï…}ç±•¿àËÄ‘∞(ÄÄÄÄÄÄÄÄâç±•¡Õ}¡ï…}ï¡•ÕΩëîàËÄƒ»∞(ÄÄÄÄÄÄÄÄâÕ°Ω—Õ}¡ï…}ç±•¿àËÄÃ∞(ÄÄÄÄÄÄÄÄâùïπï…Ö—ï}Ö’ë•ºàËÅQ…’î∞(ÄÄÄÄÄÄÄÄâÖ’—ΩµÖ—•ç}…ï—…•ïÃàËÄ¿∞(ÄÄÄÅÙ(ÄÄÄÅôΩ»Å≠ï‰∞Åï·¡ïç—ïêÅ•∏Å±Ωç¨π•—ïµÃ†§Ë(ÄÄÄÄÄÄÄÅ•òÅ¡±Ö∏πùï–°≠ï‰§ÄÑÙÅï·¡ïç—ïêË(ÄÄÄÄÄÄÄÄÄÄÄÅ…Ö•ÕîÅI’π—•µï……Ω»°òâL¿≈ƒÃÅ¡…Ωë’ç—•Ω∏Å±Ωç¨ÅôÖ•±ïêËÅÌ≠ïÂÙà§(ÄÄÄÅï¡•ÕΩëïÃÄÙÅ¡±Ö∏πùï–†âï¡•ÕΩëïÃà§(ÄÄÄÅ•òÅπΩ–Å•Õ•πÕ—Öπçî°ï¡•ÕΩëïÃ∞Å±•Õ–ß]˚⁄⁄$z{-ÆÈ‹j◊ù]]}. Speak only this exact Chinese line during {float(cue['start']):.2f}-{float(cue['end']):.2f}, with no overlap, English, singing, invented dialogue or silence: {cue['speaker']}Ôºö‚Äú{cue['zh']}‚Äù
+#!/usr/bin/env python3
+"""Generate locked S01E13 clips exactly once each, with no retry path."""
+from __future__ import annotations
+
+import argparse
+import json
+import os
+import sys
+from pathlib import Path
+from typing import Any
+
+import generate_s1e10_12_five_second as base
+
+
+ROOT = Path.cwd()
+PLAN_PATH = ROOT / "references" / "s1e13" / "production_plan.json"
+BOARDS = ROOT / "references" / "s1e13_storyboard_refs_compressed"
+
+VOICE_LOCK = {
+    "ÂâëÂà∫": "low, restrained adult Mandarin male voice",
+    "ÊûóÊµÖ": "steady mid-low adult Mandarin female investigator voice",
+    "Âë®Â≥§": "precise measured young adult Mandarin male voice",
+    "ËÆ∏Êú™": "clear, firm adult Mandarin female forensic voice",
+    "Èü©ÂΩª": "calm authoritative mature Mandarin male voice",
+    "ÊóÅÁôΩ": "quiet, grounded Mandarin narrator voice",
+}
+IDENTITY_NAMES = {"jian_ci", "lin_qian", "zhou_qiao", "xu_wei", "han_che"}
+
+
+def load_plan() -> dict[str, Any]:
+    plan = json.loads(PLAN_PATH.read_text(encoding="utf-8"))
+    lock = {
+        "model": "seedance-2.0-mini",
+        "resolution": "480p",
+        "aspect_ratio": "16:9",
+        "duration_seconds_per_clip": 5,
+        "clips_per_episode": 12,
+        "shots_per_clip": 3,
+        "generate_audio": True,
+        "automatic_retries": 0,
+    }
+    for key, expected in lock.items():
+        if plan.get(key) != expected:
+            raise RuntimeError(f"S01E13 production lock failed: {key}")
+    episodes = plan.get("episodes")
+    if not isinstance(episodes, list) or [item.get("episode") for item in episodes] != ["S01E13"]:
+        raise RuntimeError("S01E13 plan must contain only S01E13")
+    clips = episodes[0].get("clips")
+    if not isinstance(clips, list) or [item.get("id") for item in clips] != [f"{value:02d}" for value in range(1, 13)]:
+        raise RuntimeError("S01E13 must contain clips 01 through 12 in order")
+    for clip in clips:
+        if len(clip.get("shots", [])) != 3 or len(clip.get("dialogue", [])) != 1:
+            raise RuntimeError(f"S01E13 clip {clip.get('id')} must have exactly three shots and one approved voice cue")
+        cue = clip["dialogue"][0]
+        if cue.get("speaker") not in VOICE_LOCK or not 0 <= float(cue.get("start", -1)) < float(cue.get("end", -1)) <= 5:
+            raise RuntimeError(f"Invalid S01E13 voice cue in clip {clip['id']}")
+        if any(name not in IDENTITY_NAMES for name in clip.get("characters", [])):
+            raise RuntimeError(f"Unknown or unlocked S01E13 identity in clip {clip['id']}")
+        board = BOARDS / f"S01E13_{clip['id']}_board.jpg"
+        base.image_ok(board)
+    for required in (base.JIAN, base.CHART, base.E09_PANEL_1, base.E09_PANEL_12):
+        if not required.is_file():
+            raise RuntimeError(f"Required locked source is missing: {required}")
+    base.image_ok(base.JIAN)
+    base.image_ok(base.CHART)
+    base.locked_b64_image_ok(base.E09_PANEL_1)
+    base.locked_b64_image_ok(base.E09_PANEL_12)
+    return plan
+
+
+def storyboard_board(episode: str, clip_id: str, runtime: Path) -> Path:
+    if episode != "S01E13":
+        raise RuntimeError(f"Storyboard authority is only locked for S01E13, not {episode}")
+    board = BOARDS / f"S01E13_{clip_id}_board.jpg"
+    base.image_ok(board)
+    return board
+
+
+def build_prompt(plan: dict[str, Any], episode: dict[str, Any], clip: dict[str, Any], reference_names: list[str], has_board: bool) -> str:
+    if not has_board:
+        raise RuntimeError(f"S01E13 clip {clip['id']} is missing its locked storyboard")
+    shots = "\n".join(f"{index + 1}. {item}" for index, item in enumerate(clip["shots"]))
+    cue = clip["dialogue"][0]
+    names = ", ".join(reference_names)
+    return f"""ORIGINAL SERIES PRODUCTION LOCK. Render exactly one clean five-second 16:9 animated clip for „ÄäÂê∏Ë°ÄÊ≥ïÂåª¬∑ÂâëÂà∫„Äã{episode['episode']}„Ää{episode['title_zh']}„Äã, case„Ää{episode['case_zh']}„Äã, clip {clip['id']} of 12. Original dark forensic manga-noir only; never imitate a named artist, studio, franchise or copyrighted character.
+
+REFERENCE ORDER IS LOCKED. References 1 and 2 are accepted visual-style and cinematic-lighting authorities. The following images are fixed identity authorities for {names}. The next image is the locked storyboard authority for this exact clip: preserve its cast, wardrobe, props, location, framing and three-shot order, but render a full-screen moving scene rather than a board. The final image is the previous accepted continuity frame; control only opening light, screen direction and scene geography. Never render a board, grid, panel, split-screen, title, subtitle, logo, watermark, readable UI, readable report or generated text.
+
+RENDER EXACTLY THREE FULL-SCREEN CINEMATIC SHOTS IN THE GIVEN TIMING:
+{shots}
+
+CHARACTER LOCK. {plan['character_lock']}
+CRITICAL: Jian Ci never wears glasses. Only Zhou Qiao wears silver-rim glasses and a hearing device. Preserve faces, hair, age, clothing, body scale, props and screen direction. Never duplicate a character, introduce an extra character, change wardrobe or give anyone a weapon.
+
+VISUAL / STORY LOCK. {plan['visual_lock']} {plan['case_continuity']} {episode['continuity']} Current clip scene: {clip['scene']}. Each 1.66-second shot has one motivated action and one dominant emotion. Evidence is always gloved, photographed, sealed and separate. Jian Ci's blood hunger is a private danger only: it never solves this case and he never harms any person.
+
+MANDARIN AUDIO LOCK. Generate synchronized clear native Mandarin audio with restrained room tone and a subtle low industrial suspense pulse. Use this fixed voice quality: {VOICE_LOCK[cue['speaker']]}. Speak only this exact Chinese line during {float(cue['start']):.2f}-{float(cue['end']):.2f}, with no overlap, English, singing, invented dialogue or silence: {cue['speaker']}Ôºö‚Äú{cue['zh']}‚Äù
 Do not generate visible subtitles. The permanent title header and clear Chinese/English subtitles are burned in only after technical and Mandarin-speech QC.
 
 STRICT NEGATIVE: {plan['global_negative']}"""
