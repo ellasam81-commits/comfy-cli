@@ -11,8 +11,8 @@
   "automatic_retries": 0,
   "character_lock": "Jian Ci: tall, slim, pale adult Chinese male forensic doctor; short layered side-part black hair, faint mole beneath left eye, white forensic coat over black high neck and black gloves, never glasses. Lin Qian: adult Chinese female investigator; chin-length straight black bob, navy field uniform and black gloves. Xu Wei: adult Chinese female forensic analyst; brown high ponytail, olive forensic coverall and black examination gloves. Zhou Qiao: young adult Chinese male digital-forensics analyst; tousled short black hair, silver glasses and hearing device, charcoal technical jacket. Han Che: mature adult Chinese male commander; short grey-black hair, dark command jacket.",
   "visual_lock": "Original 2D cinematic manga-noir forensic animation; dark blue-black and steel-grey palette, restrained red only as a clue, realistic light and anatomy, no live action, no 3D, no chibi. No text, subtitles, logos, visible UI or readable reports inside the generated picture.",
-  "case_continuity": "Case 05, The Drained: a young delivery rider has severe blood loss without a major open wound. The case is solved only by documented forensic and investigative evidence: concealed repeated punctures, clinical findings, appointment pattern, altered reports and transport trail. Jian Ci's blood hunger is a private worsening danger; it never solves the case and he never harms any person.",
-  "global_negative": "no vampire attack, no biting a person, no gore, no magical solution, no duplicated people, no wrong gender or extra cast, no glasses on Jian Ci, no text or UI, no live action, no 3D, no chibi, no cartoon comedy, no weapon, no wardrobe changes, no subtitles",
+  "case_continuity": "Case 05 is a confidential medical-consent investigation. It is solved through documented evidence, appointment patterns, altered reports and a transport trail. Harmful medical procedures are never pictured. Jian Ci's blood hunger is a private worsening danger; it never solves the case and he never harms any person.",
+  "global_negative": "no vampire attack, no biting a person, no gore, no blood, no medical fluid, no exposed body, no exposed skin evidence, no body close-up, no visible injury, no puncture, no syringe, no needle touching skin, no magical solution, no duplicated people, no wrong gender or extra cast, no glasses on Jian Ci, no text or UI, no live action, no 3D, no chibi, no cartoon comedy, no weapon, no wardrobe changes, no subtitles",
   "episodes": [
     {
       "episode": "S01E13",
@@ -42,9 +42,10 @@
           "id": "03",
           "title": "胶布下面",
           "characters": ["xu_wei", "lin_qian"],
-          "scene": "Forensic examination room. Xu Wei leads: she photographs and carefully lifts small medical adhesive squares from the rider's arm. Lin Qian stays at the clean boundary and documents.",
-          "shots": ["0.00-1.66 Xu Wei photographs a small medical adhesive square on the arm", "1.66-3.33 gloved tweezers lift the edge to reveal an old tiny puncture, non-graphic", "3.33-5.00 Xu Wei seals the adhesive while Lin Qian records the evidence number without visible text"],
-          "dialogue": [{"speaker": "许未", "zh": "不是新伤，是被胶布盖住的针孔。", "en": "They are not fresh wounds. The needle marks were covered with tape.", "start": 0.28, "end": 4.35}]
+          "scene": "Forensic examination room. Xu Wei leads a safety-safe examination of a small medical adhesive square already placed on a neutral stainless-steel evidence tray. Lin Qian stays at the clean boundary and documents.",
+          "shots": ["0.00-1.66 Xu Wei photographs a small medical adhesive square resting on a neutral stainless-steel evidence tray; no person or body is visible", "1.66-3.33 gloved tweezers lift one corner above the tray, revealing only a faint circular impression in the adhesive material", "3.33-5.00 Xu Wei seals the adhesive in a clear evidence bag while Lin Qian records the evidence number without visible text"],
+          "dialogue": [{"speaker": "许未", "zh": "不是新痕，是被胶布遮住的旧痕。", "en": "They are not fresh marks. The adhesive had concealed an older trace.", "start": 0.28, "end": 4.35}],
+          "safety_override": "The locked storyboard is a non-authoritative composition reference for cast and lighting only. Do not reproduce any exposed arm, skin, body, injury, puncture, needle, wound, blood, medical fluid or close-up anatomy from it. Render only the sealed adhesive evidence on the tray."
         },
         {
           "id": "04",

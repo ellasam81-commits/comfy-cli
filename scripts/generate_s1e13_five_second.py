@@ -58,6 +58,13 @@ def load_plan() -> dict[str, Any]:
             raise RuntimeError(f"Unknown or unlocked S01E13 identity in clip {clip['id']}")
         board = BOARDS / f"S01E13_{clip['id']}_board.jpg"
         base.image_ok(board)
+    clip03 = clips[2]
+    required_override = "The locked storyboard is a non-authoritative composition reference for cast and lighting only. Do not reproduce any exposed arm, skin, body, injury, puncture, needle, wound, blood, medical fluid or close-up anatomy from it. Render only the sealed adhesive evidence on the tray."
+    if clip03.get("safety_override") != required_override:
+        raise RuntimeError("S01E13 clip 03 safety override is not locked")
+    clip03_text = " ".join([clip03["scene"], *clip03["shots"], clip03["dialogue"][0]["zh"]]).lower()
+    if any(word in clip03_text for word in ("arm", "skin", "puncture", "needle", "wound", "blood")):
+        raise RuntimeError("S01E13 clip 03 still contains unsafe visual terms")
     for required in (base.JIAN, base.CHART, base.E09_PANEL_1, base.E09_PANEL_12):
         if not required.is_file():
             raise RuntimeError(f"Required locked source is missing: {required}")
@@ -71,6 +78,11 @@ def load_plan() -> dict[str, Any]:
 def storyboard_board(episode: str, clip_id: str, runtime: Path) -> Path:
     if episode != "S01E13":
         raise RuntimeError(f"Storyboard authority is only locked for S01E13, not {episode}")
+    if clip_id == "03":
+        # The original board contains disallowed close-up anatomy.  Clip 03 uses
+        # the locked character chart plus the tray-only shot lock instead.
+        base.image_ok(base.CHART)
+        return base.CHART
     board = BOARDS / f"S01E13_{clip_id}_board.jpg"
     base.image_ok(board)
     return board
@@ -82,9 +94,10 @@ def build_prompt(plan: dict[str, Any], episode: dict[str, Any], clip: dict[str, 
     shots = "\n".join(f"{index + 1}. {item}" for index, item in enumerate(clip["shots"]))
     cue = clip["dialogue"][0]
     names = ", ".join(reference_names)
+    safety_override = clip.get("safety_override", "")
     return f"""ORIGINAL SERIES PRODUCTION LOCK. Render exactly one clean five-second 16:9 animated clip for 《吸血法医·剑刺》{episode['episode']}《{episode['title_zh']}》, case《{episode['case_zh']}》, clip {clip['id']} of 12. Original dark forensic manga-noir only; never imitate a named artist, studio, franchise or copyrighted character.
 
-REFERENCE ORDER IS LOCKED. References 1 and 2 are accepted visual-style and cinematic-lighting authorities. The following images are fixed identity authorities for {names}. The next image is the locked storyboard authority for this exact clip: preserve its cast, wardrobe, props, location, framing and three-shot order, but render a full-screen moving scene rather than a board. The final image is the previous accepted continuity frame; control only opening light, screen direction and scene geography. Never render a board, grid, panel, split-screen, title, subtitle, logo, watermark, readable UI, readable report or generated text.
+REFERENCE ORDER IS LOCKED. References 1 and 2 are accepted visual-style and cinematic-lighting authorities. The following images are fixed identity authorities for {names}. The next image is the locked storyboard authority for this exact clip: preserve its cast, wardrobe, props, location, framing and three-shot order, but render a full-screen moving scene rather than a board. The final image is the previous accepted continuity frame; control only opening light, screen direction and scene geography. Never render a board, grid, panel, split-screen, title, subtitle, logo, watermark, readable UI, readable report or generated text. {safety_override}
 
 RENDER EXACTLY THREE FULL-SCREEN CINEMATIC SHOTS IN THE GIVEN TIMING:
 {shots}

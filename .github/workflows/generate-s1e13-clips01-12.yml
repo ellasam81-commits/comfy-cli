@@ -3,7 +3,7 @@ name: Generate S1E13 — No Needle Marks (one request per clip)
 on:
   push:
     branches: [render/s1e13-final-v1]
-    paths: ["references/s1e13/run-s1e13-clips01-12-gate-v2.txt"]
+    paths: ["references/s1e13/run-s1e13-clips01-12-gate-v3.txt"]
 
 permissions:
   contents: read
@@ -35,8 +35,8 @@ jobs:
           set -euo pipefail
           [[ "$RUN_ATTEMPT" == "1" ]] || { echo "::error::Workflow reruns are forbidden."; exit 2; }
           mapfile -t changed < <(git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA")
-          [[ "${#changed[@]}" -eq 1 && "${changed[0]}" == "references/s1e13/run-s1e13-clips01-12-gate-v2.txt" ]] || { echo "::error::Only the approved S01E13 gate may change."; exit 2; }
-          [[ "$(cat references/s1e13/run-s1e13-clips01-12-gate-v2.txt)" == "AUTHOR-APPROVED: INITIAL S01E13 CLIPS 01-12 STORYBOARD LOCKED ONCE EACH; SEEDANCE 2.0 MINI; 480P; 5S; AUDIO REQUIRED; NO AUTOMATIC RETRIES" ]] || exit 2
+          [[ "${#changed[@]}" -eq 1 && "${changed[0]}" == "references/s1e13/run-s1e13-clips01-12-gate-v3.txt" ]] || { echo "::error::Only the approved S01E13 gate may change."; exit 2; }
+          [[ "$(cat references/s1e13/run-s1e13-clips01-12-gate-v3.txt)" == "AUTHOR-APPROVED: S01E13 V3 SAFETY-REPAIRED CLIPS 01-12 ONCE EACH; SEEDANCE 2.0 MINI; 480P; 5S; AUDIO REQUIRED; NO AUTOMATIC RETRIES" ]] || exit 2
           [[ -n "$SEGMIND_API_KEY" ]] || { echo "::error::Missing SEGMIND_API_KEY; no paid request made."; exit 2; }
       - name: Restore accepted S01E12 final continuity frame
         uses: actions/download-artifact@v4
