@@ -1,0 +1,301 @@
+name: S01E13 Voice-Match TTS Dialogue Test (one shot)
+
+on:
+  push:
+    branches: [render/s1e13-final-v1]
+    paths: ["references/s1e13/run-tts-dialogue-voice-match-v1.txt"]
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: s1e13-voice-match-tts-test-v1
+  cancel-in-progress: false
+
+jobs:
+  synthesize-audio-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+      OUTPUT_DIR: output/s1e13-voice-match-tts-test-v1
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+
+      - name: Enforce the approved one-shot audio test
+        env:
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$RUN_ATTEMPT" == "1" ]] || { echo "::error::Workflow reruns are forbidden."; exit 2; }
+          [[ "$(tr -d '\r\n' < references/s1e13/run-tts-dialogue-voice-match-v1.txt)" == "AUTHOR-APPROVED: S01E13 CURRENT-VOICE TTS DIALOGUE TEST V1; LIN QIAN + JIAN CI; 1 AUDIO SYNTHESIS REQUEST; NO VIDEO RENDER; NO AUTOMATIC RETRIES" ]] || { echo "::error::Unexpected TTS test gate."; exit 2; }
+          [[ -n "$SEGMIND_API_KEY" ]] || { echo "::error::Missing SEGMIND_API_KEY; no paid request made."; exit 2; }
+
+      - name: Restore accepted S01E12 and S01E13 audio sources
+        uses: actions/download-artifact@v4
+        with:
+          name: S01E12-ADeathMovedAway-Final
+          run-id: "31744759341"
+          github-token: ${{ github.token }}
+          path: accepted/s1e12
+
+      - name: Restore accepted S01E13 audio source
+        uses: actions/download-artifact@v4
+        with:
+          name: S01E13-NoNeedleMarks-Final
+          run-id: "31829441609"
+          github-token: ${{ github.token }}
+          path: accepted/s1e13
+
+      - name: Install TTS, media and QC tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install "segmind==1.1.0" requests
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Synthesize one connected voice-match dialogue
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$OUTPUT_DIR"
+          python - <<'PY'
+          import json
+          import os
+          import re
+          import subprocess
+          from pathlib import Path
+          from urllib.parse import urlparse
+
+          import requests
+          from segmind import SegmindClient
+
+
+          ROOT = Path.cwd().resolve()
+          OUTPUT = ROOT / os.environ["OUTPUT_DIR"]
+          OUTPUT.mkdir(parents=True, exist_ok=True)
+          S12 = ROOT / "accepted" / "s1e12"
+          S13 = ROOT / "accepted" / "s1e13"
+          GATE = ROOT / "references/s1e13/run-tts-dialogue-voice-match-v1.txt"
+          PLAN = json.loads((ROOT / "references/s1e13/tts_dialogue_voice_match_test_v1.json").read_text(encoding="utf-8"))
+
+          manifest = {
+              "episode": "S01E13",
+              "purpose": "audio-only continuity audition; no picture is rendered or changed",
+              "model": "seed-audio-1.0",
+              "reference_source": {
+                  "s01e12_accepted_run_id": 31744759341,
+                  "s01e13_accepted_run_id": 31829441609,
+                  "method": "accepted synthetic dialogue is used as reference audio only; this is a closest-match audition, not a recovered persistent voice_id",
+              },
+              "gate": GATE.read_text(encoding="utf-8").strip(),
+              "request_limit": 1,
+              "requests_submitted": 0,
+              "automatic_retries": 0,
+              "status": "prepared",
+              "dialogue": PLAN["dialogue"],
+              "requests": [],
+          }
+
+
+          def write_manifest() -> None:
+              (OUTPUT / "manifest.json").write_text(
+                  json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8"
+              )
+
+
+          def find_raw(root: Path, episode: str, clip: str) -> Path:
+              exact = list(root.rglob(f"{episode}_clip_{clip}_raw.mp4"))
+              candidates = exact or list(root.rglob(f"*{episode}*clip_{clip}*raw*.mp4"))
+              if len(candidates) != 1:
+                  raise RuntimeError(f"Expected exactly one accepted {episode} clip {clip} raw video; found {candidates}")
+              return candidates[0]
+
+
+          def run(command: list[str]) -> None:
+              subprocess.run(command, check=True)
+
+
+          def build_reference(destination: Path, segments: list[tuple[Path, float, float]]) -> None:
+              command = ["ffmpeg", "-hide_banner", "-loglevel", "error", "-y"]
+              for path, _, _ in segments:
+                  command.extend(["-i", str(path)])
+              filters = []
+              tags = []
+              for index, (_, start, end) in enumerate(segments):
+                  tag = f"s{index}"
+                  filters.append(
+                      f"[{index}:a]atrim=start={start}:end={end},asetpts=PTS-STARTPTS,"
+                      f"aresample=32000,aformat=channel_layouts=mono[{tag}]"
+                  )
+                  tags.append(f"[{tag}]")
+              filters.append(f"{''.join(tags)}concat=n={len(tags)}:v=0:a=1[voice]")
+              command.extend([
+                  "-filter_complex", ";".join(filters),
+                  "-map", "[voice]", "-c:a", "pcm_s16le", "-ar", "32000", "-ac", "1", str(destination),
+              ])
+              run(command)
+              if not destination.is_file() or destination.stat().st_size < 80_000:
+                  raise RuntimeError(f"Reference extraction failed: {destination}")
+
+
+          def collect_urls(value, found: list[str]) -> None:
+              if isinstance(value, str) and value.startswith(("https://", "http://")):
+                  found.append(value)
+              elif isinstance(value, list):
+                  for item in value:
+                      collect_urls(item, found)
+              elif isinstance(value, dict):
+                  for item in value.values():
+                      collect_urls(item, found)
+
+
+          def looks_like_audio(data: bytes, content_type: str, url: str) -> bool:
+              suffix = Path(urlparse(url).path).suffix.lower()
+              return (
+                  content_type.lower().startswith("audio/")
+                  or data[:3] == b"ID3"
+                  or data[:4] == b"RIFF"
+                  or data[:4] == b"OggS"
+                  or suffix in {".mp3", ".wav", ".m4a", ".aac", ".ogg", ".flac"}
+              )
+
+
+          def download_result_audio(result: object, destination: Path) -> None:
+              urls: list[str] = []
+              collect_urls(result, urls)
+              for url in dict.fromkeys(urls):
+                  downloaded = requests.get(url, timeout=300)
+                  downloaded.raise_for_status()
+                  if looks_like_audio(downloaded.content, downloaded.headers.get("content-type", ""), url):
+                      destination.write_bytes(downloaded.content)
+                      return
+              raise RuntimeError(f"Seed Audio returned no downloadable audio: {json.dumps(result, ensure_ascii=False, default=str)[:1000]}")
+
+
+          s12_01 = find_raw(S12, "S01E12", "01")
+          s12_02 = find_raw(S12, "S01E12", "02")
+          s12_05 = find_raw(S12, "S01E12", "05")
+          s12_09 = find_raw(S12, "S01E12", "09")
+          s12_10 = find_raw(S12, "S01E12", "10")
+          s13_01 = find_raw(S13, "S01E13", "01")
+          s13_02 = find_raw(S13, "S01E13", "02")
+          s13_06 = find_raw(S13, "S01E13", "06")
+          s13_09 = find_raw(S13, "S01E13", "09")
+          s13_11 = find_raw(S13, "S01E13", "11")
+          s13_12 = find_raw(S13, "S01E13", "12")
+
+          lin_reference = OUTPUT / "lin_qian_reference.wav"
+          jian_reference = OUTPUT / "jian_ci_reference.wav"
+          # Preserve the accepted generated voices. Do not denoise or apply voice conversion.
+          build_reference(lin_reference, [
+              (s12_01, 2.00, 5.05), (s12_05, 1.90, 5.05), (s12_09, 1.90, 5.00),
+              (s13_01, 0.25, 1.70), (s13_06, 1.10, 5.00), (s13_11, 0.00, 2.15), (s13_12, 2.35, 5.08),
+          ])
+          build_reference(jian_reference, [
+              (s12_02, 0.05, 3.60), (s12_10, 1.05, 3.35),
+              (s13_02, 0.55, 3.95), (s13_09, 2.30, 4.60),
+          ])
+
+          client = SegmindClient()
+          lin_upload = client.files.upload(lin_reference)
+          jian_upload = client.files.upload(jian_reference)
+          lin_url = lin_upload["file_urls"][0]
+          jian_url = jian_upload["file_urls"][0]
+          manifest["reference_audio"] = {"林浅": lin_url, "剑刺": jian_url}
+          write_manifest()
+
+          if manifest["requests_submitted"] >= manifest["request_limit"]:
+              raise RuntimeError("TTS request limit reached before synthesis")
+          lines = PLAN["dialogue"]
+          text_prompt = "\n".join([
+              "ORIGINAL SERIES AUDIO-ONLY VOICE CONTINUITY AUDITION for 《吸血法医·剑刺》 S01E13.",
+              "Use @Audio1 only for 林浅 and @Audio2 only for 剑刺. Match each reference's existing Mandarin timbre, age, restraint and cadence.",
+              "Generate one connected, natural Mandarin exchange. Keep 0.25-0.40 second breathing pauses between turns; no overlap.",
+              "Only the three quoted Chinese lines below may be spoken. Do not speak character labels, @Audio tags, directions, English, subtitles, title, narration or any extra words.",
+              "No music, no singing and no sound effects. At most a very quiet dry forensic-corridor room tone under the voices.",
+              f"林浅 / @Audio1: \"{lines[0]['text']}\"",
+              f"剑刺 / @Audio2: \"{lines[1]['text']}\"",
+              f"林浅 / @Audio1: \"{lines[2]['text']}\"",
+              "Performance: 林浅 starts quietly but alert; 剑刺 gives a low, restrained question; 林浅 answers steadily and leaves pressure in the silence.",
+          ])
+          record = {
+              "endpoint": "seed-audio-1.0",
+              "reference_mapping": {"@Audio1": "林浅", "@Audio2": "剑刺"},
+              "status": "submitted_once",
+          }
+          manifest["requests_submitted"] = 1
+          manifest["requests"].append(record)
+          manifest["status"] = "synthesis_in_progress"
+          write_manifest()
+          job = client.submit_async(
+              "seed-audio-1.0",
+              text_prompt=text_prompt,
+              reference_audio_urls=[lin_url, jian_url],
+              format="wav",
+              sample_rate=48000,
+              speech_rate=0,
+              loudness_rate=0,
+              pitch_rate=0,
+          )
+          record["request_id"] = job.request_id
+          write_manifest()
+          result = job.wait(timeout=600, interval=2)
+          (OUTPUT / "result.json").write_text(
+              json.dumps(result, ensure_ascii=False, indent=2, default=str), encoding="utf-8"
+          )
+          final = OUTPUT / "S01E13_voice_match_dialogue_test_v1.wav"
+          download_result_audio(result, final)
+          if not final.is_file() or final.stat().st_size < 10_000:
+              raise RuntimeError("Seed Audio output is unexpectedly small")
+          record["status"] = "received"
+          record["bytes"] = final.stat().st_size
+          metrics = result.get("metrics", {}) if isinstance(result, dict) else {}
+          if isinstance(metrics, dict):
+              manifest["actual_provider_cost_usd"] = metrics.get("cost") or metrics.get("cost_usd") or metrics.get("price")
+          write_manifest()
+
+          probe = subprocess.run([
+              "ffprobe", "-v", "error", "-show_entries", "format=duration,size", "-show_streams", "-of", "json", str(final)
+          ], check=True, capture_output=True, text=True)
+          media = json.loads(probe.stdout)
+          audio_streams = [item for item in media.get("streams", []) if item.get("codec_type") == "audio"]
+          volume = subprocess.run([
+              "ffmpeg", "-hide_banner", "-i", str(final), "-af", "volumedetect", "-f", "null", "-"
+          ], check=True, capture_output=True, text=True)
+          match = re.search(r"max_volume:\s*(-?[\d.]+) dB", volume.stderr)
+          duration = float(media["format"]["duration"])
+          max_volume = float(match.group(1)) if match else None
+          audit = {
+              "final_file": final.name,
+              "duration_seconds": duration,
+              "audio_streams": len(audio_streams),
+              "codec": audio_streams[0].get("codec_name") if audio_streams else None,
+              "sample_rate": audio_streams[0].get("sample_rate") if audio_streams else None,
+              "max_volume_db": max_volume,
+              "turn_order": [cue["speaker"] for cue in PLAN["dialogue"]],
+              "spoken_text": [cue["text"] for cue in PLAN["dialogue"]],
+              "video_rendered": False,
+              "automatic_retries": 0,
+          }
+          (OUTPUT / "audio_qc.json").write_text(json.dumps(audit, ensure_ascii=False, indent=2), encoding="utf-8")
+          if len(audio_streams) != 1 or not 2.0 <= duration <= 12.0 or max_volume is None or max_volume < -45:
+              raise RuntimeError(f"TTS dialogue technical QC failed: {audit}")
+          manifest["status"] = "completed"
+          manifest["final_audio"] = final.name
+          manifest["audio_qc"] = audit
+          write_manifest()
+          print(json.dumps(manifest, ensure_ascii=False, indent=2))
+          PY
+
+      - name: Upload the audio-only voice-match test
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: S01E13-Voice-Match-TTS-Dialogue-Test-V1
+          path: output/s1e13-voice-match-tts-test-v1/
+          if-no-files-found: warn
+          retention-days: 30
