@@ -1,0 +1,45 @@
+{
+  "episode": "S01E13",
+  "version": "voice-match-dialogue-test-v2",
+  "retry_reason": "V1 stopped at the local WAV media-type check before reference upload or synthesis; V2 keeps the same accepted source voices in MP3 containers.",
+  "scope": "Audio-only continuity audition. No video is generated, rerendered, edited or uploaded.",
+  "reference_policy": "Use accepted S01E12 and S01E13 character audio only as same-series reference sound. Preserve the same selected source segments without denoise, voice conversion, pitch change or a new voice preset. MP3 is only the upload container. This is a closest-match audition because no persistent provider voice_id was retained.",
+  "reference_audio_format": "MP3, 32 kHz, mono, 128 kbps; locally preflighted before any upload or synthesis.",
+  "model": "seed-audio-1.0",
+  "language": "zh",
+  "automatic_retries": 0,
+  "max_synthesis_requests": 1,
+  "reference_mapping": {
+    "@Audio1": "林浅",
+    "@Audio2": "剑刺"
+  },
+  "dialogue": [
+    {
+      "speaker": "林浅",
+      "text": "剑刺，冷藏柜少了一袋。",
+      "emotion": "压低声音，先报告，仍然克制"
+    },
+    {
+      "speaker": "剑刺",
+      "text": "少哪袋？",
+      "emotion": "短暂一顿后追问，低沉但不冷硬"
+    },
+    {
+      "speaker": "林浅",
+      "text": "准备销毁的那袋。",
+      "emotion": "平静回答，留下未说完的压力"
+    }
+  ],
+  "assembly": {
+    "natural_pause_seconds": 0.3,
+    "turn_order": ["林浅", "剑刺", "林浅"],
+    "no_music": true,
+    "no_spoken_speaker_labels": true
+  },
+  "acceptance": [
+    "Three turns occur in the locked order with no overlap.",
+    "Each character uses accepted-series reference audio rather than a new generic voice preset.",
+    "The result contains one audible audio stream, no picture, no subtitles and no visible text.",
+    "Exactly one paid synthesis attempt is allowed; no automatic retries."
+  ]
+}
