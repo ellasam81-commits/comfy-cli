@@ -1,0 +1,168 @@
+{
+  "series": "吸血法医·剑刺",
+  "season": 1,
+  "episode": 14,
+  "title_zh": "愈合掉的证据",
+  "case_zh": "被吸干的人",
+  "author": "林爱丽",
+  "status": "storyboards_locked_upload_only",
+  "runtime_target": {
+    "aspect_ratio": "16:9",
+    "resolution": "480p",
+    "duration_seconds": 60,
+    "clips": 12,
+    "seconds_per_clip": 5,
+    "shots_per_clip": 3,
+    "generate_audio": true,
+    "automatic_retries": 0,
+    "video_generation_authorization_required": true
+  },
+  "storyboard_target": {
+    "files": 12,
+    "format": "jpeg",
+    "resolution": "1280x720",
+    "directory": "references/s1e14/storyboard_refs",
+    "no_generated_text_or_ui": true
+  },
+  "global_locks": {
+    "style": "original 2D cinematic forensic manga-noir; blue-black and steel-grey palette; realistic anatomy; restrained red only as a clue",
+    "forbidden_visuals": [
+      "text", "subtitles", "logos", "watermarks", "readable UI", "readable reports",
+      "exposed limb or neck closeups", "injury", "wound", "needle", "blood", "medical fluid", "medical procedure",
+      "weapons", "extra cast", "duplicated characters", "live action", "3D", "chibi"
+    ],
+    "character_locks": {
+      "Jian Ci": "tall slim pale adult Chinese male forensic doctor; short layered side-part black hair; faint mole beneath left eye; white forensic coat over black high neck and black gloves; never glasses",
+      "Lin Qian": "adult Chinese female investigator; chin-length straight black bob; navy field uniform; black gloves",
+      "Xu Wei": "adult Chinese female forensic analyst; brown high ponytail; olive forensic coverall; black examination gloves",
+      "Zhou Qiao": "young adult Chinese male digital-forensics analyst; tousled short black hair; silver-rim glasses; hearing device; charcoal technical jacket",
+      "Han Che": "mature adult Chinese male commander; short grey-black hair; dark command jacket"
+    },
+    "voice_locks": {
+      "language": "Mandarin Chinese",
+      "character_name_pronunciations": {
+        "Jian Ci": "Jiàn Cì",
+        "Lin Qian": "Lín Qiǎn",
+        "Xu Wei": "Xǔ Wèi",
+        "Zhou Qiao": "Zhōu Qiáo"
+      },
+      "subtitle_policy": "burn title header and Chinese/English subtitles only after technical and speech QC"
+    }
+  },
+  "clips": [
+    {
+      "id": 1,
+      "timecode": "00:00-00:05",
+      "title": "同一折痕",
+      "board": "storyboard_refs/S01E14_01_board.jpg",
+      "cast": ["Lin Qian", "Xu Wei", "Jian Ci offscreen"],
+      "shots": ["closed evidence cabinet and empty molded slot", "Xu Wei brings three separated sealed adhesive-paper packets", "matching diagonal folds catch cold light"],
+      "audio": "林浅：剑刺，准备销毁的那份样本，去向断了。"
+    },
+    {
+      "id": 2,
+      "timecode": "00:05-00:10",
+      "title": "不是随手贴的",
+      "board": "storyboard_refs/S01E14_02_board.jpg",
+      "cast": ["Lin Qian", "Xu Wei"],
+      "shots": ["Xu Wei rotates three sealed packets with a blunt evidence tool", "photography light reveals matching edge pressure", "Lin Qian photographs and reseals each packet"],
+      "audio": "林浅：许未，这不是自己贴的。"
+    },
+    {
+      "id": 3,
+      "timecode": "00:10-00:15",
+      "title": "固定节拍",
+      "board": "storyboard_refs/S01E14_03_board.jpg",
+      "cast": ["Lin Qian", "Xu Wei"],
+      "shots": ["four separated sealed packets form a sequence", "edge impressions align at a fixed interval", "Lin Qian returns the final packet to an empty tray position"],
+      "audio": "许未：林浅，间隔像排好的班。"
+    },
+    {
+      "id": 4,
+      "timecode": "00:15-00:20",
+      "title": "夜线",
+      "board": "storyboard_refs/S01E14_04_board.jpg",
+      "cast": ["Zhou Qiao", "Lin Qian"],
+      "shots": ["Zhou Qiao works beside a physical city model", "three anonymous blue markers connect", "the route stops at a night transport junction"],
+      "audio": "周峤：林浅，三站连成一条夜线。"
+    },
+    {
+      "id": 5,
+      "timecode": "00:20-00:25",
+      "title": "空诊所",
+      "board": "storyboard_refs/S01E14_05_board.jpg",
+      "cast": ["Lin Qian"],
+      "shots": ["abandoned temporary consultation room with curtains and stools", "Lin Qian finds blank vouchers, adhesive-paper rolls and empty sleeves", "locked rear door and waiting chairs reveal an assembly line"],
+      "audio": "林浅：周峤，这里不像诊所。"
+    },
+    {
+      "id": 6,
+      "timecode": "00:25-00:30",
+      "title": "后来才合格",
+      "board": "storyboard_refs/S01E14_06_board.jpg",
+      "cast": ["Xu Wei"],
+      "shots": ["Xu Wei holds a sealed blank eligibility card", "two embossing layers catch oblique light", "she seals it in a separate evidence bag"],
+      "audio": "许未：林浅，合格是后来补的。"
+    },
+    {
+      "id": 7,
+      "timecode": "00:30-00:35",
+      "title": "签过字的人",
+      "board": "storyboard_refs/S01E14_07_board.jpg",
+      "cast": ["Lin Qian", "Jian Ci"],
+      "shots": ["Lin Qian separates a blank consent envelope and transit tokens", "Jian Ci remains at the clean boundary", "Lin Qian closes the evidence sleeve and keeps distance"],
+      "audio": "林浅：剑刺，签过字也不代表愿意。"
+    },
+    {
+      "id": 8,
+      "timecode": "00:35-00:40",
+      "title": "还有一趟",
+      "board": "storyboard_refs/S01E14_08_board.jpg",
+      "cast": ["Zhou Qiao", "Jian Ci"],
+      "shots": ["Zhou Qiao places unmarked reservation tokens by the route model", "only one blue route light remains", "Jian Ci stays out of focus at the doorway"],
+      "audio": "周峤：剑刺，今晚还有一趟车。"
+    },
+    {
+      "id": 9,
+      "timecode": "00:40-00:45",
+      "title": "界线",
+      "board": "storyboard_refs/S01E14_09_board.jpg",
+      "cast": ["Jian Ci", "Lin Qian"],
+      "shots": ["Jian Ci stops a full step from the closed cold-storage cabinet", "a restrained red reflection crosses his eyes without effects", "he withdraws while Lin Qian watches from the clean boundary"],
+      "audio": "剑刺：林浅，冷柜交给你。"
+    },
+    {
+      "id": 10,
+      "timecode": "00:45-00:50",
+      "title": "换人换地",
+      "board": "storyboard_refs/S01E14_10_board.jpg",
+      "cast": ["Lin Qian"],
+      "shots": ["unmarked grey transfer van crosses rainy warehouse district", "Lin Qian observes through a convex mirror", "a diagonal blank sealing strip flashes on the rear door"],
+      "audio": "周峤：林浅，它先换人再换地。"
+    },
+    {
+      "id": 11,
+      "timecode": "00:50-00:55",
+      "title": "先救人",
+      "board": "storyboard_refs/S01E14_11_board.jpg",
+      "cast": ["Han Che", "Lin Qian", "Jian Ci", "Zhou Qiao"],
+      "shots": ["Han Che divides two action paths on an unmarked physical model", "Lin Qian takes an empty sealed evidence case", "Jian Ci and Zhou Qiao hold position without weapons"],
+      "audio": "韩彻：林浅，先救人，再取证。"
+    },
+    {
+      "id": 12,
+      "timecode": "00:55-01:00",
+      "title": "旧仓库",
+      "board": "storyboard_refs/S01E14_12_board.jpg",
+      "cast": ["Lin Qian", "Jian Ci"],
+      "shots": ["unmarked transfer van enters an old warehouse in rain", "only empty stools, white curtains and an opaque closed inner door are visible", "Lin Qian gives a silent stop signal while Jian Ci watches the entrance"],
+      "audio": "周峤：林浅，车进旧仓库了。"
+    }
+  ],
+  "upload_gate": {
+    "contains_workflow_file": false,
+    "contains_run_gate_file": false,
+    "expected_actions_runs_triggered": 0,
+    "commit_scope": "references/s1e14 only"
+  }
+}
