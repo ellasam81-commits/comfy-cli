@@ -1,0 +1,89 @@
+name: Generate S1E14 — Healed Evidence (one request per clip)
+
+on:
+  push:
+    branches: [render/s1e13-final-v1]
+    paths: ["references/s1e14/run-s1e14-clips01-12-gate-v1.txt"]
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: s1e14-clips01-12-one-shot
+  cancel-in-progress: false
+
+jobs:
+  generate-and-assemble:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    env:
+      SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+      WHISPER_CACHE_DIR: /tmp/faster-whisper-s1e14
+      GENERATION_OUTPUT_DIR: output/s1e14-all
+      FINAL_OUTPUT_DIR: output/s1e14-final
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - name: Enforce the single approved S01E14 batch
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+          FORCED: ${{ github.event.forced }}
+          GITHUB_REF: ${{ github.ref }}
+        run: |
+          set -euo pipefail
+          gate="references/s1e14/run-s1e14-clips01-12-gate-v1.txt"
+          [[ "$GITHUB_REF" == "refs/heads/render/s1e13-final-v1" ]] || { echo "::error::Wrong branch."; exit 2; }
+          [[ "$FORCED" == "false" ]] || { echo "::error::Forced pushes are forbidden."; exit 2; }
+          [[ "$RUN_ATTEMPT" == "1" ]] || { echo "::error::Workflow reruns are forbidden."; exit 2; }
+          [[ "$(git rev-parse "$CURRENT_SHA^")" == "$BEFORE_SHA" ]] || { echo "::error::The approved gate must be its own commit."; exit 2; }
+          [[ "$(git rev-list --count "$BEFORE_SHA..$CURRENT_SHA")" == "1" ]] || { echo "::error::The approved gate must be the only commit in this push."; exit 2; }
+          mapfile -t changed < <(git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+          [[ "${#changed[@]}" -eq 1 && "${changed[0]}" == "$gate" ]] || { echo "::error::Only the approved S01E14 gate may change."; exit 2; }
+          if git cat-file -e "${BEFORE_SHA}:${gate}" 2>/dev/null; then
+            echo "::error::The one-shot gate already existed before this push."
+            exit 2
+          fi
+          [[ "$(git rev-list --count "$CURRENT_SHA" -- "$gate")" == "1" ]] || { echo "::error::This gate was previously used."; exit 2; }
+          [[ "$(cat "$gate")" == "AUTHOR-APPROVED: S01E14 HEALED EVIDENCE CLIPS 01-12 ONCE EACH; SEEDANCE 2.0 MINI; 480P; 5S; MANDARIN AUDIO REQUIRED; NO AUTOMATIC RETRIES; NO RERUNS" ]] || { echo "::error::Gate text does not match the approval."; exit 2; }
+          [[ -n "$SEGMIND_API_KEY" ]] || { echo "::error::Missing SEGMIND_API_KEY; no paid request made."; exit 2; }
+      - name: Restore accepted S01E13 continuity frame
+        uses: actions/download-artifact@v4
+        with:
+          name: S01E13-NoNeedleMarks-Final
+          run-id: "31829441609"
+          github-token: ${{ github.token }}
+          path: output/s1e13-accepted
+      - name: Install generation, audio-QC and assembly tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install "segmind==1.1.0" "faster-whisper==1.2.1" requests Pillow
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg zip fonts-noto-cjk
+      - name: Validate the locked S01E14 batch before paid requests
+        run: |
+          python -m py_compile scripts/generate_s1e10_12_five_second.py scripts/assemble_s1e10_12_final.py scripts/generate_s1e14_five_second.py scripts/assemble_s1e14_final.py
+          python scripts/generate_s1e14_five_second.py --preflight --episode S01E14
+          test -s output/s1e13-accepted/s1e13-all/S01E13/last_frames/clip_12_continuity.jpg
+      - name: Generate S01E14 clips 01-12 once each with Mandarin-audio QC
+        run: >-
+          python scripts/generate_s1e14_five_second.py --episode S01E14
+          --previous-frame output/s1e13-accepted/s1e13-all/S01E13/last_frames/clip_12_continuity.jpg
+      - name: Verify all 12 one-shot outputs before assembly
+        run: python scripts/generate_s1e14_five_second.py --verify-complete
+      - name: Burn voice-synchronous Chinese and English subtitles and package S01E14
+        run: python scripts/assemble_s1e14_final.py
+      - name: Upload S01E14 raw clips, proof frames, QC, final MP4 and ZIP
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: S01E14-HealedEvidence-Final
+          path: |
+            output/s1e14-all/
+            output/s1e14-final/
+          if-no-files-found: warn
+          compression-level: 0
+          retention-days: 30
