@@ -1,0 +1,87 @@
+{
+  "series": "吸血法医·剑刺",
+  "author": "林爱丽",
+  "season": 1,
+  "case": {"id": "05", "title_zh": "被吸干的人", "title_en": "The Drained"},
+  "runtime": {
+    "resolution": "480p",
+    "aspect_ratio": "16:9",
+    "seconds_per_clip": 5,
+    "clips_per_episode": 12,
+    "video_requests": 12,
+    "tts_requests": 12,
+    "automatic_retries": 0,
+    "final_audio": "fixed Mandarin character TTS plus quiet room tone",
+    "subtitle_policy": "burn Chinese speaker-label and English subtitles only after TTS QC"
+  },
+  "voice_lock": {
+    "剑刺": "low restrained adult Mandarin male; never a growl or monster voice",
+    "林浅": "steady mid-low adult Mandarin female investigator",
+    "许未": "clear firm adult Mandarin female analyst",
+    "周峤": "precise measured young adult Mandarin male",
+    "韩彻": "calm authoritative mature Mandarin male",
+    "罗川": "calm adult Mandarin male project manager"
+  },
+  "pronunciation": {"剑刺": "Jiàn Cì", "林浅": "Lín Qiǎn", "许未": "Xǔ Wèi", "周峤": "Zhōu Qiáo", "沈浩": "Shěn Hào", "罗川": "Luó Chuān"},
+  "episodes": [
+    {
+      "code": "S01E13", "title_zh": "没有针孔", "title_en": "No Needle Marks", "source": "accepted_s01e13_raw_recut",
+      "viewer_question": "沈浩为什么严重失血，却没有明显的大伤口？",
+      "clips": [
+        {"id":"01","speaker":"林浅","zh":"剑刺，待销毁的样本少了一份。","en":"Jian Ci, one disposal sample is missing.","start":0.28,"end":3.75},
+        {"id":"02","speaker":"韩彻","zh":"新案。骑手沈浩，严重失血。","en":"New case. Courier Shen Hao, severe blood loss.","start":0.28,"end":3.85},
+        {"id":"03","speaker":"许未","zh":"衣物完整，也没有明显的大伤口。","en":"His clothing is intact. There is no major wound.","start":0.30,"end":3.85},
+        {"id":"04","speaker":"许未","zh":"林浅，这枚贴布被反复揭开过。","en":"Lin Qian, this patch was lifted more than once.","start":0.30,"end":3.80},
+        {"id":"05","speaker":"许未","zh":"折痕相同，说明是同一个人处理的。","en":"The matching folds point to the same handler.","start":0.30,"end":3.90},
+        {"id":"06","speaker":"周峤","zh":"沈浩每周都去，间隔一模一样。","en":"Shen Hao went every week, at identical intervals.","start":0.30,"end":3.85},
+        {"id":"07","speaker":"林浅","zh":"他不是来看病，是来领研究补贴。","en":"He came for a research stipend, not treatment.","start":0.28,"end":3.90},
+        {"id":"08","speaker":"许未","zh":"上次结果已经异常，他不该再参加。","en":"His last result was abnormal. He should not have returned.","start":0.30,"end":3.85},
+        {"id":"09","speaker":"林浅","zh":"为了生活签字，不等于知道全部风险。","en":"Signing for survival does not mean knowing every risk.","start":0.30,"end":3.85},
+        {"id":"10","speaker":"剑刺","zh":"林浅，冷柜交给你。我退出证物区。","en":"Lin Qian, take the cold storage. I’m stepping out.","start":0.38,"end":3.65},
+        {"id":"11","speaker":"周峤","zh":"林浅，沈浩最后一次预约，接他的是灰车。","en":"Lin Qian, a grey van collected Shen Hao for his last visit.","start":0.30,"end":3.90},
+        {"id":"12","speaker":"林浅","zh":"周峤，追灰车。许未，锁住贴布证据。","en":"Zhou Qiao, trace the van. Xu Wei, secure the patch evidence.","start":0.25,"end":3.95}
+      ]
+    },
+    {
+      "code": "S01E14", "title_zh": "愈合掉的证据", "title_en": "Healed Evidence", "source": "accepted_s01e14_raw_recut",
+      "viewer_question": "如果痕迹已经愈合，怎样证明沈浩遭遇了反复操作？",
+      "clips": [
+        {"id":"01","speaker":"林浅","zh":"沈浩反复参加研究，最后一次上了灰车。","en":"Shen Hao joined repeatedly. A grey van took him last.","start":0.28,"end":3.95},
+        {"id":"02","speaker":"许未","zh":"三枚折痕同向，是同一套处理习惯。","en":"All three folds match the same handling routine.","start":0.30,"end":3.85},
+        {"id":"03","speaker":"许未","zh":"间隔固定，这不是偶然，是排好的班。","en":"Fixed intervals mean a schedule, not an accident.","start":0.30,"end":3.75},
+        {"id":"04","speaker":"周峤","zh":"林浅，灰车每周经过这三个夜间站点。","en":"Lin Qian, the van visits these three stops every week.","start":0.30,"end":3.75},
+        {"id":"05","speaker":"林浅","zh":"没有治疗设备。这里只负责登记和转车。","en":"No treatment equipment. This place registers and transfers.","start":0.28,"end":3.85},
+        {"id":"06","speaker":"许未","zh":"沈浩的合格，是在异常结果后补上的。","en":"Shen Hao was marked cleared after the abnormal result.","start":0.30,"end":3.80},
+        {"id":"07","speaker":"林浅","zh":"剑刺，签过字，也不代表沈浩真正知情。","en":"Jian Ci, a signature does not prove informed consent.","start":0.30,"end":3.90},
+        {"id":"08","speaker":"周峤","zh":"林浅，今晚还有一趟车，车上不止一人。","en":"Lin Qian, another van runs tonight—with several people.","start":0.30,"end":3.80},
+        {"id":"09","speaker":"剑刺","zh":"林浅，别让我接近冷柜。你来保管。","en":"Lin Qian, keep me from the cold storage. You take custody.","start":0.32,"end":3.70},
+        {"id":"10","speaker":"周峤","zh":"他们中途换车，再换地点，故意切断路线。","en":"They switch vehicles and sites to break the trail.","start":0.30,"end":3.85},
+        {"id":"11","speaker":"韩彻","zh":"林浅，先救人，再取证。程序一个都不能少。","en":"Lin Qian, rescue first, evidence second—and follow procedure.","start":0.30,"end":3.90},
+        {"id":"12","speaker":"周峤","zh":"林浅，灰车进旧仓库了。人还在里面。","en":"Lin Qian, the van entered the old warehouse. They’re inside.","start":0.30,"end":3.70}
+      ]
+    },
+    {
+      "code": "S01E15", "title_zh": "签过字的人", "title_en": "The Signatory", "source": "new_s01e15_video_generation",
+      "viewer_question": "沈浩明明签了字，项目负责人为什么仍构成犯罪？",
+      "clips": [
+        {"id":"01","speaker":"林浅","zh":"沈浩签过字。现在要证明，他签字前被隐瞒了什么。","en":"Shen Hao signed. We must prove what was hidden from him.","start":0.25,"end":3.95,"characters":["lin_qian","jian_ci"],"visual":"0.00-2.50 Rain-dark warehouse entrance: Lin Qian studies the closed entrance with an unmarked sealed hard case; Jian Ci holds position one step behind. 2.50-5.00 Both remain still as cold industrial light sweeps the shutter."},
+        {"id":"02","speaker":"许未","zh":"这里刚用过，他们撤得很急。","en":"This place was just used. They left in a hurry.","start":0.35,"end":3.55,"characters":["xu_wei"],"visual":"0.00-2.50 Xu Wei examines a not-quite-closed unmarked hard case in the empty warehouse; paired stools and plain fabric dividers remain empty. 2.50-5.00 She notes the room layout without opening the case."},
+        {"id":"03","speaker":"许未","zh":"林浅，折痕吻合。沈浩来过这间仓库。","en":"Lin Qian, the folds match. Shen Hao was here.","start":0.30,"end":3.85,"characters":["xu_wei","lin_qian"],"visual":"0.00-2.50 Xu Wei sets two separately sealed blank paper sleeves on different pads; raking light reveals matching diagonal folds. 2.50-5.00 Lin Qian observes from the clean boundary."},
+        {"id":"04","speaker":"周峤","zh":"三条路线都回到罗川名下的仓库。","en":"All three routes return to Luo Chuan’s warehouse.","start":0.30,"end":3.90,"characters":["zhou_qiao","lin_qian"],"visual":"0.00-2.50 Zhou Qiao arranges three anonymous route strips on a physical city relief until they converge on one blank warehouse block. 2.50-5.00 Lin Qian understands the convergence."},
+        {"id":"05","speaker":"林浅","zh":"跟我走。今晚的项目已经停止。","en":"Come with me. Tonight’s program is over.","start":0.28,"end":3.70,"characters":["lin_qian","jian_ci"],"visual":"0.00-2.50 Lin Qian calmly guides three fully clothed adult couriers from the warehouse interior across a clean boundary. 2.50-5.00 Jian Ci remains in the background, observing without touching anyone."},
+        {"id":"06","speaker":"韩彻","zh":"人员登记，证物分开封存，现场全程留痕。","en":"Register everyone. Seal evidence separately. Record the scene.","start":0.30,"end":3.85,"characters":["han_che","xu_wei","lin_qian"],"visual":"0.00-2.50 Han Che directs people safely out through the distant exit while Xu Wei seals separate unmarked hard cases in the foreground. 2.50-5.00 Lin Qian holds the clean boundary."},
+        {"id":"07","speaker":"罗川","zh":"他们自愿来的，每个人都签了字。","en":"They volunteered. Every one of them signed.","start":0.35,"end":3.65,"characters":["lin_qian","luo_chuan"],"visual":"0.00-2.50 Luo Chuan, a normal adult Chinese project manager in a charcoal jacket, faces Lin Qian across an empty metal table. 2.50-5.00 A closed unmarked evidence case remains between them."},
+        {"id":"08","speaker":"林浅","zh":"你隐瞒风险。拿补贴，不等于知情同意。","en":"You hid the risks. Taking money is not informed consent.","start":0.25,"end":3.95,"characters":["lin_qian"],"visual":"0.00-2.50 Lin Qian sets one sealed unmarked hard case down on the steel table, composed and firm. 2.50-5.00 Cold rain reflection crosses the office; the unseen listener remains offscreen."},
+        {"id":"09","speaker":"许未","zh":"异常在前，合格在后。记录被改过。","en":"The abnormal result came first. The clearance was added later.","start":0.30,"end":3.85,"characters":["xu_wei","han_che"],"visual":"0.00-2.50 Xu Wei holds a sealed blank cream card in oblique light; two blind-embossed layers are visible with no glyphs. 2.50-5.00 Han Che confirms the sealed state from beyond the boundary."},
+        {"id":"10","speaker":"周峤","zh":"同一批账号、同一周期、同一条转移线。","en":"The same accounts, cycle, and transfer route.","start":0.30,"end":3.90,"characters":["zhou_qiao","lin_qian"],"visual":"0.00-2.50 Zhou Qiao arranges equal-spaced anonymous tokens and three route strips to one warehouse block on a physical model. 2.50-5.00 Lin Qian sees the complete pattern."},
+        {"id":"11","speaker":"韩彻","zh":"证物、记录和路线闭合。罗川，依法接受调查。","en":"Evidence, records, and routes align. Luo Chuan, you are under investigation.","start":0.28,"end":3.90,"characters":["han_che","lin_qian","jian_ci","luo_chuan"],"visual":"0.00-2.50 Han Che closes one unmarked evidence case. 2.50-5.00 Luo Chuan walks out with two plain-clothed staff in the distant background; Lin Qian and Jian Ci remain at the evidence line."},
+        {"id":"12","speaker":"林浅","zh":"沈浩的案子结束了。剑刺，现在解释冷柜。","en":"Shen Hao’s case is closed. Jian Ci—now explain the cold storage.","start":0.30,"end":3.95,"characters":["lin_qian","jian_ci"],"visual":"0.00-2.50 Back in the blue-black evidence corridor, Lin Qian faces Jian Ci across the clean boundary near a shut brushed-steel cold cabinet. 2.50-5.00 One empty rectangular recess is visible as both keep distance from the cabinet."}
+      ]
+    }
+  ],
+  "visual_safety": {
+    "only_safe_props": ["sealed blank paper sleeves", "unmarked hard cases", "physical route models", "blank cards", "opaque storage cabinet"],
+    "forbid": ["readable text", "UI", "medical procedure", "exposed skin closeups", "injury", "blood", "needles", "weapons", "extra cast", "duplicated cast", "live action", "3D", "chibi"],
+    "story_rule": "Jian Ci never harms anyone and never provides a supernatural solution."
+  }
+}

@@ -1,0 +1,114 @@
+name: Generate S1E13–15 Clear Remaster (one-shot gate)
+
+on:
+  push:
+    branches: [render/s1e13-s1e15-remaster-v1]
+    paths: ["references/s1e13-s1e15-remaster/run-remaster-gate-v1.txt"]
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: s1e13-s1e15-clear-remaster-v1-one-shot
+  cancel-in-progress: false
+
+jobs:
+  remaster-and-assemble:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    env:
+      SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+      WHISPER_CACHE_DIR: /tmp/faster-whisper-s1e13-s1e15-remaster
+      GENERATION_OUTPUT_DIR: output/s1e13-s1e15-remaster
+      TTS_OUTPUT_DIR: output/s1e13-s1e15-remaster-tts
+      FINAL_OUTPUT_DIR: output/s1e13-s1e15-remaster-final
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+
+      - name: Enforce the single approved S01E13–15 remaster run
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+          FORCED: ${{ github.event.forced }}
+          GITHUB_REF: ${{ github.ref }}
+        run: |
+          set -euo pipefail
+          gate="references/s1e13-s1e15-remaster/run-remaster-gate-v1.txt"
+          [[ "$GITHUB_REF" == "refs/heads/render/s1e13-s1e15-remaster-v1" ]] || { echo "::error::Wrong branch."; exit 2; }
+          [[ "$FORCED" == "false" ]] || { echo "::error::Forced pushes are forbidden."; exit 2; }
+          [[ "$RUN_ATTEMPT" == "1" ]] || { echo "::error::Workflow reruns are forbidden."; exit 2; }
+          [[ "$(git rev-parse "$CURRENT_SHA^")" == "$BEFORE_SHA" ]] || { echo "::error::Gate must be its own commit."; exit 2; }
+          [[ "$(git rev-list --count "$BEFORE_SHA..$CURRENT_SHA")" == "1" ]] || { echo "::error::Gate must be the only commit in this push."; exit 2; }
+          mapfile -t changed < <(git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+          [[ "${#changed[@]}" -eq 1 && "${changed[0]}" == "$gate" ]] || { echo "::error::Only the approved remaster gate may change."; exit 2; }
+          if git cat-file -e "${BEFORE_SHA}:${gate}" 2>/dev/null; then
+            echo "::error::The one-shot gate already existed before this push."
+            exit 2
+          fi
+          [[ "$(git rev-list --count "$CURRENT_SHA" -- "$gate")" == "1" ]] || { echo "::error::This gate was previously used."; exit 2; }
+          [[ "$(cat "$gate")" == "AUTHOR-APPROVED: S01E13-S01E15 CLEAR REMASTER; REUSE ACCEPTED S01E13/S01E14 VISUALS; GENERATE S01E15 CLIPS 01-12 ONCE EACH; 36 FIXED TTS LINES ONCE EACH; 480P; 5S; NO AUTOMATIC RETRIES; NO RERUNS" ]] || { echo "::error::Gate text does not match approval."; exit 2; }
+          [[ -n "$SEGMIND_API_KEY" ]] || { echo "::error::Missing SEGMIND_API_KEY; no paid request made."; exit 2; }
+
+      - name: Restore accepted S01E13 raw visual source
+        uses: actions/download-artifact@v4
+        with:
+          name: S01E13-NoNeedleMarks-Final
+          run-id: "31829441609"
+          github-token: ${{ github.token }}
+          path: accepted/s1e13
+
+      - name: Restore accepted S01E14 raw visual source and continuity frame
+        uses: actions/download-artifact@v4
+        with:
+          name: S01E14-HealedEvidence-Final
+          run-id: "32056139704"
+          github-token: ${{ github.token }}
+          path: accepted/s1e14
+
+      - name: Install generation, voice, QC and assembly tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install "segmind==1.1.0" "faster-whisper==1.2.1" requests Pillow
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg zip fonts-noto-cjk
+
+      - name: Validate all locked files before paid requests
+        run: |
+          python -m py_compile scripts/generate_s1e10_12_five_second.py scripts/generate_s1e15_remaster.py scripts/synthesize_s1e13_s1e15_remaster_tts.py scripts/assemble_s1e13_s1e15_remaster.py
+          python scripts/generate_s1e15_remaster.py --preflight
+          python scripts/synthesize_s1e13_s1e15_remaster_tts.py --preflight
+          test -s accepted/s1e14/s1e14-all/S01E14/last_frames/clip_12_continuity.jpg
+
+      - name: Generate S01E15 visuals 01-12 once each
+        run: >-
+          python scripts/generate_s1e15_remaster.py
+          --previous-frame accepted/s1e14/s1e14-all/S01E14/last_frames/clip_12_continuity.jpg
+
+      - name: Verify all twelve one-shot S01E15 visual outputs
+        run: python scripts/generate_s1e15_remaster.py --verify-complete
+
+      - name: Synthesize fixed Mandarin dialogue once per remaster clip
+        run: python scripts/synthesize_s1e13_s1e15_remaster_tts.py
+
+      - name: Verify thirty-six fixed dialogue takes before subtitle burn-in
+        run: python scripts/synthesize_s1e13_s1e15_remaster_tts.py --verify
+
+      - name: Assemble clear-remaster MP4s with speaker labels and bilingual subtitles
+        run: python scripts/assemble_s1e13_s1e15_remaster.py
+
+      - name: Upload remaster visuals, TTS QC, final MP4s and ZIP
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: S01E13-S01E15-TheDrained-ClearRemaster
+          path: |
+            output/s1e13-s1e15-remaster/
+            output/s1e13-s1e15-remaster-tts/
+            output/s1e13-s1e15-remaster-final/
+          if-no-files-found: warn
+          compression-level: 0
+          retention-days: 30
