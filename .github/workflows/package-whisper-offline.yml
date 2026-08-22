@@ -1,0 +1,27 @@
+name: package-whisper-offline
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-whisper:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build whisper.cpp and download multilingual base model
+        run: |
+          git clone --depth 1 https://github.com/ggml-org/whisper.cpp.git
+          cmake -S whisper.cpp -B whisper.cpp/build -DCMAKE_BUILD_TYPE=Release
+          cmake --build whisper.cpp/build --config Release -j2
+          cd whisper.cpp
+          bash ./models/download-ggml-model.sh base
+          mkdir -p ../whisper-offline
+          cp build/bin/whisper-cli ../whisper-offline/
+          cp models/ggml-base.bin ../whisper-offline/
+      - name: Upload offline transcriber
+        uses: actions/upload-artifact@v4
+        with:
+          name: whisper-offline-base
+          path: whisper-offline/
+          if-no-files-found: error
+          retention-days: 1
