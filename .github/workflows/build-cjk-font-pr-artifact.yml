@@ -1,0 +1,23 @@
+name: build-cjk-font-pr-artifact
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  package-font:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Chinese font
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-cjk
+          mkdir -p font
+          cp /usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc font/
+      - name: Upload font
+        uses: actions/upload-artifact@v4
+        with:
+          name: noto-cjk-font-pr
+          path: font/NotoSansCJK-Regular.ttc
+          if-no-files-found: error
+          retention-days: 1
