@@ -1,0 +1,50 @@
+name: Inspect Qi Honggang Narration Run V1
+
+on:
+  push:
+    branches: [render/qihonggang-inspect-v1]
+    paths: ["references/qihonggang-fanedit/run-inspector-gate-v1.txt"]
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  inspect-exact-run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      GH_TOKEN: ${{ github.token }}
+      TARGET_SHA: a2a5ed201948ad60f01a172c658a1cb8aa53d1e0
+      TARGET_BRANCH: render/qihonggang-fanedit-v1
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+
+      - name: Enforce read-only run inspection gate
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gate="references/qihonggang-fanedit/run-inspector-gate-v1.txt"
+          expected="AUTHOR-APPROVED: INSPECT QIHONGGANG NARRATION COMMIT a2a5ed201948ad60f01a172c658a1cb8aa53d1e0; METADATA ONLY; NO MODEL REQUESTS; NO AUDIO DOWNLOADS"
+          [[ "$RUN_ATTEMPT" == "1" ]] || exit 2
+          mapfile -t changed < <(git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+          [[ "${#changed[@]}" -eq 1 && "${changed[0]}" == "$gate" ]] || exit 2
+          [[ "$(cat "$gate")" == "$expected" ]] || exit 2
+
+      - name: Record only public workflow metadata for the exact commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p diagnostics
+          runs="$(gh run list --repo "$GITHUB_REPOSITORY" --branch "$TARGET_BRANCH" --event push --limit 100 --json databaseId,status,conclusion,headSha,workflowName,createdAt,updatedAt,url)"
+          jq --arg sha "$TARGET_SHA" '[.[] | select(.headSha == $sha)]' <<<"$runs" > diagnostics/qihonggang-narration-run.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add diagnostics/qihonggang-narration-run.json
+          git commit -m "Record Qi Honggang narration run metadata"
+          git push origin HEAD:render/qihonggang-inspect-v1
