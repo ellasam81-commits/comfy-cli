@@ -36,7 +36,7 @@ jobs:
         run: |
           set -euo pipefail
           gate="references/qihonggang-fanedit/run-narration-gate-v1.txt"
-          expected="AUTHOR-APPROVED: QIHONGGANG FAN EDIT NARRATION V1; ONE SEED AUDIO 1.0 TTS REQUEST; MATURE LOW MANDARIN MALE; SYNTHETIC REFERENCE ONLY; NO VIDEO GENERATION; NO AUTOMATIC RETRIES; NO RERUNS"
+          expected="AUTHOR-APPROVED: QIHONGGANG FAN EDIT NARRATION V1; ONE GEMINI 3.1 FLASH TTS REQUEST; PRESET CHARON MANDARIN MALE; TEXT ONLY; NO REFERENCE AUDIO UPLOAD; NO VIDEO GENERATION; NO AUTOMATIC RETRIES; NO RERUNS"
           [[ "$GITHUB_REF" == "refs/heads/render/qihonggang-fanedit-v1" ]] || exit 2
           [[ "$FORCED" == "false" ]] || exit 2
           [[ "$RUN_ATTEMPT" == "1" ]] || exit 2
@@ -45,14 +45,6 @@ jobs:
           [[ "${#changed[@]}" -eq 1 && "${changed[0]}" == "$gate" ]] || exit 2
           [[ "$(cat "$gate")" == "$expected" ]] || exit 2
           [[ -n "$SEGMIND_API_KEY" ]] || { echo "::error::Missing SEGMIND_API_KEY; no paid request made."; exit 2; }
-
-      - name: Restore accepted synthetic mature male reference source
-        uses: actions/download-artifact@v4
-        with:
-          name: S01E14-HealedEvidence-Final
-          run-id: "32056139704"
-          github-token: ${{ github.token }}
-          path: accepted/s1e14
 
       - name: Install Segmind and audio tools
         run: |
