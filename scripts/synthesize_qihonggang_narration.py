@@ -15,12 +15,12 @@ from segmind import SegmindClient
 
 ROOT = Path.cwd()
 OUT = ROOT / os.environ.get("OUTPUT_DIR", "output/qihonggang-fanedit-narration-v1")
-ACCEPTED = ROOT / "accepted" / "s1e14"
 GATE = ROOT / "references" / "qihonggang-fanedit" / "run-narration-gate-v1.txt"
 EXPECTED_GATE = (
     "AUTHOR-APPROVED: QIHONGGANG FAN EDIT NARRATION V1; "
-    "ONE SEED AUDIO 1.0 TTS REQUEST; MATURE LOW MANDARIN MALE; "
-    "SYNTHETIC REFERENCE ONLY; NO VIDEO GENERATION; NO AUTOMATIC RETRIES; NO RERUNS"
+    "ONE GEMINI 3.1 FLASH TTS REQUEST; PRESET CHARON MANDARIN MALE; "
+    "TEXT ONLY; NO REFERENCE AUDIO UPLOAD; NO VIDEO GENERATION; "
+    "NO AUTOMATIC RETRIES; NO RERUNS"
 )
 
 LINES = [
@@ -38,36 +38,6 @@ def run(command: list[str]) -> subprocess.CompletedProcess[str]:
 
 def write_json(path: Path, value: object) -> None:
     path.write_text(json.dumps(value, ensure_ascii=False, indent=2, default=str), encoding="utf-8")
-
-
-def find_raw() -> Path:
-    exact = list(ACCEPTED.rglob("S01E14_clip_11_raw.mp4"))
-    candidates = exact or list(ACCEPTED.rglob("*S01E14*clip_11*raw*.mp4"))
-    if len(candidates) != 1:
-        raise RuntimeError(f"Expected one accepted S01E14 clip 11 source, found: {candidates}")
-    return candidates[0]
-
-
-def build_reference(source: Path, destination: Path) -> None:
-    filters = []
-    tags = []
-    for index in range(3):
-        tag = f"r{index}"
-        filters.append(
-            f"[{index}:a]atrim=start=0.25:end=3.95,asetpts=PTS-STARTPTS,"
-            f"aresample=32000,aformat=channel_layouts=mono[{tag}]"
-        )
-        tags.append(f"[{tag}]")
-    filters.append(f"{''.join(tags)}concat=n=3:v=0:a=1[voice]")
-    run([
-        "ffmpeg", "-hide_banner", "-loglevel", "error", "-y",
-        "-i", str(source), "-i", str(source), "-i", str(source),
-        "-filter_complex", ";".join(filters), "-map", "[voice]",
-        "-c:a", "libmp3lame", "-b:a", "128k", "-ar", "32000", "-ac", "1",
-        str(destination),
-    ])
-    if not destination.is_file() or destination.stat().st_size < 70_000:
-        raise RuntimeError("Synthetic reference extraction failed")
 
 
 def find_urls(value: object, found: list[str]) -> None:
@@ -107,53 +77,37 @@ def main() -> None:
     if not GATE.is_file() or GATE.read_text(encoding="utf-8").strip() != EXPECTED_GATE:
         raise RuntimeError("Narration approval gate is absent or invalid")
     OUT.mkdir(parents=True, exist_ok=True)
-    source = find_raw()
-    reference = OUT / "mature_male_synthetic_reference.mp3"
-    build_reference(source, reference)
 
-    client = SegmindClient()
-    resolver = getattr(client.files, "_get_content_type", None)
-    if not callable(resolver) or not str(resolver(reference)).startswith("audio/"):
-        raise RuntimeError("Segmind SDK rejected the synthetic reference before upload")
-    uploaded = client.files.upload(reference)
-    file_urls = uploaded.get("file_urls") if isinstance(uploaded, dict) else None
-    if not isinstance(file_urls, list) or len(file_urls) != 1:
-        raise RuntimeError(f"Reference upload returned an unexpected payload: {uploaded!r}")
-
-    prompt = "\n".join([
-        "Mandarin cinematic narration for a restrained police-character fan edit.",
-        "Use @Audio1 only as a synthetic timbre reference. Deliver a mature, low male voice: calm, grounded, compassionate, and controlled, never promotional or exaggerated.",
-        "Speak only the five quoted Chinese paragraphs below, exactly once and in order. Leave 0.8 to 1.1 seconds of clean silence between paragraphs.",
-        "Do not speak instructions, numbering, labels, English, titles, music, sound effects, or any extra words.",
-        "Do not imitate a real actor or interview voice. Keep the narration clearly separate from the preserved interview audio.",
-        *[f'“{line}”' for line in LINES],
-    ])
+    styled_text = "\n\n[long pause]\n\n".join(LINES)
+    styled_text = (
+        "[deep voice] [mature] [calm] [restrained] [slow pace] "
+        "[cinematic narration] [compassionate] " + styled_text
+    )
     manifest = {
-        "model": "seed-audio-1.0",
+        "model": "gemini-3.1-flash-tts",
+        "voice": "Charon",
+        "temperature": 0.35,
         "request_limit": 1,
         "requests_submitted": 0,
         "automatic_retries": 0,
         "video_requests": 0,
+        "reference_audio_uploads": 0,
         "lines": LINES,
         "status": "submitting_once",
-        "reference_note": "accepted synthetic fictional-character audio; not a real-person clone",
     }
     write_json(OUT / "manifest.json", manifest)
+    client = SegmindClient()
     job = client.submit_async(
-        "seed-audio-1.0",
-        text_prompt=prompt,
-        reference_audio_urls=[file_urls[0]],
-        format="wav",
-        sample_rate=48000,
-        speech_rate=0,
-        loudness_rate=0,
-        pitch_rate=-1,
+        "gemini-3.1-flash-tts",
+        text=styled_text,
+        voice_1="Charon",
+        temperature=0.35,
     )
     manifest["requests_submitted"] = 1
     manifest["request_id"] = job.request_id
     manifest["status"] = "processing"
     write_json(OUT / "manifest.json", manifest)
-    result = job.wait(timeout=600, interval=2)
+    result = job.wait(timeout=600, interval=1.0)
     write_json(OUT / "result.json", result)
     final = OUT / "qihonggang_mature_male_narration_v1.wav"
     download_audio(result, final)
@@ -165,17 +119,17 @@ def main() -> None:
     duration = float(probe.get("format", {}).get("duration") or 0)
     if len(streams) != 1 or not 18.0 <= duration <= 45.0 or final.stat().st_size < 30_000:
         raise RuntimeError(f"Narration technical QC failed: streams={len(streams)} duration={duration}")
-    transcript_chars = len(re.findall(r"[\u3400-\u9fff]", "".join(LINES)))
     qc = {
         "file": final.name,
         "duration_seconds": duration,
         "audio_streams": len(streams),
         "codec": streams[0].get("codec_name"),
         "sample_rate": streams[0].get("sample_rate"),
-        "script_chinese_characters": transcript_chars,
+        "script_chinese_characters": len(re.findall(r"[\u3400-\u9fff]", "".join(LINES))),
         "requests_submitted": 1,
         "automatic_retries": 0,
         "video_requests": 0,
+        "reference_audio_uploads": 0,
     }
     write_json(OUT / "audio_qc.json", qc)
     manifest["status"] = "completed"
