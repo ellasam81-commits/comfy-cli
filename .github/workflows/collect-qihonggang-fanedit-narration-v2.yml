@@ -1,0 +1,78 @@
+name: Collect Qi Honggang Fan Edit Narration V2
+
+on:
+  push:
+    branches: [render/qihonggang-fanedit-v1]
+    paths: ["references/qihonggang-fanedit/run-collector-gate-v2.txt"]
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: qihonggang-fanedit-narration-v2-collector
+  cancel-in-progress: false
+
+jobs:
+  collect-narration-pointer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+      TARGET_SHA: a2a5ed201948ad60f01a172c658a1cb8aa53d1e0
+      TARGET_WORKFLOW_NAME: Generate Qi Honggang Fan Edit Narration V1
+      TARGET_ARTIFACT: QiHonggang-FanEdit-Narration-V1
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+
+      - name: Enforce collector V2 gate
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+          FORCED: ${{ github.event.forced }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gate="references/qihonggang-fanedit/run-collector-gate-v2.txt"
+          expected="AUTHOR-APPROVED: COLLECT QIHONGGANG NARRATION POINTER V2 FROM COMMIT a2a5ed201948ad60f01a172c658a1cb8aa53d1e0; NO MODEL REQUESTS; NO AUDIO PUBLICATION; NO RERUNS"
+          [[ "$FORCED" == "false" ]] || exit 2
+          [[ "$RUN_ATTEMPT" == "1" ]] || exit 2
+          [[ "$(git rev-parse "$CURRENT_SHA^")" == "$BEFORE_SHA" ]] || exit 2
+          mapfile -t changed < <(git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+          [[ "${#changed[@]}" -eq 1 && "${changed[0]}" == "$gate" ]] || exit 2
+          [[ "$(cat "$gate")" == "$expected" ]] || exit 2
+
+      - name: Locate the exact completed narration run
+        shell: bash
+        run: |
+          set -euo pipefail
+          runs="$(gh run list --repo "$GITHUB_REPOSITORY" --branch "render/qihonggang-fanedit-v1" --event push --limit 100 --json databaseId,status,conclusion,headSha,workflowName)"
+          run_id="$(jq -r --arg sha "$TARGET_SHA" --arg workflow "$TARGET_WORKFLOW_NAME" '.[] | select(.headSha == $sha and .workflowName == $workflow) | .databaseId' <<<"$runs" | head -n 1)"
+          status="$(jq -r --arg sha "$TARGET_SHA" --arg workflow "$TARGET_WORKFLOW_NAME" '.[] | select(.headSha == $sha and .workflowName == $workflow) | .status' <<<"$runs" | head -n 1)"
+          conclusion="$(jq -r --arg sha "$TARGET_SHA" --arg workflow "$TARGET_WORKFLOW_NAME" '.[] | select(.headSha == $sha and .workflowName == $workflow) | .conclusion' <<<"$runs" | head -n 1)"
+          [[ -n "$run_id" ]] || { echo "::error::Exact narration run was not found."; exit 3; }
+          [[ "$status" == "completed" ]] || { echo "::error::Exact narration run is still $status; no collector rerun is allowed."; exit 4; }
+          [[ "$conclusion" == "success" ]] || { echo "::error::Narration run ended with $conclusion; it will not be rerun."; exit 5; }
+          artifact_id="$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$run_id/artifacts" --jq ".artifacts[] | select(.name == \"$TARGET_ARTIFACT\") | .id" | head -n 1)"
+          [[ -n "$artifact_id" ]] || { echo "::error::Narration artifact pointer is missing."; exit 6; }
+          mkdir -p deliverables/qihonggang-fanedit-narration-v1
+          jq -n \
+            --argjson run_id "$run_id" \
+            --argjson artifact_id "$artifact_id" \
+            --arg name "$TARGET_ARTIFACT" \
+            --arg target_sha "$TARGET_SHA" \
+            '{run_id:$run_id, artifact_id:$artifact_id, artifact_name:$name, target_sha:$target_sha, conclusion:"success", contains_audio:false}' \
+            > deliverables/qihonggang-fanedit-narration-v1/artifact_pointer.json
+
+      - name: Commit only the non-content artifact pointer
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add deliverables/qihonggang-fanedit-narration-v1/artifact_pointer.json
+          git diff --cached --quiet && { echo "::error::No artifact pointer to commit."; exit 7; }
+          git commit -m "Record Qi Honggang narration artifact pointer"
+          git push origin HEAD:render/qihonggang-fanedit-v1
