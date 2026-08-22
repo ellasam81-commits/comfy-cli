@@ -1,0 +1,75 @@
+name: Generate Qi Honggang Fan Edit Narration V1
+
+on:
+  push:
+    branches: [render/qihonggang-fanedit-v1]
+    paths: ["references/qihonggang-fanedit/run-narration-gate-v1.txt"]
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: qihonggang-fanedit-narration-v1-one-shot
+  cancel-in-progress: false
+
+jobs:
+  synthesize-narration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+      OUTPUT_DIR: output/qihonggang-fanedit-narration-v1
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+
+      - name: Enforce one approved narration request
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+          FORCED: ${{ github.event.forced }}
+          GITHUB_REF: ${{ github.ref }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gate="references/qihonggang-fanedit/run-narration-gate-v1.txt"
+          expected="AUTHOR-APPROVED: QIHONGGANG FAN EDIT NARRATION V1; ONE SEED AUDIO 1.0 TTS REQUEST; MATURE LOW MANDARIN MALE; SYNTHETIC REFERENCE ONLY; NO VIDEO GENERATION; NO AUTOMATIC RETRIES; NO RERUNS"
+          [[ "$GITHUB_REF" == "refs/heads/render/qihonggang-fanedit-v1" ]] || exit 2
+          [[ "$FORCED" == "false" ]] || exit 2
+          [[ "$RUN_ATTEMPT" == "1" ]] || exit 2
+          [[ "$(git rev-parse "$CURRENT_SHA^")" == "$BEFORE_SHA" ]] || exit 2
+          mapfile -t changed < <(git diff --name-only "$BEFORE_SHA" "$CURRENT_SHA")
+          [[ "${#changed[@]}" -eq 1 && "${changed[0]}" == "$gate" ]] || exit 2
+          [[ "$(cat "$gate")" == "$expected" ]] || exit 2
+          [[ -n "$SEGMIND_API_KEY" ]] || { echo "::error::Missing SEGMIND_API_KEY; no paid request made."; exit 2; }
+
+      - name: Restore accepted synthetic mature male reference source
+        uses: actions/download-artifact@v4
+        with:
+          name: S01E14-HealedEvidence-Final
+          run-id: "32056139704"
+          github-token: ${{ github.token }}
+          path: accepted/s1e14
+
+      - name: Install Segmind and audio tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install "segmind==1.1.0" requests
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Generate the fixed Mandarin narration once
+        run: python scripts/synthesize_qihonggang_narration.py
+
+      - name: Upload narration and QC
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: QiHonggang-FanEdit-Narration-V1
+          path: output/qihonggang-fanedit-narration-v1/
+          if-no-files-found: warn
+          compression-level: 0
+          retention-days: 30
