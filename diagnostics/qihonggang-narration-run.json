@@ -1,0 +1,12 @@
+[
+  {
+    "conclusion": "failure",
+    "createdAt": "2026-08-22T07:04:16Z",
+    "databaseId": 32558622401,
+    "headSha": "a2a5ed201948ad60f01a172c658a1cb8aa53d1e0",
+    "status": "completed",
+    "updatedAt": "2026-08-22T07:09:53Z",
+    "url": "https://github.com/ellasam81-commits/comfy-cli/actions/runs/32558622401",
+    "workflowName": "Generate Qi Honggang Fan Edit Narration V1"
+  }
+]
