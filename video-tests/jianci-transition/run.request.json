@@ -1,0 +1,23 @@
+{
+  "test_id": "jianci-s1e02-shots08-09-face-v3",
+  "purpose": "User-approved comparison of three models using the accepted originalized male face and the same two adjacent scenes.",
+  "maximum_generation_submissions": 3,
+  "seconds_per_model": 10,
+  "model_slugs": [
+    "seedance-2.0-mini",
+    "wan3.0-video",
+    "minimax-h3-reference-to-video"
+  ],
+  "estimated_total_usd": 1.977,
+  "reference_sha256": {
+    "modern.png": "393d7ebc2363f12853b52cbacace046e16421b64e4b120316f3aa1dc251e4031",
+    "ancient.png": "344b3bd7d68db4b7fd62f771984273d3393ea3a8c98ed1320bfe44d5abd43baf"
+  },
+  "automatic_resubmission": false,
+  "approved_format": {
+    "episode_seconds": 60,
+    "episode_shots": 12,
+    "seasons": 2,
+    "episodes_per_season": 54
+  }
+}
