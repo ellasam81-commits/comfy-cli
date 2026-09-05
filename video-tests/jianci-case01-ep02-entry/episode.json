@@ -1,0 +1,104 @@
+{
+  "episode": 2,
+  "case": "屋里还有一个人",
+  "episode_title": "门后的住客",
+  "author": "林爱丽",
+  "duration_seconds": 60,
+  "shots": 12,
+  "estimated_usd": 0.5,
+  "source_url": "https://www.gda.bayern.de/mam/ueber-uns/2026_03_16_pm_hinterkaifeck.pdf",
+  "clips": [
+    {
+      "id": "02",
+      "prompt": "Cinematic hand-drawn 2D Chinese anime forensic mystery, accurate spatial staging. ONE CONTINUOUS LEVEL FLOOR for this entire clip: a level corridor connects through one teal doorway to a small SINGLE-LEVEL BEDROOM, floor surfaces at identical height. CAMERA IS BEHIND THE OFFICERS as they enter, NEVER facing people coming out. The existing reference supplies ONLY character identity and illustration style, not its office setting. Lin Qian is the same adult woman with short black hair, navy detective uniform, black gloves. Jian Ci is the same pale adult black-haired male pathologist, white coat and black turtleneck, black gloves. One backup officer is an adult male in plain navy police uniform, seen only from behind. BACKGROUND GEOGRAPHY: the small bedroom has a flat gray tiled floor, low cream mattress and off-white pillow against LEFT wall, small white enamel mug on floor beside mattress. One tall narrow dark-brown freestanding wardrobe against RIGHT wall, mirror on left front panel, plain wood right panel, low drawer and short wood feet. Wardrobe stays CLOSED. Rectangular window with partly raised gray venetian blind on BACK wall; muted blue overcast morning light. Cream plaster walls above peeling green paint. No architectural openings except this single entrance and the back window. Plausible small flat bedroom with correct perspective. No text or subtitles anywhere. Natural restrained acting. Clear Mandarin dialogue, Lin Qian natural steady low-mid female voice, backup clear adult male voice. Quiet unsettling room tone, speech dominant, no loud music. Exactly TWO SHOTS with one HARD CUT at precisely 5 seconds, no dissolves or other cuts. Keep key action in middle 65 percent, reserved top and bottom for postproduction overlays.\nSHOT 1, 0-5s: camera starts JUST BEHIND Lin Qian in the LEVEL corridor, looking diagonally right at the teal door. Lin is seen from BACK and slight side profile. She carefully pushes the door INWARD with her gloved hand, revealing the flat bedroom with mattress left, closed wardrobe right and window straight ahead. Lin and the backup officer WALK AWAY FROM CAMERA THROUGH THE DOOR and enter this room. Camera follows a small distance in the SAME direction, never crosses to the opposite side of the officers. Jian Ci waits OUTSIDE behind camera and is not visible. Show ordinary level floor both before and after the threshold. Lin says between 0.7 and 3.9 seconds EXACTLY: “右边房间，一起清查。” Finish this shot with both officers visibly inside, their backs to camera. Do not show any steps, stair rail, staircase, or elevated floor anywhere, including background.\nSHOT 2, 5-10s: CUT to view INSIDE this bedroom from just inside doorway, looking toward back window: cream mattress and single white mug LEFT, closed dark-brown mirrored wardrobe RIGHT. A slow flashlight sweep across the EMPTY ROOM establishes no occupants. Officers are now outside frame, behind and beside camera; no people appear or vanish within frame. Backup officer OFFSCREEN says between 5.7 and 9.0 seconds EXACTLY: “这间没人。可以进来。” Hold this clear room geography to lead into the next clip's matching room view. End without moving furniture or opening wardrobe."
+    }
+  ],
+  "subtitles": [
+    {
+      "start": 0.6,
+      "end": 4.6,
+      "speaker": "增援警员（无线电）",
+      "zh": "出口已控制。",
+      "en": "The exits are covered."
+    },
+    {
+      "start": 5.6,
+      "end": 9.6,
+      "speaker": "林浅",
+      "zh": "警察。里面的人，请回答。",
+      "en": "Police. Anyone inside, answer us."
+    },
+    {
+      "start": 10.6,
+      "end": 14.6,
+      "speaker": "林浅",
+      "zh": "右边房间，一起清查。",
+      "en": "Let's clear the room on the right together."
+    },
+    {
+      "start": 15.6,
+      "end": 19.6,
+      "speaker": "增援警员",
+      "zh": "这间没人。可以进来。",
+      "en": "This room is clear. You can come in."
+    },
+    {
+      "start": 20.6,
+      "end": 24.6,
+      "speaker": "林浅",
+      "zh": "封了的楼层，怎么会有床铺？",
+      "en": "Why is there bedding on a sealed floor?"
+    },
+    {
+      "start": 25.6,
+      "end": 29.6,
+      "speaker": "检刺",
+      "zh": "先拍照。杯子也要取样。",
+      "en": "Photograph it first. Sample the cup, too."
+    },
+    {
+      "start": 30.6,
+      "end": 34.6,
+      "speaker": "林浅",
+      "zh": "脚印到柜子这里断了。",
+      "en": "The footprints stop at this wardrobe."
+    },
+    {
+      "start": 35.6,
+      "end": 39.6,
+      "speaker": "检刺",
+      "zh": "林浅，看柜子下面。",
+      "en": "Lin Qian, look underneath."
+    },
+    {
+      "start": 40.6,
+      "end": 44.6,
+      "speaker": "检刺",
+      "zh": "后面有光，还有风。",
+      "en": "There's light behind it. And a draft."
+    },
+    {
+      "start": 45.6,
+      "end": 49.6,
+      "speaker": "林浅",
+      "zh": "先别进去，查它通向哪里。",
+      "en": "Hold off. Find out where it leads."
+    },
+    {
+      "start": 50.6,
+      "end": 54.6,
+      "speaker": "林浅",
+      "zh": "我拨顾晴的号码。",
+      "en": "I'm calling Gu Qing's number."
+    },
+    {
+      "start": 55.6,
+      "end": 59.6,
+      "speaker": "林浅",
+      "zh": "铃声……从里面传出来的。",
+      "en": "The ringing... it's coming from inside."
+    }
+  ],
+  "generation_seconds": 10,
+  "revision": "Regenerate the previously missed doorway entry clip to eliminate right-side stairs and reverse entry staging."
+}
