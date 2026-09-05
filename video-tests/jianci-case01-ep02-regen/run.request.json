@@ -1,0 +1,7 @@
+{
+  "scope": "User-requested regeneration of four faulty interior clips only",
+  "max_submissions": 4,
+  "duration_each": 10,
+  "estimated_usd": 2,
+  "automatic_resubmission": false
+}
