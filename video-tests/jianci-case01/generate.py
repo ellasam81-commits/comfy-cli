@@ -49,13 +49,22 @@ def main():
         report["clips"].append(row)
         shared.save_report(out, report)
         try:
-            result = gateway.request("/v2/wan3.0-video", {
-                "prompt": clip["prompt"], "reference_images": [reference],
-                "duration": 10, "resolution": "480P", "aspect_ratio": "16:9",
-                "audio": True, "watermark": False, "prompt_extend": False,
-                "enable_thinking": True, "seed": 906101,
-                "negative_prompt": "live action, 3D, subtitles, text, office, dissolves, extra cuts, gore, changing faces",
-            })
+            result = gateway.request(
+                "/v2/wan3.0-video",
+                {
+                    "prompt": clip["prompt"],
+                    "reference_images": [reference],
+                    "duration": 10,
+                    "resolution": "480P",
+                    "aspect_ratio": "16:9",
+                    "audio": True,
+                    "watermark": False,
+                    "prompt_extend": False,
+                    "enable_thinking": True,
+                    "seed": 906101,
+                    "negative_prompt": "live action, 3D, subtitles, text, office, dissolves, extra cuts, gore, changing faces",
+                },
+            )
             request_id = result["request_id"]
             assert re.fullmatch(r"[A-Za-z0-9_-]+", request_id)
             row.update(state="QUEUED", request_id=request_id)
