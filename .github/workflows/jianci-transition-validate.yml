@@ -28,7 +28,7 @@ jobs:
       - name: Lint
         run: ruff check .
       - name: Format
-        run: ruff format --check .
+        run: ruff format --diff .
       - name: Repository unit tests
         run: pytest
       - name: Validate bounded test without spending credits
