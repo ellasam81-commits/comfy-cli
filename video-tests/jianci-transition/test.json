@@ -1,0 +1,50 @@
+{
+  "test_id": "jianci-s1e02-shots08-09-face-v3",
+  "episode_seconds": 60,
+  "episode_shots": 12,
+  "duration_seconds": 10,
+  "scene_cut_seconds": 5,
+  "reference_files": [
+    "modern.png",
+    "ancient.png"
+  ],
+  "prompt": "Create exactly one 10-second 16:9 cinematic hand-drawn 2D anime sequence with TWO scenes and exactly ONE motivated cut at 5 seconds. Use image 1 only for the modern office, the male forensic doctor Jian Ci and the silent female detective Lin Qian. Use image 2 only for the ancient riverside camp and the same adult man's historical identity Helian Zhaoye. The male face and apparent age must remain identical. Preserve the two reference illustrations' facial design, drawing style, camera scale, seated pose, book placement and subdued lighting. This is a remembered scene six hundred years earlier, not a transformation happening on screen.\n\nShot 1, 0.0–5.0 seconds, MODERN OFFICE: follow image 1. Keep the camera steady in its medium framing. Jian Ci lowers the hand from his chin and looks toward Lin Qian. From 0.5 to 3.9 seconds he speaks this exact Mandarin line clearly and calmly in a low adult male voice: “在水里发现，不等于死于溺水。” Lin Qian listens with her mouth closed. From 3.9 to 5.0 seconds he starts turning one page of the gray case folder from right to left.\n\nAt exactly 5.0 seconds use a clean ACTION MATCH CUT: the turning paper and the man's hand occupy matching screen positions and continue moving right to left in the next scene. The paper rustle bridges the cut. Preserve screen direction and head placement. Do not dissolve, morph the face, change clothes gradually or generate a magical transition.\n\nShot 2, 5.0–10.0 seconds, ANCIENT RIVERSIDE CAMP: follow image 2. Only Helian Zhaoye is visible, wearing black-and-gold period armor and a high topknot; the female detective is absent. He finishes the same small page-turn action on the examination register. From 6.0 to 9.3 seconds he says in the SAME male voice, restrained and plainly understandable: “先记发现处，死因待查。” Finish with his thoughtful gaze on the page. The camera stays on the same side and at the same scale.\n\nAudio: synchronized spoken Mandarin, distinct word endings, natural breathing and quiet paper rustle; soft modern room ambience changes to subdued distant river ambience after the cut. No music, narration, extra dialogue or sound from the reference images. Animate lips only during speech. Keep adult proportions, natural hands, consistent facial identity and fine painted anime linework throughout. No visible bodies, wounds, blood, fangs, supernatural eye effects, extra people, live-action imagery, 3D rendering, subtitles, captions, logos or readable on-screen text.",
+  "models": [
+    {
+      "label": "seedance-mini",
+      "slug": "seedance-2.0-mini",
+      "estimated_usd": 0.352,
+      "settings": {
+        "duration": 10,
+        "resolution": "480p",
+        "aspect_ratio": "16:9",
+        "generate_audio": true,
+        "seed": 20260905
+      }
+    },
+    {
+      "label": "wan3",
+      "slug": "wan3.0-video",
+      "estimated_usd": 0.5,
+      "settings": {
+        "duration": 10,
+        "resolution": "480P",
+        "aspect_ratio": "16:9",
+        "audio": true,
+        "prompt_extend": false,
+        "enable_thinking": false,
+        "seed": 20260905
+      }
+    },
+    {
+      "label": "h3",
+      "slug": "minimax-h3-reference-to-video",
+      "estimated_usd": 1.125,
+      "settings": {
+        "duration": 10,
+        "resolution": "768P",
+        "ratio": "16:9"
+      }
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+name: Validate Jian Ci two-scene test
+on:
+  push:
+    branches: ["codex/jianci-transition-20260905"]
+    paths:
+      - "video-tests/jianci-transition/run_test.py"
+      - "video-tests/jianci-transition/test_jianci_transition.py"
+      - "video-tests/jianci-transition/test.json"
+      - "video-tests/jianci-transition/modern.png"
+      - "video-tests/jianci-transition/ancient.png"
+      - ".github/workflows/jianci-transition-validate.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      SEGMIND_TEST_EXECUTE: "0"
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.10"
+      - name: Install repository development dependencies
+        run: python -m pip install -e '.[dev]' 'ruff==0.15.15'
+      - name: Lint
+        run: ruff check .
+      - name: Format
+        run: ruff format --check .
+      - name: Repository unit tests
+        run: pytest
+      - name: Validate bounded test without spending credits
+        run: python video-tests/jianci-transition/run_test.py
+
