@@ -1,0 +1,49 @@
+name: Jian Ci - Episode 01 horror and reasoning remake - Wan 3
+on:
+  push:
+    branches: ["codex/jianci-transition-20260905"]
+    paths: ["video-tests/jianci-case01-ep01-remake/run.request.json"]
+permissions:
+  contents: read
+concurrency:
+  group: jianci-episode01-remake
+  cancel-in-progress: false
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.10"
+      - name: Install video tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg fonts-noto-cjk
+          pip install faster-whisper
+      - name: Validate bounded episode
+        run: |
+          python video-tests/jianci-case01-ep01-remake/generate.py
+      - name: Generate six bounded episode 01 remake clips
+        env:
+          SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+          JIANCI_EP01_REMAKE_EXECUTE: "1"
+          PYTHONUNBUFFERED: "1"
+        run: python video-tests/jianci-case01-ep01-remake/generate.py
+      - name: Include subtitle font
+        if: always()
+        run: |
+          mkdir -p output/jianci-episode01-remake
+          cp /usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc output/jianci-episode01-remake/
+      - name: Independently transcribe dialogue
+        continue-on-error: true
+        run: python video-tests/jianci-case01-ep01-remake/transcribe.py
+      - name: Save outputs and request IDs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jianci-episode01-remake-${{ github.run_id }}
+          path: output/jianci-episode01-remake/
+          if-no-files-found: warn
+          retention-days: 30
