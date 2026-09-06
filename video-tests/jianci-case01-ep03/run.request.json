@@ -1,0 +1,9 @@
+{
+  "episode": 3,
+  "request": "20260906-episode03-one-bounded-generation",
+  "clips": 6,
+  "seconds_per_clip": 10,
+  "resolution": "480P",
+  "max_submissions": 6,
+  "automatic_resubmissions": false
+}
