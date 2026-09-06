@@ -1,0 +1,47 @@
+name: Inspect existing episode 04 failed requests
+on:
+  push:
+    branches: ["codex/jianci-transition-20260905"]
+    paths: [".github/workflows/jianci-episode04-diagnose.yml"]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+      - name: Read existing failure report
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run download 34057338880 --repo ellasam81-commits/comfy-cli --name jianci-episode04-repair-34057338880 --dir .runtime/failure
+      - name: GET existing request error details only
+        env:
+          SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+        run: |
+          python - <<'PY'
+          import json,os,urllib.request,urllib.error,re
+          from pathlib import Path
+          report=json.loads(Path('.runtime/failure/report.json').read_text())
+          class NoRedirect(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self,*args): raise RuntimeError('No redirect')
+          op=urllib.request.build_opener(NoRedirect)
+          results=[]
+          for row in report['clips'][:2]:
+              rid=row['request_id']
+              assert re.fullmatch('[A-Za-z0-9_-]+',rid)
+              req=urllib.request.Request('https://api.segmind.com/v2/requests/'+rid+'/status',headers={'x-api-key':os.environ['SEGMIND_API_KEY']},method='GET')
+              try:
+                  with op.open(req,timeout=40) as r: status,body=r.status,r.read(12000).decode()
+              except urllib.error.HTTPError as e: status,body=e.code,e.read(12000).decode()
+              body=body.replace(os.environ['SEGMIND_API_KEY'],'[redacted]')
+              body=re.sub(r'https?://[^\s\"<>]+','[url]',body)
+              results.append({'id':row['id'],'http_status':status,'detail':body})
+          Path('failure-detail.json').write_text(json.dumps(results,ensure_ascii=False,indent=2))
+          print(json.dumps(results,ensure_ascii=False))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: episode04-failure-detail
+          path: failure-detail.json
