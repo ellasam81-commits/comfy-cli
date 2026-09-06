@@ -1,0 +1,99 @@
+{
+  "episode": 4,
+  "revision": "audio-continuity-repair-1",
+  "duration_seconds": 60,
+  "shots": 12,
+  "clips": [
+    {
+      "id": "01",
+      "prompt": "Create a 10 second finished scene for episode 4 of a Chinese 2D cinematic anime crime drama. Reference 1 shows the ALREADY OPEN wardrobe and pipe recess, reference 2 shows Jian Ci (pale adult male, black hair, black turtleneck, white coat, black gloves) and Lin Qian (adult woman, short black bob, dark navy police uniform); reference 3 shows Qi Yun (adult male maintenance worker, short brown-black hair, charcoal work jacket, grey undershirt), crouching inside the pipe recess with both hands already raised. Match these exact faces, clothes and hand positions. References are identity and location guides, NOT a storyboard to replay. The door is already open and stays open. Single-level third-floor room, NO stairs. No new people. Black touchscreen phone stays on its original brick ledge and can remain out of frame. Qi Yun stays seated/crouched throughout; nobody abruptly stands up. Quiet low-key blue window light and motivated warm bulb, detailed visible faces, tense restrained acting. Exactly TWO shots with a clean motivated cut around 5 seconds, NO montage, NO reset to the reference image, no repeated gestures or head turns. Maintain eyelines and 180 degree axis.\nAUDIO IS ESSENTIAL: audible clear fluent Mandarin dialogue, dry and close, natural lip synchronization. Male Jian Ci has a calm low young-adult baritone; female Lin Qian has a clear firm medium-low female voice; male Qi Yun has a tense breathy younger male voice. Different characters must not share voices. Only the named speaker moves their mouth. Other characters listen silently. Speak ONLY the Chinese words quoted below, exactly once, in the assigned timing; no additional narration, no mumbling, no chanting, no reading labels, no music. Quiet room ambience between lines. NO rendered subtitles, captions, logos or any text anywhere. Each utterance must finish before its shot cuts.\n0-5s: Medium shot of Lin Qian at the open recess looking down at the worker, Jian Ci visible silently behind her. At 0.5-3.5s Lin Qian says: “别动。先报名字。” 5-10s: Cut to Qi Yun close-up looking up towards her, hands still raised; at 5.5-8.5s Qi Yun says: “祁昀，楼里维修工。” Hold his nervous face silently until the end."
+    },
+    {
+      "id": "02",
+      "prompt": "Create a 10 second finished scene for episode 4 of a Chinese 2D cinematic anime crime drama. Reference 1 shows the ALREADY OPEN wardrobe and pipe recess, reference 2 shows Jian Ci (pale adult male, black hair, black turtleneck, white coat, black gloves) and Lin Qian (adult woman, short black bob, dark navy police uniform); reference 3 shows Qi Yun (adult male maintenance worker, short brown-black hair, charcoal work jacket, grey undershirt), crouching inside the pipe recess with both hands already raised. Match these exact faces, clothes and hand positions. References are identity and location guides, NOT a storyboard to replay. The door is already open and stays open. Single-level third-floor room, NO stairs. No new people. Black touchscreen phone stays on its original brick ledge and can remain out of frame. Qi Yun stays seated/crouched throughout; nobody abruptly stands up. Quiet low-key blue window light and motivated warm bulb, detailed visible faces, tense restrained acting. Exactly TWO shots with a clean motivated cut around 5 seconds, NO montage, NO reset to the reference image, no repeated gestures or head turns. Maintain eyelines and 180 degree axis.\nAUDIO IS ESSENTIAL: audible clear fluent Mandarin dialogue, dry and close, natural lip synchronization. Male Jian Ci has a calm low young-adult baritone; female Lin Qian has a clear firm medium-low female voice; male Qi Yun has a tense breathy younger male voice. Different characters must not share voices. Only the named speaker moves their mouth. Other characters listen silently. Speak ONLY the Chinese words quoted below, exactly once, in the assigned timing; no additional narration, no mumbling, no chanting, no reading labels, no music. Quiet room ambience between lines. NO rendered subtitles, captions, logos or any text anywhere. Each utterance must finish before its shot cuts.\n0-5s: Jian Ci close-up from Qi Yun eye level. Jian Ci stays standing and leans forward only slightly, no crouching or turning. At 0.4-3.1s Jian Ci clearly says: “先别站起来。头晕吗？” At 3.5-4.6s Qi Yun answers OFF SCREEN: “有一点。” Jian Ci listens with mouth closed. 5-10s: Cut to a wider same-axis view of Jian Ci and Lin Qian. At 5.5-8.7s Jian Ci says to Lin Qian: “林浅，叫救护上来。” Lin Qian nods once, silently brings radio up at 9s. Clearly AUDIBLE male voice for Jian Ci, not only mouth movements."
+    },
+    {
+      "id": "03",
+      "prompt": "Create a 10 second finished scene for episode 4 of a Chinese 2D cinematic anime crime drama. Reference 1 shows the ALREADY OPEN wardrobe and pipe recess, reference 2 shows Jian Ci (pale adult male, black hair, black turtleneck, white coat, black gloves) and Lin Qian (adult woman, short black bob, dark navy police uniform); reference 3 shows Qi Yun (adult male maintenance worker, short brown-black hair, charcoal work jacket, grey undershirt), crouching inside the pipe recess with both hands already raised. Match these exact faces, clothes and hand positions. References are identity and location guides, NOT a storyboard to replay. The door is already open and stays open. Single-level third-floor room, NO stairs. No new people. Black touchscreen phone stays on its original brick ledge and can remain out of frame. Qi Yun stays seated/crouched throughout; nobody abruptly stands up. Quiet low-key blue window light and motivated warm bulb, detailed visible faces, tense restrained acting. Exactly TWO shots with a clean motivated cut around 5 seconds, NO montage, NO reset to the reference image, no repeated gestures or head turns. Maintain eyelines and 180 degree axis.\nAUDIO IS ESSENTIAL: audible clear fluent Mandarin dialogue, dry and close, natural lip synchronization. Male Jian Ci has a calm low young-adult baritone; female Lin Qian has a clear firm medium-low female voice; male Qi Yun has a tense breathy younger male voice. Different characters must not share voices. Only the named speaker moves their mouth. Other characters listen silently. Speak ONLY the Chinese words quoted below, exactly once, in the assigned timing; no additional narration, no mumbling, no chanting, no reading labels, no music. Quiet room ambience between lines. NO rendered subtitles, captions, logos or any text anywhere. Each utterance must finish before its shot cuts.\n0-5s: Lin Qian has finished a radio call before this shot; she lowers radio once, looking at Qi Yun. At 1.0-3.8s Lin Qian asks: “你为什么躲在这里？” 5-10s: Qi Yun close-up, still crouching inside recess, hands relaxed slightly lower only after the police permit it with an offscreen hand gesture. At 5.6-8.4s Qi Yun says: “管理员在找我。” Eyes flick towards the room entrance, not toward another imaginary door."
+    },
+    {
+      "id": "04",
+      "prompt": "Create a 10 second finished scene for episode 4 of a Chinese 2D cinematic anime crime drama. Reference 1 shows the ALREADY OPEN wardrobe and pipe recess, reference 2 shows Jian Ci (pale adult male, black hair, black turtleneck, white coat, black gloves) and Lin Qian (adult woman, short black bob, dark navy police uniform); reference 3 shows Qi Yun (adult male maintenance worker, short brown-black hair, charcoal work jacket, grey undershirt), crouching inside the pipe recess with both hands already raised. Match these exact faces, clothes and hand positions. References are identity and location guides, NOT a storyboard to replay. The door is already open and stays open. Single-level third-floor room, NO stairs. No new people. Black touchscreen phone stays on its original brick ledge and can remain out of frame. Qi Yun stays seated/crouched throughout; nobody abruptly stands up. Quiet low-key blue window light and motivated warm bulb, detailed visible faces, tense restrained acting. Exactly TWO shots with a clean motivated cut around 5 seconds, NO montage, NO reset to the reference image, no repeated gestures or head turns. Maintain eyelines and 180 degree axis.\nAUDIO IS ESSENTIAL: audible clear fluent Mandarin dialogue, dry and close, natural lip synchronization. Male Jian Ci has a calm low young-adult baritone; female Lin Qian has a clear firm medium-low female voice; male Qi Yun has a tense breathy younger male voice. Different characters must not share voices. Only the named speaker moves their mouth. Other characters listen silently. Speak ONLY the Chinese words quoted below, exactly once, in the assigned timing; no additional narration, no mumbling, no chanting, no reading labels, no music. Quiet room ambience between lines. NO rendered subtitles, captions, logos or any text anywhere. Each utterance must finish before its shot cuts.\n0-5s: Lin Qian close-up in established position; at 0.5-3.0s she asks: “他为什么找你？” Hold her listening expression. 5-10s: Cut to Qi Yun close-up, same posture and gaze as previous scene; at 5.5-8.6s he replies: “我看见他昨晚封这块板。” Do not depict a flashback or show the manager. This is only his unverified statement."
+    },
+    {
+      "id": "05",
+      "prompt": "Create a 10 second finished scene for episode 4 of a Chinese 2D cinematic anime crime drama. Reference 1 shows the ALREADY OPEN wardrobe and pipe recess, reference 2 shows Jian Ci (pale adult male, black hair, black turtleneck, white coat, black gloves) and Lin Qian (adult woman, short black bob, dark navy police uniform); reference 3 shows Qi Yun (adult male maintenance worker, short brown-black hair, charcoal work jacket, grey undershirt), crouching inside the pipe recess with both hands already raised. Match these exact faces, clothes and hand positions. References are identity and location guides, NOT a storyboard to replay. The door is already open and stays open. Single-level third-floor room, NO stairs. No new people. Black touchscreen phone stays on its original brick ledge and can remain out of frame. Qi Yun stays seated/crouched throughout; nobody abruptly stands up. Quiet low-key blue window light and motivated warm bulb, detailed visible faces, tense restrained acting. Exactly TWO shots with a clean motivated cut around 5 seconds, NO montage, NO reset to the reference image, no repeated gestures or head turns. Maintain eyelines and 180 degree axis.\nAUDIO IS ESSENTIAL: audible clear fluent Mandarin dialogue, dry and close, natural lip synchronization. Male Jian Ci has a calm low young-adult baritone; female Lin Qian has a clear firm medium-low female voice; male Qi Yun has a tense breathy younger male voice. Different characters must not share voices. Only the named speaker moves their mouth. Other characters listen silently. Speak ONLY the Chinese words quoted below, exactly once, in the assigned timing; no additional narration, no mumbling, no chanting, no reading labels, no music. Quiet room ambience between lines. NO rendered subtitles, captions, logos or any text anywhere. Each utterance must finish before its shot cuts.\n0-5s: Lin Qian medium close-up, at 0.5-3.0s she asks: “你亲眼看见的？” Qi Yun nods silently in foreground without changing location. 5-10s: Cut to Jian Ci medium close-up, still in the same standing position beside Lin Qian. At 5.5-8.2s Jian Ci clearly says: “先让他安全出来。” He moves one gloved hand aside a small distance to make space, once, without touching evidence. He remains in view and audible throughout the line. Qi Yun does not stand up yet."
+    },
+    {
+      "id": "06",
+      "prompt": "Create a 10 second finished scene for episode 4 of a Chinese 2D cinematic anime crime drama. Reference 1 shows the ALREADY OPEN wardrobe and pipe recess, reference 2 shows Jian Ci (pale adult male, black hair, black turtleneck, white coat, black gloves) and Lin Qian (adult woman, short black bob, dark navy police uniform); reference 3 shows Qi Yun (adult male maintenance worker, short brown-black hair, charcoal work jacket, grey undershirt), crouching inside the pipe recess with both hands already raised. Match these exact faces, clothes and hand positions. References are identity and location guides, NOT a storyboard to replay. The door is already open and stays open. Single-level third-floor room, NO stairs. No new people. Black touchscreen phone stays on its original brick ledge and can remain out of frame. Qi Yun stays seated/crouched throughout; nobody abruptly stands up. Quiet low-key blue window light and motivated warm bulb, detailed visible faces, tense restrained acting. Exactly TWO shots with a clean motivated cut around 5 seconds, NO montage, NO reset to the reference image, no repeated gestures or head turns. Maintain eyelines and 180 degree axis.\nAUDIO IS ESSENTIAL: audible clear fluent Mandarin dialogue, dry and close, natural lip synchronization. Male Jian Ci has a calm low young-adult baritone; female Lin Qian has a clear firm medium-low female voice; male Qi Yun has a tense breathy younger male voice. Different characters must not share voices. Only the named speaker moves their mouth. Other characters listen silently. Speak ONLY the Chinese words quoted below, exactly once, in the assigned timing; no additional narration, no mumbling, no chanting, no reading labels, no music. Quiet room ambience between lines. NO rendered subtitles, captions, logos or any text anywhere. Each utterance must finish before its shot cuts.\n0-5s: Lin Qian medium close-up, at 0.6-3.0s she speaks into her radio: “门口留人。” Then she lowers it once and listens. 5-10s: Cut to Qi Yun close-up inside the open recess. At 5.5-8.5s Qi Yun quietly but audibly says: “他刚才，还在门外。” He stares toward the existing room entrance, then remains silent. Hold to the end. No extra voice from outside, no third shot, no office or computer scene."
+    }
+  ],
+  "dialogue": [
+    {
+      "speaker": "林浅",
+      "zh": "别动。先报名字。",
+      "en": "Stay still. Tell me your name."
+    },
+    {
+      "speaker": "祁昀",
+      "zh": "祁昀，楼里维修工。",
+      "en": "Qi Yun. Building maintenance."
+    },
+    {
+      "speaker": "检刺",
+      "zh": "先别站起来。头晕吗？",
+      "en": "Don't stand up yet. Feeling dizzy?"
+    },
+    {
+      "speaker": "祁昀",
+      "zh": "有一点。",
+      "en": "A little."
+    },
+    {
+      "speaker": "检刺",
+      "zh": "林浅，叫救护上来。",
+      "en": "Lin Qian, call for medical help."
+    },
+    {
+      "speaker": "林浅",
+      "zh": "你为什么躲在这里？",
+      "en": "Why are you hiding here?"
+    },
+    {
+      "speaker": "祁昀",
+      "zh": "管理员在找我。",
+      "en": "The building manager is looking for me."
+    },
+    {
+      "speaker": "林浅",
+      "zh": "他为什么找你？",
+      "en": "Why is he looking for you?"
+    },
+    {
+      "speaker": "祁昀",
+      "zh": "我看见他昨晚封这块板。",
+      "en": "I saw him seal this panel last night."
+    },
+    {
+      "speaker": "林浅",
+      "zh": "你亲眼看见的？",
+      "en": "You saw him yourself?"
+    },
+    {
+      "speaker": "检刺",
+      "zh": "先让他安全出来。",
+      "en": "Let's get him out safely first."
+    },
+    {
+      "speaker": "林浅",
+      "zh": "门口留人。",
+      "en": "Keep someone at the door."
+    },
+    {
+      "speaker": "祁昀",
+      "zh": "他刚才，还在门外。",
+      "en": "He was right outside, just now."
+    }
+  ]
+}
