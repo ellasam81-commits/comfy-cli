@@ -1,0 +1,43 @@
+name: Jian Ci Episode 04 corrected reference dimensions
+on:
+  push:
+    branches: ["codex/jianci-transition-20260905"]
+    paths: [".github/workflows/jianci-episode04-repair-validated.yml"]
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: jianci-episode04-repair
+  cancel-in-progress: false
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.10"
+      - name: Install ffmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+      - name: Load existing third episode references
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run download 34034017364 --repo ellasam81-commits/comfy-cli --name jianci-episode03-34034017364 --dir .runtime/episode03
+      - name: Validate configuration without API calls
+        run: python video-tests/jianci-case01-ep04-repair/generate_validated.py
+      - name: Generate authorized six repair clips without retries
+        env:
+          SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+          JIANCI_EP04_REPAIR_EXECUTE: "1"
+          PYTHONUNBUFFERED: "1"
+        run: python video-tests/jianci-case01-ep04-repair/generate_validated.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: jianci-episode04-repair-${{ github.run_id }}
+          path: output/jianci-episode04-repair/
+          if-no-files-found: warn
+          retention-days: 30
