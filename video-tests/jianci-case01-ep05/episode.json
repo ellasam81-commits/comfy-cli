@@ -1,0 +1,104 @@
+{
+  "episode": 5,
+  "duration_seconds": 60,
+  "shots": 12,
+  "title": "钥匙声",
+  "clips": [
+    {
+      "id": "01",
+      "role": "lin",
+      "speaker": "林浅",
+      "zh": "这里需要救护，发现一名伤者。",
+      "en": "Medical assistance needed. One injured person.",
+      "prompt": "One continuous five-second cinematic 2D anime shot, sharp clean linework. Match the reference adult character face, hairstyle and clothing. New medium close-up with whole head visible, headroom, shoulder/chest framing. Only one visible face. No second speaking face, no foreground heads, no crowds or reflections. No cuts, no repeated movements. Dark cinematic blue window fill, a dim motivated warm practical light, readable face and eyes. No stairs. No text, captions, labels, or titles anywhere in the generated image.\nMandarin audio: the visible character speaks exactly ONE quoted line below. Never speak a role label, actor name, scene direction or any introductory word. No extra dialogue, no repeated line, no narrator. Keep mouth shut and silent for the first 0.5 seconds; speak from 0.7 to 4.2 seconds, finish the whole sentence, then close mouth. Synchronize the visible mouth to the voice. Natural clear close-mic voice, quiet room tone, no music. Do not say the speaker's own name unless it is inside the quoted line.\nAdult female detective in navy uniform, short black bob. Clear firm female voice. She stands OUTSIDE a brick recess in the same blue-gray apartment room. Plain wall behind, not inside the recess. Looking down toward the witness offscreen.The detective already holds a small police radio beside her mouth at the start. She transmits the line once, then lowers the radio after speaking. No radio reply. No phone.\nThe entire spoken line, verbatim: “这里需要救护，发现一名伤者。”"
+    },
+    {
+      "id": "02",
+      "role": "jian",
+      "speaker": "检刺",
+      "zh": "祁昀，先别动。哪里不舒服？",
+      "en": "Qi Yun, stay still. Where do you feel unwell?",
+      "prompt": "One continuous five-second cinematic 2D anime shot, sharp clean linework. Match the reference adult character face, hairstyle and clothing. New medium close-up with whole head visible, headroom, shoulder/chest framing. Only one visible face. No second speaking face, no foreground heads, no crowds or reflections. No cuts, no repeated movements. Dark cinematic blue window fill, a dim motivated warm practical light, readable face and eyes. No stairs. No text, captions, labels, or titles anywhere in the generated image.\nMandarin audio: the visible character speaks exactly ONE quoted line below. Never speak a role label, actor name, scene direction or any introductory word. No extra dialogue, no repeated line, no narrator. Keep mouth shut and silent for the first 0.5 seconds; speak from 0.7 to 4.2 seconds, finish the whole sentence, then close mouth. Synchronize the visible mouth to the voice. Natural clear close-mic voice, quiet room tone, no music. Do not say the speaker's own name unless it is inside the quoted line.\nAdult pale male forensic doctor, black hair, white lab coat over black turtleneck. Calm low male voice. He stays OUTSIDE the recess in the same blue-gray room, looking down toward the witness offscreen. Plain room wall behind him, no pipe recess behind.\nThe entire spoken line, verbatim: “祁昀，先别动。哪里不舒服？”"
+    },
+    {
+      "id": "03",
+      "role": "qi",
+      "speaker": "祁昀",
+      "zh": "腿麻。刚才一直蹲着。",
+      "en": "My legs are numb. I was crouching for a long time.",
+      "prompt": "One continuous five-second cinematic 2D anime shot, sharp clean linework. Match the reference adult character face, hairstyle and clothing. New medium close-up with whole head visible, headroom, shoulder/chest framing. Only one visible face. No second speaking face, no foreground heads, no crowds or reflections. No cuts, no repeated movements. Dark cinematic blue window fill, a dim motivated warm practical light, readable face and eyes. No stairs. No text, captions, labels, or titles anywhere in the generated image.\nMandarin audio: the visible character speaks exactly ONE quoted line below. Never speak a role label, actor name, scene direction or any introductory word. No extra dialogue, no repeated line, no narrator. Keep mouth shut and silent for the first 0.5 seconds; speak from 0.7 to 4.2 seconds, finish the whole sentence, then close mouth. Synchronize the visible mouth to the voice. Natural clear close-mic voice, quiet room tone, no music. Do not say the speaker's own name unless it is inside the quoted line.\nAdult male maintenance worker, short brown hair, charcoal work jacket. Tense slightly breathy male voice. He remains seated in the same brick-and-pipe recess with warm practical bulb, hands already held up below shoulder level. Looking up at detectives offscreen. Does not stand up.\nThe entire spoken line, verbatim: “腿麻。刚才一直蹲着。”"
+    },
+    {
+      "id": "04",
+      "role": "lin",
+      "speaker": "林浅",
+      "zh": "门外的人，你看清了吗？",
+      "en": "Did you get a clear look at the person outside?",
+      "prompt": "One continuous five-second cinematic 2D anime shot, sharp clean linework. Match the reference adult character face, hairstyle and clothing. New medium close-up with whole head visible, headroom, shoulder/chest framing. Only one visible face. No second speaking face, no foreground heads, no crowds or reflections. No cuts, no repeated movements. Dark cinematic blue window fill, a dim motivated warm practical light, readable face and eyes. No stairs. No text, captions, labels, or titles anywhere in the generated image.\nMandarin audio: the visible character speaks exactly ONE quoted line below. Never speak a role label, actor name, scene direction or any introductory word. No extra dialogue, no repeated line, no narrator. Keep mouth shut and silent for the first 0.5 seconds; speak from 0.7 to 4.2 seconds, finish the whole sentence, then close mouth. Synchronize the visible mouth to the voice. Natural clear close-mic voice, quiet room tone, no music. Do not say the speaker's own name unless it is inside the quoted line.\nAdult female detective in navy uniform, short black bob. Clear firm female voice. She stands OUTSIDE a brick recess in the same blue-gray apartment room. Plain wall behind, not inside the recess. Looking down toward the witness offscreen.\nThe entire spoken line, verbatim: “门外的人，你看清了吗？”"
+    },
+    {
+      "id": "05",
+      "role": "qi",
+      "speaker": "祁昀",
+      "zh": "没看见。听见了钥匙声。",
+      "en": "No. I heard keys jingling.",
+      "prompt": "One continuous five-second cinematic 2D anime shot, sharp clean linework. Match the reference adult character face, hairstyle and clothing. New medium close-up with whole head visible, headroom, shoulder/chest framing. Only one visible face. No second speaking face, no foreground heads, no crowds or reflections. No cuts, no repeated movements. Dark cinematic blue window fill, a dim motivated warm practical light, readable face and eyes. No stairs. No text, captions, labels, or titles anywhere in the generated image.\nMandarin audio: the visible character speaks exactly ONE quoted line below. Never speak a role label, actor name, scene direction or any introductory word. No extra dialogue, no repeated line, no narrator. Keep mouth shut and silent for the first 0.5 seconds; speak from 0.7 to 4.2 seconds, finish the whole sentence, then close mouth. Synchronize the visible mouth to the voice. Natural clear close-mic voice, quiet room tone, no music. Do not say the speaker's own name unless it is inside the quoted line.\nAdult male maintenance worker, short brown hair, charcoal work jacket. Tense slightly breathy male voice. He remains seated in the same brick-and-pipe recess with warm practical bulb, hands already held up below shoulder level. Looking up at detectives offscreen. Does not stand up.\nThe entire spoken line, verbatim: “没看见。听见了钥匙声。”"
+    },
+    {
+      "id": "06",
+      "role": "lin",
+      "speaker": "林浅",
+      "zh": "所以，你没看见管理员？",
+      "en": "So you didn't actually see the manager?",
+      "prompt": "One continuous five-second cinematic 2D anime shot, sharp clean linework. Match the reference adult character face, hairstyle and clothing. New medium close-up with whole head visible, headroom, shoulder/chest framing. Only one visible face. No second speaking face, no foreground heads, no crowds or reflections. No cuts, no repeated movements. Dark cinematic blue window fill, a dim motivated warm practical light, readable face and eyes. No stairs. No text, captions, labels, or titles anywhere in the generated image.\nMandarin audio: the visible character speaks exactly ONE quoted line below. Never speak a role label, actor name, scene direction or any introductory word. No extra dialogue, no repeated line, no narrator. Keep mouth shut and silent for the first 0.5 seconds; speak from 0.7 to 4.2 seconds, finish the whole sentence, then close mouth. Synchronize the visible mouth to the voice. Natural clear close-mic voice, quiet room tone, no music. Do not say the speaker's own name unless it is inside the quoted line.\nAdult female detective in navy uniform, short black bob. Clear firm female voice. She stands OUTSIDE a brick recess in the same blue-gray apartment room. Plain wall behind, not inside the recess. Looking down toward the witness offscreen.\nThe entire spoken line, verbatim: “所以，你没看见管理员？”"
+    },
+    {
+      "id": "07",
+      "role": "qi",
+      "speaker": "祁昀",
+      "zh": "他每天巡楼，都带那串钥匙。",
+      "en": "He carries those keys on his daily rounds.",
+      "prompt": "One continuous five-second cinematic 2D anime shot, sharp clean linework. Match the reference adult character face, hairstyle and clothing. New medium close-up with whole head visible, headroom, shoulder/chest framing. Only one visible face. No second speaking face, no foreground heads, no crowds or reflections. No cuts, no repeated movements. Dark cinematic blue window fill, a dim motivated warm practical light, readable face and eyes. No stairs. No text, captions, labels, or titles anywhere in the generated image.\nMandarin audio: the visible character speaks exactly ONE quoted line below. Never speak a role label, actor name, scene direction or any introductory word. No extra dialogue, no repeated line, no narrator. Keep mouth shut and silent for the first 0.5 seconds; speak from 0.7 to 4.2 seconds, finish the whole sentence, then close mouth. Synchronize the visible mouth to the voice. Natural clear close-mic voice, quiet room tone, no music. Do not say the speaker's own name unless it is inside the quoted line.\nAdult male maintenance worker, short brown hair, charcoal work jacket. Tense slightly breathy male voice. He remains seated in the same brick-and-pipe recess with warm practical bulb, hands already held up below shoulder level. Looking up at detectives offscreen. Does not stand up.\nThe entire spoken line, verbatim: “他每天巡楼，都带那串钥匙。”"
+    },
+    {
+      "id": "08",
+      "role": "jian",
+      "speaker": "检刺",
+      "zh": "声音相似，还不能确定是谁。",
+      "en": "Similar sounds don't tell us who it was.",
+      "prompt": "One continuous five-second cinematic 2D anime shot, sharp clean linework. Match the reference adult character face, hairstyle and clothing. New medium close-up with whole head visible, headroom, shoulder/chest framing. Only one visible face. No second speaking face, no foreground heads, no crowds or reflections. No cuts, no repeated movements. Dark cinematic blue window fill, a dim motivated warm practical light, readable face and eyes. No stairs. No text, captions, labels, or titles anywhere in the generated image.\nMandarin audio: the visible character speaks exactly ONE quoted line below. Never speak a role label, actor name, scene direction or any introductory word. No extra dialogue, no repeated line, no narrator. Keep mouth shut and silent for the first 0.5 seconds; speak from 0.7 to 4.2 seconds, finish the whole sentence, then close mouth. Synchronize the visible mouth to the voice. Natural clear close-mic voice, quiet room tone, no music. Do not say the speaker's own name unless it is inside the quoted line.\nAdult pale male forensic doctor, black hair, white lab coat over black turtleneck. Calm low male voice. He stays OUTSIDE the recess in the same blue-gray room, looking down toward the witness offscreen. Plain room wall behind him, no pipe recess behind.\nThe entire spoken line, verbatim: “声音相似，还不能确定是谁。”"
+    },
+    {
+      "id": "09",
+      "role": "jian",
+      "speaker": "检刺",
+      "zh": "林浅，门把在动。",
+      "en": "Lin Qian, the door handle is moving.",
+      "prompt": "One continuous five-second cinematic 2D anime shot, sharp clean linework. Match the reference adult character face, hairstyle and clothing. New medium close-up with whole head visible, headroom, shoulder/chest framing. Only one visible face. No second speaking face, no foreground heads, no crowds or reflections. No cuts, no repeated movements. Dark cinematic blue window fill, a dim motivated warm practical light, readable face and eyes. No stairs. No text, captions, labels, or titles anywhere in the generated image.\nMandarin audio: the visible character speaks exactly ONE quoted line below. Never speak a role label, actor name, scene direction or any introductory word. No extra dialogue, no repeated line, no narrator. Keep mouth shut and silent for the first 0.5 seconds; speak from 0.7 to 4.2 seconds, finish the whole sentence, then close mouth. Synchronize the visible mouth to the voice. Natural clear close-mic voice, quiet room tone, no music. Do not say the speaker's own name unless it is inside the quoted line.\nAdult pale male forensic doctor, black hair, white lab coat over black turtleneck. Calm low male voice. He stays OUTSIDE the recess in the same blue-gray room, looking down toward the witness offscreen. Plain room wall behind him, no pipe recess behind.Before speaking, his gaze shifts ONCE toward the apartment entrance offscreen. A faint mechanical door-handle rattle from offscreen motivates his observation. Keep his eyes natural, no glowing eyes, no magical deduction. Door is offscreen.\nThe entire spoken line, verbatim: “林浅，门把在动。”"
+    },
+    {
+      "id": "10",
+      "role": "lin",
+      "speaker": "林浅",
+      "zh": "有人在动门把。核实门外身份。",
+      "en": "Someone is trying the handle. Check who's outside.",
+      "prompt": "One continuous five-second cinematic 2D anime shot, sharp clean linework. Match the reference adult character face, hairstyle and clothing. New medium close-up with whole head visible, headroom, shoulder/chest framing. Only one visible face. No second speaking face, no foreground heads, no crowds or reflections. No cuts, no repeated movements. Dark cinematic blue window fill, a dim motivated warm practical light, readable face and eyes. No stairs. No text, captions, labels, or titles anywhere in the generated image.\nMandarin audio: the visible character speaks exactly ONE quoted line below. Never speak a role label, actor name, scene direction or any introductory word. No extra dialogue, no repeated line, no narrator. Keep mouth shut and silent for the first 0.5 seconds; speak from 0.7 to 4.2 seconds, finish the whole sentence, then close mouth. Synchronize the visible mouth to the voice. Natural clear close-mic voice, quiet room tone, no music. Do not say the speaker's own name unless it is inside the quoted line.\nAdult female detective in navy uniform, short black bob. Clear firm female voice. She stands OUTSIDE a brick recess in the same blue-gray apartment room. Plain wall behind, not inside the recess. Looking down toward the witness offscreen.The detective already holds a small police radio beside her mouth at the start. She transmits the line once, then lowers the radio after speaking. No radio reply. No phone.\nThe entire spoken line, verbatim: “有人在动门把。核实门外身份。”"
+    },
+    {
+      "id": "11",
+      "role": "qi",
+      "speaker": "祁昀",
+      "zh": "他知道我躲在这里。",
+      "en": "He knows I'm hiding here.",
+      "prompt": "One continuous five-second cinematic 2D anime shot, sharp clean linework. Match the reference adult character face, hairstyle and clothing. New medium close-up with whole head visible, headroom, shoulder/chest framing. Only one visible face. No second speaking face, no foreground heads, no crowds or reflections. No cuts, no repeated movements. Dark cinematic blue window fill, a dim motivated warm practical light, readable face and eyes. No stairs. No text, captions, labels, or titles anywhere in the generated image.\nMandarin audio: the visible character speaks exactly ONE quoted line below. Never speak a role label, actor name, scene direction or any introductory word. No extra dialogue, no repeated line, no narrator. Keep mouth shut and silent for the first 0.5 seconds; speak from 0.7 to 4.2 seconds, finish the whole sentence, then close mouth. Synchronize the visible mouth to the voice. Natural clear close-mic voice, quiet room tone, no music. Do not say the speaker's own name unless it is inside the quoted line.\nAdult male maintenance worker, short brown hair, charcoal work jacket. Tense slightly breathy male voice. He remains seated in the same brick-and-pipe recess with warm practical bulb, hands already held up below shoulder level. Looking up at detectives offscreen. Does not stand up.\nThe entire spoken line, verbatim: “他知道我躲在这里。”"
+    },
+    {
+      "id": "12",
+      "role": "lin",
+      "speaker": "林浅",
+      "zh": "门外的人，报身份。",
+      "en": "You outside. Identify yourself.",
+      "prompt": "One continuous five-second cinematic 2D anime shot, sharp clean linework. Match the reference adult character face, hairstyle and clothing. New medium close-up with whole head visible, headroom, shoulder/chest framing. Only one visible face. No second speaking face, no foreground heads, no crowds or reflections. No cuts, no repeated movements. Dark cinematic blue window fill, a dim motivated warm practical light, readable face and eyes. No stairs. No text, captions, labels, or titles anywhere in the generated image.\nMandarin audio: the visible character speaks exactly ONE quoted line below. Never speak a role label, actor name, scene direction or any introductory word. No extra dialogue, no repeated line, no narrator. Keep mouth shut and silent for the first 0.5 seconds; speak from 0.7 to 4.2 seconds, finish the whole sentence, then close mouth. Synchronize the visible mouth to the voice. Natural clear close-mic voice, quiet room tone, no music. Do not say the speaker's own name unless it is inside the quoted line.\nAdult female detective in navy uniform, short black bob. Clear firm female voice. She stands OUTSIDE a brick recess in the same blue-gray apartment room. Plain wall behind, not inside the recess. Looking down toward the witness offscreen.She looks toward the apartment entrance offscreen and addresses the person beyond the door firmly. No radio near her mouth. No door opening, no unseen reply.\nThe entire spoken line, verbatim: “门外的人，报身份。”"
+    }
+  ]
+}
