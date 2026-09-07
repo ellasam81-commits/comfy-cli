@@ -1,0 +1,40 @@
+name: Episode04 cleaned speech check
+on:
+  push:
+    branches: ["codex/jianci-transition-20260905"]
+    paths: [".github/workflows/jianci-episode04-clean-check.yml"]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.10"
+      - run: pip install faster-whisper
+      - env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run download 34152014555 --repo ellasam81-commits/comfy-cli --name jianci-episode04-patch-34152014555 --dir clips
+      - run: |
+          python - <<'PY'
+          import av,json,numpy as np
+          from pathlib import Path
+          from faster_whisper import WhisperModel
+          from faster_whisper.audio import decode_audio
+          m=WhisperModel('small',device='cpu',compute_type='int8',cpu_threads=4)
+          rows=[]
+          for name,cut in [('03',1.35),('04',1.65),('08',2.9),('11',1.65)]:
+              a=decode_audio('clips/'+name+'-raw.mp4',sampling_rate=16000)
+              a[:round(cut*16000)]=0
+              seg,_=m.transcribe(a,language='zh',beam_size=5,word_timestamps=True,condition_on_previous_text=False)
+              row={'clip':name,'segments':[{'start':s.start,'end':s.end,'text':s.text} for s in seg]}
+              rows.append(row); print(row,flush=True)
+          Path('cleaned-speech.json').write_text(json.dumps(rows,ensure_ascii=False,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: episode04-cleaned-speech-check
+          path: cleaned-speech.json
