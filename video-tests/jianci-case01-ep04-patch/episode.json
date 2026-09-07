@@ -1,0 +1,80 @@
+{
+  "episode": 4,
+  "revision": "single-speaker-patch",
+  "duration_seconds": 60,
+  "shots": 12,
+  "clips": [
+    {
+      "id": "01",
+      "role": "lin",
+      "duration": 5,
+      "prompt": "A single uninterrupted 5-second cinematic 2D anime shot. Only ONE adult character is visible, alone, and only this character speaks. The attached image is a cropped identity reference for this one character: reproduce face, hair and clothes faithfully, but compose a NEW crisp native medium close-up at shoulder/chest height, with whole head visible and comfortable headroom. Do NOT enlarge a tiny crop into the output and do NOT paste the reference into a frame. No other people, faces, reflections, portraits or foreground heads. No cuts, no transitions, no repeated head turns. Dark cinematic blue window fill and motivated dim warm light; clear eyes and face, clean linework, NOT live-action, NOT 3D.\nAUDIO: fluent Mandarin Chinese, one clear dry close voice, synchronized natural mouth movement from the person shown. Silent closed mouth for the first 0.5 seconds. Say ONLY the exact quoted sentence once between 0.6 and 4.1 seconds, at a natural pace, completing the last syllable before 4.3s. Then close mouth and quietly listen until 5s. No additional words, no offscreen speaker, no narration, no music. Quiet room tone only. No on-screen text or subtitles at all.\nLin Qian, an adult female detective with short black bob and navy police uniform, firm clear medium-low FEMALE voice. She remains OUTSIDE the wardrobe recess in the room, looking slightly down towards the witness off camera. Background: out-of-focus plain blue-gray room wall; no pipes, no wardrobe interior, no stairs, no new doorway. Do not handle any phone.\nExact spoken Mandarin: “别动。先报名字。”",
+      "speaker": "林浅",
+      "zh": "别动。先报名字。",
+      "en": "Stay still. Tell me your name."
+    },
+    {
+      "id": "03",
+      "role": "jian",
+      "duration": 5,
+      "prompt": "A single uninterrupted 5-second cinematic 2D anime shot. Only ONE adult character is visible, alone, and only this character speaks. The attached image is a cropped identity reference for this one character: reproduce face, hair and clothes faithfully, but compose a NEW crisp native medium close-up at shoulder/chest height, with whole head visible and comfortable headroom. Do NOT enlarge a tiny crop into the output and do NOT paste the reference into a frame. No other people, faces, reflections, portraits or foreground heads. No cuts, no transitions, no repeated head turns. Dark cinematic blue window fill and motivated dim warm light; clear eyes and face, clean linework, NOT live-action, NOT 3D.\nAUDIO: fluent Mandarin Chinese, one clear dry close voice, synchronized natural mouth movement from the person shown. Silent closed mouth for the first 0.5 seconds. Say ONLY the exact quoted sentence once between 0.6 and 4.1 seconds, at a natural pace, completing the last syllable before 4.3s. Then close mouth and quietly listen until 5s. No additional words, no offscreen speaker, no narration, no music. Quiet room tone only. No on-screen text or subtitles at all.\nJian Ci, an adult male forensic pathologist with pale face, black hair, white coat over a black turtleneck, calm low MALE baritone. He remains OUTSIDE the recess, at the same side of the room as Lin Qian, looking slightly down toward the witness off camera. Background: out-of-focus plain blue-gray room wall; no pipes or wardrobe interior behind him, no stairs. Gentle concerned expression, restrained acting.\nExact spoken Mandarin: “先别站起来。头晕吗？”",
+      "speaker": "检刺",
+      "zh": "先别站起来。头晕吗？",
+      "en": "Don't stand up yet. Feeling dizzy?"
+    },
+    {
+      "id": "04",
+      "role": "qi",
+      "duration": 5,
+      "prompt": "A single uninterrupted 5-second cinematic 2D anime shot. Only ONE adult character is visible, alone, and only this character speaks. The attached image is a cropped identity reference for this one character: reproduce face, hair and clothes faithfully, but compose a NEW crisp native medium close-up at shoulder/chest height, with whole head visible and comfortable headroom. Do NOT enlarge a tiny crop into the output and do NOT paste the reference into a frame. No other people, faces, reflections, portraits or foreground heads. No cuts, no transitions, no repeated head turns. Dark cinematic blue window fill and motivated dim warm light; clear eyes and face, clean linework, NOT live-action, NOT 3D.\nAUDIO: fluent Mandarin Chinese, one clear dry close voice, synchronized natural mouth movement from the person shown. Silent closed mouth for the first 0.5 seconds. Say ONLY the exact quoted sentence once between 0.6 and 4.1 seconds, at a natural pace, completing the last syllable before 4.3s. Then close mouth and quietly listen until 5s. No additional words, no offscreen speaker, no narration, no music. Quiet room tone only. No on-screen text or subtitles at all.\nQi Yun, an adult male maintenance worker with short dark brown hair, charcoal work jacket over grey undershirt, tense breathy MALE voice. He remains seated inside the brick-and-pipe recess, looking up toward the detectives off camera. Both hands already raised and remain still below chin level. He does not stand up. Background: brickwork and one vertical pipe, dim warm practical bulb.\nExact spoken Mandarin: “有一点，腿也麻了。”",
+      "speaker": "祁昀",
+      "zh": "有一点，腿也麻了。",
+      "en": "A little. My legs feel numb, too."
+    },
+    {
+      "id": "05",
+      "role": "jian",
+      "duration": 5,
+      "prompt": "A single uninterrupted 5-second cinematic 2D anime shot. Only ONE adult character is visible, alone, and only this character speaks. The attached image is a cropped identity reference for this one character: reproduce face, hair and clothes faithfully, but compose a NEW crisp native medium close-up at shoulder/chest height, with whole head visible and comfortable headroom. Do NOT enlarge a tiny crop into the output and do NOT paste the reference into a frame. No other people, faces, reflections, portraits or foreground heads. No cuts, no transitions, no repeated head turns. Dark cinematic blue window fill and motivated dim warm light; clear eyes and face, clean linework, NOT live-action, NOT 3D.\nAUDIO: fluent Mandarin Chinese, one clear dry close voice, synchronized natural mouth movement from the person shown. Silent closed mouth for the first 0.5 seconds. Say ONLY the exact quoted sentence once between 0.6 and 4.1 seconds, at a natural pace, completing the last syllable before 4.3s. Then close mouth and quietly listen until 5s. No additional words, no offscreen speaker, no narration, no music. Quiet room tone only. No on-screen text or subtitles at all.\nJian Ci, an adult male forensic pathologist with pale face, black hair, white coat over a black turtleneck, calm low MALE baritone. He remains OUTSIDE the recess, at the same side of the room as Lin Qian, looking slightly down toward the witness off camera. Background: out-of-focus plain blue-gray room wall; no pipes or wardrobe interior behind him, no stairs. Gentle concerned expression, restrained acting.\nExact spoken Mandarin: “林浅，叫救护上来。”",
+      "speaker": "检刺",
+      "zh": "林浅，叫救护上来。",
+      "en": "Lin Qian, call for medical help."
+    },
+    {
+      "id": "06",
+      "role": "lin",
+      "duration": 5,
+      "prompt": "A single uninterrupted 5-second cinematic 2D anime shot. Only ONE adult character is visible, alone, and only this character speaks. The attached image is a cropped identity reference for this one character: reproduce face, hair and clothes faithfully, but compose a NEW crisp native medium close-up at shoulder/chest height, with whole head visible and comfortable headroom. Do NOT enlarge a tiny crop into the output and do NOT paste the reference into a frame. No other people, faces, reflections, portraits or foreground heads. No cuts, no transitions, no repeated head turns. Dark cinematic blue window fill and motivated dim warm light; clear eyes and face, clean linework, NOT live-action, NOT 3D.\nAUDIO: fluent Mandarin Chinese, one clear dry close voice, synchronized natural mouth movement from the person shown. Silent closed mouth for the first 0.5 seconds. Say ONLY the exact quoted sentence once between 0.6 and 4.1 seconds, at a natural pace, completing the last syllable before 4.3s. Then close mouth and quietly listen until 5s. No additional words, no offscreen speaker, no narration, no music. Quiet room tone only. No on-screen text or subtitles at all.\nLin Qian, an adult female detective with short black bob and navy police uniform, firm clear medium-low FEMALE voice. She remains OUTSIDE the wardrobe recess in the room, looking slightly down towards the witness off camera. Background: out-of-focus plain blue-gray room wall; no pipes, no wardrobe interior, no stairs, no new doorway. Do not handle any phone.\nExact spoken Mandarin: “祁昀，你为什么躲在这里？”",
+      "speaker": "林浅",
+      "zh": "祁昀，你为什么躲在这里？",
+      "en": "Qi Yun, why are you hiding here?"
+    },
+    {
+      "id": "08",
+      "role": "lin",
+      "duration": 5,
+      "prompt": "A single uninterrupted 5-second cinematic 2D anime shot. Only ONE adult character is visible, alone, and only this character speaks. The attached image is a cropped identity reference for this one character: reproduce face, hair and clothes faithfully, but compose a NEW crisp native medium close-up at shoulder/chest height, with whole head visible and comfortable headroom. Do NOT enlarge a tiny crop into the output and do NOT paste the reference into a frame. No other people, faces, reflections, portraits or foreground heads. No cuts, no transitions, no repeated head turns. Dark cinematic blue window fill and motivated dim warm light; clear eyes and face, clean linework, NOT live-action, NOT 3D.\nAUDIO: fluent Mandarin Chinese, one clear dry close voice, synchronized natural mouth movement from the person shown. Silent closed mouth for the first 0.5 seconds. Say ONLY the exact quoted sentence once between 0.6 and 4.1 seconds, at a natural pace, completing the last syllable before 4.3s. Then close mouth and quietly listen until 5s. No additional words, no offscreen speaker, no narration, no music. Quiet room tone only. No on-screen text or subtitles at all.\nLin Qian, an adult female detective with short black bob and navy police uniform, firm clear medium-low FEMALE voice. She remains OUTSIDE the wardrobe recess in the room, looking slightly down towards the witness off camera. Background: out-of-focus plain blue-gray room wall; no pipes, no wardrobe interior, no stairs, no new doorway. Do not handle any phone.\nExact spoken Mandarin: “他为什么找你？”",
+      "speaker": "林浅",
+      "zh": "他为什么找你？",
+      "en": "Why is he looking for you?"
+    },
+    {
+      "id": "10",
+      "role": "lin",
+      "duration": 5,
+      "prompt": "A single uninterrupted 5-second cinematic 2D anime shot. Only ONE adult character is visible, alone, and only this character speaks. The attached image is a cropped identity reference for this one character: reproduce face, hair and clothes faithfully, but compose a NEW crisp native medium close-up at shoulder/chest height, with whole head visible and comfortable headroom. Do NOT enlarge a tiny crop into the output and do NOT paste the reference into a frame. No other people, faces, reflections, portraits or foreground heads. No cuts, no transitions, no repeated head turns. Dark cinematic blue window fill and motivated dim warm light; clear eyes and face, clean linework, NOT live-action, NOT 3D.\nAUDIO: fluent Mandarin Chinese, one clear dry close voice, synchronized natural mouth movement from the person shown. Silent closed mouth for the first 0.5 seconds. Say ONLY the exact quoted sentence once between 0.6 and 4.1 seconds, at a natural pace, completing the last syllable before 4.3s. Then close mouth and quietly listen until 5s. No additional words, no offscreen speaker, no narration, no music. Quiet room tone only. No on-screen text or subtitles at all.\nLin Qian, an adult female detective with short black bob and navy police uniform, firm clear medium-low FEMALE voice. She remains OUTSIDE the wardrobe recess in the room, looking slightly down towards the witness off camera. Background: out-of-focus plain blue-gray room wall; no pipes, no wardrobe interior, no stairs, no new doorway. Do not handle any phone.\nExact spoken Mandarin: “你亲眼看见的？”",
+      "speaker": "林浅",
+      "zh": "你亲眼看见的？",
+      "en": "You saw him yourself?"
+    },
+    {
+      "id": "11",
+      "role": "jian",
+      "duration": 5,
+      "prompt": "A single uninterrupted 5-second cinematic 2D anime shot. Only ONE adult character is visible, alone, and only this character speaks. The attached image is a cropped identity reference for this one character: reproduce face, hair and clothes faithfully, but compose a NEW crisp native medium close-up at shoulder/chest height, with whole head visible and comfortable headroom. Do NOT enlarge a tiny crop into the output and do NOT paste the reference into a frame. No other people, faces, reflections, portraits or foreground heads. No cuts, no transitions, no repeated head turns. Dark cinematic blue window fill and motivated dim warm light; clear eyes and face, clean linework, NOT live-action, NOT 3D.\nAUDIO: fluent Mandarin Chinese, one clear dry close voice, synchronized natural mouth movement from the person shown. Silent closed mouth for the first 0.5 seconds. Say ONLY the exact quoted sentence once between 0.6 and 4.1 seconds, at a natural pace, completing the last syllable before 4.3s. Then close mouth and quietly listen until 5s. No additional words, no offscreen speaker, no narration, no music. Quiet room tone only. No on-screen text or subtitles at all.\nJian Ci, an adult male forensic pathologist with pale face, black hair, white coat over a black turtleneck, calm low MALE baritone. He remains OUTSIDE the recess, at the same side of the room as Lin Qian, looking slightly down toward the witness off camera. Background: out-of-focus plain blue-gray room wall; no pipes or wardrobe interior behind him, no stairs. Gentle concerned expression, restrained acting.\nExact spoken Mandarin: “等救护上来，再扶他。”",
+      "speaker": "检刺",
+      "zh": "等救护上来，再扶他。",
+      "en": "Wait for medical help before moving him."
+    }
+  ]
+}
