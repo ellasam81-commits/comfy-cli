@@ -1,0 +1,46 @@
+name: Episode 04 patch dialogue verification
+on:
+  push:
+    branches: ["codex/jianci-transition-20260905"]
+    paths: [".github/workflows/jianci-episode04-patch-qa.yml"]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  speech:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.10"
+      - name: Install local speech recognizer
+        run: pip install faster-whisper
+      - name: Wait for existing generation and download its artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh run watch 34152014555 --repo ellasam81-commits/comfy-cli --exit-status --interval 20
+          gh run download 34152014555 --repo ellasam81-commits/comfy-cli --name jianci-episode04-patch-34152014555 --dir .runtime/patch
+      - name: Recognize actual generated dialogue
+        run: |
+          python - <<'PY'
+          from faster_whisper import WhisperModel
+          from pathlib import Path
+          from dataclasses import asdict
+          import json
+          m=WhisperModel('small',device='cpu',compute_type='int8',cpu_threads=4)
+          rows=[]
+          for p in sorted(Path('.runtime/patch').glob('*-raw.mp4')):
+              seg,_=m.transcribe(str(p),language='zh',beam_size=5,word_timestamps=True)
+              row={'clip':p.name,'segments':[asdict(s) for s in seg]}
+              rows.append(row)
+              print(p.name,[(s['start'],s['end'],s['text']) for s in row['segments']],flush=True)
+          Path('transcription.json').write_text(json.dumps(rows,ensure_ascii=False,indent=2,default=float))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: episode04-patch-speech-verification
+          path: transcription.json
+          if-no-files-found: error
