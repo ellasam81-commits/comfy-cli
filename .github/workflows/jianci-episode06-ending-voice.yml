@@ -1,0 +1,29 @@
+name: Episode06 restore final spoken line
+on:
+  push:
+    branches: ["codex/jianci-transition-20260905"]
+    paths: [".github/workflows/jianci-episode06-ending-voice.yml"]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  voice:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.10"
+      - run: pip install faster-whisper
+      - env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run download 34190500989 --repo ellasam81-commits/comfy-cli --name jianci-episode06-34190500989 --dir clips
+      - env:
+          SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+        run: python video-tests/jianci-case01-ep06/restore_ending_voice.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: episode06-ending-voice
+          path: voice-output
