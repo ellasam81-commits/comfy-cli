@@ -1,0 +1,37 @@
+name: Episode06 ambient audio verification
+on:
+  push:
+    branches: ["codex/jianci-transition-20260905"]
+    paths: [".github/workflows/jianci-episode06-audio-check.yml"]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.10"
+      - run: pip install faster-whisper
+      - env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run download 34190500989 --repo ellasam81-commits/comfy-cli --name jianci-episode06-34190500989 --dir clips
+      - run: |
+          python - <<'PY'
+          from faster_whisper import WhisperModel
+          from pathlib import Path
+          import json
+          m=WhisperModel('medium',device='cpu',compute_type='int8',cpu_threads=4)
+          rows=[]
+          for n in ['03','05','08','09']:
+              seg,info=m.transcribe('clips/'+n+'-raw.mp4',language='zh',beam_size=5,vad_filter=True,vad_parameters={'threshold':0.6,'min_speech_duration_ms':200},condition_on_previous_text=False)
+              row={'clip':n,'duration_after_vad':info.duration_after_vad,'segments':[{'start':s.start,'end':s.end,'text':s.text,'no_speech_probability':s.no_speech_prob} for s in seg]}
+              rows.append(row);print(row,flush=True)
+          Path('ambient-audio-check.json').write_text(json.dumps(rows,ensure_ascii=False,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: episode06-ambient-audio-check
+          path: ambient-audio-check.json
