@@ -1,0 +1,64 @@
+{
+  "episode": 6,
+  "duration_seconds": 60,
+  "shots": 12,
+  "title": "门开之后",
+  "clips": [
+    {
+      "id": "01",
+      "role": "radio",
+      "speaker": "警员（对讲机）",
+      "zh": "门外是巡逻组，救护也到了。",
+      "en": "Patrol officers outside. The medical team is here too.",
+      "prompt": "Five-second cinematic hand-drawn 2D anime, sharp linework, dark blue room light and dim warm practical light. No subtitles or text. No stairs, steps, railing, split screens, duplicates or teleportation. One continuous shot. EXTREME CLOSE-UP OF ONLY THE BLACK POLICE RADIO AND THE HAND HOLDING IT. The cropped reference shows the radio, not a face. Fill the entire frame with the radio speaker grille and fingers. NO FACE, HEAD, MOUTH OR LIPS APPEAR ANYWHERE at any time. Keep the radio steady, no zoom out. A calm adult MALE officer voice comes from its speaker; slight radio filtering, no female voice. Say once, exactly: “门外是巡逻组，救护也到了。” Start after 0.6s, finish before 4.4s. No other words. No music."
+    },
+    {
+      "id": "03",
+      "role": "scene",
+      "speaker": null,
+      "zh": "",
+      "en": "",
+      "prompt": "Five-second cinematic hand-drawn 2D anime, sharp linework, dark blue room light and dim warm practical light. No subtitles or text. No stairs, steps, railing, split screens, duplicates or teleportation. One continuous shot. Low camera, knee-height view of the SAME flat blue-grey apartment floor and plain entry door. FRAME ONLY LEGS, SHOES, THE LOWER HALF OF THE DOOR AND A COMPACT MEDICAL BAG. No faces, no white coats. The door starts closed, swings inward once, and TWO medical workers wearing teal trousers and black shoes walk through it, one carrying the bag. Beyond the door is a FLAT corridor floor and a plain grey wall, nothing else. Both enter from outside, neither is already in the room. All movement continuous, no shot change, no dialogue, footsteps and bag rustle only."
+    },
+    {
+      "id": "06",
+      "role": "seated",
+      "speaker": "祁昀",
+      "zh": "我能出去了吗？",
+      "en": "Can I come out now?",
+      "prompt": "Five-second cinematic hand-drawn 2D anime, sharp linework, dark blue room light and dim warm practical light. No subtitles or text. No stairs, steps, railing, split screens, duplicates or teleportation. One continuous shot. Match the adult male maintenance worker in the reference, seated in the brick-and-pipe recess in charcoal work jacket. BOTH HANDS ALREADY REST FLAT ON HIS KNEES AT FRAME ONE and never raise. Do not recreate a hands-up gesture. Medium close-up, only his face, same wardrobe opening. He looks up anxiously and says exactly once in a tired adult male Mandarin voice: “我能出去了吗？” Start after 0.7s, end before 4.3s. Closed mouth before and after speech. No other words, no other voices."
+    },
+    {
+      "id": "08",
+      "role": "seated",
+      "speaker": null,
+      "zh": "",
+      "en": "",
+      "prompt": "Five-second cinematic hand-drawn 2D anime, sharp linework, dark blue room light and dim warm practical light. No subtitles or text. No stairs, steps, railing, split screens, duplicates or teleportation. One continuous shot. The reference adult male worker starts seated in the open brick-and-pipe recess, BOTH HANDS DOWN ON HIS KNEES. No hands-up gesture. Two paramedics in teal jackets and gloves are ALREADY AT HIS SIDES supporting his torso and forearms. Faces of helpers outside the frame. Frame worker from shoulders to feet with flat room floor visible. In ONE uninterrupted movement the worker plants his feet, leans forward, and rises slowly to stand upright with help. End standing still upright, supported on both sides. Do not walk or sit down in this shot. No dialogue, only cloth and shoe sounds."
+    },
+    {
+      "id": "09",
+      "role": "standing",
+      "speaker": null,
+      "zh": "",
+      "en": "",
+      "prompt": "Five-second cinematic hand-drawn 2D anime, sharp linework, dark blue room light and dim warm practical light. No subtitles or text. No stairs, steps, railing, split screens, duplicates or teleportation. One continuous shot. The reference is the PREVIOUS SHOT END FRAME. Continue from this exact standing position. The adult worker is ALREADY STANDING UPRIGHT, supported by a teal-uniformed paramedic on each side. NEVER begin seated or crouched and NEVER repeat standing up. On the flat floor he takes two small assisted steps away from the open recess, turns toward a plain wooden chair placed outside the recess, and sits down ONCE. End fully seated on the chair, hands on knees, in the blue-grey room. Keep the open brick recess behind and to the right, clearly separated from the chair. Medium shot includes feet and chair; no cuts. Paramedics support gently, no dragging. No dialogue."
+    },
+    {
+      "id": "10",
+      "role": "chair",
+      "speaker": "祁昀",
+      "zh": "能给我姐姐打个电话吗？",
+      "en": "Could you call my sister?",
+      "prompt": "Five-second cinematic hand-drawn 2D anime, sharp linework, dark blue room light and dim warm practical light. No subtitles or text. No stairs, steps, railing, split screens, duplicates or teleportation. One continuous shot. Match the worker now seated on the chair in this previous shot reference. He REMAINS ON THE CHAIR OUTSIDE the recess throughout. Do not put him back in a cupboard, brick recess or pipe niche. Tight medium close-up of his face, shoulders and lap; both hands stay on his knees. Plain blue-grey room wall behind, paramedics outside frame. He looks toward the detective and says once in a tired male Mandarin voice: “能给我姐姐打个电话吗？” Start after 0.7s, finish before 4.3s. No role labels or extra words. Lips synchronize, close mouth before and after."
+    },
+    {
+      "id": "12",
+      "role": "wood",
+      "speaker": "检刺（画外）",
+      "zh": "林浅，门闩装在木板外侧。",
+      "en": "Lin Qian, the bolt is on the outside of the panel.",
+      "prompt": "Five-second cinematic hand-drawn 2D anime, sharp linework, dark blue room light and dim warm practical light. No subtitles or text. No stairs, steps, railing, split screens, duplicates or teleportation. One continuous shot. MACRO CLOSE-UP OF A SMALL HORIZONTAL METAL SLIDING BARREL BOLT SCREWED TO THE OUTSIDE WOODEN FACE OF THE EXISTING FULL-HEIGHT WARDROBE ACCESS PANEL. Only a 30-centimetre-wide area of wood and the bolt fills the frame; NO whole doorway, window, wall opening or faces. The reference is only wood texture. The panel is already open and stationary. The bolt consists of a cylindrical sliding rod in two metal guide loops, with a small thumb knob, and is retracted. NOT a door hinge, NOT a flat strap hinge. A flashlight beam moves gently over the rod and screw heads, nobody touches it. Calm low adult MALE forensic doctor voice OFFSCREEN says once exactly: “林浅，门闩装在木板外侧。” Say 门闩 men shuan, not 门栏. Start after 0.7s, finish before 4.3s. No other speech, no music."
+    }
+  ]
+}
