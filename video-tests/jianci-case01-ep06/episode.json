@@ -1,0 +1,104 @@
+{
+  "episode": 6,
+  "duration_seconds": 60,
+  "shots": 12,
+  "title": "门开之后",
+  "clips": [
+    {
+      "id": "01",
+      "role": "lin",
+      "speaker": "警员（对讲机）",
+      "zh": "门外是巡逻组，救护也到了。",
+      "en": "Patrol officers outside. The medical team is here too.",
+      "prompt": "Cinematic hand-drawn 2D anime, NOT live-action or 3D. Same adult characters and worn apartment as the reference. Sharp faces and hands, dark blue window fill and dim warm practical bulb, readable shadows. This is a SINGLE LEVEL apartment: flat floor, absolutely no stairs or railings. No text or subtitles. No repeated head turns, no looping gestures, no teleportation. Five seconds, one continuous shot. Preserve established wardrobe, brick recess, vertical pipe and clothing. No background score, quiet physical room sounds only. Extreme close-up of a black handheld police radio held steadily in the female detective's hand. No face or mouth is in frame. The entire sentence is a male police officer voice coming THROUGH THE RADIO, slightly radio-filtered. No visible person speaks. No person names or extra introduction. The radio is already held at the start.\nSPEECH: say ONLY this exact Mandarin sentence ONCE, without any role label or extra words: “门外是巡逻组，救护也到了。”. Keep silence for the first 0.5 seconds, speak naturally from 0.7 to 4.3 seconds and finish fully. Synchronize the one visible speaking mouth, unless explicitly a radio voice or offscreen voice. No second voice. No music."
+    },
+    {
+      "id": "02",
+      "role": "lin",
+      "speaker": "林浅",
+      "zh": "收到。进来吧。",
+      "en": "Copy. Come in.",
+      "prompt": "Cinematic hand-drawn 2D anime, NOT live-action or 3D. Same adult characters and worn apartment as the reference. Sharp faces and hands, dark blue window fill and dim warm practical bulb, readable shadows. This is a SINGLE LEVEL apartment: flat floor, absolutely no stairs or railings. No text or subtitles. No repeated head turns, no looping gestures, no teleportation. Five seconds, one continuous shot. Preserve established wardrobe, brick recess, vertical pipe and clothing. No background score, quiet physical room sounds only. Adult female detective, black bob, navy police uniform. Plain blue-grey room wall, outside the recess. Clear firm medium-low female Mandarin voice. Medium close-up. Her radio is already raised beside her mouth. She speaks, lowers it ONCE, then shifts her eyes toward the entrance offscreen. Door remains offscreen.\nSPEECH: say ONLY this exact Mandarin sentence ONCE, without any role label or extra words: “收到。进来吧。”. Keep silence for the first 0.5 seconds, speak naturally from 0.7 to 4.3 seconds and finish fully. Synchronize the one visible speaking mouth, unless explicitly a radio voice or offscreen voice. No second voice. No music."
+    },
+    {
+      "id": "03",
+      "role": "scene",
+      "speaker": null,
+      "zh": "",
+      "en": "",
+      "prompt": "Cinematic hand-drawn 2D anime, NOT live-action or 3D. Same adult characters and worn apartment as the reference. Sharp faces and hands, dark blue window fill and dim warm practical bulb, readable shadows. This is a SINGLE LEVEL apartment: flat floor, absolutely no stairs or railings. No text or subtitles. No repeated head turns, no looping gestures, no teleportation. Five seconds, one continuous shot. Preserve established wardrobe, brick recess, vertical pipe and clothing. No background score, quiet physical room sounds only. Two adult paramedics in teal medical work jackets and disposable gloves. Their faces are out of frame or turned away; they do not speak. No white doctor coats on paramedics. Interior establishing medium-wide shot from inside the blue-grey room toward a plain apartment entry door. The door begins closed, swings inward once; both paramedics enter walking on the flat floor carrying a compact medical bag. Their backs are to camera. Open wardrobe at right reveals the same brick-and-pipe recess, with the reference maintenance worker seated inside, hands raised. No speaking mouths. No dialogue. Keep movement physically continuous.\nAUDIO: physical movement and soft fabric sounds only. Absolutely no speech, narration or words from anyone."
+    },
+    {
+      "id": "04",
+      "role": "jian",
+      "speaker": "检刺",
+      "zh": "祁昀腿麻，先检查再移动。",
+      "en": "Qi Yun's legs are numb. Check him before moving him.",
+      "prompt": "Cinematic hand-drawn 2D anime, NOT live-action or 3D. Same adult characters and worn apartment as the reference. Sharp faces and hands, dark blue window fill and dim warm practical bulb, readable shadows. This is a SINGLE LEVEL apartment: flat floor, absolutely no stairs or railings. No text or subtitles. No repeated head turns, no looping gestures, no teleportation. Five seconds, one continuous shot. Preserve established wardrobe, brick recess, vertical pipe and clothing. No background score, quiet physical room sounds only. Adult pale male forensic doctor, black hair, white coat over black turtleneck. Calm low male Mandarin voice. He stays in the blue-grey room OUTSIDE the recess. Medium close-up looking down toward the paramedics and seated witness offscreen. Only one visible face and speaking mouth.\nSPEECH: say ONLY this exact Mandarin sentence ONCE, without any role label or extra words: “祁昀腿麻，先检查再移动。”. Keep silence for the first 0.5 seconds, speak naturally from 0.7 to 4.3 seconds and finish fully. Synchronize the one visible speaking mouth, unless explicitly a radio voice or offscreen voice. No second voice. No music."
+    },
+    {
+      "id": "05",
+      "role": "scene",
+      "speaker": null,
+      "zh": "",
+      "en": "",
+      "prompt": "Cinematic hand-drawn 2D anime, NOT live-action or 3D. Same adult characters and worn apartment as the reference. Sharp faces and hands, dark blue window fill and dim warm practical bulb, readable shadows. This is a SINGLE LEVEL apartment: flat floor, absolutely no stairs or railings. No text or subtitles. No repeated head turns, no looping gestures, no teleportation. Five seconds, one continuous shot. Preserve established wardrobe, brick recess, vertical pipe and clothing. No background score, quiet physical room sounds only. Two adult paramedics in teal medical work jackets and disposable gloves. Their faces are out of frame or turned away; they do not speak. No white doctor coats on paramedics. Close-up of the seated maintenance worker's forearm at knee height. A gloved paramedic gently supports the forearm and positions a blood-pressure cuff around the upper arm. The witness has lowered his hands and cooperates. Only torso, arms and hands visible, no faces. No needle, no injection, no blood. No dialogue. Brick and vertical pipe remain behind.\nAUDIO: physical movement and soft fabric sounds only. Absolutely no speech, narration or words from anyone."
+    },
+    {
+      "id": "06",
+      "role": "qi",
+      "speaker": "祁昀",
+      "zh": "我能出去了吗？",
+      "en": "Can I come out now?",
+      "prompt": "Cinematic hand-drawn 2D anime, NOT live-action or 3D. Same adult characters and worn apartment as the reference. Sharp faces and hands, dark blue window fill and dim warm practical bulb, readable shadows. This is a SINGLE LEVEL apartment: flat floor, absolutely no stairs or railings. No text or subtitles. No repeated head turns, no looping gestures, no teleportation. Five seconds, one continuous shot. Preserve established wardrobe, brick recess, vertical pipe and clothing. No background score, quiet physical room sounds only. Adult male maintenance worker, short brown hair, charcoal work jacket and grey undershirt, tired anxious male Mandarin voice. He remains seated in the brick-and-pipe recess. His hands are now lowered to his knees after the examination. He looks up toward the doctor offscreen. Only his face speaks, no other visible faces.\nSPEECH: say ONLY this exact Mandarin sentence ONCE, without any role label or extra words: “我能出去了吗？”. Keep silence for the first 0.5 seconds, speak naturally from 0.7 to 4.3 seconds and finish fully. Synchronize the one visible speaking mouth, unless explicitly a radio voice or offscreen voice. No second voice. No music."
+    },
+    {
+      "id": "07",
+      "role": "jian",
+      "speaker": "检刺",
+      "zh": "可以。慢慢来，我们扶着你。",
+      "en": "Yes. Take it slowly. We'll help you.",
+      "prompt": "Cinematic hand-drawn 2D anime, NOT live-action or 3D. Same adult characters and worn apartment as the reference. Sharp faces and hands, dark blue window fill and dim warm practical bulb, readable shadows. This is a SINGLE LEVEL apartment: flat floor, absolutely no stairs or railings. No text or subtitles. No repeated head turns, no looping gestures, no teleportation. Five seconds, one continuous shot. Preserve established wardrobe, brick recess, vertical pipe and clothing. No background score, quiet physical room sounds only. Adult pale male forensic doctor, black hair, white coat over black turtleneck. Calm low male Mandarin voice. He stays in the blue-grey room OUTSIDE the recess. Medium close-up looking down toward the seated witness. Only his face speaks. He keeps his body in position; no bending and standing repeatedly.\nSPEECH: say ONLY this exact Mandarin sentence ONCE, without any role label or extra words: “可以。慢慢来，我们扶着你。”. Keep silence for the first 0.5 seconds, speak naturally from 0.7 to 4.3 seconds and finish fully. Synchronize the one visible speaking mouth, unless explicitly a radio voice or offscreen voice. No second voice. No music."
+    },
+    {
+      "id": "08",
+      "role": "scene",
+      "speaker": null,
+      "zh": "",
+      "en": "",
+      "prompt": "Cinematic hand-drawn 2D anime, NOT live-action or 3D. Same adult characters and worn apartment as the reference. Sharp faces and hands, dark blue window fill and dim warm practical bulb, readable shadows. This is a SINGLE LEVEL apartment: flat floor, absolutely no stairs or railings. No text or subtitles. No repeated head turns, no looping gestures, no teleportation. Five seconds, one continuous shot. Preserve established wardrobe, brick recess, vertical pipe and clothing. No background score, quiet physical room sounds only. Two adult paramedics in teal medical work jackets and disposable gloves. Their faces are out of frame or turned away; they do not speak. No white doctor coats on paramedics. Medium-wide side view showing the entire shallow brick-and-pipe recess and the flat floor outside. The maintenance worker begins seated at low height, hands lowered. One paramedic on either side supports his forearms and torso gently; the worker plants his feet, leans forward, and rises slowly ONCE with help. Finish upright and steady at the recess threshold. No walking until upright. Do not lift by wrists, drag, carry or duplicate bodies. No dialogue.\nAUDIO: physical movement and soft fabric sounds only. Absolutely no speech, narration or words from anyone."
+    },
+    {
+      "id": "09",
+      "role": "scene",
+      "speaker": null,
+      "zh": "",
+      "en": "",
+      "prompt": "Cinematic hand-drawn 2D anime, NOT live-action or 3D. Same adult characters and worn apartment as the reference. Sharp faces and hands, dark blue window fill and dim warm practical bulb, readable shadows. This is a SINGLE LEVEL apartment: flat floor, absolutely no stairs or railings. No text or subtitles. No repeated head turns, no looping gestures, no teleportation. Five seconds, one continuous shot. Preserve established wardrobe, brick recess, vertical pipe and clothing. No background score, quiet physical room sounds only. Two adult paramedics in teal medical work jackets and disposable gloves. Their faces are out of frame or turned away; they do not speak. No white doctor coats on paramedics. Continuation: the maintenance worker is ALREADY UPRIGHT at the open recess threshold, supported at both sides by the same paramedics. They take two slow steps out onto the same flat room floor toward a plain chair just outside the recess. He turns and sits down once with their support. Start standing, finish seated on the chair; no repeated rising, no stairs, no sudden scene change. Medium-wide shot, all feet visible. No dialogue.\nAUDIO: physical movement and soft fabric sounds only. Absolutely no speech, narration or words from anyone."
+    },
+    {
+      "id": "10",
+      "role": "qi",
+      "speaker": "祁昀",
+      "zh": "能给我姐姐打个电话吗？",
+      "en": "Could you call my sister?",
+      "prompt": "Cinematic hand-drawn 2D anime, NOT live-action or 3D. Same adult characters and worn apartment as the reference. Sharp faces and hands, dark blue window fill and dim warm practical bulb, readable shadows. This is a SINGLE LEVEL apartment: flat floor, absolutely no stairs or railings. No text or subtitles. No repeated head turns, no looping gestures, no teleportation. Five seconds, one continuous shot. Preserve established wardrobe, brick recess, vertical pipe and clothing. No background score, quiet physical room sounds only. Adult male maintenance worker, short brown hair, charcoal work jacket and grey undershirt, tired anxious male Mandarin voice. Now SEATED ON A PLAIN CHAIR IN THE ROOM, OUTSIDE the recess. Blue-grey room wall behind him, NOT bricks or pipes. Hands resting low on knees, paramedics out of frame. He looks up to the detective with a tired worried expression. Single visible speaking face.\nSPEECH: say ONLY this exact Mandarin sentence ONCE, without any role label or extra words: “能给我姐姐打个电话吗？”. Keep silence for the first 0.5 seconds, speak naturally from 0.7 to 4.3 seconds and finish fully. Synchronize the one visible speaking mouth, unless explicitly a radio voice or offscreen voice. No second voice. No music."
+    },
+    {
+      "id": "11",
+      "role": "lin",
+      "speaker": "林浅",
+      "zh": "祁昀，我替你联系。先休息。",
+      "en": "Qi Yun, I'll contact her. Rest for now.",
+      "prompt": "Cinematic hand-drawn 2D anime, NOT live-action or 3D. Same adult characters and worn apartment as the reference. Sharp faces and hands, dark blue window fill and dim warm practical bulb, readable shadows. This is a SINGLE LEVEL apartment: flat floor, absolutely no stairs or railings. No text or subtitles. No repeated head turns, no looping gestures, no teleportation. Five seconds, one continuous shot. Preserve established wardrobe, brick recess, vertical pipe and clothing. No background score, quiet physical room sounds only. Adult female detective, black bob, navy police uniform. Plain blue-grey room wall, outside the recess. Clear firm medium-low female Mandarin voice. She remains in the room, looking toward the witness now seated on the chair offscreen. Radio lowered and out of frame, no new phone prop. Only her face speaks.\nSPEECH: say ONLY this exact Mandarin sentence ONCE, without any role label or extra words: “祁昀，我替你联系。先休息。”. Keep silence for the first 0.5 seconds, speak naturally from 0.7 to 4.3 seconds and finish fully. Synchronize the one visible speaking mouth, unless explicitly a radio voice or offscreen voice. No second voice. No music."
+    },
+    {
+      "id": "12",
+      "role": "jian",
+      "speaker": "检刺",
+      "zh": "林浅，门闩装在木板外侧。",
+      "en": "Lin Qian, the bolt is on the outside of the panel.",
+      "prompt": "Cinematic hand-drawn 2D anime, NOT live-action or 3D. Same adult characters and worn apartment as the reference. Sharp faces and hands, dark blue window fill and dim warm practical bulb, readable shadows. This is a SINGLE LEVEL apartment: flat floor, absolutely no stairs or railings. No text or subtitles. No repeated head turns, no looping gestures, no teleportation. Five seconds, one continuous shot. Preserve established wardrobe, brick recess, vertical pipe and clothing. No background score, quiet physical room sounds only. Adult pale male forensic doctor, black hair, white coat over black turtleneck. Calm low male Mandarin voice. He stays in the blue-grey room OUTSIDE the recess. He has stayed beside the now EMPTY recess while the witness was moved away. Begin a medium view of his profile and the open wooden access panel; he directs his flashlight downward toward a small retracted horizontal slide bolt screwed to the ROOM-FACING outside surface of that panel. The panel is already open, not removed, never moves. End on the flashlight-lit bolt and its screws, with the dark empty brick recess beyond. One slow camera tilt from his speaking profile to the physical bolt. No hands touch or alter the latch. No new stairs. The quoted line is his voice, first on-screen then continuing offscreen; no other voice.\nSPEECH: say ONLY this exact Mandarin sentence ONCE, without any role label or extra words: “林浅，门闩装在木板外侧。”. Keep silence for the first 0.5 seconds, speak naturally from 0.7 to 4.3 seconds and finish fully. Synchronize the one visible speaking mouth, unless explicitly a radio voice or offscreen voice. No second voice. No music."
+    }
+  ]
+}
