@@ -1,0 +1,50 @@
+name: Jian Ci Episode 06 targeted retry
+on:
+  push:
+    branches: ["codex/jianci-transition-20260905"]
+    paths: [".github/workflows/jianci-episode06-retry.yml"]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 65
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.10"
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - run: pip install faster-whisper
+      - env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run download 34190500989 --repo ellasam81-commits/comfy-cli --name jianci-episode06-34190500989 --dir .runtime/ep6
+      - env:
+          SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+          JIANCI_EP06_RETRY_EXECUTE: "1"
+          PYTHONUNBUFFERED: "1"
+        run: python video-tests/jianci-case01-ep06/retry.py
+      - name: Check actual speech
+        if: always()
+        run: |
+          python - <<'PY'
+          from faster_whisper import WhisperModel
+          from pathlib import Path
+          from dataclasses import asdict
+          import json
+          m=WhisperModel('small',device='cpu',compute_type='int8',cpu_threads=4)
+          rows=[]
+          for p in sorted(Path('output/jianci-episode06-retry').glob('*-raw.mp4')):
+              seg,_=m.transcribe(str(p),language='zh',beam_size=5,word_timestamps=True)
+              row={'clip':p.name,'segments':[asdict(s) for s in seg]}
+              rows.append(row)
+              print(p.name,[(s['start'],s['end'],s['text']) for s in row['segments']],flush=True)
+          Path('output/jianci-episode06-retry/transcription.json').write_text(json.dumps(rows,ensure_ascii=False,indent=2,default=float))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: jianci-episode06-retry-${{ github.run_id }}
+          path: output/jianci-episode06-retry/
+          retention-days: 30
