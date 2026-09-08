@@ -15,6 +15,7 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: "3.10"
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
       - run: pip install faster-whisper
       - env:
           GH_TOKEN: ${{ github.token }}
