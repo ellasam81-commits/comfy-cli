@@ -1,0 +1,28 @@
+name: Diagnose ending audio failure
+on:
+  push:
+    branches: ["codex/jianci-transition-20260905"]
+    paths: [".github/workflows/jianci-ending-audio-diagnose.yml"]
+permissions:
+  contents: read
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+        run: |
+          python3 - <<'PY'
+          import urllib.request,urllib.error,os,re,json
+          class NoRedirect(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self,*a,**k): raise RuntimeError('Redirect refused')
+          op=urllib.request.build_opener(NoRedirect)
+          for path in ['/v2/requests/bf6ae63dede8e67d43a1f705baa5bff3/status','/v2/requests/bf6ae63dede8e67d43a1f705baa5bff3']:
+              req=urllib.request.Request('https://api.segmind.com'+path,headers={'x-api-key':os.environ['SEGMIND_API_KEY']})
+              try:
+                  with op.open(req,timeout=30) as r:t=r.read().decode()
+              except urllib.error.HTTPError as e:t=e.read().decode()
+              t=re.sub(r'data:[^" ]+','[reference omitted]',t)
+              t=re.sub(r'https?[^" ]+','[url omitted]',t)
+              print(t[:2500])
+          PY
