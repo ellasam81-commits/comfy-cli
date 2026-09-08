@@ -1,0 +1,37 @@
+name: Verify retained original ending phrase
+on:
+  push:
+    branches: ["codex/jianci-transition-20260905"]
+    paths: [".github/workflows/jianci-ending-native-phrase-check.yml"]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.10"
+      - run: pip install faster-whisper
+      - env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run download 34191307185 --repo ellasam81-commits/comfy-cli --name jianci-episode06-retry-34191307185 --dir clips
+      - run: ffmpeg -v error -ss 2.84 -i clips/12-raw.mp4 -t 1.7 -vn -ac 1 -ar 48000 -c:a pcm_s16le phrase.wav
+      - run: |
+          python - <<'PY'
+          from faster_whisper import WhisperModel
+          import json
+          from pathlib import Path
+          m=WhisperModel('medium',device='cpu',compute_type='int8',cpu_threads=4)
+          seg,info=m.transcribe('phrase.wav',language='zh',beam_size=5,vad_filter=False,word_timestamps=True,condition_on_previous_text=False)
+          rows=[{'start':x.start,'end':x.end,'text':x.text,'words':[{'start':w.start,'end':w.end,'word':w.word} for w in x.words]} for x in seg]
+          Path('phrase-check.json').write_text(json.dumps(rows,ensure_ascii=False,indent=2))
+          print(json.dumps(rows,ensure_ascii=False))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: episode06-native-phrase-check
+          path: phrase-check.json
