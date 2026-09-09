@@ -1,0 +1,24 @@
+name: Jianci - inspect video reference support
+on:
+  push:
+    branches: ["codex/jianci-transition-20260905"]
+    paths: [".github/workflows/jianci-previz-docs.yml"]
+permissions:
+  contents: read
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Read public Segmind documentation only
+        shell: python
+        run: |
+          import urllib.request
+          for slug in ["seedance-2.0-mini","seedance-2.0","seedance-2.5","wan3.0-video","minimax-h3-reference-to-video"]:
+              print("\nMODEL",slug,flush=True)
+              try:
+                  req=urllib.request.Request("https://www.segmind.com/models/"+slug+"/llms.txt",headers={"User-Agent":"Mozilla/5.0"})
+                  with urllib.request.urlopen(req,timeout=25) as r: s=r.read(120000).decode()
+                  print(s[:45000],flush=True)
+              except Exception as e: print(type(e).__name__,str(e)[:180],flush=True)
+          
