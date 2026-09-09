@@ -1,0 +1,27 @@
+name: Jianci - Wan3 door video reference test
+on:
+  push:
+    branches: ["codex/jianci-transition-20260905"]
+    paths: [".github/workflows/jianci-previz-test.yml"]
+permissions:
+  contents: read
+concurrency:
+  group: jianci-previz-test
+  cancel-in-progress: false
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+      - name: Generate one authorized ten-second clip
+        env:
+          SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+        run: python3 video-tests/jianci-previz/test.py
+      - name: Preserve request and video
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jianci-door-test
+          path: output/door-test/
+          retention-days: 30
