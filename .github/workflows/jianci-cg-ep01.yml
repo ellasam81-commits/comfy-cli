@@ -1,0 +1,46 @@
+name: Jian Ci CG Episode 01
+on:
+  push:
+    branches: [codex/jianci-transition-20260905]
+    paths: [video-tests/jianci-cg-ep01/run.request.json]
+permissions:
+  contents: read
+concurrency:
+  group: jianci-cg-ep01-production
+  cancel-in-progress: false
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install media tools
+        run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
+      - name: Generate six authorized clips
+        env:
+          SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+          JIANCI_CG_EP01_EXECUTE: '1'
+        run: python video-tests/jianci-cg-ep01/generate.py
+      - name: Save raw results before transcription
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jianci-cg-ep01-raw
+          path: output/jianci-cg-ep01
+          retention-days: 7
+      - name: Install speech recognition
+        if: success()
+        run: pip install faster-whisper
+      - name: Check Mandarin speech
+        if: success()
+        run: python video-tests/jianci-cg-ep01/transcribe.py
+      - name: Save transcript
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jianci-cg-ep01-transcript
+          path: output/jianci-cg-ep01/transcription.json
+          retention-days: 7
