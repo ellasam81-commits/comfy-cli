@@ -1,0 +1,46 @@
+name: Jian Ci Episode 02 Progress
+on:
+  push:
+    branches: [codex/jianci-transition-20260905]
+    paths: [video-tests/jianci-ep02-progress/run.request.json]
+permissions:
+  contents: read
+concurrency:
+  group: jianci-ep02-progress
+  cancel-in-progress: false
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install media tools
+        run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
+      - name: Generate six continuous dialogue scenes
+        env:
+          SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+          JIANCI_EP02_PROGRESS_EXECUTE: '1'
+        run: python video-tests/jianci-ep02-progress/generate.py
+      - name: Save raw before speech check
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jianci-ep02-progress-raw
+          path: output/jianci-ep02-progress
+          retention-days: 7
+      - name: Install speech checker
+        if: success()
+        run: pip install faster-whisper
+      - name: Transcribe returned dialogue
+        if: success()
+        run: python video-tests/jianci-ep02-progress/transcribe.py
+      - name: Save transcript
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jianci-ep02-progress-transcript
+          path: output/jianci-ep02-progress/transcription.json
+          retention-days: 7

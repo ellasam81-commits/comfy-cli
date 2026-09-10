@@ -1,0 +1,129 @@
+{
+  "episode": 2,
+  "case": "屋里还有一个人",
+  "title": "门后的人",
+  "author": "林爱丽",
+  "duration_seconds": 60,
+  "shots": 12,
+  "generation_units": 6,
+  "estimate_usd": 3,
+  "source_url": "https://www.gda.bayern.de/mam/ueber-uns/2026_03_16_pm_hinterkaifeck.pdf",
+  "clips": [
+    {
+      "id": "01",
+      "label": "门内呼救",
+      "prompt": "Hand-drawn cinematic 2D anime, same character faces and clothes as reference, delicate ink outlines and cel shading, desaturated teal shadows and small amber practical lights. NOT live action, NOT 3D. One coherent dramatic scene with TWO motivated shots and one cut near 5 seconds. Smooth restrained movements. No montage, no dissolves, no repeated gestures. Keep all meaningful action between 18% and 82% image height for later captions. NO text, subtitles, letters, logos or writing. Only speak the exact quoted Mandarin lines ONCE; do not read directions or add dialogue. Natural conversational Mandarin, not narration. Stable character voices: Lin Qian low-mid adult female, calm firm clear; Jian Ci adult male low measured baritone; Qi Yun softer breathy adult female, scared but understandable; backup radio filtered adult male. No music, just quiet continuous room tone and appropriate action sounds, clear full speech endings. Location continuity: third-floor flat room with square window on LEFT wall, low iron bed against BACK wall, rusty teal entrance door on RIGHT, plain chair near bed. All interior floor is flat: NO STAIRS inside. Stairs exist only in common stairwell OUTSIDE the closed or open entrance. Gu Qing deceased remains OFFSCREEN on lower-floor landing; do not show any corpse. Jian Ci wears white coat over black turtleneck, black gloves, no mask. Lin Qian has short black bob, navy police jacket, black gloves, no mask. Qi Yun is ONE living woman age28, shoulder-length brown hair, faded burgundy sweater, charcoal trousers, cloth bandage left palm. Continue immediately from episode1 at third-floor teal door. Shot A 0-5: exactly continue the previous episode final frame, low angle looking up the shared staircase toward the CLOSED barred teal security gate, no people visible; Lin and Jian are offscreen on the landing. Radio male voice .25-2 exactly: “出口已控制。” From INSIDE closed door, a frightened adult woman calls 4.2-5.8 exactly: “救命！” Her call bridges the cut. Shot B 5-10: one backup officer opens the UNLOCKED outer teal barred security gate inward in one smooth action; the inner door is already open, Lin stands behind officer, coherent view reveals FLAT floor and Qi Yun sitting alive on back bed, no stairs or additional doors inside. Do not cross doorway with camera. End with doorway open and rescue access clear."
+    },
+    {
+      "id": "02",
+      "label": "找到证人",
+      "prompt": "Hand-drawn cinematic 2D anime, same character faces and clothes as reference, delicate ink outlines and cel shading, desaturated teal shadows and small amber practical lights. NOT live action, NOT 3D. One coherent dramatic scene with TWO motivated shots and one cut near 5 seconds. Smooth restrained movements. No montage, no dissolves, no repeated gestures. Keep all meaningful action between 18% and 82% image height for later captions. NO text, subtitles, letters, logos or writing. Only speak the exact quoted Mandarin lines ONCE; do not read directions or add dialogue. Natural conversational Mandarin, not narration. Stable character voices: Lin Qian low-mid adult female, calm firm clear; Jian Ci adult male low measured baritone; Qi Yun softer breathy adult female, scared but understandable; backup radio filtered adult male. No music, just quiet continuous room tone and appropriate action sounds, clear full speech endings. Location continuity: third-floor flat room with square window on LEFT wall, low iron bed against BACK wall, rusty teal entrance door on RIGHT, plain chair near bed. All interior floor is flat: NO STAIRS inside. Stairs exist only in common stairwell OUTSIDE the closed or open entrance. Gu Qing deceased remains OFFSCREEN on lower-floor landing; do not show any corpse. Jian Ci wears white coat over black turtleneck, black gloves, no mask. Lin Qian has short black bob, navy police jacket, black gloves, no mask. Qi Yun is ONE living woman age28, shoulder-length brown hair, faded burgundy sweater, charcoal trousers, cloth bandage left palm. Now inside the cleared flat room; the short entry has been omitted in a normal continuity cut. Shot A 0-5 medium two-shot: Qi Yun sits on bed LEFT, Lin crouches at respectful distance RIGHT, relaxed empty gloved hands visible. Lin says .5-4.3 exactly: “我是警察。你叫什么名字？” Shot B 5-10 closer Qi Yun, same seated position and eyeline toward Lin right, says 5.2-9.4 exactly: “祁芸。顾晴让我躲在这里。” The black phone is resting on her lap, left palm cloth-bandaged. She is exhausted, frightened but alert, no shaking fit. No character suddenly stands."
+    },
+    {
+      "id": "03",
+      "label": "手机线索",
+      "prompt": "Hand-drawn cinematic 2D anime, same character faces and clothes as reference, delicate ink outlines and cel shading, desaturated teal shadows and small amber practical lights. NOT live action, NOT 3D. One coherent dramatic scene with TWO motivated shots and one cut near 5 seconds. Smooth restrained movements. No montage, no dissolves, no repeated gestures. Keep all meaningful action between 18% and 82% image height for later captions. NO text, subtitles, letters, logos or writing. Only speak the exact quoted Mandarin lines ONCE; do not read directions or add dialogue. Natural conversational Mandarin, not narration. Stable character voices: Lin Qian low-mid adult female, calm firm clear; Jian Ci adult male low measured baritone; Qi Yun softer breathy adult female, scared but understandable; backup radio filtered adult male. No music, just quiet continuous room tone and appropriate action sounds, clear full speech endings. Location continuity: third-floor flat room with square window on LEFT wall, low iron bed against BACK wall, rusty teal entrance door on RIGHT, plain chair near bed. All interior floor is flat: NO STAIRS inside. Stairs exist only in common stairwell OUTSIDE the closed or open entrance. Gu Qing deceased remains OFFSCREEN on lower-floor landing; do not show any corpse. Jian Ci wears white coat over black turtleneck, black gloves, no mask. Lin Qian has short black bob, navy police jacket, black gloves, no mask. Qi Yun is ONE living woman age28, shoulder-length brown hair, faded burgundy sweater, charcoal trousers, cloth bandage left palm. Same room, same Lin RIGHT and seated Qi Yun LEFT. Shot A 0-5 over Qi Yun shoulder toward Lin, include ONE black phone with blank dark screen in Qi Yun right hand at low edge, no screen writing. Lin asks .4-4.3 exactly: “这是你的手机吗？” Shot B 5-10 reverse closeup Qi Yun same bed, says 5.15-9.4 exactly: “顾晴落下的。外面有人追她。” She holds phone STILL, do not hand it over yet. Left hand bandage unchanged, no bleeding or new wound. No flashback or invented attacker."
+    },
+    {
+      "id": "04",
+      "label": "检刺的反应",
+      "prompt": "Hand-drawn cinematic 2D anime, same character faces and clothes as reference, delicate ink outlines and cel shading, desaturated teal shadows and small amber practical lights. NOT live action, NOT 3D. One coherent dramatic scene with TWO motivated shots and one cut near 5 seconds. Smooth restrained movements. No montage, no dissolves, no repeated gestures. Keep all meaningful action between 18% and 82% image height for later captions. NO text, subtitles, letters, logos or writing. Only speak the exact quoted Mandarin lines ONCE; do not read directions or add dialogue. Natural conversational Mandarin, not narration. Stable character voices: Lin Qian low-mid adult female, calm firm clear; Jian Ci adult male low measured baritone; Qi Yun softer breathy adult female, scared but understandable; backup radio filtered adult male. No music, just quiet continuous room tone and appropriate action sounds, clear full speech endings. Location continuity: third-floor flat room with square window on LEFT wall, low iron bed against BACK wall, rusty teal entrance door on RIGHT, plain chair near bed. All interior floor is flat: NO STAIRS inside. Stairs exist only in common stairwell OUTSIDE the closed or open entrance. Gu Qing deceased remains OFFSCREEN on lower-floor landing; do not show any corpse. Jian Ci wears white coat over black turtleneck, black gloves, no mask. Lin Qian has short black bob, navy police jacket, black gloves, no mask. Qi Yun is ONE living woman age28, shoulder-length brown hair, faded burgundy sweater, charcoal trousers, cloth bandage left palm. Same room. Shot A 0-5 Qi Yun closeup on bed LEFT, small stained cloth bandage visible but no gore, says .35-5.3 exactly: “我没看清，只听见她在楼梯上喊。” Shot B 5-10 Jian Ci chest-up at OPEN doorway, same face, senses the small blood scent, very brief dark crimson iris ring appears 5.2-6.0, one black-gloved hand tightens below chest, then eyes settle and he looks toward Lin offscreen RIGHT. He says 6.0-9.5 exactly: “林浅，先送她去医院。” Controlled and professional, no lunge, no fangs, no mask, no supernatural vision, never identify culprit by powers. Do not show stairs behind him from inside room; camera looks at flat plaster wall beside doorway."
+    },
+    {
+      "id": "05",
+      "label": "离开现场",
+      "prompt": "Hand-drawn cinematic 2D anime, same character faces and clothes as reference, delicate ink outlines and cel shading, desaturated teal shadows and small amber practical lights. NOT live action, NOT 3D. One coherent dramatic scene with TWO motivated shots and one cut near 5 seconds. Smooth restrained movements. No montage, no dissolves, no repeated gestures. Keep all meaningful action between 18% and 82% image height for later captions. NO text, subtitles, letters, logos or writing. Only speak the exact quoted Mandarin lines ONCE; do not read directions or add dialogue. Natural conversational Mandarin, not narration. Stable character voices: Lin Qian low-mid adult female, calm firm clear; Jian Ci adult male low measured baritone; Qi Yun softer breathy adult female, scared but understandable; backup radio filtered adult male. No music, just quiet continuous room tone and appropriate action sounds, clear full speech endings. NEW LOCATION, a little later OUTSIDE the same old building at gray morning light. White ambulance open rear doors, no lettering, no flashing strobe. Qi Yun sits upright in ONE wheelchair with silver thermal blanket over same burgundy sweater; one paramedic stands behind, face mostly out of frame. Lin stands RIGHT, gloves unchanged. Shot A 0-5 medium Lin and Qi Yun, Lin asks .4-4.5 exactly: “祁芸，手机交给我们，可以吗？” Shot B 5-10 closer Qi Yun seated, says 5.1-9.4 exactly: “可以。昨晚我一直没敢开机。” She offers the SAME black phone forward once, Lin takes it gently once with black-gloved hand; no duplicated phone, no repeated handover, no phone activation. Keep faces and hand action readable. No character walks backward."
+    },
+    {
+      "id": "06",
+      "label": "新的追查",
+      "prompt": "Hand-drawn cinematic 2D anime, same character faces and clothes as reference, delicate ink outlines and cel shading, desaturated teal shadows and small amber practical lights. NOT live action, NOT 3D. One coherent dramatic scene with TWO motivated shots and one cut near 5 seconds. Smooth restrained movements. No montage, no dissolves, no repeated gestures. Keep all meaningful action between 18% and 82% image height for later captions. NO text, subtitles, letters, logos or writing. Only speak the exact quoted Mandarin lines ONCE; do not read directions or add dialogue. Natural conversational Mandarin, not narration. Stable character voices: Lin Qian low-mid adult female, calm firm clear; Jian Ci adult male low measured baritone; Qi Yun softer breathy adult female, scared but understandable; backup radio filtered adult male. No music, just quiet continuous room tone and appropriate action sounds, clear full speech endings. SAME exterior ambulance scene immediately after shot5 handover. Lin remains camera RIGHT beside wheelchair now OFFSCREEN, Jian behind LEFT. Shot A 0-5 medium Lin, a CLOSED clear evidence pouch containing ONE black phone already held safely in her left gloved hand (bagging occurred across the cut); no opening, no pressing phone buttons. She says .4-4.6 exactly: “手机送检。我去找报案人。” Shot B 5-10 tighter her listening face and shoulder radio, male RADIO voice says 5.5-9.3 exactly: “林队，报案人联系不上了。” Lin expression becomes focused, gaze toward building once, no new speech. Jian behind left remains silent. End in unresolved investigative urgency, no fade, no corpse or new character."
+    }
+  ],
+  "subtitles": [
+    {
+      "start": 0.25,
+      "end": 2.0,
+      "speaker": "增援警员（无线电）",
+      "zh": "出口已控制。",
+      "en": "The exits are covered."
+    },
+    {
+      "start": 4.2,
+      "end": 5.8,
+      "speaker": "祁芸（门内）",
+      "zh": "救命！",
+      "en": "Help!"
+    },
+    {
+      "start": 10.5,
+      "end": 14.3,
+      "speaker": "林浅",
+      "zh": "我是警察。你叫什么名字？",
+      "en": "I'm a police officer. What's your name?"
+    },
+    {
+      "start": 15.2,
+      "end": 19.4,
+      "speaker": "祁芸",
+      "zh": "祁芸。顾晴让我躲在这里。",
+      "en": "Qi Yun. Gu Qing told me to hide here."
+    },
+    {
+      "start": 20.4,
+      "end": 24.3,
+      "speaker": "林浅",
+      "zh": "这是你的手机吗？",
+      "en": "Is this your phone?"
+    },
+    {
+      "start": 25.15,
+      "end": 29.4,
+      "speaker": "祁芸",
+      "zh": "顾晴落下的。外面有人追她。",
+      "en": "Gu Qing left it. Someone was chasing her."
+    },
+    {
+      "start": 30.35,
+      "end": 35.3,
+      "speaker": "祁芸",
+      "zh": "我没看清，只听见她在楼梯上喊。",
+      "en": "I didn't see them clearly. I only heard her cry out on the stairs."
+    },
+    {
+      "start": 36.0,
+      "end": 39.5,
+      "speaker": "检刺",
+      "zh": "林浅，先送她去医院。",
+      "en": "Lin Qian, get her to hospital first."
+    },
+    {
+      "start": 40.4,
+      "end": 44.5,
+      "speaker": "林浅",
+      "zh": "祁芸，手机交给我们，可以吗？",
+      "en": "Qi Yun, may we take the phone as evidence?"
+    },
+    {
+      "start": 45.1,
+      "end": 49.4,
+      "speaker": "祁芸",
+      "zh": "可以。昨晚我一直没敢开机。",
+      "en": "Yes. I didn't dare turn it on last night."
+    },
+    {
+      "start": 50.4,
+      "end": 54.6,
+      "speaker": "林浅",
+      "zh": "手机送检。我去找报案人。",
+      "en": "Send the phone for examination. I'll find the caller."
+    },
+    {
+      "start": 55.5,
+      "end": 59.3,
+      "speaker": "增援警员（无线电）",
+      "zh": "林队，报案人联系不上了。",
+      "en": "Detective Lin, we can't reach the caller."
+    }
+  ]
+}
