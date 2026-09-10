@@ -1,0 +1,18 @@
+{
+  "episode": 1,
+  "duration_seconds": 60,
+  "clips": [
+    {
+      "id": "10",
+      "cn": "检刺：别靠近。我缓一下。",
+      "en": "Jian Ci: Stay back. I need a moment.",
+      "prompt": "2D hand-drawn Chinese suspense anime, ink outlines, cold blue film lighting. A single continuous medium close-up of the FIRST man in cast reference: black hair, white lab coat over black turtleneck, blue surgical mask, black gloves, red irises settling to dark. In the exact flat apartment in second reference. Female masked colleague shoulder at frame edge. He takes ONE small controlled step backward and says once in a low adult male Mandarin voice: 别靠近。我缓一下。 This is the ONLY speech. Say all words clearly from 0.5 to 3 seconds, then silent breathing. No other voices, no other lines, no cut, no montage, no writing or subtitles. Frame chest-up throughout; preserve covered corpse offscreen left, never remove or move it. No stairs. Smooth subtle animation."
+    },
+    {
+      "id": "12",
+      "cn": "林浅：叫急救！马上开门。",
+      "en": "Lin Qian: Get the medics! Open it now.",
+      "prompt": "2D hand-drawn Chinese suspense anime, ink outlines, cold blue film lighting. ONE continuous side medium close-up. The SECOND woman in cast reference, short BLACK bob, dark navy detective jacket, NO mask, is beside the closed wooden pantry door with external padlock in the reference apartment. No other characters on screen. At 0.2 and 0.6 seconds TWO quiet knocks from inside door. She hears it, shifts her eyes toward offscreen colleague once and urgently says in clear adult female Mandarin: 叫急救！马上开门。 Say exactly that complete line once, between 1.0 and 4.2 seconds. No other speech. Door remains CLOSED throughout. No opening yet. Continuous smooth restrained animation, no cut, no text, no subtitles, no writing. No stairs. Covered corpse remains offscreen left in its fixed position."
+    }
+  ]
+}
