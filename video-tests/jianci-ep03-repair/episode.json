@@ -1,0 +1,104 @@
+{
+  "episode": 3,
+  "title": "手腕上的痕迹",
+  "case": "屋里还有一个人",
+  "author": "林爱丽",
+  "clips": [
+    {
+      "id": "03",
+      "label": "证据边界",
+      "prompt": "二维日漫悬疑法医剧，严格参照人物图和手腕图。中性白光看清脸和证据，黑发无绿，无字幕无文字无配乐。法医检查室，只有男法医检刺和女法医许未，均穿白防护衣、戴蓝色手套和医用口罩。尸体白布覆盖，只露左手腕浅红擦伤，无血腥。0到3秒拍手腕与测量尺，女声许未只说一次：“她被绑过？”3到10秒切检刺戴口罩的脸，只有男声检刺完整说：“有可能。还要排除衣物和搬运造成的痕迹。”男声绝不重复问题。两句话各说一次，无旁白无其他人声。第二句必须说完整，9.7秒前结束。细线手绘自然动作。"
+    },
+    {
+      "id": "04",
+      "label": "克制",
+      "prompt": "二维日漫悬疑剧，参照图片检刺同一张脸，同一黑发白外套黑高领。中性明亮洗手间，画面清楚无黄绿色无字幕无文字。检刺独自站镜前，手机放洗手台开启免提。0到1秒眼睛短暂暗红，眨眼恢复正常，手自然放下。1到4.8秒检刺低沉男声说：“林浅，查顾晴昨晚的去向。”必须清楚完整有声音。5到9.7秒手机扬声器里传来林浅冷静女声：“我在门卫室。赵成没来交班。”检刺说完闭嘴听电话，女声时检刺不可动嘴。只允许这两句话，一人一句，完整不截断。无配乐无新增旁白，无额外镜中人物，无獠牙。"
+    }
+  ],
+  "subtitles": [
+    {
+      "start": 0.4,
+      "end": 4.7,
+      "speaker": "林浅",
+      "zh": "查报案号码，确认他的身份。",
+      "en": "Check the caller's number and identity."
+    },
+    {
+      "start": 5.1,
+      "end": 9.7,
+      "speaker": "警员（无线电）",
+      "zh": "登记人叫赵成，是这里的门卫。",
+      "en": "It's registered to Zhao Cheng, the building's guard."
+    },
+    {
+      "start": 10.4,
+      "end": 14.7,
+      "speaker": "许未",
+      "zh": "检刺，两只手腕都有环形擦伤。",
+      "en": "Jian Ci, there are ring-shaped abrasions on both wrists."
+    },
+    {
+      "start": 15.1,
+      "end": 19.7,
+      "speaker": "检刺",
+      "zh": "先拍照，再测量。",
+      "en": "Photograph them first, then measure."
+    },
+    {
+      "start": 20.4,
+      "end": 24.7,
+      "speaker": "许未",
+      "zh": "她被绑过？",
+      "en": "Was she restrained?"
+    },
+    {
+      "start": 25.1,
+      "end": 29.7,
+      "speaker": "检刺",
+      "zh": "有可能，还要排除衣物和搬运造成的痕迹。",
+      "en": "Possibly. We must also rule out marks from clothing or handling."
+    },
+    {
+      "start": 30.4,
+      "end": 34.7,
+      "speaker": "检刺",
+      "zh": "林浅，查一下顾晴昨晚的去向。",
+      "en": "Lin Qian, trace Gu Qing's movements last night."
+    },
+    {
+      "start": 35.1,
+      "end": 39.7,
+      "speaker": "林浅（电话）",
+      "zh": "我在门卫室。赵成没来交班。",
+      "en": "I'm at the guardroom. Zhao Cheng missed the handover."
+    },
+    {
+      "start": 40.4,
+      "end": 44.7,
+      "speaker": "警员",
+      "zh": "赵成昨晚值班，备用钥匙在我这。",
+      "en": "Zhao Cheng worked last night. I have the spare key."
+    },
+    {
+      "start": 45.1,
+      "end": 49.7,
+      "speaker": "林浅",
+      "zh": "开门。先别碰里面的东西。",
+      "en": "Open it. Don't touch anything inside yet."
+    },
+    {
+      "start": 50.4,
+      "end": 54.7,
+      "speaker": "警员",
+      "zh": "林队，赵成的手机在响。",
+      "en": "Detective Lin, Zhao Cheng's phone is ringing."
+    },
+    {
+      "start": 55.1,
+      "end": 59.7,
+      "speaker": "林浅",
+      "zh": "先别接。拍下屏幕。",
+      "en": "Don't answer yet. Photograph the screen."
+    }
+  ]
+}
