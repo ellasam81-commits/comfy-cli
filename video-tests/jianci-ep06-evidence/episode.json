@@ -1,0 +1,108 @@
+{
+  "episode": 6,
+  "title": "血布上的名字",
+  "clips": [
+    {
+      "id": "01",
+      "location": "接上集·救护车旁",
+      "prompt": "Cinematic 2D Chinese anime suspense drama, 10 seconds, horizontal 16:9 letterboxed, restrained smooth animation, cool gray blue shadows and neutral pale skin, black hair not green, readable faces, same series visual style. No captions, no text, no narrator, no music, only dialogue and quiet ambience. No split screen or dissolves. Two clear shots with realistic continuity. All complete heads and mouths stay within central picture. Jian Ci is an adult male forensic doctor, short tousled black hair, pale slim handsome face, black turtleneck, plain white lab coat, controlled quiet expression. NIGHT outside the gray brick laundry, an ambulance is parked OUTSIDE. 0-5.4s a close view of closed ambulance doors and softly flashing emergency lights, no people visible, no washing machines outside. An older male witness stays entirely OFFSCREEN and says at 0.8s: 有人借过我手机，后来我就被打晕了。 5.4-10s cut to medium close-up of Jian beside ambulance, only Jian visible, at 6s he says: 先治疗。别勉强回忆。 He then looks toward the ambulance. Never show patient, stretcher or any body. Deep calm male voice for Jian, older tired male voice for witness.",
+      "lines": [
+        [
+          "赵成（画外）",
+          "有人借过我手机，后来我就被打晕了。",
+          "Someone borrowed my phone. Later, I was knocked out."
+        ],
+        [
+          "检刺",
+          "先治疗。别勉强回忆。",
+          "Get treated first. Don’t force yourself to remember."
+        ]
+      ]
+    },
+    {
+      "id": "02",
+      "location": "两天后·数字取证室",
+      "prompt": "Cinematic 2D Chinese anime suspense drama, 10 seconds, horizontal 16:9 letterboxed, restrained smooth animation, cool gray blue shadows and neutral pale skin, black hair not green, readable faces, same series visual style. No captions, no text, no narrator, no music, only dialogue and quiet ambience. No split screen or dissolves. Two clear shots with realistic continuity. All complete heads and mouths stay within central picture. Zhou Qiao is a NEW male digital evidence specialist, age 28-32, short tidy black hair, thin SILVER rectangular eyeglasses, small discreet behind-ear hearing aid on right, charcoal casual jacket over gray shirt, quiet precise demeanor. He is not a police officer in a cap and not a doctor. TWO DAYS LATER in digital evidence office, one desk and two monitors, gray walls and a cold daylight window. Only Zhou visible, no extra person and no reflections. 0-4s over his shoulder, his mouth NOT visible, female Lin OFFSCREEN asks: 周峤，来电人的身份确认了吗？ 4-10s cut to frontal medium close-up of Zhou, at 4.6s HE replies in a precise calm male voice: 还没有。她发的截图，不能单独作证。 He points to the monitor once and then rests his hand. Monitor has abstract unreadable interface, no generated words. Reference image is for overall 2D art style ONLY, invent the specified NEW man with glasses, NOT a white-coated doctor.",
+      "lines": [
+        [
+          "林浅（画外）",
+          "周峤，来电人的身份确认了吗？",
+          "Zhou Qiao, have we verified the caller’s identity?"
+        ],
+        [
+          "周峤",
+          "还没有。她发的截图，不能单独作证。",
+          "Not yet. Her screenshot alone is not proof."
+        ]
+      ]
+    },
+    {
+      "id": "03",
+      "location": "两天后·法医办公室",
+      "prompt": "Cinematic 2D Chinese anime suspense drama, 10 seconds, horizontal 16:9 letterboxed, restrained smooth animation, cool gray blue shadows and neutral pale skin, black hair not green, readable faces, same series visual style. No captions, no text, no narrator, no music, only dialogue and quiet ambience. No split screen or dissolves. Two clear shots with realistic continuity. All complete heads and mouths stay within central picture. Jian Ci is an adult male forensic doctor, short tousled black hair, pale slim handsome face, black turtleneck, plain white lab coat, controlled quiet expression. In a forensic office, not an autopsy room: gray desk with a paper report, desk telephone on speaker, closed folders and cold window. No corpse or patient. 0-5.6s close-up of report and desk telephone, no visible face, phone emits the voice of female forensic colleague Xu Wei at 0.7s: 布条上的血，DNA与顾晴的样本一致。 Do not read any extra text. 5.6-10s cut to Jian medium close-up, only Jian visible, at 6s he says: 把结果发我。我去问赵成。 He closes the folder once. Brief shadow across his eyes, restrained vampire atmosphere, no supernatural proof.",
+      "lines": [
+        [
+          "许未（电话）",
+          "布条上的血，DNA与顾晴的样本一致。",
+          "DNA from the bloodstain matches Gu Qing’s sample."
+        ],
+        [
+          "检刺",
+          "把结果发我。我去问赵成。",
+          "Send me the results. I’ll speak to Zhao Cheng."
+        ]
+      ]
+    },
+    {
+      "id": "04",
+      "location": "稍后·医院走廊",
+      "prompt": "Cinematic 2D Chinese anime suspense drama, 10 seconds, horizontal 16:9 letterboxed, restrained smooth animation, cool gray blue shadows and neutral pale skin, black hair not green, readable faces, same series visual style. No captions, no text, no narrator, no music, only dialogue and quiet ambience. No split screen or dissolves. Two clear shots with realistic continuity. All complete heads and mouths stay within central picture. Jian Ci is an adult male forensic doctor, short tousled black hair, pale slim handsome face, black turtleneck, plain white lab coat, controlled quiet expression. Lin Qian is a female police detective with short straight black bob, dark navy uniform and black gloves. Hospital corridor, pale gray walls, flat floor, one standard adult door with frosted glass; no beds, no patients or background extras. Lin LEFT and Jian RIGHT standing beside each other at conversational distance. 0-4.8s medium close-up Lin facing toward Jian offscreen right; at 0.7s Lin says: 顾晴的血，怎么到了赵成的绑布上？ 4.8-10s reverse medium close-up Jian facing Lin offscreen left; at 5.1s Jian says: 先查血怎么沾上的，不能直接认定是他。 No phones or walkie-talkies. Direct natural dialogue. Do not swap faces or voices. Quiet tense performance.",
+      "lines": [
+        [
+          "林浅",
+          "顾晴的血，怎么到了赵成的绑布上？",
+          "How did Gu Qing’s blood get onto Zhao Cheng’s bindings?"
+        ],
+        [
+          "检刺",
+          "先查血怎么沾上的，不能直接认定是他。",
+          "Find out how the blood got there. Don’t assume he did it."
+        ]
+      ]
+    },
+    {
+      "id": "05",
+      "location": "医院·赵成留观室",
+      "prompt": "Cinematic 2D Chinese anime suspense drama, 10 seconds, horizontal 16:9 letterboxed, restrained smooth animation, cool gray blue shadows and neutral pale skin, black hair not green, readable faces, same series visual style. No captions, no text, no narrator, no music, only dialogue and quiet ambience. No split screen or dissolves. Two clear shots with realistic continuity. All complete heads and mouths stay within central picture. Hospital observation room, interview approved after treatment. Zhao Cheng is ONE older man about55, short gray hair, thin lined face, a small forehead dressing and gray work shirt. Only ONE head and ONE person, no other visible people. 0-3.2s close-up of a plain water cup on bedside table, no people, deep calm male Jian voice OFFSCREEN asks at0.5s: 绑你的布，之前在哪？ 3.2-10s cut to tight HEAD-AND-SHOULDERS of Zhao sitting upright against one white pillow, his body and bed below chest are OUT OF FRAME, no other bed or mirrors or people. At3.8s older tired male Zhao answers: 洗衣房架上。他拿下来，才绑住我。 He looks toward interviewer offscreen, no repeated gestures, no pointing, no flashback. No bruised naked torso, no corpse.",
+      "lines": [
+        [
+          "检刺（画外）",
+          "绑你的布，之前在哪？",
+          "Where was the cloth before you were tied up?"
+        ],
+        [
+          "赵成",
+          "洗衣房架上。他拿下来，才绑住我。",
+          "On a laundry shelf. He took it down and tied me up."
+        ]
+      ]
+    },
+    {
+      "id": "06",
+      "location": "医院走廊·继续调查",
+      "prompt": "Cinematic 2D Chinese anime suspense drama, 10 seconds, horizontal 16:9 letterboxed, restrained smooth animation, cool gray blue shadows and neutral pale skin, black hair not green, readable faces, same series visual style. No captions, no text, no narrator, no music, only dialogue and quiet ambience. No split screen or dissolves. Two clear shots with realistic continuity. All complete heads and mouths stay within central picture. Jian Ci is an adult male forensic doctor, short tousled black hair, pale slim handsome face, black turtleneck, plain white lab coat, controlled quiet expression. Same empty hospital corridor with pale gray walls, flat floor and normal frosted door. 0-5.8s close-up of Jian hand holding a smartphone playing a call; only hand and phone visible, no text on screen. Male Zhou voice over phone at0.6s says: 来电人发了语音，背景像是同样的脚步声。 5.8-10s cut to medium close-up Jian alone, at6.1s he says into phone: 把两段原始录音放在一起比对。 His irises subtly darken crimson for less than a second AFTER finishing, he tightens his jaw and regains control, no visible fangs and no extra words. Phone remains same hand. Camera creeps closer, quiet tense end, no second person and no reflections.",
+      "lines": [
+        [
+          "周峤（电话）",
+          "来电人发了语音，背景像是同样的脚步声。",
+          "The caller sent a voice message. The footsteps sound similar."
+        ],
+        [
+          "检刺",
+          "把两段原始录音放在一起比对。",
+          "Compare the two original recordings."
+        ]
+      ]
+    }
+  ]
+}
