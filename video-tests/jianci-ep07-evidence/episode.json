@@ -1,0 +1,108 @@
+{
+  "episode": 7,
+  "title": "被借走的声音",
+  "clips": [
+    {
+      "id": "01",
+      "location": "稍后·数字取证室",
+      "lines": [
+        [
+          "林浅（画外）",
+          "来电人说，这段语音是赵成发的。",
+          "The caller says Zhao Cheng sent this voice message."
+        ],
+        [
+          "周峤",
+          "我先比了背景，人声还要核实。",
+          "I compared the background first. The voice still needs checking."
+        ]
+      ],
+      "prompt": "10-second cinematic 2D Chinese anime suspense drama, horizontal 16:9 with black letterbox bars, clean drawn linework, restrained smooth movement, readable neutral pale skin and cold gray blue shadows. Keep complete heads inside central picture, do not cut foreheads or chins. No text, captions, graphics, split screen, dissolve, background extras, narrator or music. Natural clear Mandarin dialogue, one speaker at a time, quiet ambience. Zhou Qiao: male digital evidence specialist age28-32, short neat BLACK hair, thin SILVER rectangular eyeglasses, subtle hearing aid behind right ear, charcoal casual jacket over gray shirt, slim face, quiet precise demeanor. Not a police cap wearer and not a doctor. Digital evidence office, gray desk with two monitors and daylight window LEFT, coat hook behind. Exactly ONE visible person, Zhou. 0-4.5s over-shoulder view of Zhou examining two audio files, mouth not visible; Lin female voice OFFSCREEN at0.7s: 来电人说，这段语音是赵成发的。 4.5-10s frontal medium close-up of Zhou, at5s he calmly says: 我先比了背景，人声还要核实。 Quiet office hum. Monitor unreadable abstract display; do not render fake names or data. Reference is art style only, the visible person MUST have silver glasses and charcoal jacket."
+    },
+    {
+      "id": "02",
+      "location": "数字取证室·比对结果",
+      "lines": [
+        [
+          "周峤（画外）",
+          "两段背景能对齐，连咳嗽都重合。",
+          "The backgrounds align—even the cough matches."
+        ],
+        [
+          "检刺",
+          "有人可能重复用了背景音。",
+          "Someone may have reused the background audio."
+        ]
+      ],
+      "prompt": "10-second cinematic 2D Chinese anime suspense drama, horizontal 16:9 with black letterbox bars, clean drawn linework, restrained smooth movement, readable neutral pale skin and cold gray blue shadows. Keep complete heads inside central picture, do not cut foreheads or chins. No text, captions, graphics, split screen, dissolve, background extras, narrator or music. Natural clear Mandarin dialogue, one speaker at a time, quiet ambience. Jian Ci: adult male forensic doctor, short tousled BLACK hair, pale slender handsome face, black turtleneck and plain white lab coat, composed quiet manner. Same digital evidence office. 0-5.3s close shot of two monitors from an oblique angle, no visible faces or people, vague matching waveforms ONLY as set dressing, no legible values. Male technician Zhou speaks OFFSCREEN at0.8s: 两段背景能对齐，连咳嗽都重合。 5.3-10s cut to Jian medium close-up seated beside desk, exactly ONE visible person. At5.7s Jian says: 有人可能重复用了背景音。 Thoughtful look to offscreen technician, no pointing at nonexistent clues, no hearing superpowers."
+    },
+    {
+      "id": "03",
+      "location": "数字取证室·身份仍待核实",
+      "lines": [
+        [
+          "林浅",
+          "她拒绝见面，只肯发语音。",
+          "She refuses to meet. She only sends voice messages."
+        ],
+        [
+          "检刺",
+          "先查原文件，别凭声音认人。",
+          "Check the original files. Don’t identify her by voice alone."
+        ]
+      ],
+      "prompt": "10-second cinematic 2D Chinese anime suspense drama, horizontal 16:9 with black letterbox bars, clean drawn linework, restrained smooth movement, readable neutral pale skin and cold gray blue shadows. Keep complete heads inside central picture, do not cut foreheads or chins. No text, captions, graphics, split screen, dissolve, background extras, narrator or music. Natural clear Mandarin dialogue, one speaker at a time, quiet ambience. Jian Ci: adult male forensic doctor, short tousled BLACK hair, pale slender handsome face, black turtleneck and plain white lab coat, composed quiet manner. Lin Qian: adult female detective, short straight BLACK bob, navy police uniform and black gloves. Same digital evidence office, no new door or furniture between cuts. 0-4.7s close-up Lin on LEFT side of desk looking toward Jian offscreen RIGHT; at0.8s Lin says: 她拒绝见面，只肯发语音。 4.7-10s reverse medium close-up Jian on RIGHT facing Lin offscreen LEFT; at5.2s Jian says: 先查原文件，别凭声音认人。 DIRECT face-to-face conversation. No radio or phone to communicate between them. No third person."
+    },
+    {
+      "id": "04",
+      "location": "当日下午·医院走廊",
+      "lines": [
+        [
+          "林浅",
+          "检刺，你是不是又没吃东西？",
+          "Jian Ci, have you skipped eating again?"
+        ],
+        [
+          "检刺",
+          "等会儿。先问赵成，有没有录过声音。",
+          "In a bit. First, ask whether Zhao Cheng recorded his voice."
+        ]
+      ],
+      "prompt": "10-second cinematic 2D Chinese anime suspense drama, horizontal 16:9 with black letterbox bars, clean drawn linework, restrained smooth movement, readable neutral pale skin and cold gray blue shadows. Keep complete heads inside central picture, do not cut foreheads or chins. No text, captions, graphics, split screen, dissolve, background extras, narrator or music. Natural clear Mandarin dialogue, one speaker at a time, quiet ambience. Jian Ci: adult male forensic doctor, short tousled BLACK hair, pale slender handsome face, black turtleneck and plain white lab coat, composed quiet manner. Lin Qian: adult female detective, short straight BLACK bob, navy police uniform and black gloves. Hospital corridor with pale gray walls, muted blue handrail, normal adult frosted door, flat floor. No patients or beds or background people. 0-4.5s medium close-up Lin looks concerned toward Jian offscreen, at0.7s she says: 检刺，你是不是又没吃东西？ 4.5-10s medium close-up Jian angled slightly away from her, his eyes flicker dark crimson briefly before he steadies his breath; she cannot see his eyes from her position. He is pale but upright, no dramatic collapse. At5s Jian says: 等会儿。先问赵成，有没有录过声音。 Quiet restrained concern and self-control. Do not show blood or any second head."
+    },
+    {
+      "id": "05",
+      "location": "医院·赵成留观室",
+      "lines": [
+        [
+          "检刺",
+          "最近有人让你录过声音吗？",
+          "Has anyone recently asked you to record your voice?"
+        ],
+        [
+          "赵成",
+          "修门禁的人，让我说“我在洗衣房”。",
+          "The access-system repairman had me say, “I’m in the laundry.”"
+        ]
+      ],
+      "prompt": "10-second cinematic 2D Chinese anime suspense drama, horizontal 16:9 with black letterbox bars, clean drawn linework, restrained smooth movement, readable neutral pale skin and cold gray blue shadows. Keep complete heads inside central picture, do not cut foreheads or chins. No text, captions, graphics, split screen, dissolve, background extras, narrator or music. Natural clear Mandarin dialogue, one speaker at a time, quiet ambience. Jian Ci: adult male forensic doctor, short tousled BLACK hair, pale slender handsome face, black turtleneck and plain white lab coat, composed quiet manner. Hospital interview after treatment. Zhao Cheng is ONE older man about55, short gray hair, lined thin face, small dressing on forehead, gray work shirt. 0-3.8s Jian alone in medium close-up seated beside bed, bed and patient OUT OF FRAME; at0.6s Jian asks: 最近有人让你录过声音吗？ 3.8-10s reverse tight HEAD AND SHOULDERS of Zhao alone upright against ONE white pillow, everything below chest OUT OF FRAME; at4.2s he answers exactly: 修门禁的人，让我说我在洗衣房。 He is quoting words someone told him to say. ONE head and ONE visible person at any time. No full body, no exposed torso, no second patient, no background doctors, no mirror or flashback."
+    },
+    {
+      "id": "06",
+      "location": "稍后·医院走廊",
+      "lines": [
+        [
+          "林浅",
+          "物业说，那天根本没报修。",
+          "Property management says no repair was requested that day."
+        ],
+        [
+          "检刺",
+          "先守住赵成，再查那个修门禁的人。",
+          "Protect Zhao Cheng first. Then find that repairman."
+        ]
+      ],
+      "prompt": "10-second cinematic 2D Chinese anime suspense drama, horizontal 16:9 with black letterbox bars, clean drawn linework, restrained smooth movement, readable neutral pale skin and cold gray blue shadows. Keep complete heads inside central picture, do not cut foreheads or chins. No text, captions, graphics, split screen, dissolve, background extras, narrator or music. Natural clear Mandarin dialogue, one speaker at a time, quiet ambience. Jian Ci: adult male forensic doctor, short tousled BLACK hair, pale slender handsome face, black turtleneck and plain white lab coat, composed quiet manner. Lin Qian: adult female detective, short straight BLACK bob, navy police uniform and black gloves. Same hospital corridor, normal adult door, pale gray walls and blue handrail, no stairs or bed. 0-4.6s medium close-up Lin has JUST finished a phone call; she lowers her phone ONCE and speaks directly to Jian OFFSCREEN at0.8s: 物业说，那天根本没报修。 4.6-10s reverse close-up Jian, at5s he replies directly: 先守住赵成，再查那个修门禁的人。 Jian looks toward the CLOSED patient-room door and keeps watch, tense protective determination. No person visible behind glass, no intruder, no new injury or jump scare. End on a small controlled camera push, no extra line."
+    }
+  ]
+}
