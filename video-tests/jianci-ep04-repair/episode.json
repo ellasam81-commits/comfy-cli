@@ -1,0 +1,99 @@
+{
+  "episode": 4,
+  "title": "没有带走的手机",
+  "case": "屋里还有一个人",
+  "author": "林爱丽",
+  "clips": [
+    {
+      "id": "01",
+      "label": "记录来电",
+      "prompt": "手绘二维电影动漫，严格使用参考图林浅黑短发深蓝警服和男警深蓝制服，冷蓝灰阴影，柔白主光，脸部清楚，自然黑发。门卫室左窗木桌右绿柜。桌上手机保持不动。两个自然镜头，总长十秒，无字幕，无音乐。0至4秒男警用另一部工作手机拍下桌上手机的屏幕，清楚说一次：“号码拍下来了。”4至9.5秒林浅看着他，清楚完整说一次：“用工作电话回拨，问清身份。”只有说话人物嘴动，完整声音不能中断。手机屏幕不显示可读文字。"
+    }
+  ],
+  "subtitles": [
+    {
+      "start": 0.3,
+      "end": 4.7,
+      "speaker": "警员",
+      "zh": "号码拍下来了。",
+      "en": "I've photographed the number."
+    },
+    {
+      "start": 5.3,
+      "end": 9.7,
+      "speaker": "林浅",
+      "zh": "用工作电话回拨，问清身份。",
+      "en": "Call back on the work phone. Confirm who's calling."
+    },
+    {
+      "start": 10.3,
+      "end": 14.7,
+      "speaker": "赵成女儿（电话）",
+      "zh": "我是赵成的女儿。他说去旧洗衣房。",
+      "en": "I'm Zhao Cheng's daughter. He said he was going to the old laundry."
+    },
+    {
+      "start": 15.3,
+      "end": 19.7,
+      "speaker": "林浅",
+      "zh": "把他发的消息保存好。",
+      "en": "Keep the message he sent you."
+    },
+    {
+      "start": 20.3,
+      "end": 24.7,
+      "speaker": "林浅",
+      "zh": "查旧洗衣房。通知检刺和急救。",
+      "en": "Search the old laundry. Notify Jian Ci and paramedics."
+    },
+    {
+      "start": 25.3,
+      "end": 29.7,
+      "speaker": "警员（无线电）",
+      "zh": "收到，我带人过去。",
+      "en": "Copy. I'll take a team there."
+    },
+    {
+      "start": 30.3,
+      "end": 34.7,
+      "speaker": "林浅",
+      "zh": "检刺，先在后面等。",
+      "en": "Jian Ci, wait behind us."
+    },
+    {
+      "start": 35.3,
+      "end": 39.7,
+      "speaker": "检刺",
+      "zh": "里面有人。",
+      "en": "Someone's inside."
+    },
+    {
+      "start": 40.3,
+      "end": 44.7,
+      "speaker": "林浅",
+      "zh": "你怎么了？",
+      "en": "What's wrong?"
+    },
+    {
+      "start": 45.3,
+      "end": 49.7,
+      "speaker": "检刺",
+      "zh": "没事。先救人。",
+      "en": "I'm fine. Help whoever's inside."
+    },
+    {
+      "start": 50.3,
+      "end": 54.7,
+      "speaker": "林浅",
+      "zh": "找到伤者，急救进来！",
+      "en": "We've found an injured man. Send paramedics in!"
+    },
+    {
+      "start": 55.3,
+      "end": 59.7,
+      "speaker": "伤者",
+      "zh": "别开后门。",
+      "en": "Don't open the back door."
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+name: Jian Ci Episode 04 Repair
+on:
+  push:
+    branches: [codex/jianci-transition-20260905]
+    paths: [video-tests/jianci-ep04-repair/run.request.json]
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: jianci-ep04-repair
+  cancel-in-progress: false
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install media tools
+        run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
+      - name: Generate failed opening scene only
+        env:
+          SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+          JIANCI_EP04_EXECUTE: '1'
+        run: python video-tests/jianci-ep04-repair/generate.py
+      - name: Save raw before speech check
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jianci-ep04-repair-raw
+          path: output/jianci-ep04-repair
+          retention-days: 7
+      - name: Download five existing successful clips for speech check
+        if: success()
+        uses: actions/download-artifact@v4
+        with:
+          name: jianci-ep04-evidence-raw
+          path: original-ep04
+          run-id: 34548491953
+          github-token: ${{ github.token }}
+      - name: Combine existing clips without regenerating
+        if: success()
+        run: cp original-ep04/*-raw.mp4 output/jianci-ep04-repair/
+      - name: Install speech checker
+        if: success()
+        run: pip install faster-whisper
+      - name: Transcribe returned dialogue
+        if: success()
+        run: python video-tests/jianci-ep04-repair/transcribe.py
+      - name: Save transcript
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jianci-ep04-repair-transcript
+          path: output/jianci-ep04-repair/transcription.json
+          retention-days: 7
+
