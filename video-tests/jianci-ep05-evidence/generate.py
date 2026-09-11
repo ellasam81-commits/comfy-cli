@@ -14,14 +14,14 @@ def main():
  assert all(k in docs for k in ['480P','reference_images','image','duration'])
  gate=s.Gateway(os.environ.get('SEGMIND_API_KEY'));gate.request('/v1/get-user-credits')
  base='https://raw.githubusercontent.com/'+os.environ['GITHUB_REPOSITORY']+'/'+'865bba9f85c3c0506b22831a13ebf26efa51dd89/video-tests/jianci-ep03-evidence/'
- report={'episode':5,'model':'wan3.0-video','estimate_usd':0.5,'mode':'one targeted clip06 repair','clips':[]};s.save_report(out,report);pending=[]
+ report={'episode':5,'model':'wan3.0-video','estimate_usd':0.5,'mode':'one targeted repair of clip02','clips':[]};s.save_report(out,report);pending=[]
  starts=['scene-05.jpg','scene-01.jpg','scene-05.jpg','scene-01.jpg','scene-01.jpg','scene-05.jpg']
  refs=[[],[],[],['scene-05.jpg'],['scene-05.jpg'],[]]
  for c in cfg['clips']:
   i=int(c['id'])-1
   row={'id':c['id'],'state':'SUBMITTING'};report['clips'].append(row);s.save_report(out,report)
   try:
-   payload={'prompt':c['prompt'],'reference_images':[base+x for x in dict.fromkeys([starts[i]]+refs[i])],'duration':10,'resolution':'480P','aspect_ratio':'16:9','audio':True,'watermark':False,'prompt_extend':False,'enable_thinking':True,'seed':906102,'negative_prompt':'photorealism, live action, CGI, subtitles, text, writing, split-screen, extra limbs, stairs inside apartment, teleportation, disappearing person, repeated gestures, repeated lines, gore, zombie, mask on detective'}
+   payload={'prompt':c['prompt'],'reference_images':[base+x for x in dict.fromkeys([starts[i]]+refs[i])],'duration':10,'resolution':'480P','aspect_ratio':'16:9','audio':True,'watermark':False,'prompt_extend':False,'enable_thinking':True,'seed':906111,'negative_prompt':'photorealism, live action, CGI, subtitles, text, writing, split-screen, extra limbs, stairs inside apartment, teleportation, disappearing person, repeated gestures, repeated lines, gore, zombie, mask on detective'}
    res=gate.request('/v2/wan3.0-video',payload);rid=res['request_id'];assert re.fullmatch('[A-Za-z0-9_-]+',rid);row.update(state='QUEUED',request_id=rid);pending.append(row);print('Accepted',c['id'],flush=True)
   except Exception as e:row.update(state='SUBMISSION_UNKNOWN_OR_FAILED',error=type(e).__name__);s.save_report(out,report);break
   s.save_report(out,report)
