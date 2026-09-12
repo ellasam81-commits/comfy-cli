@@ -1,0 +1,108 @@
+{
+  "episode": 9,
+  "title": "谁还了钥匙",
+  "clips": [
+    {
+      "id": "01",
+      "location": "稍后·数字取证室",
+      "lines": [
+        [
+          "周峤",
+          "车牌和路线接上了，车进了医院后门。",
+          "The plate and route match. The car entered the hospital’s rear gate."
+        ],
+        [
+          "林浅（画外）",
+          "韩组，查车主，也查驾驶人。",
+          "Chief Han, check the owner and who was driving."
+        ]
+      ],
+      "prompt": "10 second cinematic 2D Chinese anime suspense drama, 16:9 black letterbox, consistent clean drawn faces and smooth restrained motion, neutral skin and cold gray blue light. No live action, CGI, captions, readable text, music or narration. Only exact Mandarin dialogue below. No extra utterances. Mouth moves ONLY during own audible speech, then closes. No silent talking, no repeated gesture, no multiple heads, no stairs. Zhou Qiao, male technician30, short black hair, thin SILVER rectangular glasses, charcoal casual jacket, gray shirt, small right hearing aid. Gray office, 0-5s Zhou close-up speaking first line at0.6s. 5-10s monitor seen from behind without visible face: gray sedan at hospital service gate, distant indistinct driver, no readable plates, no face identification. Lin female OFFSCREEN speaks second line at5.4s. Keep all mouths out of shot during her line. Exact first line: 车牌和路线接上了，车进了医院后门。 Exact second line: 韩组，查车主，也查驾驶人。"
+    },
+    {
+      "id": "02",
+      "location": "当日下午·医院工作区",
+      "lines": [
+        [
+          "韩彻",
+          "车主梁川，是这里的护工。",
+          "The owner, Liang Chuan, works here as a care assistant."
+        ],
+        [
+          "检刺",
+          "先问清借车情况，别急着下结论。",
+          "Ask about any loan of the car before drawing conclusions."
+        ]
+      ],
+      "prompt": "10 second cinematic 2D Chinese anime suspense drama, 16:9 black letterbox, consistent clean drawn faces and smooth restrained motion, neutral skin and cold gray blue light. No live action, CGI, captions, readable text, music or narration. Only exact Mandarin dialogue below. No extra utterances. Mouth moves ONLY during own audible speech, then closes. No silent talking, no repeated gesture, no multiple heads, no stairs. Han Che, police leader48, broad weathered face, short black hair gray temples, right eyebrow small scar, navy police jacket, NO cap or glasses. Jian Ci, adult male forensic doctor, pale slim face, short tousled BLACK hair, black turtleneck and white coat. Hospital staff interview office, gray walls, rectangular table, opaque closed door, daylight. 0-4.5s Han close-up speaks first line0.7s, 4.5-10s reverse Jian close-up speaks second line5s. DIRECT conversation. Neither holds phone or radio. No bed, patient or background faces. Exact first line: 车主梁川，是这里的护工。 Exact second line: 先问清借车情况，别急着下结论。"
+    },
+    {
+      "id": "03",
+      "location": "医院工作区·询问梁川",
+      "lines": [
+        [
+          "梁川",
+          "顾晴借的车，说要去接一个人。",
+          "Gu Qing borrowed it. She said she was picking someone up."
+        ],
+        [
+          "林浅（画外）",
+          "她什么时候找你的？",
+          "When did she ask you?"
+        ]
+      ],
+      "prompt": "10 second cinematic 2D Chinese anime suspense drama, 16:9 black letterbox, consistent clean drawn faces and smooth restrained motion, neutral skin and cold gray blue light. No live action, CGI, captions, readable text, music or narration. Only exact Mandarin dialogue below. No extra utterances. Mouth moves ONLY during own audible speech, then closes. No silent talking, no repeated gesture, no multiple heads, no stairs. Liang Chuan, hospital care assistant male40, short neat dark brown hair with slight receding temples, narrow tired face, pale BLUE work jacket over gray shirt, no police insignia, no cap, no glasses, no facial hair. Same character across all his shots. Same hospital staff interview room. 0-5.3s Liang SINGLE close-up, sitting at table, first line0.7s. 5.3-10s close-up his two EMPTY hands resting on table, no mouth visible; Lin female OFFSCREEN second line5.8s. No handcuffs; witness interview, not an arrest. No radio or phone held. No second person or duplicate body. Exact first line: 顾晴借的车，说要去接一个人。 Exact second line: 她什么时候找你的？"
+    },
+    {
+      "id": "04",
+      "location": "医院工作区·借车与还车",
+      "lines": [
+        [
+          "梁川",
+          "上周她亲自来的。昨晚只送回了钥匙。",
+          "She came in person last week. Only the keys came back last night."
+        ],
+        [
+          "检刺（画外）",
+          "还钥匙的人，你见到了吗？",
+          "Did you see who returned the keys?"
+        ]
+      ],
+      "prompt": "10 second cinematic 2D Chinese anime suspense drama, 16:9 black letterbox, consistent clean drawn faces and smooth restrained motion, neutral skin and cold gray blue light. No live action, CGI, captions, readable text, music or narration. Only exact Mandarin dialogue below. No extra utterances. Mouth moves ONLY during own audible speech, then closes. No silent talking, no repeated gesture, no multiple heads, no stairs. Liang Chuan, hospital care assistant male40, short neat dark brown hair with slight receding temples, narrow tired face, pale BLUE work jacket over gray shirt, no police insignia, no cap, no glasses, no facial hair. Same character across all his shots. Same interview room and clothing. 0-5.7s Liang SINGLE close-up speaks first line0.5s; after line mouth closes. 5.7-10s cut to an untouched ordinary water cup on interview table; Jian male OFFSCREEN asks second line6.1s. Cup is not evidence, no blood, no lab test. No visible mouths during question. Exact first line: 上周她亲自来的。昨晚只送回了钥匙。 Exact second line: 还钥匙的人，你见到了吗？"
+    },
+    {
+      "id": "05",
+      "location": "医院工作区·还车消息",
+      "lines": [
+        [
+          "梁川",
+          "没见到。有人发照片，说放在值班室抽屉。",
+          "No. A photo message said they were in the duty-room drawer."
+        ],
+        [
+          "林浅（画外）",
+          "消息留着，手机先别清理。",
+          "Keep the message. Don’t clear anything from the phone."
+        ]
+      ],
+      "prompt": "10 second cinematic 2D Chinese anime suspense drama, 16:9 black letterbox, consistent clean drawn faces and smooth restrained motion, neutral skin and cold gray blue light. No live action, CGI, captions, readable text, music or narration. Only exact Mandarin dialogue below. No extra utterances. Mouth moves ONLY during own audible speech, then closes. No silent talking, no repeated gesture, no multiple heads, no stairs. Liang Chuan, hospital care assistant male40, short neat dark brown hair with slight receding temples, narrow tired face, pale BLUE work jacket over gray shirt, no police insignia, no cap, no glasses, no facial hair. Same character across all his shots. Same interview room. 0-5.7s Liang SINGLE close-up first line0.5s, closes mouth afterward. 5.7-10s table close-up of a plain PHONE LYING FLAT, screen dark, no legible messages and no faces. Lin female OFFSCREEN says second line6s. No fake photo contents, no phone teleportation, no extra speech or radio. Exact first line: 没见到。有人发照片，说放在值班室抽屉。 Exact second line: 消息留着，手机先别清理。"
+    },
+    {
+      "id": "06",
+      "location": "稍后·医院走廊",
+      "lines": [
+        [
+          "周峤（电话）",
+          "发钥匙照片的，是那个来电账号。",
+          "The key photo came from that caller’s account."
+        ],
+        [
+          "检刺",
+          "她为什么知道，钥匙放在哪里？",
+          "Why did she know where the keys were left?"
+        ]
+      ],
+      "prompt": "10 second cinematic 2D Chinese anime suspense drama, 16:9 black letterbox, consistent clean drawn faces and smooth restrained motion, neutral skin and cold gray blue light. No live action, CGI, captions, readable text, music or narration. Only exact Mandarin dialogue below. No extra utterances. Mouth moves ONLY during own audible speech, then closes. No silent talking, no repeated gesture, no multiple heads, no stairs. Jian Ci, adult male forensic doctor, pale slim face, short tousled BLACK hair, black turtleneck and white coat. EMPTY hospital corridor, gray walls, blue handrail, opaque closed door, no other people. 0-4.8s close-up phone held at Jian ear from BEHIND so mouth completely hidden, Zhou male PHONE voice first line0.7s. 4.8-10s cut to Jian front close-up, phone at ear, brief subtle dark crimson iris as he controls hunger, ONLY then his own second line5.4s. He is ALONE, no one sees red eyes. Finish speaking before9.5s, closed-mouth thoughtful ending. No extra line, no background silhouette. Exact first line: 发钥匙照片的，是那个来电账号。 Exact second line: 她为什么知道，钥匙放在哪里？"
+    }
+  ]
+}
