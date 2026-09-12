@@ -1,0 +1,33 @@
+name: Jian Ci Episode 13 XRToken
+on:
+  push:
+    branches: [codex/jianci-transition-20260905]
+    paths: [video-tests/jianci-ep13-xrtoken/run.request.json]
+permissions:
+  contents: read
+concurrency:
+  group: jianci-ep13-xrtoken-paid
+  cancel-in-progress: false
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 115
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install media tools
+        run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
+      - name: Generate nine Episode 13 clips once
+        env:
+          XRTOKEN: ${{ secrets.XRTOKEN }}
+          JIANCI_EP13_EXECUTE: '1'
+        run: python video-tests/jianci-ep13-xrtoken/generate.py
+      - name: Save raw clips and recoverable task IDs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jianci-ep13-xrtoken-raw
+          path: output/jianci-ep13-xrtoken
+          retention-days: 14
