@@ -1,0 +1,108 @@
+{
+  "episode": 11,
+  "title": "他终于说出名字",
+  "clips": [
+    {
+      "id": "01",
+      "location": "稍后·北桥停车场",
+      "lines": [
+        [
+          "林浅",
+          "侧门监控拍清了，上车的人是赵成。",
+          "The side-gate camera shows it clearly. Zhao Cheng got into the car."
+        ],
+        [
+          "检刺（通讯）",
+          "通知医院，我们去问他。",
+          "Notify the hospital. We’ll go and speak to him."
+        ]
+      ],
+      "prompt": "10 second cinematic 2D anime suspense drama, 16:9 black letterbox, neutral pale skin, BLACK hair, cool gray-blue film lighting, legible faces, natural restrained motion. No live action, CGI, captions, writing, subtitles or music. Only exact Mandarin dialogue inside quotation marks below; never read speaker labels, character names or introductory words. Mouth moves only during own audible speech and closes afterward. 仅朗读引号内台词，绝对不要朗读角色名字或加台词。 第一段对白（0.6秒起）：「侧门监控拍清了，上车的人是赵成。」 第二段对白（约5.8秒起）：「通知医院，我们去问他。」。Lin Qian, female detective, short straight BLACK bob, navy police uniform, black gloves. Parking facility security booth doorway overlooking an EMPTY asphalt parking area, gray overcast daylight. 0-5.7s Lin alone close-up holds radio near chest, first line0.6s. 5.7-10s cut to an overhead surveillance camera fixed beside the normal booth doorway, no faces or screens. Jian male RADIO voice second line6.1s. Do not invent a driver face, a car passenger or CCTV image. No stairs."
+    },
+    {
+      "id": "02",
+      "location": "医院·赵成病房",
+      "lines": [
+        [
+          "赵成",
+          "我带顾晴去洗衣房，找祁芸。",
+          "I took Gu Qing to the laundry to find Qi Yun."
+        ],
+        [
+          "林浅（画外）",
+          "当时还有谁在场？",
+          "Who else was there?"
+        ]
+      ],
+      "prompt": "10 second cinematic 2D anime suspense drama, 16:9 black letterbox, neutral pale skin, BLACK hair, cool gray-blue film lighting, legible faces, natural restrained motion. No live action, CGI, captions, writing, subtitles or music. Only exact Mandarin dialogue inside quotation marks below; never read speaker labels, character names or introductory words. Mouth moves only during own audible speech and closes afterward. 仅朗读引号内台词，绝对不要朗读角色名字或加台词。 第一段对白（0.6秒起）：「我带顾晴去洗衣房，找祁芸。」 第二段对白（约5.8秒起）：「当时还有谁在场？」。Zhao Cheng, injured but alert male security guard age55, short GRAY hair, thin lined face, a small white dressing on LEFT forehead, gray work shirt, sitting upright. Exactly ONE head, one body, normal anatomy. Hospital private room, gray wall and blue trim. 0-5.6s SINGLE chest-up close-up Zhao with ONE visible head, gray work shirt fully covering torso, first line0.6s. 5.6-10s cut to normal CLOSED room door, no people or mouths; Lin female OFFSCREEN second line6s. Do not show bed, naked skin, mirrors, another patient, duplicate head or medical tubing."
+    },
+    {
+      "id": "03",
+      "location": "赵成补充证言",
+      "lines": [
+        [
+          "赵成",
+          "那个维修工摘下口罩，我认出了梁川。",
+          "When that repairman took off his mask, I recognized Liang Chuan."
+        ],
+        [
+          "林浅（画外）",
+          "你为什么一直不说？",
+          "Why didn’t you tell us before?"
+        ]
+      ],
+      "prompt": "10 second cinematic 2D anime suspense drama, 16:9 black letterbox, neutral pale skin, BLACK hair, cool gray-blue film lighting, legible faces, natural restrained motion. No live action, CGI, captions, writing, subtitles or music. Only exact Mandarin dialogue inside quotation marks below; never read speaker labels, character names or introductory words. Mouth moves only during own audible speech and closes afterward. 仅朗读引号内台词，绝对不要朗读角色名字或加台词。 第一段对白（0.6秒起）：「那个维修工摘下口罩，我认出了梁川。」 第二段对白（约5.8秒起）：「你为什么一直不说？」。Zhao Cheng, injured but alert male security guard age55, short GRAY hair, thin lined face, a small white dressing on LEFT forehead, gray work shirt, sitting upright. Exactly ONE head, one body, normal anatomy. Same hospital room, exactly same face, gray shirt and LEFT forehead dressing. 0-5.7s Zhao SINGLE close-up speaks first line0.6s, tense but clear. 5.7-10s cut to his two ordinary hands resting on a GRAY blanket, no visible mouth, Lin female OFFSCREEN second line6.2s. No additional person, no blood, no handcuffs or second head."
+    },
+    {
+      "id": "04",
+      "location": "保护与证言",
+      "lines": [
+        [
+          "赵成",
+          "他拿我女儿的照片，威胁我。",
+          "He threatened me with photographs of my daughter."
+        ],
+        [
+          "检刺（画外）",
+          "我们安排保护。你把经过说清楚。",
+          "We’ll arrange protection. Tell us exactly what happened."
+        ]
+      ],
+      "prompt": "10 second cinematic 2D anime suspense drama, 16:9 black letterbox, neutral pale skin, BLACK hair, cool gray-blue film lighting, legible faces, natural restrained motion. No live action, CGI, captions, writing, subtitles or music. Only exact Mandarin dialogue inside quotation marks below; never read speaker labels, character names or introductory words. Mouth moves only during own audible speech and closes afterward. 仅朗读引号内台词，绝对不要朗读角色名字或加台词。 第一段对白（0.6秒起）：「他拿我女儿的照片，威胁我。」 第二段对白（约5.8秒起）：「我们安排保护。你把经过说清楚。」。Zhao Cheng, injured but alert male security guard age55, short GRAY hair, thin lined face, a small white dressing on LEFT forehead, gray work shirt, sitting upright. Exactly ONE head, one body, normal anatomy. Same hospital room, clothing and dressing. 0-5.2s Zhao single close-up first line0.6s, restrained frightened expression. 5.2-10s cut to an ordinary paper tissue box on bedside table, no person or mouth; Jian male OFFSCREEN second line5.7s. Tissue box is ordinary room furnishing, not evidence. No phone or radio, no patient duplication."
+    },
+    {
+      "id": "05",
+      "location": "同日·车辆检验工作区",
+      "lines": [
+        [
+          "许未",
+          "车后座发现疑似血迹，检验还没完成。",
+          "Suspected bloodstains were found in the back seat. Testing is still underway."
+        ],
+        [
+          "检刺（通讯）",
+          "先等结果，不能直接说是谁的血。",
+          "Wait for the results. We can’t say whose blood it is yet."
+        ]
+      ],
+      "prompt": "10 second cinematic 2D anime suspense drama, 16:9 black letterbox, neutral pale skin, BLACK hair, cool gray-blue film lighting, legible faces, natural restrained motion. No live action, CGI, captions, writing, subtitles or music. Only exact Mandarin dialogue inside quotation marks below; never read speaker labels, character names or introductory words. Mouth moves only during own audible speech and closes afterward. 仅朗读引号内台词，绝对不要朗读角色名字或加台词。 第一段对白（0.6秒起）：「车后座发现疑似血迹，检验还没完成。」 第二段对白（约5.8秒起）：「先等结果，不能直接说是谁的血。」。Xu Wei, female forensic technician late20s, tied brown ponytail, olive green shirt under white lab coat, black examination gloves, no glasses. Cool gray police vehicle examination laboratory office. 0-5.5s Xu single close-up holding radio near chest first line0.6s. 5.5-10s cut to TWO closed paper evidence envelopes lying apart on clean work surface, plain unmarked surfaces, no readable text and no open samples. Jian male RADIO second line6s. No blood shown, no test result, no DNA chart, no instant analysis or specimen handling. No human bodies."
+    },
+    {
+      "id": "06",
+      "location": "稍后·旧洗衣房外",
+      "lines": [
+        [
+          "韩彻（通讯）",
+          "梁川把门反锁了，里面有哭声。",
+          "Liang Chuan has locked the door from inside. There’s crying inside."
+        ],
+        [
+          "检刺",
+          "守住出口。先确认声音从哪来。",
+          "Cover the exits. Find out where the sound is coming from."
+        ]
+      ],
+      "prompt": "10 second cinematic 2D anime suspense drama, 16:9 black letterbox, neutral pale skin, BLACK hair, cool gray-blue film lighting, legible faces, natural restrained motion. No live action, CGI, captions, writing, subtitles or music. Only exact Mandarin dialogue inside quotation marks below; never read speaker labels, character names or introductory words. Mouth moves only during own audible speech and closes afterward. 仅朗读引号内台词，绝对不要朗读角色名字或加台词。 第一段对白（0.6秒起）：「梁川把门反锁了，里面有哭声。」 第二段对白（约5.8秒起）：「守住出口。先确认声音从哪来。」。Jian Ci, adult male forensic doctor, pale slim face, short tousled BLACK hair, black turtleneck and white coat. Exterior of old ground-floor laundry, weathered concrete wall and a FULL HEIGHT DARK RED METAL DOOR 210cm tall90cm wide with waist-height handle, FLAT ground, no stairs. First0-5.2s camera on full-size CLOSED door, NO person or mouth visible; Han middle-aged male RADIO voice first line0.6s. Then5.2-10s Jian SINGLE close-up OUTSIDE near exterior wall, holds radio below chin, own second line5.7s. Finish by9.4s then mouth closes. At9.5s his eyes briefly deepen to dark crimson while turned away from other people, subtle controlled vampire hunger; no one else visible. No extra sounds of screaming or speech beyond the two exact lines; distant indistinct ambience only. No blood, no zombies, no extra head."
+    }
+  ]
+}
