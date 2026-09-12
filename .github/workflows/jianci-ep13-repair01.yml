@@ -1,0 +1,30 @@
+name: Jian Ci Episode 13 First Shot No Glasses
+on:
+  push:
+    branches: [codex/jianci-transition-20260905]
+    paths: [video-tests/jianci-ep13-repair01/run.request.json]
+permissions:
+  contents: read
+concurrency:
+  group: jianci-ep13-repair01
+  cancel-in-progress: false
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Regenerate only requested first segment
+        env:
+          XRTOKEN: ${{ secrets.XRTOKEN }}
+          JIANCI_EP13_EXECUTE: '1'
+        run: python video-tests/jianci-ep13-repair01/generate.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: jianci-ep13-repair01
+          path: output/jianci-ep13-repair01
+          retention-days: 14
