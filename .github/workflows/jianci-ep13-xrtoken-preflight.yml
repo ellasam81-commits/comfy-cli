@@ -1,0 +1,29 @@
+name: Jian Ci Episode 13 XRToken Connection Check
+on:
+  push:
+    branches: [codex/jianci-transition-20260905]
+    paths: [video-tests/jianci-ep13-xrtoken/preflight.request.json]
+permissions:
+  contents: read
+concurrency:
+  group: jianci-ep13-xrtoken-preflight
+  cancel-in-progress: false
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Check XRToken without paid generation
+        env:
+          XRTOKEN: ${{ secrets.XRTOKEN }}
+        run: python video-tests/jianci-ep13-xrtoken/preflight.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: jianci-ep13-xrtoken-preflight
+          path: output/jianci-ep13-xrtoken/preflight.json
+          retention-days: 7
