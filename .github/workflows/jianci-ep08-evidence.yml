@@ -1,0 +1,46 @@
+name: Jian Ci Episode 08 Access Card
+on:
+  push:
+    branches: [codex/jianci-transition-20260905]
+    paths: [video-tests/jianci-ep08-evidence/run.request.json]
+permissions:
+  contents: read
+concurrency:
+  group: jianci-ep08-evidence
+  cancel-in-progress: false
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install media tools
+        run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
+      - name: Generate episode8
+        env:
+          SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+          JIANCI_EP08_EXECUTE: '1'
+        run: python video-tests/jianci-ep08-evidence/generate.py
+      - name: Save raw
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jianci-ep08-evidence-raw
+          path: output/jianci-ep08-evidence
+          retention-days: 7
+      - name: Install speech checker
+        if: success()
+        run: pip install faster-whisper
+      - name: Check speech
+        if: success()
+        run: python video-tests/jianci-ep08-evidence/transcribe.py
+      - name: Save transcript
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jianci-ep08-evidence-transcript
+          path: output/jianci-ep08-evidence/transcription.json
+          retention-days: 7

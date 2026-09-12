@@ -1,0 +1,108 @@
+{
+  "episode": 8,
+  "title": "死后刷卡",
+  "clips": [
+    {
+      "id": "01",
+      "location": "稍后·刑侦办公室",
+      "lines": [
+        [
+          "林浅（画外）",
+          "韩组，门禁记录拿到了？",
+          "Chief Han, do we have the access records?"
+        ],
+        [
+          "韩彻",
+          "拿到了。顾晴的卡，昨晚还在用。",
+          "Yes. Gu Qing’s card was still used last night."
+        ]
+      ],
+      "prompt": "10 second cinematic 2D Chinese anime suspense, 16:9 black letterbox, consistent elegant drawn faces, black hair, cool blue gray lighting and neutral clear skin. Smooth restrained motion, no music, no narrator, no text or subtitles. Exactly two spoken lines in Mandarin, no extra speech. Lip motion ONLY while the matching person speaks. Finish all speech before 9.5s, then mouths CLOSED. No stairs, duplicates, gore, extra people, split-screen or live action. Han Che: male police team leader age48, broad weathered face, short BLACK hair with gray temples, subtle scar at right eyebrow, navy plain police jacket, no cap, no glasses. Police office, gray desk and daylight window. One visible person Han. 0-4s over his shoulder at a closed evidence folder; Lin female OFFSCREEN says first line. 4-10s frontal Han close-up speaks second line; after speaking mouth closed. Dialogue, first line at0.7s: 韩组，门禁记录拿到了？ Second line at5.0s: 拿到了。顾晴的卡，昨晚还在用。"
+    },
+    {
+      "id": "02",
+      "location": "刑侦办公室·门禁记录",
+      "lines": [
+        [
+          "韩彻（画外）",
+          "刷的是旧洗衣房后门。",
+          "It was used at the old laundry’s rear door."
+        ],
+        [
+          "检刺",
+          "卡可以转借。还得查是谁用的。",
+          "Cards can be passed on. We must find who used it."
+        ]
+      ],
+      "prompt": "10 second cinematic 2D Chinese anime suspense, 16:9 black letterbox, consistent elegant drawn faces, black hair, cool blue gray lighting and neutral clear skin. Smooth restrained motion, no music, no narrator, no text or subtitles. Exactly two spoken lines in Mandarin, no extra speech. Lip motion ONLY while the matching person speaks. Finish all speech before 9.5s, then mouths CLOSED. No stairs, duplicates, gore, extra people, split-screen or live action. Jian Ci: adult handsome slim male forensic doctor, short tousled BLACK hair, black turtleneck, white lab coat, pale skin, reserved. Same office, 0-4s close-up a bagged plain access card lying on gray desk, no legible writing, Han OFFSCREEN speaks first line. 4-10s Jian close-up seated listening then speaks second line. No superpower deduction. Mouth closes once done. Dialogue, first line at0.7s: 刷的是旧洗衣房后门。 Second line at5.0s: 卡可以转借。还得查是谁用的。"
+    },
+    {
+      "id": "03",
+      "location": "刑侦办公室·核对权限",
+      "lines": [
+        [
+          "林浅",
+          "那扇后门，谁有权限？",
+          "Who has access to that rear door?"
+        ],
+        [
+          "韩彻",
+          "保洁和维修。名单正在核对。",
+          "Cleaning and maintenance staff. We’re checking the list."
+        ]
+      ],
+      "prompt": "10 second cinematic 2D Chinese anime suspense, 16:9 black letterbox, consistent elegant drawn faces, black hair, cool blue gray lighting and neutral clear skin. Smooth restrained motion, no music, no narrator, no text or subtitles. Exactly two spoken lines in Mandarin, no extra speech. Lip motion ONLY while the matching person speaks. Finish all speech before 9.5s, then mouths CLOSED. No stairs, duplicates, gore, extra people, split-screen or live action. Lin Qian: female detective, straight short BLACK bob, navy police uniform, black gloves. Han Che: male police team leader age48, broad weathered face, short BLACK hair with gray temples, subtle scar at right eyebrow, navy plain police jacket, no cap, no glasses. Same office. 0-4.5s Lin close-up facing right speaks first line. 4.5-10s reverse Han close-up facing left speaks second line. Direct conversation; no phone or radio held at mouth. No third face. Dialogue, first line at0.7s: 那扇后门，谁有权限？ Second line at5.0s: 保洁和维修。名单正在核对。"
+    },
+    {
+      "id": "04",
+      "location": "当晚·医院走廊",
+      "lines": [
+        [
+          "韩彻（电话）",
+          "病房已安排人守着。你先回去。",
+          "The room is guarded. You can head home."
+        ],
+        [
+          "检刺",
+          "好。监控有消息，马上通知我。",
+          "All right. Let me know as soon as you have footage."
+        ]
+      ],
+      "prompt": "10 second cinematic 2D Chinese anime suspense, 16:9 black letterbox, consistent elegant drawn faces, black hair, cool blue gray lighting and neutral clear skin. Smooth restrained motion, no music, no narrator, no text or subtitles. Exactly two spoken lines in Mandarin, no extra speech. Lip motion ONLY while the matching person speaks. Finish all speech before 9.5s, then mouths CLOSED. No stairs, duplicates, gore, extra people, split-screen or live action. Jian Ci: adult handsome slim male forensic doctor, short tousled BLACK hair, black turtleneck, white lab coat, pale skin, reserved. Empty hospital corridor, pale gray walls, blue handrail, normal closed opaque door. ONLY Jian visible. 0-4.5s phone by ear, silent closed mouth while Han male PHONE voice speaks first line. His iris briefly dark crimson, hidden from others because he is alone; subtle strained breath, then returns normal. 4.5-10s Jian says second line and lowers phone once. No one behind door, no patient or beds. Dialogue, first line at0.7s: 病房已安排人守着。你先回去。 Second line at5.0s: 好。监控有消息，马上通知我。"
+    },
+    {
+      "id": "05",
+      "location": "次日上午·数字取证室",
+      "lines": [
+        [
+          "周峤（画外）",
+          "有人先遮了镜头，再去刷卡。",
+          "Someone covered the camera before using the card."
+        ],
+        [
+          "林浅",
+          "往前查，看看他怎么进楼的。",
+          "Go back further. See how he entered the building."
+        ]
+      ],
+      "prompt": "10 second cinematic 2D Chinese anime suspense, 16:9 black letterbox, consistent elegant drawn faces, black hair, cool blue gray lighting and neutral clear skin. Smooth restrained motion, no music, no narrator, no text or subtitles. Exactly two spoken lines in Mandarin, no extra speech. Lip motion ONLY while the matching person speaks. Finish all speech before 9.5s, then mouths CLOSED. No stairs, duplicates, gore, extra people, split-screen or live action. Lin Qian: female detective, straight short BLACK bob, navy police uniform, black gloves. Digital evidence office. 0-5s oblique monitor close-up shows ONLY a gloved hand approaching a CCTV lens then dark image; no readable text or overlays; Zhou male OFFSCREEN speaks first line. 5-10s Lin medium close-up speaks second line then stops. No face recognition or invented clear culprit face. Dialogue, first line at0.7s: 有人先遮了镜头，再去刷卡。 Second line at5.0s: 往前查，看看他怎么进楼的。"
+    },
+    {
+      "id": "06",
+      "location": "数字取证室·街口监控",
+      "lines": [
+        [
+          "周峤",
+          "街口拍到了，他从一辆灰车下来。",
+          "A street camera caught him leaving a gray car."
+        ],
+        [
+          "林浅（画外）",
+          "沿路追这辆车，别漏掉换人的地方。",
+          "Track the car’s route. Watch for anyone switching places."
+        ]
+      ],
+      "prompt": "10 second cinematic 2D Chinese anime suspense, 16:9 black letterbox, consistent elegant drawn faces, black hair, cool blue gray lighting and neutral clear skin. Smooth restrained motion, no music, no narrator, no text or subtitles. Exactly two spoken lines in Mandarin, no extra speech. Lip motion ONLY while the matching person speaks. Finish all speech before 9.5s, then mouths CLOSED. No stairs, duplicates, gore, extra people, split-screen or live action. Zhou Qiao: male technician age30, thin silver rectangular glasses, short black hair, charcoal casual jacket and gray shirt, small right hearing aid. Digital office. 0-4.8s Zhou medium close-up speaks first line. 4.8-10s cut to monitor seen over shoulder without visible mouth: dim CCTV view of ONE gray sedan at a curb, distant single unidentifiable person beside it, no plates readable. Lin female OFFSCREEN speaks second line. End tense on gray car, not an actor moving mouth silently. Dialogue, first line at0.7s: 街口拍到了，他从一辆灰车下来。 Second line at5.0s: 沿路追这辆车，别漏掉换人的地方。"
+    }
+  ]
+}
