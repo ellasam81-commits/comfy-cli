@@ -76,6 +76,10 @@ if not (R/'01-raw.mp4').exists():
 normalized=[]
 for c in cfg['clips']:
  f=(P/'edited'/(c['id']+'-raw.mp4')) if (P/'edited'/(c['id']+'-raw.mp4')).exists() else R/(c['id']+'-raw.mp4');dest=P/(c['id']+'-normalized.mp4');frame=P/(c['id']+'-cropcheck.png')
+ if not f.exists(): continue
+ if dest.exists() and dest.stat().st_mtime >= f.stat().st_mtime:
+  normalized.append(dest)
+  continue
  run(['ffmpeg','-hide_banner','-loglevel','error','-y','-ss','2','-i',str(f),'-frames:v','1',str(frame)])
  im=np.asarray(Image.open(frame).convert('RGB'));h,w=im.shape[:2]
  rows=(im.max(axis=2)>22).mean(axis=1);ys=np.where(rows>.25)[0]
@@ -85,6 +89,9 @@ for c in cfg['clips']:
  vf=f'crop={w}:{bottom-top}:0:{top},scale=1280:490:force_original_aspect_ratio=decrease,pad=1280:490:(ow-iw)/2:(oh-ih)/2:black,pad=1280:720:0:120:black,setsar=1,fps=30'
  run(['ffmpeg','-hide_banner','-loglevel','error','-y','-i',str(f),'-t','10','-vf',vf,'-af','aresample=48000,apad','-c:v','libx264','-preset','fast','-crf','19','-pix_fmt','yuv420p','-c:a','aac','-ar','48000','-ac','2',str(dest)])
  normalized.append(dest)
+if len(normalized)!=9:
+ print('Normalized',len(normalized),'clips; waiting for missing outputs')
+ raise SystemExit()
 (P/'concat.txt').write_text(''.join("file '"+str(f)+"'\n" for f in normalized))
 run(['ffmpeg','-hide_banner','-loglevel','error','-y','-f','concat','-safe','0','-i',str(P/'concat.txt'),'-c','copy',str(P/'assembled.mp4')])
 flt=f"[0:a]asplit=2[voice][sc];[1:a][sc]sidechaincompress=threshold=0.015:ratio=8:attack=15:release=350[bg];[voice][bg]amix=inputs=2:duration=first:normalize=0,alimiter=limit=0.95[a];[0:v]ass={P/'captions.ass'}:fontsdir={P}[v]"
