@@ -1,0 +1,23 @@
+{
+  "episode": 10,
+  "title": "她要那部手机",
+  "clips": [
+    {
+      "id": "03",
+      "location": "数字取证室·新语音",
+      "lines": [
+        [
+          "周峤",
+          "那个账号，又发来一段语音。",
+          "That account has sent another voice message."
+        ],
+        [
+          "来电人（语音）",
+          "把顾晴的手机带来，赵成才能活。",
+          "Bring Gu Qing’s phone if you want Zhao Cheng alive."
+        ]
+      ],
+      "prompt": "10 second cinematic 2D Chinese anime suspense drama, 16:9 black letterbox, consistent clean drawn faces and smooth restrained motion, neutral skin and cold gray blue light. No live action, CGI, captions, readable text, music or narration. Only exact Mandarin dialogue below. No extra utterances. Mouth moves ONLY during own audible speech, then closes. No silent talking, no repeated gesture, no multiple heads, no stairs. IMPORTANT begin with a closed mouth. Speak ONLY the two given lines, never say any character name unless included in the exact dialogue. No introductory words. End each spoken phrase with mouth closed. Zhou Qiao, male technician30, short black hair, thin SILVER rectangular glasses, charcoal casual jacket, gray shirt, small right hearing aid. Gray police digital office. 0-4.5s Zhou close-up first line0.6s, closes mouth afterwards. 4.5-10s ONLY a phone lying flat on desk with dark screen. Unknown WOMAN voice from phone, controlled low threatening Mandarin, second line5.3s. No person visible during recorded voice. No third sentence, no moving face in phone screen. No music. Exact first line: 那个账号，又发来一段语音。 Exact second line: 把顾晴的手机带来，赵成才能活。"
+    }
+  ]
+}

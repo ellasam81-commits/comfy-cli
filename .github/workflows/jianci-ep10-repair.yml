@@ -1,0 +1,63 @@
+name: Jian Ci Episode10 Recover One and Check Five
+on:
+  push:
+    branches: [codex/jianci-transition-20260905]
+    paths: [video-tests/jianci-ep10-repair/run.request.json]
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: jianci-ep10-recovery
+  cancel-in-progress: false
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
+      - name: Recover failed clip03 once
+        env:
+          SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+          JIANCI_EP10_EXECUTE: '1'
+        run: python video-tests/jianci-ep10-repair/generate.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: jianci-ep10-repair-raw
+          path: output/jianci-ep10-repair
+          retention-days: 7
+      - run: pip install faster-whisper
+        if: success()
+      - run: python video-tests/jianci-ep10-repair/transcribe.py
+        if: success()
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: jianci-ep10-repair-transcript
+          path: output/jianci-ep10-repair/transcription.json
+          retention-days: 7
+  check_existing:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          name: jianci-ep10-evidence-raw
+          run-id: 34683456385
+          github-token: ${{ github.token }}
+          path: output/jianci-ep10-evidence
+      - run: pip install faster-whisper
+      - run: python video-tests/jianci-ep10-evidence/transcribe.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: jianci-ep10-five-transcript
+          path: output/jianci-ep10-evidence/transcription.json
+          retention-days: 7
