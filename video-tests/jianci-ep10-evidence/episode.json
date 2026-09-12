@@ -1,0 +1,108 @@
+{
+  "episode": 10,
+  "title": "她要那部手机",
+  "clips": [
+    {
+      "id": "01",
+      "location": "医院值班室",
+      "lines": [
+        [
+          "林浅",
+          "照片是红柜，这里却是灰柜。",
+          "The photo shows a red cabinet. This one is gray."
+        ],
+        [
+          "检刺（画外）",
+          "照片不能证明，钥匙昨晚放在这里。",
+          "The photo does not prove the keys were left here last night."
+        ]
+      ],
+      "prompt": "10 second cinematic 2D Chinese anime suspense drama, 16:9 black letterbox, consistent clean drawn faces and smooth restrained motion, neutral skin and cold gray blue light. No live action, CGI, captions, readable text, music or narration. Only exact Mandarin dialogue below. No extra utterances. Mouth moves ONLY during own audible speech, then closes. No silent talking, no repeated gesture, no multiple heads, no stairs. IMPORTANT begin with a closed mouth. Speak ONLY the two given lines, never say any character name unless included in the exact dialogue. No introductory words. End each spoken phrase with mouth closed. Lin Qian, female detective, short straight BLACK bob, navy police uniform, black gloves. Hospital duty office, pale gray walls and one GRAY metal drawer cabinet. 0-4.5s Lin single close-up speaks first line at0.6s. 4.5-10s close-up gray cabinet closed drawer with ordinary silver handle, NO people visible. Jian male OFFSCREEN speaks second line at5.3s. Do not show a phone or photo, do not invent red cabinet in this room. Exact first line: 照片是红柜，这里却是灰柜。 Exact second line: 照片不能证明，钥匙昨晚放在这里。"
+    },
+    {
+      "id": "02",
+      "location": "值班室门外",
+      "lines": [
+        [
+          "梁川",
+          "红柜上周搬走了。钥匙是在新柜里拿的。",
+          "The red cabinet was moved last week. I found the keys in the new one."
+        ],
+        [
+          "林浅（画外）",
+          "查昨晚谁进过值班室。",
+          "Check who entered the duty room last night."
+        ]
+      ],
+      "prompt": "10 second cinematic 2D Chinese anime suspense drama, 16:9 black letterbox, consistent clean drawn faces and smooth restrained motion, neutral skin and cold gray blue light. No live action, CGI, captions, readable text, music or narration. Only exact Mandarin dialogue below. No extra utterances. Mouth moves ONLY during own audible speech, then closes. No silent talking, no repeated gesture, no multiple heads, no stairs. IMPORTANT begin with a closed mouth. Speak ONLY the two given lines, never say any character name unless included in the exact dialogue. No introductory words. End each spoken phrase with mouth closed. Liang Chuan, hospital care assistant male40, short neat dark brown hair with slight receding temples, narrow tired face, pale BLUE work jacket over gray shirt, no police insignia, no cap, no glasses, no facial hair. Same character across all his shots. Hospital corridor outside normal adult-height duty room door. 0-5.9s Liang alone close-up first line0.6s. 5.9-10s view the normal CLOSED gray duty room door, no faces visible, Lin female OFFSCREEN second line6.3s. One head only, no other people, no extra utterance. No handcuffs, no keys held. Exact first line: 红柜上周搬走了。钥匙是在新柜里拿的。 Exact second line: 查昨晚谁进过值班室。"
+    },
+    {
+      "id": "03",
+      "location": "数字取证室·新语音",
+      "lines": [
+        [
+          "周峤",
+          "那个账号，又发来一段语音。",
+          "That account has sent another voice message."
+        ],
+        [
+          "来电人（语音）",
+          "把顾晴的手机带来，赵成才能活。",
+          "Bring Gu Qing’s phone if you want Zhao Cheng alive."
+        ]
+      ],
+      "prompt": "10 second cinematic 2D Chinese anime suspense drama, 16:9 black letterbox, consistent clean drawn faces and smooth restrained motion, neutral skin and cold gray blue light. No live action, CGI, captions, readable text, music or narration. Only exact Mandarin dialogue below. No extra utterances. Mouth moves ONLY during own audible speech, then closes. No silent talking, no repeated gesture, no multiple heads, no stairs. IMPORTANT begin with a closed mouth. Speak ONLY the two given lines, never say any character name unless included in the exact dialogue. No introductory words. End each spoken phrase with mouth closed. Zhou Qiao, male technician30, short black hair, thin SILVER rectangular glasses, charcoal casual jacket, gray shirt, small right hearing aid. Gray police digital office. 0-4.5s Zhou close-up first line0.6s, closes mouth afterwards. 4.5-10s ONLY a phone lying flat on desk with dark screen. Unknown WOMAN voice from phone, controlled low threatening Mandarin, second line5.3s. No person visible during recorded voice. No third sentence, no moving face in phone screen. No music. Exact first line: 那个账号，又发来一段语音。 Exact second line: 把顾晴的手机带来，赵成才能活。"
+    },
+    {
+      "id": "04",
+      "location": "医院走廊·隐蔽转角",
+      "lines": [
+        [
+          "林浅（画外）",
+          "韩组加派人手了。检刺，你怎么了？",
+          "Chief Han has sent more officers. Jian Ci, what’s wrong?"
+        ],
+        [
+          "检刺",
+          "我缓一下，别让赵成落单。",
+          "Give me a moment. Keep someone with Zhao Cheng."
+        ]
+      ],
+      "prompt": "10 second cinematic 2D Chinese anime suspense drama, 16:9 black letterbox, consistent clean drawn faces and smooth restrained motion, neutral skin and cold gray blue light. No live action, CGI, captions, readable text, music or narration. Only exact Mandarin dialogue below. No extra utterances. Mouth moves ONLY during own audible speech, then closes. No silent talking, no repeated gesture, no multiple heads, no stairs. IMPORTANT begin with a closed mouth. Speak ONLY the two given lines, never say any character name unless included in the exact dialogue. No introductory words. End each spoken phrase with mouth closed. Jian Ci, adult male forensic doctor, pale slim face, short tousled BLACK hair, black turtleneck and white coat. Hospital corridor secluded alcove behind opaque wall. Jian has stepped ALONE out of sight of Lin, who stays around corner OFFSCREEN and cannot see his eyes. First0-5s camera tight on his BLACK GLOVED hand braced on wall, his mouth entirely out of frame. Lin female OFFSCREEN first line0.6s. 5-10s Jian frontal single close-up, lips initially closed, controlled hunger: brief deep crimson irises before speaking, tight jaw, then eyes return natural dark as he says second line5.6s in low slightly strained male voice. Finish before9.5s mouth closed. No collapse, no morph, no extra heads, no visible Lin or other person, no phone or radio, no giant fangs. Exact first line: 韩组加派人手了。检刺，你怎么了？ Exact second line: 我缓一下，别让赵成落单。"
+    },
+    {
+      "id": "05",
+      "location": "稍后·物证工作区",
+      "lines": [
+        [
+          "许未",
+          "顾晴的手机封存完好。对方急着要它。",
+          "Gu Qing’s phone is securely sealed. Someone wants it urgently."
+        ],
+        [
+          "林浅（画外）",
+          "先提取数据，查她借车前后的联系。",
+          "Extract the data and check her contacts around the car loan."
+        ]
+      ],
+      "prompt": "10 second cinematic 2D Chinese anime suspense drama, 16:9 black letterbox, consistent clean drawn faces and smooth restrained motion, neutral skin and cold gray blue light. No live action, CGI, captions, readable text, music or narration. Only exact Mandarin dialogue below. No extra utterances. Mouth moves ONLY during own audible speech, then closes. No silent talking, no repeated gesture, no multiple heads, no stairs. IMPORTANT begin with a closed mouth. Speak ONLY the two given lines, never say any character name unless included in the exact dialogue. No introductory words. End each spoken phrase with mouth closed. Xu Wei, female forensic technician late20s, tied brown ponytail, olive green shirt under white lab coat, black examination gloves, no glasses. Police evidence examination room, cool neutral light. 0-5s Xu SINGLE close-up first line0.6s. 5-10s close-up a SINGLE sealed transparent evidence bag containing one phone, flat on examination table. No touching or opening bag, no readable labels. Lin female OFFSCREEN second line5.5s. No visible mouth during offscreen line. No body, no blood or other evidence added. No radio or phone held. Exact first line: 顾晴的手机封存完好。对方急着要它。 Exact second line: 先提取数据，查她借车前后的联系。"
+    },
+    {
+      "id": "06",
+      "location": "次日·数字取证室",
+      "lines": [
+        [
+          "周峤",
+          "顾晴借车前，收到北桥停车场的定位。",
+          "Before borrowing the car, Gu Qing received a location: North Bridge car park."
+        ],
+        [
+          "检刺（画外）",
+          "她说去接人。查那里的监控。",
+          "She said she was picking someone up. Check the cameras there."
+        ]
+      ],
+      "prompt": "10 second cinematic 2D Chinese anime suspense drama, 16:9 black letterbox, consistent clean drawn faces and smooth restrained motion, neutral skin and cold gray blue light. No live action, CGI, captions, readable text, music or narration. Only exact Mandarin dialogue below. No extra utterances. Mouth moves ONLY during own audible speech, then closes. No silent talking, no repeated gesture, no multiple heads, no stairs. IMPORTANT begin with a closed mouth. Speak ONLY the two given lines, never say any character name unless included in the exact dialogue. No introductory words. End each spoken phrase with mouth closed. Zhou Qiao, male technician30, short black hair, thin SILVER rectangular glasses, charcoal casual jacket, gray shirt, small right hearing aid. Next morning police digital office. 0-5.8s Zhou SINGLE close-up first line0.6s. 5.8-10s computer monitor with simple abstract street map and ONE location pin, no readable labels, no portraits, no face. Jian male OFFSCREEN second line6.2s. No extra speech. No live video or suspect displayed; it is a saved location, not tracking a person live. Exact first line: 顾晴借车前，收到北桥停车场的定位。 Exact second line: 她说去接人。查那里的监控。"
+    }
+  ]
+}
