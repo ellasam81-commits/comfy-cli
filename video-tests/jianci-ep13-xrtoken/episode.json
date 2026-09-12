@@ -15,16 +15,16 @@
       "prompt": "10 second cinematic 2D Chinese anime suspense, clean hand-drawn film look, cool blue-gray lighting, BLACK hair for returning leads, neutral pale skin, readable faces, restrained natural acting, no CGI or live action. 16:9. No text, captions, watermark, logos or music. Only exact quoted Mandarin dialogue, never read character labels. Each speaker moves mouth only during their own line. No added speech. Slow clear speech, no overlapping voices, quiet room ambience. Reference image locks Jian Ci (young pale slim man, messy short black hair, black turtleneck, white forensic coat) and Lin Qian (adult woman detective, straight chin-length black bob, dark navy uniform, black gloves). Reference is identity/style only, not this scene staging. Han Che: male48, broad weathered face, short black hair with gray temples, small scar at RIGHT eyebrow, navy uniform, no cap or glasses. Liang Chuan: male40, slightly receding short dark hair, narrow tired face, pale blue work jacket over gray shirt, small bandage on LEFT hand, no insignia. Zhou Qiao: male30, tidy short black hair, silver rectangular glasses, RIGHT ear hearing aid, dark gray jacket. Luo Suqin: woman56, short black-and-gray hair, worn navy cardigan over gray blouse, dark cloth handbag, tired lined face, low hoarse but clear voice. Night at old ground-floor laundry. 0-5s medium close-up Liang beside exit, recoils slightly and says at0.5s: “他刚才……想咬我？” 5-10s cut to Lin at doorway, blocking his sight into room, composed but uneasy, says at5.3s: “他身体不适。先让医生看看。” Han escorts Liang away behind her. Jian stays entirely unseen inside. Nobody bitten, no attack, no fangs visible. Flat threshold, full adult-height red metal door.",
       "subtitle_slots": [
         {
-          "shot": "画面、动作与镜头",
-          "zh": "中文对白／声音",
-          "en": "English subtitles",
+          "shot": "接第12集，洗衣房门外中近景：梁川由韩彻看守，左手小划伤已简单包扎。他回望门内，喘气，不能嬉笑。",
+          "zh": "梁川：他刚才……想咬我？",
+          "en": "He was… trying to bite me?",
           "start": 0,
           "end": 5
         },
         {
-          "shot": "接第12集，洗衣房门外中近景：梁川由韩彻看守，左手小划伤已简单包扎。他回望门内，喘气，不能嬉笑。",
-          "zh": "梁川：他刚才……想咬我？",
-          "en": "He was… trying to bite me?",
+          "shot": "林浅站在门槛外侧，挡住梁川看向检刺的视线，但不挡韩彻带人离开。目光短暂移开。",
+          "zh": "林浅：他身体不适。先让医生看看。",
+          "en": "He’s unwell. Let the doctor examine him first.",
           "start": 5,
           "end": 10
         }
@@ -36,16 +36,16 @@
       "prompt": "10 second cinematic 2D Chinese anime suspense, clean hand-drawn film look, cool blue-gray lighting, BLACK hair for returning leads, neutral pale skin, readable faces, restrained natural acting, no CGI or live action. 16:9. No text, captions, watermark, logos or music. Only exact quoted Mandarin dialogue, never read character labels. Each speaker moves mouth only during their own line. No added speech. Slow clear speech, no overlapping voices, quiet room ambience. Reference image locks Jian Ci (young pale slim man, messy short black hair, black turtleneck, white forensic coat) and Lin Qian (adult woman detective, straight chin-length black bob, dark navy uniform, black gloves). Reference is identity/style only, not this scene staging. Han Che: male48, broad weathered face, short black hair with gray temples, small scar at RIGHT eyebrow, navy uniform, no cap or glasses. Liang Chuan: male40, slightly receding short dark hair, narrow tired face, pale blue work jacket over gray shirt, small bandage on LEFT hand, no insignia. Zhou Qiao: male30, tidy short black hair, silver rectangular glasses, RIGHT ear hearing aid, dark gray jacket. Luo Suqin: woman56, short black-and-gray hair, worn navy cardigan over gray blouse, dark cloth handbag, tired lined face, low hoarse but clear voice. Inside same laundry doorway, only Jian and Lin, all other people outside opaque wall. 0-5s Jian alone medium close-up, no longer attacking, hands lowered, teeth NORMAL, slight dark-red iris fading naturally. Low controlled adult male voice at0.5s: “你看见了。我会尽力控制住。” 5-10s cut to Lin close-up, silent mouth closed; she studies his eyes, pauses then nods ONCE, no smile. Keep one-arm distance, no embrace, no other people, no extra dialogue.",
       "subtitle_slots": [
         {
-          "shot": "林浅站在门槛外侧，挡住梁川看向检刺的视线，但不挡韩彻带人离开。目光短暂移开。",
-          "zh": "林浅：他身体不适。先让医生看看。",
-          "en": "He’s unwell. Let the doctor examine him first.",
+          "shot": "同一门内，检刺中近景。獠牙收回，眼里尚留一点暗红。他看见林浅挡住视线，低声说话，不靠近。",
+          "zh": "检刺：你看见了。我会尽力控制住。",
+          "en": "You saw it. I’ll do my best to stay in control.",
           "start": 0,
           "end": 5
         },
         {
-          "shot": "同一门内，检刺中近景。獠牙收回，眼里尚留一点暗红。他看见林浅挡住视线，低声说话，不靠近。",
-          "zh": "检刺：你看见了。我会尽力控制住。",
-          "en": "You saw it. I’ll do my best to stay in control.",
+          "shot": "林浅静止近景；先看他的嘴，再看眼睛，停一拍，只点头一次。随后将两人距离留在一臂以外。",
+          "zh": "无对白。呼吸、很轻的衣袖摩擦。",
+          "en": "无字幕。",
           "start": 5,
           "end": 10
         }
@@ -54,19 +54,19 @@
     {
       "id": "03",
       "duration": 10,
-      "prompt": "10 second cinematic 2D Chinese anime suspense, clean hand-drawn film look, cool blue-gray lighting, BLACK hair for returning leads, neutral pale skin, readable faces, restrained natural acting, no CGI or live action. 16:9. No text, captions, watermark, logos or music. Only exact quoted Mandarin dialogue, never read character labels. Each speaker moves mouth only during their own line. No added speech. Slow clear speech, no overlapping voices, quiet room ambience. Reference image locks Jian Ci (young pale slim man, messy short black hair, black turtleneck, white forensic coat) and Lin Qian (adult woman detective, straight chin-length black bob, dark navy uniform, black gloves). Reference is identity/style only, not this scene staging. Han Che: male48, broad weathered face, short black hair with gray temples, small scar at RIGHT eyebrow, navy uniform, no cap or glasses. Liang Chuan: male40, slightly receding short dark hair, narrow tired face, pale blue work jacket over gray shirt, small bandage on LEFT hand, no insignia. Zhou Qiao: male30, tidy short black hair, silver rectangular glasses, RIGHT ear hearing aid, dark gray jacket. Luo Suqin: woman56, short black-and-gray hair, worn navy cardigan over gray blouse, dark cloth handbag, tired lined face, low hoarse but clear voice. Three days later case review, clean gray-blue police meeting room. 0-5s close-up of female forensic colleague gloved hand setting pen beside autopsy file, NO face/body photograph, generic pages with no legible text. Calm adult female OFFSCREEN voice at0.4s: “顾晴不是失足。致命伤在颈部。” 5-10s Lin seated at desk, looks down at preserved financial records, says at5.3s: “她查到梁川和罗茵侵吞照护款。” Serious investigative tone, no gore.",
+      "prompt": "10 second cinematic hand-drawn 2D anime police procedural. Peaceful blue-gray office conference room in daytime. ONLY show closed folders, a pen, and financial ledger on a clean desk. NO people visible, no photographs, no bodies or injuries, no violence, no writing generated, no captions, no music. Very slow camera move across table. At0.4 seconds calm professional adult female voice OFFSCREEN says exactly: “顾晴不是失足。致命伤在颈部。” At5.3 seconds a second calm low adult female voice, Lin Qian, OFFSCREEN says exactly: “她查到梁川和罗茵侵吞照护款。” Clear Mandarin, never speak speaker labels, no extra speech. Quiet room tone. Both voices reporting an earlier investigation, no reenactment.",
       "subtitle_slots": [
-        {
-          "shot": "林浅静止近景；先看他的嘴，再看眼睛，停一拍，只点头一次。随后将两人距离留在一臂以外。",
-          "zh": "无对白。呼吸、很轻的衣袖摩擦。",
-          "en": "无字幕。",
-          "start": 0,
-          "end": 5
-        },
         {
           "shot": "硬切，后期地点字“三天后·案情复核”。许未的手在已完成尸检报告旁放下笔；顾晴生前工作照只出现边角，不展示尸体。",
           "zh": "许未（画外）：顾晴不是失足。致命伤在颈部。",
           "en": "Gu Qing didn’t simply fall. The fatal injury was to her neck.",
+          "start": 0,
+          "end": 5
+        },
+        {
+          "shot": "林浅在案情复核室单人近景，翻开顾晴留下的账目材料。桌面证物不裸拿。",
+          "zh": "林浅：她查到梁川和罗茵侵吞照护款。",
+          "en": "She uncovered Liang Chuan and Luo Yin’s theft of care funds.",
           "start": 5,
           "end": 10
         }
@@ -78,16 +78,16 @@
       "prompt": "10 second cinematic 2D Chinese anime suspense, clean hand-drawn film look, cool blue-gray lighting, BLACK hair for returning leads, neutral pale skin, readable faces, restrained natural acting, no CGI or live action. 16:9. No text, captions, watermark, logos or music. Only exact quoted Mandarin dialogue, never read character labels. Each speaker moves mouth only during their own line. No added speech. Slow clear speech, no overlapping voices, quiet room ambience. Reference image locks Jian Ci (young pale slim man, messy short black hair, black turtleneck, white forensic coat) and Lin Qian (adult woman detective, straight chin-length black bob, dark navy uniform, black gloves). Reference is identity/style only, not this scene staging. Han Che: male48, broad weathered face, short black hair with gray temples, small scar at RIGHT eyebrow, navy uniform, no cap or glasses. Liang Chuan: male40, slightly receding short dark hair, narrow tired face, pale blue work jacket over gray shirt, small bandage on LEFT hand, no insignia. Zhou Qiao: male30, tidy short black hair, silver rectangular glasses, RIGHT ear hearing aid, dark gray jacket. Luo Suqin: woman56, short black-and-gray hair, worn navy cardigan over gray blouse, dark cloth handbag, tired lined face, low hoarse but clear voice. Same police case review. 0-5s Han medium close-up seated at conference table, sober authoritative male voice at0.4s: “梁川为抢回手机，把她杀了。” 5-10s cut to Zhou seated at workstation, silver rectangular glasses, RIGHT hearing aid, not white coat, precise male voice at5.3s: “冒充赵成女儿的，是罗茵。” No reenactment of killing, no body, no generated on-screen writing.",
       "subtitle_slots": [
         {
-          "shot": "林浅在案情复核室单人近景，翻开顾晴留下的账目材料。桌面证物不裸拿。",
-          "zh": "林浅：她查到梁川和罗茵侵吞照护款。",
-          "en": "She uncovered Liang Chuan and Luo Yin’s theft of care funds.",
+          "shot": "后期重建插镜：旧楼中景，顾晴背影想离开；梁川堵住远处出口，危险在距离中呈现。随即切到审讯记录笔尖。",
+          "zh": "韩彻（画外）：梁川为抢回手机，把她杀了。",
+          "en": "Liang Chuan killed her to recover the phone.",
           "start": 0,
           "end": 5
         },
         {
-          "shot": "后期重建插镜：旧楼中景，顾晴背影想离开；梁川堵住远处出口，危险在距离中呈现。随即切到审讯记录笔尖。",
-          "zh": "韩彻（画外）：梁川为抢回手机，把她杀了。",
-          "en": "Liang Chuan killed her to recover the phone.",
+          "shot": "周峤近景，银框眼镜、右耳助听器清楚；侧向检验终端，不对着观众念屏幕。",
+          "zh": "周峤：冒充赵成女儿的，是罗茵。",
+          "en": "Luo Yin was the caller posing as Zhao Cheng’s daughter.",
           "start": 5,
           "end": 10
         }
@@ -99,16 +99,16 @@
       "prompt": "10 second cinematic 2D Chinese anime suspense, clean hand-drawn film look, cool blue-gray lighting, BLACK hair for returning leads, neutral pale skin, readable faces, restrained natural acting, no CGI or live action. 16:9. No text, captions, watermark, logos or music. Only exact quoted Mandarin dialogue, never read character labels. Each speaker moves mouth only during their own line. No added speech. Slow clear speech, no overlapping voices, quiet room ambience. Reference image locks Jian Ci (young pale slim man, messy short black hair, black turtleneck, white forensic coat) and Lin Qian (adult woman detective, straight chin-length black bob, dark navy uniform, black gloves). Reference is identity/style only, not this scene staging. Han Che: male48, broad weathered face, short black hair with gray temples, small scar at RIGHT eyebrow, navy uniform, no cap or glasses. Liang Chuan: male40, slightly receding short dark hair, narrow tired face, pale blue work jacket over gray shirt, small bandage on LEFT hand, no insignia. Zhou Qiao: male30, tidy short black hair, silver rectangular glasses, RIGHT ear hearing aid, dark gray jacket. Luo Suqin: woman56, short black-and-gray hair, worn navy cardigan over gray blouse, dark cloth handbag, tired lined face, low hoarse but clear voice. Police evidence review, no faces. 0-5s two separate numbered evidence bags on worktable, one contains a small speaker, one a mobile phone, objects never merge. Zhou voice OFFSCREEN at0.3s: “洗衣房哭声是假的，祁芸求救是真的。” No crying sound under line. 5-10s two brief inserts: gloved hand places sealed access card bag by computer; investigator compares separate device evidence records. Han OFFSCREEN at5.4s: “刷卡影像和设备记录，锁定了两人。” No legible text; evidence protected, no bare hands.",
       "subtitle_slots": [
         {
-          "shot": "周峤近景，银框眼镜、右耳助听器清楚；侧向检验终端，不对着观众念屏幕。",
-          "zh": "周峤：冒充赵成女儿的，是罗茵。",
-          "en": "Luo Yin was the caller posing as Zhao Cheng’s daughter.",
+          "shot": "匹配切：第5集后门音箱、第12集桌面手机，两件物品置于不同编号位置，不能变形成同一个设备。",
+          "zh": "周峤（画外）：洗衣房哭声是假的，祁芸求救是真的。",
+          "en": "The laundry crying was fake. Qi Yun’s cry for help was real.",
           "start": 0,
           "end": 5
         },
         {
-          "shot": "匹配切：第5集后门音箱、第12集桌面手机，两件物品置于不同编号位置，不能变形成同一个设备。",
-          "zh": "周峤（画外）：洗衣房哭声是假的，祁芸求救是真的。",
-          "en": "The laundry crying was fake. Qi Yun’s cry for help was real.",
+          "shot": "两个证据画面各约2.5秒：校时后的梁川持卡进门影像；罗茵扣押设备与威胁账号的比对记录。",
+          "zh": "韩彻（画外）：刷卡影像和设备记录，锁定了两人。",
+          "en": "The access footage and device records link both suspects.",
           "start": 5,
           "end": 10
         }
@@ -120,9 +120,9 @@
       "prompt": "10 second cinematic 2D Chinese anime suspense, clean hand-drawn film look, cool blue-gray lighting, BLACK hair for returning leads, neutral pale skin, readable faces, restrained natural acting, no CGI or live action. 16:9. No text, captions, watermark, logos or music. Only exact quoted Mandarin dialogue, never read character labels. Each speaker moves mouth only during their own line. No added speech. Slow clear speech, no overlapping voices, quiet room ambience. Reference image locks Jian Ci (young pale slim man, messy short black hair, black turtleneck, white forensic coat) and Lin Qian (adult woman detective, straight chin-length black bob, dark navy uniform, black gloves). Reference is identity/style only, not this scene staging. Han Che: male48, broad weathered face, short black hair with gray temples, small scar at RIGHT eyebrow, navy uniform, no cap or glasses. Liang Chuan: male40, slightly receding short dark hair, narrow tired face, pale blue work jacket over gray shirt, small bandage on LEFT hand, no insignia. Zhou Qiao: male30, tidy short black hair, silver rectangular glasses, RIGHT ear hearing aid, dark gray jacket. Luo Suqin: woman56, short black-and-gray hair, worn navy cardigan over gray blouse, dark cloth handbag, tired lined face, low hoarse but clear voice. Police meeting room daylight. 0-5s Lin alone medium close-up closes first case folder slowly, sad restrained expression, says at0.4s: “祁芸交出了手机。赵成也安全了。” 5-10s cut to Han at door, looks toward reception corridor, says at5.4s: “林浅，有位母亲坚持要见你。” Quiet file closing sound, no triumphant smile, no new corpse.",
       "subtitle_slots": [
         {
-          "shot": "两个证据画面各约2.5秒：校时后的梁川持卡进门影像；罗茵扣押设备与威胁账号的比对记录。",
-          "zh": "韩彻（画外）：刷卡影像和设备记录，锁定了两人。",
-          "en": "The access footage and device records link both suspects.",
+          "shot": "林浅近景，接到证人保护确认信息，合上顾晴文件夹；表情沉重，不胜利微笑。",
+          "zh": "林浅：祁芸交出了手机。赵成也安全了。",
+          "en": "Qi Yun handed over the phone. Zhao Cheng is safe now.",
           "start": 0,
           "end": 5
         },

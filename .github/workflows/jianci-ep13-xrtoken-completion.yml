@@ -1,0 +1,32 @@
+name: Jian Ci Episode 13 XRToken Missing Clips
+on:
+  push:
+    branches: [codex/jianci-transition-20260905]
+    paths: [video-tests/jianci-ep13-xrtoken/completion.request.json]
+permissions:
+  contents: read
+concurrency:
+  group: jianci-ep13-xrtoken-paid
+  cancel-in-progress: false
+jobs:
+  complete:
+    runs-on: ubuntu-latest
+    timeout-minutes: 115
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install media tools
+        run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
+      - name: Generate only missing shots 03 08 09
+        env:
+          XRTOKEN: ${{ secrets.XRTOKEN }}
+          JIANCI_EP13_EXECUTE: '1'
+        run: python video-tests/jianci-ep13-xrtoken/complete.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: jianci-ep13-xrtoken-completion
+          path: output/jianci-ep13-xrtoken-completion
+          retention-days: 14
