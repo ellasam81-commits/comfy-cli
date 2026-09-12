@@ -1,0 +1,108 @@
+{
+  "episode": 12,
+  "title": "别让我靠近他",
+  "clips": [
+    {
+      "id": "01",
+      "location": "紧接上集·旧洗衣房",
+      "lines": [
+        [
+          "韩彻",
+          "梁川，开门！把手举起来。",
+          "Liang Chuan, open the door! Hands up."
+        ],
+        [
+          "梁川",
+          "别进来，她一直在哭。",
+          "Don’t come in. She keeps crying."
+        ]
+      ],
+      "prompt": "10 second cinematic 2D Chinese anime suspense horror, 16:9 black letterbox, neutral pale skin, BLACK hair, cool gray-blue motivated film light with clearly readable faces, smooth restrained movement. No live action, CGI, captions, writing, subtitles, music or narration. Only speak the exact Mandarin inside quotation marks; NEVER read speaker labels or introductory character names. Mouth moves only during own audible speech, then closes. 仅朗读引号内台词，不要额外念角色名字。  第一段对白（0.6秒起）：「梁川，开门！把手举起来。」 第二段对白（约5.8秒起）：「别进来，她一直在哭。」。Han Che, police leader48, broad weathered face, short black hair gray temples, right eyebrow small scar, navy police jacket, NO cap or glasses. Liang Chuan, hospital care assistant male40, short neat dark brown hair with slight receding temples, narrow tired face, pale BLUE work jacket over gray shirt, no police insignia, no cap, no glasses, no facial hair. Same character across all his shots. Old ground-floor laundry, gray concrete walls, a full adult-height DARK RED METAL DOOR 210cm tall90cm wide, waist-height handle and FLAT threshold, no stairs. Gray metal worktable beside door, no beds, no corpses. 0-5s Han outside the CLOSED full-height door speaks first line0.6s, no radio. 5-10s cut to interior Liang alone at same full-height door, speaks second line5.7s then pulls handle and opens door at8s, raises EMPTY hands. Door opens onto flat ground. No attack, weapon, duplicate face or police assault."
+    },
+    {
+      "id": "02",
+      "location": "洗衣房内·确认声源",
+      "lines": [
+        [
+          "韩彻（画外）",
+          "屋里查过了，只有梁川。",
+          "We’ve checked the room. Only Liang Chuan is here."
+        ],
+        [
+          "林浅",
+          "哭声是手机放的。先拍照，别动它。",
+          "The crying is coming from a phone. Photograph it before touching it."
+        ]
+      ],
+      "prompt": "10 second cinematic 2D Chinese anime suspense horror, 16:9 black letterbox, neutral pale skin, BLACK hair, cool gray-blue motivated film light with clearly readable faces, smooth restrained movement. No live action, CGI, captions, writing, subtitles, music or narration. Only speak the exact Mandarin inside quotation marks; NEVER read speaker labels or introductory character names. Mouth moves only during own audible speech, then closes. 仅朗读引号内台词，不要额外念角色名字。  第一段对白（0.6秒起）：「屋里查过了，只有梁川。」 第二段对白（约5.8秒起）：「哭声是手机放的。先拍照，别动它。」。Lin Qian, female detective, short straight BLACK bob, navy police uniform, black gloves. Old ground-floor laundry, gray concrete walls, a full adult-height DARK RED METAL DOOR 210cm tall90cm wide, waist-height handle and FLAT threshold, no stairs. Gray metal worktable beside door, no beds, no corpses. After entry and police safety check. 0-5s close-up plain black phone lying FLAT FACE UP on gray metal table, dim abstract audio waveform NO readable words; Han male OFFSCREEN first line0.6s. 5-10s Lin alone medium close-up looking down toward phone, own second line5.4s. Phone remains on table. No ghost woman or additional crying voice, no handling evidence."
+    },
+    {
+      "id": "03",
+      "location": "血味",
+      "lines": [
+        [
+          "梁川",
+          "关门时划的。医生，帮我看看。",
+          "I cut it while closing the door. Doctor, please take a look."
+        ],
+        [
+          "检刺",
+          "别靠近我。",
+          "Don’t come near me."
+        ]
+      ],
+      "prompt": "10 second cinematic 2D Chinese anime suspense horror, 16:9 black letterbox, neutral pale skin, BLACK hair, cool gray-blue motivated film light with clearly readable faces, smooth restrained movement. No live action, CGI, captions, writing, subtitles, music or narration. Only speak the exact Mandarin inside quotation marks; NEVER read speaker labels or introductory character names. Mouth moves only during own audible speech, then closes. 仅朗读引号内台词，不要额外念角色名字。  第一段对白（0.6秒起）：「关门时划的。医生，帮我看看。」 第二段对白（约5.8秒起）：「别靠近我。」。Liang Chuan, hospital care assistant male40, short neat dark brown hair with slight receding temples, narrow tired face, pale BLUE work jacket over gray shirt, no police insignia, no cap, no glasses, no facial hair. Same character across all his shots. Jian Ci, adult male forensic doctor, pale slim face, short tousled BLACK hair, black turtleneck and white coat. Old ground-floor laundry, gray concrete walls, a full adult-height DARK RED METAL DOOR 210cm tall90cm wide, waist-height handle and FLAT threshold, no stairs. Gray metal worktable beside door, no beds, no corpses. 0-5.3s Liang SINGLE close-up near doorway, own first line0.6s, raises LEFT hand showing one TINY non-graphic red scratch, no dripping. His collar remains intact. 5.3-10s Jian SINGLE face close-up, own second line5.8s, eyes turn deep crimson and exactly TWO slender upper canine FANGS become unmistakably visible. Slow involuntary breath, predatory focus and frightened self-restraint, not smiling. No bite yet, no blood on mouth."
+    },
+    {
+      "id": "04",
+      "location": "林浅看见了",
+      "lines": [
+        [
+          "林浅",
+          "检刺！停下！",
+          "Jian Ci! Stop!"
+        ],
+        [
+          "检刺",
+          "拉住我。",
+          "Hold me back."
+        ]
+      ],
+      "prompt": "10 second cinematic 2D Chinese anime suspense horror, 16:9 black letterbox, neutral pale skin, BLACK hair, cool gray-blue motivated film light with clearly readable faces, smooth restrained movement. No live action, CGI, captions, writing, subtitles, music or narration. Only speak the exact Mandarin inside quotation marks; NEVER read speaker labels or introductory character names. Mouth moves only during own audible speech, then closes. 仅朗读引号内台词，不要额外念角色名字。  第一段对白（0.6秒起）：「检刺！停下！」 第二段对白（约5.8秒起）：「拉住我。」。Jian Ci, adult male forensic doctor, pale slim face, short tousled BLACK hair, black turtleneck and white coat. Lin Qian, female detective, short straight BLACK bob, navy police uniform, black gloves. Liang Chuan, hospital care assistant male40, short neat dark brown hair with slight receding temples, narrow tired face, pale BLUE work jacket over gray shirt, no police insignia, no cap, no glasses, no facial hair. Same character across all his shots. Old ground-floor laundry, gray concrete walls, a full adult-height DARK RED METAL DOOR 210cm tall90cm wide, waist-height handle and FLAT threshold, no stairs. Gray metal worktable beside door, no beds, no corpses. CRITICAL action in one coherent three-person medium shot first0-5.5s: Liang on RIGHT foreground, Jian CENTER leans forward toward Liang neck, exactly TWO upper fangs visible and red eyes; BEFORE any contact Lin on LEFT grabs Jian white coat upper arm and pulls him BACK half a step at2s, body blocking his approach. Lin audibly shouts first exact line at0.6s during her intervention; Jian mouth only parts to bare fangs, no silent talking. Liang recoils right out of frame, not disappearing. NO bite lands, no skin contact, no gore, no romantic embrace. 5.5-10s cut tight Jian face and Lin gloved hand still holding sleeve, Jian speaks second line6s with fangs then closes mouth. No repeated lunge or repeated grab, no extra limbs."
+    },
+    {
+      "id": "05",
+      "location": "她没有松手",
+      "lines": [
+        [
+          "林浅",
+          "看着我。退后，别靠近他。",
+          "Look at me. Step back. Stay away from him."
+        ],
+        [
+          "检刺",
+          "我能听见他的心跳。",
+          "I can hear his heartbeat."
+        ]
+      ],
+      "prompt": "10 second cinematic 2D Chinese anime suspense horror, 16:9 black letterbox, neutral pale skin, BLACK hair, cool gray-blue motivated film light with clearly readable faces, smooth restrained movement. No live action, CGI, captions, writing, subtitles, music or narration. Only speak the exact Mandarin inside quotation marks; NEVER read speaker labels or introductory character names. Mouth moves only during own audible speech, then closes. 仅朗读引号内台词，不要额外念角色名字。  第一段对白（0.6秒起）：「看着我。退后，别靠近他。」 第二段对白（约5.8秒起）：「我能听见他的心跳。」。Lin Qian, female detective, short straight BLACK bob, navy police uniform, black gloves. Jian Ci, adult male forensic doctor, pale slim face, short tousled BLACK hair, black turtleneck and white coat. Old ground-floor laundry, gray concrete walls, a full adult-height DARK RED METAL DOOR 210cm tall90cm wide, waist-height handle and FLAT threshold, no stairs. Gray metal worktable beside door, no beds, no corpses. Jian and Lin now TWO steps away from Liang who is offscreen under Han supervision. 0-5.2s Lin close-up eye-line level looking directly at Jian offscreen, own first line0.6s, calm urgent and alert. 5.2-10s reverse Jian close-up, red eyes and two upper canine fangs, visibly fighting hunger, own second line5.8s. Lin gloved hand remains on his upper arm edge of frame. No radio, no listening character moving mouth, no bite or smiles."
+    },
+    {
+      "id": "06",
+      "location": "失控之后",
+      "lines": [
+        [
+          "林浅",
+          "韩组，先带梁川出去，叫急救。",
+          "Chief Han, take Liang Chuan outside and call for medical help."
+        ],
+        [
+          "林浅",
+          "检刺，你刚才差点咬了他。",
+          "Jian Ci, you almost bit him."
+        ]
+      ],
+      "prompt": "10 second cinematic 2D Chinese anime suspense horror, 16:9 black letterbox, neutral pale skin, BLACK hair, cool gray-blue motivated film light with clearly readable faces, smooth restrained movement. No live action, CGI, captions, writing, subtitles, music or narration. Only speak the exact Mandarin inside quotation marks; NEVER read speaker labels or introductory character names. Mouth moves only during own audible speech, then closes. 仅朗读引号内台词，不要额外念角色名字。  第一段对白（0.6秒起）：「韩组，先带梁川出去，叫急救。」 第二段对白（约5.8秒起）：「检刺，你刚才差点咬了他。」。Lin Qian, female detective, short straight BLACK bob, navy police uniform, black gloves. Jian Ci, adult male forensic doctor, pale slim face, short tousled BLACK hair, black turtleneck and white coat. Old ground-floor laundry, gray concrete walls, a full adult-height DARK RED METAL DOOR 210cm tall90cm wide, waist-height handle and FLAT threshold, no stairs. Gray metal worktable beside door, no beds, no corpses. 0-5.2s Lin SINGLE close-up turns her gaze ONCE toward Han offscreen by open door and speaks first line0.6s, no radio since same room. 5.2-10s cut two-person side medium shot: Lin LEFT turns back toward Jian RIGHT, speaks second line5.8s. Jian stays still facing her, mouth CLOSED entire second shot, crimson eyes lowering in shame, his two hands OPEN away from people. Lin keeps safe space and escape route. End charged silence at9s. No kiss, no embrace, no smiling, no extra dialogue. Phone remains preserved on table; no claim case solved."
+    }
+  ]
+}
