@@ -1,0 +1,1 @@
+复现：将本目录放至/tmp/ep14-full，安装FFmpeg、Python numpy与Pillow。依次运行score.py、repair06.py、normalize.py、finish.py。finish.py输出至/workspace/scratch/6651942d1ae0。不要运行generate.py，它会提交付费请求；未包含密钥。raw目录含六段成功素材；02缺失为已记录的失败，不应自动补发。

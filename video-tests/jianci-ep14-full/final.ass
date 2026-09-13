@@ -1,0 +1,41 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1280
+PlayResY: 720
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Noto Sans CJK SC,28,&H00FFFFFF,&H00FFFFFF,&H00151515,&H00000000,0,0,0,0,100,100,0,0,1,1,0,2,25,25,20,1
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:43.15,Default,,0,0,0,,{\an7\pos(40,18)\fs40}剑刺
+Dialogue: 0,0:00:00.00,0:00:43.15,Default,,0,0,0,,{\an7\pos(145,27)\fs28}她回来以后 · 第14集：她说脖子疼
+Dialogue: 0,0:00:00.00,0:00:43.15,Default,,0,0,0,,{\an9\pos(1240,27)\fs24}作者：林爱丽
+Dialogue: 0,0:00:00.00,0:00:43.15,Default,,0,0,0,,{\an7\pos(40,65)\fs20}真实案件灵感：1897年格林布赖尔幽灵案
+Dialogue: 0,0:00:00.00,0:00:43.15,Default,,0,0,0,,{\an7\pos(40,92)\fs17}Greenbrier, 1897 · 母亲见鬼为其说法；现代人物与情节虚构
+Dialogue: 0,0:00:00.30,0:00:03.65,Default,,0,0,0,,{\an2\pos(640,661)\fs34}罗素琴：她就站在床边，摸着这里。
+Dialogue: 0,0:00:00.30,0:00:03.65,Default,,0,0,0,,{\an2\pos(640,699)\fs25}She stood beside my bed, touching here.
+Dialogue: 0,0:00:03.88,0:00:08.25,Default,,0,0,0,,{\an2\pos(640,661)\fs34}许未：这是接诊记录。当时没有做法医尸检。
+Dialogue: 0,0:00:03.88,0:00:08.25,Default,,0,0,0,,{\an2\pos(640,699)\fs25}This is the clinical record. No forensic autopsy was performed.
+Dialogue: 0,0:00:09.00,0:00:13.10,Default,,0,0,0,,{\an2\pos(640,661)\fs34}检刺：病亡的判断，依据是什么？
+Dialogue: 0,0:00:09.00,0:00:13.10,Default,,0,0,0,,{\an2\pos(640,699)\fs25}What was the basis for calling it a natural death?
+Dialogue: 0,0:00:03.80,0:00:06.30,Default,,0,0,0,,{\an7\pos(45,138)\fs23\bord2}次日 · 接诊记录复核
+Dialogue: 0,0:00:13.20,0:00:17.70,Default,,0,0,0,,{\an2\pos(640,661)\fs34}赵医生：家属说她有心脏病，我没核实。
+Dialogue: 0,0:00:13.20,0:00:17.70,Default,,0,0,0,,{\an2\pos(640,699)\fs25}Her family said she had heart disease. I did not verify it.
+Dialogue: 0,0:00:17.72,0:00:21.38,Default,,0,0,0,,{\an2\pos(640,661)\fs34}检刺：病史没核实，就按病亡处理了？
+Dialogue: 0,0:00:17.72,0:00:21.38,Default,,0,0,0,,{\an2\pos(640,699)\fs25}You treated it as natural death without verifying her history?
+Dialogue: 0,0:00:13.20,0:00:15.70,Default,,0,0,0,,{\an7\pos(45,138)\fs23\bord2}赵医生 · 首诊临床医生
+Dialogue: 0,0:00:21.50,0:00:24.85,Default,,0,0,0,,{\an2\pos(640,661)\fs34}赵医生：是。我当时的检查不够。
+Dialogue: 0,0:00:21.50,0:00:24.85,Default,,0,0,0,,{\an2\pos(640,699)\fs25}Yes. My examination was incomplete.
+Dialogue: 0,0:00:24.87,0:00:27.80,Default,,0,0,0,,{\an2\pos(640,661)\fs34}检刺：那就不能拿它排除外伤。
+Dialogue: 0,0:00:24.87,0:00:27.80,Default,,0,0,0,,{\an2\pos(640,699)\fs25}Then it cannot rule out injury.
+Dialogue: 0,0:00:28.40,0:00:32.75,Default,,0,0,0,,{\an2\pos(640,661)\fs34}罗素琴：那条围巾，是他后来系上的。
+Dialogue: 0,0:00:28.40,0:00:32.75,Default,,0,0,0,,{\an2\pos(640,699)\fs25}He put that scarf on her afterwards.
+Dialogue: 0,0:00:32.70,0:00:35.20,Default,,0,0,0,,{\an2\pos(640,661)\fs34}林浅：当时还有谁在场？
+Dialogue: 0,0:00:32.70,0:00:35.20,Default,,0,0,0,,{\an2\pos(640,699)\fs25}Who else was there at the time?
+Dialogue: 0,0:00:28.05,0:00:30.55,Default,,0,0,0,,{\an7\pos(45,138)\fs23\bord2}接待室 · 补充询问
+Dialogue: 0,0:00:35.55,0:00:38.85,Default,,0,0,0,,{\an2\pos(640,661)\fs34}罗素琴：殡仪馆来的人，也在。
+Dialogue: 0,0:00:35.55,0:00:38.85,Default,,0,0,0,,{\an2\pos(640,699)\fs25}The funeral staff were there too.
+Dialogue: 0,0:00:38.85,0:00:42.75,Default,,0,0,0,,{\an2\pos(640,661)\fs34}林浅：好。先找他们，再核对病历。
+Dialogue: 0,0:00:38.85,0:00:42.75,Default,,0,0,0,,{\an2\pos(640,699)\fs25}All right. We will speak to them, then check the medical records.
