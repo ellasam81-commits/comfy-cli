@@ -1,0 +1,37 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1280
+PlayResY: 720
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Noto Sans CJK SC,28,&H00FFFFFF,&H00FFFFFF,&H00151515,&H00000000,0,0,0,0,100,100,0,0,1,1,0,2,25,25,20,1
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:36.60,Default,,0,0,0,,{\an7\pos(40,18)\fs40}剑刺
+Dialogue: 0,0:00:00.00,0:00:36.60,Default,,0,0,0,,{\an7\pos(145,27)\fs28}她回来以后 · 第14集：她说脖子疼
+Dialogue: 0,0:00:00.00,0:00:36.60,Default,,0,0,0,,{\an9\pos(1240,27)\fs24}作者：林爱丽
+Dialogue: 0,0:00:00.00,0:00:36.60,Default,,0,0,0,,{\an7\pos(40,65)\fs20}真实案件灵感：1897年格林布赖尔幽灵案
+Dialogue: 0,0:00:00.00,0:00:36.60,Default,,0,0,0,,{\an7\pos(40,92)\fs17}Greenbrier, 1897 · 母亲见鬼为其说法；现代人物与情节虚构
+Dialogue: 0,0:00:00.30,0:00:03.65,Default,,0,0,0,,{\an2\pos(640,661)\fs34}罗素琴：她就站在床边，摸着这里。
+Dialogue: 0,0:00:00.30,0:00:03.65,Default,,0,0,0,,{\an2\pos(640,699)\fs25}She stood beside my bed, touching here.
+Dialogue: 0,0:00:03.90,0:00:07.30,Default,,0,0,0,,{\an2\pos(640,661)\fs34}许未：初步判断病亡，没有完整尸检。
+Dialogue: 0,0:00:03.90,0:00:07.30,Default,,0,0,0,,{\an2\pos(640,699)\fs25}Initially considered natural death. No full autopsy.
+Dialogue: 0,0:00:10.45,0:00:13.75,Default,,0,0,0,,{\an2\pos(640,661)\fs34}检刺：颈部呢？检查写在哪里？
+Dialogue: 0,0:00:10.45,0:00:13.75,Default,,0,0,0,,{\an2\pos(640,699)\fs25}What about the neck? Where is that examination recorded?
+Dialogue: 0,0:00:03.80,0:00:06.30,Default,,0,0,0,,{\an7\pos(45,138)\fs23\bord2}次日 · 初检记录复核
+Dialogue: 0,0:00:14.25,0:00:18.30,Default,,0,0,0,,{\an2\pos(640,661)\fs34}赵医生：她丈夫托着她的头，不让我碰。
+Dialogue: 0,0:00:14.25,0:00:18.30,Default,,0,0,0,,{\an2\pos(640,699)\fs25}Her husband supported her head and wouldn't let me touch it.
+Dialogue: 0,0:00:18.75,0:00:22.10,Default,,0,0,0,,{\an2\pos(640,661)\fs34}检刺：所以，颈部没有完整检查？
+Dialogue: 0,0:00:18.75,0:00:22.10,Default,,0,0,0,,{\an2\pos(640,699)\fs25}So the neck wasn't fully examined?
+Dialogue: 0,0:00:13.80,0:00:16.30,Default,,0,0,0,,{\an7\pos(45,138)\fs23\bord2}赵医生 · 初次接诊者
+Dialogue: 0,0:00:22.85,0:00:26.20,Default,,0,0,0,,{\an2\pos(640,661)\fs34}赵医生：是。我当时的检查不够。
+Dialogue: 0,0:00:22.85,0:00:26.20,Default,,0,0,0,,{\an2\pos(640,699)\fs25}Yes. My examination was incomplete.
+Dialogue: 0,0:00:26.22,0:00:29.15,Default,,0,0,0,,{\an2\pos(640,661)\fs34}检刺：那就不能拿它排除外伤。
+Dialogue: 0,0:00:26.22,0:00:29.15,Default,,0,0,0,,{\an2\pos(640,699)\fs25}Then it cannot rule out injury.
+Dialogue: 0,0:00:29.75,0:00:34.10,Default,,0,0,0,,{\an2\pos(640,661)\fs34}罗素琴：那条围巾，是他后来系上的。
+Dialogue: 0,0:00:29.75,0:00:34.10,Default,,0,0,0,,{\an2\pos(640,699)\fs25}He put that scarf on her afterwards.
+Dialogue: 0,0:00:34.05,0:00:36.55,Default,,0,0,0,,{\an2\pos(640,661)\fs34}林浅：当时还有谁在场？
+Dialogue: 0,0:00:34.05,0:00:36.55,Default,,0,0,0,,{\an2\pos(640,699)\fs25}Who else was there at the time?
+Dialogue: 0,0:00:29.40,0:00:31.90,Default,,0,0,0,,{\an7\pos(45,138)\fs23\bord2}接待室 · 补充询问
