@@ -1,0 +1,34 @@
+name: Jian Ci Episode 14 Clinical Record Logic Fix
+on:
+  push:
+    branches: [codex/jianci-transition-20260905]
+    paths: [video-tests/jianci-ep14-logic/run.request.json]
+permissions:
+  contents: read
+concurrency:
+  group: jianci-ep14-logic
+  cancel-in-progress: false
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install video processing dependency
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+      - name: Generate requested clinical-record corrections 03 and 04 once
+        env:
+          XRTOKEN: ${{ secrets.XRTOKEN }}
+          JIANCI_EP14_EXECUTE: '1'
+        run: python video-tests/jianci-ep14-logic/generate.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: jianci-ep14-logic
+          path: output/jianci-ep14-logic
+          retention-days: 14

@@ -1,0 +1,10 @@
+{
+  "episode": 14,
+  "revision": "clinical-record-logic-v1",
+  "clips": [
+    "03",
+    "04"
+  ],
+  "max_estimate_usd": 0.588,
+  "automatic_retry": false
+}
