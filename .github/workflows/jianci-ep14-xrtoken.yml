@@ -1,0 +1,30 @@
+name: Jian Ci Episode 14 XRToken
+on:
+  push:
+    branches: [codex/jianci-transition-20260905]
+    paths: [video-tests/jianci-ep14-xrtoken/run.request.json]
+permissions:
+  contents: read
+concurrency:
+  group: jianci-ep14-xrtoken
+  cancel-in-progress: false
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Generate six scoped Episode 14 shots once
+        env:
+          XRTOKEN: ${{ secrets.XRTOKEN }}
+          JIANCI_EP14_EXECUTE: '1'
+        run: python video-tests/jianci-ep14-xrtoken/generate.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: jianci-ep14-xrtoken-raw
+          path: output/jianci-ep14-xrtoken
+          retention-days: 14
