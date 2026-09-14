@@ -1,0 +1,52 @@
+name: Jian Ci Finale Targeted Repair E27-E28
+on:
+  push:
+    branches: [codex/jianci-transition-20260905]
+    paths: [video-tests/jianci-finale-xrtoken/repair.request.json]
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: jianci-finale-repair-27-28
+  cancel-in-progress: false
+jobs:
+  repair:
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        episode: [27, 28]
+    runs-on: ubuntu-latest
+    timeout-minutes: 100
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install media tools and CJK fonts
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg fonts-noto-cjk
+      - name: Validate targeted scope before paid requests
+        env:
+          EPISODE: ${{ matrix.episode }}
+        run: |
+          python - <<'PY'
+          import os
+          ep=int(os.environ['EPISODE'])
+          assert ep in (27,28)
+          print('TARGETED REPAIR ONLY', ep)
+          PY
+      - name: Repair only missing clips with XRToken
+        env:
+          XRTOKEN: ${{ secrets.XRTOKEN }}
+          JIANCI_EXECUTE: '1'
+          EPISODE: ${{ matrix.episode }}
+        run: python video-tests/jianci-finale-xrtoken/repair_27_28.py
+      - name: Upload repaired final and proof
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jianci-finale-repair-ep${{ matrix.episode }}
+          path: output/jianci-finale-repair/ep${{ matrix.episode }}
+          retention-days: 14
