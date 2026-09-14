@@ -1,0 +1,41 @@
+name: Jian Ci Case 3 Reviewed Production
+on:
+  push:
+    branches: [codex/jianci-transition-20260905]
+    paths: [video-tests/jianci-case3-v1/run.request.json]
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: jianci-case3-v1
+  cancel-in-progress: false
+jobs:
+  generate:
+    strategy:
+      fail-fast: false
+      matrix:
+        episode: [19, 20]
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install ffmpeg before paid requests
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+      - name: Generate bounded batch once
+        env:
+          XRTOKEN: ${{ secrets.XRTOKEN }}
+          GITHUB_TOKEN: ${{ github.token }}
+          JIANCI_EXECUTE: '1'
+          EPISODE: ${{ matrix.episode }}
+        run: python video-tests/jianci-case3-v1/generate.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: jianci-case3-v1-ep${{ matrix.episode }}
+          path: output/jianci-case3-v1
+          retention-days: 14

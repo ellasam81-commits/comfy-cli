@@ -1,0 +1,213 @@
+{
+  "episode": 20,
+  "title": "谁替她活着",
+  "model": "wan3.0-video",
+  "resolution": "480P",
+  "max_output_seconds": 70,
+  "clips": [
+    {
+      "id": "01",
+      "duration": 11,
+      "scene_number": 1,
+      "part": 1,
+      "primary": "xu",
+      "scene": "Forensic autopsy room, Xu alone at clean examination table, black gloves, covered adult body OUT of frame. Camera stays chest-up on Xu, she reports completed examination. Han voice OFF.",
+      "lines": [
+        [
+          "xu",
+          "两人死于严重颅脑损伤。现有检查不支持活到清晨发消息的时候。",
+          ""
+        ],
+        [
+          "han",
+          "能精确到几点吗？",
+          ""
+        ]
+      ],
+      "refs": [
+        "xu"
+      ],
+      "prompt": "11 seconds. Cinematic detailed hand-drawn 2D ANIME, cool blue-gray natural light, clear faces, realistic proportions. NO live action, NO 3D. Clean frame: NO subtitles, captions, writing, logos, music. Mandarin natural speech, precise mouth movement during OWN audible words only. Only specified visible people; OFF camera voices NEVER add another face or animate visible listener mouth. NO invented extra words. Reference images for FACE IDENTITY ONLY; replace clothing and room as explicitly described. Xu: adult woman brown ponytail, green collared shirt, WHITE LAB COAT, BLACK gloves for examination, no glasses. Forensic autopsy room, Xu alone at clean examination table, black gloves, covered adult body OUT of frame. Camera stays chest-up on Xu, she reports completed examination. Han voice OFF. At 0.35s xu ON CAMERA says exactly: “两人死于严重颅脑损伤。现有检查不支持活到清晨发消息的时候。”. At 7.33s han OFF CAMERA says exactly: “能精确到几点吗？”. Finish all quoted speech then absolute vocal silence. Continuous natural motion, no duplicate gesture, no morphing, no dissolve, no teleport. No phone/radio gesture unless explicitly required.",
+      "label": "次日·首次尸检后"
+    },
+    {
+      "id": "02",
+      "duration": 6,
+      "scene_number": 1,
+      "part": 2,
+      "primary": "xu",
+      "scene": "Forensic autopsy room, Xu alone at clean examination table, black gloves, covered adult body OUT of frame. Camera stays chest-up on Xu, she reports completed examination. Han voice OFF.",
+      "lines": [
+        [
+          "xu",
+          "不能。要把现场温度、活动记录一起核对。",
+          ""
+        ]
+      ],
+      "refs": [
+        "xu"
+      ],
+      "prompt": "6 seconds. Cinematic detailed hand-drawn 2D ANIME, cool blue-gray natural light, clear faces, realistic proportions. NO live action, NO 3D. Clean frame: NO subtitles, captions, writing, logos, music. Mandarin natural speech, precise mouth movement during OWN audible words only. Only specified visible people; OFF camera voices NEVER add another face or animate visible listener mouth. NO invented extra words. Reference images for FACE IDENTITY ONLY; replace clothing and room as explicitly described. Xu: adult woman brown ponytail, green collared shirt, WHITE LAB COAT, BLACK gloves for examination, no glasses. Forensic autopsy room, Xu alone at clean examination table, black gloves, covered adult body OUT of frame. Camera stays chest-up on Xu, she reports completed examination. Han voice OFF. At 0.35s xu ON CAMERA says exactly: “不能。要把现场温度、活动记录一起核对。”. Finish all quoted speech then absolute vocal silence. Continuous natural motion, no duplicate gesture, no morphing, no dissolve, no teleport. No phone/radio gesture unless explicitly required.",
+      "label": "次日·首次尸检后"
+    },
+    {
+      "id": "03",
+      "duration": 11,
+      "scene_number": 2,
+      "part": 1,
+      "primary": "lin",
+      "scene": "Interview office, Lin seated LEFT listens to accountant OFF, then replies. A closed folder lies still on desk, no generated writing.",
+      "lines": [
+        [
+          "accountant",
+          "她昨晚把凭证发给我，约今天查维修款。清晨又说改期。",
+          ""
+        ],
+        [
+          "lin",
+          "这封附件留着。我们按程序提取。",
+          ""
+        ]
+      ],
+      "refs": [
+        "lin"
+      ],
+      "prompt": "11 seconds. Cinematic detailed hand-drawn 2D ANIME, cool blue-gray natural light, clear faces, realistic proportions. NO live action, NO 3D. Clean frame: NO subtitles, captions, writing, logos, music. Mandarin natural speech, precise mouth movement during OWN audible words only. Only specified visible people; OFF camera voices NEVER add another face or animate visible listener mouth. NO invented extra words. Reference images for FACE IDENTITY ONLY; replace clothing and room as explicitly described. Lin: adult woman, chin-length straight BLACK BOB, navy police uniform, empty hands, NO radio. Interview office, Lin seated LEFT listens to accountant OFF, then replies. A closed folder lies still on desk, no generated writing. At 0.35s accountant OFF CAMERA says exactly: “她昨晚把凭证发给我，约今天查维修款。清晨又说改期。”. At 6.14s lin ON CAMERA says exactly: “这封附件留着。我们按程序提取。”. Finish all quoted speech then absolute vocal silence. Continuous natural motion, no duplicate gesture, no morphing, no dissolve, no teleport. No phone/radio gesture unless explicitly required.",
+      "label": "核查原始附件"
+    },
+    {
+      "id": "04",
+      "duration": 14,
+      "scene_number": 3,
+      "part": 1,
+      "primary": "du",
+      "scene": "Du alone seated LEFT in plain interview room, facing RIGHT, consistent brown canvas jacket gray shirt. Establish his canonical face clearly for entire clip. Zhou and Lin questions OFF. Du only moves lips for his own speech.",
+      "lines": [
+        [
+          "du",
+          "供暖坏过，我最熟。顾姐不在，我也帮着照看。",
+          ""
+        ],
+        [
+          "zhou",
+          "今早来过？",
+          ""
+        ],
+        [
+          "du",
+          "没有。昨天傍晚就走了。",
+          ""
+        ],
+        [
+          "lin",
+          "你说熟悉设备，这个我们会核实。",
+          ""
+        ]
+      ],
+      "refs": [],
+      "prompt": "14 seconds. Cinematic detailed hand-drawn 2D ANIME, cool blue-gray natural light, clear faces, realistic proportions. NO live action, NO 3D. Clean frame: NO subtitles, captions, writing, logos, music. Mandarin natural speech, precise mouth movement during OWN audible words only. Only specified visible people; OFF camera voices NEVER add another face or animate visible listener mouth. NO invented extra words. Reference images for FACE IDENTITY ONLY; replace clothing and room as explicitly described.  Du: adult man39, LONG rectangular face, SHORT SIDE-PART BLACK HAIR, BROWN CANVAS JACKET, dark gray work trousers, NO glasses. Du alone seated LEFT in plain interview room, facing RIGHT, consistent brown canvas jacket gray shirt. Establish his canonical face clearly for entire clip. Zhou and Lin questions OFF. Du only moves lips for his own speech. At 0.35s du ON CAMERA says exactly: “供暖坏过，我最熟。顾姐不在，我也帮着照看。”. At 4.95s zhou OFF CAMERA says exactly: “今早来过？”. At 6.45s du ON CAMERA says exactly: “没有。昨天傍晚就走了。”. At 9.14s lin OFF CAMERA says exactly: “你说熟悉设备，这个我们会核实。”. Finish all quoted speech then absolute vocal silence. Continuous natural motion, no duplicate gesture, no morphing, no dissolve, no teleport. No phone/radio gesture unless explicitly required.",
+      "label": "询问苗圃经理"
+    },
+    {
+      "id": "05",
+      "duration": 6,
+      "scene_number": 4,
+      "part": 1,
+      "primary": "zhou",
+      "scene": "Zhou at old nursery attic doorway, seated mat and small blue thread visible near floor RIGHT. No other people. He looks at mat, speaks. Lin voice OFF. No ghost or actual footsteps.",
+      "lines": [
+        [
+          "zhou",
+          "这里有人待过。",
+          ""
+        ],
+        [
+          "lin",
+          "什么时候、是谁，分开查。",
+          ""
+        ]
+      ],
+      "refs": [
+        "zhou"
+      ],
+      "prompt": "6 seconds. Cinematic detailed hand-drawn 2D ANIME, cool blue-gray natural light, clear faces, realistic proportions. NO live action, NO 3D. Clean frame: NO subtitles, captions, writing, logos, music. Mandarin natural speech, precise mouth movement during OWN audible words only. Only specified visible people; OFF camera voices NEVER add another face or animate visible listener mouth. NO invented extra words. Reference images for FACE IDENTITY ONLY; replace clothing and room as explicitly described. Zhou: adult man rectangular SILVER GLASSES, RIGHT-ear hearing aid, dark gray jacket. Zhou at old nursery attic doorway, seated mat and small blue thread visible near floor RIGHT. No other people. He looks at mat, speaks. Lin voice OFF. No ghost or actual footsteps. At 0.35s zhou ON CAMERA says exactly: “这里有人待过。”. At 2.33s lin OFF CAMERA says exactly: “什么时候、是谁，分开查。”. Finish all quoted speech then absolute vocal silence. Continuous natural motion, no duplicate gesture, no morphing, no dissolve, no teleport. No phone/radio gesture unless explicitly required.",
+      "label": "阁楼·现场勘查"
+    },
+    {
+      "id": "06",
+      "duration": 12,
+      "scene_number": 5,
+      "part": 1,
+      "primary": "jian",
+      "scene": "Jian seated RIGHT in assessment room with blank blue-gray wall, dark gray jacket black turtleneck. He touches mended cuff, speaks quietly; Xu voice OFF.",
+      "lines": [
+        [
+          "jian",
+          "昨天只听见铃，没有闻到血，也想起了诊所。",
+          ""
+        ],
+        [
+          "xu",
+          "那可能是记忆联想。先记触发和反应，别替它补故事。",
+          ""
+        ]
+      ],
+      "refs": [
+        "jian"
+      ],
+      "prompt": "12 seconds. Cinematic detailed hand-drawn 2D ANIME, cool blue-gray natural light, clear faces, realistic proportions. NO live action, NO 3D. Clean frame: NO subtitles, captions, writing, logos, music. Mandarin natural speech, precise mouth movement during OWN audible words only. Only specified visible people; OFF camera voices NEVER add another face or animate visible listener mouth. NO invented extra words. Reference images for FACE IDENTITY ONLY; replace clothing and room as explicitly described. Jian: pale young adult man, tousled black hair, NO glasses, BLACK TURTLENECK and DARK GRAY CASUAL JACKET, never white coat while suspended. Jian seated RIGHT in assessment room with blank blue-gray wall, dark gray jacket black turtleneck. He touches mended cuff, speaks quietly; Xu voice OFF. At 0.35s jian ON CAMERA says exactly: “昨天只听见铃，没有闻到血，也想起了诊所。”. At 4.95s xu OFF CAMERA says exactly: “那可能是记忆联想。先记触发和反应，别替它补故事。”. Finish all quoted speech then absolute vocal silence. Continuous natural motion, no duplicate gesture, no morphing, no dissolve, no teleport. No phone/radio gesture unless explicitly required.",
+      "label": "停工评估·持续记录"
+    },
+    {
+      "id": "07",
+      "duration": 10,
+      "scene_number": 6,
+      "part": 1,
+      "primary": "ji",
+      "scene": "Ji alone seated LEFT in police interview room with BLUE CANVAS BAG on lap, brick-red jacket, black LOW ponytail. Worker voice OFF followed by Lin OFF question. Ji looks uneasy, answers only her own short line. No other faces.",
+      "lines": [
+        [
+          "worker",
+          "阁楼以前是她休息的地方。她跟老板吵过工资。",
+          ""
+        ],
+        [
+          "lin",
+          "昨晚，你来过吗？",
+          ""
+        ],
+        [
+          "ji",
+          "没有。",
+          ""
+        ]
+      ],
+      "refs": [],
+      "prompt": "10 seconds. Cinematic detailed hand-drawn 2D ANIME, cool blue-gray natural light, clear faces, realistic proportions. NO live action, NO 3D. Clean frame: NO subtitles, captions, writing, logos, music. Mandarin natural speech, precise mouth movement during OWN audible words only. Only specified visible people; OFF camera voices NEVER add another face or animate visible listener mouth. NO invented extra words. Reference images for FACE IDENTITY ONLY; replace clothing and room as explicitly described.  Ji: adult woman27, BLACK LOW PONYTAIL, BRICK RED JACKET, light gray trousers, BLUE CANVAS BAG. Ji alone seated LEFT in police interview room with BLUE CANVAS BAG on lap, brick-red jacket, black LOW ponytail. Worker voice OFF followed by Lin OFF question. Ji looks uneasy, answers only her own short line. No other faces. At 0.35s worker OFF CAMERA says exactly: “阁楼以前是她休息的地方。她跟老板吵过工资。”. At 5.42s lin OFF CAMERA says exactly: “昨晚，你来过吗？”. At 7.40s ji ON CAMERA says exactly: “没有。”. Finish all quoted speech then absolute vocal silence. Continuous natural motion, no duplicate gesture, no morphing, no dissolve, no teleport. No phone/radio gesture unless explicitly required.",
+      "label": "询问季岚"
+    }
+  ],
+  "known_refs": {
+    "zhou": {
+      "task_id": "22f44ed1-b301-4b7a-9330-afa87e545dd4",
+      "seconds": 2,
+      "crop": "400:320:150:0"
+    },
+    "lin": {
+      "task_id": "1af84fc1-63a2-4afc-bb82-6e79a07dcd4e",
+      "seconds": 1,
+      "crop": "280:300:300:80"
+    },
+    "jian": {
+      "task_id": "66d266b4-3dc5-496d-bb77-f9794f7d7a48",
+      "seconds": 2,
+      "crop": "400:300:240:0"
+    },
+    "xu": {
+      "task_id": "d4ea0aa1-5262-439a-9b94-c5da82973765",
+      "seconds": 2,
+      "crop": "400:320:220:0"
+    }
+  },
+  "estimate_usd": 2.058
+}

@@ -1,0 +1,186 @@
+{
+  "episode": 19,
+  "title": "屋里还暖着",
+  "model": "wan3.0-video",
+  "resolution": "480P",
+  "max_output_seconds": 63,
+  "clips": [
+    {
+      "id": "01",
+      "duration": 9,
+      "scene_number": 1,
+      "part": 1,
+      "primary": "han",
+      "scene": "Plain police office. Han seated LEFT studies an old folded map; Jian answers OFF camera.",
+      "lines": [
+        [
+          "han",
+          "你给的旧址，查到两个。今天去看其中一个。只辨认地点，不碰现场。",
+          ""
+        ],
+        [
+          "jian",
+          "明白。",
+          ""
+        ]
+      ],
+      "refs": [
+        "han"
+      ],
+      "prompt": "9 seconds. Cinematic detailed hand-drawn 2D ANIME, cool blue-gray natural light, clear faces, realistic proportions. NO live action, NO 3D. Clean frame: NO subtitles, captions, writing, logos, music. Mandarin natural speech, precise mouth movement during OWN audible words only. Only specified visible people; OFF camera voices NEVER add another face or animate visible listener mouth. NO invented extra words. Reference images for FACE IDENTITY ONLY; replace clothing and room as explicitly described. Han: adult man48, gray temples, scar RIGHT eyebrow, navy police uniform, NO glasses, NO radio, no legible badge numbers. Plain police office. Han seated LEFT studies an old folded map; Jian answers OFF camera. At 0.35s han ON CAMERA says exactly: “你给的旧址，查到两个。今天去看其中一个。只辨认地点，不碰现场。”. At 7.09s jian OFF CAMERA says exactly: “明白。”. Finish all quoted speech then absolute vocal silence. Continuous natural motion, no duplicate gesture, no morphing, no dissolve, no teleport. No phone/radio gesture unless explicitly required.",
+      "label": "上一案判决后·一周"
+    },
+    {
+      "id": "02",
+      "duration": 6,
+      "scene_number": 2,
+      "part": 1,
+      "primary": "lin",
+      "scene": "Outside plant nursery at cloudy dawn. Lin stands LEFT outside police tape facing RIGHT. Behind her ONE single-storey office with attic, WEST exterior maintenance stairs visible on left, boiler flue EAST right, nursery beds NORTH behind. No bodies visible.",
+      "lines": [],
+      "refs": [
+        "lin"
+      ],
+      "prompt": "6 seconds. Cinematic detailed hand-drawn 2D ANIME, cool blue-gray natural light, clear faces, realistic proportions. NO live action, NO 3D. Clean frame: NO subtitles, captions, writing, logos, music. Mandarin natural speech, precise mouth movement during OWN audible words only. Only specified visible people; OFF camera voices NEVER add another face or animate visible listener mouth. NO invented extra words. Reference images for FACE IDENTITY ONLY; replace clothing and room as explicitly described. Lin: adult woman, chin-length straight BLACK BOB, navy police uniform, empty hands, NO radio. Outside plant nursery at cloudy dawn. Lin stands LEFT outside police tape facing RIGHT. Behind her ONE single-storey office with attic, WEST exterior maintenance stairs visible on left, boiler flue EAST right, nursery beds NORTH behind. No bodies visible.  Finish all quoted speech then absolute vocal silence. Continuous natural motion, no duplicate gesture, no morphing, no dissolve, no teleport. No phone/radio gesture unless explicitly required.",
+      "label": "苗圃·已保护现场"
+    },
+    {
+      "id": "03",
+      "duration": 13,
+      "scene_number": 3,
+      "part": 1,
+      "primary": "xu",
+      "scene": "Crime scene office. Xu LEFT kneels at a SAFE distance from one adult woman lying covered by sheet at RIGHT floor; only woman victim feet beneath sheet, no explicit injuries. Fixed room, no corpse changing or disappearing. Xu speaks, delivery worker and Lin voices OFF.",
+      "lines": [
+        [
+          "xu",
+          "两人都有明显外伤。具体死因和时间范围，要等尸检。",
+          ""
+        ],
+        [
+          "delivery",
+          "可今早这里还冒烟，狗也没叫。",
+          ""
+        ],
+        [
+          "lin",
+          "那只能说明有人来过。",
+          ""
+        ]
+      ],
+      "refs": [
+        "xu"
+      ],
+      "prompt": "13 seconds. Cinematic detailed hand-drawn 2D ANIME, cool blue-gray natural light, clear faces, realistic proportions. NO live action, NO 3D. Clean frame: NO subtitles, captions, writing, logos, music. Mandarin natural speech, precise mouth movement during OWN audible words only. Only specified visible people; OFF camera voices NEVER add another face or animate visible listener mouth. NO invented extra words. Reference images for FACE IDENTITY ONLY; replace clothing and room as explicitly described. Xu: adult woman brown ponytail, green collared shirt, WHITE LAB COAT, BLACK gloves for examination, no glasses. Crime scene office. Xu LEFT kneels at a SAFE distance from one adult woman lying covered by sheet at RIGHT floor; only woman victim feet beneath sheet, no explicit injuries. Fixed room, no corpse changing or disappearing. Xu speaks, delivery worker and Lin voices OFF. At 0.35s xu ON CAMERA says exactly: “两人都有明显外伤。具体死因和时间范围，要等尸检。”. At 5.90s delivery OFF CAMERA says exactly: “可今早这里还冒烟，狗也没叫。”. At 9.31s lin OFF CAMERA says exactly: “那只能说明有人来过。”. Finish all quoted speech then absolute vocal silence. Continuous natural motion, no duplicate gesture, no morphing, no dissolve, no teleport. No phone/radio gesture unless explicitly required.",
+      "label": "现场初步检查"
+    },
+    {
+      "id": "04",
+      "duration": 10,
+      "scene_number": 4,
+      "part": 1,
+      "primary": "zhou",
+      "scene": "Zhou LEFT at boiler room doorway, empty hands, old manual coal stove RIGHT far behind separated by rail, coal shovel rests beside stove. Camera fixed, no opening firebox or touching evidence. Neighbor and Lin answer OFF.",
+      "lines": [
+        [
+          "zhou",
+          "没有自动上煤装置。今早谁添的？",
+          ""
+        ],
+        [
+          "neighbor",
+          "顾云一直自己管。",
+          ""
+        ],
+        [
+          "lin",
+          "你今天看见她了吗？",
+          ""
+        ]
+      ],
+      "refs": [
+        "zhou"
+      ],
+      "prompt": "10 seconds. Cinematic detailed hand-drawn 2D ANIME, cool blue-gray natural light, clear faces, realistic proportions. NO live action, NO 3D. Clean frame: NO subtitles, captions, writing, logos, music. Mandarin natural speech, precise mouth movement during OWN audible words only. Only specified visible people; OFF camera voices NEVER add another face or animate visible listener mouth. NO invented extra words. Reference images for FACE IDENTITY ONLY; replace clothing and room as explicitly described. Zhou: adult man rectangular SILVER GLASSES, RIGHT-ear hearing aid, dark gray jacket. Zhou LEFT at boiler room doorway, empty hands, old manual coal stove RIGHT far behind separated by rail, coal shovel rests beside stove. Camera fixed, no opening firebox or touching evidence. Neighbor and Lin answer OFF. At 0.35s zhou ON CAMERA says exactly: “没有自动上煤装置。今早谁添的？”. At 4.00s neighbor OFF CAMERA says exactly: “顾云一直自己管。”. At 6.21s lin OFF CAMERA says exactly: “你今天看见她了吗？”. Finish all quoted speech then absolute vocal silence. Continuous natural motion, no duplicate gesture, no morphing, no dissolve, no teleport. No phone/radio gesture unless explicitly required.",
+      "label": "锅炉房·核实活动"
+    },
+    {
+      "id": "05",
+      "duration": 15,
+      "scene_number": 5,
+      "part": 1,
+      "primary": "jian",
+      "scene": "Jian alone OUTSIDE police tape next to parked car, facing LEFT. Dark gray casual jacket, no lab coat. He hears a distant brass bell and freezes, hand pauses at car door, brief uneasy breathing, normal eyes and teeth. Zhou speaks OFF.",
+      "lines": [
+        [
+          "jian",
+          "这个声音……我记得。先别写成事实。",
+          ""
+        ],
+        [
+          "zhou",
+          "那就先记成你说的。",
+          ""
+        ]
+      ],
+      "refs": [
+        "jian"
+      ],
+      "prompt": "15 seconds. Cinematic detailed hand-drawn 2D ANIME, cool blue-gray natural light, clear faces, realistic proportions. NO live action, NO 3D. Clean frame: NO subtitles, captions, writing, logos, music. Mandarin natural speech, precise mouth movement during OWN audible words only. Only specified visible people; OFF camera voices NEVER add another face or animate visible listener mouth. NO invented extra words. Reference images for FACE IDENTITY ONLY; replace clothing and room as explicitly described. Jian: pale young adult man, tousled black hair, NO glasses, BLACK TURTLENECK and DARK GRAY CASUAL JACKET, never white coat while suspended. Jian alone OUTSIDE police tape next to parked car, facing LEFT. Dark gray casual jacket, no lab coat. He hears a distant brass bell and freezes, hand pauses at car door, brief uneasy breathing, normal eyes and teeth. Zhou speaks OFF. At 0.35s jian ON CAMERA says exactly: “这个声音……我记得。先别写成事实。”. At 4.00s zhou OFF CAMERA says exactly: “那就先记成你说的。”. Finish all quoted speech then absolute vocal silence. Continuous natural motion, no duplicate gesture, no morphing, no dissolve, no teleport. No phone/radio gesture unless explicitly required.",
+      "label": "警戒线外"
+    },
+    {
+      "id": "06",
+      "duration": 10,
+      "scene_number": 6,
+      "part": 1,
+      "primary": "lin",
+      "scene": "Lin seated LEFT at police desk, a phone stays flat on table RIGHT. Screen blank to add text later. She reports message, Zhou replies OFF. End her gaze turns toward offscreen window.",
+      "lines": [
+        [
+          "lin",
+          "六点十二分，她给会计发消息，说今天不见客。",
+          ""
+        ],
+        [
+          "zhou",
+          "发消息的人，也不一定是她。",
+          ""
+        ]
+      ],
+      "refs": [
+        "lin"
+      ],
+      "prompt": "10 seconds. Cinematic detailed hand-drawn 2D ANIME, cool blue-gray natural light, clear faces, realistic proportions. NO live action, NO 3D. Clean frame: NO subtitles, captions, writing, logos, music. Mandarin natural speech, precise mouth movement during OWN audible words only. Only specified visible people; OFF camera voices NEVER add another face or animate visible listener mouth. NO invented extra words. Reference images for FACE IDENTITY ONLY; replace clothing and room as explicitly described. Lin: adult woman, chin-length straight BLACK BOB, navy police uniform, empty hands, NO radio. Lin seated LEFT at police desk, a phone stays flat on table RIGHT. Screen blank to add text later. She reports message, Zhou replies OFF. End her gaze turns toward offscreen window. At 0.35s lin ON CAMERA says exactly: “六点十二分，她给会计发消息，说今天不见客。”. At 5.19s zhou OFF CAMERA says exactly: “发消息的人，也不一定是她。”. Finish all quoted speech then absolute vocal silence. Continuous natural motion, no duplicate gesture, no morphing, no dissolve, no teleport. No phone/radio gesture unless explicitly required.",
+      "label": "依法提取的消息"
+    }
+  ],
+  "known_refs": {
+    "jian": {
+      "task_id": "66d266b4-3dc5-496d-bb77-f9794f7d7a48",
+      "seconds": 2,
+      "crop": "400:300:240:0"
+    },
+    "lin": {
+      "task_id": "1af84fc1-63a2-4afc-bb82-6e79a07dcd4e",
+      "seconds": 1,
+      "crop": "280:300:300:80"
+    },
+    "han": {
+      "task_id": "10c316b2-29cd-4145-9fc7-bed0a6bf561c",
+      "seconds": 2,
+      "crop": "320:300:310:0"
+    },
+    "zhou": {
+      "task_id": "22f44ed1-b301-4b7a-9330-afa87e545dd4",
+      "seconds": 2,
+      "crop": "400:320:150:0"
+    },
+    "xu": {
+      "task_id": "d4ea0aa1-5262-439a-9b94-c5da82973765",
+      "seconds": 2,
+      "crop": "400:320:220:0"
+    }
+  },
+  "estimate_usd": 1.8522
+}
