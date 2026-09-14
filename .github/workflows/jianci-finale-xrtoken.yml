@@ -1,0 +1,61 @@
+name: Jian Ci Finale XRToken E25-E30
+on:
+  push:
+    branches: [codex/jianci-transition-20260905]
+    paths: [video-tests/jianci-finale-xrtoken/run.request.json]
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: jianci-finale-xrtoken-paid
+  cancel-in-progress: false
+jobs:
+  generate:
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        episode: [25, 26, 27, 28, 29, 30]
+    runs-on: ubuntu-latest
+    timeout-minutes: 95
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install media tools and CJK fonts
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg fonts-noto-cjk
+      - name: Validate finale package before paid requests
+        env:
+          EPISODE: ${{ matrix.episode }}
+        run: |
+          python - <<'PY'
+          import json, os, re
+          from pathlib import Path
+          cfg=json.loads(Path('video-tests/jianci-finale-xrtoken/episodes.json').read_text())
+          ep=str(int(os.environ['EPISODE']))
+          clips=cfg['episodes'][ep]
+          assert cfg['resolution']=='480P'
+          assert len(clips)==5 and sum(int(c['duration']) for c in clips)==60
+          assert len({c['id'] for c in clips})==5
+          for c in clips:
+              times=re.findall(r'At ([0-9.]+)s',c['prompt'])
+              assert len(times)==len(c['lines'])
+              assert c['refs']
+          print('PREFLIGHT OK',ep,cfg['titles'][ep]['zh'])
+          PY
+      - name: Generate Episode with XRToken once
+        env:
+          XRTOKEN: ${{ secrets.XRTOKEN }}
+          JIANCI_EXECUTE: '1'
+          EPISODE: ${{ matrix.episode }}
+        run: python video-tests/jianci-finale-xrtoken/generate.py
+      - name: Upload episode raw clips, proof frames, subtitles and final
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jianci-finale-xrtoken-ep${{ matrix.episode }}
+          path: output/jianci-finale-xrtoken/ep${{ matrix.episode }}
+          retention-days: 14
