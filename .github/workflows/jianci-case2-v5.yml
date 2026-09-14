@@ -14,11 +14,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        include:
-          - episode: 17
-            config: episode17-repair.json
-          - episode: 18
-            config: episode18-repair.json
+        episode: [16]
     runs-on: ubuntu-latest
     timeout-minutes: 90
     steps:
@@ -36,7 +32,7 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
           JIANCI_EXECUTE: '1'
           EPISODE: ${{ matrix.episode }}
-          CONFIG_FILE: ${{ matrix.config }}
+          CONFIG_FILE: 'episode16-repair.json'
           BATCH: '-repair'
         run: python video-tests/jianci-case2-v5/generate.py
       - uses: actions/upload-artifact@v4
