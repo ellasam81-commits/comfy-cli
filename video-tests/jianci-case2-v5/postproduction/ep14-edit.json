@@ -1,0 +1,218 @@
+{
+  "segments": [
+    {
+      "video": "/tmp/jianci-production/raw/ep14-repair/01-raw.mp4",
+      "vstart": 0,
+      "duration": 8.3,
+      "lines": [
+        [
+          "mother",
+          "她站在床边，一直摸这里。",
+          "She stood beside my bed, touching here.",
+          0.4,
+          4.14
+        ],
+        [
+          "lin OFFSCREEN",
+          "知微活着的时候，也说过脖子疼吗？",
+          "Did Zhiwei mention neck pain while alive?",
+          5.22,
+          8
+        ]
+      ],
+      "label": "接待室 · 接续第13集"
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep14-repair/02-raw.mp4",
+      "vstart": 0.6,
+      "duration": 7.45,
+      "lines": [
+        [
+          "mother",
+          "说过。我还以为是落枕。",
+          "Yes. I thought she had slept awkwardly.",
+          0.28,
+          3.92
+        ],
+        [
+          "lin OFFSCREEN",
+          "她什么时候说的？还有消息吗？",
+          "When did she say it? Do you still have the message?",
+          4.5,
+          7.14
+        ]
+      ]
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep14/03-raw.mp4",
+      "vstart": 0,
+      "duration": 7.45,
+      "lines": [
+        [
+          "mother",
+          "有。她的消息，我一条也没删。",
+          "Yes. I have not deleted any of her messages.",
+          0.11,
+          4.67
+        ],
+        [
+          "lin OFFSCREEN",
+          "我们核对一下原记录。",
+          "We will check the original records.",
+          5.17,
+          6.57
+        ]
+      ]
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep14/03-raw.mp4",
+      "vstart": 8.15,
+      "duration": 1.8,
+      "lines": []
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep14-repair/04-raw.mp4",
+      "vstart": 0,
+      "duration": 5.35,
+      "lines": [
+        [
+          "xu",
+          "首次尸检发现颈动脉夹层和血栓，脑部也有梗死。",
+          "The first autopsy found carotid dissection, a clot and cerebral infarction.",
+          0.18,
+          4.98
+        ]
+      ],
+      "label": "稍后 · 法医资料复核"
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep14/05-raw.mp4",
+      "vstart": 6.2,
+      "duration": 3.45,
+      "lines": [
+        [
+          "xu",
+          "颈部和脑部的检材都留着。",
+          "The neck and brain tissue samples are preserved.",
+          0.11,
+          2.79
+        ]
+      ],
+      "audio": "/tmp/jianci-production/raw/ep14/05-raw.mp4",
+      "astart": 0,
+      "label": "现存检材 · 当前复核"
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep14-repair/06-raw.mp4",
+      "vstart": 0,
+      "duration": 5.55,
+      "lines": [
+        [
+          "jian OFFSCREEN",
+          "病变找到了。它怎么来的，还要把生前经过查清。",
+          "We found the damage. To establish its cause, we need her earlier history.",
+          0,
+          5.3
+        ]
+      ],
+      "label": "首次尸检 · 回溯",
+      "label_duration": 5.55
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep14/07-raw.mp4",
+      "vstart": 0,
+      "duration": 9.8,
+      "lines": [
+        [
+          "zhou",
+          "二号晚上七点四十二。跌倒是三号下午。",
+          "September second, 7:42 p.m. The fall was the next afternoon.",
+          0.08,
+          4.94
+        ],
+        [
+          "lin OFFSCREEN",
+          "她在跌倒之前，就已经说疼了。",
+          "She reported the pain before the fall.",
+          4.94,
+          9.42
+        ]
+      ],
+      "label": "原始会话核实后"
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep14/08-raw.mp4",
+      "vstart": 0,
+      "duration": 3.3,
+      "lines": [
+        [
+          "jian",
+          "颈痛有很多原因。",
+          "Neck pain has many causes.",
+          0.34,
+          1.8
+        ]
+      ],
+      "crop": "854:328:0:74"
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep14-repair/04-raw.mp4",
+      "vstart": 8.1,
+      "duration": 0.8,
+      "lines": [],
+      "mute": true
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep14/08-raw.mp4",
+      "vstart": 3.3,
+      "duration": 3.6,
+      "lines": [
+        [
+          "jian",
+          "先别把它当成那处伤。",
+          "We cannot equate it with that injury yet.",
+          0.32,
+          1.86
+        ]
+      ],
+      "crop": "854:328:0:74"
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep14/08-raw.mp4",
+      "vstart": 6.9,
+      "duration": 3.1,
+      "lines": [
+        [
+          "lin OFFSCREEN",
+          "周峤，查二号的行踪。",
+          "Zhou Qiao, trace her movements on the second.",
+          0.35,
+          2.77
+        ]
+      ],
+      "crop": "410:230:0:100"
+    }
+  ],
+  "overlays": [
+    {
+      "start": 39.45,
+      "end": 41.75,
+      "text": "9月2日 19:42 · 生前消息"
+    },
+    {
+      "start": 41.85,
+      "end": 44.2,
+      "text": "9月3日下午 · 跌倒送医"
+    }
+  ],
+  "sounds": [
+    {
+      "type": "knock",
+      "time": 52.00000000000001
+    },
+    {
+      "type": "knock",
+      "time": 52.190000000000005
+    }
+  ]
+}

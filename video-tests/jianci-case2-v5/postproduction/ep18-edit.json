@@ -1,0 +1,160 @@
+{
+  "segments": [
+    {
+      "video": "/tmp/jianci-production/raw/ep18-repair/01-raw.mp4",
+      "vstart": 0,
+      "duration": 9.7,
+      "lines": [
+        [
+          "lin",
+          "替你缝袖口的，也是阿宁？",
+          "Was A-Ning the one who mended your cuff?",
+          0,
+          2.66
+        ],
+        [
+          "jian",
+          "是。她救了我。我第一次失控，咬伤了她的手臂。",
+          "Yes. She saved me. The first time I lost control, I bit her arm.",
+          4.54,
+          9.4
+        ]
+      ],
+      "label": "此前 · 调查期间的谈话",
+      "label_duration": 3.2
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep18/02-raw.mp4",
+      "vstart": 0,
+      "duration": 1.3,
+      "lines": [
+        [
+          "xu",
+          "她后来怎么样？",
+          "What happened to her?",
+          0.08,
+          1.02
+        ]
+      ]
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep18/03-raw.mp4",
+      "vstart": 0,
+      "duration": 12.75,
+      "lines": [
+        [
+          "jian",
+          "她活下来了。我停住了，可伤是我留下的。",
+          "She survived. I stopped, but I was the one who hurt her.",
+          0.08,
+          4.8
+        ],
+        [
+          "jian",
+          "我怕再伤她，就走了。我说，等我能控制了，就回来。",
+          "I left because I was afraid I'd hurt her again. I told her I'd return when I could control it.",
+          5.52,
+          12.46
+        ]
+      ]
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep18/04-raw.mp4",
+      "vstart": 0,
+      "duration": 9.4,
+      "lines": [
+        [
+          "zhou",
+          "你回去了吗？",
+          "Did you go back?",
+          0,
+          1.28
+        ],
+        [
+          "jian",
+          "回去了。诊所空了，她也不见了。我一直在找她。",
+          "I did. The clinic was empty, and she was gone. I've been looking for her ever since.",
+          2.16,
+          9.1
+        ]
+      ],
+      "crop": "854:380:0:0"
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep18-repair/05-raw.mp4",
+      "vstart": 0,
+      "duration": 5.15,
+      "lines": [
+        [
+          "han",
+          "你记得的地方、时间，都写下来。我们会核实。",
+          "Write down the places and dates you remember. We'll verify them.",
+          0.05,
+          4.83
+        ]
+      ],
+      "prefilter": "delogo=x=545:y=255:w=130:h=75"
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep18/06-raw.mp4",
+      "vstart": 0,
+      "duration": 11.3,
+      "lines": [
+        [
+          "xu",
+          "这些事解释了你为什么怕。能不能继续工作，还得评估。",
+          "That explains your fear. Whether you can return to work still needs assessment.",
+          0.08,
+          6.3
+        ],
+        [
+          "jian",
+          "我明白。以后有异常，我会先告诉你们。",
+          "I understand. From now on, I'll tell you at the first sign.",
+          7.3,
+          11
+        ]
+      ],
+      "crop": "590:380:0:0"
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep17/08-raw.mp4",
+      "vstart": 3.3,
+      "duration": 4.6,
+      "mute": true,
+      "lines": [],
+      "label": "数月后 · 审理结果",
+      "label_duration": 4.6
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep18-repair/08-raw.mp4",
+      "vstart": 0,
+      "duration": 8.8,
+      "lines": [
+        [
+          "mother",
+          "我把灯关了。你要是想家，就回来坐坐。",
+          "I'm turning out the light. If you miss home, come and sit for a while.",
+          0.18,
+          4.86
+        ]
+      ],
+      "label": "母亲家中 · 夜",
+      "label_duration": 2
+    }
+  ],
+  "overlays": [
+    {
+      "start": 49.6,
+      "end": 54.2,
+      "text": "经审理，陆承安因对知微实施暴力\\N并造成死亡，被判有罪。",
+      "tags": "\\an5\\pos(640,690)\\fs34\\bord3\\shad1"
+    },
+    {
+      "start": 49.6,
+      "end": 54.2,
+      "text": "Following trial, Lu Cheng'an was convicted\\Nfor the violence that caused Zhiwei's death.",
+      "tags": "\\an2\\pos(640,936)\\fs25"
+    }
+  ]
+}

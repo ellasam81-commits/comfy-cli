@@ -1,0 +1,193 @@
+{
+  "segments": [
+    {
+      "video": "/tmp/jianci-production/raw/ep16-valid-reference/01-raw.mp4",
+      "vstart": 0,
+      "duration": 10,
+      "lines": [
+        [
+          "lin",
+          "完整保留。再核实当时在场的人。",
+          "Preserve the full sequence. Verify who else was there.",
+          0,
+          2.72
+        ]
+      ],
+      "label": "9月2日 · 店内事件回溯",
+      "label_duration": 10
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep16/02-raw.mp4",
+      "vstart": 0,
+      "duration": 7.45,
+      "lines": [
+        [
+          "lu",
+          "她自己走出去的。第二天才摔倒。",
+          "She walked out on her own. She didn't fall until the next day.",
+          0.02,
+          3.58
+        ],
+        [
+          "lin",
+          "我问的是，你在店里对她做了什么。",
+          "I'm asking what you did to her in the shop.",
+          4.38,
+          7.14
+        ]
+      ],
+      "crop": "560:350:0:10",
+      "label": "讯问室 · 核对录像所见"
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep16/03-raw.mp4",
+      "vstart": 0,
+      "duration": 11.2,
+      "lines": [
+        [
+          "xu",
+          "还能走路，不能排除血管损伤。严重后果可能晚些才出现。",
+          "Being able to walk doesn't rule out vascular injury. Serious effects can develop later.",
+          0.18,
+          6.1
+        ],
+        [
+          "jian",
+          "但这次是不是这样，要靠她自己的资料。",
+          "But we must establish what happened in her case from her own records.",
+          7.48,
+          10.92
+        ]
+      ],
+      "label": "法医复核 · 结合个案资料"
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep16/04-raw.mp4",
+      "vstart": 0,
+      "duration": 10.2,
+      "lines": [
+        [
+          "zhou",
+          "完整急救录音已经申请。还得核对，是先异常，还是先跌倒。",
+          "We've requested the full emergency call. We need to establish whether the symptoms preceded the fall.",
+          0,
+          6.64
+        ],
+        [
+          "lin",
+          "找到打电话的人，分别问。",
+          "Find the caller and interview them independently.",
+          7.9,
+          9.92
+        ]
+      ],
+      "label": "调查组 · 核实先后顺序"
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep16/05-raw.mp4",
+      "vstart": 0,
+      "duration": 11.11111111111111,
+      "lines": [
+        [
+          "zhou",
+          "检刺……你的牙？",
+          "Jian Ci... your teeth?",
+          1.511111111111111,
+          3.511111111111111
+        ],
+        [
+          "jian",
+          "别靠近。我先出去。",
+          "Don't come closer. I'm stepping out.",
+          4.133333333333334,
+          6.7333333333333325
+        ]
+      ],
+      "rate": 0.9
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep16/06-raw.mp4",
+      "vstart": 0,
+      "duration": 9.9,
+      "lines": [
+        [
+          "xu",
+          "刚才，你是想咬人吗？",
+          "Were you about to bite someone?",
+          0,
+          2.98
+        ],
+        [
+          "jian",
+          "是。我停住了。但不能说下一次也一定行。",
+          "Yes. I stopped myself. But I can't promise I always will.",
+          2.98,
+          9.58
+        ]
+      ],
+      "crop": "500:400:340:0",
+      "label": "隔壁休息室 · 片刻后"
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep16/07-raw.mp4",
+      "vstart": 0,
+      "duration": 3.1,
+      "lines": [
+        [
+          "xu",
+          "你先停工。这件事要告诉韩队。",
+          "Stop working for now. Captain Han needs to know.",
+          0.08,
+          2.88
+        ]
+      ]
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep16/08-raw.mp4",
+      "vstart": 0,
+      "duration": 10.5,
+      "lines": [
+        [
+          "jian",
+          "我受过一次重伤。醒来时，在一间旧诊所。伤口很快好了，却开始渴望血。",
+          "I was badly injured once. I woke in an old clinic. My wounds healed quickly, but I began craving blood.",
+          0.02,
+          8.48
+        ],
+        [
+          "xu",
+          "以前伤过人吗？",
+          "Have you hurt anyone before?",
+          9.16,
+          10.22
+        ]
+      ],
+      "crop": "854:380:0:0"
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep16/09-raw.mp4",
+      "vstart": 0,
+      "duration": 4.3,
+      "lines": [
+        [
+          "jian",
+          "咬伤过救我的人。她叫阿宁。",
+          "I bit the person who saved me. Her name was A-Ning.",
+          0,
+          3.24
+        ]
+      ],
+      "crop": "854:380:0:0"
+    }
+  ],
+  "sounds": [
+    {
+      "type": "heartbeat",
+      "time": 39.5
+    },
+    {
+      "type": "heartbeat",
+      "time": 40.6
+    }
+  ]
+}

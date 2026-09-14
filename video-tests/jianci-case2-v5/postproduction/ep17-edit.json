@@ -1,0 +1,190 @@
+{
+  "segments": [
+    {
+      "video": "/tmp/jianci-production/raw/ep17-repair/01-raw.mp4",
+      "vstart": 0,
+      "duration": 7.15,
+      "lines": [
+        [
+          "han",
+          "林浅，你早知道？",
+          "Lin Qian, did you know?",
+          0,
+          2.26
+        ],
+        [
+          "lin",
+          "见过一次。我没报告，是我判断错了。",
+          "I saw it once. I didn't report it. That was my mistake.",
+          2.84,
+          6.88
+        ]
+      ],
+      "prefilter": "delogo=x=545:y=255:w=130:h=75",
+      "label": "次日 · 工作安排与情况说明"
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep17-repair/02-raw.mp4",
+      "vstart": 0,
+      "duration": 7.35,
+      "lines": [
+        [
+          "han",
+          "如实记录。检刺暂停现场工作，安排评估。案子由许未接着复核。",
+          "Record it accurately. Jian Ci is off field duty pending assessment. Xu Wei will continue the case review.",
+          0.02,
+          7.06
+        ]
+      ],
+      "prefilter": "delogo=x=545:y=255:w=130:h=75"
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep17/03-raw.mp4",
+      "vstart": 0,
+      "duration": 5.68,
+      "lines": [
+        [
+          "caller",
+          "她说话含含糊糊的，站不稳。",
+          "Her speech is slurred. She is unsteady.",
+          0.18,
+          2.78
+        ],
+        [
+          "caller",
+          "对，还站着……",
+          "Yes, she is still standing...",
+          3.74,
+          5.68
+        ]
+      ],
+      "telephone": true,
+      "label": "9月3日 · 急救通话节选",
+      "label_duration": 5.68
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep17/03-raw.mp4",
+      "vstart": 8.2,
+      "duration": 1.4,
+      "lines": [
+        [
+          "caller",
+          "她倒了！",
+          "She has fallen!",
+          0.14,
+          1.16
+        ]
+      ],
+      "telephone": true,
+      "label": "同一通话 · 随后",
+      "label_duration": 1.4
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep17/04-raw.mp4",
+      "vstart": 0,
+      "duration": 9.0,
+      "lines": [
+        [
+          "zhou",
+          "通话、画面和证人说法对上了。异常在跌倒之前。",
+          "The call, footage, and witness account align. The symptoms came before the fall.",
+          0.02,
+          5.5
+        ],
+        [
+          "lin",
+          "把这一段交许未，一起复核。",
+          "Send this to Xu Wei for the combined review.",
+          6.6,
+          8.72
+        ]
+      ],
+      "crop": "854:380:0:0",
+      "label": "通话、现场影像与证人信息核对"
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep17/05-raw.mp4",
+      "vstart": 0,
+      "duration": 11.1,
+      "lines": [
+        [
+          "xu",
+          "这些表现与后来的检查相符。病程已经在跌倒前开始。",
+          "Those symptoms fit the subsequent findings. The clinical course had begun before the fall.",
+          0.02,
+          5.82
+        ],
+        [
+          "xu",
+          "不能把这次发病，全归到后来那一跤。",
+          "The later fall cannot account for the whole illness.",
+          7.18,
+          10.8
+        ]
+      ],
+      "label": "结合住院检查与原始病理复核"
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep17-repair/06-raw.mp4",
+      "vstart": 0,
+      "duration": 12.55,
+      "lines": [
+        [
+          "xu",
+          "综合现场、病程和病理，支持那次颈部暴力造成血管损伤，继而导致致命脑梗死。",
+          "Taken together, the circumstances, clinical course, and pathology support the neck assault causing vascular injury and a fatal cerebral infarction.",
+          0.11,
+          8.79
+        ],
+        [
+          "han",
+          "依据逐项写清，随案移送。",
+          "Set out each basis clearly and submit it with the case.",
+          10.01,
+          12.25
+        ]
+      ],
+      "label": "补充调查及综合复核后",
+      "label_duration": 3.2
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep17/07-raw.mp4",
+      "vstart": 0,
+      "duration": 8.4,
+      "lines": [
+        [
+          "mother",
+          "她说疼，我还叫她睡一觉就好。",
+          "She said it hurt. I told her to sleep it off.",
+          0,
+          3.68
+        ],
+        [
+          "lin",
+          "您不知道她经历了什么。这不是您的错。",
+          "You didn't know what had happened to her. This wasn't your fault.",
+          4.5,
+          8.08
+        ]
+      ],
+      "crop": "600:360:0:0",
+      "label": "接待室 · 告知进展"
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep17/08-raw.mp4",
+      "vstart": 0,
+      "duration": 3.15,
+      "lines": [
+        [
+          "zhou",
+          "原始资料、提取记录，都在。",
+          "The original material and extraction records are all included.",
+          0,
+          2.78
+        ]
+      ],
+      "crop": "854:380:0:0"
+    }
+  ],
+  "overlays": []
+}

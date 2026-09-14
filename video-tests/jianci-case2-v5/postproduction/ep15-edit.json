@@ -1,0 +1,222 @@
+{
+  "segments": [
+    {
+      "video": "/tmp/jianci-production/raw/ep15-repair/01-raw.mp4",
+      "vstart": 0,
+      "duration": 8.95,
+      "lines": [
+        [
+          "lin",
+          "二号，她原本打算做什么？",
+          "What had she planned to do on the second?",
+          0,
+          2.6
+        ],
+        [
+          "mother",
+          "找承安拿东西。她想回来住几天。",
+          "Collect some things from Cheng'an. She wanted to stay with me for a while.",
+          3.84,
+          8.66
+        ]
+      ],
+      "crop": "854:380:0:0",
+      "label": "接待室 · 补充询问"
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep15-repair/02-raw.mp4",
+      "vstart": 0,
+      "duration": 8.2,
+      "lines": [
+        [
+          "lin",
+          "您知道她为什么想回来吗？",
+          "Did she tell you why?",
+          0,
+          1.96
+        ],
+        [
+          "mother",
+          "她说，见面再讲。",
+          "She said she would tell me when we met.",
+          3.9,
+          7.94
+        ]
+      ],
+      "crop": "854:380:0:0"
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep15/03-raw.mp4",
+      "vstart": 0,
+      "duration": 4.98,
+      "lines": [
+        [
+          "lu",
+          "来过。拿了东西就走了。",
+          "She came by, collected her things, and left.",
+          0.18,
+          2.66
+        ],
+        [
+          "lin",
+          "你们有没有争执？",
+          "Did you argue?",
+          3.56,
+          4.74
+        ]
+      ],
+      "label": "修复店 · 核实行踪"
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep15/04-raw.mp4",
+      "vstart": 0,
+      "duration": 3.15,
+      "lines": [
+        [
+          "lu",
+          "她想搬走。我劝了几句。",
+          "She wanted to move out. I tried to talk her out of it.",
+          0.02,
+          2.82
+        ]
+      ]
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep15-repair/05-raw.mp4",
+      "vstart": 0,
+      "duration": 2.55,
+      "lines": [
+        [
+          "zhou",
+          "这个镜头能拍到入口。",
+          "That camera covers the entrance.",
+          0,
+          2
+        ]
+      ],
+      "label": "邻近摄像头 · 核实拍摄范围"
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep15-repair/05-raw.mp4",
+      "vstart": 3.05,
+      "duration": 3.2,
+      "lines": [
+        [
+          "zhou",
+          "先看原机。",
+          "Check the original recorder first.",
+          0.15,
+          1.09
+        ],
+        [
+          "lin",
+          "把前后时段一起保全。",
+          "Preserve the footage before and after her visit too.",
+          1.51,
+          2.89
+        ]
+      ],
+      "crop": "350:198:0:35"
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep15/06-raw.mp4",
+      "vstart": 0,
+      "duration": 10.7,
+      "lines": [
+        [
+          "xu",
+          "病变能对上。可切片不能告诉我们，几点、谁动的手。",
+          "The findings correspond. But a slide can't tell us the hour, or who caused the injury.",
+          0.02,
+          6.22
+        ],
+        [
+          "jian",
+          "生前记录和现场经过，都得放进来。",
+          "We need her medical timeline and the circumstances too.",
+          7,
+          10.42
+        ]
+      ],
+      "label": "法医复核 · 仍需现场与生前记录"
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep15/07-raw.mp4",
+      "vstart": 0,
+      "duration": 6.55,
+      "lines": [
+        [
+          "mother",
+          "她挑的围巾。边上脱线了，是我补的。",
+          "She chose that scarf. I mended the frayed edge.",
+          0.08,
+          5.14
+        ],
+        [
+          "lin",
+          "检刺？",
+          "Jian Ci?",
+          5.14,
+          6.3
+        ]
+      ],
+      "label": "接待室 · 稍后"
+    },
+    {
+      "video": "/tmp/jianci-production/old/e13/08-raw.mp4",
+      "vstart": 8,
+      "duration": 1.6,
+      "mute": true,
+      "crop": "854:328:0:74",
+      "lines": []
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep15/08-raw.mp4",
+      "vstart": 0,
+      "duration": 4.4,
+      "lines": [
+        [
+          "jian",
+          "嗯，你继续。",
+          "Yes. Go on.",
+          1.3,
+          3.16
+        ]
+      ],
+      "crop": "854:380:0:0"
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep15/08-raw.mp4",
+      "vstart": 8.9,
+      "duration": 1.05,
+      "lines": [],
+      "mute": true,
+      "crop": "410:230:390:250"
+    },
+    {
+      "video": "/tmp/jianci-production/raw/ep15/09-raw.mp4",
+      "vstart": 0,
+      "duration": 3.35,
+      "lines": [
+        [
+          "zhou",
+          "时间核对了。她不是拿完东西就走。",
+          "The timing is verified. She didn't simply collect her things and leave.",
+          0.32,
+          3.04
+        ]
+      ],
+      "label": "原录像核查"
+    }
+  ],
+  "sounds": [
+    {
+      "type": "heartbeat",
+      "time": 50.129999999999995
+    },
+    {
+      "type": "heartbeat",
+      "time": 51.029999999999994
+    }
+  ]
+}
