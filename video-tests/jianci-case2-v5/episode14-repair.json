@@ -1,0 +1,106 @@
+{
+  "episode": 14,
+  "title": "那条没删的消息",
+  "model": "wan3.0-video",
+  "resolution": "480P",
+  "max_output_seconds": 40,
+  "estimate_usd": 1.176,
+  "clips": [
+    {
+      "id": "01",
+      "duration": 10,
+      "roles": [
+        "mother",
+        "lin"
+      ],
+      "scene": "Interview room. Mother on LEFT seated facing Lin OFFSCREEN right. 0-5s stable mother close-up speaking;5-10s cut to her still hands on bag, NO mouth in frame, Lin is offscreen voice. Nobody stands.",
+      "lines": [
+        [
+          "mother",
+          "她站在床边，一直摸这里。",
+          "She stood beside my bed, touching here."
+        ],
+        [
+          "lin OFFSCREEN",
+          "知微活着的时候，也说过脖子疼吗？",
+          "Did Zhiwei mention neck pain while alive?"
+        ]
+      ],
+      "refs": [
+        "mother"
+      ],
+      "prompt": "Hand drawn 2D anime, cool neutral colors, 16:9. Normal conversational Mandarin audio, no music. Clean picture without any subtitles, text or lettering. Only one on-screen speaker. Lip motion matches her audible words and stops between lines. Match the referenced mature woman exactly: gray-black hair tied in a low bun, gray collared blouse, navy cardigan. She stays SEATED holding the brown cloth bag on her lap in a quiet interview room, facing right. Only this woman is visible. 0-4.5 seconds she says: “她站在床边，一直摸这里。” 4.5-10 seconds camera cuts to her folded hands on the bag, no face visible. A DIFFERENT younger female interviewer, entirely off camera, says: “知微活着的时候，也说过脖子疼吗？” Natural pauses, no other words."
+    },
+    {
+      "id": "02",
+      "duration": 10,
+      "roles": [
+        "mother",
+        "lin"
+      ],
+      "scene": "Same room and seated mother LEFT, Lin OFFSCREEN right.0-5s mother close-up.5-10s hands on brown bag, no visible mouth, Lin OFFSCREEN. Low bun must stay tied.",
+      "lines": [
+        [
+          "mother",
+          "说过。我还以为是落枕。",
+          "Yes. I thought she had slept awkwardly."
+        ],
+        [
+          "lin OFFSCREEN",
+          "她什么时候说的？还有消息吗？",
+          "When did she say it? Do you still have the message?"
+        ]
+      ],
+      "refs": [
+        "mother"
+      ],
+      "prompt": "Hand drawn 2D anime, cool neutral colors, 16:9. Normal conversational Mandarin audio, no music. Clean picture without any subtitles, text or lettering. Only one on-screen speaker. Lip motion matches her audible words and stops between lines. Match the referenced mature woman exactly: gray-black hair tied in a low bun, gray collared blouse, navy cardigan. She stays SEATED holding the brown cloth bag on her lap in a quiet interview room, facing right. Only this woman is visible. 0-4.5 seconds she says: “说过。我还以为是落枕。” 4.5-10 seconds camera cuts to her folded hands on the bag, no face visible. A DIFFERENT younger female interviewer, entirely off camera, says: “她什么时候说的？还有消息吗？” Natural pauses, no other words."
+    },
+    {
+      "id": "04",
+      "duration": 10,
+      "roles": [
+        "xu"
+      ],
+      "scene": "Forensic records room. Xu seated left faces Jian OFFSCREEN right.0-5.1s Xu single close-up.5.1-10s cut to CLOSED plain file folder on desk, no visible people, Jian OFFSCREEN. NO bodies, blood or injuries in this shot.",
+      "lines": [
+        [
+          "xu",
+          "首次尸检发现颈动脉夹层和血栓，脑部也有梗死。",
+          "The first autopsy found carotid dissection, a clot and cerebral infarction."
+        ]
+      ],
+      "refs": [
+        "xu"
+      ],
+      "prompt": "Hand drawn 2D anime, cool neutral colors, 16:9. Normal conversational Mandarin audio, no music. Clean picture without any subtitles, text or lettering. Only one on-screen speaker. Lip motion matches her audible words and stops between lines. Match ONLY the referenced woman: brown ponytail, olive-green shirt, white laboratory coat, no glasses. No other people anywhere. She sits alone in a records office. Stable medium close-up, hands below frame, no cuts. She says clearly from 0.5 to 8.5 seconds: “首次尸检发现颈动脉夹层和血栓，脑部也有梗死。” Then closes her mouth. Blank closed folder on desk. The entire lower picture is clean, without subtitles."
+    },
+    {
+      "id": "06",
+      "duration": 10,
+      "roles": [],
+      "scene": "A respectful earlier forensic examination in a clean clinical room. Wide shot of a FULLY SHEET-COVERED human form on examination table, NO exposed body parts, no blood or wound. Two adult forensic staff with backs to camera in white coats document work, then cut to hands sealing an opaque sample container. No faces or visible mouths. Jian Ci calm adult MALE offscreen voice from present day explains records. No tools cutting flesh, no body movement. This is an earlier examination, not a current exhumation.",
+      "lines": [
+        [
+          "jian OFFSCREEN",
+          "病变找到了。它怎么来的，还要把生前经过查清。",
+          "We found the damage. To establish its cause, we need her earlier history."
+        ]
+      ],
+      "refs": [],
+      "prompt": "Ten second hand-drawn 2D anime clinical flashback, respectful non-graphic forensic examination room. One continuous wide side view. Two adult laboratory doctors seen from behind wearing white coats and BLACK medical examination GLOVES on BOTH hands. On the table is an adult WOMAN entirely underneath an opaque white sheet, from head to toes. Absolutely no face, skin, feet or torso exposed. The sheet remains still and closed throughout. The doctors review a plain clipboard beside the table. No cutting, no wounds, no liquids. Clean clinical blue lighting. No close-ups, no shot transitions, no lettering or subtitles. Calm adult male offscreen narration says exactly: “病变找到了。它怎么来的，还要把生前经过查清。” No music and no other words. The male voice is narration only, no speaking face visible."
+    }
+  ],
+  "known_refs": {
+    "mother": {
+      "task_id": "3c87bcb8-faa3-4cdc-8a15-d0153e5d0d2a",
+      "seconds": 2,
+      "crop": "854:380:0:0"
+    },
+    "xu": {
+      "task_id": "adbd8ca6-7113-4dda-ae25-0e8ec1fea84f",
+      "seconds": 2,
+      "crop": "854:350:0:0"
+    }
+  }
+}

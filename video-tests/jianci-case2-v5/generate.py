@@ -2,8 +2,8 @@ import base64,json,os,re,subprocess,time,urllib.request,urllib.parse,urllib.erro
 from pathlib import Path
 ROOT=Path(__file__).parent
 EP=int(os.environ.get('EPISODE','14'))
-CFG=json.loads((ROOT/f'episode{EP}.json').read_text())
-OUT=Path(f'output/jianci-case2-v5/ep{EP}')
+CFG=json.loads((ROOT/os.environ.get('CONFIG_FILE',f'episode{EP}.json')).read_text())
+OUT=Path(f'output/jianci-case2-v5/ep{EP}'+os.environ.get('BATCH',''))
 HOST='https://api.xrtoken.ai'
 def main():
  assert CFG['resolution']=='480P' and sum(c['duration'] for c in CFG['clips'])<=CFG['max_output_seconds']
