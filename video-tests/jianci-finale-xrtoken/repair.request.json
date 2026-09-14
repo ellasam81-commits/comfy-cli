@@ -1,0 +1,10 @@
+{
+  "requested_at": "2026-09-15T06:49:00+08:00",
+  "episodes": [27, 28],
+  "scope": "targeted_missing_clips_only",
+  "episode_27": {"reuse": ["01","02","03","04"], "regenerate_once": ["05"]},
+  "episode_28": {"reuse": ["01"], "regenerate_once": ["02","03","04","05"]},
+  "resolution": "480P",
+  "provider": "XRToken",
+  "model": "wan3.0-video"
+}
