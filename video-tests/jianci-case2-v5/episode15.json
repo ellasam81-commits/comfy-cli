@@ -1,0 +1,266 @@
+{
+  "episode": 15,
+  "title": "她说要回家",
+  "model": "wan3.0-video",
+  "resolution": "480P",
+  "max_output_seconds": 93,
+  "clips": [
+    {
+      "id": "01",
+      "duration": 10,
+      "scene_number": 1,
+      "part": 1,
+      "roles": [
+        "mother",
+        "lin"
+      ],
+      "scene": "Lin, adult female with short black bob and navy police uniform, seated RIGHT looking left in interview room. Only Lin appears. Mother remains off camera.",
+      "lines": [
+        [
+          "lin",
+          "二号，她原本打算做什么？",
+          "What had she planned to do on the second?"
+        ],
+        [
+          "mother",
+          "找承安拿东西。她想回来住几天。",
+          "Collect some things from Cheng'an. She wanted to stay with me for a while."
+        ]
+      ],
+      "refs": [
+        "lin"
+      ],
+      "prompt": "10 second shot. Cinematic hand-drawn 2D anime, detailed faces, cool neutral lighting. Clean image without ANY subtitles, text, letters or logos. Mandarin dialogue only, no music. Match the supplied character reference exactly. Mouth moves ONLY during that character own audible words, closed at all other times. No extra speech. Stable identity and seated position throughout. Lin, adult female with short black bob and navy police uniform, seated RIGHT looking left in interview room. Only Lin appears. Mother remains off camera. At 0.4 seconds lin ON CAMERA says exactly: “二号，她原本打算做什么？”. At 4.0 seconds mother OFF CAMERA, no visible mouth says exactly: “找承安拿东西。她想回来住几天。”. No invented written words anywhere. Finish all speech before end."
+    },
+    {
+      "id": "02",
+      "duration": 10,
+      "scene_number": 1,
+      "part": 2,
+      "roles": [
+        "mother",
+        "lin"
+      ],
+      "scene": "Same seated female Lin RIGHT looking left. Only Lin appears, mother is off camera.",
+      "lines": [
+        [
+          "lin",
+          "您知道她为什么想回来吗？",
+          "Did she tell you why?"
+        ],
+        [
+          "mother",
+          "她说，见面再讲。",
+          "She said she would tell me when we met."
+        ]
+      ],
+      "refs": [
+        "lin"
+      ],
+      "prompt": "10 second shot. Cinematic hand-drawn 2D anime, detailed faces, cool neutral lighting. Clean image without ANY subtitles, text, letters or logos. Mandarin dialogue only, no music. Match the supplied character reference exactly. Mouth moves ONLY during that character own audible words, closed at all other times. No extra speech. Stable identity and seated position throughout. Same seated female Lin RIGHT looking left. Only Lin appears, mother is off camera. At 0.4 seconds lin ON CAMERA says exactly: “您知道她为什么想回来吗？”. At 4.0 seconds mother OFF CAMERA, no visible mouth says exactly: “她说，见面再讲。”. No invented written words anywhere. Finish all speech before end."
+    },
+    {
+      "id": "03",
+      "duration": 10,
+      "scene_number": 2,
+      "part": 1,
+      "roles": [
+        "lu",
+        "lin"
+      ],
+      "scene": "Lu Chengan, adult Chinese man34, rectangular face, neat short black hair, gray-green shirt, brown jacket, NO glasses, seated LEFT facing right in his furniture repair shop. Only Lu appears. Plain wooden table in foreground, tools remain on distant shelf. Female interviewer off camera.",
+      "lines": [
+        [
+          "lu",
+          "来过。拿了东西就走了。",
+          "She came by, collected her things, and left."
+        ],
+        [
+          "lin",
+          "你们有没有争执？",
+          "Did you argue?"
+        ]
+      ],
+      "refs": [],
+      "prompt": "10 second shot. Cinematic hand-drawn 2D anime, detailed faces, cool neutral lighting. Clean image without ANY subtitles, text, letters or logos. Mandarin dialogue only, no music. Match the supplied character reference exactly. Mouth moves ONLY during that character own audible words, closed at all other times. No extra speech. Stable identity and seated position throughout. Lu Chengan, adult Chinese man34, rectangular face, neat short black hair, gray-green shirt, brown jacket, NO glasses, seated LEFT facing right in his furniture repair shop. Only Lu appears. Plain wooden table in foreground, tools remain on distant shelf. Female interviewer off camera. At 0.4 seconds lu ON CAMERA says exactly: “来过。拿了东西就走了。”. At 3.7 seconds lin OFF CAMERA, no visible mouth says exactly: “你们有没有争执？”. No invented written words anywhere. Finish all speech before end."
+    },
+    {
+      "id": "04",
+      "duration": 10,
+      "scene_number": 2,
+      "part": 2,
+      "roles": [
+        "lu",
+        "lin"
+      ],
+      "scene": "Exactly same adult man Lu as supplied reference, brown jacket and gray-green shirt, remains seated LEFT in same furniture repair shop, facing right. Only Lu appears.",
+      "lines": [
+        [
+          "lu",
+          "她想搬走。我劝了几句。",
+          "She wanted to move out. I tried to talk her out of it."
+        ]
+      ],
+      "refs": [
+        "clip:03"
+      ],
+      "prompt": "10 second shot. Cinematic hand-drawn 2D anime, detailed faces, cool neutral lighting. Clean image without ANY subtitles, text, letters or logos. Mandarin dialogue only, no music. Match the supplied character reference exactly. Mouth moves ONLY during that character own audible words, closed at all other times. No extra speech. Stable identity and seated position throughout. Exactly same adult man Lu as supplied reference, brown jacket and gray-green shirt, remains seated LEFT in same furniture repair shop, facing right. Only Lu appears. At 0.4 seconds lu ON CAMERA says exactly: “她想搬走。我劝了几句。”. No invented written words anywhere. Finish all speech before end."
+    },
+    {
+      "id": "05",
+      "duration": 10,
+      "scene_number": 3,
+      "part": 1,
+      "roles": [
+        "zhou",
+        "lin"
+      ],
+      "scene": "Zhou, adult man with silver rectangular glasses, right-ear hearing aid and dark gray jacket, stands to RIGHT of a furniture shop entrance. Neighbor doorway with visible fixed security camera behind him pointing toward the shop. Only Zhou appears, female interviewer off camera.",
+      "lines": [
+        [
+          "zhou",
+          "这个镜头能拍到入口。先看原机。",
+          "That camera covers the entrance. We'll check the original recorder."
+        ],
+        [
+          "lin",
+          "把前后时段一起保全。",
+          "Preserve the footage before and after her visit too."
+        ]
+      ],
+      "refs": [
+        "zhou"
+      ],
+      "prompt": "10 second shot. Cinematic hand-drawn 2D anime, detailed faces, cool neutral lighting. Clean image without ANY subtitles, text, letters or logos. Mandarin dialogue only, no music. Match the supplied character reference exactly. Mouth moves ONLY during that character own audible words, closed at all other times. No extra speech. Stable identity and seated position throughout. Zhou, adult man with silver rectangular glasses, right-ear hearing aid and dark gray jacket, stands to RIGHT of a furniture shop entrance. Neighbor doorway with visible fixed security camera behind him pointing toward the shop. Only Zhou appears, female interviewer off camera. At 0.4 seconds zhou ON CAMERA says exactly: “这个镜头能拍到入口。先看原机。”. At 4.8 seconds lin OFF CAMERA, no visible mouth says exactly: “把前后时段一起保全。”. No invented written words anywhere. Finish all speech before end."
+    },
+    {
+      "id": "06",
+      "duration": 13,
+      "scene_number": 4,
+      "part": 1,
+      "roles": [
+        "xu",
+        "jian"
+      ],
+      "scene": "Xu, adult woman with brown ponytail, olive-green shirt and white coat, black gloves, seated LEFT in forensic records laboratory. One microscope and closed folder on desk. Only Xu appears. A male colleague speaks OFF camera.",
+      "lines": [
+        [
+          "xu",
+          "病变能对上。可切片不能告诉我们，几点、谁动的手。",
+          "The findings correspond. But a slide can't tell us the hour, or who caused the injury."
+        ],
+        [
+          "jian",
+          "生前记录和现场经过，都得放进来。",
+          "We need her medical timeline and the circumstances too."
+        ]
+      ],
+      "refs": [
+        "xu"
+      ],
+      "prompt": "13 second shot. Cinematic hand-drawn 2D anime, detailed faces, cool neutral lighting. Clean image without ANY subtitles, text, letters or logos. Mandarin dialogue only, no music. Match the supplied character reference exactly. Mouth moves ONLY during that character own audible words, closed at all other times. No extra speech. Stable identity and seated position throughout. Xu, adult woman with brown ponytail, olive-green shirt and white coat, black gloves, seated LEFT in forensic records laboratory. One microscope and closed folder on desk. Only Xu appears. A male colleague speaks OFF camera. At 0.4 seconds xu ON CAMERA says exactly: “病变能对上。可切片不能告诉我们，几点、谁动的手。”. At 7.2 seconds jian OFF CAMERA, no visible mouth says exactly: “生前记录和现场经过，都得放进来。”. No invented written words anywhere. Finish all speech before end."
+    },
+    {
+      "id": "07",
+      "duration": 10,
+      "scene_number": 5,
+      "part": 1,
+      "roles": [
+        "mother",
+        "jian",
+        "lin",
+        "zhou"
+      ],
+      "scene": "Mother, gray-black LOW BUN, navy cardigan and gray collar, seated LEFT with brown cloth bag on lap. She holds ONE small photo facing herself so we see only its blank BACK. She talks toward right, then glances toward the doorway. Only mother appears. Young male reply from off camera.",
+      "lines": [
+        [
+          "mother",
+          "她挑的围巾。边上脱线了，是我补的。",
+          "She chose that scarf. I mended the frayed edge."
+        ],
+        [
+          "lin",
+          "检刺？",
+          "Jian Ci?"
+        ]
+      ],
+      "refs": [
+        "mother"
+      ],
+      "prompt": "10 second shot. Cinematic hand-drawn 2D anime, detailed faces, cool neutral lighting. Clean image without ANY subtitles, text, letters or logos. Mandarin dialogue only, no music. Match the supplied character reference exactly. Mouth moves ONLY during that character own audible words, closed at all other times. No extra speech. Stable identity and seated position throughout. Mother, gray-black LOW BUN, navy cardigan and gray collar, seated LEFT with brown cloth bag on lap. She holds ONE small photo facing herself so we see only its blank BACK. She talks toward right, then glances toward the doorway. Only mother appears. Young male reply from off camera. At 0.4 seconds mother ON CAMERA says exactly: “她挑的围巾。边上脱线了，是我补的。”. At 5.3 seconds lin OFF CAMERA, no visible mouth says exactly: “检刺？”. No invented written words anywhere. Finish all speech before end."
+    },
+    {
+      "id": "08",
+      "duration": 10,
+      "scene_number": 5,
+      "part": 2,
+      "roles": [
+        "mother",
+        "jian",
+        "lin",
+        "zhou"
+      ],
+      "scene": "Jian, pale young adult man, tousled black hair, black turtleneck white coat, NO glasses. Seated RIGHT looking left. He briefly presses his lips together, flinches at a faint noise from hallway then slowly pulls his chair back ten centimeters, feet stay on floor. After speaking he looks at his stitched shirt cuff. Tiny two-frame subjective memory of needle and dark cloth allowed, no other person face.",
+      "lines": [
+        [
+          "jian",
+          "嗯，你继续。",
+          "Yes. Go on."
+        ]
+      ],
+      "refs": [
+        "jian"
+      ],
+      "prompt": "10 second shot. Cinematic hand-drawn 2D anime, detailed faces, cool neutral lighting. Clean image without ANY subtitles, text, letters or logos. Mandarin dialogue only, no music. Match the supplied character reference exactly. Mouth moves ONLY during that character own audible words, closed at all other times. No extra speech. Stable identity and seated position throughout. Jian, pale young adult man, tousled black hair, black turtleneck white coat, NO glasses. Seated RIGHT looking left. He briefly presses his lips together, flinches at a faint noise from hallway then slowly pulls his chair back ten centimeters, feet stay on floor. After speaking he looks at his stitched shirt cuff. Tiny two-frame subjective memory of needle and dark cloth allowed, no other person face. At 0.4 seconds jian ON CAMERA says exactly: “嗯，你继续。”. No invented written words anywhere. Finish all speech before end."
+    },
+    {
+      "id": "09",
+      "duration": 10,
+      "scene_number": 6,
+      "part": 1,
+      "roles": [
+        "zhou"
+      ],
+      "scene": "Zhou with rectangular glasses, right ear hearing aid and dark gray jacket, seated LEFT at records room desk. Computer screen faces away from camera. He looks from screen toward right and speaks. Only Zhou appears.",
+      "lines": [
+        [
+          "zhou",
+          "时间核对了。她不是拿完东西就走。",
+          "The timing is verified. She didn't simply collect her things and leave."
+        ]
+      ],
+      "refs": [
+        "zhou"
+      ],
+      "prompt": "10 second shot. Cinematic hand-drawn 2D anime, detailed faces, cool neutral lighting. Clean image without ANY subtitles, text, letters or logos. Mandarin dialogue only, no music. Match the supplied character reference exactly. Mouth moves ONLY during that character own audible words, closed at all other times. No extra speech. Stable identity and seated position throughout. Zhou with rectangular glasses, right ear hearing aid and dark gray jacket, seated LEFT at records room desk. Computer screen faces away from camera. He looks from screen toward right and speaks. Only Zhou appears. At 0.4 seconds zhou ON CAMERA says exactly: “时间核对了。她不是拿完东西就走。”. No invented written words anywhere. Finish all speech before end."
+    }
+  ],
+  "known_refs": {
+    "mother": {
+      "task_id": "3c87bcb8-faa3-4cdc-8a15-d0153e5d0d2a",
+      "seconds": 2,
+      "crop": "854:380:0:0"
+    },
+    "xu": {
+      "task_id": "adbd8ca6-7113-4dda-ae25-0e8ec1fea84f",
+      "seconds": 2,
+      "crop": "854:350:0:0"
+    },
+    "zhou": {
+      "task_id": "7099e7dd-df2b-4680-8efb-23d280c8a990",
+      "seconds": 2,
+      "crop": "854:380:0:0"
+    },
+    "jian": {
+      "task_id": "55668a55-c00d-4897-a2e8-4948de3882e1",
+      "seconds": 2,
+      "crop": "854:328:0:74"
+    },
+    "lin": {
+      "task_id": "55668a55-c00d-4897-a2e8-4948de3882e1",
+      "seconds": 8,
+      "crop": "854:328:0:74"
+    }
+  },
+  "estimate_usd": 2.7342
+}

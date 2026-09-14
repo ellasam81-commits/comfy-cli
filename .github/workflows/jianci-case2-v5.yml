@@ -21,17 +21,17 @@ jobs:
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y -qq ffmpeg
-      - name: Repair four Episode 14 clips once
+      - name: Generate Episode 15 once
         env:
           XRTOKEN: ${{ secrets.XRTOKEN }}
           JIANCI_EXECUTE: '1'
-          EPISODE: '14'
-          CONFIG_FILE: 'episode14-repair.json'
-          BATCH: '-repair'
+          EPISODE: '15'
+          CONFIG_FILE: 'episode15.json'
+          BATCH: ''
         run: python video-tests/jianci-case2-v5/generate.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: jianci-case2-v5-ep14-repair
+          name: jianci-case2-v5-ep15
           path: output/jianci-case2-v5
           retention-days: 14
