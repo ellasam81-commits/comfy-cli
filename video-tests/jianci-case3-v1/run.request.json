@@ -1,1 +1,1 @@
-{"batch":"19-location-repair-20260914","estimate_usd":0.3822}
+{"batch":"final-targeted-repair","episodes":[21,23],"clips":2,"max_seconds":18,"estimate_usd":0.5292,"reason":"retry failed evidence clip once and add causal paper-cut setup","nonce":"20260914-1930"}

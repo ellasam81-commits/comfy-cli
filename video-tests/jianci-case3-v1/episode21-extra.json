@@ -1,0 +1,29 @@
+{
+  "episode": 21,
+  "title": "楼上没有脚步",
+  "model": "wan3.0-video",
+  "resolution": "480P",
+  "max_output_seconds": 5,
+  "clips": [
+    {
+      "id": "08",
+      "duration": 5,
+      "scene_number": 5,
+      "part": 0,
+      "primary": "broll",
+      "scene": "Closeup paper cut on male staff hand in police corridor, no face.",
+      "refs": [],
+      "label": "同日·警局走廊",
+      "lines": [
+        [
+          "staff",
+          "纸划了一下，没事。",
+          "Just a paper cut. I’m fine."
+        ]
+      ],
+      "prompt": "5 seconds. Detailed cinematic 2D ANIME, blue-gray daylight police office corridor. Extreme close-up of adult male staff hands ONLY, pale gray shirt sleeves. His right hand holds a plain paper folder, edge accidentally brushes LEFT index finger. He pulls left index finger back, tiny pinpoint red mark only, no gore. Male adult OFF CAMERA says in Mandarin at 0.5 seconds exactly “纸划了一下，没事。” Natural foley paper rustle. No visible face, no teeth, no other people, no text or captions, no music. Five fingers per hand, keep folder stable, do not change hands. End after line with no more words."
+    }
+  ],
+  "known_refs": {},
+  "estimate_usd": 0.147
+}

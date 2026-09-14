@@ -1,0 +1,42 @@
+{
+  "episode": 23,
+  "title": "添煤的人",
+  "model": "wan3.0-video",
+  "resolution": "480P",
+  "max_output_seconds": 13,
+  "clips": [
+    {
+      "id": "02",
+      "duration": 13,
+      "scene_number": 1,
+      "part": 2,
+      "primary": "xu",
+      "scene": "Xu alone seated in blue-gray briefing room, white coat green shirt brown ponytail. Han OFF camera. Only Xu visible.",
+      "lines": [
+        [
+          "xu",
+          "死因、血迹和现场能互相对应。不是一封消息就能证明整晚发生了什么。",
+          "The cause of death, blood and scene align. One message cannot establish the whole night."
+        ],
+        [
+          "han",
+          "把支持和不能确定的，都写进去。",
+          "Document both what is supported and what remains uncertain."
+        ]
+      ],
+      "refs": [
+        "xu"
+      ],
+      "prompt": "13 seconds. Detailed cinematic 2D anime. Reference FACE identity only. Xu adult woman brown ponytail, white coat green shirt. Alone seated at meeting table in blue-gray police briefing room, NOT autopsy lab. No other people, no text, no music. At 0.2s Xu ON CAMERA says exactly: “死因、血迹和现场能互相对应。不是一封消息就能证明整晚发生了什么。” Then at 7.8s male Han OFF CAMERA says exactly: “把支持和不能确定的，都写进去。” Xu mouth moves ONLY during her own audible words, closed when listening. No extra speech, no invented faces. Fixed clear camera.",
+      "label": "综合证据复核"
+    }
+  ],
+  "known_refs": {
+    "xu": {
+      "task_id": "a8f8000e-6ef7-4714-aa1f-fb1a51f6c90c",
+      "seconds": 1,
+      "crop": "360:300:250:0"
+    }
+  },
+  "estimate_usd": 0.3822
+}
