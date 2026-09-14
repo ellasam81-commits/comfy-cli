@@ -1,0 +1,42 @@
+{
+  "episode": 19,
+  "title": "屋里还暖着",
+  "model": "wan3.0-video",
+  "resolution": "480P",
+  "max_output_seconds": 12,
+  "clips": [
+    {
+      "id": "02",
+      "duration": 12,
+      "scene_number": 2,
+      "part": 1,
+      "primary": "lin",
+      "scene": "Outside plant nursery at cloudy dawn. Lin stands LEFT outside police tape facing RIGHT. Behind her ONE single-storey office with attic, WEST exterior maintenance stairs visible on left, boiler flue EAST right, nursery beds NORTH behind. No bodies visible.",
+      "lines": [
+        [
+          "lin",
+          "送货的发现两个人倒在里面。急救人员确认后，已经保护现场。",
+          "A delivery worker found two people down inside. After the medics checked, the scene was secured."
+        ],
+        [
+          "han",
+          "顾云？",
+          "Gu Yun?"
+        ]
+      ],
+      "refs": [
+        "lin"
+      ],
+      "prompt": "12 seconds. Cinematic detailed hand-drawn 2D ANIME, cool blue-gray natural light, clear faces, realistic proportions. NO live action, NO 3D. Clean frame: NO subtitles, captions, writing, logos, music. Mandarin natural speech, precise mouth movement during OWN audible words only. Only specified visible people; OFF camera voices NEVER add another face or animate visible listener mouth. NO invented extra words. Reference images for FACE IDENTITY ONLY; replace clothing and room as explicitly described. Lin: adult woman, chin-length straight BLACK BOB, navy police uniform, empty hands, NO radio. Outside plant nursery at cloudy dawn. Lin stands LEFT outside police tape facing RIGHT. Behind her ONE single-storey office with attic, WEST exterior maintenance stairs visible on left, boiler flue EAST right, nursery beds NORTH behind. No bodies visible. At 0.35s lin ON CAMERA says exactly: “送货的发现两个人倒在里面。急救人员确认后，已经保护现场。”. At 6.85s han OFF CAMERA says exactly: “顾云？”. Finish all quoted speech then absolute vocal silence. Continuous natural motion, no duplicate gesture, no morphing, no dissolve, no teleport. No phone/radio gesture unless explicitly required.",
+      "label": "苗圃·已保护现场"
+    }
+  ],
+  "known_refs": {
+    "lin": {
+      "task_id": "1af84fc1-63a2-4afc-bb82-6e79a07dcd4e",
+      "seconds": 1,
+      "crop": "280:300:300:80"
+    }
+  },
+  "estimate_usd": 0.3528
+}

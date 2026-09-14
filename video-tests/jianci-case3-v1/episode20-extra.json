@@ -1,0 +1,37 @@
+{
+  "episode": 20,
+  "title": "谁替她活着",
+  "model": "wan3.0-video",
+  "resolution": "480P",
+  "max_output_seconds": 6,
+  "clips": [
+    {
+      "id": "08",
+      "duration": 6,
+      "scene_number": 5,
+      "part": 2,
+      "primary": "jian",
+      "scene": "Jian seated RIGHT in assessment room with blank blue-gray wall, dark gray jacket black turtleneck. He touches mended cuff, speaks quietly; Xu voice OFF.",
+      "lines": [
+        [
+          "jian",
+          "我最怕补出来的，刚好是我想信的。",
+          "I'm afraid I'll fill the gaps with what I want to believe."
+        ]
+      ],
+      "refs": [
+        "jian"
+      ],
+      "prompt": "6 seconds. Cinematic detailed hand-drawn 2D ANIME, cool blue-gray natural light, clear faces, realistic proportions. NO live action, NO 3D. Clean frame: NO subtitles, captions, writing, logos, music. Mandarin natural speech, precise mouth movement during OWN audible words only. Only specified visible people; OFF camera voices NEVER add another face or animate visible listener mouth. NO invented extra words. Reference images for FACE IDENTITY ONLY; replace clothing and room as explicitly described. Jian: pale young adult man, tousled black hair, NO glasses, BLACK TURTLENECK and DARK GRAY CASUAL JACKET, never white coat while suspended. Jian seated RIGHT in assessment room with blank blue-gray wall, dark gray jacket black turtleneck. He touches mended cuff, speaks quietly; Xu voice OFF. At 0.35s jian ON CAMERA says exactly: “我最怕补出来的，刚好是我想信的。”. Finish all quoted speech then absolute vocal silence. Continuous natural motion, no duplicate gesture, no morphing, no dissolve, no teleport. No phone/radio gesture unless explicitly required.",
+      "label": "停工评估·持续记录"
+    }
+  ],
+  "known_refs": {
+    "jian": {
+      "task_id": "66d266b4-3dc5-496d-bb77-f9794f7d7a48",
+      "seconds": 2,
+      "crop": "400:300:240:0"
+    }
+  },
+  "estimate_usd": 0.1764
+}

@@ -14,7 +14,16 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        episode: [19, 20]
+        include:
+          - episode: 24
+            config: episode24.json
+            batch: ''
+          - episode: 19
+            config: episode19-repair.json
+            batch: '-repair'
+          - episode: 20
+            config: episode20-extra.json
+            batch: '-extra' 
     runs-on: ubuntu-latest
     timeout-minutes: 90
     steps:
@@ -32,10 +41,12 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
           JIANCI_EXECUTE: '1'
           EPISODE: ${{ matrix.episode }}
+          CONFIG_FILE: ${{ matrix.config }}
+          BATCH: ${{ matrix.batch }}
         run: python video-tests/jianci-case3-v1/generate.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: jianci-case3-v1-ep${{ matrix.episode }}
+          name: jianci-case3-v1-ep${{ matrix.episode }}${{ matrix.batch }}
           path: output/jianci-case3-v1
           retention-days: 14

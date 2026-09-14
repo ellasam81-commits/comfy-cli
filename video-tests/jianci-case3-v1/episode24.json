@@ -1,0 +1,224 @@
+{
+  "episode": 24,
+  "title": "她写下的名字",
+  "model": "wan3.0-video",
+  "resolution": "480P",
+  "max_output_seconds": 69,
+  "clips": [
+    {
+      "id": "01",
+      "duration": 8,
+      "scene_number": 1,
+      "part": 1,
+      "primary": "han",
+      "scene": "Han alone at police desk with SEALED case folders, hands empty, no readable text. Xu replies OFF. Formal calm handover.",
+      "lines": [
+        [
+          "han",
+          "关键材料、不同说法，都齐了吗？",
+          "Are the key materials and differing accounts all included?"
+        ],
+        [
+          "xu",
+          "已列清。后续有新材料，再补充。",
+          "All listed. We'll supplement them if new material emerges."
+        ]
+      ],
+      "refs": [
+        "han"
+      ],
+      "prompt": "8 seconds. Cinematic detailed hand-drawn 2D ANIME, cool blue-gray natural light, clear faces, realistic proportions. NO live action, NO 3D. Clean frame: NO subtitles, captions, writing, logos, music. Mandarin natural speech, precise mouth movement during OWN audible words only. Only specified visible people; OFF camera voices NEVER add another face or animate visible listener mouth. NO invented extra words. Reference images for FACE IDENTITY ONLY; replace clothing and room as explicitly described. Han: adult man48, gray temples, scar RIGHT eyebrow, navy police uniform, NO glasses, NO radio, no legible badge numbers. Han alone at police desk with SEALED case folders, hands empty, no readable text. Xu replies OFF. Formal calm handover. At 0.35s han ON CAMERA says exactly: “关键材料、不同说法，都齐了吗？”. At 3.76s xu OFF CAMERA says exactly: “已列清。后续有新材料，再补充。”. Finish all quoted speech then absolute vocal silence. Continuous natural motion, no duplicate gesture, no morphing, no dissolve, no teleport. No phone/radio gesture unless explicitly required.",
+      "label": "侦查阶段结束·依法移送"
+    },
+    {
+      "id": "02",
+      "duration": 10,
+      "scene_number": 2,
+      "part": 1,
+      "primary": "zhou",
+      "scene": "Zhou LEFT at separate clean archive desk turns ONE photocopy page, blank to overlay later. Jian replies OFF. No original artifact handling.",
+      "lines": [
+        [
+          "zhou",
+          "这页只能证明有个叫阿宁的人做过夜班。是不是你认识的，还得查。",
+          "This only shows an A-Ning worked nights. We must check if she's the one you knew."
+        ],
+        [
+          "jian",
+          "我知道。",
+          "I know."
+        ]
+      ],
+      "refs": [
+        "zhou"
+      ],
+      "prompt": "10 seconds. Cinematic detailed hand-drawn 2D ANIME, cool blue-gray natural light, clear faces, realistic proportions. NO live action, NO 3D. Clean frame: NO subtitles, captions, writing, logos, music. Mandarin natural speech, precise mouth movement during OWN audible words only. Only specified visible people; OFF camera voices NEVER add another face or animate visible listener mouth. NO invented extra words. Reference images for FACE IDENTITY ONLY; replace clothing and room as explicitly described. Zhou: adult man rectangular SILVER GLASSES, RIGHT-ear hearing aid, dark gray jacket. Zhou LEFT at separate clean archive desk turns ONE photocopy page, blank to overlay later. Jian replies OFF. No original artifact handling. At 0.35s zhou ON CAMERA says exactly: “这页只能证明有个叫阿宁的人做过夜班。是不是你认识的，还得查。”. At 7.33s jian OFF CAMERA says exactly: “我知道。”. Finish all quoted speech then absolute vocal silence. Continuous natural motion, no duplicate gesture, no morphing, no dissolve, no teleport. No phone/radio gesture unless explicitly required.",
+      "label": "另行核实·旧诊所记录"
+    },
+    {
+      "id": "03",
+      "duration": 13,
+      "scene_number": 3,
+      "part": 1,
+      "primary": "jian",
+      "scene": "Jian RIGHT seated at archive desk, dark gray jacket, normal eyes and teeth, recalls uncertain memory. Lin OFF. No fake historical flashback or extra face.",
+      "lines": [
+        [
+          "jian",
+          "我一直记得，是我咬伤她，她躲开了。",
+          "I remembered biting her, and her pulling away."
+        ],
+        [
+          "jian",
+          "现在想起来，她好像在送我走。",
+          "Now it seems she was helping me leave."
+        ],
+        [
+          "lin",
+          "也可能是你把两次记忆拼在一起了。",
+          "You may be combining two different memories."
+        ]
+      ],
+      "refs": [
+        "jian"
+      ],
+      "prompt": "13 seconds. Cinematic detailed hand-drawn 2D ANIME, cool blue-gray natural light, clear faces, realistic proportions. NO live action, NO 3D. Clean frame: NO subtitles, captions, writing, logos, music. Mandarin natural speech, precise mouth movement during OWN audible words only. Only specified visible people; OFF camera voices NEVER add another face or animate visible listener mouth. NO invented extra words. Reference images for FACE IDENTITY ONLY; replace clothing and room as explicitly described. Jian: pale young adult man, tousled black hair, NO glasses, BLACK TURTLENECK and DARK GRAY CASUAL JACKET, never white coat while suspended. Jian RIGHT seated at archive desk, dark gray jacket, normal eyes and teeth, recalls uncertain memory. Lin OFF. No fake historical flashback or extra face. At 0.35s jian ON CAMERA says exactly: “我一直记得，是我咬伤她，她躲开了。”. At 4.23s jian ON CAMERA says exactly: “现在想起来，她好像在送我走。”. At 7.64s lin OFF CAMERA says exactly: “也可能是你把两次记忆拼在一起了。”. Finish all quoted speech then absolute vocal silence. Continuous natural motion, no duplicate gesture, no morphing, no dissolve, no teleport. No phone/radio gesture unless explicitly required.",
+      "label": "主观回忆·尚待核实"
+    },
+    {
+      "id": "04",
+      "duration": 6,
+      "scene_number": 3,
+      "part": 2,
+      "primary": "jian",
+      "scene": "Jian RIGHT seated at archive desk, dark gray jacket, normal eyes and teeth, recalls uncertain memory. Lin OFF. No fake historical flashback or extra face.",
+      "lines": [
+        [
+          "jian",
+          "所以别照我的记忆下结论。",
+          "So don't draw conclusions from my memory alone."
+        ]
+      ],
+      "refs": [
+        "jian"
+      ],
+      "prompt": "6 seconds. Cinematic detailed hand-drawn 2D ANIME, cool blue-gray natural light, clear faces, realistic proportions. NO live action, NO 3D. Clean frame: NO subtitles, captions, writing, logos, music. Mandarin natural speech, precise mouth movement during OWN audible words only. Only specified visible people; OFF camera voices NEVER add another face or animate visible listener mouth. NO invented extra words. Reference images for FACE IDENTITY ONLY; replace clothing and room as explicitly described. Jian: pale young adult man, tousled black hair, NO glasses, BLACK TURTLENECK and DARK GRAY CASUAL JACKET, never white coat while suspended. Jian RIGHT seated at archive desk, dark gray jacket, normal eyes and teeth, recalls uncertain memory. Lin OFF. No fake historical flashback or extra face. At 0.35s jian ON CAMERA says exactly: “所以别照我的记忆下结论。”. Finish all quoted speech then absolute vocal silence. Continuous natural motion, no duplicate gesture, no morphing, no dissolve, no teleport. No phone/radio gesture unless explicitly required.",
+      "label": "主观回忆·尚待核实"
+    },
+    {
+      "id": "05",
+      "duration": 14,
+      "scene_number": 4,
+      "part": 1,
+      "primary": "han",
+      "scene": "Han seated LEFT at archive office, folded map flat on desk. Jian question OFF. Han gives clear next steps, no radio.",
+      "lines": [
+        [
+          "han",
+          "青岚这个旧名，我让人查登记沿革。找到了，先核实，不直接上门。",
+          "We'll trace the old name Qinglan. Verify the records before visiting."
+        ],
+        [
+          "jian",
+          "我能做什么？",
+          "What can I do?"
+        ],
+        [
+          "han",
+          "把你记得的写下来。肯定的、模糊的，分开。",
+          "Write down your memories. Separate what is clear from what is uncertain."
+        ]
+      ],
+      "refs": [
+        "han"
+      ],
+      "prompt": "14 seconds. Cinematic detailed hand-drawn 2D ANIME, cool blue-gray natural light, clear faces, realistic proportions. NO live action, NO 3D. Clean frame: NO subtitles, captions, writing, logos, music. Mandarin natural speech, precise mouth movement during OWN audible words only. Only specified visible people; OFF camera voices NEVER add another face or animate visible listener mouth. NO invented extra words. Reference images for FACE IDENTITY ONLY; replace clothing and room as explicitly described. Han: adult man48, gray temples, scar RIGHT eyebrow, navy police uniform, NO glasses, NO radio, no legible badge numbers. Han seated LEFT at archive office, folded map flat on desk. Jian question OFF. Han gives clear next steps, no radio. At 0.35s han ON CAMERA says exactly: “青岚这个旧名，我让人查登记沿革。找到了，先核实，不直接上门。”. At 6.85s jian OFF CAMERA says exactly: “我能做什么？”. At 8.59s han ON CAMERA says exactly: “把你记得的写下来。肯定的、模糊的，分开。”. Finish all quoted speech then absolute vocal silence. Continuous natural motion, no duplicate gesture, no morphing, no dissolve, no teleport. No phone/radio gesture unless explicitly required.",
+      "label": "继续核实旧名"
+    },
+    {
+      "id": "06",
+      "duration": 12,
+      "scene_number": 5,
+      "part": 1,
+      "primary": "jian",
+      "scene": "Jian RIGHT stationary in bright corridor, Lin LEFT several steps away and Zhou rear LEFT. They speak in order with accurate lip sync, only speaking person mouth moves. Jian black turtleneck DARK GRAY jacket. Lin nods ONCE after his promise, no touching. All stay visible.",
+      "lines": [
+        [
+          "jian",
+          "你还怕我吗？",
+          "Are you still afraid of me?"
+        ],
+        [
+          "lin",
+          "怕你不说。",
+          "I'm afraid you won't tell us."
+        ],
+        [
+          "jian",
+          "有反应，我会先退开，告诉你们。",
+          "If I react, I'll step back and tell you."
+        ],
+        [
+          "zhou",
+          "先说。别每次都等我猜。",
+          "Tell us first. Don't make me guess every time."
+        ],
+        [
+          "jian",
+          "知道了。",
+          "I will."
+        ]
+      ],
+      "refs": [
+        "jian",
+        "zhou",
+        "lin"
+      ],
+      "prompt": "12 seconds. Cinematic detailed hand-drawn 2D ANIME, cool blue-gray natural light, clear faces, realistic proportions. NO live action, NO 3D. Clean frame: NO subtitles, captions, writing, logos, music. Mandarin natural speech, precise mouth movement during OWN audible words only. Only specified visible people; OFF camera voices NEVER add another face or animate visible listener mouth. NO invented extra words. Reference images for FACE IDENTITY ONLY; replace clothing and room as explicitly described. Jian: pale young adult man, tousled black hair, NO glasses, BLACK TURTLENECK and DARK GRAY CASUAL JACKET, never white coat while suspended. Zhou: adult man rectangular SILVER GLASSES, RIGHT-ear hearing aid, dark gray jacket. Lin: adult woman, chin-length straight BLACK BOB, navy police uniform, empty hands, NO radio. Jian RIGHT stationary in bright corridor, Lin LEFT several steps away and Zhou rear LEFT. They speak in order with accurate lip sync, only speaking person mouth moves. Jian black turtleneck DARK GRAY jacket. Lin nods ONCE after his promise, no touching. All stay visible. At 0.35s jian ON CAMERA says exactly: “你还怕我吗？”. At 2.09s lin ON CAMERA says exactly: “怕你不说。”. At 3.59s jian ON CAMERA says exactly: “有反应，我会先退开，告诉你们。”. At 7.00s zhou ON CAMERA says exactly: “先说。别每次都等我猜。”. At 9.69s jian ON CAMERA says exactly: “知道了。”. Finish all quoted speech then absolute vocal silence. Continuous natural motion, no duplicate gesture, no morphing, no dissolve, no teleport. No phone/radio gesture unless explicitly required.",
+      "label": "稍后·走廊"
+    },
+    {
+      "id": "07",
+      "duration": 6,
+      "scene_number": 6,
+      "part": 1,
+      "primary": "han",
+      "scene": "Han alone at archive desk places TWO plain copies side by side. Speaks one short line then closes mouth. End thoughtful look, no text or extra speech.",
+      "lines": [
+        [
+          "han",
+          "这条记录，也查。",
+          "Check this record too."
+        ]
+      ],
+      "refs": [
+        "han"
+      ],
+      "prompt": "6 seconds. Cinematic detailed hand-drawn 2D ANIME, cool blue-gray natural light, clear faces, realistic proportions. NO live action, NO 3D. Clean frame: NO subtitles, captions, writing, logos, music. Mandarin natural speech, precise mouth movement during OWN audible words only. Only specified visible people; OFF camera voices NEVER add another face or animate visible listener mouth. NO invented extra words. Reference images for FACE IDENTITY ONLY; replace clothing and room as explicitly described. Han: adult man48, gray temples, scar RIGHT eyebrow, navy police uniform, NO glasses, NO radio, no legible badge numbers. Han alone at archive desk places TWO plain copies side by side. Speaks one short line then closes mouth. End thoughtful look, no text or extra speech. At 0.35s han ON CAMERA says exactly: “这条记录，也查。”. Finish all quoted speech then absolute vocal silence. Continuous natural motion, no duplicate gesture, no morphing, no dissolve, no teleport. No phone/radio gesture unless explicitly required.",
+      "label": "旧档案·待核实"
+    }
+  ],
+  "known_refs": {
+    "jian": {
+      "task_id": "66d266b4-3dc5-496d-bb77-f9794f7d7a48",
+      "seconds": 2,
+      "crop": "400:300:240:0"
+    },
+    "zhou": {
+      "task_id": "22f44ed1-b301-4b7a-9330-afa87e545dd4",
+      "seconds": 2,
+      "crop": "400:320:150:0"
+    },
+    "lin": {
+      "task_id": "1af84fc1-63a2-4afc-bb82-6e79a07dcd4e",
+      "seconds": 1,
+      "crop": "280:300:300:80"
+    },
+    "han": {
+      "task_id": "10c316b2-29cd-4145-9fc7-bed0a6bf561c",
+      "seconds": 2,
+      "crop": "320:300:310:0"
+    }
+  },
+  "estimate_usd": 2.0286
+}
