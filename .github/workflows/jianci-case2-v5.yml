@@ -1,0 +1,35 @@
+name: Jian Ci Case 2 V5 Production
+on:
+  push:
+    branches: [codex/jianci-transition-20260905]
+    paths: [video-tests/jianci-case2-v5/run.request.json]
+permissions:
+  contents: read
+concurrency:
+  group: jianci-case2-v5
+  cancel-in-progress: false
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install ffmpeg before any paid request
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+      - name: Generate Episode 14 first batch once
+        env:
+          XRTOKEN: ${{ secrets.XRTOKEN }}
+          JIANCI_EXECUTE: '1'
+          EPISODE: '14'
+        run: python video-tests/jianci-case2-v5/generate.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: jianci-case2-v5-ep14
+          path: output/jianci-case2-v5
+          retention-days: 14

@@ -1,0 +1,195 @@
+{
+  "episode": 14,
+  "title": "那条没删的消息",
+  "model": "wan3.0-video",
+  "resolution": "480P",
+  "max_output_seconds": 80,
+  "estimate_usd": 2.352,
+  "clips": [
+    {
+      "id": "01",
+      "duration": 10,
+      "roles": [
+        "mother",
+        "lin"
+      ],
+      "scene": "Interview room. Mother on LEFT seated facing Lin OFFSCREEN right. 0-5s stable mother close-up speaking;5-10s cut to her still hands on bag, NO mouth in frame, Lin is offscreen voice. Nobody stands.",
+      "lines": [
+        [
+          "mother",
+          "她站在床边，一直摸这里。",
+          "She stood beside my bed, touching here."
+        ],
+        [
+          "lin OFFSCREEN",
+          "知微活着的时候，也说过脖子疼吗？",
+          "Did Zhiwei mention neck pain while alive?"
+        ]
+      ],
+      "refs": [
+        "mother"
+      ],
+      "prompt": "10 second cinematic hand-drawn 2D anime police mystery. Cool neutral blue-gray lighting, clearly readable faces, NOT dark silhouettes, no yellow cast. 16:9 full frame. NO live action, CGI, text, captions, labels, logos, watermark, music, extra dialogue, extra people. Calm natural motion. Only quoted Mandarin dialogue, NEVER pronounce role labels. Mouth moves ONLY during own audible speech; closes before and after. No overlapping voices. Each line complete before 9.5s, no chopped words. Luo Suqin, Chinese woman age56, tired lined face, gray-black hair tied in a LOW BUN, navy cardigan over gray collared shirt, brown cloth bag on lap. Match supplied mother face. Always seated. Lin Qian, Chinese adult FEMALE detective, straight chin-length BLACK bob, navy police uniform, black gloves, no glasses. Match supplied Lin face. Interview room. Mother on LEFT seated facing Lin OFFSCREEN right. 0-5s stable mother close-up speaking;5-10s cut to her still hands on bag, NO mouth in frame, Lin is offscreen voice. Nobody stands. At 0.5s mother says EXACTLY: “她站在床边，一直摸这里。”. At 5.3s lin OFFSCREEN says EXACTLY: “知微活着的时候，也说过脖子疼吗？”."
+    },
+    {
+      "id": "02",
+      "duration": 10,
+      "roles": [
+        "mother",
+        "lin"
+      ],
+      "scene": "Same room and seated mother LEFT, Lin OFFSCREEN right.0-5s mother close-up.5-10s hands on brown bag, no visible mouth, Lin OFFSCREEN. Low bun must stay tied.",
+      "lines": [
+        [
+          "mother",
+          "说过。我还以为是落枕。",
+          "Yes. I thought she had slept awkwardly."
+        ],
+        [
+          "lin OFFSCREEN",
+          "她什么时候说的？还有消息吗？",
+          "When did she say it? Do you still have the message?"
+        ]
+      ],
+      "refs": [
+        "mother"
+      ],
+      "prompt": "10 second cinematic hand-drawn 2D anime police mystery. Cool neutral blue-gray lighting, clearly readable faces, NOT dark silhouettes, no yellow cast. 16:9 full frame. NO live action, CGI, text, captions, labels, logos, watermark, music, extra dialogue, extra people. Calm natural motion. Only quoted Mandarin dialogue, NEVER pronounce role labels. Mouth moves ONLY during own audible speech; closes before and after. No overlapping voices. Each line complete before 9.5s, no chopped words. Luo Suqin, Chinese woman age56, tired lined face, gray-black hair tied in a LOW BUN, navy cardigan over gray collared shirt, brown cloth bag on lap. Match supplied mother face. Always seated. Lin Qian, Chinese adult FEMALE detective, straight chin-length BLACK bob, navy police uniform, black gloves, no glasses. Match supplied Lin face. Same room and seated mother LEFT, Lin OFFSCREEN right.0-5s mother close-up.5-10s hands on brown bag, no visible mouth, Lin OFFSCREEN. Low bun must stay tied. At 0.5s mother says EXACTLY: “说过。我还以为是落枕。”. At 5.3s lin OFFSCREEN says EXACTLY: “她什么时候说的？还有消息吗？”."
+    },
+    {
+      "id": "03",
+      "duration": 10,
+      "roles": [
+        "mother",
+        "lin"
+      ],
+      "scene": "Same room and seating. Mother already seated facing RIGHT.0-5s her close-up.5-10s cut to hands taking a plain black smartphone from brown cloth bag and placing it face down on table; phone screen NEVER visible. Lin OFFSCREEN speaking. Mother never stands.",
+      "lines": [
+        [
+          "mother",
+          "有。她的消息，我一条也没删。",
+          "Yes. I have not deleted any of her messages."
+        ],
+        [
+          "lin OFFSCREEN",
+          "我们核对一下原记录。",
+          "We will check the original records."
+        ]
+      ],
+      "refs": [
+        "mother"
+      ],
+      "prompt": "10 second cinematic hand-drawn 2D anime police mystery. Cool neutral blue-gray lighting, clearly readable faces, NOT dark silhouettes, no yellow cast. 16:9 full frame. NO live action, CGI, text, captions, labels, logos, watermark, music, extra dialogue, extra people. Calm natural motion. Only quoted Mandarin dialogue, NEVER pronounce role labels. Mouth moves ONLY during own audible speech; closes before and after. No overlapping voices. Each line complete before 9.5s, no chopped words. Luo Suqin, Chinese woman age56, tired lined face, gray-black hair tied in a LOW BUN, navy cardigan over gray collared shirt, brown cloth bag on lap. Match supplied mother face. Always seated. Lin Qian, Chinese adult FEMALE detective, straight chin-length BLACK bob, navy police uniform, black gloves, no glasses. Match supplied Lin face. Same room and seating. Mother already seated facing RIGHT.0-5s her close-up.5-10s cut to hands taking a plain black smartphone from brown cloth bag and placing it face down on table; phone screen NEVER visible. Lin OFFSCREEN speaking. Mother never stands. At 0.5s mother says EXACTLY: “有。她的消息，我一条也没删。”. At 5.3s lin OFFSCREEN says EXACTLY: “我们核对一下原记录。”."
+    },
+    {
+      "id": "04",
+      "duration": 10,
+      "roles": [
+        "xu",
+        "jian"
+      ],
+      "scene": "Forensic records room. Xu seated left faces Jian OFFSCREEN right.0-5.1s Xu single close-up.5.1-10s cut to CLOSED plain file folder on desk, no visible people, Jian OFFSCREEN. NO bodies, blood or injuries in this shot.",
+      "lines": [
+        [
+          "xu",
+          "首次尸检发现颈动脉夹层和血栓，脑部也有梗死。",
+          "The first autopsy found carotid dissection, a clot and cerebral infarction."
+        ]
+      ],
+      "refs": [],
+      "prompt": "10 second cinematic hand-drawn 2D anime police mystery. Cool neutral blue-gray lighting, clearly readable faces, NOT dark silhouettes, no yellow cast. 16:9 full frame. NO live action, CGI, text, captions, labels, logos, watermark, music, extra dialogue, extra people. Calm natural motion. Only quoted Mandarin dialogue, NEVER pronounce role labels. Mouth moves ONLY during own audible speech; closes before and after. No overlapping voices. Each line complete before 9.5s, no chopped words. Xu Wei, Chinese adult FEMALE forensic scientist late20s, brown hair tied in ponytail, olive green shirt under white coat, black examination gloves, NO glasses. Jian Ci, Chinese young adult MAN, pale slim face, short messy BLACK hair, black turtleneck under white forensic coat, NO glasses. Match supplied face. Forensic records room. Xu seated left faces Jian OFFSCREEN right.0-8.7s Xu single close-up speaking slowly.8.7-10s she closes her mouth and looks at the folder. Only Xu speaks. NO bodies, blood or injuries in this shot.  At 0.5s Xu says EXACTLY: “首次尸检发现颈动脉夹层和血栓，脑部也有梗死。” Finish naturally by8.6s."
+    },
+    {
+      "id": "05",
+      "duration": 10,
+      "roles": [
+        "xu"
+      ],
+      "scene": "SAME forensic records room and exactly same Xu as reference.0-4.5s Xu close-up answers.4.5-10s cut to black-gloved hands positioning a glass slide under microscope; careful real laboratory movement, no body or blood, no gibberish text. No other speaker or words.",
+      "lines": [
+        [
+          "xu",
+          "颈部和脑部的检材都留着。",
+          "The neck and brain tissue samples are preserved."
+        ]
+      ],
+      "refs": [
+        "clip:04"
+      ],
+      "prompt": "10 second cinematic hand-drawn 2D anime police mystery. Cool neutral blue-gray lighting, clearly readable faces, NOT dark silhouettes, no yellow cast. 16:9 full frame. NO live action, CGI, text, captions, labels, logos, watermark, music, extra dialogue, extra people. Calm natural motion. Only quoted Mandarin dialogue, NEVER pronounce role labels. Mouth moves ONLY during own audible speech; closes before and after. No overlapping voices. Each line complete before 9.5s, no chopped words. Xu Wei, Chinese adult FEMALE forensic scientist late20s, brown hair tied in ponytail, olive green shirt under white coat, black examination gloves, NO glasses. SAME forensic records room and exactly same Xu as reference.0-4.5s Xu close-up answers.4.5-10s cut to black-gloved hands positioning a glass slide under microscope; careful real laboratory movement, no body or blood, no gibberish text. No other speaker or words. At 0.5s xu says EXACTLY: “颈部和脑部的检材都留着。”."
+    },
+    {
+      "id": "06",
+      "duration": 10,
+      "roles": [],
+      "scene": "A respectful earlier forensic examination in a clean clinical room. Wide shot of a FULLY SHEET-COVERED human form on examination table, NO exposed body parts, no blood or wound. Two adult forensic staff with backs to camera in white coats document work, then cut to hands sealing an opaque sample container. No faces or visible mouths. Jian Ci calm adult MALE offscreen voice from present day explains records. No tools cutting flesh, no body movement. This is an earlier examination, not a current exhumation.",
+      "lines": [
+        [
+          "jian OFFSCREEN",
+          "病变找到了。它怎么来的，还要把生前经过查清。",
+          "We found the damage. To establish its cause, we need her earlier history."
+        ]
+      ],
+      "refs": [],
+      "prompt": "10 second cinematic hand-drawn 2D anime police mystery. Cool neutral blue-gray lighting, clearly readable faces, NOT dark silhouettes, no yellow cast. 16:9 full frame. NO live action, CGI, text, captions, labels, logos, watermark, music, extra dialogue, extra people. Calm natural motion. Only quoted Mandarin dialogue, NEVER pronounce role labels. Mouth moves ONLY during own audible speech; closes before and after. No overlapping voices. Each line complete before 9.5s, no chopped words.  A respectful earlier forensic examination in a clean clinical room. Wide shot of a FULLY SHEET-COVERED human form on examination table, NO exposed body parts, no blood or wound. Two adult forensic staff with backs to camera in white coats document work, then cut to hands sealing an opaque sample container. No faces or visible mouths. Jian Ci calm adult MALE offscreen voice from present day explains records. No tools cutting flesh, no body movement. This is an earlier examination, not a current exhumation. At 0.5s jian OFFSCREEN says EXACTLY: “病变找到了。它怎么来的，还要把生前经过查清。”."
+    },
+    {
+      "id": "07",
+      "duration": 10,
+      "roles": [
+        "zhou",
+        "lin"
+      ],
+      "scene": "Police records room.0-5s Zhou close-up on LEFT, seated facing RIGHT.5-10s cut to pen and calendar-free plain ledger on desk, no visible mouth; Lin OFFSCREEN second line. Do not invent written numbers or screens.",
+      "lines": [
+        [
+          "zhou",
+          "二号晚上七点四十二。跌倒是三号下午。",
+          "September second, 7:42 p.m. The fall was the next afternoon."
+        ],
+        [
+          "lin OFFSCREEN",
+          "她在跌倒之前，就已经说疼了。",
+          "She reported the pain before the fall."
+        ]
+      ],
+      "refs": [],
+      "prompt": "10 second cinematic hand-drawn 2D anime police mystery. Cool neutral blue-gray lighting, clearly readable faces, NOT dark silhouettes, no yellow cast. 16:9 full frame. NO live action, CGI, text, captions, labels, logos, watermark, music, extra dialogue, extra people. Calm natural motion. Only quoted Mandarin dialogue, NEVER pronounce role labels. Mouth moves ONLY during own audible speech; closes before and after. No overlapping voices. Each line complete before 9.5s, no chopped words. Zhou Qiao, Chinese adult MAN age30, short neat black hair, silver rectangular glasses, hearing aid in his RIGHT ear, dark gray jacket. No white coat. Lin Qian, Chinese adult FEMALE detective, straight chin-length BLACK bob, navy police uniform, black gloves, no glasses. Match supplied Lin face. Police records room.0-5s Zhou close-up on LEFT, seated facing RIGHT.5-10s cut to pen and calendar-free plain ledger on desk, no visible mouth; Lin OFFSCREEN second line. Do not invent written numbers or screens. At 0.5s zhou says EXACTLY: “二号晚上七点四十二。跌倒是三号下午。”. At 5.3s lin OFFSCREEN says EXACTLY: “她在跌倒之前，就已经说疼了。”."
+    },
+    {
+      "id": "08",
+      "duration": 10,
+      "roles": [
+        "jian",
+        "lin"
+      ],
+      "scene": "Records room.0-5.3s Jian close-up on RIGHT seated facing LEFT, sober explanatory tone.5.3-10s cut to ordinary closed investigation folder and pen, no faces; Lin OFFSCREEN. Neither character wears glasses. No vampire reveal in this shot.",
+      "lines": [
+        [
+          "jian",
+          "颈痛有很多原因。先别把它当成那处伤。",
+          "Neck pain has many causes. We cannot equate it with that injury yet."
+        ],
+        [
+          "lin OFFSCREEN",
+          "周峤，查二号的行踪。",
+          "Zhou Qiao, trace her movements on the second."
+        ]
+      ],
+      "refs": [
+        "leads"
+      ],
+      "prompt": "10 second cinematic hand-drawn 2D anime police mystery. Cool neutral blue-gray lighting, clearly readable faces, NOT dark silhouettes, no yellow cast. 16:9 full frame. NO live action, CGI, text, captions, labels, logos, watermark, music, extra dialogue, extra people. Calm natural motion. Only quoted Mandarin dialogue, NEVER pronounce role labels. Mouth moves ONLY during own audible speech; closes before and after. No overlapping voices. Each line complete before 9.5s, no chopped words. Jian Ci, Chinese young adult MAN, pale slim face, short messy BLACK hair, black turtleneck under white forensic coat, NO glasses. Match supplied face. Lin Qian, Chinese adult FEMALE detective, straight chin-length BLACK bob, navy police uniform, black gloves, no glasses. Match supplied Lin face. Records room.0-5.3s Jian close-up on RIGHT seated facing LEFT, sober explanatory tone.5.3-10s cut to ordinary closed investigation folder and pen, no faces; Lin OFFSCREEN. Neither character wears glasses. No vampire reveal in this shot. At 0.5s jian says EXACTLY: “颈痛有很多原因。先别把它当成那处伤。”. At 5.3s lin OFFSCREEN says EXACTLY: “周峤，查二号的行踪。”."
+    }
+  ],
+  "known_refs": {
+    "mother": {
+      "task_id": "5647b28a-ca4f-4987-b925-3f09c5afd4cf",
+      "seconds": 8.5,
+      "crop": "854:328:0:74"
+    },
+    "leads": {
+      "url": "https://raw.githubusercontent.com/ellasam81-commits/comfy-cli/865bba9f85c3c0506b22831a13ebf26efa51dd89/video-tests/jianci-ep03-evidence/scene-01.jpg"
+    }
+  }
+}
