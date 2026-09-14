@@ -1,0 +1,103 @@
+{
+  "episode": 17,
+  "title": "跌倒之前",
+  "model": "wan3.0-video",
+  "resolution": "480P",
+  "max_output_seconds": 35,
+  "clips": [
+    {
+      "id": "01",
+      "duration": 10,
+      "scene_number": 1,
+      "part": 1,
+      "roles": [
+        "han",
+        "lin",
+        "jian",
+        "xu"
+      ],
+      "scene": "Han seated RIGHT looking left in his office, stern but calm. Only Han is visible. Female Lin speaks from OFF camera on left.",
+      "lines": [
+        [
+          "han",
+          "林浅，你早知道？",
+          "Lin Qian, did you know?"
+        ],
+        [
+          "lin",
+          "见过一次。我没报告，是我判断错了。",
+          "I saw it once. I didn't report it. That was my mistake."
+        ]
+      ],
+      "refs": [
+        "han"
+      ],
+      "prompt": "10 seconds. Cinematic detailed hand-drawn 2D anime. SINGLE PERSON scene. No other people or faces, including background. No captions, text, writing or music. Use reference ONLY for face and clothing; completely replace the background with the described room. Calm Mandarin speech, synchronized speaking mouth, mouth closed during other voice. No extra words. Han, mature male police leader, gray temples and right-brow scar, navy uniform. He is SEATED at a plain wooden office desk, empty hands BOTH resting FLAT on desk, every finger visible. The background is a plain blue-gray interior wall with one closed door. No window, vehicle or red door. Only Han visible. Female response, if specified, is OFF camera. At 0.4s han ON CAMERA says exactly: “林浅，你早知道？”. At 3.0s lin OFF CAMERA says exactly: “见过一次。我没报告，是我判断错了。”. After final quoted words, absolute vocal silence. Do not invent filler speech."
+    },
+    {
+      "id": "02",
+      "duration": 10,
+      "scene_number": 1,
+      "part": 2,
+      "roles": [
+        "han",
+        "lin",
+        "jian",
+        "xu"
+      ],
+      "scene": "Same Han seated RIGHT at office desk looking LEFT, explaining temporary work suspension. No other people visible, no handcuffs.",
+      "lines": [
+        [
+          "han",
+          "如实记录。检刺暂停现场工作，安排评估。案子由许未接着复核。",
+          "Record it accurately. Jian Ci is off field duty pending assessment. Xu Wei will continue the case review."
+        ]
+      ],
+      "refs": [
+        "han"
+      ],
+      "prompt": "10 seconds. Cinematic detailed hand-drawn 2D anime. SINGLE PERSON scene. No other people or faces, including background. No captions, text, writing or music. Use reference ONLY for face and clothing; completely replace the background with the described room. Calm Mandarin speech, synchronized speaking mouth, mouth closed during other voice. No extra words. Han, mature male police leader, gray temples and right-brow scar, navy uniform. He is SEATED at a plain wooden office desk, empty hands BOTH resting FLAT on desk, every finger visible. The background is a plain blue-gray interior wall with one closed door. No window, vehicle or red door. Only Han visible. Female response, if specified, is OFF camera. At 0.4s han ON CAMERA says exactly: “如实记录。检刺暂停现场工作，安排评估。案子由许未接着复核。”. After final quoted words, absolute vocal silence. Do not invent filler speech."
+    },
+    {
+      "id": "06",
+      "duration": 15,
+      "scene_number": 5,
+      "part": 1,
+      "roles": [
+        "xu",
+        "han"
+      ],
+      "scene": "Xu seated LEFT in review meeting, closed folders on desk. Only Xu visible. Han male voice responds OFF camera right. No suspect or Jian visible.",
+      "lines": [
+        [
+          "xu",
+          "综合现场、病程和病理，支持那次颈部暴力造成血管损伤，继而导致致命脑梗死。",
+          "Taken together, the circumstances, clinical course, and pathology support the neck assault causing vascular injury and a fatal cerebral infarction."
+        ],
+        [
+          "han",
+          "依据逐项写清，随案移送。",
+          "Set out each basis clearly and submit it with the case."
+        ]
+      ],
+      "refs": [
+        "xu"
+      ],
+      "prompt": "15 seconds. Cinematic detailed hand-drawn 2D anime. SINGLE PERSON scene. No other people or faces, including background. No captions, text, writing or music. Use reference ONLY for face and clothing; completely replace the background with the described room. Calm Mandarin speech, synchronized speaking mouth, mouth closed during other voice. No extra words. Xu, adult woman brown ponytail, olive-green shirt white coat, no glasses, seated at a plain desk in a records office. BOTH empty black-gloved hands rest on closed blank folder. Only Xu visible. Fixed medium close-up, NO camera pan or zoom out. Blank blue-gray wall behind her. Male response only OFF camera; no male body anywhere. At 0.4s xu ON CAMERA says exactly: “综合现场、病程和病理，支持那次颈部暴力造成血管损伤，继而导致致命脑梗死。”. At 10.3s han OFF CAMERA says exactly: “依据逐项写清，随案移送。”. After final quoted words, absolute vocal silence. Do not invent filler speech."
+    }
+  ],
+  "known_refs": {
+    "xu": {
+      "task_id": "b0892f7e-4fb8-477b-b354-5334c215e423",
+      "seconds": 2,
+      "crop": "854:380:0:0"
+    },
+    "han": {
+      "github_artifact": 10297957892,
+      "member": "01-raw.mp4",
+      "seconds": 2,
+      "crop": "300:250:365:74"
+    }
+  },
+  "estimate_usd": 1.029
+}

@@ -15,12 +15,10 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - episode: 15
-            config: episode15-repair.json
-            batch: '-repair'
-          - episode: 16
-            config: episode16.json
-            batch: ''
+          - episode: 17
+            config: episode17-repair.json
+          - episode: 18
+            config: episode18-repair.json
     runs-on: ubuntu-latest
     timeout-minutes: 90
     steps:
@@ -39,11 +37,11 @@ jobs:
           JIANCI_EXECUTE: '1'
           EPISODE: ${{ matrix.episode }}
           CONFIG_FILE: ${{ matrix.config }}
-          BATCH: ${{ matrix.batch }}
+          BATCH: '-repair'
         run: python video-tests/jianci-case2-v5/generate.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: jianci-case2-v5-ep${{ matrix.episode }}${{ matrix.batch }}
+          name: jianci-case2-v5-ep${{ matrix.episode }}-repair
           path: output/jianci-case2-v5
           retention-days: 14

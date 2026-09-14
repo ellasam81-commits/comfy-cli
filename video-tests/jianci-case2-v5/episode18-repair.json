@@ -1,0 +1,130 @@
+{
+  "episode": 18,
+  "title": "留着的灯",
+  "model": "wan3.0-video",
+  "resolution": "480P",
+  "max_output_seconds": 42,
+  "clips": [
+    {
+      "id": "01",
+      "duration": 11,
+      "scene_number": 1,
+      "part": 1,
+      "roles": [
+        "jian",
+        "lin",
+        "xu",
+        "zhou",
+        "han"
+      ],
+      "scene": "Jian seated RIGHT near the open doorway in a quiet meeting room, facing LEFT. This is a planned interview during investigation. Lin, Xu, Zhou and Han listen OFF camera at a safe distance. Only Jian visible. Female Lin asks first line OFF camera. Jian replies with second line.",
+      "lines": [
+        [
+          "lin",
+          "替你缝袖口的，也是阿宁？",
+          "Was A-Ning the one who mended your cuff?"
+        ],
+        [
+          "jian",
+          "是。她救了我。我第一次失控，咬伤了她的手臂。",
+          "Yes. She saved me. The first time I lost control, I bit her arm."
+        ]
+      ],
+      "refs": [
+        "jian"
+      ],
+      "prompt": "11 seconds. Cinematic detailed hand-drawn 2D anime. SINGLE PERSON scene. No other people or faces, including background. No captions, text, writing or music. Use reference ONLY for face and clothing; completely replace the background with the described room. Calm Mandarin speech, synchronized speaking mouth, mouth closed during other voice. No extra words. Jian, pale young adult male, tousled black hair, black turtleneck white coat no glasses. He sits RIGHT facing LEFT in a plain meeting room. Medium close-up from chest upward, blank blue-gray wall directly behind him. Only Jian visible. Fixed camera. An adult female asks first question OFF camera; he listens with lips closed then answers. Nobody else is in the image. At 0.4s lin OFF CAMERA says exactly: “替你缝袖口的，也是阿宁？”. At 4.0s jian ON CAMERA says exactly: “是。她救了我。我第一次失控，咬伤了她的手臂。”. After final quoted words, absolute vocal silence. Do not invent filler speech."
+    },
+    {
+      "id": "05",
+      "duration": 10,
+      "scene_number": 3,
+      "part": 2,
+      "roles": [
+        "zhou",
+        "jian",
+        "han"
+      ],
+      "scene": "Same meeting room. Han seated LEFT farther from door, looking RIGHT at Jian OFF camera, holds plain notebook, asks for facts to verify. Only Han visible.",
+      "lines": [
+        [
+          "han",
+          "你记得的地方、时间，都写下来。我们会核实。",
+          "Write down the places and dates you remember. We'll verify them."
+        ]
+      ],
+      "refs": [
+        "han"
+      ],
+      "prompt": "10 seconds. Cinematic detailed hand-drawn 2D anime. SINGLE PERSON scene. No other people or faces, including background. No captions, text, writing or music. Use reference ONLY for face and clothing; completely replace the background with the described room. Calm Mandarin speech, synchronized speaking mouth, mouth closed during other voice. No extra words. Han, mature male police leader, gray temples and right-brow scar, navy uniform. He is SEATED at a plain wooden office desk, empty hands BOTH resting FLAT on desk, every finger visible. The background is a plain blue-gray interior wall with one closed door. No window, vehicle or red door. Only Han visible. Female response, if specified, is OFF camera. At 0.4s han ON CAMERA says exactly: “你记得的地方、时间，都写下来。我们会核实。”. After final quoted words, absolute vocal silence. Do not invent filler speech."
+    },
+    {
+      "id": "07",
+      "duration": 11,
+      "scene_number": 5,
+      "part": 1,
+      "roles": [
+        "mother",
+        "lin",
+        "narrator"
+      ],
+      "scene": "MONTHS LATER outside a courthouse, mother seated LEFT on bench holding her brown cloth bag. Low bun and navy cardigan gray collar unchanged. Only mother visible, neutral courthouse facade behind her. First line adult MALE narrator OFF camera, mother mouth closed throughout narration. Mother speaks only second line.",
+      "lines": [
+        [
+          "narrator",
+          "经审理，陆承安因对知微实施暴力并造成死亡，被判有罪。",
+          "Following trial, Lu Cheng'an was convicted for the violence that caused Zhiwei's death."
+        ],
+        [
+          "mother",
+          "她那天，是想回家的。",
+          "She wanted to come home that day."
+        ]
+      ],
+      "refs": [
+        "mother"
+      ],
+      "prompt": "11 seconds. Cinematic detailed hand-drawn 2D anime. SINGLE PERSON scene. No other people or faces, including background. No captions, text, writing or music. Use reference ONLY for face and clothing; completely replace the background with the described room. Calm Mandarin speech, synchronized speaking mouth, mouth closed during other voice. No extra words. Mother, woman56 gray-black hair tied in a low bun, navy cardigan and gray collared shirt. She sits alone on an OUTDOOR wooden bench in front of a courthouse facade. One brown cloth bag on her lap. No indoor chairs, desk or uniformed person. First line is a male narrator OFF camera while her mouth stays CLOSED. Then mother quietly speaks her second line. At 0.4s narrator OFF CAMERA says exactly: “经审理，陆承安因对知微实施暴力并造成死亡，被判有罪。”. At 7.7s mother ON CAMERA says exactly: “她那天，是想回家的。”. After final quoted words, absolute vocal silence. Do not invent filler speech."
+    },
+    {
+      "id": "08",
+      "duration": 10,
+      "scene_number": 6,
+      "part": 1,
+      "roles": [
+        "mother"
+      ],
+      "scene": "Mother home at night, low bun navy cardigan gray blouse. She visibly walks from LEFT to bedside table RIGHT, stops beside a warm table lamp. Empty chair remains empty. She speaks quietly, then switches off lamp by her own hand near end. No ghost, no photo portrait or extra person. Camera remains on her upper body and lamp; no teleport or dissolve.",
+      "lines": [
+        [
+          "mother",
+          "我把灯关了。你要是想家，就回来坐坐。",
+          "I'm turning out the light. If you miss home, come and sit for a while."
+        ]
+      ],
+      "refs": [
+        "mother"
+      ],
+      "prompt": "10 seconds. Cinematic detailed hand-drawn 2D anime. SINGLE PERSON scene. No other people or faces, including background. No captions, text, writing or music. Use reference ONLY for face and clothing; completely replace the background with the described room. Calm Mandarin speech, synchronized speaking mouth, mouth closed during other voice. No extra words. Mother, woman56 gray-black LOW BUN, navy cardigan and gray collared shirt. Entirely NEW LOCATION: her modest HOME BEDROOM at NIGHT, warm bedside lamp, cream wallpaper, wooden wardrobe, curtain, one bed and one empty wooden chair. NO office or public waiting room furnishings. Mother stands beside the bedside lamp on RIGHT, says her line, then reaches to lamp switch and turns it off. She remains visible in dim moonlight. No phone, bag or photo. No walking across rooms, no scene changes. At 0.4s mother ON CAMERA says exactly: “我把灯关了。你要是想家，就回来坐坐。”. After final quoted words, absolute vocal silence. Do not invent filler speech."
+    }
+  ],
+  "known_refs": {
+    "mother": {
+      "task_id": "3c87bcb8-faa3-4cdc-8a15-d0153e5d0d2a",
+      "seconds": 2,
+      "crop": "330:350:240:0"
+    },
+    "han": {
+      "github_artifact": 10297957892,
+      "member": "01-raw.mp4",
+      "seconds": 2,
+      "crop": "300:250:365:74"
+    },
+    "jian": {
+      "task_id": "55668a55-c00d-4897-a2e8-4948de3882e1",
+      "seconds": 2,
+      "crop": "854:328:0:74"
+    }
+  },
+  "estimate_usd": 1.2348
+}
