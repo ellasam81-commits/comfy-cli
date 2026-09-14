@@ -1,4 +1,4 @@
-import base64,json,os,re,subprocess,time,urllib.request,urllib.parse,urllib.error
+import base64,json,os,re,subprocess,time,urllib.request,urllib.parse,urllib.error,zipfile,io
 from pathlib import Path
 ROOT=Path(__file__).parent
 EP=int(os.environ.get('EPISODE','14'))
@@ -38,7 +38,20 @@ def main():
  for name,ref in CFG['known_refs'].items():
   if 'url' in ref:refs[name]=ref['url']
   else:
-   dest=OUT/(name+'-reference.mp4');getvideo(ref['task_id'],dest);refs[name]=frame(dest,ref['seconds'],ref.get('crop'));dest.unlink();dest.with_suffix('.jpg').unlink()
+   dest=OUT/(name+'-reference.mp4')
+   if 'github_artifact' in ref:
+    class NoRedirect(urllib.request.HTTPRedirectHandler):
+     def redirect_request(self,*args,**kwargs):return None
+    req=urllib.request.Request('https://api.github.com/repos/ellasam81-commits/comfy-cli/actions/artifacts/'+str(int(ref['github_artifact']))+'/zip',headers={'Authorization':'Bearer '+os.environ['GITHUB_TOKEN'],'Accept':'application/vnd.github+json'})
+    try:
+     with urllib.request.build_opener(NoRedirect).open(req,timeout=90) as f:data=f.read()
+    except urllib.error.HTTPError as e:
+     if e.code not in (301,302,303,307,308):raise
+     url=e.headers['Location'];assert urllib.parse.urlparse(url).scheme=='https'
+     with urllib.request.urlopen(url,timeout=120) as f:data=f.read()
+    with zipfile.ZipFile(io.BytesIO(data)) as z:dest.write_bytes(z.read(ref['member']))
+   else:getvideo(ref['task_id'],dest)
+   refs[name]=frame(dest,ref['seconds'],ref.get('crop'));dest.unlink();dest.with_suffix('.jpg').unlink()
  save()
  def submit(c):
   content=[{'type':'text','text':c['prompt']}]

@@ -1,0 +1,237 @@
+{
+  "episode": 17,
+  "title": "跌倒之前",
+  "model": "wan3.0-video",
+  "resolution": "480P",
+  "max_output_seconds": 89,
+  "clips": [
+    {
+      "id": "01",
+      "duration": 10,
+      "scene_number": 1,
+      "part": 1,
+      "roles": [
+        "han",
+        "lin",
+        "jian",
+        "xu"
+      ],
+      "scene": "Han seated RIGHT looking left in his office, stern but calm. Only Han is visible. Female Lin speaks from OFF camera on left.",
+      "lines": [
+        [
+          "han",
+          "林浅，你早知道？",
+          "Lin Qian, did you know?"
+        ],
+        [
+          "lin",
+          "见过一次。我没报告，是我判断错了。",
+          "I saw it once. I didn't report it. That was my mistake."
+        ]
+      ],
+      "refs": [
+        "han"
+      ],
+      "prompt": "10 second scene. Detailed hand-drawn 2D anime, cool natural blue-gray lighting, readable faces. No subtitles, lettering, watermark or music. Match supplied character reference exactly. Stable location, positions and clothing. ONLY quoted Mandarin dialogue. Mouth moves only during own audible line, closes when someone else speaks. Han, adult man48, gray temples, small RIGHT eyebrow scar, navy police uniform, NO glasses. Han seated RIGHT looking left in his office, stern but calm. Only Han is visible. Female Lin speaks from OFF camera on left. At 0.4s han ON CAMERA says exactly: “林浅，你早知道？”. At 3.0s lin OFF CAMERA voice only says exactly: “见过一次。我没报告，是我判断错了。”. No additional words. Finish all words naturally before clip ends."
+    },
+    {
+      "id": "02",
+      "duration": 10,
+      "scene_number": 1,
+      "part": 2,
+      "roles": [
+        "han",
+        "lin",
+        "jian",
+        "xu"
+      ],
+      "scene": "Same Han seated RIGHT at office desk looking LEFT, explaining temporary work suspension. No other people visible, no handcuffs.",
+      "lines": [
+        [
+          "han",
+          "如实记录。检刺暂停现场工作，安排评估。案子由许未接着复核。",
+          "Record it accurately. Jian Ci is off field duty pending assessment. Xu Wei will continue the case review."
+        ]
+      ],
+      "refs": [
+        "han"
+      ],
+      "prompt": "10 second scene. Detailed hand-drawn 2D anime, cool natural blue-gray lighting, readable faces. No subtitles, lettering, watermark or music. Match supplied character reference exactly. Stable location, positions and clothing. ONLY quoted Mandarin dialogue. Mouth moves only during own audible line, closes when someone else speaks. Han, adult man48, gray temples, small RIGHT eyebrow scar, navy police uniform, NO glasses. Same Han seated RIGHT at office desk looking LEFT, explaining temporary work suspension. No other people visible, no handcuffs. At 0.4s han ON CAMERA says exactly: “如实记录。检刺暂停现场工作，安排评估。案子由许未接着复核。”. No additional words. Finish all words naturally before clip ends."
+    },
+    {
+      "id": "03",
+      "duration": 10,
+      "scene_number": 2,
+      "part": 1,
+      "roles": [
+        "caller",
+        "zhou"
+      ],
+      "scene": "Evidence room. Only the BACK of Zhou head and dark jacket visible; he wears headphones reviewing an audio recording. No face or mouth visible. First line is a recorded emergency call, slightly narrow telephone sound. Recording device and closed folder fixed on desk.",
+      "lines": [
+        [
+          "caller",
+          "她说话含含糊糊的，站不稳。对，还站着……哎，她倒了！",
+          "Her speech is slurred. She's unsteady. Yes, she's still standing... Oh! She's fallen!"
+        ]
+      ],
+      "refs": [
+        "zhou"
+      ],
+      "prompt": "10 second scene. Detailed hand-drawn 2D anime, cool natural blue-gray lighting, readable faces. No subtitles, lettering, watermark or music. Match supplied character reference exactly. Stable location, positions and clothing. ONLY quoted Mandarin dialogue. Mouth moves only during own audible line, closes when someone else speaks. Zhou, adult man30, rectangular silver glasses, right-ear hearing aid, dark gray jacket. Evidence room. Only the BACK of Zhou head and dark jacket visible; he wears headphones reviewing an audio recording. No face or mouth visible. First line is a recorded emergency call, slightly narrow telephone sound. Recording device and closed folder fixed on desk. At 0.4s caller telephone RECORDING voice only says exactly: “她说话含含糊糊的，站不稳。对，还站着……哎，她倒了！”. No additional words. Finish all words naturally before clip ends."
+    },
+    {
+      "id": "04",
+      "duration": 11,
+      "scene_number": 3,
+      "part": 1,
+      "roles": [
+        "zhou",
+        "lin"
+      ],
+      "scene": "Zhou seated LEFT looking right in evidence room. Recorder and closed folder on desk. Only Zhou visible. Lin speaks OFF camera.",
+      "lines": [
+        [
+          "zhou",
+          "通话、画面和证人说法对上了。异常在跌倒之前。",
+          "The call, footage, and witness account align. The symptoms came before the fall."
+        ],
+        [
+          "lin",
+          "把这一段交许未，一起复核。",
+          "Send this to Xu Wei for the combined review."
+        ]
+      ],
+      "refs": [
+        "zhou"
+      ],
+      "prompt": "11 second scene. Detailed hand-drawn 2D anime, cool natural blue-gray lighting, readable faces. No subtitles, lettering, watermark or music. Match supplied character reference exactly. Stable location, positions and clothing. ONLY quoted Mandarin dialogue. Mouth moves only during own audible line, closes when someone else speaks. Zhou, adult man30, rectangular silver glasses, right-ear hearing aid, dark gray jacket. Zhou seated LEFT looking right in evidence room. Recorder and closed folder on desk. Only Zhou visible. Lin speaks OFF camera. At 0.4s zhou ON CAMERA says exactly: “通话、画面和证人说法对上了。异常在跌倒之前。”. At 6.6s lin OFF CAMERA voice only says exactly: “把这一段交许未，一起复核。”. No additional words. Finish all words naturally before clip ends."
+    },
+    {
+      "id": "05",
+      "duration": 13,
+      "scene_number": 4,
+      "part": 1,
+      "roles": [
+        "xu",
+        "zhou"
+      ],
+      "scene": "Xu seated LEFT at laboratory desk with microscope and closed medical folders. Only Xu visible. No bodies or exposed tissue. She is independently reviewing materials.",
+      "lines": [
+        [
+          "xu",
+          "这些表现与后来的检查相符。病程已经在跌倒前开始。",
+          "Those symptoms fit the subsequent findings. The clinical course had begun before the fall."
+        ],
+        [
+          "xu",
+          "不能把这次发病，全归到后来那一跤。",
+          "The later fall cannot account for the whole illness."
+        ]
+      ],
+      "refs": [
+        "xu"
+      ],
+      "prompt": "13 second scene. Detailed hand-drawn 2D anime, cool natural blue-gray lighting, readable faces. No subtitles, lettering, watermark or music. Match supplied character reference exactly. Stable location, positions and clothing. ONLY quoted Mandarin dialogue. Mouth moves only during own audible line, closes when someone else speaks. Xu, adult female forensic scientist, brown ponytail, olive-green shirt, white coat, black gloves, no glasses. Xu seated LEFT at laboratory desk with microscope and closed medical folders. Only Xu visible. No bodies or exposed tissue. She is independently reviewing materials. At 0.4s xu ON CAMERA says exactly: “这些表现与后来的检查相符。病程已经在跌倒前开始。”. At 7.2s xu ON CAMERA says exactly: “不能把这次发病，全归到后来那一跤。”. No additional words. Finish all words naturally before clip ends."
+    },
+    {
+      "id": "06",
+      "duration": 15,
+      "scene_number": 5,
+      "part": 1,
+      "roles": [
+        "xu",
+        "han"
+      ],
+      "scene": "Xu seated LEFT in review meeting, closed folders on desk. Only Xu visible. Han male voice responds OFF camera right. No suspect or Jian visible.",
+      "lines": [
+        [
+          "xu",
+          "综合现场、病程和病理，支持那次颈部暴力造成血管损伤，继而导致致命脑梗死。",
+          "Taken together, the circumstances, clinical course, and pathology support the neck assault causing vascular injury and a fatal cerebral infarction."
+        ],
+        [
+          "han",
+          "依据逐项写清，随案移送。",
+          "Set out each basis clearly and submit it with the case."
+        ]
+      ],
+      "refs": [
+        "xu"
+      ],
+      "prompt": "15 second scene. Detailed hand-drawn 2D anime, cool natural blue-gray lighting, readable faces. No subtitles, lettering, watermark or music. Match supplied character reference exactly. Stable location, positions and clothing. ONLY quoted Mandarin dialogue. Mouth moves only during own audible line, closes when someone else speaks. Xu, adult female forensic scientist, brown ponytail, olive-green shirt, white coat, black gloves, no glasses. Xu seated LEFT in review meeting, closed folders on desk. Only Xu visible. Han male voice responds OFF camera right. No suspect or Jian visible. At 0.4s xu ON CAMERA says exactly: “综合现场、病程和病理，支持那次颈部暴力造成血管损伤，继而导致致命脑梗死。”. At 10.3s han OFF CAMERA voice only says exactly: “依据逐项写清，随案移送。”. No additional words. Finish all words naturally before clip ends."
+    },
+    {
+      "id": "07",
+      "duration": 10,
+      "scene_number": 6,
+      "part": 1,
+      "roles": [
+        "mother",
+        "lin"
+      ],
+      "scene": "Mother seated LEFT holding brown cloth bag, gray-black low bun stays tied. Quiet interview room. Only mother visible. Lin speaks gently OFF camera right.",
+      "lines": [
+        [
+          "mother",
+          "她说疼，我还叫她睡一觉就好。",
+          "She said it hurt. I told her to sleep it off."
+        ],
+        [
+          "lin",
+          "您不知道她经历了什么。这不是您的错。",
+          "You didn't know what had happened to her. This wasn't your fault."
+        ]
+      ],
+      "refs": [
+        "mother"
+      ],
+      "prompt": "10 second scene. Detailed hand-drawn 2D anime, cool natural blue-gray lighting, readable faces. No subtitles, lettering, watermark or music. Match supplied character reference exactly. Stable location, positions and clothing. ONLY quoted Mandarin dialogue. Mouth moves only during own audible line, closes when someone else speaks. Mother, woman56 with gray-black LOW BUN, navy cardigan, gray collared shirt, brown cloth bag. Mother seated LEFT holding brown cloth bag, gray-black low bun stays tied. Quiet interview room. Only mother visible. Lin speaks gently OFF camera right. At 0.4s mother ON CAMERA says exactly: “她说疼，我还叫她睡一觉就好。”. At 4.5s lin OFF CAMERA voice only says exactly: “您不知道她经历了什么。这不是您的错。”. No additional words. Finish all words naturally before clip ends."
+    },
+    {
+      "id": "08",
+      "duration": 10,
+      "scene_number": 7,
+      "part": 1,
+      "roles": [
+        "zhou"
+      ],
+      "scene": "Zhou seated LEFT in records office, carefully puts plain papers in one folder. Only Zhou visible. No legible text generated.",
+      "lines": [
+        [
+          "zhou",
+          "原始资料、提取记录，都在。",
+          "The original material and extraction records are all included."
+        ]
+      ],
+      "refs": [
+        "zhou"
+      ],
+      "prompt": "10 second scene. Detailed hand-drawn 2D anime, cool natural blue-gray lighting, readable faces. No subtitles, lettering, watermark or music. Match supplied character reference exactly. Stable location, positions and clothing. ONLY quoted Mandarin dialogue. Mouth moves only during own audible line, closes when someone else speaks. Zhou, adult man30, rectangular silver glasses, right-ear hearing aid, dark gray jacket. Zhou seated LEFT in records office, carefully puts plain papers in one folder. Only Zhou visible. No legible text generated. At 0.4s zhou ON CAMERA says exactly: “原始资料、提取记录，都在。”. No additional words. Finish all words naturally before clip ends."
+    }
+  ],
+  "known_refs": {
+    "xu": {
+      "task_id": "b0892f7e-4fb8-477b-b354-5334c215e423",
+      "seconds": 2,
+      "crop": "854:380:0:0"
+    },
+    "mother": {
+      "task_id": "3c87bcb8-faa3-4cdc-8a15-d0153e5d0d2a",
+      "seconds": 2,
+      "crop": "854:380:0:0"
+    },
+    "han": {
+      "github_artifact": 10297957892,
+      "member": "01-raw.mp4",
+      "seconds": 2,
+      "crop": "854:328:0:74"
+    },
+    "zhou": {
+      "task_id": "7099e7dd-df2b-4680-8efb-23d280c8a990",
+      "seconds": 2,
+      "crop": "854:380:0:0"
+    }
+  },
+  "estimate_usd": 2.6166
+}

@@ -1,0 +1,242 @@
+{
+  "episode": 18,
+  "title": "留着的灯",
+  "model": "wan3.0-video",
+  "resolution": "480P",
+  "max_output_seconds": 88,
+  "clips": [
+    {
+      "id": "01",
+      "duration": 11,
+      "scene_number": 1,
+      "part": 1,
+      "roles": [
+        "jian",
+        "lin",
+        "xu",
+        "zhou",
+        "han"
+      ],
+      "scene": "Jian seated RIGHT near the open doorway in a quiet meeting room, facing LEFT. This is a planned interview during investigation. Lin, Xu, Zhou and Han listen OFF camera at a safe distance. Only Jian visible. Female Lin asks first line OFF camera. Jian replies with second line.",
+      "lines": [
+        [
+          "lin",
+          "替你缝袖口的，也是阿宁？",
+          "Was A-Ning the one who mended your cuff?"
+        ],
+        [
+          "jian",
+          "是。她救了我。我第一次失控，咬伤了她的手臂。",
+          "Yes. She saved me. The first time I lost control, I bit her arm."
+        ]
+      ],
+      "refs": [
+        "jian"
+      ],
+      "prompt": "11 second scene. Detailed hand-drawn 2D anime, cool natural blue-gray lighting, readable faces. No subtitles, lettering, watermark or music. Match supplied character reference exactly. Stable location, positions and clothing. ONLY quoted Mandarin dialogue. Mouth moves only during own audible line, closes when someone else speaks. Jian, pale young adult man, tousled black hair, black turtleneck, white coat, no glasses. Jian seated RIGHT near the open doorway in a quiet meeting room, facing LEFT. This is a planned interview during investigation. Lin, Xu, Zhou and Han listen OFF camera at a safe distance. Only Jian visible. Female Lin asks first line OFF camera. Jian replies with second line. At 0.4s lin OFF CAMERA voice only says exactly: “替你缝袖口的，也是阿宁？”. At 4.0s jian ON CAMERA says exactly: “是。她救了我。我第一次失控，咬伤了她的手臂。”. No additional words. Finish all words naturally before clip ends."
+    },
+    {
+      "id": "02",
+      "duration": 10,
+      "scene_number": 1,
+      "part": 2,
+      "roles": [
+        "jian",
+        "lin",
+        "xu",
+        "zhou",
+        "han"
+      ],
+      "scene": "Same quiet meeting room. Xu seated LEFT facing RIGHT toward Jian OFF camera. Only Xu visible. She asks her short question, then calmly waits with mouth closed.",
+      "lines": [
+        [
+          "xu",
+          "她后来怎么样？",
+          "What happened to her?"
+        ]
+      ],
+      "refs": [
+        "xu"
+      ],
+      "prompt": "10 second scene. Detailed hand-drawn 2D anime, cool natural blue-gray lighting, readable faces. No subtitles, lettering, watermark or music. Match supplied character reference exactly. Stable location, positions and clothing. ONLY quoted Mandarin dialogue. Mouth moves only during own audible line, closes when someone else speaks. Xu, adult female forensic scientist, brown ponytail, olive-green shirt, white coat, black gloves, no glasses. Same quiet meeting room. Xu seated LEFT facing RIGHT toward Jian OFF camera. Only Xu visible. She asks her short question, then calmly waits with mouth closed. At 0.4s xu ON CAMERA says exactly: “她后来怎么样？”. No additional words. Finish all words naturally before clip ends."
+    },
+    {
+      "id": "03",
+      "duration": 13,
+      "scene_number": 2,
+      "part": 1,
+      "roles": [
+        "jian"
+      ],
+      "scene": "Same meeting room, Jian seated RIGHT facing LEFT, telling a difficult personal memory. Only Jian visible. White coat sleeve has a small neat repaired seam near cuff. No biting flashback, no other face. His eyes are normal now.",
+      "lines": [
+        [
+          "jian",
+          "她活下来了。我停住了，可伤是我留下的。",
+          "She survived. I stopped, but I was the one who hurt her."
+        ],
+        [
+          "jian",
+          "我怕再伤她，就走了。我说，等我能控制了，就回来。",
+          "I left because I was afraid I'd hurt her again. I told her I'd return when I could control it."
+        ]
+      ],
+      "refs": [
+        "jian"
+      ],
+      "prompt": "13 second scene. Detailed hand-drawn 2D anime, cool natural blue-gray lighting, readable faces. No subtitles, lettering, watermark or music. Match supplied character reference exactly. Stable location, positions and clothing. ONLY quoted Mandarin dialogue. Mouth moves only during own audible line, closes when someone else speaks. Jian, pale young adult man, tousled black hair, black turtleneck, white coat, no glasses. Same meeting room, Jian seated RIGHT facing LEFT, telling a difficult personal memory. Only Jian visible. White coat sleeve has a small neat repaired seam near cuff. No biting flashback, no other face. His eyes are normal now. At 0.4s jian ON CAMERA says exactly: “她活下来了。我停住了，可伤是我留下的。”. At 5.9s jian ON CAMERA says exactly: “我怕再伤她，就走了。我说，等我能控制了，就回来。”. No additional words. Finish all words naturally before clip ends."
+    },
+    {
+      "id": "04",
+      "duration": 10,
+      "scene_number": 3,
+      "part": 1,
+      "roles": [
+        "zhou",
+        "jian",
+        "han"
+      ],
+      "scene": "Same meeting room. Jian seated RIGHT facing LEFT. Only Jian visible. Zhou male question comes from OFF camera left, then Jian answers. Normal eyes and teeth.",
+      "lines": [
+        [
+          "zhou",
+          "你回去了吗？",
+          "Did you go back?"
+        ],
+        [
+          "jian",
+          "回去了。诊所空了，她也不见了。我一直在找她。",
+          "I did. The clinic was empty, and she was gone. I've been looking for her ever since."
+        ]
+      ],
+      "refs": [
+        "jian"
+      ],
+      "prompt": "10 second scene. Detailed hand-drawn 2D anime, cool natural blue-gray lighting, readable faces. No subtitles, lettering, watermark or music. Match supplied character reference exactly. Stable location, positions and clothing. ONLY quoted Mandarin dialogue. Mouth moves only during own audible line, closes when someone else speaks. Jian, pale young adult man, tousled black hair, black turtleneck, white coat, no glasses. Same meeting room. Jian seated RIGHT facing LEFT. Only Jian visible. Zhou male question comes from OFF camera left, then Jian answers. Normal eyes and teeth. At 0.4s zhou OFF CAMERA voice only says exactly: “你回去了吗？”. At 2.4s jian ON CAMERA says exactly: “回去了。诊所空了，她也不见了。我一直在找她。”. No additional words. Finish all words naturally before clip ends."
+    },
+    {
+      "id": "05",
+      "duration": 10,
+      "scene_number": 3,
+      "part": 2,
+      "roles": [
+        "zhou",
+        "jian",
+        "han"
+      ],
+      "scene": "Same meeting room. Han seated LEFT farther from door, looking RIGHT at Jian OFF camera, holds plain notebook, asks for facts to verify. Only Han visible.",
+      "lines": [
+        [
+          "han",
+          "你记得的地方、时间，都写下来。我们会核实。",
+          "Write down the places and dates you remember. We'll verify them."
+        ]
+      ],
+      "refs": [
+        "han"
+      ],
+      "prompt": "10 second scene. Detailed hand-drawn 2D anime, cool natural blue-gray lighting, readable faces. No subtitles, lettering, watermark or music. Match supplied character reference exactly. Stable location, positions and clothing. ONLY quoted Mandarin dialogue. Mouth moves only during own audible line, closes when someone else speaks. Han, adult man48, gray temples, small RIGHT eyebrow scar, navy police uniform, NO glasses. Same meeting room. Han seated LEFT farther from door, looking RIGHT at Jian OFF camera, holds plain notebook, asks for facts to verify. Only Han visible. At 0.4s han ON CAMERA says exactly: “你记得的地方、时间，都写下来。我们会核实。”. No additional words. Finish all words naturally before clip ends."
+    },
+    {
+      "id": "06",
+      "duration": 13,
+      "scene_number": 4,
+      "part": 1,
+      "roles": [
+        "xu",
+        "jian",
+        "lin"
+      ],
+      "scene": "Same meeting room. Xu seated LEFT facing RIGHT, only Xu visible. Jian replies OFF camera right. She listens with mouth closed, no approving smile.",
+      "lines": [
+        [
+          "xu",
+          "这些事解释了你为什么怕。能不能继续工作，还得评估。",
+          "That explains your fear. Whether you can return to work still needs assessment."
+        ],
+        [
+          "jian",
+          "我明白。以后有异常，我会先告诉你们。",
+          "I understand. From now on, I'll tell you at the first sign."
+        ]
+      ],
+      "refs": [
+        "xu"
+      ],
+      "prompt": "13 second scene. Detailed hand-drawn 2D anime, cool natural blue-gray lighting, readable faces. No subtitles, lettering, watermark or music. Match supplied character reference exactly. Stable location, positions and clothing. ONLY quoted Mandarin dialogue. Mouth moves only during own audible line, closes when someone else speaks. Xu, adult female forensic scientist, brown ponytail, olive-green shirt, white coat, black gloves, no glasses. Same meeting room. Xu seated LEFT facing RIGHT, only Xu visible. Jian replies OFF camera right. She listens with mouth closed, no approving smile. At 0.4s xu ON CAMERA says exactly: “这些事解释了你为什么怕。能不能继续工作，还得评估。”. At 7.4s jian OFF CAMERA voice only says exactly: “我明白。以后有异常，我会先告诉你们。”. No additional words. Finish all words naturally before clip ends."
+    },
+    {
+      "id": "07",
+      "duration": 11,
+      "scene_number": 5,
+      "part": 1,
+      "roles": [
+        "mother",
+        "lin",
+        "narrator"
+      ],
+      "scene": "MONTHS LATER outside a courthouse, mother seated LEFT on bench holding her brown cloth bag. Low bun and navy cardigan gray collar unchanged. Only mother visible, neutral courthouse facade behind her. First line adult MALE narrator OFF camera, mother mouth closed throughout narration. Mother speaks only second line.",
+      "lines": [
+        [
+          "narrator",
+          "经审理，陆承安因对知微实施暴力并造成死亡，被判有罪。",
+          "Following trial, Lu Cheng'an was convicted for the violence that caused Zhiwei's death."
+        ],
+        [
+          "mother",
+          "她那天，是想回家的。",
+          "She wanted to come home that day."
+        ]
+      ],
+      "refs": [
+        "mother"
+      ],
+      "prompt": "11 second scene. Detailed hand-drawn 2D anime, cool natural blue-gray lighting, readable faces. No subtitles, lettering, watermark or music. Match supplied character reference exactly. Stable location, positions and clothing. ONLY quoted Mandarin dialogue. Mouth moves only during own audible line, closes when someone else speaks. Mother, woman56 with gray-black LOW BUN, navy cardigan, gray collared shirt, brown cloth bag. MONTHS LATER outside a courthouse, mother seated LEFT on bench holding her brown cloth bag. Low bun and navy cardigan gray collar unchanged. Only mother visible, neutral courthouse facade behind her. First line adult MALE narrator OFF camera, mother mouth closed throughout narration. Mother speaks only second line. At 0.4s narrator OFF CAMERA voice only says exactly: “经审理，陆承安因对知微实施暴力并造成死亡，被判有罪。”. At 7.7s mother ON CAMERA says exactly: “她那天，是想回家的。”. No additional words. Finish all words naturally before clip ends."
+    },
+    {
+      "id": "08",
+      "duration": 10,
+      "scene_number": 6,
+      "part": 1,
+      "roles": [
+        "mother"
+      ],
+      "scene": "Mother home at night, low bun navy cardigan gray blouse. She visibly walks from LEFT to bedside table RIGHT, stops beside a warm table lamp. Empty chair remains empty. She speaks quietly, then switches off lamp by her own hand near end. No ghost, no photo portrait or extra person. Camera remains on her upper body and lamp; no teleport or dissolve.",
+      "lines": [
+        [
+          "mother",
+          "我把灯关了。你要是想家，就回来坐坐。",
+          "I'm turning out the light. If you miss home, come and sit for a while."
+        ]
+      ],
+      "refs": [
+        "mother"
+      ],
+      "prompt": "10 second scene. Detailed hand-drawn 2D anime, cool natural blue-gray lighting, readable faces. No subtitles, lettering, watermark or music. Match supplied character reference exactly. Stable location, positions and clothing. ONLY quoted Mandarin dialogue. Mouth moves only during own audible line, closes when someone else speaks. Mother, woman56 with gray-black LOW BUN, navy cardigan, gray collared shirt, brown cloth bag. Mother home at night, low bun navy cardigan gray blouse. She visibly walks from LEFT to bedside table RIGHT, stops beside a warm table lamp. Empty chair remains empty. She speaks quietly, then switches off lamp by her own hand near end. No ghost, no photo portrait or extra person. Camera remains on her upper body and lamp; no teleport or dissolve. At 0.4s mother ON CAMERA says exactly: “我把灯关了。你要是想家，就回来坐坐。”. No additional words. Finish all words naturally before clip ends."
+    }
+  ],
+  "known_refs": {
+    "xu": {
+      "task_id": "b0892f7e-4fb8-477b-b354-5334c215e423",
+      "seconds": 2,
+      "crop": "854:380:0:0"
+    },
+    "mother": {
+      "task_id": "3c87bcb8-faa3-4cdc-8a15-d0153e5d0d2a",
+      "seconds": 2,
+      "crop": "854:380:0:0"
+    },
+    "han": {
+      "github_artifact": 10297957892,
+      "member": "01-raw.mp4",
+      "seconds": 2,
+      "crop": "854:328:0:74"
+    },
+    "jian": {
+      "task_id": "55668a55-c00d-4897-a2e8-4948de3882e1",
+      "seconds": 2,
+      "crop": "854:328:0:74"
+    }
+  },
+  "estimate_usd": 2.5872
+}
