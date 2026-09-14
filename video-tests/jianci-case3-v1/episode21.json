@@ -1,0 +1,218 @@
+{
+  "episode": 21,
+  "title": "楼上没有脚步",
+  "model": "wan3.0-video",
+  "resolution": "480P",
+  "max_output_seconds": 72,
+  "clips": [
+    {
+      "id": "01",
+      "duration": 7,
+      "scene_number": 1,
+      "part": 1,
+      "primary": "zhou",
+      "scene": "Zhou alone at nursery attic entrance. A loose pipe bracket and board visible RIGHT; two dull knocks coincide with wind vibration, nobody on roof. He reports controlled reenactment after evidence collection; Lin OFF.",
+      "lines": [
+        [
+          "zhou",
+          "刚才那两声，能重现。",
+          "Those two sounds can be reproduced."
+        ],
+        [
+          "lin",
+          "声音解释了。睡垫还没解释。",
+          "That explains the noise. It doesn't explain the sleeping mat."
+        ]
+      ],
+      "refs": [
+        "zhou"
+      ],
+      "prompt": "7 seconds. Cinematic detailed hand-drawn 2D ANIME, cool blue-gray natural light, clear faces, realistic proportions. NO live action, NO 3D. Clean frame: NO subtitles, captions, writing, logos, music. Mandarin natural speech, precise mouth movement during OWN audible words only. Only specified visible people; OFF camera voices NEVER add another face or animate visible listener mouth. NO invented extra words. Reference images for FACE IDENTITY ONLY; replace clothing and room as explicitly described. Zhou: adult man rectangular SILVER GLASSES, RIGHT-ear hearing aid, dark gray jacket. Zhou alone at nursery attic entrance. A loose pipe bracket and board visible RIGHT; two dull knocks coincide with wind vibration, nobody on roof. He reports controlled reenactment after evidence collection; Lin OFF. At 0.35s zhou ON CAMERA says exactly: “刚才那两声，能重现。”. At 2.80s lin OFF CAMERA says exactly: “声音解释了。睡垫还没解释。”. Finish all quoted speech then absolute vocal silence. Continuous natural motion, no duplicate gesture, no morphing, no dissolve, no teleport. No phone/radio gesture unless explicitly required.",
+      "label": "痕迹提取后·重现实验"
+    },
+    {
+      "id": "02",
+      "duration": 15,
+      "scene_number": 2,
+      "part": 1,
+      "primary": "ji",
+      "scene": "Same Ji identity, seated LEFT in interview room, blue bag on lap. Lin questions OFF. Ji recounts events, NO depiction of murder.",
+      "lines": [
+        [
+          "lin",
+          "有人见你昨晚走上西侧楼梯。我们要听你说。",
+          "Someone saw you on the west stairs last night. Tell us what happened."
+        ],
+        [
+          "ji",
+          "我回来拿东西。听见下面吵，后来像什么摔在地上。",
+          "I came for my things. I heard an argument below, then something hit the floor."
+        ],
+        [
+          "lin",
+          "看见谁了吗？",
+          "Did you see anyone?"
+        ],
+        [
+          "ji",
+          "我不敢下去。",
+          "I was afraid to go down."
+        ]
+      ],
+      "refs": [
+        "ji"
+      ],
+      "prompt": "15 seconds. Cinematic detailed hand-drawn 2D ANIME, cool blue-gray natural light, clear faces, realistic proportions. NO live action, NO 3D. Clean frame: NO subtitles, captions, writing, logos, music. Mandarin natural speech, precise mouth movement during OWN audible words only. Only specified visible people; OFF camera voices NEVER add another face or animate visible listener mouth. NO invented extra words. Reference images for FACE IDENTITY ONLY; replace clothing and room as explicitly described. Ji: adult woman27, BLACK LOW PONYTAIL, BRICK RED JACKET, light gray trousers, BLUE CANVAS BAG. Same Ji identity, seated LEFT in interview room, blue bag on lap. Lin questions OFF. Ji recounts events, NO depiction of murder. At 0.35s lin OFF CAMERA says exactly: “有人见你昨晚走上西侧楼梯。我们要听你说。”. At 5.19s ji ON CAMERA says exactly: “我回来拿东西。听见下面吵，后来像什么摔在地上。”. At 10.50s lin OFF CAMERA says exactly: “看见谁了吗？”. At 12.24s ji ON CAMERA says exactly: “我不敢下去。”. Finish all quoted speech then absolute vocal silence. Continuous natural motion, no duplicate gesture, no morphing, no dissolve, no teleport. No phone/radio gesture unless explicitly required.",
+      "label": "补充询问"
+    },
+    {
+      "id": "03",
+      "duration": 8,
+      "scene_number": 3,
+      "part": 1,
+      "primary": "ji",
+      "scene": "Ji same outfit outside at foot of WEST exterior wooden maintenance stair of nursery, looks up then remains still. Recollection illustration, no violence. Her narration and Lin question OFF, visible Ji lips CLOSED.",
+      "lines": [
+        [
+          "ji",
+          "我以为被发现，会说是我偷的。",
+          "I thought if they found me, they'd accuse me of stealing."
+        ],
+        [
+          "lin",
+          "你什么时候离开的？沿哪条路？",
+          "When did you leave, and which way did you go?"
+        ]
+      ],
+      "refs": [
+        "clip:02"
+      ],
+      "prompt": "8 seconds. Cinematic detailed hand-drawn 2D ANIME, cool blue-gray natural light, clear faces, realistic proportions. NO live action, NO 3D. Clean frame: NO subtitles, captions, writing, logos, music. Mandarin natural speech, precise mouth movement during OWN audible words only. Only specified visible people; OFF camera voices NEVER add another face or animate visible listener mouth. NO invented extra words. Reference images for FACE IDENTITY ONLY; replace clothing and room as explicitly described.  Ji: adult woman27, BLACK LOW PONYTAIL, BRICK RED JACKET, light gray trousers, BLUE CANVAS BAG. Ji same outfit outside at foot of WEST exterior wooden maintenance stair of nursery, looks up then remains still. Recollection illustration, no violence. Her narration and Lin question OFF, visible Ji lips CLOSED. At 0.35s ji OFF CAMERA says exactly: “我以为被发现，会说是我偷的。”. At 3.76s lin OFF CAMERA says exactly: “你什么时候离开的？沿哪条路？”. Finish all quoted speech then absolute vocal silence. Continuous natural motion, no duplicate gesture, no morphing, no dissolve, no teleport. No phone/radio gesture unless explicitly required.",
+      "label": "依季岚陈述示意·待核实"
+    },
+    {
+      "id": "04",
+      "duration": 11,
+      "scene_number": 4,
+      "part": 1,
+      "primary": "han",
+      "scene": "Han alone at desk in plain police office, facing RIGHT. Zhou and Lin report OFF; Han replies calmly. No radio or extra people.",
+      "lines": [
+        [
+          "zhou",
+          "便道录像里，她离开的时间能对上。其他说法继续查。",
+          "The lane footage matches her departure. We're checking the rest of her account."
+        ],
+        [
+          "han",
+          "别用她说过谎，替代她杀过人的证据。",
+          "A lie is not proof of murder."
+        ]
+      ],
+      "refs": [
+        "han"
+      ],
+      "prompt": "11 seconds. Cinematic detailed hand-drawn 2D ANIME, cool blue-gray natural light, clear faces, realistic proportions. NO live action, NO 3D. Clean frame: NO subtitles, captions, writing, logos, music. Mandarin natural speech, precise mouth movement during OWN audible words only. Only specified visible people; OFF camera voices NEVER add another face or animate visible listener mouth. NO invented extra words. Reference images for FACE IDENTITY ONLY; replace clothing and room as explicitly described. Han: adult man48, gray temples, scar RIGHT eyebrow, navy police uniform, NO glasses, NO radio, no legible badge numbers. Han alone at desk in plain police office, facing RIGHT. Zhou and Lin report OFF; Han replies calmly. No radio or extra people. At 0.35s zhou OFF CAMERA says exactly: “便道录像里，她离开的时间能对上。其他说法继续查。”. At 5.90s han ON CAMERA says exactly: “别用她说过谎，替代她杀过人的证据。”. Finish all quoted speech then absolute vocal silence. Continuous natural motion, no duplicate gesture, no morphing, no dissolve, no teleport. No phone/radio gesture unless explicitly required.",
+      "label": "核查便道影像"
+    },
+    {
+      "id": "05",
+      "duration": 6,
+      "scene_number": 4,
+      "part": 2,
+      "primary": "han",
+      "scene": "Han alone at desk in plain police office, facing RIGHT. Zhou and Lin report OFF; Han replies calmly. No radio or extra people.",
+      "lines": [
+        [
+          "lin",
+          "再核杜衡的车。清晨那段，他没解释。",
+          "Check Du Heng's car again. He hasn't explained the morning trip."
+        ]
+      ],
+      "refs": [
+        "han"
+      ],
+      "prompt": "6 seconds. Cinematic detailed hand-drawn 2D ANIME, cool blue-gray natural light, clear faces, realistic proportions. NO live action, NO 3D. Clean frame: NO subtitles, captions, writing, logos, music. Mandarin natural speech, precise mouth movement during OWN audible words only. Only specified visible people; OFF camera voices NEVER add another face or animate visible listener mouth. NO invented extra words. Reference images for FACE IDENTITY ONLY; replace clothing and room as explicitly described. Han: adult man48, gray temples, scar RIGHT eyebrow, navy police uniform, NO glasses, NO radio, no legible badge numbers. Han alone at desk in plain police office, facing RIGHT. Zhou and Lin report OFF; Han replies calmly. No radio or extra people. At 0.35s lin OFF CAMERA says exactly: “再核杜衡的车。清晨那段，他没解释。”. Finish all quoted speech then absolute vocal silence. Continuous natural motion, no duplicate gesture, no morphing, no dissolve, no teleport. No phone/radio gesture unless explicitly required.",
+      "label": "核查便道影像"
+    },
+    {
+      "id": "06",
+      "duration": 15,
+      "scene_number": 5,
+      "part": 1,
+      "primary": "jian",
+      "scene": "Jian RIGHT in well-lit assessment clinic corridor, Zhou LEFT at safe distance, both face each other. Jian suddenly freezes, RED irises briefly visible, mouth clenched, NO attack, visibly steps BACK toward empty chair on RIGHT. A staff member with tiny paper cut stays OFF camera, no blood shown. Jian says only own line.",
+      "lines": [
+        [
+          "jian",
+          "周峤，带他先走。",
+          "Zhou Qiao, take him away first."
+        ]
+      ],
+      "refs": [
+        "jian",
+        "zhou"
+      ],
+      "prompt": "15 seconds. Cinematic detailed hand-drawn 2D ANIME, cool blue-gray natural light, clear faces, realistic proportions. NO live action, NO 3D. Clean frame: NO subtitles, captions, writing, logos, music. Mandarin natural speech, precise mouth movement during OWN audible words only. Only specified visible people; OFF camera voices NEVER add another face or animate visible listener mouth. NO invented extra words. Reference images for FACE IDENTITY ONLY; replace clothing and room as explicitly described. Jian: pale young adult man, tousled black hair, NO glasses, BLACK TURTLENECK and DARK GRAY CASUAL JACKET, never white coat while suspended. Zhou: adult man rectangular SILVER GLASSES, RIGHT-ear hearing aid, dark gray jacket. Jian RIGHT in well-lit assessment clinic corridor, Zhou LEFT at safe distance, both face each other. Jian suddenly freezes, RED irises briefly visible, mouth clenched, NO attack, visibly steps BACK toward empty chair on RIGHT. A staff member with tiny paper cut stays OFF camera, no blood shown. Jian says only own line. At 0.35s jian ON CAMERA says exactly: “周峤，带他先走。”. Finish all quoted speech then absolute vocal silence. Continuous natural motion, no duplicate gesture, no morphing, no dissolve, no teleport. No phone/radio gesture unless explicitly required.",
+      "label": "评估结束后·走廊"
+    },
+    {
+      "id": "07",
+      "duration": 10,
+      "scene_number": 6,
+      "part": 1,
+      "primary": "jian",
+      "scene": "Jian RIGHT seated on corridor chair, dark gray jacket black turtleneck. Zhou OFF at safe distance. Jian slowly releases chair arm, red iris fades to normal. Remains visible throughout.",
+      "lines": [
+        [
+          "jian",
+          "我闻到了。我没过去。",
+          "I smelled it. I didn't approach."
+        ],
+        [
+          "zhou",
+          "我看见你退了。",
+          "I saw you step back."
+        ],
+        [
+          "jian",
+          "可我想过去。",
+          "But I wanted to approach."
+        ],
+        [
+          "zhou",
+          "这句也告诉许未。",
+          "Tell Xu Wei that too."
+        ]
+      ],
+      "refs": [
+        "jian"
+      ],
+      "prompt": "10 seconds. Cinematic detailed hand-drawn 2D ANIME, cool blue-gray natural light, clear faces, realistic proportions. NO live action, NO 3D. Clean frame: NO subtitles, captions, writing, logos, music. Mandarin natural speech, precise mouth movement during OWN audible words only. Only specified visible people; OFF camera voices NEVER add another face or animate visible listener mouth. NO invented extra words. Reference images for FACE IDENTITY ONLY; replace clothing and room as explicitly described. Jian: pale young adult man, tousled black hair, NO glasses, BLACK TURTLENECK and DARK GRAY CASUAL JACKET, never white coat while suspended. Jian RIGHT seated on corridor chair, dark gray jacket black turtleneck. Zhou OFF at safe distance. Jian slowly releases chair arm, red iris fades to normal. Remains visible throughout. At 0.35s jian ON CAMERA says exactly: “我闻到了。我没过去。”. At 2.80s zhou OFF CAMERA says exactly: “我看见你退了。”. At 4.78s jian ON CAMERA says exactly: “可我想过去。”. At 6.52s zhou OFF CAMERA says exactly: “这句也告诉许未。”. Finish all quoted speech then absolute vocal silence. Continuous natural motion, no duplicate gesture, no morphing, no dissolve, no teleport. No phone/radio gesture unless explicitly required.",
+      "label": "片刻后"
+    }
+  ],
+  "known_refs": {
+    "han": {
+      "task_id": "10c316b2-29cd-4145-9fc7-bed0a6bf561c",
+      "seconds": 2,
+      "crop": "320:300:310:0"
+    },
+    "jian": {
+      "task_id": "266e6ebd-0a4d-408c-ae66-6b82077aa055",
+      "seconds": 2,
+      "crop": "400:320:230:0"
+    },
+    "zhou": {
+      "task_id": "22f44ed1-b301-4b7a-9330-afa87e545dd4",
+      "seconds": 2,
+      "crop": "400:320:150:0"
+    },
+    "ji": {
+      "task_id": "8bfc610e-5b16-4885-995d-b1f18b8a23ab",
+      "seconds": 2,
+      "crop": "320:320:100:0"
+    }
+  },
+  "estimate_usd": 2.1168
+}
