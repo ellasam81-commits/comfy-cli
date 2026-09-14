@@ -1,0 +1,45 @@
+{
+  "episode": 16,
+  "title": "她还能自己走",
+  "model": "wan3.0-video",
+  "resolution": "480P",
+  "max_output_seconds": 10,
+  "clips": [
+    {
+      "id": "01",
+      "duration": 10,
+      "scene_number": 1,
+      "part": 1,
+      "roles": [
+        "lu",
+        "lin"
+      ],
+      "scene": "One FIXED security camera view of a furniture repair shop doorway. First reference is adult man Lu: brown jacket, gray-green shirt, rectangular face, black hair, no glasses. Second reference is ONLY the adult woman in the photograph: Zhiwei, brown low ponytail, same face, now cream knit sweater. Do NOT show a photograph or any hands holding a picture. Lu stands RIGHT and Zhiwei LEFT. He briefly blocks her exit and makes brief visible NON-GRAPHIC neck contact, she pulls away and walks out LEFT. No technique demonstration, no injury, blood or repeated action. Two adult people only. Female investigator narration is OFF camera, NOT the woman in the security image speaking. No security timestamp generated.",
+      "lines": [
+        [
+          "lin",
+          "完整保留。再核实当时在场的人。",
+          "Preserve the full sequence. Verify who else was there."
+        ]
+      ],
+      "refs": [
+        "lu",
+        "zhiwei"
+      ],
+      "prompt": "10 seconds, hand-drawn 2D anime fictional detective drama. One stable wide view from a shop security camera. The first reference defines the adult man Lu, brown jacket, gray-green shirt. The second reference defines ONLY the young adult woman shown IN the photo, Zhiwei, brown low ponytail; she now wears a cream sweater. No photograph or extra people in the scene. A furniture repair shop doorway, Lu RIGHT and Zhiwei LEFT. During a brief argument he blocks her way and roughly grabs at her collar near the side of her neck for one second. She immediately pulls away and walks out through the LEFT doorway. No visible wounds, no blood, no choking demonstration or repeated attack. Keep both people anatomically consistent, do not merge or vanish. Bright enough to see the action, not dark silhouettes. No written text, captions or timestamp. Calm adult FEMALE investigator voiceover, separate from the woman in the recorded image, says exactly: “完整保留。再核实当时在场的人。” Neither visible character is speaking this voiceover. No other voices and no music."
+    }
+  ],
+  "known_refs": {
+    "lu": {
+      "task_id": "5d188fcf-384e-478c-9592-d5336e4ab228",
+      "seconds": 2,
+      "crop": "854:380:0:0"
+    },
+    "zhiwei": {
+      "task_id": "9e47037c-638a-43cd-8ae8-a32d7e189251",
+      "seconds": 8,
+      "crop": "290:240:265:160"
+    }
+  },
+  "estimate_usd": 0.294
+}

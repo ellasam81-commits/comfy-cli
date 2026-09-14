@@ -1,1 +1,1 @@
-{"episode": 16, "batch": "repair-1", "clips": ["01"], "max_seconds": 10, "estimate_usd": 0.294}
+{"episode": 16, "batch": "fixed-invalid-reference-size", "clips": ["01"], "max_seconds": 10, "estimate_usd": 0.294, "previous_attempt": "rejected before generation: input image height160 below minimum240"}
