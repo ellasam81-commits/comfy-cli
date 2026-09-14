@@ -7,14 +7,17 @@ permissions:
   contents: read
   actions: read
 concurrency:
-  group: jianci-case3-v1
+  group: jianci-case3-location
   cancel-in-progress: false
 jobs:
   generate:
     strategy:
       fail-fast: false
       matrix:
-        episode: [21, 22, 23]
+        include:
+          - episode: 19
+            config: episode19-location.json
+            batch: '-location'
     runs-on: ubuntu-latest
     timeout-minutes: 90
     steps:
@@ -32,10 +35,12 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
           JIANCI_EXECUTE: '1'
           EPISODE: ${{ matrix.episode }}
+          CONFIG_FILE: ${{ matrix.config }}
+          BATCH: ${{ matrix.batch }}
         run: python video-tests/jianci-case3-v1/generate.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: jianci-case3-v1-ep${{ matrix.episode }}
+          name: jianci-case3-v1-ep${{ matrix.episode }}${{ matrix.batch }}
           path: output/jianci-case3-v1
           retention-days: 14

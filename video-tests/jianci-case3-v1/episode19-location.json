@@ -1,0 +1,47 @@
+{
+  "episode": 19,
+  "title": "屋里还暖着",
+  "model": "wan3.0-video",
+  "resolution": "480P",
+  "max_output_seconds": 13,
+  "clips": [
+    {
+      "id": "03",
+      "duration": 13,
+      "scene_number": 3,
+      "part": 1,
+      "primary": "xu",
+      "scene": "NEW LOCATION: a rural PLANT NURSERY OFFICE, weathered brown wooden wall, potting bench, terracotta flowerpots, window showing greenhouse plants. Absolutely NO medical room, steel cabinets, laboratory sinks or equipment. Xu alone stands LEFT foreground facing camera, reports preliminary findings after her examination. On RIGHT background floor an adult woman lies completely covered by one plain white sheet, only feet visible; sheet and body stay still. Camera fixed chest-up enough to keep face clear, preserve this same layout throughout. Two other voices OFF camera; do not show their faces. No gore, no tools touching body.",
+      "lines": [
+        [
+          "xu",
+          "两人都有明显外伤。具体死因和时间范围，要等尸检。",
+          "Both have visible injuries. The cause and time range of death require an autopsy."
+        ],
+        [
+          "delivery",
+          "可今早这里还冒烟，狗也没叫。",
+          "But smoke was rising this morning. The dog was quiet too."
+        ],
+        [
+          "lin",
+          "那只能说明有人来过。",
+          "That only tells us someone was here."
+        ]
+      ],
+      "refs": [
+        "xu"
+      ],
+      "prompt": "13 seconds. Detailed cinematic 2D anime, neutral blue-gray light, no text or music. ONLY one visible living person. Use reference ONLY for face: Xu adult woman brown ponytail, GREEN SHIRT WHITE LAB COAT BLACK GLOVES. NEW LOCATION: a rural PLANT NURSERY OFFICE, weathered brown wooden wall, potting bench, terracotta flowerpots, window showing greenhouse plants. Absolutely NO medical room, steel cabinets, laboratory sinks or equipment. Xu alone stands LEFT foreground facing camera, reports preliminary findings after her examination. On RIGHT background floor an adult woman lies completely covered by one plain white sheet, only feet visible; sheet and body stay still. Camera fixed chest-up enough to keep face clear, preserve this same layout throughout. Two other voices OFF camera; do not show their faces. No gore, no tools touching body. At 0.2s Xu ON CAMERA says exactly “两人都有明显外伤。具体死因和时间范围，要等尸检。” At 5.8s male delivery worker OFF CAMERA says exactly “可今早这里还冒烟，狗也没叫。” At 9.1s female Lin OFF CAMERA says exactly “那只能说明有人来过。” Visible Xu mouth stays CLOSED during others speech. Finish quoted words then no more speech. No morphing or scene change.",
+      "label": "现场初步检查"
+    }
+  ],
+  "known_refs": {
+    "xu": {
+      "task_id": "a8f8000e-6ef7-4714-aa1f-fb1a51f6c90c",
+      "seconds": 1,
+      "crop": "360:300:250:0"
+    }
+  },
+  "estimate_usd": 0.3822
+}
