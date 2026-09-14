@@ -1,0 +1,36 @@
+name: Jian Ci Finale EP28 Fallback Repair
+on:
+  push:
+    branches: [codex/jianci-transition-20260905]
+    paths: [video-tests/jianci-finale-xrtoken/repair28-v2.request.json]
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: jianci-finale-ep28-fallback-repair
+  cancel-in-progress: false
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 100
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install media tools and CJK fonts
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg fonts-noto-cjk
+      - name: Run EP28 repair without third paid attempt for clip 02
+        env:
+          XRTOKEN: ${{ secrets.XRTOKEN }}
+          JIANCI_EXECUTE: '1'
+        run: python video-tests/jianci-finale-xrtoken/repair_28_v2.py
+      - name: Upload repaired EP28
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jianci-finale-repair-ep28-v2
+          path: output/jianci-finale-repair-v2/ep28
+          retention-days: 14
