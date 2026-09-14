@@ -1,0 +1,280 @@
+{
+  "episode": 16,
+  "title": "她还能自己走",
+  "model": "wan3.0-video",
+  "resolution": "480P",
+  "max_output_seconds": 99,
+  "clips": [
+    {
+      "id": "01",
+      "duration": 10,
+      "scene_number": 1,
+      "part": 1,
+      "roles": [
+        "lu",
+        "lin"
+      ],
+      "scene": "One FIXED security camera view of a furniture repair shop doorway. First reference is adult man Lu: brown jacket, gray-green shirt, rectangular face, black hair, no glasses. Second reference is ONLY the adult woman in the photograph: Zhiwei, brown low ponytail, same face, now cream knit sweater. Do NOT show a photograph or any hands holding a picture. Lu stands RIGHT and Zhiwei LEFT. He briefly blocks her exit and makes brief visible NON-GRAPHIC neck contact, she pulls away and walks out LEFT. No technique demonstration, no injury, blood or repeated action. Two adult people only. Female investigator narration is OFF camera, NOT the woman in the security image speaking. No security timestamp generated.",
+      "lines": [
+        [
+          "lin",
+          "完整保留。再核实当时在场的人。",
+          "Preserve the full sequence. Verify who else was there."
+        ]
+      ],
+      "refs": [
+        "lu",
+        "zhiwei"
+      ],
+      "prompt": "10 seconds. Detailed hand-drawn 2D anime, neutral cool blue-gray lighting, clear faces. Clean frame without ANY captions, subtitles, text or logos. Mandarin speech only, no music. Mouth movement ONLY during own audible speech; lips stop when other people talk. No added words. Match every reference identity exactly; references in listed order. One FIXED security camera view of a furniture repair shop doorway. First reference is adult man Lu: brown jacket, gray-green shirt, rectangular face, black hair, no glasses. Second reference is ONLY the adult woman in the photograph: Zhiwei, brown low ponytail, same face, now cream knit sweater. Do NOT show a photograph or any hands holding a picture. Lu stands RIGHT and Zhiwei LEFT. He briefly blocks her exit and makes brief visible NON-GRAPHIC neck contact, she pulls away and walks out LEFT. No technique demonstration, no injury, blood or repeated action. Two adult people only. Female investigator narration is OFF camera, NOT the woman in the security image speaking. No security timestamp generated. At 0.4s lin OFF CAMERA says exactly “完整保留。再核实当时在场的人。”. Finish all words naturally, then remain silent."
+    },
+    {
+      "id": "02",
+      "duration": 10,
+      "scene_number": 2,
+      "part": 1,
+      "roles": [
+        "lu",
+        "lin"
+      ],
+      "scene": "Lu, same adult man brown jacket gray-green shirt, now seated LEFT in a plain blue police interview room, facing right. Only Lu visible, no glasses. No repair tools in this new location. Female interviewer voice OFF camera. Hands empty on table. No other on-screen person.",
+      "lines": [
+        [
+          "lu",
+          "她自己走出去的。第二天才摔倒。",
+          "She walked out on her own. She didn't fall until the next day."
+        ],
+        [
+          "lin",
+          "我问的是，你在店里对她做了什么。",
+          "I'm asking what you did to her in the shop."
+        ]
+      ],
+      "refs": [
+        "lu"
+      ],
+      "prompt": "10 seconds. Detailed hand-drawn 2D anime, neutral cool blue-gray lighting, clear faces. Clean frame without ANY captions, subtitles, text or logos. Mandarin speech only, no music. Mouth movement ONLY during own audible speech; lips stop when other people talk. No added words. Match every reference identity exactly; references in listed order. Lu, same adult man brown jacket gray-green shirt, now seated LEFT in a plain blue police interview room, facing right. Only Lu visible, no glasses. No repair tools in this new location. Female interviewer voice OFF camera. Hands empty on table. No other on-screen person. At 0.4s lu ON CAMERA says exactly “她自己走出去的。第二天才摔倒。”. At 4.8s lin OFF CAMERA says exactly “我问的是，你在店里对她做了什么。”. Finish all words naturally, then remain silent."
+    },
+    {
+      "id": "03",
+      "duration": 14,
+      "scene_number": 3,
+      "part": 1,
+      "roles": [
+        "xu",
+        "jian"
+      ],
+      "scene": "Xu, woman with brown ponytail, green shirt white coat, black gloves, seated LEFT at forensic review desk. Only Xu visible. Closed folders and microscope remain still. Male colleague speaks OFF camera after her line. No body or blood.",
+      "lines": [
+        [
+          "xu",
+          "还能走路，不能排除血管损伤。严重后果可能晚些才出现。",
+          "Being able to walk doesn't rule out vascular injury. Serious effects can develop later."
+        ],
+        [
+          "jian",
+          "但这次是不是这样，要靠她自己的资料。",
+          "But we must establish what happened in her case from her own records."
+        ]
+      ],
+      "refs": [
+        "xu"
+      ],
+      "prompt": "14 seconds. Detailed hand-drawn 2D anime, neutral cool blue-gray lighting, clear faces. Clean frame without ANY captions, subtitles, text or logos. Mandarin speech only, no music. Mouth movement ONLY during own audible speech; lips stop when other people talk. No added words. Match every reference identity exactly; references in listed order. Xu, woman with brown ponytail, green shirt white coat, black gloves, seated LEFT at forensic review desk. Only Xu visible. Closed folders and microscope remain still. Male colleague speaks OFF camera after her line. No body or blood. At 0.4s xu ON CAMERA says exactly “还能走路，不能排除血管损伤。严重后果可能晚些才出现。”. At 7.7s jian OFF CAMERA says exactly “但这次是不是这样，要靠她自己的资料。”. Finish all words naturally, then remain silent."
+    },
+    {
+      "id": "04",
+      "duration": 12,
+      "scene_number": 4,
+      "part": 1,
+      "roles": [
+        "zhou",
+        "lin"
+      ],
+      "scene": "Zhou, adult man with rectangular silver glasses and right-ear hearing aid, dark gray jacket, seated LEFT at records desk, facing right. Only Zhou visible. Female colleague answers OFF camera. Plain papers on desk, no radio or written screen text.",
+      "lines": [
+        [
+          "zhou",
+          "完整急救录音已经申请。还得核对，是先异常，还是先跌倒。",
+          "We've requested the full emergency call. We need to establish whether the symptoms preceded the fall."
+        ],
+        [
+          "lin",
+          "找到打电话的人，分别问。",
+          "Find the caller and interview them independently."
+        ]
+      ],
+      "refs": [
+        "zhou"
+      ],
+      "prompt": "12 seconds. Detailed hand-drawn 2D anime, neutral cool blue-gray lighting, clear faces. Clean frame without ANY captions, subtitles, text or logos. Mandarin speech only, no music. Mouth movement ONLY during own audible speech; lips stop when other people talk. No added words. Match every reference identity exactly; references in listed order. Zhou, adult man with rectangular silver glasses and right-ear hearing aid, dark gray jacket, seated LEFT at records desk, facing right. Only Zhou visible. Female colleague answers OFF camera. Plain papers on desk, no radio or written screen text. At 0.4s zhou ON CAMERA says exactly “完整急救录音已经申请。还得核对，是先异常，还是先跌倒。”. At 8.0s lin OFF CAMERA says exactly “找到打电话的人，分别问。”. Finish all words naturally, then remain silent."
+    },
+    {
+      "id": "05",
+      "duration": 10,
+      "scene_number": 5,
+      "part": 1,
+      "roles": [
+        "jian",
+        "zhou",
+        "xu",
+        "lin"
+      ],
+      "scene": "Four ADULT colleagues in ONE staff records room. Reference1 Jian: pale young man black tousled hair, white coat black turtleneck NO glasses, foreground RIGHT. Reference2 Zhou: man rectangular glasses, right ear hearing aid, gray jacket LEFT. Reference3 Xu: woman brown ponytail green shirt white coat LEFT beside Zhou. Reference4 Lin: woman short black bob navy uniform standing rear CENTER at open door. 0-2s one establishing shot shows all FOUR at these positions and everyone can see Jian. He stops, grips his own chair, does not attack. 2-6.5s tight Jian FACE, normal bright lighting, unmistakable dark RED irises and EXACTLY TWO UPPER CANINE FANGS visible continuously for four seconds, no smile, no extra teeth. Zhou line is OFF camera at 2.0s. Jian replies at 4.0s with accurate mouth motion. 6.5-10s return to SAME group positions: Xu and Zhou each recoil a small step while looking directly at Jian; Lin steps sideways leaving a clear exit. Jian visibly steps backward toward the open RIGHT side-room doorway, remains in frame through end. No one vanishes. No mother or suspect present.",
+      "lines": [
+        [
+          "zhou",
+          "检刺……你的牙？",
+          "Jian Ci... your teeth?"
+        ],
+        [
+          "jian",
+          "别靠近。我先出去。",
+          "Don't come closer. I'm stepping out."
+        ]
+      ],
+      "refs": [
+        "jian",
+        "zhou",
+        "xu",
+        "lin"
+      ],
+      "prompt": "10 seconds. Detailed hand-drawn 2D anime, neutral cool blue-gray lighting, clear faces. Clean frame without ANY captions, subtitles, text or logos. Mandarin speech only, no music. Mouth movement ONLY during own audible speech; lips stop when other people talk. No added words. Match every reference identity exactly; references in listed order. Four ADULT colleagues in ONE staff records room. Reference1 Jian: pale young man black tousled hair, white coat black turtleneck NO glasses, foreground RIGHT. Reference2 Zhou: man rectangular glasses, right ear hearing aid, gray jacket LEFT. Reference3 Xu: woman brown ponytail green shirt white coat LEFT beside Zhou. Reference4 Lin: woman short black bob navy uniform standing rear CENTER at open door. 0-2s one establishing shot shows all FOUR at these positions and everyone can see Jian. He stops, grips his own chair, does not attack. 2-6.5s tight Jian FACE, normal bright lighting, unmistakable dark RED irises and EXACTLY TWO UPPER CANINE FANGS visible continuously for four seconds, no smile, no extra teeth. Zhou line is OFF camera at 2.0s. Jian replies at 4.0s with accurate mouth motion. 6.5-10s return to SAME group positions: Xu and Zhou each recoil a small step while looking directly at Jian; Lin steps sideways leaving a clear exit. Jian visibly steps backward toward the open RIGHT side-room doorway, remains in frame through end. No one vanishes. No mother or suspect present. At 2.0s zhou OFF CAMERA says exactly “检刺……你的牙？”. At 4.0s jian ON CAMERA says exactly “别靠近。我先出去。”. Finish all words naturally, then remain silent."
+    },
+    {
+      "id": "06",
+      "duration": 10,
+      "scene_number": 6,
+      "part": 1,
+      "roles": [
+        "xu",
+        "jian",
+        "lin",
+        "zhou"
+      ],
+      "scene": "Jian, pale young man white coat black turtleneck no glasses, now seated RIGHT in empty side room facing the open door LEFT. Eyes and teeth have returned normal. Only Jian visible. Xu adult female question from doorway OFF camera. Jian replies honestly while remaining seated. Safe distance, no touching or lunging.",
+      "lines": [
+        [
+          "xu",
+          "刚才，你是想咬人吗？",
+          "Were you about to bite someone?"
+        ],
+        [
+          "jian",
+          "是。我停住了。但不能说下一次也一定行。",
+          "Yes. I stopped myself. But I can't promise I always will."
+        ]
+      ],
+      "refs": [
+        "jian"
+      ],
+      "prompt": "10 seconds. Detailed hand-drawn 2D anime, neutral cool blue-gray lighting, clear faces. Clean frame without ANY captions, subtitles, text or logos. Mandarin speech only, no music. Mouth movement ONLY during own audible speech; lips stop when other people talk. No added words. Match every reference identity exactly; references in listed order. Jian, pale young man white coat black turtleneck no glasses, now seated RIGHT in empty side room facing the open door LEFT. Eyes and teeth have returned normal. Only Jian visible. Xu adult female question from doorway OFF camera. Jian replies honestly while remaining seated. Safe distance, no touching or lunging. At 0.4s xu OFF CAMERA says exactly “刚才，你是想咬人吗？”. At 3.5s jian ON CAMERA says exactly “是。我停住了。但不能说下一次也一定行。”. Finish all words naturally, then remain silent."
+    },
+    {
+      "id": "07",
+      "duration": 10,
+      "scene_number": 6,
+      "part": 2,
+      "roles": [
+        "xu",
+        "jian",
+        "lin",
+        "zhou"
+      ],
+      "scene": "Xu, brown ponytail green shirt white coat black gloves, standing LEFT OUTSIDE the open side-room door, facing right toward Jian who stays OFF camera. Only Xu visible, keeps distance. She speaks firmly then closes mouth. No mother, no suspect, no extra faces.",
+      "lines": [
+        [
+          "xu",
+          "你先停工。这件事要告诉韩队。",
+          "Stop working for now. Captain Han needs to know."
+        ]
+      ],
+      "refs": [
+        "xu"
+      ],
+      "prompt": "10 seconds. Detailed hand-drawn 2D anime, neutral cool blue-gray lighting, clear faces. Clean frame without ANY captions, subtitles, text or logos. Mandarin speech only, no music. Mouth movement ONLY during own audible speech; lips stop when other people talk. No added words. Match every reference identity exactly; references in listed order. Xu, brown ponytail green shirt white coat black gloves, standing LEFT OUTSIDE the open side-room door, facing right toward Jian who stays OFF camera. Only Xu visible, keeps distance. She speaks firmly then closes mouth. No mother, no suspect, no extra faces. At 0.4s xu ON CAMERA says exactly “你先停工。这件事要告诉韩队。”. Finish all words naturally, then remain silent."
+    },
+    {
+      "id": "08",
+      "duration": 13,
+      "scene_number": 7,
+      "part": 1,
+      "roles": [
+        "jian",
+        "xu"
+      ],
+      "scene": "Same Jian seated RIGHT in same side room, eyes normal, hands empty. Only Jian visible, recalls an earlier personal experience without flashbacks or other bodies. Xu female follow-up question OFF camera after he finishes. He closes mouth and listens.",
+      "lines": [
+        [
+          "jian",
+          "我受过一次重伤。醒来时，在一间旧诊所。伤口很快好了，却开始渴望血。",
+          "I was badly injured once. I woke in an old clinic. My wounds healed quickly, but I began craving blood."
+        ],
+        [
+          "xu",
+          "以前伤过人吗？",
+          "Have you hurt anyone before?"
+        ]
+      ],
+      "refs": [
+        "jian"
+      ],
+      "prompt": "13 seconds. Detailed hand-drawn 2D anime, neutral cool blue-gray lighting, clear faces. Clean frame without ANY captions, subtitles, text or logos. Mandarin speech only, no music. Mouth movement ONLY during own audible speech; lips stop when other people talk. No added words. Match every reference identity exactly; references in listed order. Same Jian seated RIGHT in same side room, eyes normal, hands empty. Only Jian visible, recalls an earlier personal experience without flashbacks or other bodies. Xu female follow-up question OFF camera after he finishes. He closes mouth and listens. At 0.4s jian ON CAMERA says exactly “我受过一次重伤。醒来时，在一间旧诊所。伤口很快好了，却开始渴望血。”. At 9.5s xu OFF CAMERA says exactly “以前伤过人吗？”. Finish all words naturally, then remain silent."
+    },
+    {
+      "id": "09",
+      "duration": 10,
+      "scene_number": 7,
+      "part": 2,
+      "roles": [
+        "jian",
+        "xu"
+      ],
+      "scene": "Same Jian seated RIGHT in same empty side room, black hair white coat black turtleneck no glasses, normal eyes. He admits harming someone who helped him, quiet regret, no graphic flashback. Only Jian visible. After exact line mouth stays CLOSED for the remaining silence. No repeated line.",
+      "lines": [
+        [
+          "jian",
+          "咬伤过救我的人。她叫阿宁。",
+          "I bit the person who saved me. Her name was A-Ning."
+        ]
+      ],
+      "refs": [
+        "jian"
+      ],
+      "prompt": "10 seconds. Detailed hand-drawn 2D anime, neutral cool blue-gray lighting, clear faces. Clean frame without ANY captions, subtitles, text or logos. Mandarin speech only, no music. Mouth movement ONLY during own audible speech; lips stop when other people talk. No added words. Match every reference identity exactly; references in listed order. Same Jian seated RIGHT in same empty side room, black hair white coat black turtleneck no glasses, normal eyes. He admits harming someone who helped him, quiet regret, no graphic flashback. Only Jian visible. After exact line mouth stays CLOSED for the remaining silence. No repeated line. At 0.4s jian ON CAMERA says exactly “咬伤过救我的人。她叫阿宁。”. Finish all words naturally, then remain silent."
+    }
+  ],
+  "known_refs": {
+    "zhiwei": {
+      "task_id": "9e47037c-638a-43cd-8ae8-a32d7e189251",
+      "seconds": 8,
+      "crop": "290:160:265:240"
+    },
+    "lu": {
+      "task_id": "5d188fcf-384e-478c-9592-d5336e4ab228",
+      "seconds": 2,
+      "crop": "854:380:0:0"
+    },
+    "xu": {
+      "task_id": "b0892f7e-4fb8-477b-b354-5334c215e423",
+      "seconds": 2,
+      "crop": "854:380:0:0"
+    },
+    "jian": {
+      "task_id": "55668a55-c00d-4897-a2e8-4948de3882e1",
+      "seconds": 2,
+      "crop": "854:328:0:74"
+    },
+    "zhou": {
+      "task_id": "7099e7dd-df2b-4680-8efb-23d280c8a990",
+      "seconds": 2,
+      "crop": "854:380:0:0"
+    },
+    "lin": {
+      "task_id": "55668a55-c00d-4897-a2e8-4948de3882e1",
+      "seconds": 6.4,
+      "crop": "390:328:430:74"
+    }
+  },
+  "estimate_usd": 2.9106
+}

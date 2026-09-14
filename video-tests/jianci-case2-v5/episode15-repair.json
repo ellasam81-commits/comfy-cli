@@ -1,0 +1,103 @@
+{
+  "episode": 15,
+  "title": "她说要回家",
+  "model": "wan3.0-video",
+  "resolution": "480P",
+  "max_output_seconds": 30,
+  "clips": [
+    {
+      "id": "01",
+      "duration": 10,
+      "scene_number": 1,
+      "part": 1,
+      "roles": [
+        "mother",
+        "lin"
+      ],
+      "scene": "Lin, adult female with short black bob and navy police uniform, seated RIGHT looking left in interview room. Only Lin appears. Mother remains off camera.",
+      "lines": [
+        [
+          "lin",
+          "二号，她原本打算做什么？",
+          "What had she planned to do on the second?"
+        ],
+        [
+          "mother",
+          "找承安拿东西。她想回来住几天。",
+          "Collect some things from Cheng'an. She wanted to stay with me for a while."
+        ]
+      ],
+      "refs": [
+        "mother"
+      ],
+      "prompt": "Ten seconds. Detailed hand-drawn 2D anime, neutral cool blue-gray lighting, clear faces. Clean frame without ANY captions, subtitles, text or logos. Mandarin speech only, no music. Mouth movement ONLY during own audible speech; lips stop when other people talk. No added words. Match every reference identity exactly; references in listed order. Only the referenced mother is visible, gray-black LOW BUN, navy cardigan gray collared shirt. She remains SEATED LEFT holding her brown cloth bag on lap. Only mother visible. NO phone, radio or picture. Female interviewer asks first line OFF camera; mother keeps mouth closed and listens, then answers second line herself. At 0.4s lin OFF CAMERA says exactly “二号，她原本打算做什么？”. At 4.0s mother ON CAMERA says exactly “找承安拿东西。她想回来住几天。”. No other words, no captions."
+    },
+    {
+      "id": "02",
+      "duration": 10,
+      "scene_number": 1,
+      "part": 2,
+      "roles": [
+        "mother",
+        "lin"
+      ],
+      "scene": "Same seated female Lin RIGHT looking left. Only Lin appears, mother is off camera.",
+      "lines": [
+        [
+          "lin",
+          "您知道她为什么想回来吗？",
+          "Did she tell you why?"
+        ],
+        [
+          "mother",
+          "她说，见面再讲。",
+          "She said she would tell me when we met."
+        ]
+      ],
+      "refs": [
+        "mother"
+      ],
+      "prompt": "Ten seconds. Detailed hand-drawn 2D anime, neutral cool blue-gray lighting, clear faces. Clean frame without ANY captions, subtitles, text or logos. Mandarin speech only, no music. Mouth movement ONLY during own audible speech; lips stop when other people talk. No added words. Match every reference identity exactly; references in listed order. Only the referenced mother is visible, gray-black LOW BUN, navy cardigan gray collared shirt. She remains SEATED LEFT holding her brown cloth bag on lap. Only mother visible. NO phone, radio or picture. Female interviewer asks first line OFF camera; mother keeps mouth closed and listens, then answers second line herself. At 0.4s lin OFF CAMERA says exactly “您知道她为什么想回来吗？”. At 4.0s mother ON CAMERA says exactly “她说，见面再讲。”. No other words, no captions."
+    },
+    {
+      "id": "05",
+      "duration": 10,
+      "scene_number": 3,
+      "part": 1,
+      "roles": [
+        "zhou",
+        "lin"
+      ],
+      "scene": "Zhou, adult man with silver rectangular glasses, right-ear hearing aid and dark gray jacket, stands to RIGHT of a furniture shop entrance. Neighbor doorway with visible fixed security camera behind him pointing toward the shop. Only Zhou appears, female interviewer off camera.",
+      "lines": [
+        [
+          "zhou",
+          "这个镜头能拍到入口。先看原机。",
+          "That camera covers the entrance. We'll check the original recorder."
+        ],
+        [
+          "lin",
+          "把前后时段一起保全。",
+          "Preserve the footage before and after her visit too."
+        ]
+      ],
+      "refs": [
+        "zhou"
+      ],
+      "prompt": "Ten seconds. Detailed hand-drawn 2D anime, neutral cool blue-gray lighting, clear faces. Clean frame without ANY captions, subtitles, text or logos. Mandarin speech only, no music. Mouth movement ONLY during own audible speech; lips stop when other people talk. No added words. Match every reference identity exactly; references in listed order. Only the referenced Zhou is visible, adult man with rectangular silver glasses and right-ear hearing aid, dark gray jacket. He stands RIGHT outside a small repair shop, facing left. A fixed security camera is high on the adjacent doorway behind him. He speaks first line, female interviewer replies OFF camera. No radio, no weapons, no screens. At 0.4s zhou ON CAMERA says exactly “这个镜头能拍到入口。先看原机。”. At 4.8s lin OFF CAMERA says exactly “把前后时段一起保全。”. No other words, no captions."
+    }
+  ],
+  "known_refs": {
+    "mother": {
+      "task_id": "3c87bcb8-faa3-4cdc-8a15-d0153e5d0d2a",
+      "seconds": 2,
+      "crop": "854:380:0:0"
+    },
+    "zhou": {
+      "task_id": "7099e7dd-df2b-4680-8efb-23d280c8a990",
+      "seconds": 2,
+      "crop": "854:380:0:0"
+    }
+  },
+  "estimate_usd": 0.882
+}
