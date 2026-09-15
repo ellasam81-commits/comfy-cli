@@ -1,0 +1,33 @@
+name: Jian Ci Episodes 31-36 Bounded Production
+on:
+  push:
+    branches: [codex/jianci-transition-20260905]
+    paths: [video-tests/jianci-31-36/run.request.json]
+permissions:
+  contents: read
+concurrency:
+  group: jianci-31-36
+  cancel-in-progress: false
+jobs:
+  production:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install media utilities
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Run explicit production request
+        env:
+          XRTOKEN: ${{ secrets.XRTOKEN }}
+          JIANCI_EXECUTE: '1'
+        run: python video-tests/jianci-31-36/generate.py
+      - name: Preserve clips and task receipts even after interruption
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jianci-31-36-${{ github.run_id }}
+          path: output/jianci-31-36
+          retention-days: 14
