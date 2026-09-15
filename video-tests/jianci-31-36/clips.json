@@ -322,28 +322,21 @@
       "episode": 33,
       "title": "不是同一批",
       "duration": 10,
-      "seed": 909482,
+      "seed": 910213,
       "refs": [
-        "xu",
-        "lin"
+        "xu"
       ],
       "cast": [
-        "xu",
-        "lin"
+        "xu"
       ],
       "lines": [
-        [
-          "lin",
-          "是生产线出的问题？",
-          "A manufacturing problem?"
-        ],
         [
           "xu",
           "两瓶批次不同，已检留样也没发现异常。",
           "Different batches. The retained samples tested showed no abnormality."
         ]
       ],
-      "prompt": "10 seconds, single widescreen 16:9 cinematic HAND-DRAWN 2D ANIME. Match the established reference faces and blue-gray low-key but readable lighting, restrained forensic suspense. Natural adult anatomy, not chibi, not plastic 3D, never live action. Exactly the listed visible characters; DO NOT add background faces, extra heads, clones, duplicates, reflected faces or unexplained shadow heads. No subtitles, captions, readable signs, logos or generated text; clean frame for postproduction. No background music. Natural Mandarin with precise lip sync, only the speaking character moves their mouth. Deliver ONLY the exact quoted lines, no improvisation, names in instructions are NOT spoken. Finish speech before 9 seconds, leave a quiet reaction through the end. Maximum 2 motivated shots, no morphing or dissolves between faces; preserve screen positions and clothing. Empty hands unless action specifically needs a prop, no props popping in or out. Avoid graphic body detail. Case speech must be accompanied by the correct case and person. Paper/photo insert lasts at most 1.5 seconds; return to the actor. Ordinary scene ambient sound only, no fake alarming music.  Visible characters: xu, lin. XU WEI: adult WOMAN with brown hair tied in a PONYTAIL, green blouse under white forensic lab coat; NO glasses, NO bob haircut. Gentle precise female Mandarin voice. In examination room appropriate PPE, never touches phone/paper with dirty gloves. LIN QIAN: adult WOMAN, black chin-length bob, navy police uniform, NO glasses, NO white coat, NO earpiece. Clear steady female Mandarin voice. Scene and motivated action (respect visible-character limit; other mentioned people remain off camera or are simply omitted from the framing): 检验图以文字简表后期叠加。A、B分列两批号；阴性留样在第三栏，绝不展示花哨假分子动画。 At 0.55s lin ON CAMERA says exactly: “是生产线出的问题？”. At 3.28s xu ON CAMERA says exactly: “两瓶批次不同，已检留样也没发现异常。”. End in the same physical space. Never end on a black frame. Mouths close when speech is finished. CRITICAL FINAL LOCK: Follow each supplied reference image for its named character ONLY. Lin ALWAYS wears NAVY POLICE UNIFORM throughout, never white clothing. Do not create readable documents or photographs of new people. SINGLE CONTINUOUS SHOT preferred. Speak quoted dialogue once only, then remain silent with closed mouths, never repeat or add lines. No acknowledgments or responses beyond quoted dialogue.",
+      "prompt": "10-second 16:9 hand-drawn cinematic 2D anime video. EXACTLY ONE PERSON in frame from first to last frame, matching the attached reference: XU, adult WOMAN, BROWN PONYTAIL, GREEN BLOUSE and WHITE LAB COAT, no glasses, precise female Mandarin voice. Inside a forensic results room. XU stands still, calmly explaining a result. No body, no papers, no glass, no other person. ONE FIXED CONTINUOUS MEDIUM CLOSE-UP. No cuts, no transitions, no duplicate characters, no reflections, no morphing, no floating heads. Calm natural body motion. No subtitles, no labels, no words anywhere in the image. No background music. The only spoken audio is this exact Mandarin dialogue, spoken naturally ONCE from 0.5s to 8s: “两瓶批次不同，已检留样也没发现异常。” After the last word, close the mouth and remain completely silent until the end. Do not speak scene descriptions or character names. Do not add a reply or repeat any sentence. Lips exactly follow the quoted speech. Preserve the same face and clothing for the entire shot.",
       "story_day": "D5下午至D6"
     },
     {
@@ -424,14 +417,12 @@
       "episode": 33,
       "title": "不是同一批",
       "duration": 10,
-      "seed": 909486,
+      "seed": 910217,
       "refs": [
-        "lin",
-        "jian"
+        "lin"
       ],
       "cast": [
-        "lin",
-        "jian"
+        "lin"
       ],
       "lines": [
         [
@@ -440,7 +431,7 @@
           "We'll record it. Only what we can verify goes into the case findings."
         ]
       ],
-      "prompt": "10 seconds, single widescreen 16:9 cinematic HAND-DRAWN 2D ANIME. Match the established reference faces and blue-gray low-key but readable lighting, restrained forensic suspense. Natural adult anatomy, not chibi, not plastic 3D, never live action. Exactly the listed visible characters; DO NOT add background faces, extra heads, clones, duplicates, reflected faces or unexplained shadow heads. No subtitles, captions, readable signs, logos or generated text; clean frame for postproduction. No background music. Natural Mandarin with precise lip sync, only the speaking character moves their mouth. Deliver ONLY the exact quoted lines, no improvisation, names in instructions are NOT spoken. Finish speech before 9 seconds, leave a quiet reaction through the end. Maximum 2 motivated shots, no morphing or dissolves between faces; preserve screen positions and clothing. Empty hands unless action specifically needs a prop, no props popping in or out. Avoid graphic body detail. Case speech must be accompanied by the correct case and person. Paper/photo insert lasts at most 1.5 seconds; return to the actor. Ordinary scene ambient sound only, no fake alarming music.  Visible characters: lin, jian. LIN QIAN: adult WOMAN, black chin-length bob, navy police uniform, NO glasses, NO white coat, NO earpiece. Clear steady female Mandarin voice. JIAN CI: pale adult MAN, short tousled black hair, black turtleneck and charcoal gray civilian jacket. NO glasses, NO white coat, NO police uniform. Calm low male Mandarin voice. He is suspended from forensic work and stays in the observation room. Scene and motivated action (respect visible-character limit; other mentioned people remain off camera or are simply omitted from the framing): 林浅在窗外写下“记忆，未核实”。剑刺眼红持续，主动把椅子向后挪；刮地声接下集询问椅声。 At 0.55s lin ON CAMERA says exactly: “先记下来。我们查得到的，才往案子里写。”. End in the same physical space. Never end on a black frame. Mouths close when speech is finished. Observation-room continuity: Jian inside LEFT behind a plain fixed desk; door/window at RIGHT foreground. Visitors stay outside the CLOSED glass partition unless the approved action explicitly permits otherwise. No medical instruments or original evidence in Jian's hands.  His iris color change is visibly dark red but natural; short upper canine tips only if specified in the action. Never create an extra mouth or teeth outside his lips. All witnesses and reactions remain physically plausible.  CRITICAL FINAL LOCK: Follow each supplied reference image for its named character ONLY. Lin ALWAYS wears NAVY POLICE UNIFORM throughout, never white clothing. Do not create readable documents or photographs of new people. SINGLE CONTINUOUS SHOT preferred. Speak quoted dialogue once only, then remain silent with closed mouths, never repeat or add lines. No acknowledgments or responses beyond quoted dialogue.",
+      "prompt": "10-second 16:9 hand-drawn cinematic 2D anime video. EXACTLY ONE PERSON in frame from first to last frame, matching the attached reference: LIN, adult WOMAN, chin-length BLACK BOB haircut, NAVY POLICE UNIFORM, no glasses, no white coat, steady female Mandarin voice. In the corridor outside the observation room. LIN faces the unseen seated Jianci, taking notes on a small notebook below frame. No window surface visible, no reflection, no other person. ONE FIXED CONTINUOUS MEDIUM CLOSE-UP. No cuts, no transitions, no duplicate characters, no reflections, no morphing, no floating heads. Calm natural body motion. No subtitles, no labels, no words anywhere in the image. No background music. The only spoken audio is this exact Mandarin dialogue, spoken naturally ONCE from 0.5s to 8s: “先记下来。我们查得到的，才往案子里写。” After the last word, close the mouth and remain completely silent until the end. Do not speak scene descriptions or character names. Do not add a reply or repeat any sentence. Lips exactly follow the quoted speech. Preserve the same face and clothing for the entire shot.",
       "story_day": "D5下午至D6"
     },
     {
@@ -521,7 +512,7 @@
       "episode": 34,
       "title": "他先说出了瓶子",
       "duration": 10,
-      "seed": 909584,
+      "seed": 910315,
       "refs": [
         "zhou"
       ],
@@ -535,7 +526,7 @@
           "The return time, purchase records and original footage are consistent."
         ]
       ],
-      "prompt": "10 seconds, single widescreen 16:9 cinematic HAND-DRAWN 2D ANIME. Match the established reference faces and blue-gray low-key but readable lighting, restrained forensic suspense. Natural adult anatomy, not chibi, not plastic 3D, never live action. Exactly the listed visible characters; DO NOT add background faces, extra heads, clones, duplicates, reflected faces or unexplained shadow heads. No subtitles, captions, readable signs, logos or generated text; clean frame for postproduction. No background music. Natural Mandarin with precise lip sync, only the speaking character moves their mouth. Deliver ONLY the exact quoted lines, no improvisation, names in instructions are NOT spoken. Finish speech before 9 seconds, leave a quiet reaction through the end. Maximum 2 motivated shots, no morphing or dissolves between faces; preserve screen positions and clothing. Empty hands unless action specifically needs a prop, no props popping in or out. Avoid graphic body detail. Case speech must be accompanied by the correct case and person. Paper/photo insert lasts at most 1.5 seconds; return to the actor. Ordinary scene ambient sound only, no fake alarming music.  Visible characters: zhou. ZHOU LI: adult MAN with short black hair, silver rectangular glasses, hearing aid on RIGHT ear, gray technology jacket. Male Mandarin voice. Never change him into a ponytailed woman. Scene and motivated action (respect visible-character limit; other mentioned people remain off camera or are simply omitted from the framing): 技术室。周砺逐一核对退款录像、受害者购物时间与罗衡到店画面；同一画面不重复充当不同时间。 At 0.55s zhou ON CAMERA says exactly: “退货时间、购买记录和原录像，都对得上。”. End in the same physical space. Never end on a black frame. Mouths close when speech is finished. CRITICAL FINAL LOCK: Follow each supplied reference image for its named character ONLY. Lin ALWAYS wears NAVY POLICE UNIFORM throughout, never white clothing. Do not create readable documents or photographs of new people. SINGLE CONTINUOUS SHOT preferred. Speak quoted dialogue once only, then remain silent with closed mouths, never repeat or add lines. No acknowledgments or responses beyond quoted dialogue.",
+      "prompt": "10-second 16:9 hand-drawn cinematic 2D anime video. EXACTLY ONE PERSON in frame from first to last frame, matching the attached reference: ZHOU, adult MAN, short BLACK HAIR, SILVER RECTANGULAR GLASSES, hearing aid on RIGHT ear, GRAY TECHNICAL JACKET, clear male Mandarin voice. In the technical office. ZHOU calmly reports his comparison findings. His hands remain below frame. No screens, no papers, no inserts, no other person. ONE FIXED CONTINUOUS MEDIUM CLOSE-UP. No cuts, no transitions, no duplicate characters, no reflections, no morphing, no floating heads. Calm natural body motion. No subtitles, no labels, no words anywhere in the image. No background music. The only spoken audio is this exact Mandarin dialogue, spoken naturally ONCE from 0.5s to 8s: “退货时间、购买记录和原录像，都对得上。” After the last word, close the mouth and remain completely silent until the end. Do not speak scene descriptions or character names. Do not add a reply or repeat any sentence. Lips exactly follow the quoted speech. Preserve the same face and clothing for the entire shot.",
       "story_day": "D7"
     },
     {
@@ -744,7 +735,7 @@
       "episode": 36,
       "title": "多出来的交接单",
       "duration": 10,
-      "seed": 909781,
+      "seed": 910512,
       "refs": [
         "lin"
       ],
@@ -758,7 +749,7 @@
           "To conceal Tang Yu's murder, he made someone else a victim. This wasn't a random factory fault."
         ]
       ],
-      "prompt": "10 seconds, single widescreen 16:9 cinematic HAND-DRAWN 2D ANIME. Match the established reference faces and blue-gray low-key but readable lighting, restrained forensic suspense. Natural adult anatomy, not chibi, not plastic 3D, never live action. Exactly the listed visible characters; DO NOT add background faces, extra heads, clones, duplicates, reflected faces or unexplained shadow heads. No subtitles, captions, readable signs, logos or generated text; clean frame for postproduction. No background music. Natural Mandarin with precise lip sync, only the speaking character moves their mouth. Deliver ONLY the exact quoted lines, no improvisation, names in instructions are NOT spoken. Finish speech before 9 seconds, leave a quiet reaction through the end. Maximum 2 motivated shots, no morphing or dissolves between faces; preserve screen positions and clothing. Empty hands unless action specifically needs a prop, no props popping in or out. Avoid graphic body detail. Case speech must be accompanied by the correct case and person. Paper/photo insert lasts at most 1.5 seconds; return to the actor. Ordinary scene ambient sound only, no fake alarming music.  Visible characters: lin. LIN QIAN: adult WOMAN, black chin-length bob, navy police uniform, NO glasses, NO white coat, NO earpiece. Clear steady female Mandarin voice. Scene and motivated action (respect visible-character limit; other mentioned people remain off camera or are simply omitted from the framing): 案情室固定三栏“唐雨／商品流转／魏成”。林浅走到魏成栏，把完成核实的条目贴好。 At 0.55s lin ON CAMERA says exactly: “他为杀唐雨，把第二个人也变成了受害者。不是药厂随机出错。”. End in the same physical space. Never end on a black frame. Mouths close when speech is finished. CRITICAL FINAL LOCK: Follow each supplied reference image for its named character ONLY. Lin ALWAYS wears NAVY POLICE UNIFORM throughout, never white clothing. Do not create readable documents or photographs of new people. SINGLE CONTINUOUS SHOT preferred. Speak quoted dialogue once only, then remain silent with closed mouths, never repeat or add lines. No acknowledgments or responses beyond quoted dialogue.",
+      "prompt": "10-second 16:9 hand-drawn cinematic 2D anime video. EXACTLY ONE PERSON in frame from first to last frame, matching the attached reference: LIN, adult WOMAN, chin-length BLACK BOB haircut, NAVY POLICE UNIFORM, no glasses, no white coat, steady female Mandarin voice. In the briefing room. LIN explains the completed investigation directly to unseen colleagues. Plain blue-gray wall background. No board, no photos, no documents, no other person. ONE FIXED CONTINUOUS MEDIUM CLOSE-UP. No cuts, no transitions, no duplicate characters, no reflections, no morphing, no floating heads. Calm natural body motion. No subtitles, no labels, no words anywhere in the image. No background music. The only spoken audio is this exact Mandarin dialogue, spoken naturally ONCE from 0.5s to 8s: “他为杀唐雨，把第二个人也变成了受害者。不是药厂随机出错。” After the last word, close the mouth and remain completely silent until the end. Do not speak scene descriptions or character names. Do not add a reply or repeat any sentence. Lips exactly follow the quoted speech. Preserve the same face and clothing for the entire shot.",
       "story_day": "D12；案件调查结论形成，司法程序继续"
     },
     {
@@ -817,7 +808,7 @@
       "episode": 36,
       "title": "多出来的交接单",
       "duration": 10,
-      "seed": 909784,
+      "seed": 910515,
       "refs": [
         "lin"
       ],
@@ -831,7 +822,7 @@
           "Don't release the body. Preserve the original and find out who submitted it."
         ]
       ],
-      "prompt": "10 seconds, single widescreen 16:9 cinematic HAND-DRAWN 2D ANIME. Match the established reference faces and blue-gray low-key but readable lighting, restrained forensic suspense. Natural adult anatomy, not chibi, not plastic 3D, never live action. Exactly the listed visible characters; DO NOT add background faces, extra heads, clones, duplicates, reflected faces or unexplained shadow heads. No subtitles, captions, readable signs, logos or generated text; clean frame for postproduction. No background music. Natural Mandarin with precise lip sync, only the speaking character moves their mouth. Deliver ONLY the exact quoted lines, no improvisation, names in instructions are NOT spoken. Finish speech before 9 seconds, leave a quiet reaction through the end. Maximum 2 motivated shots, no morphing or dissolves between faces; preserve screen positions and clothing. Empty hands unless action specifically needs a prop, no props popping in or out. Avoid graphic body detail. Case speech must be accompanied by the correct case and person. Paper/photo insert lasts at most 1.5 seconds; return to the actor. Ordinary scene ambient sound only, no fake alarming music.  Visible characters: lin. LIN QIAN: adult WOMAN, black chin-length bob, navy police uniform, NO glasses, NO white coat, NO earpiece. Clear steady female Mandarin voice. Scene and motivated action (respect visible-character limit; other mentioned people remain off camera or are simply omitted from the framing): 文件局部2秒：目的地“盛安转运站”。回工作人员核对电脑，林浅用手机通知负责人员。 At 0.55s lin ON CAMERA says exactly: “先别放行。原件封存，查是谁递来的。”. End in the same physical space. Never end on a black frame. Mouths close when speech is finished. CRITICAL FINAL LOCK: Follow each supplied reference image for its named character ONLY. Lin ALWAYS wears NAVY POLICE UNIFORM throughout, never white clothing. Do not create readable documents or photographs of new people. SINGLE CONTINUOUS SHOT preferred. Speak quoted dialogue once only, then remain silent with closed mouths, never repeat or add lines. No acknowledgments or responses beyond quoted dialogue.",
+      "prompt": "10-second 16:9 hand-drawn cinematic 2D anime video. EXACTLY ONE PERSON in frame from first to last frame, matching the attached reference: LIN, adult WOMAN, chin-length BLACK BOB haircut, NAVY POLICE UNIFORM, no glasses, no white coat, steady female Mandarin voice. At the mortuary administration corridor. LIN holds one dark smartphone in her left hand and tells an unseen staff member to stop release. Plain wall, no papers, no text, no other person. ONE FIXED CONTINUOUS MEDIUM CLOSE-UP. No cuts, no transitions, no duplicate characters, no reflections, no morphing, no floating heads. Calm natural body motion. No subtitles, no labels, no words anywhere in the image. No background music. The only spoken audio is this exact Mandarin dialogue, spoken naturally ONCE from 0.5s to 8s: “先别放行。原件封存，查是谁递来的。” After the last word, close the mouth and remain completely silent until the end. Do not speak scene descriptions or character names. Do not add a reply or repeat any sentence. Lips exactly follow the quoted speech. Preserve the same face and clothing for the entire shot.",
       "story_day": "D12；案件调查结论形成，司法程序继续"
     },
     {
@@ -839,14 +830,12 @@
       "episode": 36,
       "title": "多出来的交接单",
       "duration": 10,
-      "seed": 909785,
+      "seed": 910516,
       "refs": [
-        "zhou",
-        "jian"
+        "zhou"
       ],
       "cast": [
-        "zhou",
-        "jian"
+        "zhou"
       ],
       "lines": [
         [
@@ -855,7 +844,7 @@
           "The date is supported. We haven't established who the man is."
         ]
       ],
-      "prompt": "10 seconds, single widescreen 16:9 cinematic HAND-DRAWN 2D ANIME. Match the established reference faces and blue-gray low-key but readable lighting, restrained forensic suspense. Natural adult anatomy, not chibi, not plastic 3D, never live action. Exactly the listed visible characters; DO NOT add background faces, extra heads, clones, duplicates, reflected faces or unexplained shadow heads. No subtitles, captions, readable signs, logos or generated text; clean frame for postproduction. No background music. Natural Mandarin with precise lip sync, only the speaking character moves their mouth. Deliver ONLY the exact quoted lines, no improvisation, names in instructions are NOT spoken. Finish speech before 9 seconds, leave a quiet reaction through the end. Maximum 2 motivated shots, no morphing or dissolves between faces; preserve screen positions and clothing. Empty hands unless action specifically needs a prop, no props popping in or out. Avoid graphic body detail. Case speech must be accompanied by the correct case and person. Paper/photo insert lasts at most 1.5 seconds; return to the actor. Ordinary scene ambient sound only, no fake alarming music.  Visible characters: zhou, jian. ZHOU LI: adult MAN with short black hair, silver rectangular glasses, hearing aid on RIGHT ear, gray technology jacket. Male Mandarin voice. Never change him into a ponytailed woman. JIAN CI: pale adult MAN, short tousled black hair, black turtleneck and charcoal gray civilian jacket. NO glasses, NO white coat, NO police uniform. Calm low male Mandarin voice. He is suspended from forensic work and stays in the observation room. Scene and motivated action (respect visible-character limit; other mentioned people remain off camera or are simply omitted from the framing): 观察室。周砺隔窗展示馆藏核验摘要，剑刺没有拿原照片；边角人物轮廓仍不清楚。 At 0.55s zhou ON CAMERA says exactly: “年份站得住。照片里的人，我们还没有认定。”. End in the same physical space. Never end on a black frame. Mouths close when speech is finished. Observation-room continuity: Jian inside LEFT behind a plain fixed desk; door/window at RIGHT foreground. Visitors stay outside the CLOSED glass partition unless the approved action explicitly permits otherwise. No medical instruments or original evidence in Jian's hands.  CRITICAL FINAL LOCK: Follow each supplied reference image for its named character ONLY. Lin ALWAYS wears NAVY POLICE UNIFORM throughout, never white clothing. Do not create readable documents or photographs of new people. SINGLE CONTINUOUS SHOT preferred. Speak quoted dialogue once only, then remain silent with closed mouths, never repeat or add lines. No acknowledgments or responses beyond quoted dialogue.",
+      "prompt": "10-second 16:9 hand-drawn cinematic 2D anime video. EXACTLY ONE PERSON in frame from first to last frame, matching the attached reference: ZHOU, adult MAN, short BLACK HAIR, SILVER RECTANGULAR GLASSES, hearing aid on RIGHT ear, GRAY TECHNICAL JACKET, clear male Mandarin voice. Outside the controlled observation room. Camera from the position of unseen Jianci looks toward ZHOU in the corridor. Plain blue-gray wall behind Zhou. Absolutely no visible glass, reflections, extra faces or other people. ONE FIXED CONTINUOUS MEDIUM CLOSE-UP. No cuts, no transitions, no duplicate characters, no reflections, no morphing, no floating heads. Calm natural body motion. No subtitles, no labels, no words anywhere in the image. No background music. The only spoken audio is this exact Mandarin dialogue, spoken naturally ONCE from 0.5s to 8s: “年份站得住。照片里的人，我们还没有认定。” After the last word, close the mouth and remain completely silent until the end. Do not speak scene descriptions or character names. Do not add a reply or repeat any sentence. Lips exactly follow the quoted speech. Preserve the same face and clothing for the entire shot.",
       "story_day": "D12；案件调查结论形成，司法程序继续"
     },
     {
