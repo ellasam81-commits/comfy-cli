@@ -1,13 +1,9 @@
 {
   "mode": "generate",
   "clip_ids": [
-    "33-02",
-    "33-06",
-    "34-04",
-    "36-01",
-    "36-04",
-    "36-05"
+    "35-01",
+    "36-06"
   ],
-  "max_seconds": 60,
-  "request": "one-replacement-six-qa-failed-shots-v1"
+  "max_seconds": 20,
+  "request": "one-replacement-two-story-clarity-shots-v1"
 }
