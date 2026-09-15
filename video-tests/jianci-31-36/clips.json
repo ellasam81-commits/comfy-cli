@@ -578,14 +578,12 @@
       "episode": 35,
       "title": "第二个死者不是意外",
       "duration": 10,
-      "seed": 909681,
+      "seed": 910432,
       "refs": [
-        "lin",
-        "luo"
+        "lin"
       ],
       "cast": [
-        "lin",
-        "luo"
+        "lin"
       ],
       "lines": [
         [
@@ -594,7 +592,7 @@
           "You handled both bottles. The fragment, residue and footage support the same sequence."
         ]
       ],
-      "prompt": "10 seconds, single widescreen 16:9 cinematic HAND-DRAWN 2D ANIME. Match the established reference faces and blue-gray low-key but readable lighting, restrained forensic suspense. Natural adult anatomy, not chibi, not plastic 3D, never live action. Exactly the listed visible characters; DO NOT add background faces, extra heads, clones, duplicates, reflected faces or unexplained shadow heads. No subtitles, captions, readable signs, logos or generated text; clean frame for postproduction. No background music. Natural Mandarin with precise lip sync, only the speaking character moves their mouth. Deliver ONLY the exact quoted lines, no improvisation, names in instructions are NOT spoken. Finish speech before 9 seconds, leave a quiet reaction through the end. Maximum 2 motivated shots, no morphing or dissolves between faces; preserve screen positions and clothing. Empty hands unless action specifically needs a prop, no props popping in or out. Avoid graphic body detail. Case speech must be accompanied by the correct case and person. Paper/photo insert lasts at most 1.5 seconds; return to the actor. Ordinary scene ambient sound only, no fake alarming music.  Visible characters: lin, luo. LIN QIAN: adult WOMAN, black chin-length bob, navy police uniform, NO glasses, NO white coat, NO earpiece. Clear steady female Mandarin voice. LUO HENG: 42-year-old MAN, long narrow face, close-cropped straight black hair with high receding corners, clean-shaven, gray knitted cardigan over muted beige shirt, NO glasses, NOT a policeman. Hesitant medium-pitched male Mandarin voice. Scene and motivated action (respect visible-character limit; other mentioned people remain off camera or are simply omitted from the framing): 询问室。林浅依次放出标注来源的照片，不把原药瓶摆给罗衡把玩；切他避开视线。 At 0.55s lin ON CAMERA says exactly: “你接触过两瓶药。断片、残留和录像，指向同一条过程。”. End in the same physical space. Never end on a black frame. Mouths close when speech is finished. CRITICAL FINAL LOCK: Follow each supplied reference image for its named character ONLY. Lin ALWAYS wears NAVY POLICE UNIFORM throughout, never white clothing. Do not create readable documents or photographs of new people. SINGLE CONTINUOUS SHOT preferred. Speak quoted dialogue once only, then remain silent with closed mouths, never repeat or add lines. No acknowledgments or responses beyond quoted dialogue.",
+      "prompt": "10-second cinematic hand-drawn 2D anime, widescreen 16:9. Exactly ONE adult woman matching the attached LIN QIAN reference: black chin-length bob, navy police uniform, no glasses, no white coat. Fixed medium close-up in an interrogation room, looking toward the unseen suspect. Plain blue-gray wall. Hands below frame. No photographs, no documents, no glass, no other people, no reflections, no text or subtitles. One continuous shot, no cuts or transitions. She speaks this exact Mandarin dialogue ONCE between 0.5 and 8 seconds: “你接触过两瓶药。断片、残留和录像，指向同一条过程。” Match lip movements precisely to her speech. No extra speech, no repetition, no stage directions spoken. After speaking she closes her mouth and waits silently. No music. Keep her face, clothes and position unchanged.",
       "story_day": "D8"
     },
     {
