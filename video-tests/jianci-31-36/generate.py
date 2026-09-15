@@ -16,7 +16,7 @@ HOST = 'https://api.xrtoken.ai'
 REFS = {
     'jian': ('266e6ebd-0a4d-408c-ae66-6b82077aa055', 2, '400:320:230:0'),
     'zhou': ('22f44ed1-b301-4b7a-9330-afa87e545dd4', 2, '400:320:150:0'),
-    'lin': ('1af84fc1-63a2-4afc-bb82-6e79a07dcd4e', 1, '280:300:300:80'),
+    'lin': ('75c2593e-12b3-4c09-836f-da13c4dd8f0d', 1, '300:320:130:0'),
     'han': ('10c316b2-29cd-4145-9fc7-bed0a6bf561c', 2, '320:300:310:0'),
     'xu': ('a8f8000e-6ef7-4714-aa1f-fb1a51f6c90c', 1, '360:300:250:0'),
 }
@@ -107,6 +107,7 @@ def main():
         return
     assert req['mode'] == 'generate' and os.environ.get('JIANCI_EXECUTE') == '1'
     cfg = json.loads((ROOT / 'clips.json').read_text())
+    REFS.update(cfg.get('additional_refs', {}))
     selected = [c for c in cfg['clips'] if c['id'] in req['clip_ids']]
     assert len(selected) == len(set(req['clip_ids'])) <= 36
     assert sum(c['duration'] for c in selected) <= req['max_seconds']
