@@ -1,0 +1,33 @@
+name: Jian Ci Finale Costume Fix E27-E28
+on:
+  push:
+    branches: [codex/jianci-transition-20260905]
+    paths: [video-tests/jianci-finale-xrtoken/costume-fix.request.json]
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: jianci-finale-costume-fix-27-28
+  cancel-in-progress: false
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Generate only two costume continuity fixes once
+        env:
+          XRTOKEN: ${{ secrets.XRTOKEN }}
+        run: python video-tests/jianci-finale-xrtoken/fix_costume_27_28.py
+      - name: Upload targeted fixes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jianci-finale-costume-fix-27-28
+          path: output/jianci-finale-costume-fix
+          retention-days: 14
