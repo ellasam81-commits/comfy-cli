@@ -852,7 +852,7 @@
       "episode": 36,
       "title": "多出来的交接单",
       "duration": 10,
-      "seed": 909786,
+      "seed": 910527,
       "refs": [
         "lin"
       ],
@@ -866,7 +866,7 @@
           "Sheng'an has another order. The person on it called home yesterday."
         ]
       ],
-      "prompt": "10 seconds, single widescreen 16:9 cinematic HAND-DRAWN 2D ANIME. Match the established reference faces and blue-gray low-key but readable lighting, restrained forensic suspense. Natural adult anatomy, not chibi, not plastic 3D, never live action. Exactly the listed visible characters; DO NOT add background faces, extra heads, clones, duplicates, reflected faces or unexplained shadow heads. No subtitles, captions, readable signs, logos or generated text; clean frame for postproduction. No background music. Natural Mandarin with precise lip sync, only the speaking character moves their mouth. Deliver ONLY the exact quoted lines, no improvisation, names in instructions are NOT spoken. Finish speech before 9 seconds, leave a quiet reaction through the end. Maximum 2 motivated shots, no morphing or dissolves between faces; preserve screen positions and clothing. Empty hands unless action specifically needs a prop, no props popping in or out. Avoid graphic body detail. Case speech must be accompanied by the correct case and person. Paper/photo insert lasts at most 1.5 seconds; return to the actor. Ordinary scene ambient sound only, no fake alarming music.  Visible characters: lin. LIN QIAN: adult WOMAN, black chin-length bob, navy police uniform, NO glasses, NO white coat, NO earpiece. Clear steady female Mandarin voice. Scene and motivated action (respect visible-character limit; other mentioned people remain off camera or are simply omitted from the framing): 剑刺压住发抖的手，不再盯照片；门外林浅接到电话。转运单印章声先入，接下集新地点。 At 0.55s lin ON CAMERA says exactly: “盛安还有一张单。上面的人，昨天还给家里打过电话。”. End in the same physical space. Never end on a black frame. Mouths close when speech is finished. CRITICAL FINAL LOCK: Follow each supplied reference image for its named character ONLY. Lin ALWAYS wears NAVY POLICE UNIFORM throughout, never white clothing. Do not create readable documents or photographs of new people. SINGLE CONTINUOUS SHOT preferred. Speak quoted dialogue once only, then remain silent with closed mouths, never repeat or add lines. No acknowledgments or responses beyond quoted dialogue.",
+      "prompt": "10-second hand-drawn cinematic 2D anime, 16:9. EXACTLY ONE WOMAN, matching the supplied LIN QIAN reference: black chin-length bob, navy police uniform, no glasses, no white coat. A fixed medium close-up of Lin listening to a phone held at her left ear in a plain blue-gray corridor. No other people, no windows, no reflections, no subtitles, no text, no photographs. One continuous shot with no cuts. Speak this exact Mandarin dialogue ONCE, clearly and calmly between 0.5 and 8 seconds: “盛安还有一张单。上面的人，昨天还给家里打过电话。” Lip movements follow that speech only. After the line, mouth closes and she remains silent and concerned until the end. No extra words, no narration, no repeated sentence, no music. Keep her face, hairstyle, clothing, phone and hand position identical throughout.",
       "story_day": "D12；案件调查结论形成，司法程序继续"
     }
   ],
