@@ -10,6 +10,7 @@ RATIO = CFG["ratio"]
 SEED = int(CFG["seed"])
 EPDATA = CFG["episodes"][str(EP)]
 TITLE = CFG["titles"][str(EP)]
+GLOBAL_PROMPT = CFG.get("global_prompt", "")
 OUT = Path(f"output/jianci-finale-xrtoken/ep{EP}")
 HOST = "https://api.xrtoken.ai"
 
@@ -176,7 +177,8 @@ def main():
         row = {"id":clip["id"],"duration":clip["duration"],"state":"SUBMITTING"}
         report["clips"].append(row)
         (OUT/"progress.json").write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding="utf-8")
-        content = [{"type":"text","text":clip["prompt"]}]
+        full_prompt = (GLOBAL_PROMPT + " " + clip["prompt"]).strip()
+        content = [{"type":"text","text":full_prompt}]
         for name in clip["refs"]:
             content.append({"type":"image_url","image_url":{"url":refs[name]},"role":"reference_image"})
         try:
