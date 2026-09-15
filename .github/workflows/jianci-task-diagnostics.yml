@@ -1,0 +1,35 @@
+name: Jian Ci Read Only Task Diagnostics
+on:
+  push:
+    branches: [codex/jianci-transition-20260905]
+    paths: [video-tests/jianci-31-36/inspect.request.json]
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Read existing task states only
+        env:
+          XRTOKEN: ${{ secrets.XRTOKEN }}
+        run: |
+          python3 - <<'PY'
+          import json, os, urllib.request, pathlib
+          ids=json.load(open('video-tests/jianci-31-36/inspect.request.json'))['task_ids']
+          assert len(ids)<=12
+          rows=[]
+          for tid in ids:
+              req=urllib.request.Request('https://api.xrtoken.ai/v1/videos/generations/'+tid,headers={'Authorization':'Bearer '+os.environ['XRTOKEN'].strip()})
+              with urllib.request.urlopen(req,timeout=90) as r: q=json.load(r)
+              rows.append({'task_id':tid,'response':q})
+          pathlib.Path('diagnostics').mkdir(exist_ok=True)
+          pathlib.Path('diagnostics/task-states.json').write_text(json.dumps(rows,ensure_ascii=False,indent=2))
+          print('Read-only task records saved; no generation submitted.')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: jianci-task-diagnostics
+          path: diagnostics
+          retention-days: 14
