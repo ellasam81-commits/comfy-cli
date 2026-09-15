@@ -1,13 +1,13 @@
 {
   "mode": "generate",
   "clip_ids": [
-    "31-06",
-    "32-05",
-    "32-06",
-    "33-05",
-    "35-02",
-    "35-05"
+    "33-02",
+    "33-06",
+    "34-04",
+    "36-01",
+    "36-04",
+    "36-05"
   ],
   "max_seconds": 60,
-  "request": "one-retry-six-provider-failed-shots-v1"
+  "request": "one-replacement-six-qa-failed-shots-v1"
 }
