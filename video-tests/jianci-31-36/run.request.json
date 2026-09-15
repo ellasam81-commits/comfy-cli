@@ -1,5 +1,11 @@
 {
-  "mode": "references",
-  "paid_submissions": 0,
-  "request": "31-36-reference-check-v1"
+  "mode": "generate",
+  "clip_ids": [
+    "31-01",
+    "31-02",
+    "32-04",
+    "35-04"
+  ],
+  "max_seconds": 40,
+  "request": "pilot-and-new-character-anchors-v1"
 }
