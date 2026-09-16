@@ -1144,6 +1144,16 @@
       "name": "林浅"
     },
     {
+      "id": "35-E01",
+      "episode": 35,
+      "title": "第二个死者不是意外"
+    },
+    {
+      "id": "36-E01",
+      "episode": 36,
+      "title": "多出来的交接单"
+    },
+    {
       "id": "35-V01",
       "episode": 35,
       "title": "第二个死者不是意外",
@@ -1203,6 +1213,819 @@
         ]
       ],
       "prompt": "Cinematic hand-drawn 2D anime, grounded adult proportions, cool blue gray police observation room. Match supplied reference faces and clothing exactly. Jianci: pale adult man, tousled black hair, black turtleneck, charcoal CIVILIAN jacket, NO glasses. Han: middle-aged man, gray temples, right eyebrow scar, navy police uniform, no glasses. Lin: adult woman, chin-length black bob, navy uniform, NO glasses or white coat. No captions, no text, no music, no flashbacks, no mirror reflections, no duplicate people. Restrained non-graphic supernatural thriller, nobody is injured and skin is intact. Ten-second continuation at the same OPEN doorway. Jianci stands LEFT INSIDE beside his chair, Han stands RIGHT in the corridor. At the beginning Jiancis LEFT hand still holds Hans RIGHT wrist, lowered safely to chest height AWAY from his closed mouth. At 0-2s Jianci forces his fingers open and releases the wrist; Han immediately takes his right arm back and grips it with his own left hand, then steps out of frame to the RIGHT. Skin remains intact with no mark or injury. At 2-4s Jianci takes one step back and sinks into the chair beside the interior wall, visibly shaken, empty hands on his own knees. The camera settles on him seated. At 4.3s Jianci alone says in clear Mandarin exactly: “刚才……我真的想咬你。” Finish by 8.8s. His eyes retain a faint red rim, mouth closes, no extra words. No Lin appears in this frame. No dissolve, no character vanishing: Han must visibly walk out and Jianci must visibly sit."
+    },
+    {
+      "id": "37-01",
+      "episode": 37,
+      "title": "他还没有死",
+      "duration": 10,
+      "seed": 937000,
+      "refs": [
+        "lin"
+      ],
+      "cast": [
+        "he",
+        "lin"
+      ],
+      "lines": [
+        [
+          "he",
+          "赵峥那张单是预填的，名字填错了。",
+          "The form for Zhao Zheng was a draft. The wrong name was entered."
+        ],
+        [
+          "lin",
+          "谁提交的？记录留下。",
+          "Who submitted it? Preserve the records."
+        ]
+      ],
+      "prompt": "Cinematic hand-drawn 2D Japanese anime thriller, adult realistic proportions, cool blue-gray natural lighting, clearly visible faces. Full 16:9 single frame, no panel, NO generated writing, NO subtitles, NO music. Native clear Mandarin dialogue, matching visible speaker lips; other mouths closed. Match provided reference identities exactly in this order: lin. He Jiu 贺九: very lean tall 55-year-old MAN, closely cropped salt-gray hair, narrow long face, camel brown jacket over dark olive shirt, no glasses. Rough mature male voice. Lin Qian 林浅: adult WOMAN, chin-length straight black bob, navy police uniform, no glasses, no white coat, no earpiece. Clear steady female Mandarin voice. Exactly TEN seconds, continuous meaningful movement for full duration. Start with one second of spatial establishing movement; dialogue finishes by 8.8 seconds, final second holds a living reaction with breathing. Do not repeat dialogue. No fades, no jumpy transitions, no character morphing, no doubles, no reflective faces. Two people seated across desk, Lin LEFT and He RIGHT. A photocopy lies flat. Medium establishing view then single speaker closeups. He keeps hands on table; Lin points at the COPY only. No readable text generated. MANDARIN AUDIO exactly, one speaker at a time: He Jiu 贺九 says: “赵峥那张单是预填的，名字填错了。” Then Lin Qian 林浅 says: “谁提交的？记录留下。”. No extra voices or words.",
+      "scene": "盛安接待间。林浅左、贺九右，中间仅放单据复制件；贺九把手从印章边移开。"
+    },
+    {
+      "id": "37-02",
+      "episode": 37,
+      "title": "他还没有死",
+      "duration": 10,
+      "seed": 937001,
+      "refs": [
+        "lin"
+      ],
+      "cast": [
+        "lin"
+      ],
+      "lines": [
+        [
+          "lin",
+          "赵峥，警察！家属联系不上你。房东，开门。",
+          "Zhao Zheng, police! Your family cannot reach you. Landlord, open the door."
+        ]
+      ],
+      "prompt": "Cinematic hand-drawn 2D Japanese anime thriller, adult realistic proportions, cool blue-gray natural lighting, clearly visible faces. Full 16:9 single frame, no panel, NO generated writing, NO subtitles, NO music. Native clear Mandarin dialogue, matching visible speaker lips; other mouths closed. Match provided reference identities exactly in this order: lin. Lin Qian 林浅: adult WOMAN, chin-length straight black bob, navy police uniform, no glasses, no white coat, no earpiece. Clear steady female Mandarin voice. Exactly TEN seconds, continuous meaningful movement for full duration. Start with one second of spatial establishing movement; dialogue finishes by 8.8 seconds, final second holds a living reaction with breathing. Do not repeat dialogue. No fades, no jumpy transitions, no character morphing, no doubles, no reflective faces. Apartment corridor. Lin stands outside a closed door, calls to occupant, then turns toward an unseen landlord. At end a normal hinged door opens inward. Camera stays outside. No walking through door. MANDARIN AUDIO exactly, one speaker at a time: Lin Qian 林浅 says: “赵峥，警察！家属联系不上你。房东，开门。”. No extra voices or words.",
+      "scene": "楼道。林浅与同行警员在门外听见屋内电话振动；先交代寻找失联者，进入动作完整不穿门。"
+    },
+    {
+      "id": "37-03",
+      "episode": 37,
+      "title": "他还没有死",
+      "duration": 10,
+      "seed": 937002,
+      "refs": [
+        "lin"
+      ],
+      "cast": [
+        "lin"
+      ],
+      "lines": [
+        [
+          "lin",
+          "医护已经确认死亡。封锁现场，其他人别碰东西。",
+          "The medical team has confirmed his death. Secure the scene. Do not touch anything."
+        ]
+      ],
+      "prompt": "Cinematic hand-drawn 2D Japanese anime thriller, adult realistic proportions, cool blue-gray natural lighting, clearly visible faces. Full 16:9 single frame, no panel, NO generated writing, NO subtitles, NO music. Native clear Mandarin dialogue, matching visible speaker lips; other mouths closed. Match provided reference identities exactly in this order: lin. Lin Qian 林浅: adult WOMAN, chin-length straight black bob, navy police uniform, no glasses, no white coat, no earpiece. Clear steady female Mandarin voice. Exactly TEN seconds, continuous meaningful movement for full duration. Start with one second of spatial establishing movement; dialogue finishes by 8.8 seconds, final second holds a living reaction with breathing. Do not repeat dialogue. No fades, no jumpy transitions, no character morphing, no doubles, no reflective faces. After entry. NON-GRAPHIC wide apartment interior: one adult man with black crew cut lies motionless BESIDE table, fully covered by a plain opaque gray blanket including head. Medical worker moves aside, Lin in doorway gives orders. No blood, no wounds, no exposed body. MANDARIN AUDIO exactly, one speaker at a time: Lin Qian 林浅 says: “医护已经确认死亡。封锁现场，其他人别碰东西。”. No extra voices or words.",
+      "scene": "出租屋建立镜头。赵峥倒在桌旁，医护确认后退出一侧，现场人员开始警戒；不拍惊吓式睁眼。"
+    },
+    {
+      "id": "37-04",
+      "episode": 37,
+      "title": "他还没有死",
+      "duration": 10,
+      "seed": 937003,
+      "refs": [
+        "xu"
+      ],
+      "cast": [
+        "xu"
+      ],
+      "lines": [
+        [
+          "xu",
+          "有头部损伤。具体死因，带回去完整检查。",
+          "There's a head injury. The cause of death requires a full examination."
+        ]
+      ],
+      "prompt": "Cinematic hand-drawn 2D Japanese anime thriller, adult realistic proportions, cool blue-gray natural lighting, clearly visible faces. Full 16:9 single frame, no panel, NO generated writing, NO subtitles, NO music. Native clear Mandarin dialogue, matching visible speaker lips; other mouths closed. Match provided reference identities exactly in this order: xu. Xu Wei 许未: adult WOMAN, brown ponytail, green blouse and white lab coat, NO glasses, NOT black bob. Calm precise female Mandarin voice. Exactly TEN seconds, continuous meaningful movement for full duration. Start with one second of spatial establishing movement; dialogue finishes by 8.8 seconds, final second holds a living reaction with breathing. Do not repeat dialogue. No fades, no jumpy transitions, no character morphing, no doubles, no reflective faces. At same apartment, Xu wearing gloves, surgical cap and mask documents the room with a camera, then speaks OFF SCREEN over her notebook and sealed evidence labels. Covered body stays in background. No exposed injuries. Mask remains on and no visible lip synchronization required. Speech is OFFSCREEN voiceover, show actions without a talking closeup. MANDARIN AUDIO exactly, one speaker at a time: Xu Wei 许未 says: “有头部损伤。具体死因，带回去完整检查。”. No extra voices or words.",
+      "scene": "许未进入勘查，记录头部伤及血迹位置；切一页委托单，随后回她环视房间。"
+    },
+    {
+      "id": "37-05",
+      "episode": 37,
+      "title": "他还没有死",
+      "duration": 10,
+      "seed": 937004,
+      "refs": [
+        "lin"
+      ],
+      "cast": [
+        "lin"
+      ],
+      "lines": [
+        [
+          "lin",
+          "转运单是前天提交的。他昨晚还在说话。",
+          "The transfer order was submitted two days ago. He was still speaking last night."
+        ]
+      ],
+      "prompt": "Cinematic hand-drawn 2D Japanese anime thriller, adult realistic proportions, cool blue-gray natural lighting, clearly visible faces. Full 16:9 single frame, no panel, NO generated writing, NO subtitles, NO music. Native clear Mandarin dialogue, matching visible speaker lips; other mouths closed. Match provided reference identities exactly in this order: lin. Lin Qian 林浅: adult WOMAN, chin-length straight black bob, navy police uniform, no glasses, no white coat, no earpiece. Clear steady female Mandarin voice. Exactly TEN seconds, continuous meaningful movement for full duration. Start with one second of spatial establishing movement; dialogue finishes by 8.8 seconds, final second holds a living reaction with breathing. Do not repeat dialogue. No fades, no jumpy transitions, no character morphing, no doubles, no reflective faces. Lin outside apartment on phone, then lowers phone and addresses unseen colleague. Evidence box remains shut on a separate table, no samples handled. MANDARIN AUDIO exactly, one speaker at a time: Lin Qian 林浅 says: “转运单是前天提交的。他昨晚还在说话。”. No extra voices or words.",
+      "scene": "林浅在门外接家属回电，视线落在封存单据的证物箱；单据不和生物样本混装。"
+    },
+    {
+      "id": "37-06",
+      "episode": 37,
+      "title": "他还没有死",
+      "duration": 10,
+      "seed": 937005,
+      "refs": [
+        "jian"
+      ],
+      "cast": [
+        "jian"
+      ],
+      "lines": [
+        [
+          "jian",
+          "单子比死亡还早。先查是谁填的，别急着下结论。",
+          "The form predates his death. Find who filed it before drawing conclusions."
+        ]
+      ],
+      "prompt": "Cinematic hand-drawn 2D Japanese anime thriller, adult realistic proportions, cool blue-gray natural lighting, clearly visible faces. Full 16:9 single frame, no panel, NO generated writing, NO subtitles, NO music. Native clear Mandarin dialogue, matching visible speaker lips; other mouths closed. Match provided reference identities exactly in this order: jian. Jianci 剑刺: pale adult MAN, tousled short black hair, black turtleneck and charcoal civilian jacket, NO glasses, NO white coat. Quiet low adult male Mandarin voice. Exactly TEN seconds, continuous meaningful movement for full duration. Start with one second of spatial establishing movement; dialogue finishes by 8.8 seconds, final second holds a living reaction with breathing. Do not repeat dialogue. No fades, no jumpy transitions, no character morphing, no doubles, no reflective faces. Jianci alone seated LEFT in blue-gray observation room, receiving remote report through desk speaker. Fingertips tense at a metallic sound, iris briefly dark red. No visitor, no teleport, no literal cold cabinet in this room. MANDARIN AUDIO exactly, one speaker at a time: Jianci 剑刺 says: “单子比死亡还早。先查是谁填的，别急着下结论。”. No extra voices or words.",
+      "scene": "观察室。剑刺听林浅的远程简报，手离开屏幕；冷柜金属声仅为主观记忆音，现场没有冷柜。"
+    },
+    {
+      "id": "38-01",
+      "episode": 38,
+      "title": "没有做过的检查",
+      "duration": 10,
+      "seed": 937006,
+      "refs": [
+        "xu"
+      ],
+      "cast": [
+        "xu"
+      ],
+      "lines": [
+        [
+          "xu",
+          "致命的是严重颅脑损伤。不是单子上写的突发心脏病。",
+          "A severe head injury caused his death, not the sudden heart disease stated on that form."
+        ]
+      ],
+      "prompt": "Cinematic hand-drawn 2D Japanese anime thriller, adult realistic proportions, cool blue-gray natural lighting, clearly visible faces. Full 16:9 single frame, no panel, NO generated writing, NO subtitles, NO music. Native clear Mandarin dialogue, matching visible speaker lips; other mouths closed. Match provided reference identities exactly in this order: xu. Xu Wei 许未: adult WOMAN, brown ponytail, green blouse and white lab coat, NO glasses, NOT black bob. Calm precise female Mandarin voice. Exactly TEN seconds, continuous meaningful movement for full duration. Start with one second of spatial establishing movement; dialogue finishes by 8.8 seconds, final second holds a living reaction with breathing. Do not repeat dialogue. No fades, no jumpy transitions, no character morphing, no doubles, no reflective faces. NON-GRAPHIC examination montage: Xu with tied ponytail and mask checks sealed identification tag, gloved hands document an X-ray and closed examination report. Entire body under opaque sheet. Her line is voiceover, not a masked talking closeup. No gore or anatomy. Speech is OFFSCREEN voiceover, show actions without a talking closeup. MANDARIN AUDIO exactly, one speaker at a time: Xu Wei 许未 says: “致命的是严重颅脑损伤。不是单子上写的突发心脏病。”. No extra voices or words.",
+      "scene": "尸检室。许未与助手核对身份、拍照，切影像与解剖记录的非血腥部分，时间卡“检查后”。"
+    },
+    {
+      "id": "38-02",
+      "episode": 38,
+      "title": "没有做过的检查",
+      "duration": 10,
+      "seed": 937007,
+      "refs": [],
+      "cast": [
+        "clerk"
+      ],
+      "lines": [
+        [
+          "clerk",
+          "我们没给赵峥开过这份证明。编号对应的是另一个人。",
+          "We never issued this certificate for Zhao Zheng. Its number belongs to someone else."
+        ]
+      ],
+      "prompt": "Cinematic hand-drawn 2D Japanese anime thriller, adult realistic proportions, cool blue-gray natural lighting, clearly visible faces. Full 16:9 single frame, no panel, NO generated writing, NO subtitles, NO music. Native clear Mandarin dialogue, matching visible speaker lips; other mouths closed. Match provided reference identities exactly in this order: . Hospital records officer: 50-year-old WOMAN with gray hair in a neat bun, light blue office blouse, no glasses. Exactly TEN seconds, continuous meaningful movement for full duration. Start with one second of spatial establishing movement; dialogue finishes by 8.8 seconds, final second holds a living reaction with breathing. Do not repeat dialogue. No fades, no jumpy transitions, no character morphing, no doubles, no reflective faces. 医院档案窗口。工作人员在电脑核查，林浅等待；对话后才把正式回函递出。 MANDARIN AUDIO exactly, one speaker at a time: Hospital records officer says: “我们没给赵峥开过这份证明。编号对应的是另一个人。”. No extra voices or words.",
+      "scene": "医院档案窗口。工作人员在电脑核查，林浅等待；对话后才把正式回函递出。"
+    },
+    {
+      "id": "38-03",
+      "episode": 38,
+      "title": "没有做过的检查",
+      "duration": 10,
+      "seed": 937008,
+      "refs": [
+        "lin"
+      ],
+      "cast": [
+        "lin"
+      ],
+      "lines": [
+        [
+          "lin",
+          "医院没开过证明，也没有那次检查。不是法医漏看，是有人造假。",
+          "The hospital issued no certificate and performed no such examination. This was forgery, not an examiner missing evidence."
+        ]
+      ],
+      "prompt": "Cinematic hand-drawn 2D Japanese anime thriller, adult realistic proportions, cool blue-gray natural lighting, clearly visible faces. Full 16:9 single frame, no panel, NO generated writing, NO subtitles, NO music. Native clear Mandarin dialogue, matching visible speaker lips; other mouths closed. Match provided reference identities exactly in this order: lin. Lin Qian 林浅: adult WOMAN, chin-length straight black bob, navy police uniform, no glasses, no white coat, no earpiece. Clear steady female Mandarin voice. Exactly TEN seconds, continuous meaningful movement for full duration. Start with one second of spatial establishing movement; dialogue finishes by 8.8 seconds, final second holds a living reaction with breathing. Do not repeat dialogue. No fades, no jumpy transitions, no character morphing, no doubles, no reflective faces. 案情室。林浅把“医院未签发”回函贴到伪造单旁，韩彻站右；板上不用“前法医失职”。 MANDARIN AUDIO exactly, one speaker at a time: Lin Qian 林浅 says: “医院没开过证明，也没有那次检查。不是法医漏看，是有人造假。”. No extra voices or words.",
+      "scene": "案情室。林浅把“医院未签发”回函贴到伪造单旁，韩彻站右；板上不用“前法医失职”。"
+    },
+    {
+      "id": "38-04",
+      "episode": 38,
+      "title": "没有做过的检查",
+      "duration": 10,
+      "seed": 937009,
+      "refs": [
+        "zhou"
+      ],
+      "cast": [
+        "zhou"
+      ],
+      "lines": [
+        [
+          "zhou",
+          "提前提交，不是打印机时间错了。后台也留下了时间。",
+          "It wasn't a wrong printer clock. The server records show the earlier submission too."
+        ]
+      ],
+      "prompt": "Cinematic hand-drawn 2D Japanese anime thriller, adult realistic proportions, cool blue-gray natural lighting, clearly visible faces. Full 16:9 single frame, no panel, NO generated writing, NO subtitles, NO music. Native clear Mandarin dialogue, matching visible speaker lips; other mouths closed. Match provided reference identities exactly in this order: zhou. Zhou Li 周砺: adult MAN, short black hair, silver rectangular glasses, hearing aid on RIGHT ear, gray technical jacket. Clear male Mandarin voice. Exactly TEN seconds, continuous meaningful movement for full duration. Start with one second of spatial establishing movement; dialogue finishes by 8.8 seconds, final second holds a living reaction with breathing. Do not repeat dialogue. No fades, no jumpy transitions, no character morphing, no doubles, no reflective faces. 时间卡“两天后，记录核对”。周砺从平台后台记录追到盛安经办账户；显示账户不显示神奇真人定位点。 MANDARIN AUDIO exactly, one speaker at a time: Zhou Li 周砺 says: “提前提交，不是打印机时间错了。后台也留下了时间。”. No extra voices or words.",
+      "scene": "时间卡“两天后，记录核对”。周砺从平台后台记录追到盛安经办账户；显示账户不显示神奇真人定位点。"
+    },
+    {
+      "id": "38-05",
+      "episode": 38,
+      "title": "没有做过的检查",
+      "duration": 10,
+      "seed": 937010,
+      "refs": [
+        "han"
+      ],
+      "cast": [
+        "han"
+      ],
+      "lines": [
+        [
+          "han",
+          "单上的接收方，是私人标本商。家属从没授权。",
+          "The named recipient is a private specimen dealer. The family never authorized this."
+        ]
+      ],
+      "prompt": "Cinematic hand-drawn 2D Japanese anime thriller, adult realistic proportions, cool blue-gray natural lighting, clearly visible faces. Full 16:9 single frame, no panel, NO generated writing, NO subtitles, NO music. Native clear Mandarin dialogue, matching visible speaker lips; other mouths closed. Match provided reference identities exactly in this order: han. Han Che 韩彻: middle-aged MAN, gray temples, short black hair, scar at right eyebrow, navy police uniform, no glasses. Mature low male Mandarin voice. Exactly TEN seconds, continuous meaningful movement for full duration. Start with one second of spatial establishing movement; dialogue finishes by 8.8 seconds, final second holds a living reaction with breathing. Do not repeat dialogue. No fades, no jumpy transitions, no character morphing, no doubles, no reflective faces. 韩彻翻看转运登记中的去向栏，林浅把联系回函并列。 MANDARIN AUDIO exactly, one speaker at a time: Han Che 韩彻 says: “单上的接收方，是私人标本商。家属从没授权。”. No extra voices or words.",
+      "scene": "韩彻翻看转运登记中的去向栏，林浅把联系回函并列。"
+    },
+    {
+      "id": "38-06",
+      "episode": 38,
+      "title": "没有做过的检查",
+      "duration": 10,
+      "seed": 937011,
+      "refs": [
+        "jian"
+      ],
+      "cast": [
+        "jian"
+      ],
+      "lines": [
+        [
+          "jian",
+          "先挂断。我又听见冷柜门关上的声音。",
+          "End the call. I can hear that cabinet door closing again."
+        ]
+      ],
+      "prompt": "Cinematic hand-drawn 2D Japanese anime thriller, adult realistic proportions, cool blue-gray natural lighting, clearly visible faces. Full 16:9 single frame, no panel, NO generated writing, NO subtitles, NO music. Native clear Mandarin dialogue, matching visible speaker lips; other mouths closed. Match provided reference identities exactly in this order: jian. Jianci 剑刺: pale adult MAN, tousled short black hair, black turtleneck and charcoal civilian jacket, NO glasses, NO white coat. Quiet low adult male Mandarin voice. Exactly TEN seconds, continuous meaningful movement for full duration. Start with one second of spatial establishing movement; dialogue finishes by 8.8 seconds, final second holds a living reaction with breathing. Do not repeat dialogue. No fades, no jumpy transitions, no character morphing, no doubles, no reflective faces. Jianci alone in observation room, fingertips tense, two upper vampire fangs visible while speaking, faint red eyes. AFTER completing sentence he deliberately presses video-call END key; show hand action then his closed mouth. No full black ending. MANDARIN AUDIO exactly, one speaker at a time: Jianci 剑刺 says: “先挂断。我又听见冷柜门关上的声音。”. No extra voices or words.",
+      "scene": "观察室远程画面。剑刺听到“接收方”，骤然露出犬齿；他按下停止通话键，屏幕黑前完整说完。"
+    },
+    {
+      "id": "39-01",
+      "episode": 39,
+      "title": "活人的价钱",
+      "duration": 10,
+      "seed": 937012,
+      "refs": [],
+      "cast": [
+        "partner"
+      ],
+      "lines": [
+        [
+          "partner",
+          "他说转运名单里有活人。他去问老板，就没回来。",
+          "He said living people were on the transfer list. He confronted his boss and never came back."
+        ]
+      ],
+      "prompt": "Cinematic hand-drawn 2D Japanese anime thriller, adult realistic proportions, cool blue-gray natural lighting, clearly visible faces. Full 16:9 single frame, no panel, NO generated writing, NO subtitles, NO music. Native clear Mandarin dialogue, matching visible speaker lips; other mouths closed. Match provided reference identities exactly in this order: . Zhao Zheng partner: 34-year-old WOMAN, long straight dark brown hair tied low, purple cardigan over white blouse, no glasses. Exactly TEN seconds, continuous meaningful movement for full duration. Start with one second of spatial establishing movement; dialogue finishes by 8.8 seconds, final second holds a living reaction with breathing. Do not repeat dialogue. No fades, no jumpy transitions, no character morphing, no doubles, no reflective faces. 调查室。赵峥女友捧着有裂角的手机，林浅坐对面；先拍自愿交存手续再拍消息两秒。 MANDARIN AUDIO exactly, one speaker at a time: Zhao Zheng partner says: “他说转运名单里有活人。他去问老板，就没回来。”. No extra voices or words.",
+      "scene": "调查室。赵峥女友捧着有裂角的手机，林浅坐对面；先拍自愿交存手续再拍消息两秒。"
+    },
+    {
+      "id": "39-02",
+      "episode": 39,
+      "title": "活人的价钱",
+      "duration": 10,
+      "seed": 937013,
+      "refs": [
+        "zhou"
+      ],
+      "cast": [
+        "zhou"
+      ],
+      "lines": [
+        [
+          "zhou",
+          "这条消息发出后，贺九去了他住处。门口录像拍到了。",
+          "After this message, He Jiu went to his home. The entrance camera recorded him."
+        ]
+      ],
+      "prompt": "Cinematic hand-drawn 2D Japanese anime thriller, adult realistic proportions, cool blue-gray natural lighting, clearly visible faces. Full 16:9 single frame, no panel, NO generated writing, NO subtitles, NO music. Native clear Mandarin dialogue, matching visible speaker lips; other mouths closed. Match provided reference identities exactly in this order: zhou. Zhou Li 周砺: adult MAN, short black hair, silver rectangular glasses, hearing aid on RIGHT ear, gray technical jacket. Clear male Mandarin voice. Exactly TEN seconds, continuous meaningful movement for full duration. Start with one second of spatial establishing movement; dialogue finishes by 8.8 seconds, final second holds a living reaction with breathing. Do not repeat dialogue. No fades, no jumpy transitions, no character morphing, no doubles, no reflective faces. 周砺在另一张桌旁核对手机与平台原始记录，林浅只看复制屏幕。 MANDARIN AUDIO exactly, one speaker at a time: Zhou Li 周砺 says: “这条消息发出后，贺九去了他住处。门口录像拍到了。”. No extra voices or words.",
+      "scene": "周砺在另一张桌旁核对手机与平台原始记录，林浅只看复制屏幕。"
+    },
+    {
+      "id": "39-03",
+      "episode": 39,
+      "title": "活人的价钱",
+      "duration": 10,
+      "seed": 937014,
+      "refs": [
+        "lin"
+      ],
+      "cast": [
+        "lin"
+      ],
+      "lines": [
+        [
+          "lin",
+          "接收商先付了钱。赵峥那时还活着。",
+          "The dealer paid in advance. Zhao Zheng was still alive then."
+        ]
+      ],
+      "prompt": "Cinematic hand-drawn 2D Japanese anime thriller, adult realistic proportions, cool blue-gray natural lighting, clearly visible faces. Full 16:9 single frame, no panel, NO generated writing, NO subtitles, NO music. Native clear Mandarin dialogue, matching visible speaker lips; other mouths closed. Match provided reference identities exactly in this order: lin. Lin Qian 林浅: adult WOMAN, chin-length straight black bob, navy police uniform, no glasses, no white coat, no earpiece. Clear steady female Mandarin voice. Exactly TEN seconds, continuous meaningful movement for full duration. Start with one second of spatial establishing movement; dialogue finishes by 8.8 seconds, final second holds a living reaction with breathing. Do not repeat dialogue. No fades, no jumpy transitions, no character morphing, no doubles, no reflective faces. 站内依法搜查。柜门打开，单据分袋；“预付款”单与赵峥姓名只近看2秒，切林浅将其编号。 MANDARIN AUDIO exactly, one speaker at a time: Lin Qian 林浅 says: “接收商先付了钱。赵峥那时还活着。”. No extra voices or words.",
+      "scene": "站内依法搜查。柜门打开，单据分袋；“预付款”单与赵峥姓名只近看2秒，切林浅将其编号。"
+    },
+    {
+      "id": "39-04",
+      "episode": 39,
+      "title": "活人的价钱",
+      "duration": 10,
+      "seed": 937015,
+      "refs": [
+        "zhou"
+      ],
+      "cast": [
+        "zhou"
+      ],
+      "lines": [
+        [
+          "zhou",
+          "另有一笔买旧档案的钱。付款人叫陆闻舟。",
+          "There's a separate payment for old archives, from someone named Lu Wenzhou."
+        ]
+      ],
+      "prompt": "Cinematic hand-drawn 2D Japanese anime thriller, adult realistic proportions, cool blue-gray natural lighting, clearly visible faces. Full 16:9 single frame, no panel, NO generated writing, NO subtitles, NO music. Native clear Mandarin dialogue, matching visible speaker lips; other mouths closed. Match provided reference identities exactly in this order: zhou. Zhou Li 周砺: adult MAN, short black hair, silver rectangular glasses, hearing aid on RIGHT ear, gray technical jacket. Clear male Mandarin voice. Exactly TEN seconds, continuous meaningful movement for full duration. Start with one second of spatial establishing movement; dialogue finishes by 8.8 seconds, final second holds a living reaction with breathing. Do not repeat dialogue. No fades, no jumpy transitions, no character morphing, no doubles, no reflective faces. 旧物柜在同一房间另一侧，警方取出独立的旧档交易清单；明确它不是遗体订单。 MANDARIN AUDIO exactly, one speaker at a time: Zhou Li 周砺 says: “另有一笔买旧档案的钱。付款人叫陆闻舟。”. No extra voices or words.",
+      "scene": "旧物柜在同一房间另一侧，警方取出独立的旧档交易清单；明确它不是遗体订单。"
+    },
+    {
+      "id": "39-05",
+      "episode": 39,
+      "title": "活人的价钱",
+      "duration": 10,
+      "seed": 937016,
+      "refs": [
+        "han",
+        "jian"
+      ],
+      "cast": [
+        "han",
+        "jian"
+      ],
+      "lines": [
+        [
+          "han",
+          "我站在门外。今天到这里。",
+          "I will stay outside the door. That is enough for today."
+        ],
+        [
+          "jian",
+          "你不是韩队……别把我关回去！",
+          "You are not Captain Han... Do not lock me in again!"
+        ]
+      ],
+      "prompt": "Cinematic hand-drawn 2D Japanese anime thriller, adult realistic proportions, cool blue-gray natural lighting, clearly visible faces. Full 16:9 single frame, no panel, NO generated writing, NO subtitles, NO music. Native clear Mandarin dialogue, matching visible speaker lips; other mouths closed. Match provided reference identities exactly in this order: han, jian. Han Che 韩彻: middle-aged MAN, gray temples, short black hair, scar at right eyebrow, navy police uniform, no glasses. Mature low male Mandarin voice. Jianci 剑刺: pale adult MAN, tousled short black hair, black turtleneck and charcoal civilian jacket, NO glasses, NO white coat. Quiet low adult male Mandarin voice. Exactly TEN seconds, continuous meaningful movement for full duration. Start with one second of spatial establishing movement; dialogue finishes by 8.8 seconds, final second holds a living reaction with breathing. Do not repeat dialogue. No fades, no jumpy transitions, no character morphing, no doubles, no reflective faces. Han stands OUTSIDE open observation-room doorway at RIGHT, Jianci sits INSIDE LEFT more than two metres away. Shot reverse shot separated by doorway. Han speaks first, then Jianci looks frightened, red eyes and upper fangs, misidentifying him. Ends on Jianci starting to rise, no grab yet. MANDARIN AUDIO exactly, one speaker at a time: Han Che 韩彻 says: “我站在门外。今天到这里。” Then Jianci 剑刺 says: “你不是韩队……别把我关回去！”. No extra voices or words.",
+      "scene": "观察室。韩彻坐在门侧，剑刺在桌另一端，开始时相距两米；韩彻合上简报准备离开。"
+    },
+    {
+      "id": "39-06",
+      "episode": 39,
+      "title": "活人的价钱",
+      "duration": 10,
+      "seed": 937017,
+      "refs": [
+        "jian",
+        "han"
+      ],
+      "cast": [
+        "jian",
+        "han"
+      ],
+      "lines": [
+        [
+          "han",
+          "剑刺，松手！",
+          "Jianci, let go!"
+        ],
+        [
+          "jian",
+          "我听见了……手却没停。",
+          "I heard you... but my hand did not stop."
+        ]
+      ],
+      "prompt": "Cinematic hand-drawn 2D Japanese anime thriller, adult realistic proportions, cool blue-gray natural lighting, clearly visible faces. Full 16:9 single frame, no panel, NO generated writing, NO subtitles, NO music. Native clear Mandarin dialogue, matching visible speaker lips; other mouths closed. Match provided reference identities exactly in this order: jian, han. Jianci 剑刺: pale adult MAN, tousled short black hair, black turtleneck and charcoal civilian jacket, NO glasses, NO white coat. Quiet low adult male Mandarin voice. Han Che 韩彻: middle-aged MAN, gray temples, short black hair, scar at right eyebrow, navy police uniform, no glasses. Mature low male Mandarin voice. Exactly TEN seconds, continuous meaningful movement for full duration. Start with one second of spatial establishing movement; dialogue finishes by 8.8 seconds, final second holds a living reaction with breathing. Do not repeat dialogue. No fades, no jumpy transitions, no character morphing, no doubles, no reflective faces. NON-GRAPHIC supernatural action, same open doorway: Jianci rises from chair INSIDE LEFT, takes two visible steps and grips Han RIGHT wrist with Jianci LEFT hand. Han stays outside RIGHT, pulls back, says stop at 2s. Jianci lets go at 5s, showing fear. Han cradles painful RIGHT wrist with left hand and moves back outside; Jianci admits line at 6s. Bruise only, NO blood NO bite. Both faces stay stable. Two men only; no duplicate hands. MANDARIN AUDIO exactly, one speaker at a time: Han Che 韩彻 says: “剑刺，松手！” Then Jianci 剑刺 says: “我听见了……手却没停。”. No extra voices or words.",
+      "scene": "全景持续。剑刺突然站起跨步抓住韩彻右腕；韩彻退向门，外侧值守人员立即介入。无咬人或血花。"
+    },
+    {
+      "id": "40-01",
+      "episode": 40,
+      "title": "你也要接受调查",
+      "duration": 10,
+      "seed": 937018,
+      "refs": [
+        "han"
+      ],
+      "cast": [
+        "han"
+      ],
+      "lines": [
+        [
+          "han",
+          "伤怎么记就怎么记。别因为是他，就少写一笔。",
+          "Record the injury as it is. Don't leave anything out because it was him."
+        ]
+      ],
+      "prompt": "Cinematic hand-drawn 2D Japanese anime thriller, adult realistic proportions, cool blue-gray natural lighting, clearly visible faces. Full 16:9 single frame, no panel, NO generated writing, NO subtitles, NO music. Native clear Mandarin dialogue, matching visible speaker lips; other mouths closed. Match provided reference identities exactly in this order: han. Han Che 韩彻: middle-aged MAN, gray temples, short black hair, scar at right eyebrow, navy police uniform, no glasses. Mature low male Mandarin voice. Han RIGHT wrist has white medical bandage, left wrist bare. Exactly TEN seconds, continuous meaningful movement for full duration. Start with one second of spatial establishing movement; dialogue finishes by 8.8 seconds, final second holds a living reaction with breathing. Do not repeat dialogue. No fades, no jumpy transitions, no character morphing, no doubles, no reflective faces. Clinical treatment room. Han RIGHT wrist supported on table is wrapped in WHITE bandage by medical professional gloved hands at frame edge. Han speaks to unseen colleague. Left wrist remains bare. MANDARIN AUDIO exactly, one speaker at a time: Han Che 韩彻 says: “伤怎么记就怎么记。别因为是他，就少写一笔。”. No extra voices or words.",
+      "scene": "医疗处置区。医护处理韩彻右腕，周砺站门边；字幕不把临床医生标成许未。"
+    },
+    {
+      "id": "40-02",
+      "episode": 40,
+      "title": "你也要接受调查",
+      "duration": 10,
+      "seed": 937019,
+      "refs": [
+        "jian"
+      ],
+      "cast": [
+        "jian"
+      ],
+      "lines": [
+        [
+          "jian",
+          "我伤了他。不是一句失控，就能算了。",
+          "I hurt him. Saying I lost control doesn't erase it."
+        ]
+      ],
+      "prompt": "Cinematic hand-drawn 2D Japanese anime thriller, adult realistic proportions, cool blue-gray natural lighting, clearly visible faces. Full 16:9 single frame, no panel, NO generated writing, NO subtitles, NO music. Native clear Mandarin dialogue, matching visible speaker lips; other mouths closed. Match provided reference identities exactly in this order: jian. Jianci 剑刺: pale adult MAN, tousled short black hair, black turtleneck and charcoal civilian jacket, NO glasses, NO white coat. Quiet low adult male Mandarin voice. Exactly TEN seconds, continuous meaningful movement for full duration. Start with one second of spatial establishing movement; dialogue finishes by 8.8 seconds, final second holds a living reaction with breathing. Do not repeat dialogue. No fades, no jumpy transitions, no character morphing, no doubles, no reflective faces. Jianci alone in observation room, door CLOSED. Remains two metres away from door, hands shaking on knees, iris returns dark but upper fangs briefly visible. Speaks to intercom. No visitor enters. MANDARIN AUDIO exactly, one speaker at a time: Jianci 剑刺 says: “我伤了他。不是一句失控，就能算了。”. No extra voices or words.",
+      "scene": "观察室门已关闭。剑刺站在远离门的位置，林浅在外对讲；他的虹膜恢复了，指尖仍抖。"
+    },
+    {
+      "id": "40-03",
+      "episode": 40,
+      "title": "你也要接受调查",
+      "duration": 10,
+      "seed": 937020,
+      "refs": [
+        "lin"
+      ],
+      "cast": [
+        "lin"
+      ],
+      "lines": [
+        [
+          "lin",
+          "伤情和经过独立调查。你暂停接触他人，先接受评估。",
+          "The injury and incident will be independently investigated. No direct contact pending assessment."
+        ]
+      ],
+      "prompt": "Cinematic hand-drawn 2D Japanese anime thriller, adult realistic proportions, cool blue-gray natural lighting, clearly visible faces. Full 16:9 single frame, no panel, NO generated writing, NO subtitles, NO music. Native clear Mandarin dialogue, matching visible speaker lips; other mouths closed. Match provided reference identities exactly in this order: lin. Lin Qian 林浅: adult WOMAN, chin-length straight black bob, navy police uniform, no glasses, no white coat, no earpiece. Clear steady female Mandarin voice. Exactly TEN seconds, continuous meaningful movement for full duration. Start with one second of spatial establishing movement; dialogue finishes by 8.8 seconds, final second holds a living reaction with breathing. Do not repeat dialogue. No fades, no jumpy transitions, no character morphing, no doubles, no reflective faces. Lin OUTSIDE CLOSED observation-room door talks into fixed wall intercom, places written assessment plan on OUTSIDE document shelf. No Jianci visible and no person walks through glass. MANDARIN AUDIO exactly, one speaker at a time: Lin Qian 林浅 says: “伤情和经过独立调查。你暂停接触他人，先接受评估。”. No extra voices or words.",
+      "scene": "林浅把处理安排放到门外文件架，镜头可见值守但不摆出酷刑式器具。"
+    },
+    {
+      "id": "40-04",
+      "episode": 40,
+      "title": "你也要接受调查",
+      "duration": 10,
+      "seed": 937021,
+      "refs": [
+        "lin"
+      ],
+      "cast": [
+        "lin",
+        "he"
+      ],
+      "lines": [
+        [
+          "lin",
+          "录像拍到你去了赵峥家。离开时，手里多了一本账。",
+          "The camera recorded you visiting Zhao Zheng. You left carrying a ledger."
+        ]
+      ],
+      "prompt": "Cinematic hand-drawn 2D Japanese anime thriller, adult realistic proportions, cool blue-gray natural lighting, clearly visible faces. Full 16:9 single frame, no panel, NO generated writing, NO subtitles, NO music. Native clear Mandarin dialogue, matching visible speaker lips; other mouths closed. Match provided reference identities exactly in this order: lin. Lin Qian 林浅: adult WOMAN, chin-length straight black bob, navy police uniform, no glasses, no white coat, no earpiece. Clear steady female Mandarin voice. He Jiu 贺九: very lean tall 55-year-old MAN, closely cropped salt-gray hair, narrow long face, camel brown jacket over dark olive shirt, no glasses. Rough mature male voice. Exactly TEN seconds, continuous meaningful movement for full duration. Start with one second of spatial establishing movement; dialogue finishes by 8.8 seconds, final second holds a living reaction with breathing. Do not repeat dialogue. No fades, no jumpy transitions, no character morphing, no doubles, no reflective faces. 转运站讯问室。贺九低头，林浅在桌对面推一张有时间的截图。 MANDARIN AUDIO exactly, one speaker at a time: Lin Qian 林浅 says: “录像拍到你去了赵峥家。离开时，手里多了一本账。”. No extra voices or words.",
+      "scene": "转运站讯问室。贺九低头，林浅在桌对面推一张有时间的截图。"
+    },
+    {
+      "id": "40-05",
+      "episode": 40,
+      "title": "你也要接受调查",
+      "duration": 10,
+      "seed": 937022,
+      "refs": [
+        "zhou"
+      ],
+      "cast": [
+        "zhou"
+      ],
+      "lines": [
+        [
+          "zhou",
+          "还有个送货员杜梅。她的名字，也在下一张单上。",
+          "There's a delivery worker, Du Mei. Her name is on the next order."
+        ]
+      ],
+      "prompt": "Cinematic hand-drawn 2D Japanese anime thriller, adult realistic proportions, cool blue-gray natural lighting, clearly visible faces. Full 16:9 single frame, no panel, NO generated writing, NO subtitles, NO music. Native clear Mandarin dialogue, matching visible speaker lips; other mouths closed. Match provided reference identities exactly in this order: zhou. Zhou Li 周砺: adult MAN, short black hair, silver rectangular glasses, hearing aid on RIGHT ear, gray technical jacket. Clear male Mandarin voice. Exactly TEN seconds, continuous meaningful movement for full duration. Start with one second of spatial establishing movement; dialogue finishes by 8.8 seconds, final second holds a living reaction with breathing. Do not repeat dialogue. No fades, no jumpy transitions, no character morphing, no doubles, no reflective faces. 技术室。周砺将恢复的办公备份交给同行警员；杜梅送货记录与失联时间并排。 MANDARIN AUDIO exactly, one speaker at a time: Zhou Li 周砺 says: “还有个送货员杜梅。她的名字，也在下一张单上。”. No extra voices or words.",
+      "scene": "技术室。周砺将恢复的办公备份交给同行警员；杜梅送货记录与失联时间并排。"
+    },
+    {
+      "id": "40-06",
+      "episode": 40,
+      "title": "你也要接受调查",
+      "duration": 10,
+      "seed": 937023,
+      "refs": [
+        "lin"
+      ],
+      "cast": [
+        "lin"
+      ],
+      "lines": [
+        [
+          "lin",
+          "先找杜梅。把名单当求救线索，不当死亡确认。",
+          "Find Du Mei first. Treat the list as a rescue lead, not proof of death."
+        ]
+      ],
+      "prompt": "Cinematic hand-drawn 2D Japanese anime thriller, adult realistic proportions, cool blue-gray natural lighting, clearly visible faces. Full 16:9 single frame, no panel, NO generated writing, NO subtitles, NO music. Native clear Mandarin dialogue, matching visible speaker lips; other mouths closed. Match provided reference identities exactly in this order: lin. Lin Qian 林浅: adult WOMAN, chin-length straight black bob, navy police uniform, no glasses, no white coat, no earpiece. Clear steady female Mandarin voice. Exactly TEN seconds, continuous meaningful movement for full duration. Start with one second of spatial establishing movement; dialogue finishes by 8.8 seconds, final second holds a living reaction with breathing. Do not repeat dialogue. No fades, no jumpy transitions, no character morphing, no doubles, no reflective faces. 林浅在车门旁向搜索队交代地点，后车灯接转运站走廊灯；不让剑刺突然登车。 MANDARIN AUDIO exactly, one speaker at a time: Lin Qian 林浅 says: “先找杜梅。把名单当求救线索，不当死亡确认。”. No extra voices or words.",
+      "scene": "林浅在车门旁向搜索队交代地点，后车灯接转运站走廊灯；不让剑刺突然登车。"
+    },
+    {
+      "id": "41-01",
+      "episode": 41,
+      "title": "袋子里面的呼吸",
+      "duration": 10,
+      "seed": 937024,
+      "refs": [
+        "lin"
+      ],
+      "cast": [
+        "lin"
+      ],
+      "lines": [
+        [
+          "zhou",
+          "卸货录像和租约都指向后楼。门牌三零二。",
+          "The unloading footage and lease point to the rear building, room 302."
+        ]
+      ],
+      "prompt": "Cinematic hand-drawn 2D Japanese anime thriller, adult realistic proportions, cool blue-gray natural lighting, clearly visible faces. Full 16:9 single frame, no panel, NO generated writing, NO subtitles, NO music. Native clear Mandarin dialogue, matching visible speaker lips; other mouths closed. Match provided reference identities exactly in this order: lin. Lin Qian 林浅: adult WOMAN, chin-length straight black bob, navy police uniform, no glasses, no white coat, no earpiece. Clear steady female Mandarin voice. Exactly TEN seconds, continuous meaningful movement for full duration. Start with one second of spatial establishing movement; dialogue finishes by 8.8 seconds, final second holds a living reaction with breathing. Do not repeat dialogue. No fades, no jumpy transitions, no character morphing, no doubles, no reflective faces. 技术室到转运站附楼用明确地点卡衔接。林浅与搜索队沿走廊走，许未不持枪跟队。 Speech is OFFSCREEN voiceover, show actions without a talking closeup. MANDARIN AUDIO exactly, one speaker at a time: Zhou Li 周砺 says: “卸货录像和租约都指向后楼。门牌三零二。”. No extra voices or words.",
+      "scene": "技术室到转运站附楼用明确地点卡衔接。林浅与搜索队沿走廊走，许未不持枪跟队。"
+    },
+    {
+      "id": "41-02",
+      "episode": 41,
+      "title": "袋子里面的呼吸",
+      "duration": 10,
+      "seed": 937025,
+      "refs": [
+        "lin"
+      ],
+      "cast": [
+        "lin"
+      ],
+      "lines": [
+        [
+          "lin",
+          "这里有人。通知医护，其他人继续检查房间。",
+          "Someone's here. Call the medical team. Keep checking the room."
+        ]
+      ],
+      "prompt": "Cinematic hand-drawn 2D Japanese anime thriller, adult realistic proportions, cool blue-gray natural lighting, clearly visible faces. Full 16:9 single frame, no panel, NO generated writing, NO subtitles, NO music. Native clear Mandarin dialogue, matching visible speaker lips; other mouths closed. Match provided reference identities exactly in this order: lin. Lin Qian 林浅: adult WOMAN, chin-length straight black bob, navy police uniform, no glasses, no white coat, no earpiece. Clear steady female Mandarin voice. Exactly TEN seconds, continuous meaningful movement for full duration. Start with one second of spatial establishing movement; dialogue finishes by 8.8 seconds, final second holds a living reaction with breathing. Do not repeat dialogue. No fades, no jumpy transitions, no character morphing, no doubles, no reflective faces. Non-graphic rescue search, storage annex room wide shot. Lin pauses hearing faint movement. LEFT empty trolley RIGHT shelves BACK a woman lying on floor mat with loose gray blanket. No body bag or sealed wrapping. She calls medics then kneels a safe distance away. MANDARIN AUDIO exactly, one speaker at a time: Lin Qian 林浅 says: “这里有人。通知医护，其他人继续检查房间。”. No extra voices or words.",
+      "scene": "门打开后的室内全景：左空车、右货架、后方地垫。搜索警员先清场，听到轻微摩擦，不拍移动的“无头影”。"
+    },
+    {
+      "id": "41-03",
+      "episode": 41,
+      "title": "袋子里面的呼吸",
+      "duration": 10,
+      "seed": 937026,
+      "refs": [
+        "lin"
+      ],
+      "cast": [
+        "du",
+        "lin"
+      ],
+      "lines": [
+        [
+          "du",
+          "我听见……他们在叫我死者。",
+          "I heard... them calling me dead."
+        ],
+        [
+          "lin",
+          "你在这里。我们听见你了。",
+          "You're here. We can hear you."
+        ]
+      ],
+      "prompt": "Cinematic hand-drawn 2D Japanese anime thriller, adult realistic proportions, cool blue-gray natural lighting, clearly visible faces. Full 16:9 single frame, no panel, NO generated writing, NO subtitles, NO music. Native clear Mandarin dialogue, matching visible speaker lips; other mouths closed. Match provided reference identities exactly in this order: lin. Du Mei 杜梅: 30-year-old WOMAN, long auburn curly hair, round face, yellow delivery jacket over white shirt, no glasses. Soft tired female voice. Lin Qian 林浅: adult WOMAN, chin-length straight black bob, navy police uniform, no glasses, no white coat, no earpiece. Clear steady female Mandarin voice. Exactly TEN seconds, continuous meaningful movement for full duration. Start with one second of spatial establishing movement; dialogue finishes by 8.8 seconds, final second holds a living reaction with breathing. Do not repeat dialogue. No fades, no jumpy transitions, no character morphing, no doubles, no reflective faces. Du Mei alive lying on floor mat, yellow delivery jacket, auburn curly hair, loose gray blanket already BELOW shoulders, face unobstructed. Lin kneels RIGHT. Du weakly speaks first, Lin replies kindly. Du blinks and breathes visibly. No violence, no blood, no bag, no restraint. MANDARIN AUDIO exactly, one speaker at a time: Du Mei 杜梅 says: “我听见……他们在叫我死者。” Then Lin Qian 林浅 says: “你在这里。我们听见你了。”. No extra voices or words.",
+      "scene": "地垫上的运输套被掀开，露出杜梅同一张脸；她微弱眨眼，医护接手。画面以手、呼吸、林浅反应为主。"
+    },
+    {
+      "id": "41-04",
+      "episode": 41,
+      "title": "袋子里面的呼吸",
+      "duration": 10,
+      "seed": 937027,
+      "refs": [
+        "lin"
+      ],
+      "cast": [
+        "lin"
+      ],
+      "lines": [
+        [
+          "lin",
+          "先救治。等她情况允许，再做正式询问。",
+          "Treat her first. The formal interview can wait until she's able."
+        ]
+      ],
+      "prompt": "Cinematic hand-drawn 2D Japanese anime thriller, adult realistic proportions, cool blue-gray natural lighting, clearly visible faces. Full 16:9 single frame, no panel, NO generated writing, NO subtitles, NO music. Native clear Mandarin dialogue, matching visible speaker lips; other mouths closed. Match provided reference identities exactly in this order: lin. Lin Qian 林浅: adult WOMAN, chin-length straight black bob, navy police uniform, no glasses, no white coat, no earpiece. Clear steady female Mandarin voice. Exactly TEN seconds, continuous meaningful movement for full duration. Start with one second of spatial establishing movement; dialogue finishes by 8.8 seconds, final second holds a living reaction with breathing. Do not repeat dialogue. No fades, no jumpy transitions, no character morphing, no doubles, no reflective faces. Ambulance outside annex, Du on stretcher covered by gray blanket below shoulders. Medical team rolls her into ambulance; Lin steps to the side to clear path, speaks after stepping away. No interview during emergency care. MANDARIN AUDIO exactly, one speaker at a time: Lin Qian 林浅 says: “先救治。等她情况允许，再做正式询问。”. No extra voices or words.",
+      "scene": "救护车旁。林浅后退让医护推担架，摄影不阻挡救治；不让她现场逼问完整供词。"
+    },
+    {
+      "id": "41-05",
+      "episode": 41,
+      "title": "袋子里面的呼吸",
+      "duration": 10,
+      "seed": 937028,
+      "refs": [
+        "xu"
+      ],
+      "cast": [
+        "xu"
+      ],
+      "lines": [
+        [
+          "xu",
+          "工具和贺九袖口的血迹，DNA与赵峥一致。结合录像继续查。",
+          "DNA from blood on the tool and He Jiu’s sleeve matches Zhao Zheng. Investigate it alongside the footage."
+        ]
+      ],
+      "prompt": "Cinematic hand-drawn 2D Japanese anime thriller, adult realistic proportions, cool blue-gray natural lighting, clearly visible faces. Full 16:9 single frame, no panel, NO generated writing, NO subtitles, NO music. Native clear Mandarin dialogue, matching visible speaker lips; other mouths closed. Match provided reference identities exactly in this order: xu. Xu Wei 许未: adult WOMAN, brown ponytail, green blouse and white lab coat, NO glasses, NOT black bob. Calm precise female Mandarin voice. Exactly TEN seconds, continuous meaningful movement for full duration. Start with one second of spatial establishing movement; dialogue finishes by 8.8 seconds, final second holds a living reaction with breathing. Do not repeat dialogue. No fades, no jumpy transitions, no character morphing, no doubles, no reflective faces. 时间卡“三天后”。检验结果室，许未展示专业检测意见，贺九衣物与工具用照片区分。 MANDARIN AUDIO exactly, one speaker at a time: Xu Wei 许未 says: “工具和贺九袖口的血迹，DNA与赵峥一致。结合录像继续查。”. No extra voices or words.",
+      "scene": "时间卡“三天后”。检验结果室，许未展示专业检测意见，贺九衣物与工具用照片区分。"
+    },
+    {
+      "id": "41-06",
+      "episode": 41,
+      "title": "袋子里面的呼吸",
+      "duration": 10,
+      "seed": 937029,
+      "refs": [
+        "jian"
+      ],
+      "cast": [
+        "jian"
+      ],
+      "lines": [
+        [
+          "jian",
+          "这次门打开时，里面的人还活着。",
+          "This time, when the door opened, the person inside was still alive."
+        ]
+      ],
+      "prompt": "Cinematic hand-drawn 2D Japanese anime thriller, adult realistic proportions, cool blue-gray natural lighting, clearly visible faces. Full 16:9 single frame, no panel, NO generated writing, NO subtitles, NO music. Native clear Mandarin dialogue, matching visible speaker lips; other mouths closed. Match provided reference identities exactly in this order: jian. Jianci 剑刺: pale adult MAN, tousled short black hair, black turtleneck and charcoal civilian jacket, NO glasses, NO white coat. Quiet low adult male Mandarin voice. Exactly TEN seconds, continuous meaningful movement for full duration. Start with one second of spatial establishing movement; dialogue finishes by 8.8 seconds, final second holds a living reaction with breathing. Do not repeat dialogue. No fades, no jumpy transitions, no character morphing, no doubles, no reflective faces. 观察室。剑刺看杜梅已获救的简报，坐在远离门的椅上；屏幕与他之间没有血袋。 MANDARIN AUDIO exactly, one speaker at a time: Jianci 剑刺 says: “这次门打开时，里面的人还活着。”. No extra voices or words.",
+      "scene": "观察室。剑刺看杜梅已获救的简报，坐在远离门的椅上；屏幕与他之间没有血袋。"
+    },
+    {
+      "id": "42-01",
+      "episode": 42,
+      "title": "账上的人回来了",
+      "duration": 10,
+      "seed": 937030,
+      "refs": [],
+      "cast": [
+        "du"
+      ],
+      "lines": [
+        [
+          "du",
+          "贺九拿走赵峥的本子，又把我关起来。他说，名单上的人不能开口。",
+          "He Jiu took Zhao Zheng’s notebook and locked me up. He said people on the list must not talk."
+        ]
+      ],
+      "prompt": "Cinematic hand-drawn 2D Japanese anime thriller, adult realistic proportions, cool blue-gray natural lighting, clearly visible faces. Full 16:9 single frame, no panel, NO generated writing, NO subtitles, NO music. Native clear Mandarin dialogue, matching visible speaker lips; other mouths closed. Match provided reference identities exactly in this order: . Du Mei 杜梅: 30-year-old WOMAN, long auburn curly hair, round face, yellow delivery jacket over white shirt, no glasses. Soft tired female voice. Exactly TEN seconds, continuous meaningful movement for full duration. Start with one second of spatial establishing movement; dialogue finishes by 8.8 seconds, final second holds a living reaction with breathing. Do not repeat dialogue. No fades, no jumpy transitions, no character morphing, no doubles, no reflective faces. Du Mei now in pale blue hospital pajama top, same auburn long curls and round face. Sitting in quiet hospital interview room with water on table, speaking to OFFSCREEN Lin. No other woman visible. MANDARIN AUDIO exactly, one speaker at a time: Du Mei 杜梅 says: “贺九拿走赵峥的本子，又把我关起来。他说，名单上的人不能开口。”. No extra voices or words.",
+      "scene": "正式询问室。杜梅坐左，林浅右，一杯水已在杜梅手边；她按自己的节奏说，保留停顿。"
+    },
+    {
+      "id": "42-02",
+      "episode": 42,
+      "title": "账上的人回来了",
+      "duration": 10,
+      "seed": 937031,
+      "refs": [
+        "lin"
+      ],
+      "cast": [
+        "lin"
+      ],
+      "lines": [
+        [
+          "lin",
+          "血迹、录像和账本相互印证。赵峥发现假单后被杀，杜梅是幸存证人。",
+          "The blood evidence, footage and ledger corroborate each other. Zhao Zheng was killed after finding the forged forms. Du Mei survived as a witness."
+        ]
+      ],
+      "prompt": "Cinematic hand-drawn 2D Japanese anime thriller, adult realistic proportions, cool blue-gray natural lighting, clearly visible faces. Full 16:9 single frame, no panel, NO generated writing, NO subtitles, NO music. Native clear Mandarin dialogue, matching visible speaker lips; other mouths closed. Match provided reference identities exactly in this order: lin. Lin Qian 林浅: adult WOMAN, chin-length straight black bob, navy police uniform, no glasses, no white coat, no earpiece. Clear steady female Mandarin voice. Exactly TEN seconds, continuous meaningful movement for full duration. Start with one second of spatial establishing movement; dialogue finishes by 8.8 seconds, final second holds a living reaction with breathing. Do not repeat dialogue. No fades, no jumpy transitions, no character morphing, no doubles, no reflective faces. 案情室。贺九到访录像、血迹、账本备份依序出现，每张2秒后回到林浅说明。 MANDARIN AUDIO exactly, one speaker at a time: Lin Qian 林浅 says: “血迹、录像和账本相互印证。赵峥发现假单后被杀，杜梅是幸存证人。”. No extra voices or words.",
+      "scene": "案情室。贺九到访录像、血迹、账本备份依序出现，每张2秒后回到林浅说明。"
+    },
+    {
+      "id": "42-03",
+      "episode": 42,
+      "title": "账上的人回来了",
+      "duration": 10,
+      "seed": 937032,
+      "refs": [
+        "han"
+      ],
+      "cast": [
+        "han"
+      ],
+      "lines": [
+        [
+          "han",
+          "伪造授权、非法转运、涉嫌杀人，分别查清。接收商也要追查。",
+          "Investigate the forged consent, illegal transfers and suspected murder separately. Trace the recipient too."
+        ]
+      ],
+      "prompt": "Cinematic hand-drawn 2D Japanese anime thriller, adult realistic proportions, cool blue-gray natural lighting, clearly visible faces. Full 16:9 single frame, no panel, NO generated writing, NO subtitles, NO music. Native clear Mandarin dialogue, matching visible speaker lips; other mouths closed. Match provided reference identities exactly in this order: han. Han Che 韩彻: middle-aged MAN, gray temples, short black hair, scar at right eyebrow, navy police uniform, no glasses. Mature low male Mandarin voice. Han RIGHT wrist has white medical bandage, left wrist bare. Exactly TEN seconds, continuous meaningful movement for full duration. Start with one second of spatial establishing movement; dialogue finishes by 8.8 seconds, final second holds a living reaction with breathing. Do not repeat dialogue. No fades, no jumpy transitions, no character morphing, no doubles, no reflective faces. Han seated in briefing room, RIGHT wrist WHITE bandage visible resting on table, LEFT wrist bare. He speaks to unseen team and closes case folder. No arrest or courtroom depicted. MANDARIN AUDIO exactly, one speaker at a time: Han Che 韩彻 says: “伪造授权、非法转运、涉嫌杀人，分别查清。接收商也要追查。”. No extra voices or words.",
+      "scene": "韩彻右腕仍包扎，另一名负责人接走卷宗；镜头不暗示两天内宣判。"
+    },
+    {
+      "id": "42-04",
+      "episode": 42,
+      "title": "账上的人回来了",
+      "duration": 10,
+      "seed": 937033,
+      "refs": [
+        "jian"
+      ],
+      "cast": [
+        "jian"
+      ],
+      "lines": [
+        [
+          "jian",
+          "我醒来时，也躺在那种柜子里。可我没看见是谁关的。",
+          "When I woke, I was in a cabinet like that. I didn't see who put me there."
+        ]
+      ],
+      "prompt": "Cinematic hand-drawn 2D Japanese anime thriller, adult realistic proportions, cool blue-gray natural lighting, clearly visible faces. Full 16:9 single frame, no panel, NO generated writing, NO subtitles, NO music. Native clear Mandarin dialogue, matching visible speaker lips; other mouths closed. Match provided reference identities exactly in this order: jian. Jianci 剑刺: pale adult MAN, tousled short black hair, black turtleneck and charcoal civilian jacket, NO glasses, NO white coat. Quiet low adult male Mandarin voice. Exactly TEN seconds, continuous meaningful movement for full duration. Start with one second of spatial establishing movement; dialogue finishes by 8.8 seconds, final second holds a living reaction with breathing. Do not repeat dialogue. No fades, no jumpy transitions, no character morphing, no doubles, no reflective faces. Jianci alone in observation room records statement to camera. Small reddish iris flicker and two upper fangs, frightened but controlled, hands stay flat. No literal flashback and no other character. MANDARIN AUDIO exactly, one speaker at a time: Jianci 剑刺 says: “我醒来时，也躺在那种柜子里。可我没看见是谁关的。”. No extra voices or words.",
+      "scene": "观察室。剑刺面对摄像头作陈述，林浅在另一个房间听；平行剪辑保持两地明显。"
+    },
+    {
+      "id": "42-05",
+      "episode": 42,
+      "title": "账上的人回来了",
+      "duration": 10,
+      "seed": 937034,
+      "refs": [
+        "zhou"
+      ],
+      "cast": [
+        "zhou"
+      ],
+      "lines": [
+        [
+          "zhou",
+          "一个女性DNA特征，出现在三处不同现场。检验人员要求先复核。",
+          "One female DNA profile appeared at three separate scenes. The lab wants a review first."
+        ]
+      ],
+      "prompt": "Cinematic hand-drawn 2D Japanese anime thriller, adult realistic proportions, cool blue-gray natural lighting, clearly visible faces. Full 16:9 single frame, no panel, NO generated writing, NO subtitles, NO music. Native clear Mandarin dialogue, matching visible speaker lips; other mouths closed. Match provided reference identities exactly in this order: zhou. Zhou Li 周砺: adult MAN, short black hair, silver rectangular glasses, hearing aid on RIGHT ear, gray technical jacket. Clear male Mandarin voice. Exactly TEN seconds, continuous meaningful movement for full duration. Start with one second of spatial establishing movement; dialogue finishes by 8.8 seconds, final second holds a living reaction with breathing. Do not repeat dialogue. No fades, no jumpy transitions, no character morphing, no doubles, no reflective faces. 周砺送来独立质量提醒，许未先封存受影响检验意见；韩彻没有把它直接贴成杀手画像。 MANDARIN AUDIO exactly, one speaker at a time: Zhou Li 周砺 says: “一个女性DNA特征，出现在三处不同现场。检验人员要求先复核。”. No extra voices or words.",
+      "scene": "周砺送来独立质量提醒，许未先封存受影响检验意见；韩彻没有把它直接贴成杀手画像。"
+    },
+    {
+      "id": "42-06",
+      "episode": 42,
+      "title": "账上的人回来了",
+      "duration": 10,
+      "seed": 937035,
+      "refs": [
+        "xu"
+      ],
+      "cast": [
+        "xu"
+      ],
+      "lines": [
+        [
+          "xu",
+          "先别找一个到处杀人的女人。先查这结果怎么来的。",
+          "Don't jump to a woman killing everywhere. First check how these results arose."
+        ]
+      ],
+      "prompt": "Cinematic hand-drawn 2D Japanese anime thriller, adult realistic proportions, cool blue-gray natural lighting, clearly visible faces. Full 16:9 single frame, no panel, NO generated writing, NO subtitles, NO music. Native clear Mandarin dialogue, matching visible speaker lips; other mouths closed. Match provided reference identities exactly in this order: xu. Xu Wei 许未: adult WOMAN, brown ponytail, green blouse and white lab coat, NO glasses, NOT black bob. Calm precise female Mandarin voice. Exactly TEN seconds, continuous meaningful movement for full duration. Start with one second of spatial establishing movement; dialogue finishes by 8.8 seconds, final second holds a living reaction with breathing. Do not repeat dialogue. No fades, no jumpy transitions, no character morphing, no doubles, no reflective faces. 许未看向“北仓夜班死亡案”移交封面，翻开完整尸检报告而非只看DNA。 MANDARIN AUDIO exactly, one speaker at a time: Xu Wei 许未 says: “先别找一个到处杀人的女人。先查这结果怎么来的。”. No extra voices or words.",
+      "scene": "许未看向“北仓夜班死亡案”移交封面，翻开完整尸检报告而非只看DNA。"
     }
   ],
   "additional_refs": {
