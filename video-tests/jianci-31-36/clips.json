@@ -1142,6 +1142,67 @@
       "prompt": "Ten-second continuous animated dramatic shot. Match the reference character exactly. Dark cinematic hand-drawn 2D anime, cool blue-gray lighting, realistic adult anatomy, consistent outfit. Lin Qian is a young adult female police investigator, chin-length straight black bob, navy police uniform, no glasses, no earpiece, no white coat. Clean reception corridor at transfer office, solo Lin, not a mortuary interior. She puts two plain transfer forms into separate clear document sleeves and speaks to the clerk off screen, with a closed secure door behind her. Only this ONE person is visible. All other people remain completely OFF SCREEN. No second face, no silhouette, no reflection, no extra hands. Stable composition and subtle natural acting; no montage or dissolve. Start the single Mandarin dialogue naturally at 0.6 seconds, speak clearly with small pauses, finish by 8.8 seconds. Exact spoken words ONLY: “遗体还在这里，没有放行。两份单的目的地不同，先查递单的人。” No other speech, no reading stage directions. Accurate visible mouth movement for this speaker only. Quiet room tone, no music, no text, no captions, no logos. After the sentence, keep a brief natural reaction until the end, no freeze-frame.",
       "after": "36-04",
       "name": "林浅"
+    },
+    {
+      "id": "35-V01",
+      "episode": 35,
+      "title": "第二个死者不是意外",
+      "duration": 10,
+      "seed": 935350,
+      "refs": [
+        "jian",
+        "han"
+      ],
+      "cast": [
+        "jian",
+        "han"
+      ],
+      "lines": [],
+      "prompt": "Cinematic hand-drawn 2D anime, grounded adult proportions, cool blue gray police observation room. Match supplied reference faces and clothing exactly. Jianci: pale adult man, tousled black hair, black turtleneck, charcoal CIVILIAN jacket, NO glasses. Han: middle-aged man, gray temples, right eyebrow scar, navy police uniform, no glasses. Lin: adult woman, chin-length black bob, navy uniform, NO glasses or white coat. No captions, no text, no music, no flashbacks, no mirror reflections, no duplicate people. Restrained non-graphic supernatural thriller, nobody is injured and skin is intact. Continuous ten-second medium two-shot. Jianci stands LEFT INSIDE the observation room near his chair and desk. Han stands RIGHT OUTSIDE the OPEN DOORWAY; there is EMPTY AIR between their hands, never a closed pane of glass. Lin is OFF SCREEN behind Han and can see through the doorway. At 0-2s Han offers one plain paper with his RIGHT hand through the open doorway. At 2-3s Jianci suddenly catches Hans RIGHT wrist with his own LEFT hand; the paper drops to the floor. At 3-6s Jianci pulls the captured wrist toward his mouth; Han tries to pull it back but cannot. Jiancis irises redden and TWO pointed upper canine teeth become clearly visible. At 6-9s show both faces and the captured wrist in the same frame: his open fanged mouth stops about TWO CENTIMETERS from the wrist. Hold this unmistakable almost-bite as he trembles and struggles against himself. NO tooth touches skin. End with wrist still held and his eyes briefly looking toward Lin off screen. Audible sharp breath, shoe scrape and paper fall only; no words from anyone. Real continuous movement, no freeze, no cutaways."
+    },
+    {
+      "id": "35-V02",
+      "episode": 35,
+      "title": "第二个死者不是意外",
+      "duration": 10,
+      "seed": 935351,
+      "refs": [
+        "lin"
+      ],
+      "cast": [
+        "lin"
+      ],
+      "lines": [
+        [
+          "lin",
+          "剑刺，松手！韩队，退到门外！",
+          "Jianci, let go! Captain Han, step outside the door!"
+        ]
+      ],
+      "prompt": "Cinematic hand-drawn 2D anime, grounded adult proportions, cool blue gray police observation room. Match supplied reference faces and clothing exactly. Jianci: pale adult man, tousled black hair, black turtleneck, charcoal CIVILIAN jacket, NO glasses. Han: middle-aged man, gray temples, right eyebrow scar, navy police uniform, no glasses. Lin: adult woman, chin-length black bob, navy uniform, NO glasses or white coat. No captions, no text, no music, no flashbacks, no mirror reflections, no duplicate people. Restrained non-graphic supernatural thriller, nobody is injured and skin is intact. Solo medium close-up of Lin at the LEFT side of the OPEN observation-room doorway in the corridor. She witnesses Jianci nearly biting Hans wrist INSIDE, both men are entirely OFF SCREEN. Shock changes to a firm response; she stays at a safe distance and extends one open palm slightly, without touching anyone. At 0.7s she clearly shouts in Mandarin exactly: “剑刺，松手！韩队，退到门外！” Finish by 5s, with correct lips and urgent natural delivery. She then watches their hands off screen and exhales, remaining alert. No other voice, no extra speech, no person behind her."
+    },
+    {
+      "id": "35-V03",
+      "episode": 35,
+      "title": "第二个死者不是意外",
+      "duration": 10,
+      "seed": 935352,
+      "refs": [
+        "jian",
+        "han"
+      ],
+      "cast": [
+        "jian",
+        "han"
+      ],
+      "lines": [
+        [
+          "jian",
+          "刚才……我真的想咬你。",
+          "Just now... I really wanted to bite you."
+        ]
+      ],
+      "prompt": "Cinematic hand-drawn 2D anime, grounded adult proportions, cool blue gray police observation room. Match supplied reference faces and clothing exactly. Jianci: pale adult man, tousled black hair, black turtleneck, charcoal CIVILIAN jacket, NO glasses. Han: middle-aged man, gray temples, right eyebrow scar, navy police uniform, no glasses. Lin: adult woman, chin-length black bob, navy uniform, NO glasses or white coat. No captions, no text, no music, no flashbacks, no mirror reflections, no duplicate people. Restrained non-graphic supernatural thriller, nobody is injured and skin is intact. Ten-second continuation at the same OPEN doorway. Jianci stands LEFT INSIDE beside his chair, Han stands RIGHT in the corridor. At the beginning Jiancis LEFT hand still holds Hans RIGHT wrist, lowered safely to chest height AWAY from his closed mouth. At 0-2s Jianci forces his fingers open and releases the wrist; Han immediately takes his right arm back and grips it with his own left hand, then steps out of frame to the RIGHT. Skin remains intact with no mark or injury. At 2-4s Jianci takes one step back and sinks into the chair beside the interior wall, visibly shaken, empty hands on his own knees. The camera settles on him seated. At 4.3s Jianci alone says in clear Mandarin exactly: “刚才……我真的想咬你。” Finish by 8.8s. His eyes retain a faint red rim, mouth closes, no extra words. No Lin appears in this frame. No dissolve, no character vanishing: Han must visibly walk out and Jianci must visibly sit."
     }
   ],
   "additional_refs": {
