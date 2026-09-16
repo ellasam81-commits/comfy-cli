@@ -1,19 +1,10 @@
 {
   "mode": "generate",
   "clip_ids": [
-    "31-C01",
-    "31-C02",
-    "32-C01",
-    "32-C02",
-    "33-C01",
-    "33-C02",
-    "34-C01",
-    "34-C02",
-    "35-C01",
-    "35-C02",
-    "36-C01",
-    "36-C02"
+    "35-V01",
+    "35-V02",
+    "35-V03"
   ],
-  "max_seconds": 120,
-  "request": "ep31-36-user-approved-add10to20sec-story-clarity-v1"
+  "max_seconds": 30,
+  "request": "episode35-real-near-bite-approved-no-injury-v1"
 }
