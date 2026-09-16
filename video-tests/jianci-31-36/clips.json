@@ -2026,6 +2026,397 @@
       ],
       "prompt": "Cinematic hand-drawn 2D Japanese anime thriller, adult realistic proportions, cool blue-gray natural lighting, clearly visible faces. Full 16:9 single frame, no panel, NO generated writing, NO subtitles, NO music. Native clear Mandarin dialogue, matching visible speaker lips; other mouths closed. Match provided reference identities exactly in this order: xu. Xu Wei 许未: adult WOMAN, brown ponytail, green blouse and white lab coat, NO glasses, NOT black bob. Calm precise female Mandarin voice. Exactly TEN seconds, continuous meaningful movement for full duration. Start with one second of spatial establishing movement; dialogue finishes by 8.8 seconds, final second holds a living reaction with breathing. Do not repeat dialogue. No fades, no jumpy transitions, no character morphing, no doubles, no reflective faces. 许未看向“北仓夜班死亡案”移交封面，翻开完整尸检报告而非只看DNA。 MANDARIN AUDIO exactly, one speaker at a time: Xu Wei 许未 says: “先别找一个到处杀人的女人。先查这结果怎么来的。”. No extra voices or words.",
       "scene": "许未看向“北仓夜班死亡案”移交封面，翻开完整尸检报告而非只看DNA。"
+    },
+    {
+      "id": "37-03R",
+      "episode": 37,
+      "title": "他还没有死",
+      "duration": 10,
+      "seed": 947002,
+      "refs": [
+        "lin"
+      ],
+      "cast": [
+        "lin"
+      ],
+      "lines": [
+        [
+          "lin",
+          "医护已经确认死亡。封锁现场，其他人别碰东西。",
+          "The medical team has confirmed his death. Secure the scene. Do not touch anything."
+        ]
+      ],
+      "prompt": "Hand-drawn cinematic 2D anime, adult proportions, cool blue-gray dramatic but readable lighting. One continuous TEN SECOND shot, gentle natural camera motion and breathing throughout. Exactly ONE visible person, matching reference face and clothing: adult woman with chin-length straight black bob, navy uniform, NO glasses. Single Lin in a SMALL PRIVATE RENTED APARTMENT: worn beige wall, kitchenette, wooden domestic table, no filing cabinets or office furniture. She stands in the doorway at frame RIGHT. A completely opaque gray blanket covers a still human shape on the FLOOR at LEFT; no visible face or injuries. Closed medical bag beside blanket. Lin speaks slowly to an unseen colleague and raises a hand to keep the room undisturbed. Hold entire scene, no other faces. AUDIO: a quiet room tone, no music, no narrator, no subtitles, no written text. ONLY the following quoted Mandarin words are spoken, once, starting at 1.2 seconds and finishing before 8.8 seconds. Do NOT vocalize any directions. The visible character alone speaks with synchronized lip motion. Exact speech: “医护已经确认死亡。封锁现场，其他人别碰东西。” Then mouth closes naturally and the person breathes. No other speech. No collage, no split-screen, no transformations, no duplicates.",
+      "scene": "出租屋建立镜头。赵峥倒在桌旁，医护确认后退出一侧，现场人员开始警戒；不拍惊吓式睁眼。",
+      "replaces": "37-03"
+    },
+    {
+      "id": "37-04R",
+      "episode": 37,
+      "title": "他还没有死",
+      "duration": 10,
+      "seed": 947003,
+      "refs": [
+        "xu"
+      ],
+      "cast": [
+        "xu"
+      ],
+      "lines": [
+        [
+          "xu",
+          "有头部损伤。具体死因，带回去完整检查。",
+          "There's a head injury. The cause of death requires a full examination."
+        ]
+      ],
+      "prompt": "Hand-drawn cinematic 2D anime, adult proportions, cool blue-gray dramatic but readable lighting. One continuous TEN SECOND shot, gentle natural camera motion and breathing throughout. Exactly ONE visible person, matching reference face and clothing: adult woman with brown ponytail, green blouse and white coat, NO glasses. Same SMALL PRIVATE RENTED APARTMENT, worn beige wall, kitchen sink and wooden table. Only Xu appears, brown ponytail and white coat over green shirt, wearing gloves. She kneels next to a closed evidence case, photographs a floor mark with a camera, stands and gives her assessment to OFFSCREEN colleague. No body visible, no assistants, no other person, no diagrams or writing. AUDIO: a quiet room tone, no music, no narrator, no subtitles, no written text. ONLY the following quoted Mandarin words are spoken, once, starting at 1.2 seconds and finishing before 8.8 seconds. Do NOT vocalize any directions. The visible character alone speaks with synchronized lip motion. Exact speech: “有头部损伤。具体死因，带回去完整检查。” Then mouth closes naturally and the person breathes. No other speech. No collage, no split-screen, no transformations, no duplicates.",
+      "scene": "许未进入勘查，记录头部伤及血迹位置；切一页委托单，随后回她环视房间。",
+      "replaces": "37-04"
+    },
+    {
+      "id": "38-01R",
+      "episode": 38,
+      "title": "没有做过的检查",
+      "duration": 10,
+      "seed": 947006,
+      "refs": [
+        "xu"
+      ],
+      "cast": [
+        "xu"
+      ],
+      "lines": [
+        [
+          "xu",
+          "致命的是严重颅脑损伤。不是单子上写的突发心脏病。",
+          "A severe head injury caused his death, not the sudden heart disease stated on that form."
+        ]
+      ],
+      "prompt": "Hand-drawn cinematic 2D anime, adult proportions, cool blue-gray dramatic but readable lighting. One continuous TEN SECOND shot, gentle natural camera motion and breathing throughout. Exactly ONE visible person, matching reference face and clothing: adult woman with brown ponytail, green blouse and white coat, NO glasses. One Xu alone in clean examination report room, brown ponytail green shirt white coat, no glasses. Examination has ALREADY concluded. She closes an X-ray folder, looks up and explains findings. No bodies, no exposed specimens, no procedures, no other people. Stay on her face and upper torso throughout with subtle push-in. Do not change her hair or face. AUDIO: a quiet room tone, no music, no narrator, no subtitles, no written text. ONLY the following quoted Mandarin words are spoken, once, starting at 1.2 seconds and finishing before 8.8 seconds. Do NOT vocalize any directions. The visible character alone speaks with synchronized lip motion. Exact speech: “致命的是严重颅脑损伤。不是单子上写的突发心脏病。” Then mouth closes naturally and the person breathes. No other speech. No collage, no split-screen, no transformations, no duplicates.",
+      "scene": "尸检室。许未与助手核对身份、拍照，切影像与解剖记录的非血腥部分，时间卡“检查后”。",
+      "replaces": "38-01"
+    },
+    {
+      "id": "38-03R",
+      "episode": 38,
+      "title": "没有做过的检查",
+      "duration": 10,
+      "seed": 947008,
+      "refs": [
+        "lin"
+      ],
+      "cast": [
+        "lin"
+      ],
+      "lines": [
+        [
+          "lin",
+          "医院没开过证明，也没有那次检查。不是法医漏看，是有人造假。",
+          "The hospital issued no certificate and performed no such examination. This was forgery, not an examiner missing evidence."
+        ]
+      ],
+      "prompt": "Hand-drawn cinematic 2D anime, adult proportions, cool blue-gray dramatic but readable lighting. One continuous TEN SECOND shot, gentle natural camera motion and breathing throughout. Exactly ONE visible person, matching reference face and clothing: adult woman with chin-length straight black bob, navy uniform, NO glasses. Only Lin seated alone at briefing table. A CLOSED hospital reply folder on the desk. She opens it, looks up, explains evidence. Camera slowly moves closer. Blank wall behind, no other people, no writing, no photographs. AUDIO: a quiet room tone, no music, no narrator, no subtitles, no written text. ONLY the following quoted Mandarin words are spoken, once, starting at 1.2 seconds and finishing before 8.8 seconds. Do NOT vocalize any directions. The visible character alone speaks with synchronized lip motion. Exact speech: “医院没开过证明，也没有那次检查。不是法医漏看，是有人造假。” Then mouth closes naturally and the person breathes. No other speech. No collage, no split-screen, no transformations, no duplicates.",
+      "scene": "案情室。林浅把“医院未签发”回函贴到伪造单旁，韩彻站右；板上不用“前法医失职”。",
+      "replaces": "38-03"
+    },
+    {
+      "id": "38-04R",
+      "episode": 38,
+      "title": "没有做过的检查",
+      "duration": 10,
+      "seed": 947009,
+      "refs": [
+        "zhou"
+      ],
+      "cast": [
+        "zhou"
+      ],
+      "lines": [
+        [
+          "zhou",
+          "提前提交，不是打印机时间错了。后台也留下了时间。",
+          "It wasn't a wrong printer clock. The server records show the earlier submission too."
+        ]
+      ],
+      "prompt": "Hand-drawn cinematic 2D anime, adult proportions, cool blue-gray dramatic but readable lighting. One continuous TEN SECOND shot, gentle natural camera motion and breathing throughout. Exactly ONE visible person, matching reference face and clothing: adult man with short black hair, silver rectangular glasses, right hearing aid, gray technical jacket. Only Zhou in gray technical jacket and silver rectangular glasses, RIGHT hearing aid. He compares two laptop windows whose content stays out of focus, turns toward camera and clearly gives his explanation. No written text and no other faces. AUDIO: a quiet room tone, no music, no narrator, no subtitles, no written text. ONLY the following quoted Mandarin words are spoken, once, starting at 1.2 seconds and finishing before 8.8 seconds. Do NOT vocalize any directions. The visible character alone speaks with synchronized lip motion. Exact speech: “提前提交，不是打印机时间错了。后台也留下了时间。” Then mouth closes naturally and the person breathes. No other speech. No collage, no split-screen, no transformations, no duplicates.",
+      "scene": "时间卡“两天后，记录核对”。周砺从平台后台记录追到盛安经办账户；显示账户不显示神奇真人定位点。",
+      "replaces": "38-04"
+    },
+    {
+      "id": "38-05R",
+      "episode": 38,
+      "title": "没有做过的检查",
+      "duration": 10,
+      "seed": 947010,
+      "refs": [
+        "zhou"
+      ],
+      "cast": [
+        "zhou"
+      ],
+      "lines": [
+        [
+          "zhou",
+          "接收方是私人标本商。家属确认，没有给过授权。",
+          "The recipient is a private specimen dealer. The family confirms they gave no consent."
+        ]
+      ],
+      "prompt": "Hand-drawn cinematic 2D anime, adult proportions, cool blue-gray dramatic but readable lighting. One continuous TEN SECOND shot, gentle natural camera motion and breathing throughout. Exactly ONE visible person, matching reference face and clothing: adult man with short black hair, silver rectangular glasses, right hearing aid, gray technical jacket. A calm OFFICE DOCUMENT VERIFICATION scene. Only Zhou with silver rectangular glasses and right hearing aid. He follows a row on a paper COPY with a pen, then gives a calm factual explanation to an unseen colleague. Ordinary clean desk, no medical imagery, no injuries, no bodies. AUDIO: a quiet room tone, no music, no narrator, no subtitles, no written text. ONLY the following quoted Mandarin words are spoken, once, starting at 1.2 seconds and finishing before 8.8 seconds. Do NOT vocalize any directions. The visible character alone speaks with synchronized lip motion. Exact speech: “接收方是私人标本商。家属确认，没有给过授权。” Then mouth closes naturally and the person breathes. No other speech. No collage, no split-screen, no transformations, no duplicates.",
+      "scene": "韩彻翻看转运登记中的去向栏，林浅把联系回函并列。",
+      "replaces": "38-05"
+    },
+    {
+      "id": "39-04R",
+      "episode": 39,
+      "title": "活人的价钱",
+      "duration": 10,
+      "seed": 947015,
+      "refs": [
+        "zhou"
+      ],
+      "cast": [
+        "zhou"
+      ],
+      "lines": [
+        [
+          "zhou",
+          "另有一笔买旧档案的钱。付款人叫陆闻舟。",
+          "There's a separate payment for old archives, from someone named Lu Wenzhou."
+        ]
+      ],
+      "prompt": "Hand-drawn cinematic 2D anime, adult proportions, cool blue-gray dramatic but readable lighting. One continuous TEN SECOND shot, gentle natural camera motion and breathing throughout. Exactly ONE visible person, matching reference face and clothing: adult man with short black hair, silver rectangular glasses, right hearing aid, gray technical jacket. One Zhou alone at desk in technical office. He carefully separates TWO CLOSED folders, one blue and one brown, then looks up to state the separate payment. Hands remain normal, no text on folders, no other people. Gentle moving camera. AUDIO: a quiet room tone, no music, no narrator, no subtitles, no written text. ONLY the following quoted Mandarin words are spoken, once, starting at 1.2 seconds and finishing before 8.8 seconds. Do NOT vocalize any directions. The visible character alone speaks with synchronized lip motion. Exact speech: “另有一笔买旧档案的钱。付款人叫陆闻舟。” Then mouth closes naturally and the person breathes. No other speech. No collage, no split-screen, no transformations, no duplicates.",
+      "scene": "旧物柜在同一房间另一侧，警方取出独立的旧档交易清单；明确它不是遗体订单。",
+      "replaces": "39-04"
+    },
+    {
+      "id": "40-01R",
+      "episode": 40,
+      "title": "你也要接受调查",
+      "duration": 10,
+      "seed": 947018,
+      "refs": [
+        "zhou"
+      ],
+      "cast": [
+        "zhou"
+      ],
+      "lines": [
+        [
+          "zhou",
+          "韩队右手腕已经检查了。伤情和经过，都如实记录。",
+          "Captain Han’s right wrist has been examined. Both the injury and the incident are recorded accurately."
+        ]
+      ],
+      "prompt": "Hand-drawn cinematic 2D anime, adult proportions, cool blue-gray dramatic but readable lighting. One continuous TEN SECOND shot, gentle natural camera motion and breathing throughout. Exactly ONE visible person, matching reference face and clothing: adult man with short black hair, silver rectangular glasses, right hearing aid, gray technical jacket. Calm technical office. Only Zhou seated at his laptop recording an incident log, he looks up and explains that a colleagues wrist has been checked and documented. NO injury shown, no treatment shown, no patient, no medical imagery. Gray technical jacket, silver glasses and right hearing aid. AUDIO: a quiet room tone, no music, no narrator, no subtitles, no written text. ONLY the following quoted Mandarin words are spoken, once, starting at 1.2 seconds and finishing before 8.8 seconds. Do NOT vocalize any directions. The visible character alone speaks with synchronized lip motion. Exact speech: “韩队右手腕已经检查了。伤情和经过，都如实记录。” Then mouth closes naturally and the person breathes. No other speech. No collage, no split-screen, no transformations, no duplicates.",
+      "scene": "医疗处置区。医护处理韩彻右腕，周砺站门边；字幕不把临床医生标成许未。",
+      "replaces": "40-01"
+    },
+    {
+      "id": "40-06R",
+      "episode": 40,
+      "title": "你也要接受调查",
+      "duration": 10,
+      "seed": 947023,
+      "refs": [
+        "lin"
+      ],
+      "cast": [
+        "lin"
+      ],
+      "lines": [
+        [
+          "lin",
+          "先找杜梅。把名单当求救线索，不当死亡确认。",
+          "Find Du Mei first. Treat the list as a rescue lead, not proof of death."
+        ]
+      ],
+      "prompt": "Hand-drawn cinematic 2D anime, adult proportions, cool blue-gray dramatic but readable lighting. One continuous TEN SECOND shot, gentle natural camera motion and breathing throughout. Exactly ONE visible person, matching reference face and clothing: adult woman with chin-length straight black bob, navy uniform, NO glasses. Calm briefing room, Lin alone standing by a plain desk. She closes a route map, picks up her radio and clearly instructs a search team OFFSCREEN. Remain on her face and hands. No weapons, no violence, no medical imagery, no other faces. AUDIO: a quiet room tone, no music, no narrator, no subtitles, no written text. ONLY the following quoted Mandarin words are spoken, once, starting at 1.2 seconds and finishing before 8.8 seconds. Do NOT vocalize any directions. The visible character alone speaks with synchronized lip motion. Exact speech: “先找杜梅。把名单当求救线索，不当死亡确认。” Then mouth closes naturally and the person breathes. No other speech. No collage, no split-screen, no transformations, no duplicates.",
+      "scene": "林浅在车门旁向搜索队交代地点，后车灯接转运站走廊灯；不让剑刺突然登车。",
+      "replaces": "40-06"
+    },
+    {
+      "id": "41-01R",
+      "episode": 41,
+      "title": "袋子里面的呼吸",
+      "duration": 10,
+      "seed": 947024,
+      "refs": [
+        "lin"
+      ],
+      "cast": [
+        "lin"
+      ],
+      "lines": [
+        [
+          "lin",
+          "卸货录像和租约，都指向后楼。三零二，跟我来。",
+          "The unloading footage and lease point to the rear building. Room 302. Follow me."
+        ]
+      ],
+      "prompt": "Hand-drawn cinematic 2D anime, adult proportions, cool blue-gray dramatic but readable lighting. One continuous TEN SECOND shot, gentle natural camera motion and breathing throughout. Exactly ONE visible person, matching reference face and clothing: adult woman with chin-length straight black bob, navy uniform, NO glasses. Lin alone walking slowly down a DIM CONCRETE STORAGE BUILDING CORRIDOR. Exposed conduit, gray concrete wall, one solid door at end. No police office, no filing cabinets. She checks a small radio then says the instruction in her own female voice. Mouth moves only for her exact sentence. Stop facing the door. AUDIO: a quiet room tone, no music, no narrator, no subtitles, no written text. ONLY the following quoted Mandarin words are spoken, once, starting at 1.2 seconds and finishing before 8.8 seconds. Do NOT vocalize any directions. The visible character alone speaks with synchronized lip motion. Exact speech: “卸货录像和租约，都指向后楼。三零二，跟我来。” Then mouth closes naturally and the person breathes. No other speech. No collage, no split-screen, no transformations, no duplicates.",
+      "scene": "技术室到转运站附楼用明确地点卡衔接。林浅与搜索队沿走廊走，许未不持枪跟队。",
+      "replaces": "41-01"
+    },
+    {
+      "id": "41-02R",
+      "episode": 41,
+      "title": "袋子里面的呼吸",
+      "duration": 10,
+      "seed": 947025,
+      "refs": [
+        "lin"
+      ],
+      "cast": [
+        "lin"
+      ],
+      "lines": [
+        [
+          "lin",
+          "这里有人。通知医护，其他人继续检查房间。",
+          "Someone's here. Call the medical team. Keep checking the room."
+        ]
+      ],
+      "prompt": "Hand-drawn cinematic 2D anime, adult proportions, cool blue-gray dramatic but readable lighting. One continuous TEN SECOND shot, gentle natural camera motion and breathing throughout. Exactly ONE visible person, matching reference face and clothing: adult woman with chin-length straight black bob, navy uniform, NO glasses. Lin alone at the solid storage-room door at end of CONCRETE corridor. She hears an OFFSCREEN human movement, calls for assistance, opens the hinged door fully and takes one cautious step into room. Camera remains outside. No injured person, no body, no victim face shown. Finish on her concerned listening expression. AUDIO: a quiet room tone, no music, no narrator, no subtitles, no written text. ONLY the following quoted Mandarin words are spoken, once, starting at 1.2 seconds and finishing before 8.8 seconds. Do NOT vocalize any directions. The visible character alone speaks with synchronized lip motion. Exact speech: “这里有人。通知医护，其他人继续检查房间。” Then mouth closes naturally and the person breathes. No other speech. No collage, no split-screen, no transformations, no duplicates.",
+      "scene": "门打开后的室内全景：左空车、右货架、后方地垫。搜索警员先清场，听到轻微摩擦，不拍移动的“无头影”。",
+      "replaces": "41-02"
+    },
+    {
+      "id": "41-03R",
+      "episode": 41,
+      "title": "袋子里面的呼吸",
+      "duration": 10,
+      "seed": 947026,
+      "refs": [
+        "du"
+      ],
+      "cast": [
+        "du"
+      ],
+      "lines": [
+        [
+          "du",
+          "我听见他们叫我死者。可是，我明明还活着。",
+          "I heard them calling me dead. But I was still alive."
+        ]
+      ],
+      "prompt": "Hand-drawn cinematic 2D anime, adult proportions, cool blue-gray dramatic but readable lighting. One continuous TEN SECOND shot, gentle natural camera motion and breathing throughout. Exactly ONE visible person, matching reference face and clothing: adult woman with long auburn curls, round face, yellow delivery jacket. Calm exterior immediately AFTER a rescue. Only Du Mei alive and safe, sitting upright on a chair OUTSIDE a concrete building in soft evening light. Same auburn long curls and face as reference but now wearing YELLOW DELIVERY JACKET, not hospital pajamas. She takes a breath, looks at OFFSCREEN listener and quietly recalls being called dead. No injury, no restraint, no bag, no violence, no physical distress. One woman only. Her face stays stable. AUDIO: a quiet room tone, no music, no narrator, no subtitles, no written text. ONLY the following quoted Mandarin words are spoken, once, starting at 1.2 seconds and finishing before 8.8 seconds. Do NOT vocalize any directions. The visible character alone speaks with synchronized lip motion. Exact speech: “我听见他们叫我死者。可是，我明明还活着。” Then mouth closes naturally and the person breathes. No other speech. No collage, no split-screen, no transformations, no duplicates.",
+      "scene": "地垫上的运输套被掀开，露出杜梅同一张脸；她微弱眨眼，医护接手。画面以手、呼吸、林浅反应为主。",
+      "replaces": "41-03"
+    },
+    {
+      "id": "41-04R",
+      "episode": 41,
+      "title": "袋子里面的呼吸",
+      "duration": 10,
+      "seed": 947027,
+      "refs": [
+        "lin"
+      ],
+      "cast": [
+        "lin"
+      ],
+      "lines": [
+        [
+          "lin",
+          "先救治。等她情况允许，再做正式询问。",
+          "Treat her first. The formal interview can wait until she's able."
+        ]
+      ],
+      "prompt": "Hand-drawn cinematic 2D anime, adult proportions, cool blue-gray dramatic but readable lighting. One continuous TEN SECOND shot, gentle natural camera motion and breathing throughout. Exactly ONE visible person, matching reference face and clothing: adult woman with chin-length straight black bob, navy uniform, NO glasses. Lin alone OUTSIDE the concrete annex, next to an ambulance with rear doors CLOSED. No patient visible. She steps aside as the ambulance begins rolling slowly away, then calmly tells an OFFSCREEN colleague to wait before interviewing the survivor. Street and vehicle background only, no indoor office, no other faces. AUDIO: a quiet room tone, no music, no narrator, no subtitles, no written text. ONLY the following quoted Mandarin words are spoken, once, starting at 1.2 seconds and finishing before 8.8 seconds. Do NOT vocalize any directions. The visible character alone speaks with synchronized lip motion. Exact speech: “先救治。等她情况允许，再做正式询问。” Then mouth closes naturally and the person breathes. No other speech. No collage, no split-screen, no transformations, no duplicates.",
+      "scene": "救护车旁。林浅后退让医护推担架，摄影不阻挡救治；不让她现场逼问完整供词。",
+      "replaces": "41-04"
+    },
+    {
+      "id": "41-06R",
+      "episode": 41,
+      "title": "袋子里面的呼吸",
+      "duration": 10,
+      "seed": 947029,
+      "refs": [
+        "jian"
+      ],
+      "cast": [
+        "jian"
+      ],
+      "lines": [
+        [
+          "jian",
+          "这次门打开时，里面的人还活着。",
+          "This time, when the door opened, the person inside was still alive."
+        ]
+      ],
+      "prompt": "Hand-drawn cinematic 2D anime, adult proportions, cool blue-gray dramatic but readable lighting. One continuous TEN SECOND shot, gentle natural camera motion and breathing throughout. Exactly ONE visible person, matching reference face and clothing: pale adult man with tousled short black hair, black turtleneck and charcoal civilian jacket, NO glasses. Jianci alone seated in plain observation room, gray wall and closed door. No screen, no blood bags, no photographs, no IV stand, no other people. He hears that the survivor is safe; shoulders loosen slightly. He says the exact sentence, briefly shows TWO upper canine fangs, closes his mouth and exhales. Small subdued red iris glow, controlled expression. AUDIO: a quiet room tone, no music, no narrator, no subtitles, no written text. ONLY the following quoted Mandarin words are spoken, once, starting at 1.2 seconds and finishing before 8.8 seconds. Do NOT vocalize any directions. The visible character alone speaks with synchronized lip motion. Exact speech: “这次门打开时，里面的人还活着。” Then mouth closes naturally and the person breathes. No other speech. No collage, no split-screen, no transformations, no duplicates.",
+      "scene": "观察室。剑刺看杜梅已获救的简报，坐在远离门的椅上；屏幕与他之间没有血袋。",
+      "replaces": "41-06"
+    },
+    {
+      "id": "42-02R",
+      "episode": 42,
+      "title": "账上的人回来了",
+      "duration": 10,
+      "seed": 947031,
+      "refs": [
+        "lin"
+      ],
+      "cast": [
+        "lin"
+      ],
+      "lines": [
+        [
+          "lin",
+          "血迹、录像和账本相互印证。赵峥发现假单后被杀，杜梅是幸存证人。",
+          "The blood evidence, footage and ledger corroborate each other. Zhao Zheng was killed after finding the forged forms. Du Mei survived as a witness."
+        ]
+      ],
+      "prompt": "Hand-drawn cinematic 2D anime, adult proportions, cool blue-gray dramatic but readable lighting. One continuous TEN SECOND shot, gentle natural camera motion and breathing throughout. Exactly ONE visible person, matching reference face and clothing: adult woman with chin-length straight black bob, navy uniform, NO glasses. Only Lin alone in briefing room, three closed evidence folders on desk. No photos, no pictures of people, no other characters. She places a finger on each folder then looks up and sums up the evidence in clear Mandarin. Slow moving camera, retain her black bob and navy uniform. AUDIO: a quiet room tone, no music, no narrator, no subtitles, no written text. ONLY the following quoted Mandarin words are spoken, once, starting at 1.2 seconds and finishing before 8.8 seconds. Do NOT vocalize any directions. The visible character alone speaks with synchronized lip motion. Exact speech: “血迹、录像和账本相互印证。赵峥发现假单后被杀，杜梅是幸存证人。” Then mouth closes naturally and the person breathes. No other speech. No collage, no split-screen, no transformations, no duplicates.",
+      "scene": "案情室。贺九到访录像、血迹、账本备份依序出现，每张2秒后回到林浅说明。",
+      "replaces": "42-02"
+    },
+    {
+      "id": "42-03R",
+      "episode": 42,
+      "title": "账上的人回来了",
+      "duration": 10,
+      "seed": 947032,
+      "refs": [
+        "zhou"
+      ],
+      "cast": [
+        "zhou"
+      ],
+      "lines": [
+        [
+          "zhou",
+          "伪造授权、非法转运、涉嫌杀人，分别查清。接收商也要追查。",
+          "Investigate the forged consent, illegal transfers and suspected murder separately. Trace the recipient too."
+        ]
+      ],
+      "prompt": "Hand-drawn cinematic 2D anime, adult proportions, cool blue-gray dramatic but readable lighting. One continuous TEN SECOND shot, gentle natural camera motion and breathing throughout. Exactly ONE visible person, matching reference face and clothing: adult man with short black hair, silver rectangular glasses, right hearing aid, gray technical jacket. Calm office case-review scene. Only Zhou in gray technical jacket, silver glasses, right hearing aid. He puts a closed folder into a tray and clearly explains the next investigation tasks. No injury, no body, no medical imagery, no violence, no other person. AUDIO: a quiet room tone, no music, no narrator, no subtitles, no written text. ONLY the following quoted Mandarin words are spoken, once, starting at 1.2 seconds and finishing before 8.8 seconds. Do NOT vocalize any directions. The visible character alone speaks with synchronized lip motion. Exact speech: “伪造授权、非法转运、涉嫌杀人，分别查清。接收商也要追查。” Then mouth closes naturally and the person breathes. No other speech. No collage, no split-screen, no transformations, no duplicates.",
+      "scene": "韩彻右腕仍包扎，另一名负责人接走卷宗；镜头不暗示两天内宣判。",
+      "replaces": "42-03"
+    },
+    {
+      "id": "42-06R",
+      "episode": 42,
+      "title": "账上的人回来了",
+      "duration": 10,
+      "seed": 947035,
+      "refs": [
+        "xu"
+      ],
+      "cast": [
+        "xu"
+      ],
+      "lines": [
+        [
+          "xu",
+          "先别找一个到处杀人的女人。先查这结果怎么来的。",
+          "Don't jump to a woman killing everywhere. First check how these results arose."
+        ]
+      ],
+      "prompt": "Hand-drawn cinematic 2D anime, adult proportions, cool blue-gray dramatic but readable lighting. One continuous TEN SECOND shot, gentle natural camera motion and breathing throughout. Exactly ONE visible person, matching reference face and clothing: adult woman with brown ponytail, green blouse and white coat, NO glasses. Only Xu, same brown ponytail green blouse white coat, no glasses. Alone at laboratory office desk, reading closed-file cover then opening report whose text stays out of focus. She looks directly toward OFFSCREEN colleague and speaks thoughtfully. No assistants, no black-bob woman, no photographs, no anatomical images, no bloody items. AUDIO: a quiet room tone, no music, no narrator, no subtitles, no written text. ONLY the following quoted Mandarin words are spoken, once, starting at 1.2 seconds and finishing before 8.8 seconds. Do NOT vocalize any directions. The visible character alone speaks with synchronized lip motion. Exact speech: “先别找一个到处杀人的女人。先查这结果怎么来的。” Then mouth closes naturally and the person breathes. No other speech. No collage, no split-screen, no transformations, no duplicates.",
+      "scene": "许未看向“北仓夜班死亡案”移交封面，翻开完整尸检报告而非只看DNA。",
+      "replaces": "42-06"
     }
   ],
   "additional_refs": {
@@ -2043,6 +2434,11 @@
       "9a4d368c-a5ab-4bd8-98fe-a9e563310af4",
       1,
       "290:360:120:60"
+    ],
+    "du": [
+      "39ef70c6-702c-4919-8681-2e5f233d4a44",
+      3,
+      "360:360:270:0"
     ]
   }
 }
