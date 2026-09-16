@@ -866,6 +866,282 @@
       ],
       "prompt": "10-second hand-drawn cinematic 2D anime, 16:9. EXACTLY ONE WOMAN, matching the supplied LIN QIAN reference: black chin-length bob, navy police uniform, no glasses, no white coat. A fixed medium close-up of Lin listening to a phone held at her left ear in a plain blue-gray corridor. No other people, no windows, no reflections, no subtitles, no text, no photographs. One continuous shot with no cuts. Speak this exact Mandarin dialogue ONCE, clearly and calmly between 0.5 and 8 seconds: “盛安还有一张单。上面的人，昨天还给家里打过电话。” Lip movements follow that speech only. After the line, mouth closes and she remains silent and concerned until the end. No extra words, no narration, no repeated sentence, no music. Keep her face, hairstyle, clothing, phone and hand position identical throughout.",
       "story_day": "D12；案件调查结论形成，司法程序继续"
+    },
+    {
+      "id": "31-C01",
+      "episode": 31,
+      "title": "两个人，同一种药",
+      "duration": 10,
+      "seed": 731671,
+      "refs": [
+        "luo"
+      ],
+      "cast": [
+        "luo"
+      ],
+      "lines": [
+        [
+          "luo",
+          "我是她丈夫。她就是头疼，吃完药不久，人就不对了。",
+          "I am her husband. She had a headache. Soon after taking the medicine, something was wrong."
+        ]
+      ],
+      "prompt": "Ten-second continuous animated dramatic shot. Match the reference character exactly. Dark cinematic hand-drawn 2D anime, cool blue-gray lighting, realistic adult anatomy, consistent outfit. Luo Heng is a 42-year-old man, narrow tired face, slightly receding short black hair, light chin stubble, gray cardigan and beige shirt, no glasses. Hospital family interview room. Seated in the same chair, gray cardigan over beige shirt. He looks at the off-screen interviewer, unfolds then stills the receipt in his own hands. Only this ONE person is visible. All other people remain completely OFF SCREEN. No second face, no silhouette, no reflection, no extra hands. Stable composition and subtle natural acting; no montage or dissolve. Start the single Mandarin dialogue naturally at 0.6 seconds, speak clearly with small pauses, finish by 8.8 seconds. Exact spoken words ONLY: “我是她丈夫。她就是头疼，吃完药不久，人就不对了。” No other speech, no reading stage directions. Accurate visible mouth movement for this speaker only. Quiet room tone, no music, no text, no captions, no logos. After the sentence, keep a brief natural reaction until the end, no freeze-frame.",
+      "after": "31-02",
+      "name": "罗衡"
+    },
+    {
+      "id": "31-C02",
+      "episode": 31,
+      "title": "两个人，同一种药",
+      "duration": 10,
+      "seed": 731672,
+      "refs": [
+        "lin"
+      ],
+      "cast": [
+        "lin"
+      ],
+      "lines": [
+        [
+          "lin",
+          "两个人吃过同品牌，还不能认定是药害的。先分别核查。",
+          "Taking the same brand does not prove it caused both deaths. Check each case separately."
+        ]
+      ],
+      "prompt": "Ten-second continuous animated dramatic shot. Match the reference character exactly. Dark cinematic hand-drawn 2D anime, cool blue-gray lighting, realistic adult anatomy, consistent outfit. Lin Qian is a young adult female police investigator, chin-length straight black bob, navy police uniform, no glasses, no earpiece, no white coat. Police case office, alone at the desk. She opens two separate plain folders, then looks toward her colleague off screen. Only this ONE person is visible. All other people remain completely OFF SCREEN. No second face, no silhouette, no reflection, no extra hands. Stable composition and subtle natural acting; no montage or dissolve. Start the single Mandarin dialogue naturally at 0.6 seconds, speak clearly with small pauses, finish by 8.8 seconds. Exact spoken words ONLY: “两个人吃过同品牌，还不能认定是药害的。先分别核查。” No other speech, no reading stage directions. Accurate visible mouth movement for this speaker only. Quiet room tone, no music, no text, no captions, no logos. After the sentence, keep a brief natural reaction until the end, no freeze-frame.",
+      "after": "31-04",
+      "name": "林浅"
+    },
+    {
+      "id": "32-C01",
+      "episode": 32,
+      "title": "死因还在路上",
+      "duration": 10,
+      "seed": 731681,
+      "refs": [
+        "xu"
+      ],
+      "cast": [
+        "xu"
+      ],
+      "lines": [
+        [
+          "xu",
+          "尸检已经做完。取下的样本分别送检，结果出来再判断。",
+          "The autopsies are complete. The samples were sent for testing separately. We must wait for the results."
+        ]
+      ],
+      "prompt": "Ten-second continuous animated dramatic shot. Match the reference character exactly. Dark cinematic hand-drawn 2D anime, cool blue-gray lighting, realistic adult anatomy, consistent outfit. Xu Wei is an adult female forensic doctor, brown ponytail, green blouse under white laboratory coat, no glasses. Use her reference face, not the policewoman face. Clean forensic reporting office, no bodies or specimens. She checks two closed report folders and places them in separate document trays; no gloves needed in this clean office. Only this ONE person is visible. All other people remain completely OFF SCREEN. No second face, no silhouette, no reflection, no extra hands. Stable composition and subtle natural acting; no montage or dissolve. Start the single Mandarin dialogue naturally at 0.6 seconds, speak clearly with small pauses, finish by 8.8 seconds. Exact spoken words ONLY: “尸检已经做完。取下的样本分别送检，结果出来再判断。” No other speech, no reading stage directions. Accurate visible mouth movement for this speaker only. Quiet room tone, no music, no text, no captions, no logos. After the sentence, keep a brief natural reaction until the end, no freeze-frame.",
+      "after": "32-01",
+      "name": "许未"
+    },
+    {
+      "id": "32-C02",
+      "episode": 32,
+      "title": "死因还在路上",
+      "duration": 10,
+      "seed": 731682,
+      "refs": [
+        "lin"
+      ],
+      "cast": [
+        "lin"
+      ],
+      "lines": [
+        [
+          "lin",
+          "退货记录只能说明他来过。那瓶后来卖给谁，还得追查。",
+          "The return record only shows he came here. We still need to trace who bought that bottle."
+        ]
+      ],
+      "prompt": "Ten-second continuous animated dramatic shot. Match the reference character exactly. Dark cinematic hand-drawn 2D anime, cool blue-gray lighting, realistic adult anatomy, consistent outfit. Lin Qian is a young adult female police investigator, chin-length straight black bob, navy police uniform, no glasses, no earpiece, no white coat. Pharmacy interview corner, blurred shelves behind her. She marks a line on her notepad and looks up toward the clerk off screen. Only this ONE person is visible. All other people remain completely OFF SCREEN. No second face, no silhouette, no reflection, no extra hands. Stable composition and subtle natural acting; no montage or dissolve. Start the single Mandarin dialogue naturally at 0.6 seconds, speak clearly with small pauses, finish by 8.8 seconds. Exact spoken words ONLY: “退货记录只能说明他来过。那瓶后来卖给谁，还得追查。” No other speech, no reading stage directions. Accurate visible mouth movement for this speaker only. Quiet room tone, no music, no text, no captions, no logos. After the sentence, keep a brief natural reaction until the end, no freeze-frame.",
+      "after": "32-03",
+      "name": "林浅"
+    },
+    {
+      "id": "33-C01",
+      "episode": 33,
+      "title": "不是同一批",
+      "duration": 10,
+      "seed": 731691,
+      "refs": [
+        "xu"
+      ],
+      "cast": [
+        "xu"
+      ],
+      "lines": [
+        [
+          "xu",
+          "毒物结果已经复核。两名死者，都检出了同一种毒物。",
+          "The toxicology results have been checked. The same toxic substance was found in both victims."
+        ]
+      ],
+      "prompt": "Ten-second continuous animated dramatic shot. Match the reference character exactly. Dark cinematic hand-drawn 2D anime, cool blue-gray lighting, realistic adult anatomy, consistent outfit. Xu Wei is an adult female forensic doctor, brown ponytail, green blouse under white laboratory coat, no glasses. Use her reference face, not the policewoman face. Clean forensic reporting office, no bodies or specimens. She checks two reports side by side, then speaks to the investigator off screen. Only this ONE person is visible. All other people remain completely OFF SCREEN. No second face, no silhouette, no reflection, no extra hands. Stable composition and subtle natural acting; no montage or dissolve. Start the single Mandarin dialogue naturally at 0.6 seconds, speak clearly with small pauses, finish by 8.8 seconds. Exact spoken words ONLY: “毒物结果已经复核。两名死者，都检出了同一种毒物。” No other speech, no reading stage directions. Accurate visible mouth movement for this speaker only. Quiet room tone, no music, no text, no captions, no logos. After the sentence, keep a brief natural reaction until the end, no freeze-frame.",
+      "after": "BEFORE:33-01",
+      "name": "许未"
+    },
+    {
+      "id": "33-C02",
+      "episode": 33,
+      "title": "不是同一批",
+      "duration": 10,
+      "seed": 731692,
+      "refs": [
+        "jian"
+      ],
+      "cast": [
+        "jian"
+      ],
+      "lines": [
+        [
+          "jian",
+          "刚才看资料时，我又想起以前那间病房。那个画面总是断的。",
+          "Reading those papers brought back the old hospital room. The memory keeps breaking off."
+        ]
+      ],
+      "prompt": "Ten-second continuous animated dramatic shot. Match the reference character exactly. Dark cinematic hand-drawn 2D anime, cool blue-gray lighting, realistic adult anatomy, consistent outfit. Jianci is a pale young adult man, short tousled black hair, black turtleneck and charcoal civilian jacket, no glasses, no lab coat. Controlled observation room, seated alone at desk inside, blue gray opaque wall behind him, no glass or reflections. He looks away from a plain copy sheet toward the off-screen window, his hand still on the desk. Restrained anxiety, natural eyes, no transformation in this shot. Only this ONE person is visible. All other people remain completely OFF SCREEN. No second face, no silhouette, no reflection, no extra hands. Stable composition and subtle natural acting; no montage or dissolve. Start the single Mandarin dialogue naturally at 0.6 seconds, speak clearly with small pauses, finish by 8.8 seconds. Exact spoken words ONLY: “刚才看资料时，我又想起以前那间病房。那个画面总是断的。” No other speech, no reading stage directions. Accurate visible mouth movement for this speaker only. Quiet room tone, no music, no text, no captions, no logos. After the sentence, keep a brief natural reaction until the end, no freeze-frame.",
+      "after": "33-04",
+      "name": "剑刺"
+    },
+    {
+      "id": "34-C01",
+      "episode": 34,
+      "title": "他先说出了瓶子",
+      "duration": 10,
+      "seed": 731701,
+      "refs": [
+        "lin"
+      ],
+      "cast": [
+        "lin"
+      ],
+      "lines": [
+        [
+          "lin",
+          "我们依法搜查了他的工作间。找到的碎片和残留，分别送去检验。",
+          "We searched his workshop under legal authority. The fragments and residues were sent for separate examinations."
+        ]
+      ],
+      "prompt": "Ten-second continuous animated dramatic shot. Match the reference character exactly. Dark cinematic hand-drawn 2D anime, cool blue-gray lighting, realistic adult anatomy, consistent outfit. Lin Qian is a young adult female police investigator, chin-length straight black bob, navy police uniform, no glasses, no earpiece, no white coat. Police evidence reception office, solo Lin. She signs the receipt for two already sealed evidence envelopes on the desk. She never opens them or touches their contents. Only this ONE person is visible. All other people remain completely OFF SCREEN. No second face, no silhouette, no reflection, no extra hands. Stable composition and subtle natural acting; no montage or dissolve. Start the single Mandarin dialogue naturally at 0.6 seconds, speak clearly with small pauses, finish by 8.8 seconds. Exact spoken words ONLY: “我们依法搜查了他的工作间。找到的碎片和残留，分别送去检验。” No other speech, no reading stage directions. Accurate visible mouth movement for this speaker only. Quiet room tone, no music, no text, no captions, no logos. After the sentence, keep a brief natural reaction until the end, no freeze-frame.",
+      "after": "34-02",
+      "name": "林浅"
+    },
+    {
+      "id": "34-C02",
+      "episode": 34,
+      "title": "他先说出了瓶子",
+      "duration": 10,
+      "seed": 731702,
+      "refs": [
+        "zhou"
+      ],
+      "cast": [
+        "zhou"
+      ],
+      "lines": [
+        [
+          "zhou",
+          "那张老照片也有了回信。先核底片的来源，再谈照片里是谁。",
+          "We also heard back about the old photo. Verify the negative provenance before identifying the person."
+        ]
+      ],
+      "prompt": "Ten-second continuous animated dramatic shot. Match the reference character exactly. Dark cinematic hand-drawn 2D anime, cool blue-gray lighting, realistic adult anatomy, consistent outfit. Zhou Li is an adult man with short black hair, silver rectangular glasses and a right-ear hearing aid, gray CIVILIAN technician jacket, no police uniform, no lab coat. Archive reading room, solo Zhou seated. He checks an archive response on a laptop, closes a plain copy folder, and looks toward the archivist off screen. He wears a civilian gray jacket without epaulettes. Only this ONE person is visible. All other people remain completely OFF SCREEN. No second face, no silhouette, no reflection, no extra hands. Stable composition and subtle natural acting; no montage or dissolve. Start the single Mandarin dialogue naturally at 0.6 seconds, speak clearly with small pauses, finish by 8.8 seconds. Exact spoken words ONLY: “那张老照片也有了回信。先核底片的来源，再谈照片里是谁。” No other speech, no reading stage directions. Accurate visible mouth movement for this speaker only. Quiet room tone, no music, no text, no captions, no logos. After the sentence, keep a brief natural reaction until the end, no freeze-frame.",
+      "after": "34-04",
+      "name": "周砺"
+    },
+    {
+      "id": "35-C01",
+      "episode": 35,
+      "title": "第二个死者不是意外",
+      "duration": 10,
+      "seed": 731711,
+      "refs": [
+        "lin"
+      ],
+      "cast": [
+        "lin"
+      ],
+      "lines": [
+        [
+          "lin",
+          "账目核对过了，亏空与你有关。唐雨生前，正准备查这笔钱。",
+          "The accounts link the missing money to you. Tang Yu was preparing to investigate it before she died."
+        ]
+      ],
+      "prompt": "Ten-second continuous animated dramatic shot. Match the reference character exactly. Dark cinematic hand-drawn 2D anime, cool blue-gray lighting, realistic adult anatomy, consistent outfit. Lin Qian is a young adult female police investigator, chin-length straight black bob, navy police uniform, no glasses, no earpiece, no white coat. Police interview room, solo Lin seated facing the off-screen suspect. She slides a financial report COPY across the desk, then holds a steady gaze. Only this ONE person is visible. All other people remain completely OFF SCREEN. No second face, no silhouette, no reflection, no extra hands. Stable composition and subtle natural acting; no montage or dissolve. Start the single Mandarin dialogue naturally at 0.6 seconds, speak clearly with small pauses, finish by 8.8 seconds. Exact spoken words ONLY: “账目核对过了，亏空与你有关。唐雨生前，正准备查这笔钱。” No other speech, no reading stage directions. Accurate visible mouth movement for this speaker only. Quiet room tone, no music, no text, no captions, no logos. After the sentence, keep a brief natural reaction until the end, no freeze-frame.",
+      "after": "35-02",
+      "name": "林浅"
+    },
+    {
+      "id": "35-C02",
+      "episode": 35,
+      "title": "第二个死者不是意外",
+      "duration": 10,
+      "seed": 731712,
+      "refs": [
+        "han"
+      ],
+      "cast": [
+        "han"
+      ],
+      "lines": [
+        [
+          "han",
+          "下次一有变化就叫我。我在门外，不会突然靠近你。",
+          "Call me as soon as anything changes. I will stay outside the door and will not approach suddenly."
+        ]
+      ],
+      "prompt": "Ten-second continuous animated dramatic shot. Match the reference character exactly. Dark cinematic hand-drawn 2D anime, cool blue-gray lighting, realistic adult anatomy, consistent outfit. Han Che is a middle-aged male investigator, short black hair graying at temples, scar at right eyebrow, navy police uniform, no glasses. Outside controlled observation room, solo Han, blue gray corridor wall behind him with door frame at edge, no mirror or window reflection. He places his hand at his own side and takes one careful half-step back while speaking through the off-screen doorway. Only this ONE person is visible. All other people remain completely OFF SCREEN. No second face, no silhouette, no reflection, no extra hands. Stable composition and subtle natural acting; no montage or dissolve. Start the single Mandarin dialogue naturally at 0.6 seconds, speak clearly with small pauses, finish by 8.8 seconds. Exact spoken words ONLY: “下次一有变化就叫我。我在门外，不会突然靠近你。” No other speech, no reading stage directions. Accurate visible mouth movement for this speaker only. Quiet room tone, no music, no text, no captions, no logos. After the sentence, keep a brief natural reaction until the end, no freeze-frame.",
+      "after": "35-05",
+      "name": "韩彻"
+    },
+    {
+      "id": "36-C01",
+      "episode": 36,
+      "title": "多出来的交接单",
+      "duration": 10,
+      "seed": 731721,
+      "refs": [
+        "han"
+      ],
+      "cast": [
+        "han"
+      ],
+      "lines": [
+        [
+          "han",
+          "供述已经逐项核对。药品排查继续，别让遗漏的药再流出去。",
+          "The statement has been checked point by point. Keep tracing the medicines so no overlooked stock circulates."
+        ]
+      ],
+      "prompt": "Ten-second continuous animated dramatic shot. Match the reference character exactly. Dark cinematic hand-drawn 2D anime, cool blue-gray lighting, realistic adult anatomy, consistent outfit. Han Che is a middle-aged male investigator, short black hair graying at temples, scar at right eyebrow, navy police uniform, no glasses. Police briefing office, solo Han. He closes a reviewed report and sets an ongoing stock-tracing checklist beside it; he then addresses colleagues off screen. Only this ONE person is visible. All other people remain completely OFF SCREEN. No second face, no silhouette, no reflection, no extra hands. Stable composition and subtle natural acting; no montage or dissolve. Start the single Mandarin dialogue naturally at 0.6 seconds, speak clearly with small pauses, finish by 8.8 seconds. Exact spoken words ONLY: “供述已经逐项核对。药品排查继续，别让遗漏的药再流出去。” No other speech, no reading stage directions. Accurate visible mouth movement for this speaker only. Quiet room tone, no music, no text, no captions, no logos. After the sentence, keep a brief natural reaction until the end, no freeze-frame.",
+      "after": "36-02",
+      "name": "韩彻"
+    },
+    {
+      "id": "36-C02",
+      "episode": 36,
+      "title": "多出来的交接单",
+      "duration": 10,
+      "seed": 731722,
+      "refs": [
+        "lin"
+      ],
+      "cast": [
+        "lin"
+      ],
+      "lines": [
+        [
+          "lin",
+          "遗体还在这里，没有放行。两份单的目的地不同，先查递单的人。",
+          "The body is still here and has not been released. The two forms name different destinations. Find who submitted them."
+        ]
+      ],
+      "prompt": "Ten-second continuous animated dramatic shot. Match the reference character exactly. Dark cinematic hand-drawn 2D anime, cool blue-gray lighting, realistic adult anatomy, consistent outfit. Lin Qian is a young adult female police investigator, chin-length straight black bob, navy police uniform, no glasses, no earpiece, no white coat. Clean reception corridor at transfer office, solo Lin, not a mortuary interior. She puts two plain transfer forms into separate clear document sleeves and speaks to the clerk off screen, with a closed secure door behind her. Only this ONE person is visible. All other people remain completely OFF SCREEN. No second face, no silhouette, no reflection, no extra hands. Stable composition and subtle natural acting; no montage or dissolve. Start the single Mandarin dialogue naturally at 0.6 seconds, speak clearly with small pauses, finish by 8.8 seconds. Exact spoken words ONLY: “遗体还在这里，没有放行。两份单的目的地不同，先查递单的人。” No other speech, no reading stage directions. Accurate visible mouth movement for this speaker only. Quiet room tone, no music, no text, no captions, no logos. After the sentence, keep a brief natural reaction until the end, no freeze-frame.",
+      "after": "36-04",
+      "name": "林浅"
     }
   ],
   "additional_refs": {
