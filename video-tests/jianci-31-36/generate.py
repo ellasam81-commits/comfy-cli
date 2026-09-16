@@ -7,6 +7,7 @@ from pathlib import Path
 import re
 import subprocess
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 
@@ -66,6 +67,14 @@ def execute(clip, refs):
         assert isinstance(tid, str) and re.fullmatch(r'[A-Za-z0-9_.:-]+', tid)
         row.update(task_id=tid, state=q.get('status', 'queued'))
         save(row)
+        print(clip['id'], 'submitted', flush=True)
+    except urllib.error.HTTPError as exc:
+        message = exc.read(1500).decode('utf-8', 'replace')
+        message = message.replace(os.environ['XRTOKEN'].strip(), '[REDACTED]')
+        row.update(state='SUBMISSION_HTTP_ERROR', http_status=exc.code, error=message)
+        save(row)
+        print(clip['id'], 'HTTP rejection', exc.code, flush=True)
+        return row
     except Exception as exc:
         row.update(state='SUBMISSION_UNKNOWN_OR_FAILED', error=type(exc).__name__)
         save(row)
@@ -85,6 +94,7 @@ def execute(clip, refs):
                 row['duration'] = meta['format']['duration']
                 row['state'] = 'succeeded' if row['has_audio'] else 'MISSING_AUDIO'
                 save(row)
+                print(clip['id'], row['state'], flush=True)
                 return row
             if row['state'] in ('failed', 'cancelled', 'expired'):
                 return row
@@ -112,7 +122,7 @@ def main():
     assert len(selected) == len(set(req['clip_ids'])) <= 36
     assert sum(c['duration'] for c in selected) <= req['max_seconds']
     refs = {name: reference(name) for name in sorted({n for c in selected for n in c['refs']})}
-    with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:
+    with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
         results = list(pool.map(lambda c: execute(c, refs), selected))
     (OUT / 'batch-report.json').write_text(json.dumps(results, ensure_ascii=False, indent=2))
     if any(r['state'] != 'succeeded' for r in results):
@@ -120,3 +130,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
