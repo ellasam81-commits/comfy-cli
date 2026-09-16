@@ -44,6 +44,11 @@
       "a090f00c-a1e6-4715-9a8a-b624f3aea68d",
       3.5,
       "400:380:240:0"
+    ],
+    "chenfield46": [
+      "fbbb6822-4df0-443c-8c08-ac3845b01b15",
+      5,
+      "400:330:210:0"
     ]
   },
   "clips": [
@@ -4053,6 +4058,29 @@
       ],
       "seed": 991602,
       "title": "三处现场"
+    },
+    {
+      "action": "Chen crouches at the same industrial cold-store loading ramp, guarding his bandaged LEFT forearm. At the end camera tilts down to the injured forearm and hands.",
+      "badge": "紧接上一集 / Moments later",
+      "cast": [
+        "chen"
+      ],
+      "duration": 10,
+      "episode": 46,
+      "id": "46-01R2",
+      "lines": [
+        [
+          "chen",
+          "后面有人！你为什么一直看着我的脖子？",
+          "Someone’s behind us! Why are you staring at my neck?"
+        ]
+      ],
+      "prompt": "10-second continuous cinematic 2D anime shot, same adult man and cold-store setting as reference. Chen Mo: chestnut crew cut with shaved sides, dark green work jacket over beige T-shirt, no glasses. Crouched beside old industrial cold-store loading ramp. LEFT forearm in a WHITE CLOTH DRESSING, held by his right hand. No phone. No other person or face. Mandarin spoken dialogue must be clearly audible and lip-synchronized: 0.5-2.2 seconds he says '后面有人！'; 3.0-6.0 seconds he says '你为什么一直看着我的脖子？'. Deliberate frightened delivery with a pause, never rush. Speak these two lines exactly ONCE; no extra words or repetition. At 6 seconds he finishes speaking and firmly closes his lips. From 6.1 seconds the camera smoothly tilts DOWN toward his bandaged LEFT forearm while his right hand presses the dressing; his face leaves the top of frame. From 7 to 10 seconds show ONLY his jacket torso, two hands, and injured left forearm, no face or mouth. Quiet industrial room tone, subtle breathing. No music, no text, no subtitles, no on-screen writing. No fangs on Chen. Keep the same hair, clothing, correct hands, white dressing and concrete ramp continuously. This is a scared witness, not the vampire.",
+      "refs": [
+        "chenfield46"
+      ],
+      "seed": 9264601,
+      "title": "别靠近我"
     }
   ]
 }
