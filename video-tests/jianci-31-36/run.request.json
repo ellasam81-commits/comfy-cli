@@ -1,24 +1,19 @@
 {
   "mode": "generate",
   "clip_ids": [
-    "37-03R",
-    "37-04R",
-    "38-01R",
-    "38-03R",
-    "38-04R",
-    "38-05R",
-    "39-04R",
-    "40-01R",
-    "40-06R",
-    "41-01R",
-    "41-02R",
-    "41-03R",
-    "41-04R",
-    "41-06R",
-    "42-02R",
-    "42-03R",
-    "42-06R"
+    "43-01",
+    "43-02",
+    "43-03",
+    "43-04",
+    "43-05",
+    "43-06",
+    "44-01",
+    "44-02",
+    "44-03",
+    "44-04",
+    "44-05",
+    "44-06"
   ],
-  "max_seconds": 170,
-  "request": "targeted-quality-repairs-and-safe-alternative-scenes-one-attempt-each"
+  "max_seconds": 120,
+  "request": "episodes43-44-first-pass-lock-new-character-one-submission-each-20260916"
 }
