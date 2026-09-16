@@ -1,9 +1,19 @@
 {
   "mode": "generate",
   "clip_ids": [
-    "35-01",
-    "36-06"
+    "31-C01",
+    "31-C02",
+    "32-C01",
+    "32-C02",
+    "33-C01",
+    "33-C02",
+    "34-C01",
+    "34-C02",
+    "35-C01",
+    "35-C02",
+    "36-C01",
+    "36-C02"
   ],
-  "max_seconds": 20,
-  "request": "one-replacement-two-story-clarity-shots-v1"
+  "max_seconds": 120,
+  "request": "ep31-36-user-approved-add10to20sec-story-clarity-v1"
 }
