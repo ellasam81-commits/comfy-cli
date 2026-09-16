@@ -24,6 +24,26 @@
       "9a4d368c-a5ab-4bd8-98fe-a9e563310af4",
       1,
       "290:360:120:60"
+    ],
+    "jianfield": [
+      "34a5b0ff-2592-4026-91f1-b1066814f16e",
+      2.5,
+      "400:340:40:0"
+    ],
+    "linfield": [
+      "969d9111-bed1-4401-b184-1500517b1e2d",
+      2.5,
+      "360:350:80:30"
+    ],
+    "chenclinic": [
+      "da69ecc8-f818-49ff-8b7a-f0c61535d2ae",
+      2.5,
+      "500:440:170:0"
+    ],
+    "hannew": [
+      "a090f00c-a1e6-4715-9a8a-b624f3aea68d",
+      3.5,
+      "400:380:240:0"
     ]
   },
   "clips": [
@@ -3640,6 +3660,399 @@
       ],
       "seed": 923446,
       "title": "录音里的名字"
+    },
+    {
+      "action": "Only Lin, in station corridor, holds black phone to LEFT ear. She walks purposefully. Empty hallway, no other faces.",
+      "badge": "傍晚 / Dusk",
+      "cast": [
+        "lin"
+      ],
+      "duration": 10,
+      "episode": 45,
+      "id": "45-01R",
+      "lines": [
+        [
+          "lin",
+          "陈默的定位收到了。我带人过去，你不要离开观察室。",
+          "We have Chen Mo’s location. I’m sending officers. Do not leave observation."
+        ]
+      ],
+      "prompt": "Spoken Mandarin, lin says ONLY: “陈默的定位收到了。我带人过去，你不要离开观察室。”\nClean frame with NO text, NO subtitles. 10-second cinematic hand-drawn 2D anime, blue-gray readable suspense lighting. Match the supplied established face and clothing. Adult woman, chin-length black bob, navy police uniform, no glasses, no white coat. Only Lin, in station corridor, holds black phone to LEFT ear. She walks purposefully. Empty hallway, no other faces. Exact clear dialogue once, without added or repeated words. Precise speaking lip sync. Finish speech by 8.5 seconds; lips close and remain still outside speech. Quiet ambient sound. No music. Preserve hands, props and screen positions. Do not import the reference background unless it matches this specified location.",
+      "refs": [
+        "lin"
+      ],
+      "seed": 924451,
+      "title": "离开观察室"
+    },
+    {
+      "action": "Only Han, in station corridor, holds a radio in LEFT hand; white support bandage on RIGHT wrist. No other people.",
+      "badge": "",
+      "cast": [
+        "han"
+      ],
+      "duration": 10,
+      "episode": 45,
+      "id": "45-03R",
+      "lines": [
+        [
+          "han",
+          "他是自愿留观，不是被拘押。现在联系他，提醒现场先保持距离。",
+          "He was under voluntary observation, not detention. Contact him; tell officers to keep their distance."
+        ]
+      ],
+      "prompt": "Spoken Mandarin, han says ONLY: “他是自愿留观，不是被拘押。现在联系他，提醒现场先保持距离。”\nClean frame with NO text, NO subtitles. 10-second cinematic hand-drawn 2D anime, blue-gray readable suspense lighting. Match the supplied established face and clothing. Middle-aged man, short black hair with gray temples, right-eyebrow scar, navy police uniform. Only Han, in station corridor, holds a radio in LEFT hand; white support bandage on RIGHT wrist. No other people. Exact clear dialogue once, without added or repeated words. Precise speaking lip sync. Finish speech by 8.5 seconds; lips close and remain still outside speech. Quiet ambient sound. No music. Preserve hands, props and screen positions. Do not import the reference background unless it matches this specified location.",
+      "refs": [
+        "hannew"
+      ],
+      "seed": 924453,
+      "title": "离开观察室"
+    },
+    {
+      "action": "Only Chen Mo, crouched at the OLD INDUSTRIAL COLD STORE loading ramp. Front three-quarter view. RIGHT hand, on SCREEN LEFT, holds phone to right ear. LEFT FOREARM, on SCREEN RIGHT, has a small white cloth dressing and torn sleeve. Right arm is uninjured. No visible blood. He steadies his injured LEFT forearm against his knee. No other people.",
+      "badge": "旧冷库 / Old cold store",
+      "cast": [
+        "chen"
+      ],
+      "duration": 10,
+      "episode": 45,
+      "id": "45-04R",
+      "lines": [
+        [
+          "chen",
+          "我翻窗时划伤了手臂。他们在外面，我不敢出去。",
+          "I cut my arm climbing through a window. They’re outside. I can’t go out."
+        ]
+      ],
+      "prompt": "Spoken Mandarin, chen says ONLY: “我翻窗时划伤了手臂。他们在外面，我不敢出去。”\nClean frame with NO text, NO subtitles. 10-second cinematic hand-drawn 2D anime, blue-gray readable suspense lighting. Match the supplied established face and clothing. Adult man, chestnut crew cut and shaved sides, dark green work jacket, beige shirt, no glasses. Only Chen Mo, crouched at the OLD INDUSTRIAL COLD STORE loading ramp. Front three-quarter view. RIGHT hand, on SCREEN LEFT, holds phone to right ear. LEFT FOREARM, on SCREEN RIGHT, has a small white cloth dressing and torn sleeve. Right arm is uninjured. No visible blood. He steadies his injured LEFT forearm against his knee. No other people. Exact clear dialogue once, without added or repeated words. Precise speaking lip sync. Finish speech by 8.5 seconds; lips close and remain still outside speech. Quiet ambient sound. No music. Preserve hands, props and screen positions. Do not import the reference background unless it matches this specified location.",
+      "refs": [
+        "chen"
+      ],
+      "seed": 924454,
+      "title": "离开观察室"
+    },
+    {
+      "action": "Only Jian Ci walks into the OLD INDUSTRIAL COLD STORE loading passage, beside a rusty loading door and stained concrete wall. He stops and speaks toward someone outside the frame. Empty background. NOT an office. No women, no police tape, no extra person. No one enters the frame.",
+      "badge": "",
+      "cast": [
+        "jian"
+      ],
+      "duration": 10,
+      "episode": 45,
+      "id": "45-05R",
+      "lines": [
+        [
+          "jian",
+          "我到了。你先用衣服压住伤口，别松手。",
+          "I’m here. Press your clothing against the cut. Keep the pressure on."
+        ]
+      ],
+      "prompt": "Spoken Mandarin, jian says ONLY: “我到了。你先用衣服压住伤口，别松手。”\nClean frame with NO text, NO subtitles. 10-second cinematic hand-drawn 2D anime, blue-gray readable suspense lighting. Match the supplied established face and clothing. Pale adult man, tousled short black hair, black turtleneck and charcoal jacket, no glasses. Only Jian Ci walks into the OLD INDUSTRIAL COLD STORE loading passage, beside a rusty loading door and stained concrete wall. He stops and speaks toward someone outside the frame. Empty background. NOT an office. No women, no police tape, no extra person. No one enters the frame. Exact clear dialogue once, without added or repeated words. Precise speaking lip sync. Finish speech by 8.5 seconds; lips close and remain still outside speech. Quiet ambient sound. No music. Preserve hands, props and screen positions. Do not import the reference background unless it matches this specified location.",
+      "refs": [
+        "jianfield"
+      ],
+      "seed": 924455,
+      "title": "离开观察室"
+    },
+    {
+      "action": "Only Jian Ci in the OLD INDUSTRIAL COLD STORE, stained concrete and rusty loading door behind him. Tight medium shot. He looks off frame RIGHT toward injured Chen. His eyes take on a restrained red tint and TWO sharp upper canine fangs are clearly visible when he speaks. He grips his own jacket, then takes one step back. No police tape, no office, no other people.",
+      "badge": "",
+      "cast": [
+        "jian"
+      ],
+      "duration": 10,
+      "episode": 45,
+      "id": "45-06R",
+      "lines": [
+        [
+          "jian",
+          "不对……我现在听得见你的心跳。你别靠近我。",
+          "Something’s wrong… I can hear your heartbeat. Don’t come closer."
+        ]
+      ],
+      "prompt": "Spoken Mandarin, jian says ONLY: “不对……我现在听得见你的心跳。你别靠近我。”\nClean frame with NO text, NO subtitles. 10-second cinematic hand-drawn 2D anime, blue-gray readable suspense lighting. Match the supplied established face and clothing. Pale adult man, tousled short black hair, black turtleneck and charcoal jacket, no glasses. Only Jian Ci in the OLD INDUSTRIAL COLD STORE, stained concrete and rusty loading door behind him. Tight medium shot. He looks off frame RIGHT toward injured Chen. His eyes take on a restrained red tint and TWO sharp upper canine fangs are clearly visible when he speaks. He grips his own jacket, then takes one step back. No police tape, no office, no other people. Exact clear dialogue once, without added or repeated words. Precise speaking lip sync. Finish speech by 8.5 seconds; lips close and remain still outside speech. Quiet ambient sound. No music. Preserve hands, props and screen positions. Do not import the reference background unless it matches this specified location.",
+      "refs": [
+        "jianfield"
+      ],
+      "seed": 924456,
+      "title": "离开观察室"
+    },
+    {
+      "action": "Only Jian Ci in the OLD INDUSTRIAL COLD STORE loading passage, rusty door and rough concrete behind him. TWO clearly visible upper canine fangs. Frightened by his own impulse, he braces his LEFT palm against the concrete wall, resisting a step forward. No woman, no other face, no office, no hallway. He looks RIGHT toward Chen outside the frame.",
+      "badge": "",
+      "cast": [
+        "jian"
+      ],
+      "duration": 10,
+      "episode": 46,
+      "id": "46-02R",
+      "lines": [
+        [
+          "jian",
+          "快走。我不是在吓你，我真的快控制不住了。",
+          "Go. I’m not threatening you. I’m really losing control."
+        ]
+      ],
+      "prompt": "Spoken Mandarin, jian says ONLY: “快走。我不是在吓你，我真的快控制不住了。”\nClean frame with NO text, NO subtitles. 10-second cinematic hand-drawn 2D anime, blue-gray readable suspense lighting. Match the supplied established face and clothing. Pale adult man, tousled short black hair, black turtleneck and charcoal jacket, no glasses. Only Jian Ci in the OLD INDUSTRIAL COLD STORE loading passage, rusty door and rough concrete behind him. TWO clearly visible upper canine fangs. Frightened by his own impulse, he braces his LEFT palm against the concrete wall, resisting a step forward. No woman, no other face, no office, no hallway. He looks RIGHT toward Chen outside the frame. Exact clear dialogue once, without added or repeated words. Precise speaking lip sync. Finish speech by 8.5 seconds; lips close and remain still outside speech. Quiet ambient sound. No music. Preserve hands, props and screen positions. Do not import the reference background unless it matches this specified location.",
+      "refs": [
+        "jianfield"
+      ],
+      "seed": 924462,
+      "title": "别靠近我"
+    },
+    {
+      "action": "Exactly TWO adult men in the same OLD INDUSTRIAL COLD STORE. Jian on screen LEFT and Chen on screen RIGHT. Chen faces right, LEFT forearm in a white dressing extended forward; Jian grips the near shoulder. In one continuous side shot, Jian silently bares two unmistakable upper fangs and brings his open jaw toward the side of Chen neck, stopping just short of skin. Jian makes ONLY a wordless strained breath, never words or syllabic mouth movements. Chen turns in fear and says his quoted line ONCE at 4 seconds. Jian releases and steps BACK LEFT but stays fully visible through the end. No bite, no neck wound, no blood, no dissolves, no ghost images. This is an interrupted vampire attack, not an embrace.",
+      "badge": "",
+      "cast": [
+        "jian",
+        "chen"
+      ],
+      "duration": 10,
+      "episode": 46,
+      "id": "46-03R",
+      "lines": [
+        [
+          "chen",
+          "放开我……别咬我！",
+          "Let go… don’t bite me!"
+        ]
+      ],
+      "prompt": "Spoken Mandarin, chen says ONLY: “放开我……别咬我！”\nClean frame with NO text, NO subtitles. 10-second cinematic hand-drawn 2D anime, blue-gray readable suspense lighting. Match the supplied established face and clothing. Pale adult man, tousled short black hair, black turtleneck and charcoal jacket, no glasses. Adult man, chestnut crew cut and shaved sides, dark green work jacket, beige shirt, no glasses. Exactly TWO adult men in the same OLD INDUSTRIAL COLD STORE. Jian on screen LEFT and Chen on screen RIGHT. Chen faces right, LEFT forearm in a white dressing extended forward; Jian grips the near shoulder. In one continuous side shot, Jian silently bares two unmistakable upper fangs and brings his open jaw toward the side of Chen neck, stopping just short of skin. Jian makes ONLY a wordless strained breath, never words or syllabic mouth movements. Chen turns in fear and says his quoted line ONCE at 4 seconds. Jian releases and steps BACK LEFT but stays fully visible through the end. No bite, no neck wound, no blood, no dissolves, no ghost images. This is an interrupted vampire attack, not an embrace. Exact clear dialogue once, without added or repeated words. Precise speaking lip sync. Finish speech by 8.5 seconds; lips close and remain still outside speech. Quiet ambient sound. No music. Preserve hands, props and screen positions. Do not import the reference background unless it matches this specified location.",
+      "refs": [
+        "jianfield",
+        "chen"
+      ],
+      "seed": 924463,
+      "title": "别靠近我"
+    },
+    {
+      "action": "Only Lin Qian at the OLD INDUSTRIAL COLD STORE loading door with rough concrete, rusty steel, blue crates and yellow safety bollards. She raises an EMPTY left palm and firmly addresses Jian outside the frame. No other visible person. No foreground shoulders. No station or office.",
+      "badge": "",
+      "cast": [
+        "lin"
+      ],
+      "duration": 10,
+      "episode": 46,
+      "id": "46-04R",
+      "lines": [
+        [
+          "lin",
+          "剑刺，退到墙边！陈默，到我身后来。",
+          "Jian Ci, back to the wall! Chen Mo, get behind me."
+        ]
+      ],
+      "prompt": "Spoken Mandarin, lin says ONLY: “剑刺，退到墙边！陈默，到我身后来。”\nClean frame with NO text, NO subtitles. 10-second cinematic hand-drawn 2D anime, blue-gray readable suspense lighting. Match the supplied established face and clothing. Adult woman, chin-length black bob, navy police uniform, no glasses, no white coat. Only Lin Qian at the OLD INDUSTRIAL COLD STORE loading door with rough concrete, rusty steel, blue crates and yellow safety bollards. She raises an EMPTY left palm and firmly addresses Jian outside the frame. No other visible person. No foreground shoulders. No station or office. Exact clear dialogue once, without added or repeated words. Precise speaking lip sync. Finish speech by 8.5 seconds; lips close and remain still outside speech. Quiet ambient sound. No music. Preserve hands, props and screen positions. Do not import the reference background unless it matches this specified location.",
+      "refs": [
+        "linfield"
+      ],
+      "seed": 924464,
+      "title": "别靠近我"
+    },
+    {
+      "action": "Only Jian Ci seated on the floor against the rough concrete wall of the OLD INDUSTRIAL COLD STORE from the first frame to the last. Hands open on knees. Clearly visible upper canine fangs as he speaks. He remains seated, exhausted, through the end. No office, no police tape, no standing opening shot.",
+      "badge": "",
+      "cast": [
+        "jian"
+      ],
+      "duration": 10,
+      "episode": 46,
+      "id": "46-05R",
+      "lines": [
+        [
+          "jian",
+          "别让人靠近。我刚才，是真的想咬他。",
+          "Keep everyone back. I really wanted to bite him."
+        ]
+      ],
+      "prompt": "Spoken Mandarin, jian says ONLY: “别让人靠近。我刚才，是真的想咬他。”\nClean frame with NO text, NO subtitles. 10-second cinematic hand-drawn 2D anime, blue-gray readable suspense lighting. Match the supplied established face and clothing. Pale adult man, tousled short black hair, black turtleneck and charcoal jacket, no glasses. Only Jian Ci seated on the floor against the rough concrete wall of the OLD INDUSTRIAL COLD STORE from the first frame to the last. Hands open on knees. Clearly visible upper canine fangs as he speaks. He remains seated, exhausted, through the end. No office, no police tape, no standing opening shot. Exact clear dialogue once, without added or repeated words. Precise speaking lip sync. Finish speech by 8.5 seconds; lips close and remain still outside speech. Quiet ambient sound. No music. Preserve hands, props and screen positions. Do not import the reference background unless it matches this specified location.",
+      "refs": [
+        "jianfield"
+      ],
+      "seed": 924465,
+      "title": "别靠近我"
+    },
+    {
+      "action": "Only Lin Qian stands at the OLD INDUSTRIAL COLD STORE rusty loading doorway. Rough concrete and blue crates remain behind her. She signals medical help outside the frame, then points toward a bystander outside the frame to preserve the recording. No other visible faces, no hallway, no office, no hospital interior.",
+      "badge": "",
+      "cast": [
+        "lin"
+      ],
+      "duration": 10,
+      "episode": 46,
+      "id": "46-06R",
+      "lines": [
+        [
+          "lin",
+          "先救人。把完整录像留下，别只留下他扑过去那几秒。",
+          "Help the injured man first. Preserve the full footage, not just the moment Jian lunged."
+        ]
+      ],
+      "prompt": "Spoken Mandarin, lin says ONLY: “先救人。把完整录像留下，别只留下他扑过去那几秒。”\nClean frame with NO text, NO subtitles. 10-second cinematic hand-drawn 2D anime, blue-gray readable suspense lighting. Match the supplied established face and clothing. Adult woman, chin-length black bob, navy police uniform, no glasses, no white coat. Only Lin Qian stands at the OLD INDUSTRIAL COLD STORE rusty loading doorway. Rough concrete and blue crates remain behind her. She signals medical help outside the frame, then points toward a bystander outside the frame to preserve the recording. No other visible faces, no hallway, no office, no hospital interior. Exact clear dialogue once, without added or repeated words. Precise speaking lip sync. Finish speech by 8.5 seconds; lips close and remain still outside speech. Quiet ambient sound. No music. Preserve hands, props and screen positions. Do not import the reference background unless it matches this specified location.",
+      "refs": [
+        "linfield"
+      ],
+      "seed": 924466,
+      "title": "别靠近我"
+    },
+    {
+      "action": "Only Han stands outside a closed interview-room door. White support bandage on RIGHT wrist, folder in LEFT hand. He addresses someone outside frame. No other face or foreground body.",
+      "badge": "",
+      "cast": [
+        "han"
+      ],
+      "duration": 10,
+      "episode": 47,
+      "id": "47-04R",
+      "lines": [
+        [
+          "han",
+          "伤人的过程单独调查。他的情况再特殊，也不能省掉这一步。",
+          "Investigate the assault separately. His unusual condition does not remove that responsibility."
+        ]
+      ],
+      "prompt": "Spoken Mandarin, han says ONLY: “伤人的过程单独调查。他的情况再特殊，也不能省掉这一步。”\nClean frame with NO text, NO subtitles. 10-second cinematic hand-drawn 2D anime, blue-gray readable suspense lighting. Match the supplied established face and clothing. Middle-aged man, short black hair with gray temples, right-eyebrow scar, navy police uniform. Only Han stands outside a closed interview-room door. White support bandage on RIGHT wrist, folder in LEFT hand. He addresses someone outside frame. No other face or foreground body. Exact clear dialogue once, without added or repeated words. Precise speaking lip sync. Finish speech by 8.5 seconds; lips close and remain still outside speech. Quiet ambient sound. No music. Preserve hands, props and screen positions. Do not import the reference background unless it matches this specified location.",
+      "refs": [
+        "hannew"
+      ],
+      "seed": 924474,
+      "title": "被拍下的十秒"
+    },
+    {
+      "action": "Only Chen Mo SITTING at a plain table INSIDE a protected clinical interview room. Match the supplied clinic reference. RIGHT hand empty on table; LEFT forearm has clean white dressing. No phone in either hand and no phone at his ear. One sealed evidence bag containing a black phone rests on table; he gestures toward it without touching. No warehouse scenery, no outside alley.",
+      "badge": "",
+      "cast": [
+        "chen"
+      ],
+      "duration": 10,
+      "episode": 48,
+      "id": "48-06R",
+      "lines": [
+        [
+          "chen",
+          "原手机找到了。我爸说，柜子里的那个人，几十年都没有变。",
+          "They recovered the original phone. Dad said the man inside the cabinet had not changed for decades."
+        ]
+      ],
+      "prompt": "Spoken Mandarin, chen says ONLY: “原手机找到了。我爸说，柜子里的那个人，几十年都没有变。”\nClean frame with NO text, NO subtitles. 10-second cinematic hand-drawn 2D anime, blue-gray readable suspense lighting. Match the supplied established face and clothing. Adult man, chestnut crew cut and shaved sides, dark green work jacket, beige shirt, no glasses. Only Chen Mo SITTING at a plain table INSIDE a protected clinical interview room. Match the supplied clinic reference. RIGHT hand empty on table; LEFT forearm has clean white dressing. No phone in either hand and no phone at his ear. One sealed evidence bag containing a black phone rests on table; he gestures toward it without touching. No warehouse scenery, no outside alley. Exact clear dialogue once, without added or repeated words. Precise speaking lip sync. Finish speech by 8.5 seconds; lips close and remain still outside speech. Quiet ambient sound. No music. Preserve hands, props and screen positions. Do not import the reference background unless it matches this specified location.",
+      "refs": [
+        "chenclinic"
+      ],
+      "seed": 924486,
+      "title": "她没有来过"
+    },
+    {
+      "action": "Only Chen Mo SITTING inside the same protected clinical interview room, at a plain table. Both hands rest on table throughout. LEFT forearm has clean white dressing. No handheld phone, no phone at ear, no warehouse scenery. He recounts his father story to an investigator outside frame.",
+      "badge": "",
+      "cast": [
+        "chen"
+      ],
+      "duration": 10,
+      "episode": 49,
+      "id": "49-02R",
+      "lines": [
+        [
+          "chen",
+          "我爸当时负责搬运。他偷偷开柜，看见那个人睁开了眼。",
+          "Dad handled the transport. He secretly opened the cabinet and saw the man open his eyes."
+        ]
+      ],
+      "prompt": "Spoken Mandarin, chen says ONLY: “我爸当时负责搬运。他偷偷开柜，看见那个人睁开了眼。”\nClean frame with NO text, NO subtitles. 10-second cinematic hand-drawn 2D anime, blue-gray readable suspense lighting. Match the supplied established face and clothing. Adult man, chestnut crew cut and shaved sides, dark green work jacket, beige shirt, no glasses. Only Chen Mo SITTING inside the same protected clinical interview room, at a plain table. Both hands rest on table throughout. LEFT forearm has clean white dressing. No handheld phone, no phone at ear, no warehouse scenery. He recounts his father story to an investigator outside frame. Exact clear dialogue once, without added or repeated words. Precise speaking lip sync. Finish speech by 8.5 seconds; lips close and remain still outside speech. Quiet ambient sound. No music. Preserve hands, props and screen positions. Do not import the reference background unless it matches this specified location.",
+      "refs": [
+        "chenclinic"
+      ],
+      "seed": 924492,
+      "title": "柜门另一边"
+    },
+    {
+      "action": "Only Lin Qian stands alone in a plain observation-room doorway, hands empty. She speaks gently but firmly to Jian outside frame. NO other visible person, face, silhouette, or shoulder. No white-coated foreground man.",
+      "badge": "",
+      "cast": [
+        "lin"
+      ],
+      "duration": 10,
+      "episode": 49,
+      "id": "49-04R",
+      "lines": [
+        [
+          "lin",
+          "这是你的记忆，不是确认。陈光的旧工牌和出入记录，我们继续核。",
+          "That is your memory, not verification. We’ll check Chen Guang’s old work ID and access records."
+        ]
+      ],
+      "prompt": "Spoken Mandarin, lin says ONLY: “这是你的记忆，不是确认。陈光的旧工牌和出入记录，我们继续核。”\nClean frame with NO text, NO subtitles. 10-second cinematic hand-drawn 2D anime, blue-gray readable suspense lighting. Match the supplied established face and clothing. Adult woman, chin-length black bob, navy police uniform, no glasses, no white coat. Only Lin Qian stands alone in a plain observation-room doorway, hands empty. She speaks gently but firmly to Jian outside frame. NO other visible person, face, silhouette, or shoulder. No white-coated foreground man. Exact clear dialogue once, without added or repeated words. Precise speaking lip sync. Finish speech by 8.5 seconds; lips close and remain still outside speech. Quiet ambient sound. No music. Preserve hands, props and screen positions. Do not import the reference background unless it matches this specified location.",
+      "refs": [
+        "lin"
+      ],
+      "seed": 924494,
+      "title": "柜门另一边"
+    },
+    {
+      "action": "Only Lin Qian sits at a plain police briefing table, one closed case folder and one open folder. Blank wall behind her. Single continuous medium shot. Absolutely no additional faces, floating heads, reflections, shoulders or background people. She closes one folder after speaking.",
+      "badge": "一周后 / One week later",
+      "cast": [
+        "lin"
+      ],
+      "duration": 10,
+      "episode": 50,
+      "id": "50-01R",
+      "lines": [
+        [
+          "lin",
+          "陈光发现邵平偷运档案。邵平杀人灭口，司机的录像印证了供述。",
+          "Chen Guang discovered Shao Ping stealing archives. Shao killed him to keep him quiet; the driver’s footage corroborates his account."
+        ]
+      ],
+      "prompt": "Spoken Mandarin, lin says ONLY: “陈光发现邵平偷运档案。邵平杀人灭口，司机的录像印证了供述。”\nClean frame with NO text, NO subtitles. 10-second cinematic hand-drawn 2D anime, blue-gray readable suspense lighting. Match the supplied established face and clothing. Adult woman, chin-length black bob, navy police uniform, no glasses, no white coat. Only Lin Qian sits at a plain police briefing table, one closed case folder and one open folder. Blank wall behind her. Single continuous medium shot. Absolutely no additional faces, floating heads, reflections, shoulders or background people. She closes one folder after speaking. Exact clear dialogue once, without added or repeated words. Precise speaking lip sync. Finish speech by 8.5 seconds; lips close and remain still outside speech. Quiet ambient sound. No music. Preserve hands, props and screen positions. Do not import the reference background unless it matches this specified location.",
+      "refs": [
+        "lin"
+      ],
+      "seed": 924501,
+      "title": "不是第一次"
+    },
+    {
+      "action": "Xu in an autopsy consultation room outside the examination suite, reviews a closed gray folder. Background is an opaque door, no corpse or extra faces.",
+      "badge": "法医室 / Forensic unit",
+      "cast": [
+        "xu"
+      ],
+      "duration": 10,
+      "episode": 43,
+      "id": "43-03R",
+      "lines": [
+        [
+          "xu",
+          "车里死者叫陈光。尸检还在做，不能因为起火就认定烧死。",
+          "The man in the car was Chen Guang. The autopsy is ongoing; fire alone does not establish cause of death."
+        ]
+      ],
+      "prompt": "Mandarin voiceover by Xu Wei, speak only once: “车里死者叫陈光。尸检还在做，不能因为起火就认定烧死。” 10 seconds, cinematic hand-drawn 2D anime, clean frame without any text or subtitles. Match Xu Wei from the reference: adult woman with brown hair gathered under a medical cap. She wears a surgical mask, protective gown and gloves for an actual forensic examination. Blue-gray well-lit autopsy room. One continuous medium shot: a deceased adult lies on a fixed examination table, torso and legs covered by a sheet, only one intact forearm exposed, head out of frame, body completely motionless. Xu holds a small medical camera on a neck strap throughout. With her free gloved hand she checks the identification tag, then carefully examines and photographs the exposed forearm as part of the external examination. No blood, no exposed injury, no cutting or instruments entering skin. Her camera remains in her hands. The camera in the scene is a medical documentation prop. No other person or extra face. The line is calm offscreen narration while her masked examination continues; no visible speaking mouth. Narration starts at 0.6 seconds and finishes by 8.5. Clear Mandarin, no added words, no repetition, quiet room tone, no music. End on the examination continuing, not on a title card.",
+      "refs": [
+        "xu"
+      ],
+      "seed": 924433,
+      "title": "三处现场"
+    },
+    {
+      "action": "Xu alone in forensic consultation room, sets three separate closed case folders on the table.",
+      "badge": "",
+      "cast": [
+        "xu"
+      ],
+      "duration": 10,
+      "episode": 43,
+      "id": "43-02A",
+      "lines": [
+        [
+          "xu",
+          "先分别核实三处现场。DNA一致，还不能证明是同一个凶手。",
+          "Check the three scenes separately. Matching DNA does not prove one perpetrator."
+        ]
+      ],
+      "prompt": "Spoken Mandarin by Xu Wei: “先分别核实三处现场。DNA一致，还不能证明是同一个凶手。” 10-second hand-drawn 2D anime. Match reference: one adult woman, brown ponytail, green blouse, white lab coat, no glasses. She is alone at a desk in a forensic consultation room and sets three separate case folders on the desk. Exact quoted dialogue only, once, clear voice with synchronized lips, from 0.5 to 8.5 seconds. Mouth stays closed outside speech. Quiet room tone. No music, no subtitles, no text, no extra people.",
+      "refs": [
+        "xu"
+      ],
+      "seed": 991602,
+      "title": "三处现场"
     }
   ]
 }
