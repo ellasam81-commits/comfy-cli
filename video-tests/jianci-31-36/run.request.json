@@ -1,9 +1,9 @@
 {
   "mode": "generate",
   "clip_ids": [
-    "46-01R2"
+    "51-04",
+    "53-04"
   ],
-  "max_seconds": 10,
-  "request_id": "ep46-opening-lipsync-fix-v2-20260916",
-  "reason": "User reported silent mouth movements in opening. Replace opening only with paced exact speech and a motivated forearm insert after speech."
+  "max_seconds": 20,
+  "request_id": "jianci-51-58-new-character-anchors-20260917"
 }

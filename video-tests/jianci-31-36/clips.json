@@ -5,10 +5,35 @@
       2.5,
       "360:380:250:0"
     ],
+    "chenclinic": [
+      "da69ecc8-f818-49ff-8b7a-f0c61535d2ae",
+      2.5,
+      "500:440:170:0"
+    ],
+    "chenfield46": [
+      "fbbb6822-4df0-443c-8c08-ac3845b01b15",
+      5,
+      "400:330:210:0"
+    ],
     "du": [
       "39ef70c6-702c-4919-8681-2e5f233d4a44",
       3,
       "360:360:270:0"
+    ],
+    "hannew": [
+      "a090f00c-a1e6-4715-9a8a-b624f3aea68d",
+      3.5,
+      "400:380:240:0"
+    ],
+    "jianfield": [
+      "34a5b0ff-2592-4026-91f1-b1066814f16e",
+      2.5,
+      "400:340:40:0"
+    ],
+    "linfield": [
+      "969d9111-bed1-4401-b184-1500517b1e2d",
+      2.5,
+      "360:350:80:30"
     ],
     "luo": [
       "46b7ec52-5a6a-4e5e-81e5-6e099e7ad06d",
@@ -25,30 +50,30 @@
       1,
       "290:360:120:60"
     ],
-    "jianfield": [
-      "34a5b0ff-2592-4026-91f1-b1066814f16e",
-      2.5,
-      "400:340:40:0"
-    ],
-    "linfield": [
-      "969d9111-bed1-4401-b184-1500517b1e2d",
-      2.5,
-      "360:350:80:30"
-    ],
-    "chenclinic": [
-      "da69ecc8-f818-49ff-8b7a-f0c61535d2ae",
-      2.5,
-      "500:440:170:0"
-    ],
-    "hannew": [
+    "han": [
       "a090f00c-a1e6-4715-9a8a-b624f3aea68d",
       3.5,
       "400:380:240:0"
     ],
-    "chenfield46": [
-      "fbbb6822-4df0-443c-8c08-ac3845b01b15",
-      5,
-      "400:330:210:0"
+    "jian": [
+      "8e7844df-18a0-449b-a472-703ad7158d2d",
+      2.5,
+      "450:390:180:0"
+    ],
+    "lin": [
+      "85859d64-72d3-47f8-b29e-b6f3fc301119",
+      2.5,
+      "400:380:160:0"
+    ],
+    "xu": [
+      "b483034f-13fd-451d-a737-917cf059101f",
+      2.5,
+      "400:380:180:0"
+    ],
+    "zhou": [
+      "eca339ec-5884-4fa3-ba99-ba347e410055",
+      2.5,
+      "400:370:160:0"
     ]
   },
   "clips": [
@@ -4081,6 +4106,1093 @@
       ],
       "seed": 9264601,
       "title": "别靠近我"
+    },
+    {
+      "action": "Zhou at archive workstation slides a plain photographic envelope beside a bank statement. Screen and photo face away; no generated faces on paper. He then picks up the envelope.",
+      "badge": "接第50集 / After Episode 50",
+      "cast": [
+        "zhou"
+      ],
+      "duration": 10,
+      "episode": 51,
+      "id": "51-01",
+      "lines": [
+        [
+          "zhou",
+          "追查陆闻舟的付款时，我们找到一张合照。里面有个已经被宣告死亡的人。",
+          "Tracing Lu Wenzhou’s payment led to a group photo. One man in it was declared dead."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. Adult MAN, short black hair, silver rectangular glasses, hearing aid on RIGHT ear, gray technical jacket. Precise male Mandarin voice. Scene: Zhou at archive workstation slides a plain photographic envelope beside a bank statement. Screen and photo face away; no generated faces on paper. He then picks up the envelope. ONLY this person says in Mandarin: “追查陆闻舟的付款时，我们找到一张合照。里面有个已经被宣告死亡的人。”.",
+      "refs": [
+        "zhou"
+      ],
+      "seed": 917511,
+      "title": "合照里的死者"
+    },
+    {
+      "action": "Lin walks down a records corridor holding the same plain envelope at waist level, photo not visible. Purposeful slow tracking shot.",
+      "badge": "",
+      "cast": [
+        "lin"
+      ],
+      "duration": 10,
+      "episode": 51,
+      "id": "51-02",
+      "lines": [
+        [
+          "lin",
+          "他叫宋远，八年前失踪，四年前被宣告死亡。这张照片，却说是两年前拍的。",
+          "Song Yuan vanished eight years ago and was declared dead four years ago. The photo is said to be two years old."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. Adult WOMAN, chin-length straight black bob, navy police uniform, NO glasses, NO white coat, NO earpiece. Clear steady female Mandarin voice. Scene: Lin walks down a records corridor holding the same plain envelope at waist level, photo not visible. Purposeful slow tracking shot. ONLY this person says in Mandarin: “他叫宋远，八年前失踪，四年前被宣告死亡。这张照片，却说是两年前拍的。”.",
+      "refs": [
+        "lin"
+      ],
+      "seed": 917512,
+      "title": "合照里的死者"
+    },
+    {
+      "action": "Xu in forensic consultation room turns the missing-person case folder over, then addresses offscreen Lin. Empty examination trolley in background.",
+      "badge": "",
+      "cast": [
+        "xu"
+      ],
+      "duration": 10,
+      "episode": 51,
+      "id": "51-03",
+      "lines": [
+        [
+          "xu",
+          "当年没有找到遗体，也没有尸检认定他死亡。宣告死亡，不是辨认过尸体。",
+          "No body was found, and no autopsy identified him as dead. A declaration of death is not a body identification."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. Adult WOMAN, brown hair in a ponytail, green blouse under white forensic lab coat, NO glasses, never a black bob. Calm mature female Mandarin voice. Scene: Xu in forensic consultation room turns the missing-person case folder over, then addresses offscreen Lin. Empty examination trolley in background. ONLY this person says in Mandarin: “当年没有找到遗体，也没有尸检认定他死亡。宣告死亡，不是辨认过尸体。”.",
+      "refs": [
+        "xu"
+      ],
+      "seed": 917513,
+      "title": "合照里的死者"
+    },
+    {
+      "action": "FIRST character anchor: Song alone, seated at a plain police interview table with empty hands. He speaks toward unseen interviewer at camera right. His rust-brown jacket and thin grey mustache must be distinct. Medium closeup, no other face.",
+      "badge": "次日·找到宋远 / Next day · Song located",
+      "cast": [
+        "song"
+      ],
+      "duration": 10,
+      "episode": 51,
+      "id": "51-04",
+      "lines": [
+        [
+          "song",
+          "我只记得落水。后面的几年，像被人从脑子里挖走了。",
+          "I only remember falling into the water. The years after that feel torn from my mind."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. 55-year-old MAN, long rectangular face, receding wavy salt-and-pepper hair, thin grey mustache, deep-set brown eyes, rust-brown zip jacket over beige open-collar shirt, NO glasses, NO beard, no uniform. Gravelly measured older male Mandarin voice. Scene: FIRST character anchor: Song alone, seated at a plain police interview table with empty hands. He speaks toward unseen interviewer at camera right. His rust-brown jacket and thin grey mustache must be distinct. Medium closeup, no other face. ONLY this person says in Mandarin: “我只记得落水。后面的几年，像被人从脑子里挖走了。”.",
+      "refs": [],
+      "seed": 917514,
+      "title": "合照里的死者"
+    },
+    {
+      "action": "Lin on opposite interview angle, alone in frame, opens a notebook, places pen beside it, listens after finishing.",
+      "badge": "",
+      "cast": [
+        "lin"
+      ],
+      "duration": 10,
+      "episode": 51,
+      "id": "51-05",
+      "lines": [
+        [
+          "lin",
+          "长得像还不够。先核身份，再找原照片。你失踪后的经历，我们一件一件查。",
+          "Resemblance is not enough. We’ll verify your identity and the original photo, then trace those missing years."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. Adult WOMAN, chin-length straight black bob, navy police uniform, NO glasses, NO white coat, NO earpiece. Clear steady female Mandarin voice. Scene: Lin on opposite interview angle, alone in frame, opens a notebook, places pen beside it, listens after finishing. ONLY this person says in Mandarin: “长得像还不够。先核身份，再找原照片。你失踪后的经历，我们一件一件查。”.",
+      "refs": [
+        "lin"
+      ],
+      "seed": 917515,
+      "title": "合照里的死者"
+    },
+    {
+      "action": "Jian alone in voluntary observation room reviews photo held below camera frame. Recognition, fingers tighten on paper edge. No fangs yet, no glasses.",
+      "badge": "观察室 / Observation room",
+      "cast": [
+        "jian"
+      ],
+      "duration": 10,
+      "episode": 51,
+      "id": "51-06",
+      "lines": [
+        [
+          "jian",
+          "我见过这个人。不是梦里。他当年站在柜门外，拿着钥匙。",
+          "I have seen this man, outside a dream. He stood outside that cabinet with a key."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. Adult pale MAN, tousled short black hair, charcoal jacket over black turtleneck, NO glasses, NO hearing aid. Low restrained male Mandarin voice. Scene: Jian alone in voluntary observation room reviews photo held below camera frame. Recognition, fingers tighten on paper edge. No fangs yet, no glasses. ONLY this person says in Mandarin: “我见过这个人。不是梦里。他当年站在柜门外，拿着钥匙。”.",
+      "refs": [
+        "jian"
+      ],
+      "seed": 917516,
+      "title": "合照里的死者"
+    },
+    {
+      "action": "Zhou at digital forensics desk connects a sealed-source drive through a write blocker; equipment realistic, no readable generated screen text. He speaks then camera follows gloved hand toward the drive.",
+      "badge": "两天后 / Two days later",
+      "cast": [
+        "zhou"
+      ],
+      "duration": 10,
+      "episode": 52,
+      "id": "52-01",
+      "lines": [
+        [
+          "zhou",
+          "摄影师交出了原文件和连续照片。当天的交付记录，也能对上拍摄时间。",
+          "The photographer supplied the original files and adjacent shots. Delivery records corroborate the date."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. Adult MAN, short black hair, silver rectangular glasses, hearing aid on RIGHT ear, gray technical jacket. Precise male Mandarin voice. Scene: Zhou at digital forensics desk connects a sealed-source drive through a write blocker; equipment realistic, no readable generated screen text. He speaks then camera follows gloved hand toward the drive. ONLY this person says in Mandarin: “摄影师交出了原文件和连续照片。当天的交付记录，也能对上拍摄时间。”.",
+      "refs": [
+        "zhou"
+      ],
+      "seed": 917521,
+      "title": "照片不是答案"
+    },
+    {
+      "action": "Zhou stands beside evidence cabinet, addresses offscreen Lin. A photo envelope and comparison report remain separate in his hands; never display fake readable text.",
+      "badge": "",
+      "cast": [
+        "zhou"
+      ],
+      "duration": 10,
+      "episode": 52,
+      "id": "52-02",
+      "lines": [
+        [
+          "zhou",
+          "指纹核对确认，他就是宋远。合照也确实拍在他被宣告死亡之后。",
+          "Fingerprint comparison confirms Song’s identity. The photo was taken after he was declared dead."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. Adult MAN, short black hair, silver rectangular glasses, hearing aid on RIGHT ear, gray technical jacket. Precise male Mandarin voice. Scene: Zhou stands beside evidence cabinet, addresses offscreen Lin. A photo envelope and comparison report remain separate in his hands; never display fake readable text. ONLY this person says in Mandarin: “指纹核对确认，他就是宋远。合照也确实拍在他被宣告死亡之后。”.",
+      "refs": [
+        "zhou"
+      ],
+      "seed": 917522,
+      "title": "照片不是答案"
+    },
+    {
+      "action": "Song in same interview room and clothing as 51-04, points to a photo below the frame, then withdraws hand and speaks. Only Song visible.",
+      "badge": "",
+      "cast": [
+        "song"
+      ],
+      "duration": 10,
+      "episode": 52,
+      "id": "52-03",
+      "lines": [
+        [
+          "song",
+          "照片里的人是我。可那时候发生过什么，我真的说不上来。",
+          "That is me in the photo. But I cannot tell you what happened then."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. 55-year-old MAN, long rectangular face, receding wavy salt-and-pepper hair, thin grey mustache, deep-set brown eyes, rust-brown zip jacket over beige open-collar shirt, NO glasses, NO beard, no uniform. Gravelly measured older male Mandarin voice. Scene: Song in same interview room and clothing as 51-04, points to a photo below the frame, then withdraws hand and speaks. Only Song visible. ONLY this person says in Mandarin: “照片里的人是我。可那时候发生过什么，我真的说不上来。”.",
+      "refs": [],
+      "seed": 917523,
+      "title": "照片不是答案"
+    },
+    {
+      "action": "Xu at consultation desk places a referral sheet beside a closed medical folder, careful calm delivery. Not conducting an autopsy in a living-person case.",
+      "badge": "",
+      "cast": [
+        "xu"
+      ],
+      "duration": 10,
+      "episode": 52,
+      "id": "52-04",
+      "lines": [
+        [
+          "xu",
+          "失忆要由专科评估。检查没发现异常，也不能直接说他在装。",
+          "Memory loss needs specialist assessment. Normal test results alone do not prove he is pretending."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. Adult WOMAN, brown hair in a ponytail, green blouse under white forensic lab coat, NO glasses, never a black bob. Calm mature female Mandarin voice. Scene: Xu at consultation desk places a referral sheet beside a closed medical folder, careful calm delivery. Not conducting an autopsy in a living-person case. ONLY this person says in Mandarin: “失忆要由专科评估。检查没发现异常，也不能直接说他在装。”.",
+      "refs": [
+        "xu"
+      ],
+      "seed": 917524,
+      "title": "照片不是答案"
+    },
+    {
+      "action": "Lin leaves interview room and pauses outside the closed door, determined. No suspect suddenly appears beside her.",
+      "badge": "",
+      "cast": [
+        "lin"
+      ],
+      "duration": 10,
+      "episode": 52,
+      "id": "52-05",
+      "lines": [
+        [
+          "lin",
+          "照片证明他那天在场，还不能证明他这些年都记得。我们查他做过什么。",
+          "The photo places him there that day. It does not prove what he remembered. We need his actions."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. Adult WOMAN, chin-length straight black bob, navy police uniform, NO glasses, NO white coat, NO earpiece. Clear steady female Mandarin voice. Scene: Lin leaves interview room and pauses outside the closed door, determined. No suspect suddenly appears beside her. ONLY this person says in Mandarin: “照片证明他那天在场，还不能证明他这些年都记得。我们查他做过什么。”.",
+      "refs": [
+        "lin"
+      ],
+      "seed": 917525,
+      "title": "照片不是答案"
+    },
+    {
+      "action": "Jian alone at observation table, sets photo face down, looks toward unseen consultation camera. An admission, not a supernatural flashback.",
+      "badge": "",
+      "cast": [
+        "jian"
+      ],
+      "duration": 10,
+      "episode": 52,
+      "id": "52-06",
+      "lines": [
+        [
+          "jian",
+          "还有一件事。宋远这个名字，我早就记得。只是一直没告诉你。",
+          "There is something else. I remembered Song Yuan’s name before today. I chose not to tell you."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. Adult pale MAN, tousled short black hair, charcoal jacket over black turtleneck, NO glasses, NO hearing aid. Low restrained male Mandarin voice. Scene: Jian alone at observation table, sets photo face down, looks toward unseen consultation camera. An admission, not a supernatural flashback. ONLY this person says in Mandarin: “还有一件事。宋远这个名字，我早就记得。只是一直没告诉你。”.",
+      "refs": [
+        "jian"
+      ],
+      "seed": 917526,
+      "title": "照片不是答案"
+    },
+    {
+      "action": "Lin at observation-room doorway, stays outside marked threshold, Jian entirely offscreen. Firm but not accusatory shouting.",
+      "badge": "当晚 / That evening",
+      "cast": [
+        "lin"
+      ],
+      "duration": 10,
+      "episode": 53,
+      "id": "53-01",
+      "lines": [
+        [
+          "lin",
+          "想不起来，和想起来却不说，是两回事。你怕我们查到什么？",
+          "Not remembering and choosing silence are different. What were you afraid we would find?"
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. Adult WOMAN, chin-length straight black bob, navy police uniform, NO glasses, NO white coat, NO earpiece. Clear steady female Mandarin voice. Scene: Lin at observation-room doorway, stays outside marked threshold, Jian entirely offscreen. Firm but not accusatory shouting. ONLY this person says in Mandarin: “想不起来，和想起来却不说，是两回事。你怕我们查到什么？”.",
+      "refs": [
+        "lin"
+      ],
+      "seed": 917531,
+      "title": "没说出来的那一段"
+    },
+    {
+      "action": "Jian seated two meters inside same observation room, palms on knees, eyes lower then meet camera. No fangs for this admission.",
+      "badge": "",
+      "cast": [
+        "jian"
+      ],
+      "duration": 10,
+      "episode": 53,
+      "id": "53-02",
+      "lines": [
+        [
+          "jian",
+          "我怕他记得，我当年到底伤过谁。那段记忆没有回来，害怕却一直都在。",
+          "I feared he knew whom I had hurt. The memory has not returned, but the fear never left."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. Adult pale MAN, tousled short black hair, charcoal jacket over black turtleneck, NO glasses, NO hearing aid. Low restrained male Mandarin voice. Scene: Jian seated two meters inside same observation room, palms on knees, eyes lower then meet camera. No fangs for this admission. ONLY this person says in Mandarin: “我怕他记得，我当年到底伤过谁。那段记忆没有回来，害怕却一直都在。”.",
+      "refs": [
+        "jian"
+      ],
+      "seed": 917532,
+      "title": "没说出来的那一段"
+    },
+    {
+      "action": "Han at corridor control desk, LEFT hand sets down radio, RIGHT wrist dressing visible. A small closed consultation camera on desk, no screen faces.",
+      "badge": "次日上午 / Next morning",
+      "cast": [
+        "han"
+      ],
+      "duration": 10,
+      "episode": 53,
+      "id": "53-03",
+      "lines": [
+        [
+          "han",
+          "剑刺暂停接触证人，只能隔着视频提供线索。宋远的事，另按证据查。",
+          "Jian will have no direct witness contact. He can assist by video. Song’s case will follow its evidence."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. Middle-aged MAN, short dark hair with gray temples, scar at RIGHT eyebrow, navy police uniform, white bandage on RIGHT wrist. Firm low male Mandarin voice. Scene: Han at corridor control desk, LEFT hand sets down radio, RIGHT wrist dressing visible. A small closed consultation camera on desk, no screen faces. ONLY this person says in Mandarin: “剑刺暂停接触证人，只能隔着视频提供线索。宋远的事，另按证据查。”.",
+      "refs": [
+        "han"
+      ],
+      "seed": 917533,
+      "title": "没说出来的那一段"
+    },
+    {
+      "action": "FIRST character anchor: Zhao alone seated in witness room. Mustard cardigan, cream blouse, grey streak and LOW BUN clear. Empty hands clasped separately, no jewelry except gold studs.",
+      "badge": "妻子接受询问 / Wife interviewed",
+      "cast": [
+        "zhao"
+      ],
+      "duration": 10,
+      "episode": 53,
+      "id": "53-04",
+      "lines": [
+        [
+          "zhao",
+          "我是他妻子赵芹。四年前我才知道他活着，那时候，保险金已经领了。",
+          "I am his wife, Zhao Qin. I learned he was alive four years ago, after the insurance payout."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. 50-year-old WOMAN, round face with smile lines, black hair with one broad grey streak tied in a LOW BUN, mustard cardigan over cream blouse, tiny round gold stud earrings, NO glasses, no police uniform. Mature slightly breathy female Mandarin voice. Scene: FIRST character anchor: Zhao alone seated in witness room. Mustard cardigan, cream blouse, grey streak and LOW BUN clear. Empty hands clasped separately, no jewelry except gold studs. ONLY this person says in Mandarin: “我是他妻子赵芹。四年前我才知道他活着，那时候，保险金已经领了。”.",
+      "refs": [],
+      "seed": 917534,
+      "title": "没说出来的那一段"
+    },
+    {
+      "action": "Zhou at interview-room side desk lays two records apart in chronological order; no text closeup. Only Zhou visible.",
+      "badge": "",
+      "cast": [
+        "zhou"
+      ],
+      "duration": 10,
+      "episode": 53,
+      "id": "53-05",
+      "lines": [
+        [
+          "zhou",
+          "银行记录显示，领钱以前，你就在给他租的房子付租金。时间对不上。",
+          "Bank records show you paid rent for his room before the payout. Your timeline does not fit."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. Adult MAN, short black hair, silver rectangular glasses, hearing aid on RIGHT ear, gray technical jacket. Precise male Mandarin voice. Scene: Zhou at interview-room side desk lays two records apart in chronological order; no text closeup. Only Zhou visible. ONLY this person says in Mandarin: “银行记录显示，领钱以前，你就在给他租的房子付租金。时间对不上。”.",
+      "refs": [
+        "zhou"
+      ],
+      "seed": 917535,
+      "title": "没说出来的那一段"
+    },
+    {
+      "action": "Zhao same witness chair and clothing, slowly lets her hands fall onto table, anxious confession. No sudden haircut.",
+      "badge": "",
+      "cast": [
+        "zhao"
+      ],
+      "duration": 10,
+      "episode": 53,
+      "id": "53-06",
+      "lines": [
+        [
+          "zhao",
+          "他说有人要杀他。我以为，只要大家都当他死了，我们就能重新开始。",
+          "He said someone wanted him dead. I thought we could start over if everyone believed he was gone."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. 50-year-old WOMAN, round face with smile lines, black hair with one broad grey streak tied in a LOW BUN, mustard cardigan over cream blouse, tiny round gold stud earrings, NO glasses, no police uniform. Mature slightly breathy female Mandarin voice. Scene: Zhao same witness chair and clothing, slowly lets her hands fall onto table, anxious confession. No sudden haircut. ONLY this person says in Mandarin: “他说有人要杀他。我以为，只要大家都当他死了，我们就能重新开始。”.",
+      "refs": [],
+      "seed": 917536,
+      "title": "没说出来的那一段"
+    },
+    {
+      "action": "Lin stands in evidence-room doorway holding no props, addresses Zhao offscreen; only Lin visible.",
+      "badge": "继续调查 / Investigation continues",
+      "cast": [
+        "lin"
+      ],
+      "duration": 10,
+      "episode": 54,
+      "id": "54-01",
+      "lines": [
+        [
+          "lin",
+          "你们说害怕被追杀，我们会查。但明知他活着还领钱，这件事也要查。",
+          "We will investigate the threats. We must also investigate claiming money while knowing he was alive."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. Adult WOMAN, chin-length straight black bob, navy police uniform, NO glasses, NO white coat, NO earpiece. Clear steady female Mandarin voice. Scene: Lin stands in evidence-room doorway holding no props, addresses Zhao offscreen; only Lin visible. ONLY this person says in Mandarin: “你们说害怕被追杀，我们会查。但明知他活着还领钱，这件事也要查。”.",
+      "refs": [
+        "lin"
+      ],
+      "seed": 917541,
+      "title": "排练过的失忆"
+    },
+    {
+      "action": "Zhou at forensic workstation checks preserved email export beside provider records; screen angled away. Speaks while camera slowly moves to his shoulder, then ends on keyboard hands.",
+      "badge": "三天后 / Three days later",
+      "cast": [
+        "zhou"
+      ],
+      "duration": 10,
+      "episode": 54,
+      "id": "54-02",
+      "lines": [
+        [
+          "zhou",
+          "依法提取的旧邮件里，他提前教妻子怎么回答，还写着：回来就说失忆。",
+          "Lawfully recovered emails coached his wife’s answers in advance, including a plan to claim amnesia."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. Adult MAN, short black hair, silver rectangular glasses, hearing aid on RIGHT ear, gray technical jacket. Precise male Mandarin voice. Scene: Zhou at forensic workstation checks preserved email export beside provider records; screen angled away. Speaks while camera slowly moves to his shoulder, then ends on keyboard hands. ONLY this person says in Mandarin: “依法提取的旧邮件里，他提前教妻子怎么回答，还写着：回来就说失忆。”.",
+      "refs": [
+        "zhou"
+      ],
+      "seed": 917542,
+      "title": "排练过的失忆"
+    },
+    {
+      "action": "Xu in consultation office puts medical referral in one tray, investigation notes in another, clear separation.",
+      "badge": "",
+      "cast": [
+        "xu"
+      ],
+      "duration": 10,
+      "episode": 54,
+      "id": "54-03",
+      "lines": [
+        [
+          "xu",
+          "这些邮件能说明他策划过隐瞒。是否还有记忆障碍，仍要分开评估。",
+          "Those emails show planned concealment. Possible memory impairment still needs separate assessment."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. Adult WOMAN, brown hair in a ponytail, green blouse under white forensic lab coat, NO glasses, never a black bob. Calm mature female Mandarin voice. Scene: Xu in consultation office puts medical referral in one tray, investigation notes in another, clear separation. ONLY this person says in Mandarin: “这些邮件能说明他策划过隐瞒。是否还有记忆障碍，仍要分开评估。”.",
+      "refs": [
+        "xu"
+      ],
+      "seed": 917543,
+      "title": "排练过的失忆"
+    },
+    {
+      "action": "Song alone in interview chair, jacket zipped halfway consistently, lowers gaze then confesses. Hands empty, no tears or sudden shouting.",
+      "badge": "",
+      "cast": [
+        "song"
+      ],
+      "duration": 10,
+      "episode": 54,
+      "id": "54-04",
+      "lines": [
+        [
+          "song",
+          "落水是我安排的。我想躲债，也想拿到保险金。失忆，是后来编的。",
+          "I staged the disappearance to escape debt and collect insurance. I invented amnesia afterward."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. 55-year-old MAN, long rectangular face, receding wavy salt-and-pepper hair, thin grey mustache, deep-set brown eyes, rust-brown zip jacket over beige open-collar shirt, NO glasses, NO beard, no uniform. Gravelly measured older male Mandarin voice. Scene: Song alone in interview chair, jacket zipped halfway consistently, lowers gaze then confesses. Hands empty, no tears or sudden shouting. ONLY this person says in Mandarin: “落水是我安排的。我想躲债，也想拿到保险金。失忆，是后来编的。”.",
+      "refs": [],
+      "seed": 917544,
+      "title": "排练过的失忆"
+    },
+    {
+      "action": "Lin opposite interview angle, places a plain archival envelope on table, no visible photograph face, leans forward slightly.",
+      "badge": "",
+      "cast": [
+        "lin"
+      ],
+      "duration": 10,
+      "episode": 54,
+      "id": "54-05",
+      "lines": [
+        [
+          "lin",
+          "那陆闻舟为什么给你钱？合照拍摄的那家档案公司，又替你藏了什么？",
+          "Why did Lu Wenzhou pay you? What did the archive company in that photo keep for you?"
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. Adult WOMAN, chin-length straight black bob, navy police uniform, NO glasses, NO white coat, NO earpiece. Clear steady female Mandarin voice. Scene: Lin opposite interview angle, places a plain archival envelope on table, no visible photograph face, leans forward slightly. ONLY this person says in Mandarin: “那陆闻舟为什么给你钱？合照拍摄的那家档案公司，又替你藏了什么？”.",
+      "refs": [
+        "lin"
+      ],
+      "seed": 917545,
+      "title": "排练过的失忆"
+    },
+    {
+      "action": "Song glances toward closed interview door, then back at interviewer, genuinely frightened now. Only Song visible, no vampire eyes on him.",
+      "badge": "",
+      "cast": [
+        "song"
+      ],
+      "duration": 10,
+      "episode": 54,
+      "id": "54-06",
+      "lines": [
+        [
+          "song",
+          "我卖给他一批旧病历。里面那个病人，二十多年过去，脸一点都没变。",
+          "I sold him old patient records. One patient’s face had not changed in over twenty years."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. 55-year-old MAN, long rectangular face, receding wavy salt-and-pepper hair, thin grey mustache, deep-set brown eyes, rust-brown zip jacket over beige open-collar shirt, NO glasses, NO beard, no uniform. Gravelly measured older male Mandarin voice. Scene: Song glances toward closed interview door, then back at interviewer, genuinely frightened now. Only Song visible, no vampire eyes on him. ONLY this person says in Mandarin: “我卖给他一批旧病历。里面那个病人，二十多年过去，脸一点都没变。”.",
+      "refs": [],
+      "seed": 917546,
+      "title": "排练过的失忆"
+    },
+    {
+      "action": "Han outside archival storage lockers with folder in LEFT hand, RIGHT wrist bandage intact, addresses unseen evidence officers. Door remains closed until his line ends.",
+      "badge": "次日·档案仓库 / Next day · Archive storage",
+      "cast": [
+        "han"
+      ],
+      "duration": 10,
+      "episode": 55,
+      "id": "55-01",
+      "lines": [
+        [
+          "han",
+          "宋远交代了寄存柜。搜查手续办好再开，原件逐件登记，别只拿手机翻拍。",
+          "Song identified the storage locker. Secure authorization, then inventory the originals, not just phone copies."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. Middle-aged MAN, short dark hair with gray temples, scar at RIGHT eyebrow, navy police uniform, white bandage on RIGHT wrist. Firm low male Mandarin voice. Scene: Han outside archival storage lockers with folder in LEFT hand, RIGHT wrist bandage intact, addresses unseen evidence officers. Door remains closed until his line ends. ONLY this person says in Mandarin: “宋远交代了寄存柜。搜查手续办好再开，原件逐件登记，别只拿手机翻拍。”.",
+      "refs": [
+        "han"
+      ],
+      "seed": 917551,
+      "title": "被锁住的底片"
+    },
+    {
+      "action": "Zhou wearing clean nitrile gloves lifts a protected negative sleeve by edges above a light table, never touches emulsion; no face readable yet. Camera ends on gloved hands.",
+      "badge": "",
+      "cast": [
+        "zhou"
+      ],
+      "duration": 10,
+      "episode": 55,
+      "id": "55-02",
+      "lines": [
+        [
+          "zhou",
+          "柜里有旧底片和当年的冲印袋。先核来源，再比对，不能只凭一张脸下结论。",
+          "We found negatives and old processing envelopes. Verify their origin before comparing faces."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. Adult MAN, short black hair, silver rectangular glasses, hearing aid on RIGHT ear, gray technical jacket. Precise male Mandarin voice. Scene: Zhou wearing clean nitrile gloves lifts a protected negative sleeve by edges above a light table, never touches emulsion; no face readable yet. Camera ends on gloved hands. ONLY this person says in Mandarin: “柜里有旧底片和当年的冲印袋。先核来源，再比对，不能只凭一张脸下结论。”.",
+      "refs": [
+        "zhou"
+      ],
+      "seed": 917552,
+      "title": "被锁住的底片"
+    },
+    {
+      "action": "Xu alone in examination office reviews diagram at an angle, then sets it down. No invented visible readable labels. She does not diagnose immortality.",
+      "badge": "",
+      "cast": [
+        "xu"
+      ],
+      "duration": 10,
+      "episode": 55,
+      "id": "55-03",
+      "lines": [
+        [
+          "xu",
+          "病历中的受伤位置能作比对，但不能只靠疤痕认人。还要核对原始记录。",
+          "Injury locations can assist comparison, but scars alone cannot identify someone. Check the original records."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. Adult WOMAN, brown hair in a ponytail, green blouse under white forensic lab coat, NO glasses, never a black bob. Calm mature female Mandarin voice. Scene: Xu alone in examination office reviews diagram at an angle, then sets it down. No invented visible readable labels. She does not diagnose immortality. ONLY this person says in Mandarin: “病历中的受伤位置能作比对，但不能只靠疤痕认人。还要核对原始记录。”.",
+      "refs": [
+        "xu"
+      ],
+      "seed": 917553,
+      "title": "被锁住的底片"
+    },
+    {
+      "action": "Jian in observation room, looks at wrists, slowly places one hand over the other without binding himself. A faint upper canine appears as he speaks, then lips close. Photo remains entirely offscreen.",
+      "badge": "观察室·视频协助 / Observation · Video consultation",
+      "cast": [
+        "jian"
+      ],
+      "duration": 10,
+      "episode": 55,
+      "id": "55-04",
+      "lines": [
+        [
+          "jian",
+          "我认得那条布带。不是他们绑我，是我求他们把我的手固定住。",
+          "I recognize that cloth strap. I asked them to secure my hands."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. Adult pale MAN, tousled short black hair, charcoal jacket over black turtleneck, NO glasses, NO hearing aid. Low restrained male Mandarin voice. Scene: Jian in observation room, looks at wrists, slowly places one hand over the other without binding himself. A faint upper canine appears as he speaks, then lips close. Photo remains entirely offscreen. ONLY this person says in Mandarin: “我认得那条布带。不是他们绑我，是我求他们把我的手固定住。”.",
+      "refs": [
+        "jian"
+      ],
+      "seed": 917554,
+      "title": "被锁住的底片"
+    },
+    {
+      "action": "Lin at remote consultation desk, webcam beside monitor aimed at her, monitor backside visible only. Different room from Jian, no teleporting.",
+      "badge": "",
+      "cast": [
+        "lin"
+      ],
+      "duration": 10,
+      "episode": 55,
+      "id": "55-05",
+      "lines": [
+        [
+          "lin",
+          "这只是你现在记起的片段。我们会核实。你为什么主动要求被关起来？",
+          "That is a memory fragment, still to be checked. Why did you ask to be confined?"
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. Adult WOMAN, chin-length straight black bob, navy police uniform, NO glasses, NO white coat, NO earpiece. Clear steady female Mandarin voice. Scene: Lin at remote consultation desk, webcam beside monitor aimed at her, monitor backside visible only. Different room from Jian, no teleporting. ONLY this person says in Mandarin: “这只是你现在记起的片段。我们会核实。你为什么主动要求被关起来？”.",
+      "refs": [
+        "lin"
+      ],
+      "seed": 917555,
+      "title": "被锁住的底片"
+    },
+    {
+      "action": "Jian rises halfway from chair then deliberately sits back, one fang visible during final words, hands gripping knees. End gaze fixed toward closed door, lips shut.",
+      "badge": "",
+      "cast": [
+        "jian"
+      ],
+      "duration": 10,
+      "episode": 55,
+      "id": "55-06",
+      "lines": [
+        [
+          "jian",
+          "因为门外每个人的心跳，我都听得见。我怕那扇门一开，我就会扑过去。",
+          "I could hear every heartbeat outside. I feared I would lunge when the door opened."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. Adult pale MAN, tousled short black hair, charcoal jacket over black turtleneck, NO glasses, NO hearing aid. Low restrained male Mandarin voice. Scene: Jian rises halfway from chair then deliberately sits back, one fang visible during final words, hands gripping knees. End gaze fixed toward closed door, lips shut. ONLY this person says in Mandarin: “因为门外每个人的心跳，我都听得见。我怕那扇门一开，我就会扑过去。”.",
+      "refs": [
+        "jian"
+      ],
+      "seed": 917556,
+      "title": "被锁住的底片"
+    },
+    {
+      "action": "Song alone in interview room, hands rest on table, rust jacket and thin grey mustache stable. He recounts history, not proof by narration.",
+      "badge": "同日下午 / Same afternoon",
+      "cast": [
+        "song"
+      ],
+      "duration": 10,
+      "episode": 56,
+      "id": "56-01",
+      "lines": [
+        [
+          "song",
+          "我是那里的电工，后来替他们看门。剑刺醒过来时，是他自己叫我锁门。",
+          "I was the electrician, then a caretaker. When Jian woke, he asked me to lock the door."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. 55-year-old MAN, long rectangular face, receding wavy salt-and-pepper hair, thin grey mustache, deep-set brown eyes, rust-brown zip jacket over beige open-collar shirt, NO glasses, NO beard, no uniform. Gravelly measured older male Mandarin voice. Scene: Song alone in interview room, hands rest on table, rust jacket and thin grey mustache stable. He recounts history, not proof by narration. ONLY this person says in Mandarin: “我是那里的电工，后来替他们看门。剑刺醒过来时，是他自己叫我锁门。”.",
+      "refs": [],
+      "seed": 917561,
+      "title": "另一个房间"
+    },
+    {
+      "action": "Zhou in archival workroom closes two corroborating folders, keeps third open. No floating diagrams or repeated face photos.",
+      "badge": "",
+      "cast": [
+        "zhou"
+      ],
+      "duration": 10,
+      "episode": 56,
+      "id": "56-02",
+      "lines": [
+        [
+          "zhou",
+          "电工名册和维修单对上了。他确实在那里工作过，其他说法还在查。",
+          "The staff register and repair records match. He worked there; his other claims remain unverified."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. Adult MAN, short black hair, silver rectangular glasses, hearing aid on RIGHT ear, gray technical jacket. Precise male Mandarin voice. Scene: Zhou in archival workroom closes two corroborating folders, keeps third open. No floating diagrams or repeated face photos. ONLY this person says in Mandarin: “电工名册和维修单对上了。他确实在那里工作过，其他说法还在查。”.",
+      "refs": [
+        "zhou"
+      ],
+      "seed": 917562,
+      "title": "另一个房间"
+    },
+    {
+      "action": "Lin alone in interview angle, places a single preserved email printout face down after checking it; controlled questioning.",
+      "badge": "",
+      "cast": [
+        "lin"
+      ],
+      "duration": 10,
+      "episode": 56,
+      "id": "56-03",
+      "lines": [
+        [
+          "lin",
+          "你在旧邮件里写：别让另一间房开门。另一间，关着谁？",
+          "Your old email says, “Keep the other room locked.” Who was in that room?"
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. Adult WOMAN, chin-length straight black bob, navy police uniform, NO glasses, NO white coat, NO earpiece. Clear steady female Mandarin voice. Scene: Lin alone in interview angle, places a single preserved email printout face down after checking it; controlled questioning. ONLY this person says in Mandarin: “你在旧邮件里写：别让另一间房开门。另一间，关着谁？”.",
+      "refs": [
+        "lin"
+      ],
+      "seed": 917563,
+      "title": "另一个房间"
+    },
+    {
+      "action": "Song leans back from table, recalls threat in his own voice, no second disembodied voice, no supernatural transformation.",
+      "badge": "",
+      "cast": [
+        "song"
+      ],
+      "duration": 10,
+      "episode": 56,
+      "id": "56-04",
+      "lines": [
+        [
+          "song",
+          "我没进去过。只听见那个人说，你把我留下，他就永远记不起你做过什么。",
+          "I never went inside. He said: leave me here, and Jian will never remember what you did."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. 55-year-old MAN, long rectangular face, receding wavy salt-and-pepper hair, thin grey mustache, deep-set brown eyes, rust-brown zip jacket over beige open-collar shirt, NO glasses, NO beard, no uniform. Gravelly measured older male Mandarin voice. Scene: Song leans back from table, recalls threat in his own voice, no second disembodied voice, no supernatural transformation. ONLY this person says in Mandarin: “我没进去过。只听见那个人说，你把我留下，他就永远记不起你做过什么。”.",
+      "refs": [],
+      "seed": 917564,
+      "title": "另一个房间"
+    },
+    {
+      "action": "Jian alone in observation room, presses palm against sternum then removes it, realizes contradiction. Restrained red tint in eyes, visible fang on stressed word, mouth closes afterward.",
+      "badge": "视频另一端 / On the video link",
+      "cast": [
+        "jian"
+      ],
+      "duration": 10,
+      "episode": 56,
+      "id": "56-05",
+      "lines": [
+        [
+          "jian",
+          "我记得两扇门。但我一直以为，第二个心跳，也是我的。",
+          "I remember two doors. I always thought the second heartbeat was mine as well."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. Adult pale MAN, tousled short black hair, charcoal jacket over black turtleneck, NO glasses, NO hearing aid. Low restrained male Mandarin voice. Scene: Jian alone in observation room, presses palm against sternum then removes it, realizes contradiction. Restrained red tint in eyes, visible fang on stressed word, mouth closes afterward. ONLY this person says in Mandarin: “我记得两扇门。但我一直以为，第二个心跳，也是我的。”.",
+      "refs": [
+        "jian"
+      ],
+      "seed": 917565,
+      "title": "另一个房间"
+    },
+    {
+      "action": "Xu outside observation suite, raises empty palm toward offscreen consultation camera then reaches wall call button. No attempt to physically restrain him, no syringe.",
+      "badge": "",
+      "cast": [
+        "xu"
+      ],
+      "duration": 10,
+      "episode": 56,
+      "id": "56-06",
+      "lines": [
+        [
+          "xu",
+          "先停。你的手在抖，呼吸也变了。让值班医生过来，我们暂停回忆。",
+          "Stop for now. Your hands and breathing have changed. Call the duty clinician; pause the questioning."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. Adult WOMAN, brown hair in a ponytail, green blouse under white forensic lab coat, NO glasses, never a black bob. Calm mature female Mandarin voice. Scene: Xu outside observation suite, raises empty palm toward offscreen consultation camera then reaches wall call button. No attempt to physically restrain him, no syringe. ONLY this person says in Mandarin: “先停。你的手在抖，呼吸也变了。让值班医生过来，我们暂停回忆。”.",
+      "refs": [
+        "xu"
+      ],
+      "seed": 917566,
+      "title": "另一个房间"
+    },
+    {
+      "action": "Jian visibly turns a simple brass key to lock the ordinary observation-room door from inside, keeps the key in his RIGHT hand, then stands well back from the closed door, two clear upper vampire canines visible, irises dark red. Hands shaking, no blood or other person.",
+      "badge": "几分钟后 / Minutes later",
+      "cast": [
+        "jian"
+      ],
+      "duration": 10,
+      "episode": 57,
+      "id": "57-01",
+      "lines": [
+        [
+          "jian",
+          "今天没有人流血。我还是想咬人。门外的心跳，已经盖过你们说话了。",
+          "No one has bled today, but I still want to bite. The heartbeats drown out your voices."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. Adult pale MAN, tousled short black hair, charcoal jacket over black turtleneck, NO glasses, NO hearing aid. Low restrained male Mandarin voice. Scene: Jian visibly turns a simple brass key to lock the ordinary observation-room door from inside, keeps the key in his RIGHT hand, then stands well back from the closed door, two clear upper vampire canines visible, irises dark red. Hands shaking, no blood or other person. ONLY this person says in Mandarin: “今天没有人流血。我还是想咬人。门外的心跳，已经盖过你们说话了。”.",
+      "refs": [
+        "jian"
+      ],
+      "seed": 917571,
+      "title": "没有血的走廊"
+    },
+    {
+      "action": "Lin in corridor outside observation room, gestures unseen staff away toward screen LEFT. Remains three meters from closed door, no entering or armed confrontation.",
+      "badge": "",
+      "cast": [
+        "lin"
+      ],
+      "duration": 10,
+      "episode": 57,
+      "id": "57-02",
+      "lines": [
+        [
+          "lin",
+          "走廊清空，别围在门口。剑刺，离门远一点，我们会叫医生。",
+          "Clear the corridor. Stay away from the door. Jian, step back; we are calling the clinician."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. Adult WOMAN, chin-length straight black bob, navy police uniform, NO glasses, NO white coat, NO earpiece. Clear steady female Mandarin voice. Scene: Lin in corridor outside observation room, gestures unseen staff away toward screen LEFT. Remains three meters from closed door, no entering or armed confrontation. ONLY this person says in Mandarin: “走廊清空，别围在门口。剑刺，离门远一点，我们会叫医生。”.",
+      "refs": [
+        "lin"
+      ],
+      "seed": 917572,
+      "title": "没有血的走廊"
+    },
+    {
+      "action": "Jian inside room involuntarily lunges one step toward the locked door, grips its lever with LEFT hand and visibly bends the metal lever slightly downward, then releases it and catches himself against fixed table; simple brass key remains in RIGHT hand, fangs visible. Speaks audibly, then pulls himself backward two steps. Never teleports through door.",
+      "badge": "",
+      "cast": [
+        "jian"
+      ],
+      "duration": 10,
+      "episode": 57,
+      "id": "57-03",
+      "lines": [
+        [
+          "jian",
+          "别开门！我现在分不清，是想让你们救我，还是想让你们进来。",
+          "Do not open it! I cannot tell whether I want help or want you within reach."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. Adult pale MAN, tousled short black hair, charcoal jacket over black turtleneck, NO glasses, NO hearing aid. Low restrained male Mandarin voice. Scene: Jian inside room involuntarily lunges one step toward the locked door, grips its lever with LEFT hand and visibly bends the metal lever slightly downward, then releases it and catches himself against fixed table; simple brass key remains in RIGHT hand, fangs visible. Speaks audibly, then pulls himself backward two steps. Never teleports through door. ONLY this person says in Mandarin: “别开门！我现在分不清，是想让你们救我，还是想让你们进来。”.",
+      "refs": [
+        "jian"
+      ],
+      "seed": 917573,
+      "title": "没有血的走廊"
+    },
+    {
+      "action": "Han corridor medium shot, door in background closed and handle slightly bent, LEFT hand holds radio, RIGHT bandage visible. Only Han present.",
+      "badge": "",
+      "cast": [
+        "han"
+      ],
+      "duration": 10,
+      "episode": 57,
+      "id": "57-04",
+      "lines": [
+        [
+          "han",
+          "我看见了，门把手被他拉弯了。所有人保持距离，医疗支援已经在路上。",
+          "I saw him bend the handle. Keep your distance. Medical support is on its way."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. Middle-aged MAN, short dark hair with gray temples, scar at RIGHT eyebrow, navy police uniform, white bandage on RIGHT wrist. Firm low male Mandarin voice. Scene: Han corridor medium shot, door in background closed and handle slightly bent, LEFT hand holds radio, RIGHT bandage visible. Only Han present. ONLY this person says in Mandarin: “我看见了，门把手被他拉弯了。所有人保持距离，医疗支援已经在路上。”.",
+      "refs": [
+        "han"
+      ],
+      "seed": 917574,
+      "title": "没有血的走廊"
+    },
+    {
+      "action": "Jian inside room visibly sets a simple brass key on floor with RIGHT hand, slides it under closed door then backs away toward opposite wall. One continuous medium-wide shot. His lips visible only while speaking; camera tilts down for key action.",
+      "badge": "",
+      "cast": [
+        "jian"
+      ],
+      "duration": 10,
+      "episode": 57,
+      "id": "57-05",
+      "lines": [
+        [
+          "jian",
+          "我把钥匙从门缝推出来。等我退到墙边，你们再拿。不要靠近我。",
+          "I will slide the key under the door. Retrieve it only after I am against the far wall."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. Adult pale MAN, tousled short black hair, charcoal jacket over black turtleneck, NO glasses, NO hearing aid. Low restrained male Mandarin voice. Scene: Jian inside room visibly sets a simple brass key on floor with RIGHT hand, slides it under closed door then backs away toward opposite wall. One continuous medium-wide shot. His lips visible only while speaking; camera tilts down for key action. ONLY this person says in Mandarin: “我把钥匙从门缝推出来。等我退到墙边，你们再拿。不要靠近我。”.",
+      "refs": [
+        "jian"
+      ],
+      "seed": 917575,
+      "title": "没有血的走廊"
+    },
+    {
+      "action": "Xu stands at far end of cleared corridor using wall phone to coordinate clinician, only Xu visible, calm urgency. No magical instant cure or invented sedative.",
+      "badge": "",
+      "cast": [
+        "xu"
+      ],
+      "duration": 10,
+      "episode": 57,
+      "id": "57-06",
+      "lines": [
+        [
+          "xu",
+          "记忆暂时不追问了。先保证没有人受伤，再评估这次发作为什么变重。",
+          "No more memory questions for now. Keep everyone safe, then assess why this episode worsened."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. Adult WOMAN, brown hair in a ponytail, green blouse under white forensic lab coat, NO glasses, never a black bob. Calm mature female Mandarin voice. Scene: Xu stands at far end of cleared corridor using wall phone to coordinate clinician, only Xu visible, calm urgency. No magical instant cure or invented sedative. ONLY this person says in Mandarin: “记忆暂时不追问了。先保证没有人受伤，再评估这次发作为什么变重。”.",
+      "refs": [
+        "xu"
+      ],
+      "seed": 917576,
+      "title": "没有血的走廊"
+    },
+    {
+      "action": "Lin in case room closes fraud folder and leaves separate historical-patient investigation open. No judge or instantaneous conviction.",
+      "badge": "一周后 / One week later",
+      "cast": [
+        "lin"
+      ],
+      "duration": 10,
+      "episode": 58,
+      "id": "58-01",
+      "lines": [
+        [
+          "lin",
+          "宋远的假死、骗保和隐瞒，已有相互印证的证据。现在移交后续程序。",
+          "The staged death, insurance fraud and concealment are supported by corroborating evidence. The case moves forward."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. Adult WOMAN, chin-length straight black bob, navy police uniform, NO glasses, NO white coat, NO earpiece. Clear steady female Mandarin voice. Scene: Lin in case room closes fraud folder and leaves separate historical-patient investigation open. No judge or instantaneous conviction. ONLY this person says in Mandarin: “宋远的假死、骗保和隐瞒，已有相互印证的证据。现在移交后续程序。”.",
+      "refs": [
+        "lin"
+      ],
+      "seed": 917581,
+      "title": "留下来的人"
+    },
+    {
+      "action": "Zhou in digital lab preserves a threatening voicemail on original phone beside evidence bag. No readable waveform text, only him visible.",
+      "badge": "",
+      "cast": [
+        "zhou"
+      ],
+      "duration": 10,
+      "episode": 58,
+      "id": "58-02",
+      "lines": [
+        [
+          "zhou",
+          "他收到的威胁也是真的。但有人威胁他，不能替他骗保的事开脱。",
+          "The threats he received were real too. They do not excuse the insurance fraud."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. Adult MAN, short black hair, silver rectangular glasses, hearing aid on RIGHT ear, gray technical jacket. Precise male Mandarin voice. Scene: Zhou in digital lab preserves a threatening voicemail on original phone beside evidence bag. No readable waveform text, only him visible. ONLY this person says in Mandarin: “他收到的威胁也是真的。但有人威胁他，不能替他骗保的事开脱。”.",
+      "refs": [
+        "zhou"
+      ],
+      "seed": 917582,
+      "title": "留下来的人"
+    },
+    {
+      "action": "Jian back seated in observation room after episode, eyes normal, mouth fangs no longer prominent. A fresh replaced door handle background, clinical monitoring continues, no discharge.",
+      "badge": "观察继续 / Observation continues",
+      "cast": [
+        "jian"
+      ],
+      "duration": 10,
+      "episode": 58,
+      "id": "58-03",
+      "lines": [
+        [
+          "jian",
+          "我还没想起来的，会说不知道。已经记起来的，就算难听，我也会说。",
+          "When I do not remember, I will say so. What I do remember, I will tell you, however ugly it is."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. Adult pale MAN, tousled short black hair, charcoal jacket over black turtleneck, NO glasses, NO hearing aid. Low restrained male Mandarin voice. Scene: Jian back seated in observation room after episode, eyes normal, mouth fangs no longer prominent. A fresh replaced door handle background, clinical monitoring continues, no discharge. ONLY this person says in Mandarin: “我还没想起来的，会说不知道。已经记起来的，就算难听，我也会说。”.",
+      "refs": [
+        "jian"
+      ],
+      "seed": 917583,
+      "title": "留下来的人"
+    },
+    {
+      "action": "Lin at remote consultation desk as before, speaks to webcam, stays physically apart from Jian. Warm but firm, small nod after speech then mouth closed.",
+      "badge": "",
+      "cast": [
+        "lin"
+      ],
+      "duration": 10,
+      "episode": 58,
+      "id": "58-04",
+      "lines": [
+        [
+          "lin",
+          "我会听，也会核实。相信你，不等于替你省掉证据。",
+          "I will listen and verify. Trust does not mean skipping the evidence."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. Adult WOMAN, chin-length straight black bob, navy police uniform, NO glasses, NO white coat, NO earpiece. Clear steady female Mandarin voice. Scene: Lin at remote consultation desk as before, speaks to webcam, stays physically apart from Jian. Warm but firm, small nod after speech then mouth closed. ONLY this person says in Mandarin: “我会听，也会核实。相信你，不等于替你省掉证据。”.",
+      "refs": [
+        "lin"
+      ],
+      "seed": 917584,
+      "title": "留下来的人"
+    },
+    {
+      "action": "Song in protected interview room, same rust jacket, newly frightened, lays black phone on table with screen down. No change in appearance or sudden fangs.",
+      "badge": "",
+      "cast": [
+        "song"
+      ],
+      "duration": 10,
+      "episode": 58,
+      "id": "58-05",
+      "lines": [
+        [
+          "song",
+          "当年我锁了两扇门。后来我只放了剑刺出来。另一个人，已经找到我了。",
+          "I locked two doors. Later, I let only Jian out. The other man has found me now."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. 55-year-old MAN, long rectangular face, receding wavy salt-and-pepper hair, thin grey mustache, deep-set brown eyes, rust-brown zip jacket over beige open-collar shirt, NO glasses, NO beard, no uniform. Gravelly measured older male Mandarin voice. Scene: Song in protected interview room, same rust jacket, newly frightened, lays black phone on table with screen down. No change in appearance or sudden fangs. ONLY this person says in Mandarin: “当年我锁了两扇门。后来我只放了剑刺出来。另一个人，已经找到我了。”.",
+      "refs": [],
+      "seed": 917585,
+      "title": "留下来的人"
+    },
+    {
+      "action": "Jian alone reads a forwarded message from phone held below frame. He speaks quoted words in his own voice; after speaking looks slowly toward closed door, mouth firmly shut. Corridor light goes out behind frosted upper window in final second, no extra face.",
+      "badge": "",
+      "cast": [
+        "jian"
+      ],
+      "duration": 10,
+      "episode": 58,
+      "id": "58-06",
+      "lines": [
+        [
+          "jian",
+          "他发来的那句话，我认得：你能忘记，我却一直记得你把我留在里面。",
+          "I recognize his message: You can forget. I remember you leaving me inside."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. Adult pale MAN, tousled short black hair, charcoal jacket over black turtleneck, NO glasses, NO hearing aid. Low restrained male Mandarin voice. Scene: Jian alone reads a forwarded message from phone held below frame. He speaks quoted words in his own voice; after speaking looks slowly toward closed door, mouth firmly shut. Corridor light goes out behind frosted upper window in final second, no extra face. ONLY this person says in Mandarin: “他发来的那句话，我认得：你能忘记，我却一直记得你把我留在里面。”.",
+      "refs": [
+        "jian"
+      ],
+      "seed": 917586,
+      "title": "留下来的人"
     }
-  ]
+  ],
+  "case": "死去的人在照片里"
 }
