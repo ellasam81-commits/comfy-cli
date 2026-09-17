@@ -74,6 +74,11 @@
       "eca339ec-5884-4fa3-ba99-ba347e410055",
       2.5,
       "400:370:160:0"
+    ],
+    "zhao": [
+      "5defb6ba-02d5-4616-b0ff-c9e88b944fbf",
+      2.6,
+      "520:420:60:0"
     ]
   },
   "case": "死去的人在照片里",
@@ -4510,7 +4515,9 @@
         ]
       ],
       "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. 50-year-old WOMAN, round face with smile lines, black hair with one broad grey streak tied in a LOW BUN, mustard cardigan over cream blouse, tiny round gold stud earrings, NO glasses, no police uniform. Mature slightly breathy female Mandarin voice. Scene: Zhao same witness chair and clothing, slowly lets her hands fall onto table, anxious confession. No sudden haircut. ONLY this person says in Mandarin: “他说有人要杀他。我以为，只要大家都当他死了，我们就能重新开始。”.",
-      "refs": [],
+      "refs": [
+        "zhao"
+      ],
       "seed": 917536,
       "title": "没说出来的那一段"
     },
@@ -5210,6 +5217,27 @@
       ],
       "seed": 918000,
       "title": "旧病历照片"
+    },
+    {
+      "action": "FIRST character anchor: Song alone, seated at a plain police interview table with empty hands. He speaks toward unseen interviewer at camera right. His rust-brown jacket and thin grey mustache must be distinct. Medium closeup, no other face.",
+      "badge": "次日·找到宋远 / Next day · Song located",
+      "cast": [
+        "song"
+      ],
+      "duration": 10,
+      "episode": 51,
+      "id": "51-04R",
+      "lines": [
+        [
+          "song",
+          "我只记得落水。后面的几年，我一点都想不起来。",
+          "I only remember falling into the water. I cannot remember the years that followed."
+        ]
+      ],
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime, match supplied character reference exactly. Blue-grey suspense lighting, adult proportions, strong cinematic staging and motivated hand actions. No text, subtitles, logos, captions, readable letters or title cards. No music; subdued room ambience. Exactly one visible person; no extra heads, duplicates, reflections, portraits or face screens. ONE continuous shot. Preserve face, hair, clothes and props. Native Mandarin foreground dialogue, EXACT quoted sentence ONCE, no improvised words. ACCURATE LIP SYNC: jaw moves ONLY while this exact voice is audible, not in silent pauses. Speech begins at 0.5 seconds and ends before 8.7 seconds. When speech finishes, lips close firmly and stay closed, with natural eye and hand movements; no silent talking, no breath-mouthing. Do not continue lip animation through the silent tail. Camera may follow hands after speech, rather than a lingering speaking face. 55-year-old MAN, long rectangular face, receding wavy salt-and-pepper hair, thin grey mustache, deep-set brown eyes, rust-brown zip jacket over beige open-collar shirt, NO glasses, NO beard, no uniform. Gravelly measured older male Mandarin voice. Scene: FIRST character anchor: Song alone, seated at a plain police interview table with empty hands. He speaks toward unseen interviewer at camera right. His rust-brown jacket and thin grey mustache must be distinct. Medium closeup, no other face. ONLY this person says in Mandarin: “我只记得落水。后面的几年，我一点都想不起来。”.",
+      "refs": [],
+      "seed": 919104,
+      "title": "合照里的死者"
     }
   ]
 }
