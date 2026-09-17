@@ -20,15 +20,30 @@
       3,
       "360:360:270:0"
     ],
+    "han": [
+      "a090f00c-a1e6-4715-9a8a-b624f3aea68d",
+      3.5,
+      "400:380:240:0"
+    ],
     "hannew": [
       "a090f00c-a1e6-4715-9a8a-b624f3aea68d",
       3.5,
       "400:380:240:0"
     ],
+    "jian": [
+      "8e7844df-18a0-449b-a472-703ad7158d2d",
+      2.5,
+      "450:390:180:0"
+    ],
     "jianfield": [
       "34a5b0ff-2592-4026-91f1-b1066814f16e",
       2.5,
       "400:340:40:0"
+    ],
+    "lin": [
+      "85859d64-72d3-47f8-b29e-b6f3fc301119",
+      2.5,
+      "400:380:160:0"
     ],
     "linfield": [
       "969d9111-bed1-4401-b184-1500517b1e2d",
@@ -50,21 +65,6 @@
       1,
       "290:360:120:60"
     ],
-    "han": [
-      "a090f00c-a1e6-4715-9a8a-b624f3aea68d",
-      3.5,
-      "400:380:240:0"
-    ],
-    "jian": [
-      "8e7844df-18a0-449b-a472-703ad7158d2d",
-      2.5,
-      "450:390:180:0"
-    ],
-    "lin": [
-      "85859d64-72d3-47f8-b29e-b6f3fc301119",
-      2.5,
-      "400:380:160:0"
-    ],
     "xu": [
       "b483034f-13fd-451d-a737-917cf059101f",
       2.5,
@@ -76,6 +76,7 @@
       "400:370:160:0"
     ]
   },
+  "case": "死去的人在照片里",
   "clips": [
     {
       "cast": [
@@ -5192,7 +5193,23 @@
       ],
       "seed": 917586,
       "title": "留下来的人"
+    },
+    {
+      "action": "Historical patient photo source",
+      "badge": "",
+      "cast": [
+        "jian"
+      ],
+      "duration": 10,
+      "episode": 55,
+      "id": "PROP-OLD",
+      "lines": [],
+      "prompt": "A ten-second 16:9 cinematic 2D hand-drawn anime historical archive photographic plate. Match supplied Jian Ci portrait exactly: pale young adult MAN, tousled black hair, NO glasses or hearing aid. He sits on the edge of a narrow metal bed in an old plain hospital room, wearing the SAME black turtleneck and charcoal jacket as portrait. His wrists rest separately on the bed rail; simple wide cloth safety straps loosely hold each wrist to rail, no gore, no struggling, no injuries. Only ONE person, no staff, no second head, no reflections. Neutral closed mouth, tired eyes facing camera, absolutely no talking. Faded low-saturation film appearance, subdued flat room light. Static eye-level medium-wide composition throughout; no camera moves, no generated text, no title cards, no captions, no voice or music, room ambience only. Plate will be used as a historical photograph.",
+      "refs": [
+        "jian"
+      ],
+      "seed": 918000,
+      "title": "旧病历照片"
     }
-  ],
-  "case": "死去的人在照片里"
+  ]
 }
