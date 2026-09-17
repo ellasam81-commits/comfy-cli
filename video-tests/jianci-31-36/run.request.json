@@ -1,19 +1,9 @@
 {
   "mode": "generate",
   "clip_ids": [
-    "52-03",
-    "54-04",
-    "54-06",
-    "56-01",
-    "56-04",
-    "58-05",
-    "51-03R",
-    "52-02R",
-    "54-05R",
-    "55-01R",
-    "57-04R",
-    "PROP-GROUP"
+    "57-03R",
+    "57-05R"
   ],
-  "max_seconds": 120,
-  "request_id": "jianci-51-58-final-story-and-targeted-corrections-20260917"
+  "max_seconds": 20,
+  "request_id": "jianci-57-key-and-bent-handle-once-20260917"
 }
