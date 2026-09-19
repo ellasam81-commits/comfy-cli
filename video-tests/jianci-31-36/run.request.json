@@ -1,9 +1,11 @@
 {
   "mode": "generate",
   "clip_ids": [
-    "57-03R",
-    "57-05R"
+    "59-02",
+    "62-04",
+    "63-03",
+    "64-01"
   ],
-  "max_seconds": 20,
-  "request_id": "jianci-57-key-and-bent-handle-once-20260917"
+  "max_seconds": 40,
+  "request_id": "jianci-59-66-critical-anchors-20260920"
 }

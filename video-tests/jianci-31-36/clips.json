@@ -5435,6 +5435,1112 @@
       ],
       "seed": 923575,
       "title": "没有血的走廊"
+    },
+    {
+      "id": "59-01",
+      "episode": 59,
+      "title": "没有共同的仇人",
+      "cast": [
+        "zhou"
+      ],
+      "refs": [
+        "zhou"
+      ],
+      "duration": 10,
+      "seed": 920591,
+      "lines": [
+        [
+          "zhou",
+          "宋远收到的威胁还在查。今天又有两人猝死，住址和工作都没有交集。",
+          "We are still tracing Song’s threat. Two people died suddenly today, with no shared home or workplace."
+        ]
+      ],
+      "action": "周砺在工作台分别装起两份档案，保持两条线分开。",
+      "badge": "接第58集·次日上午 / Next morning",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult MAN, short black hair, silver rectangular glasses, hearing aid on RIGHT ear, gray technical jacket. Precise male Mandarin voice. Scene chronological actions: 周砺在工作台分别装起两份档案，保持两条线分开。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 周砺 says: “宋远收到的威胁还在查。今天又有两人猝死，住址和工作都没有交集。”."
+    },
+    {
+      "id": "59-02",
+      "episode": 59,
+      "title": "没有共同的仇人",
+      "cast": [
+        "xu"
+      ],
+      "refs": [
+        "xu"
+      ],
+      "duration": 10,
+      "seed": 920592,
+      "lines": [
+        [
+          "xu",
+          "两具遗体已经检验，暂未发现致命外伤。留取检材做毒物检测，不能先定心脏病。",
+          "Both bodies were examined. No fatal external injury was found. Toxicology is pending; do not assume heart disease."
+        ]
+      ],
+      "action": "法医室，许未戴手套站在被白布完全覆盖的遗体旁，封好检材管；无裸露伤口。",
+      "badge": "法医室 / Mortuary",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult WOMAN, brown ponytail, green blouse under white forensic lab coat, NO glasses, never a black bob. Calm mature female Mandarin voice. Scene chronological actions: 法医室，许未戴手套站在被白布完全覆盖的遗体旁，封好检材管；无裸露伤口。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 许未 says: “两具遗体已经检验，暂未发现致命外伤。留取检材做毒物检测，不能先定心脏病。”."
+    },
+    {
+      "id": "59-03",
+      "episode": 59,
+      "title": "没有共同的仇人",
+      "cast": [
+        "lin"
+      ],
+      "refs": [
+        "lin"
+      ],
+      "duration": 10,
+      "seed": 920593,
+      "lines": [
+        [
+          "lin",
+          "家属说，他们出事前都吃过止痛胶囊。先找原包装，别只记药名。",
+          "Both families report painkiller use before collapse. Find the original packages, not just the drug names."
+        ]
+      ],
+      "action": "林浅将两个独立证物袋摆在桌上，袋内白瓶橙盖蓝色环带，不开瓶。",
+      "badge": "",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult WOMAN, chin-length straight black bob, navy police uniform. NO glasses, NO white coat, NO hearing aid. Clear steady female Mandarin voice. Scene chronological actions: 林浅将两个独立证物袋摆在桌上，袋内白瓶橙盖蓝色环带，不开瓶。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 林浅 says: “家属说，他们出事前都吃过止痛胶囊。先找原包装，别只记药名。”."
+    },
+    {
+      "id": "59-04",
+      "episode": 59,
+      "title": "没有共同的仇人",
+      "cast": [
+        "han"
+      ],
+      "refs": [
+        "han"
+      ],
+      "duration": 10,
+      "seed": 920594,
+      "lines": [
+        [
+          "han",
+          "又接到第三起。三个人互不认识，难道凶手根本不用见他们？",
+          "A third death has been reported. They did not know one another. Did the killer never need to meet them?"
+        ]
+      ],
+      "action": "韩彻在门边接到对讲机报告，放下对讲机后说话，右腕旧敷料保留。",
+      "badge": "",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Middle-aged MAN, short dark hair with gray temples, scar at RIGHT eyebrow, navy police uniform. NO glasses. Firm low male Mandarin voice. Small OLD white dressing RIGHT wrist, LEFT forearm intact until the bite in episode63.  Scene chronological actions: 韩彻在门边接到对讲机报告，放下对讲机后说话，右腕旧敷料保留。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 韩彻 says: “又接到第三起。三个人互不认识，难道凶手根本不用见他们？”."
+    },
+    {
+      "id": "59-05",
+      "episode": 59,
+      "title": "没有共同的仇人",
+      "cast": [
+        "jian"
+      ],
+      "refs": [
+        "jian"
+      ],
+      "duration": 10,
+      "seed": 920595,
+      "lines": [
+        [
+          "jian",
+          "别只查他们认识谁，也查他们用过什么。我只看材料，不接触现场。",
+          "Check what they used as well as whom they knew. I will review records, without attending scenes."
+        ]
+      ],
+      "action": "剑刺独自在观察房桌前使用固定视频终端，门关闭，不在警局。",
+      "badge": "观察房·视频连线 / Observation room · video link",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult pale MAN, tousled short black hair, charcoal jacket over black turtleneck. NO glasses, NO hearing aid. Restrained low male Mandarin voice. Scene chronological actions: 剑刺独自在观察房桌前使用固定视频终端，门关闭，不在警局。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 剑刺 says: “别只查他们认识谁，也查他们用过什么。我只看材料，不接触现场。”."
+    },
+    {
+      "id": "59-06",
+      "episode": 59,
+      "title": "没有共同的仇人",
+      "cast": [
+        "lin"
+      ],
+      "refs": [
+        "lin"
+      ],
+      "duration": 10,
+      "seed": 920596,
+      "lines": [
+        [
+          "lin",
+          "先把三人的用药时间排出来。我们要找的，可能是还没出事的第四个人。",
+          "Build a medication timeline for all three. We may be looking for a fourth person who is still alive."
+        ]
+      ],
+      "action": "林浅在调查台拿起电话，准备查找潜在受害者；不出现地图小字。",
+      "badge": "",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult WOMAN, chin-length straight black bob, navy police uniform. NO glasses, NO white coat, NO hearing aid. Clear steady female Mandarin voice. Scene chronological actions: 林浅在调查台拿起电话，准备查找潜在受害者；不出现地图小字。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 林浅 says: “先把三人的用药时间排出来。我们要找的，可能是还没出事的第四个人。”."
+    },
+    {
+      "id": "60-01",
+      "episode": 60,
+      "title": "同一种日常",
+      "cast": [
+        "xu"
+      ],
+      "refs": [
+        "xu"
+      ],
+      "duration": 10,
+      "seed": 920601,
+      "lines": [
+        [
+          "xu",
+          "毒物检测初步阳性，三份检材指向同一类毒物。还要复核，并检测剩下的胶囊。",
+          "Initial toxicology points to the same poison class in all three. Confirm it and test the remaining capsules."
+        ]
+      ],
+      "action": "许未在实验室将封好的检材架交向画外，不示范任何毒物制备。",
+      "badge": "次日·初检结果 / Next day · initial results",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult WOMAN, brown ponytail, green blouse under white forensic lab coat, NO glasses, never a black bob. Calm mature female Mandarin voice. Scene chronological actions: 许未在实验室将封好的检材架交向画外，不示范任何毒物制备。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 许未 says: “毒物检测初步阳性，三份检材指向同一类毒物。还要复核，并检测剩下的胶囊。”."
+    },
+    {
+      "id": "60-02",
+      "episode": 60,
+      "title": "同一种日常",
+      "cast": [
+        "zhou"
+      ],
+      "refs": [
+        "zhou"
+      ],
+      "duration": 10,
+      "seed": 920602,
+      "lines": [
+        [
+          "zhou",
+          "三瓶是同一品牌，却不是同一批次。不能只追一个生产批号。",
+          "The bottles share a brand but not a batch. One production batch cannot define the search."
+        ]
+      ],
+      "action": "周砺戴手套将三个封闭证物袋分开摆放，白瓶橙盖蓝环保持一致，不读生成标签。",
+      "badge": "",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult MAN, short black hair, silver rectangular glasses, hearing aid on RIGHT ear, gray technical jacket. Precise male Mandarin voice. Scene chronological actions: 周砺戴手套将三个封闭证物袋分开摆放，白瓶橙盖蓝环保持一致，不读生成标签。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 周砺 says: “三瓶是同一品牌，却不是同一批次。不能只追一个生产批号。”."
+    },
+    {
+      "id": "60-03",
+      "episode": 60,
+      "title": "同一种日常",
+      "cast": [
+        "lin"
+      ],
+      "refs": [
+        "lin"
+      ],
+      "duration": 10,
+      "seed": 920603,
+      "lines": [
+        [
+          "lin",
+          "一个在药店买，一个网购，第三个是领的赠品。购买地点也不同。",
+          "One was bought at a pharmacy, one online, and one received as a gift. The sources differ too."
+        ]
+      ],
+      "action": "林浅逐一摆出三张收据，背面朝镜头；手势清晰。",
+      "badge": "",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult WOMAN, chin-length straight black bob, navy police uniform. NO glasses, NO white coat, NO hearing aid. Clear steady female Mandarin voice. Scene chronological actions: 林浅逐一摆出三张收据，背面朝镜头；手势清晰。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 林浅 says: “一个在药店买，一个网购，第三个是领的赠品。购买地点也不同。”."
+    },
+    {
+      "id": "60-04",
+      "episode": 60,
+      "title": "同一种日常",
+      "cast": [
+        "han"
+      ],
+      "refs": [
+        "han"
+      ],
+      "duration": 10,
+      "seed": 920604,
+      "lines": [
+        [
+          "han",
+          "立即通报监管和医院，通知停用排查。别等锁定凶手，才去提醒买过的人。",
+          "Notify regulators and hospitals now and warn users to stop pending checks. Do not wait to identify the killer."
+        ]
+      ],
+      "action": "韩彻站在指挥台下达指令，右腕旧敷料；台词结束再按对讲机。",
+      "badge": "",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Middle-aged MAN, short dark hair with gray temples, scar at RIGHT eyebrow, navy police uniform. NO glasses. Firm low male Mandarin voice. Small OLD white dressing RIGHT wrist, LEFT forearm intact until the bite in episode63.  Scene chronological actions: 韩彻站在指挥台下达指令，右腕旧敷料；台词结束再按对讲机。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 韩彻 says: “立即通报监管和医院，通知停用排查。别等锁定凶手，才去提醒买过的人。”."
+    },
+    {
+      "id": "60-05",
+      "episode": 60,
+      "title": "同一种日常",
+      "cast": [
+        "xu"
+      ],
+      "refs": [
+        "xu"
+      ],
+      "duration": 10,
+      "seed": 920605,
+      "lines": [
+        [
+          "xu",
+          "包装没破，也不能证明里面安全。取样、封存、对照检测，一步都不能省。",
+          "An intact-looking package is no guarantee. Sampling, sealed evidence and comparison tests all matter."
+        ]
+      ],
+      "action": "许未戴手套封存药瓶，不开瓶不闻药，实验室有收样托盘。",
+      "badge": "",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult WOMAN, brown ponytail, green blouse under white forensic lab coat, NO glasses, never a black bob. Calm mature female Mandarin voice. Scene chronological actions: 许未戴手套封存药瓶，不开瓶不闻药，实验室有收样托盘。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 许未 says: “包装没破，也不能证明里面安全。取样、封存、对照检测，一步都不能省。”."
+    },
+    {
+      "id": "60-06",
+      "episode": 60,
+      "title": "同一种日常",
+      "cast": [
+        "zhou"
+      ],
+      "refs": [
+        "zhou"
+      ],
+      "duration": 10,
+      "seed": 920606,
+      "lines": [
+        [
+          "zhou",
+          "赠品的配送记录找到了。还有一箱，已经签收到剑刺住的观察楼。",
+          "The gift shipment records are here. Another box was signed for at Jian’s observation building."
+        ]
+      ],
+      "action": "周砺看终端后立即拿起电话，镜头停在脸和听筒，不展示乱码地址。",
+      "badge": "",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult MAN, short black hair, silver rectangular glasses, hearing aid on RIGHT ear, gray technical jacket. Precise male Mandarin voice. Scene chronological actions: 周砺看终端后立即拿起电话，镜头停在脸和听筒，不展示乱码地址。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 周砺 says: “赠品的配送记录找到了。还有一箱，已经签收到剑刺住的观察楼。”."
+    },
+    {
+      "id": "61-01",
+      "episode": 61,
+      "title": "签收之后",
+      "cast": [
+        "lin"
+      ],
+      "refs": [
+        "lin"
+      ],
+      "duration": 10,
+      "seed": 920611,
+      "lines": [
+        [
+          "lin",
+          "剑刺，别碰那箱东西。把收货人和签收时间告诉我，我们通知院方。",
+          "Jian, do not touch the box. Tell me who received it and when; we will alert the facility."
+        ]
+      ],
+      "action": "林浅在视频工作台紧急询问，不在观察楼内。",
+      "badge": "同日下午 / Same afternoon",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult WOMAN, chin-length straight black bob, navy police uniform. NO glasses, NO white coat, NO hearing aid. Clear steady female Mandarin voice. Scene chronological actions: 林浅在视频工作台紧急询问，不在观察楼内。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 林浅 says: “剑刺，别碰那箱东西。把收货人和签收时间告诉我，我们通知院方。”."
+    },
+    {
+      "id": "61-02",
+      "episode": 61,
+      "title": "签收之后",
+      "cast": [
+        "jian"
+      ],
+      "refs": [
+        "jian"
+      ],
+      "duration": 10,
+      "seed": 920612,
+      "lines": [
+        [
+          "jian",
+          "我没有离开房间。走廊的交接单写着，东西送去了值班休息室。",
+          "I stayed in my room. The handover notice says the delivery went to the staff break room."
+        ]
+      ],
+      "action": "剑刺在门内透过观察窗看走廊交接板，回到对讲面板报告，门不开。",
+      "badge": "观察房 / Observation room",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult pale MAN, tousled short black hair, charcoal jacket over black turtleneck. NO glasses, NO hearing aid. Restrained low male Mandarin voice. Scene chronological actions: 剑刺在门内透过观察窗看走廊交接板，回到对讲面板报告，门不开。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 剑刺 says: “我没有离开房间。走廊的交接单写着，东西送去了值班休息室。”."
+    },
+    {
+      "id": "61-03",
+      "episode": 61,
+      "title": "签收之后",
+      "cast": [
+        "han"
+      ],
+      "refs": [
+        "han"
+      ],
+      "duration": 10,
+      "seed": 920613,
+      "lines": [
+        [
+          "han",
+          "院方已停发，值班人员正在核对。箱子先隔离，服用过的人交医生评估。",
+          "Distribution has stopped and staff are checking recipients. Isolate the box; clinicians assess anyone who took it."
+        ]
+      ],
+      "action": "韩彻到观察楼行政走廊，右腕旧敷料，对讲机在胸口。",
+      "badge": "观察楼 / Observation building",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Middle-aged MAN, short dark hair with gray temples, scar at RIGHT eyebrow, navy police uniform. NO glasses. Firm low male Mandarin voice. Small OLD white dressing RIGHT wrist, LEFT forearm intact until the bite in episode63.  Scene chronological actions: 韩彻到观察楼行政走廊，右腕旧敷料，对讲机在胸口。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 韩彻 says: “院方已停发，值班人员正在核对。箱子先隔离，服用过的人交医生评估。”."
+    },
+    {
+      "id": "61-04",
+      "episode": 61,
+      "title": "签收之后",
+      "cast": [
+        "zhou"
+      ],
+      "refs": [
+        "zhou"
+      ],
+      "duration": 10,
+      "seed": 920614,
+      "lines": [
+        [
+          "zhou",
+          "签收不等于整箱都在。清点发现，少了一瓶，登记本上没有去向。",
+          "A signed delivery does not mean the whole box remains. One bottle is missing, with no destination recorded."
+        ]
+      ],
+      "action": "周砺在警局看远程清点记录，指着空出的列表行但画面不依赖文字。",
+      "badge": "警局 / Police office",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult MAN, short black hair, silver rectangular glasses, hearing aid on RIGHT ear, gray technical jacket. Precise male Mandarin voice. Scene chronological actions: 周砺在警局看远程清点记录，指着空出的列表行但画面不依赖文字。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 周砺 says: “签收不等于整箱都在。清点发现，少了一瓶，登记本上没有去向。”."
+    },
+    {
+      "id": "61-05",
+      "episode": 61,
+      "title": "签收之后",
+      "cast": [
+        "xu"
+      ],
+      "refs": [
+        "xu"
+      ],
+      "duration": 10,
+      "seed": 920615,
+      "lines": [
+        [
+          "xu",
+          "又找到一名服药者，暂时没症状。交临床评估，不能看着没事就让他离开。",
+          "Another person took the medicine but has no symptoms yet. Clinicians must assess them; appearance alone is not enough."
+        ]
+      ],
+      "action": "许未在医院协调台将记录递向画外医生，自己不诊断或开药。",
+      "badge": "院内协调 / Hospital coordination",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult WOMAN, brown ponytail, green blouse under white forensic lab coat, NO glasses, never a black bob. Calm mature female Mandarin voice. Scene chronological actions: 许未在医院协调台将记录递向画外医生，自己不诊断或开药。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 许未 says: “又找到一名服药者，暂时没症状。交临床评估，不能看着没事就让他离开。”."
+    },
+    {
+      "id": "61-06",
+      "episode": 61,
+      "title": "签收之后",
+      "cast": [
+        "jian"
+      ],
+      "refs": [
+        "jian"
+      ],
+      "duration": 10,
+      "seed": 920616,
+      "lines": [
+        [
+          "jian",
+          "走廊有人倒下了。就在我门口。韩彻，叫医生，别让其他人围过来！",
+          "Someone has collapsed outside my door. Han, call the clinicians and keep the corridor clear!"
+        ]
+      ],
+      "action": "剑刺从椅子起身望向关闭的观察门，门外倒下声；只见剑刺本人。",
+      "badge": "",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult pale MAN, tousled short black hair, charcoal jacket over black turtleneck. NO glasses, NO hearing aid. Restrained low male Mandarin voice. Scene chronological actions: 剑刺从椅子起身望向关闭的观察门，门外倒下声；只见剑刺本人。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 剑刺 says: “走廊有人倒下了。就在我门口。韩彻，叫医生，别让其他人围过来！”."
+    },
+    {
+      "id": "62-01",
+      "episode": 62,
+      "title": "门外还有人",
+      "cast": [
+        "han"
+      ],
+      "refs": [
+        "han"
+      ],
+      "duration": 10,
+      "seed": 920621,
+      "lines": [
+        [
+          "han",
+          "医生已经在过来。剑刺，先留在门内。你把看到的情况说清楚。",
+          "Clinicians are coming. Jian, stay inside for now and describe what you can see."
+        ]
+      ],
+      "action": "韩彻在走廊快步朝观察房方向，右腕旧敷料，左前臂未受伤。",
+      "badge": "紧接上集 / Immediately afterward",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Middle-aged MAN, short dark hair with gray temples, scar at RIGHT eyebrow, navy police uniform. NO glasses. Firm low male Mandarin voice. Small OLD white dressing RIGHT wrist, LEFT forearm intact until the bite in episode63.  Scene chronological actions: 韩彻在走廊快步朝观察房方向，右腕旧敷料，左前臂未受伤。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 韩彻 says: “医生已经在过来。剑刺，先留在门内。你把看到的情况说清楚。”."
+    },
+    {
+      "id": "62-02",
+      "episode": 62,
+      "title": "门外还有人",
+      "cast": [
+        "jian"
+      ],
+      "refs": [
+        "jian"
+      ],
+      "duration": 10,
+      "seed": 920622,
+      "lines": [
+        [
+          "jian",
+          "他倒下时撞了额头，脸贴着地。门往里开，我能把门口让出来。",
+          "He struck his forehead and fell face-down. My door opens inward; I can clear the doorway."
+        ]
+      ],
+      "action": "剑刺从门内拉开向内开启的门，镜头只拍剑刺和门；门外病人不在画面中。",
+      "badge": "",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult pale MAN, tousled short black hair, charcoal jacket over black turtleneck. NO glasses, NO hearing aid. Restrained low male Mandarin voice. Scene chronological actions: 剑刺从门内拉开向内开启的门，镜头只拍剑刺和门；门外病人不在画面中。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 剑刺 says: “他倒下时撞了额头，脸贴着地。门往里开，我能把门口让出来。”."
+    },
+    {
+      "id": "62-03",
+      "episode": 62,
+      "title": "门外还有人",
+      "cast": [
+        "lin"
+      ],
+      "refs": [
+        "lin"
+      ],
+      "duration": 10,
+      "seed": 920623,
+      "lines": [
+        [
+          "lin",
+          "先听现场医生指挥。剑刺，你的接触限制没有取消，救援到了就退开。",
+          "Follow the clinician at the scene. Jian, your contact restriction remains; step back as soon as help arrives."
+        ]
+      ],
+      "action": "林浅赶往观察楼，停在走廊另一端说话；黑发短波波头警服不变。",
+      "badge": "观察楼 / Observation building",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult WOMAN, chin-length straight black bob, navy police uniform. NO glasses, NO white coat, NO hearing aid. Clear steady female Mandarin voice. Scene chronological actions: 林浅赶往观察楼，停在走廊另一端说话；黑发短波波头警服不变。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 林浅 says: “先听现场医生指挥。剑刺，你的接触限制没有取消，救援到了就退开。”."
+    },
+    {
+      "id": "62-04",
+      "episode": 62,
+      "title": "门外还有人",
+      "cast": [
+        "jian"
+      ],
+      "refs": [
+        "jian"
+      ],
+      "duration": 10,
+      "seed": 920624,
+      "lines": [
+        [
+          "jian",
+          "我只是想把他扶住。可我闻到血了。韩彻，接住他，我要退开。",
+          "I only meant to support him, but I can smell blood. Han, take him; I need to step back."
+        ]
+      ],
+      "action": "剑刺跪在地面，双手支撑画外病人后放开，抬头时眼底短暂暗红；镜头不露病人脸。",
+      "badge": "",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult pale MAN, tousled short black hair, charcoal jacket over black turtleneck. NO glasses, NO hearing aid. Restrained low male Mandarin voice. Scene chronological actions: 剑刺跪在地面，双手支撑画外病人后放开，抬头时眼底短暂暗红；镜头不露病人脸。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 剑刺 says: “我只是想把他扶住。可我闻到血了。韩彻，接住他，我要退开。”."
+    },
+    {
+      "id": "62-05",
+      "episode": 62,
+      "title": "门外还有人",
+      "cast": [
+        "han"
+      ],
+      "refs": [
+        "han"
+      ],
+      "duration": 10,
+      "seed": 920625,
+      "lines": [
+        [
+          "han",
+          "我接住了，医生也到了。你松手，退到门里面，别再靠近。",
+          "I have him and the clinicians are here. Let go, step back inside and keep your distance."
+        ]
+      ],
+      "action": "韩彻半蹲后起身，病人和医护保持画外。右腕旧敷料，左前臂袖口露出完整皮肤。",
+      "badge": "",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Middle-aged MAN, short dark hair with gray temples, scar at RIGHT eyebrow, navy police uniform. NO glasses. Firm low male Mandarin voice. Small OLD white dressing RIGHT wrist, LEFT forearm intact until the bite in episode63.  Scene chronological actions: 韩彻半蹲后起身，病人和医护保持画外。右腕旧敷料，左前臂袖口露出完整皮肤。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 韩彻 says: “我接住了，医生也到了。你松手，退到门里面，别再靠近。”."
+    },
+    {
+      "id": "62-06",
+      "episode": 62,
+      "title": "门外还有人",
+      "cast": [
+        "jian"
+      ],
+      "refs": [
+        "jian"
+      ],
+      "duration": 10,
+      "seed": 920626,
+      "lines": [
+        [
+          "jian",
+          "我已经松手了。为什么心跳还这么近？韩彻，你先退开。",
+          "I have let go. Why is the heartbeat still so close? Han, step away first."
+        ]
+      ],
+      "action": "剑刺靠门框，手颤，嘴角显出尖牙；背景不出现第二个剑刺。",
+      "badge": "",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult pale MAN, tousled short black hair, charcoal jacket over black turtleneck. NO glasses, NO hearing aid. Restrained low male Mandarin voice. Scene chronological actions: 剑刺靠门框，手颤，嘴角显出尖牙；背景不出现第二个剑刺。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 剑刺 says: “我已经松手了。为什么心跳还这么近？韩彻，你先退开。”."
+    },
+    {
+      "id": "63-01",
+      "episode": 63,
+      "title": "这一次没有停住",
+      "cast": [
+        "han"
+      ],
+      "refs": [
+        "han"
+      ],
+      "duration": 10,
+      "seed": 920631,
+      "lines": [
+        [
+          "han",
+          "医护接手了。剑刺，看着我。把手松开，退回房间。",
+          "The clinicians have taken over. Jian, look at me. Let go and step back into your room."
+        ]
+      ],
+      "action": "韩彻单人近景伸出左前臂挡住通向画外病人的路线，左袖稍推起，右腕旧敷料。",
+      "badge": "紧接上集 / Immediately afterward",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Middle-aged MAN, short dark hair with gray temples, scar at RIGHT eyebrow, navy police uniform. NO glasses. Firm low male Mandarin voice. Small OLD white dressing RIGHT wrist, LEFT forearm intact until the bite in episode63.  Scene chronological actions: 韩彻单人近景伸出左前臂挡住通向画外病人的路线，左袖稍推起，右腕旧敷料。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 韩彻 says: “医护接手了。剑刺，看着我。把手松开，退回房间。”."
+    },
+    {
+      "id": "63-02",
+      "episode": 63,
+      "title": "这一次没有停住",
+      "cast": [
+        "jian"
+      ],
+      "refs": [
+        "jian"
+      ],
+      "duration": 10,
+      "seed": 920632,
+      "lines": [
+        [
+          "jian",
+          "我听得见你。可我停不下来。韩彻，退开！",
+          "I can hear you, but I cannot stop. Han, get back!"
+        ]
+      ],
+      "action": "剑刺单人面部近景，暗红眼和两颗上犬齿清楚但不过分，身体向前失衡。",
+      "badge": "",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult pale MAN, tousled short black hair, charcoal jacket over black turtleneck. NO glasses, NO hearing aid. Restrained low male Mandarin voice. Scene chronological actions: 剑刺单人面部近景，暗红眼和两颗上犬齿清楚但不过分，身体向前失衡。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 剑刺 says: “我听得见你。可我停不下来。韩彻，退开！”."
+    },
+    {
+      "id": "63-03",
+      "episode": 63,
+      "title": "这一次没有停住",
+      "cast": [
+        "jian",
+        "han"
+      ],
+      "refs": [
+        "jian",
+        "han"
+      ],
+      "duration": 10,
+      "seed": 920633,
+      "lines": [
+        [
+          "han",
+          "啊！剑刺，松口！",
+          "Ah! Jian, let go!"
+        ]
+      ],
+      "action": "双人中近景：剑刺抓住韩彻左前臂，短暂咬住暴露皮肤，韩彻痛喊并试图挣开。剑刺随后松口退开。只少量血点，不撕肉。右腕旧敷料不可移到左腕。",
+      "badge": "",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Adult pale MAN, tousled short black hair, charcoal jacket over black turtleneck. NO glasses, NO hearing aid. Restrained low male Mandarin voice. Middle-aged MAN, short dark hair with gray temples, scar at RIGHT eyebrow, navy police uniform. NO glasses. Firm low male Mandarin voice. Scene chronological actions: Exactly TWO people: Jian on screen LEFT in charcoal jacket; Han on screen RIGHT in navy police uniform. Han extends his anatomical LEFT forearm, bare skin above cuff, across Jian to block him. Jian grasps that left forearm, opens mouth with visible upper fangs, makes brief unmistakable biting contact on the forearm for one second. Han recoils in pain and shouts the exact short line. Jian releases and steps backward. Show a tiny red bite mark on the SAME left forearm, no gore, no torn flesh. Han RIGHT wrist old white dressing stays on the opposite arm. Never bite the neck, never switch arms, never romantic or sexual. Continuous fixed medium two-shot. Only Han shouts; Jian makes no silent speech. Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 韩彻 says: “啊！剑刺，松口！”."
+    },
+    {
+      "id": "63-04",
+      "episode": 63,
+      "title": "这一次没有停住",
+      "cast": [
+        "lin"
+      ],
+      "refs": [
+        "lin"
+      ],
+      "duration": 10,
+      "seed": 920634,
+      "lines": [
+        [
+          "lin",
+          "把韩彻带走，隔开剑刺！叫医生止血，记录仪别关！",
+          "Move Han away and separate Jian! Get clinical help for the bleeding. Keep the body camera recording!"
+        ]
+      ],
+      "action": "林浅独自在观察门侧控制隔离门，面向画外呼叫支援，不把其他人的脸拼入画面。",
+      "badge": "",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult WOMAN, chin-length straight black bob, navy police uniform. NO glasses, NO white coat, NO hearing aid. Clear steady female Mandarin voice. Scene chronological actions: 林浅独自在观察门侧控制隔离门，面向画外呼叫支援，不把其他人的脸拼入画面。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 林浅 says: “把韩彻带走，隔开剑刺！叫医生止血，记录仪别关！”."
+    },
+    {
+      "id": "63-05",
+      "episode": 63,
+      "title": "这一次没有停住",
+      "cast": [
+        "jian"
+      ],
+      "refs": [
+        "jian"
+      ],
+      "duration": 10,
+      "seed": 920635,
+      "lines": [
+        [
+          "jian",
+          "我咬了他。我记得每一下。别写成意外，是我伤了人。",
+          "I bit him. I remember every moment. Do not call it an accident. I hurt him."
+        ]
+      ],
+      "action": "剑刺在房间内坐到地上，嘴角仅一小点血，尖牙已收，双手摊开放膝上，镜头不浪漫化。",
+      "badge": "隔离后 / After separation",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult pale MAN, tousled short black hair, charcoal jacket over black turtleneck. NO glasses, NO hearing aid. Restrained low male Mandarin voice. Scene chronological actions: 剑刺在房间内坐到地上，嘴角仅一小点血，尖牙已收，双手摊开放膝上，镜头不浪漫化。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 剑刺 says: “我咬了他。我记得每一下。别写成意外，是我伤了人。”."
+    },
+    {
+      "id": "63-06",
+      "episode": 63,
+      "title": "这一次没有停住",
+      "cast": [
+        "xu"
+      ],
+      "refs": [
+        "xu"
+      ],
+      "duration": 10,
+      "seed": 920636,
+      "lines": [
+        [
+          "xu",
+          "韩彻左前臂咬伤，手指发麻。先由医生救治，再由独立人员取证。",
+          "Han has a bite to his left forearm and numb fingers. Clinical care comes first, followed by independent evidence collection."
+        ]
+      ],
+      "action": "许未在急诊门外向记录设备报告，白外套绿衬衫马尾，不亲自给韩彻做法医鉴定。",
+      "badge": "急诊 / Emergency department",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult WOMAN, brown ponytail, green blouse under white forensic lab coat, NO glasses, never a black bob. Calm mature female Mandarin voice. Scene chronological actions: 许未在急诊门外向记录设备报告，白外套绿衬衫马尾，不亲自给韩彻做法医鉴定。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 许未 says: “韩彻左前臂咬伤，手指发麻。先由医生救治，再由独立人员取证。”."
+    },
+    {
+      "id": "64-01",
+      "episode": 64,
+      "title": "救人不能抵消",
+      "cast": [
+        "han"
+      ],
+      "refs": [
+        "han"
+      ],
+      "duration": 10,
+      "seed": 920641,
+      "lines": [
+        [
+          "han",
+          "手还麻着，医生说要复查。我暂时不能拿枪，也不能出现场。",
+          "My hand is still numb and needs follow-up. For now I cannot carry a firearm or attend scenes."
+        ]
+      ],
+      "action": "韩彻独自在病房椅上，左前臂新白色敷料和吊带，右手没有新伤，旧右腕敷料保留，身体疲惫。",
+      "badge": "次日上午 / Next morning",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Middle-aged MAN, short dark hair with gray temples, scar at RIGHT eyebrow, navy police uniform. NO glasses. Firm low male Mandarin voice. Scene chronological actions: Han alone seated in a hospital room. His anatomical LEFT forearm has fresh white dressing supported by a navy sling across his chest. His RIGHT wrist retains a small old dressing; fingers normal. Slowly tries to move left fingers, stops with discomfort, speaks then closes mouth. Keep clothes and forearm positions consistent. Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 韩彻 says: “手还麻着，医生说要复查。我暂时不能拿枪，也不能出现场。”."
+    },
+    {
+      "id": "64-02",
+      "episode": 64,
+      "title": "救人不能抵消",
+      "cast": [
+        "lin"
+      ],
+      "refs": [
+        "lin"
+      ],
+      "duration": 10,
+      "seed": 920642,
+      "lines": [
+        [
+          "lin",
+          "他救了人，也咬伤了你。这两件事都得写清楚，不能互相抵消。",
+          "He helped a patient and he bit you. Both facts must be recorded. One does not cancel the other."
+        ]
+      ],
+      "action": "林浅独自在病房门口，手持记录本，态度克制；不出现第二个林浅。",
+      "badge": "",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult WOMAN, chin-length straight black bob, navy police uniform. NO glasses, NO white coat, NO hearing aid. Clear steady female Mandarin voice. Scene chronological actions: 林浅独自在病房门口，手持记录本，态度克制；不出现第二个林浅。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 林浅 says: “他救了人，也咬伤了你。这两件事都得写清楚，不能互相抵消。”."
+    },
+    {
+      "id": "64-03",
+      "episode": 64,
+      "title": "救人不能抵消",
+      "cast": [
+        "jian"
+      ],
+      "refs": [
+        "jian"
+      ],
+      "duration": 10,
+      "seed": 920643,
+      "lines": [
+        [
+          "jian",
+          "不用替我解释。我接受调查，也停止接触伤者。韩彻有权不见我。",
+          "Do not make excuses for me. I accept the investigation and no contact with patients. Han may refuse to see me."
+        ]
+      ],
+      "action": "剑刺独自在加强观察房椅上，双手可见，嘴角血已清理，门关闭。",
+      "badge": "加强观察 / Enhanced observation",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult pale MAN, tousled short black hair, charcoal jacket over black turtleneck. NO glasses, NO hearing aid. Restrained low male Mandarin voice. Scene chronological actions: 剑刺独自在加强观察房椅上，双手可见，嘴角血已清理，门关闭。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 剑刺 says: “不用替我解释。我接受调查，也停止接触伤者。韩彻有权不见我。”."
+    },
+    {
+      "id": "64-04",
+      "episode": 64,
+      "title": "救人不能抵消",
+      "cast": [
+        "zhou"
+      ],
+      "refs": [
+        "zhou"
+      ],
+      "duration": 10,
+      "seed": 920644,
+      "lines": [
+        [
+          "zhou",
+          "记录仪拍下了全过程。保存原片、证人笔录和检材，不靠牙印认人。",
+          "The body camera recorded it. Preserve the original, witness accounts and samples; tooth marks alone cannot identify a person."
+        ]
+      ],
+      "action": "周砺在取证电脑前，将存储卡放入证物袋，镜头不展示咬伤回放的错误人脸。",
+      "badge": "",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult MAN, short black hair, silver rectangular glasses, hearing aid on RIGHT ear, gray technical jacket. Precise male Mandarin voice. Scene chronological actions: 周砺在取证电脑前，将存储卡放入证物袋，镜头不展示咬伤回放的错误人脸。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 周砺 says: “记录仪拍下了全过程。保存原片、证人笔录和检材，不靠牙印认人。”."
+    },
+    {
+      "id": "64-05",
+      "episode": 64,
+      "title": "救人不能抵消",
+      "cast": [
+        "xu"
+      ],
+      "refs": [
+        "xu"
+      ],
+      "duration": 10,
+      "seed": 920645,
+      "lines": [
+        [
+          "xu",
+          "目前没有证据说被咬就会变。伤口和感染风险，交给临床持续评估。",
+          "There is no evidence that a bite causes transformation. Clinicians must keep assessing the wound and infection risk."
+        ]
+      ],
+      "action": "许未在医院讨论室对画外同事解释，手势指向合起的病历，避免奇幻诊断。",
+      "badge": "",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult WOMAN, brown ponytail, green blouse under white forensic lab coat, NO glasses, never a black bob. Calm mature female Mandarin voice. Scene chronological actions: 许未在医院讨论室对画外同事解释，手势指向合起的病历，避免奇幻诊断。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 许未 says: “目前没有证据说被咬就会变。伤口和感染风险，交给临床持续评估。”."
+    },
+    {
+      "id": "64-06",
+      "episode": 64,
+      "title": "救人不能抵消",
+      "cast": [
+        "han"
+      ],
+      "refs": [
+        "han"
+      ],
+      "duration": 10,
+      "seed": 920646,
+      "lines": [
+        [
+          "han",
+          "我现在不想见他。先查清那箱药从哪来，别让更多人受伤。",
+          "I do not want to see him now. Trace that box of medicine before anyone else is harmed."
+        ]
+      ],
+      "action": "韩彻病房近景，左臂吊带和敷料位置不变，目光坚定，不突然原谅。",
+      "badge": "",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Middle-aged MAN, short dark hair with gray temples, scar at RIGHT eyebrow, navy police uniform. NO glasses. Firm low male Mandarin voice. Scene chronological actions: Han alone seated in the same hospital room. Fresh white dressing on anatomical LEFT forearm and navy sling; small old white dressing on RIGHT wrist. Resolute exhausted face. Speaks calmly, no smiling, closes lips at end. Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 韩彻 says: “我现在不想见他。先查清那箱药从哪来，别让更多人受伤。”."
+    },
+    {
+      "id": "65-01",
+      "episode": 65,
+      "title": "被改过的地址",
+      "cast": [
+        "zhou"
+      ],
+      "refs": [
+        "zhou"
+      ],
+      "duration": 10,
+      "seed": 920651,
+      "lines": [
+        [
+          "zhou",
+          "复检确认，胶囊里也有相同毒物。出厂留样没检出，污染环节还得沿配送查。",
+          "Confirmation tests found the same poison in capsules. Factory retains tested negative; trace the distribution chain."
+        ]
+      ],
+      "action": "周砺将实验室报告与配送单并排比较；不展示毒物名称用量或投放方法。",
+      "badge": "两日后·复检完成 / Two days later · confirmation tests",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult MAN, short black hair, silver rectangular glasses, hearing aid on RIGHT ear, gray technical jacket. Precise male Mandarin voice. Scene chronological actions: 周砺将实验室报告与配送单并排比较；不展示毒物名称用量或投放方法。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 周砺 says: “复检确认，胶囊里也有相同毒物。出厂留样没检出，污染环节还得沿配送查。”."
+    },
+    {
+      "id": "65-02",
+      "episode": 65,
+      "title": "被改过的地址",
+      "cast": [
+        "lin"
+      ],
+      "refs": [
+        "lin"
+      ],
+      "duration": 10,
+      "seed": 920652,
+      "lines": [
+        [
+          "lin",
+          "同批货送了不同地点。有人改过其中一箱的地址，点名送到观察楼。",
+          "The shipment went to several places. Someone changed one box’s address specifically to the observation building."
+        ]
+      ],
+      "action": "林浅戴手套把两份配送单分开放好，背面朝镜头，不靠难读纸面字解释。",
+      "badge": "",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult WOMAN, chin-length straight black bob, navy police uniform. NO glasses, NO white coat, NO hearing aid. Clear steady female Mandarin voice. Scene chronological actions: 林浅戴手套把两份配送单分开放好，背面朝镜头，不靠难读纸面字解释。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 林浅 says: “同批货送了不同地点。有人改过其中一箱的地址，点名送到观察楼。”."
+    },
+    {
+      "id": "65-03",
+      "episode": 65,
+      "title": "被改过的地址",
+      "cast": [
+        "zhou"
+      ],
+      "refs": [
+        "zhou"
+      ],
+      "duration": 10,
+      "seed": 920653,
+      "lines": [
+        [
+          "zhou",
+          "改址账户收过陆闻舟那家公司的钱。只有这条记录，还不能证明是谁指使。",
+          "The account that changed the address received money from Lu’s company. That record alone does not identify the person directing it."
+        ]
+      ],
+      "action": "周砺在电脑前比对付款记录，镜头锁定脸，交易内容由台词交代。",
+      "badge": "",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult MAN, short black hair, silver rectangular glasses, hearing aid on RIGHT ear, gray technical jacket. Precise male Mandarin voice. Scene chronological actions: 周砺在电脑前比对付款记录，镜头锁定脸，交易内容由台词交代。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 周砺 says: “改址账户收过陆闻舟那家公司的钱。只有这条记录，还不能证明是谁指使。”."
+    },
+    {
+      "id": "65-04",
+      "episode": 65,
+      "title": "被改过的地址",
+      "cast": [
+        "lin"
+      ],
+      "refs": [
+        "lin"
+      ],
+      "duration": 10,
+      "seed": 920654,
+      "lines": [
+        [
+          "lin",
+          "监控和配送轨迹吻合，搜查又找到污染药瓶。送货人已控制，指使者还在查。",
+          "CCTV matches the delivery trail, and a search found contaminated bottles. The courier is detained; the organizer is still being traced."
+        ]
+      ],
+      "action": "林浅在搜查现场外封闭仓库门，已完成搜查，动作不展示投毒技术；身旁无人。",
+      "badge": "依法搜查后 / After an authorized search",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult WOMAN, chin-length straight black bob, navy police uniform. NO glasses, NO white coat, NO hearing aid. Clear steady female Mandarin voice. Scene chronological actions: 林浅在搜查现场外封闭仓库门，已完成搜查，动作不展示投毒技术；身旁无人。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 林浅 says: “监控和配送轨迹吻合，搜查又找到污染药瓶。送货人已控制，指使者还在查。”."
+    },
+    {
+      "id": "65-05",
+      "episode": 65,
+      "title": "被改过的地址",
+      "cast": [
+        "xu"
+      ],
+      "refs": [
+        "xu"
+      ],
+      "duration": 10,
+      "seed": 920655,
+      "lines": [
+        [
+          "xu",
+          "中毒解释了患者倒下，解释不了剑刺为什么咬人。这两条证据不能混在一起。",
+          "Poisoning explains the patient’s collapse, not Jian’s bite. Keep the two investigations separate."
+        ]
+      ],
+      "action": "许未在协调台将两份不同案件的卷宗分开入袋，强调两条线。",
+      "badge": "",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult WOMAN, brown ponytail, green blouse under white forensic lab coat, NO glasses, never a black bob. Calm mature female Mandarin voice. Scene chronological actions: 许未在协调台将两份不同案件的卷宗分开入袋，强调两条线。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 许未 says: “中毒解释了患者倒下，解释不了剑刺为什么咬人。这两条证据不能混在一起。”."
+    },
+    {
+      "id": "65-06",
+      "episode": 65,
+      "title": "被改过的地址",
+      "cast": [
+        "lin"
+      ],
+      "refs": [
+        "lin"
+      ],
+      "duration": 10,
+      "seed": 920656,
+      "lines": [
+        [
+          "lin",
+          "送货人说，有人付钱让他把这箱送进去。至于那个人是谁，必须继续核实。",
+          "The courier says he was paid to deliver that box inside. We still have to verify who paid and directed him."
+        ]
+      ],
+      "action": "林浅在讯问室外合上记录本，嫌疑人不出镜，供述不当成最终定案。",
+      "badge": "",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult WOMAN, chin-length straight black bob, navy police uniform. NO glasses, NO white coat, NO hearing aid. Clear steady female Mandarin voice. Scene chronological actions: 林浅在讯问室外合上记录本，嫌疑人不出镜，供述不当成最终定案。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 林浅 says: “送货人说，有人付钱让他把这箱送进去。至于那个人是谁，必须继续核实。”."
+    },
+    {
+      "id": "66-01",
+      "episode": 66,
+      "title": "留下的伤口",
+      "cast": [
+        "xu"
+      ],
+      "refs": [
+        "xu"
+      ],
+      "duration": 10,
+      "seed": 920661,
+      "lines": [
+        [
+          "xu",
+          "送医的两人暂时脱离危险。召回和追查还在继续，不能说所有风险都结束了。",
+          "The two hospitalized patients are out of immediate danger. Recall and tracing continue; the risk is not over."
+        ]
+      ],
+      "action": "许未在医院走廊记录随访，白外套绿衬衫马尾；不装作临床主治医师。",
+      "badge": "再过两日 / Two days later",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult WOMAN, brown ponytail, green blouse under white forensic lab coat, NO glasses, never a black bob. Calm mature female Mandarin voice. Scene chronological actions: 许未在医院走廊记录随访，白外套绿衬衫马尾；不装作临床主治医师。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 许未 says: “送医的两人暂时脱离危险。召回和追查还在继续，不能说所有风险都结束了。”."
+    },
+    {
+      "id": "66-02",
+      "episode": 66,
+      "title": "留下的伤口",
+      "cast": [
+        "han"
+      ],
+      "refs": [
+        "han"
+      ],
+      "duration": 10,
+      "seed": 920662,
+      "lines": [
+        [
+          "han",
+          "我的手还没恢复。别替我原谅他，也别把我写成他失控时的一块挡板。",
+          "My hand has not recovered. Do not forgive him for me, or reduce me to a shield during his loss of control."
+        ]
+      ],
+      "action": "韩彻病房椅上左前臂同款敷料吊带，尝试轻握左手后停下，右手保持正常。",
+      "badge": "",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Middle-aged MAN, short dark hair with gray temples, scar at RIGHT eyebrow, navy police uniform. NO glasses. Firm low male Mandarin voice. Scene chronological actions: Han alone in same hospital chair, LEFT forearm white dressing and navy sling, old small dressing RIGHT wrist. Gently attempts to curl left fingers, stops. Hurt and firm, not forgiving. Only moves lips during exact dialogue. Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 韩彻 says: “我的手还没恢复。别替我原谅他，也别把我写成他失控时的一块挡板。”."
+    },
+    {
+      "id": "66-03",
+      "episode": 66,
+      "title": "留下的伤口",
+      "cast": [
+        "lin"
+      ],
+      "refs": [
+        "lin"
+      ],
+      "duration": 10,
+      "seed": 920663,
+      "lines": [
+        [
+          "lin",
+          "我不会。你的伤要治，他的责任要查。谁利用这次投毒，也一样要查到底。",
+          "I will not. Your injury needs care and his actions need investigation. We will also trace whoever used the poisoning."
+        ]
+      ],
+      "action": "林浅在病房门外回应韩彻，正视画外受伤同事，不靠近或触碰伤臂。",
+      "badge": "",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult WOMAN, chin-length straight black bob, navy police uniform. NO glasses, NO white coat, NO hearing aid. Clear steady female Mandarin voice. Scene chronological actions: 林浅在病房门外回应韩彻，正视画外受伤同事，不靠近或触碰伤臂。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 林浅 says: “我不会。你的伤要治，他的责任要查。谁利用这次投毒，也一样要查到底。”."
+    },
+    {
+      "id": "66-04",
+      "episode": 66,
+      "title": "留下的伤口",
+      "cast": [
+        "zhou"
+      ],
+      "refs": [
+        "zhou"
+      ],
+      "duration": 10,
+      "seed": 920664,
+      "lines": [
+        [
+          "zhou",
+          "又收到一条消息：现在，你终于知道，他们为什么把门锁上了。来源仍在追。",
+          "Another message says: Now you know why they locked the door. We are still tracing its source."
+        ]
+      ],
+      "action": "周砺在技术室读取手机后放入证物托盘，手机屏幕背向镜头。",
+      "badge": "",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult MAN, short black hair, silver rectangular glasses, hearing aid on RIGHT ear, gray technical jacket. Precise male Mandarin voice. Scene chronological actions: 周砺在技术室读取手机后放入证物托盘，手机屏幕背向镜头。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 周砺 says: “又收到一条消息：现在，你终于知道，他们为什么把门锁上了。来源仍在追。”."
+    },
+    {
+      "id": "66-05",
+      "episode": 66,
+      "title": "留下的伤口",
+      "cast": [
+        "jian"
+      ],
+      "refs": [
+        "jian"
+      ],
+      "duration": 10,
+      "seed": 920665,
+      "lines": [
+        [
+          "jian",
+          "我想起另一扇门。里面有人求救，我却没去开。这段记忆，也要找证据。",
+          "I remember another door. Someone called for help, and I did not open it. That memory needs evidence too."
+        ]
+      ],
+      "action": "剑刺独自在观察房，听完远程信息后看向关闭的门；只有眼神和手部细小反应，无凭空闪回人脸。",
+      "badge": "观察房·视频连线 / Observation room · video link",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult pale MAN, tousled short black hair, charcoal jacket over black turtleneck. NO glasses, NO hearing aid. Restrained low male Mandarin voice. Scene chronological actions: 剑刺独自在观察房，听完远程信息后看向关闭的门；只有眼神和手部细小反应，无凭空闪回人脸。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 剑刺 says: “我想起另一扇门。里面有人求救，我却没去开。这段记忆，也要找证据。”."
+    },
+    {
+      "id": "66-06",
+      "episode": 66,
+      "title": "留下的伤口",
+      "cast": [
+        "jian"
+      ],
+      "refs": [
+        "jian"
+      ],
+      "duration": 10,
+      "seed": 920666,
+      "lines": [
+        [
+          "jian",
+          "这次我不会躲进失忆里。先找到活着的人，再把我做过的事查清楚。",
+          "I will not hide behind amnesia. Find the person still alive, and establish what I did."
+        ]
+      ],
+      "action": "剑刺坐回桌前，主动把双手放在看得见的位置，闭口后镜头缓慢退向门窗，门不打开。",
+      "badge": "",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult pale MAN, tousled short black hair, charcoal jacket over black turtleneck. NO glasses, NO hearing aid. Restrained low male Mandarin voice. Scene chronological actions: 剑刺坐回桌前，主动把双手放在看得见的位置，闭口后镜头缓慢退向门窗，门不打开。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 剑刺 says: “这次我不会躲进失忆里。先找到活着的人，再把我做过的事查清楚。”."
     }
   ]
 }
