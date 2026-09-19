@@ -89,6 +89,11 @@
       "a1a8d6c5-0ebd-4f06-ba10-902054f253e6",
       2.5,
       "720:480:0:0"
+    ],
+    "hanclose": [
+      "00c0d778-6358-4ec0-95f0-995229fc4c0e",
+      2.5,
+      "600:450:150:0"
     ]
   },
   "case": "死去的人在照片里",
@@ -6546,6 +6551,259 @@
       "action": "剑刺坐回桌前，主动把双手放在看得见的位置，闭口后镜头缓慢退向门窗，门不打开。",
       "badge": "",
       "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult pale MAN, tousled short black hair, charcoal jacket over black turtleneck. NO glasses, NO hearing aid. Restrained low male Mandarin voice. Scene chronological actions: 剑刺坐回桌前，主动把双手放在看得见的位置，闭口后镜头缓慢退向门窗，门不打开。 Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 剑刺 says: “这次我不会躲进失忆里。先找到活着的人，再把我做过的事查清楚。”."
+    },
+    {
+      "id": "59-04R",
+      "episode": 59,
+      "title": "没有共同的仇人",
+      "cast": [
+        "han"
+      ],
+      "refs": [
+        "hanclose"
+      ],
+      "duration": 10,
+      "seed": 930594,
+      "lines": [
+        [
+          "han",
+          "又接到第三起。三个人互不认识，难道凶手根本不用见他们？",
+          "A third death has been reported. They did not know one another. Did the killer never need to meet them?"
+        ]
+      ],
+      "action": "韩彻在门边接到对讲机报告，放下对讲机后说话，右腕旧敷料保留。",
+      "badge": "",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Middle-aged MAN, short dark hair with gray temples, scar at RIGHT eyebrow, navy police uniform. NO glasses. Firm low male Mandarin voice. Small OLD white dressing RIGHT wrist, LEFT forearm intact until the bite in episode63.  Fixed coherent camera. The officer stands alone beside an office door, lowers a radio, then reports a new death. Both arms relaxed. A small OLD white dressing stays on his RIGHT wrist. There are NO weapons, swords, knives, blades, sharp metal rods, needles, reflections or extra heads. No written text of any kind. Dialogue is native clear Mandarin: exactly one voice, no overlapping voices, no gibberish, no added words. Speak ONLY the following sentence once, starting at 0.5s and ending before 9.2s, lips synchronized to each audible word and closed during pauses: “又接到第三起。三个人互不认识，难道凶手根本不用见他们？”. After speaking, close lips and breathe silently. Do not pronounce any scene directions."
+    },
+    {
+      "id": "61-03R",
+      "episode": 61,
+      "title": "签收之后",
+      "cast": [
+        "han"
+      ],
+      "refs": [
+        "hanclose"
+      ],
+      "duration": 10,
+      "seed": 930613,
+      "lines": [
+        [
+          "han",
+          "院方已停发，值班人员正在核对。箱子先隔离，服用过的人交医生评估。",
+          "Distribution has stopped and staff are checking recipients. Isolate the box; clinicians assess anyone who took it."
+        ]
+      ],
+      "action": "韩彻到观察楼行政走廊，右腕旧敷料，对讲机在胸口。",
+      "badge": "观察楼 / Observation building",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Middle-aged MAN, short dark hair with gray temples, scar at RIGHT eyebrow, navy police uniform. NO glasses. Firm low male Mandarin voice. Small OLD white dressing RIGHT wrist, LEFT forearm intact until the bite in episode63.  Fixed coherent camera. The officer alone in a hospital corridor gives an update. Small old RIGHT wrist dressing only; LEFT arm uninjured. Keep camera chest-up. There are NO weapons, swords, knives, blades, sharp metal rods, needles, reflections or extra heads. No written text of any kind. Dialogue is native clear Mandarin: exactly one voice, no overlapping voices, no gibberish, no added words. Speak ONLY the following sentence once, starting at 0.5s and ending before 9.2s, lips synchronized to each audible word and closed during pauses: “院方已停发，值班人员正在核对。箱子先隔离，服用过的人交医生评估。”. After speaking, close lips and breathe silently. Do not pronounce any scene directions."
+    },
+    {
+      "id": "62-05R",
+      "episode": 62,
+      "title": "门外还有人",
+      "cast": [
+        "han"
+      ],
+      "refs": [
+        "hanclose"
+      ],
+      "duration": 10,
+      "seed": 930625,
+      "lines": [
+        [
+          "han",
+          "我接住了，医生也到了。你松手，退到门里面，别再靠近。",
+          "I have him and the clinicians are here. Let go, step back inside and keep your distance."
+        ]
+      ],
+      "action": "韩彻半蹲后起身，病人和医护保持画外。右腕旧敷料，左前臂袖口露出完整皮肤。",
+      "badge": "",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Middle-aged MAN, short dark hair with gray temples, scar at RIGHT eyebrow, navy police uniform. NO glasses. Firm low male Mandarin voice. Small OLD white dressing RIGHT wrist, LEFT forearm intact until the bite in episode63.  Fixed coherent camera. The officer is alone in frame in a hospital corridor. He rises from a crouch after handing a patient to unseen clinicians. No patient or other person appears. Old RIGHT wrist dressing, LEFT forearm intact. There are NO weapons, swords, knives, blades, sharp metal rods, needles, reflections or extra heads. No written text of any kind. Dialogue is native clear Mandarin: exactly one voice, no overlapping voices, no gibberish, no added words. Speak ONLY the following sentence once, starting at 0.5s and ending before 9.2s, lips synchronized to each audible word and closed during pauses: “我接住了，医生也到了。你松手，退到门里面，别再靠近。”. After speaking, close lips and breathe silently. Do not pronounce any scene directions."
+    },
+    {
+      "id": "63-01R",
+      "episode": 63,
+      "title": "这一次没有停住",
+      "cast": [
+        "han"
+      ],
+      "refs": [
+        "hanclose"
+      ],
+      "duration": 10,
+      "seed": 930631,
+      "lines": [
+        [
+          "han",
+          "医护接手了。剑刺，看着我。把手松开，退回房间。",
+          "The clinicians have taken over. Jian, look at me. Let go and step back into your room."
+        ]
+      ],
+      "action": "韩彻单人近景伸出左前臂挡住通向画外病人的路线，左袖稍推起，右腕旧敷料。",
+      "badge": "紧接上集 / Immediately afterward",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Middle-aged MAN, short dark hair with gray temples, scar at RIGHT eyebrow, navy police uniform. NO glasses. Firm low male Mandarin voice. Small OLD white dressing RIGHT wrist, LEFT forearm intact until the bite in episode63.  Fixed coherent camera. The officer faces someone off screen. He raises his anatomical LEFT forearm horizontally as a barrier. LEFT forearm skin intact. Small old RIGHT wrist dressing stays on other arm. One officer only. There are NO weapons, swords, knives, blades, sharp metal rods, needles, reflections or extra heads. No written text of any kind. Dialogue is native clear Mandarin: exactly one voice, no overlapping voices, no gibberish, no added words. Speak ONLY the following sentence once, starting at 0.5s and ending before 9.2s, lips synchronized to each audible word and closed during pauses: “医护接手了。剑刺，看着我。把手松开，退回房间。”. After speaking, close lips and breathe silently. Do not pronounce any scene directions."
+    },
+    {
+      "id": "61-01R",
+      "episode": 61,
+      "title": "签收之后",
+      "cast": [
+        "lin"
+      ],
+      "refs": [
+        "lin"
+      ],
+      "duration": 10,
+      "seed": 930611,
+      "lines": [
+        [
+          "lin",
+          "剑刺，别碰那箱东西。把收货人和签收时间告诉我，我们通知院方。",
+          "Jian, do not touch the box. Tell me who received it and when; we will alert the facility."
+        ]
+      ],
+      "action": "林浅在视频工作台紧急询问，不在观察楼内。",
+      "badge": "同日下午 / Same afternoon",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult WOMAN, chin-length straight black bob, navy police uniform. NO glasses, NO white coat, NO hearing aid. Clear steady female Mandarin voice. Fixed coherent camera. Woman with chin-length black bob and navy police uniform stands alone by an office video terminal. Screen faces away from camera. Calm urgent instruction, one clean continuous spoken take. There are NO weapons, swords, knives, blades, sharp metal rods, needles, reflections or extra heads. No written text of any kind. Dialogue is native clear Mandarin: exactly one voice, no overlapping voices, no gibberish, no added words. Speak ONLY the following sentence once, starting at 0.5s and ending before 9.2s, lips synchronized to each audible word and closed during pauses: “剑刺，别碰那箱东西。把收货人和签收时间告诉我，我们通知院方。”. After speaking, close lips and breathe silently. Do not pronounce any scene directions."
+    },
+    {
+      "id": "61-02R",
+      "episode": 61,
+      "title": "签收之后",
+      "cast": [
+        "jian"
+      ],
+      "refs": [
+        "jian"
+      ],
+      "duration": 10,
+      "seed": 930612,
+      "lines": [
+        [
+          "jian",
+          "我没有离开房间。走廊的交接单写着，东西送去了值班休息室。",
+          "I stayed in my room. The handover notice says the delivery went to the staff break room."
+        ]
+      ],
+      "action": "剑刺在门内透过观察窗看走廊交接板，回到对讲面板报告，门不开。",
+      "badge": "观察房 / Observation room",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult pale MAN, tousled short black hair, charcoal jacket over black turtleneck. NO glasses, NO hearing aid. Restrained low male Mandarin voice. Fixed coherent camera. The dark-haired man stands INSIDE his private observation room beside a CLOSED opaque blue door. Tight chest-up framing. He reports information already read on a handover notice. Door remains CLOSED. No window, reflection, corridor view, duplicate person or other human. There are NO weapons, swords, knives, blades, sharp metal rods, needles, reflections or extra heads. No written text of any kind. Dialogue is native clear Mandarin: exactly one voice, no overlapping voices, no gibberish, no added words. Speak ONLY the following sentence once, starting at 0.5s and ending before 9.2s, lips synchronized to each audible word and closed during pauses: “我没有离开房间。走廊的交接单写着，东西送去了值班休息室。”. After speaking, close lips and breathe silently. Do not pronounce any scene directions."
+    },
+    {
+      "id": "61-06R",
+      "episode": 61,
+      "title": "签收之后",
+      "cast": [
+        "jian"
+      ],
+      "refs": [
+        "jian"
+      ],
+      "duration": 10,
+      "seed": 930616,
+      "lines": [
+        [
+          "jian",
+          "走廊有人倒下了。就在我门口。韩彻，叫医生，别让其他人围过来！",
+          "Someone has collapsed outside my door. Han, call the clinicians and keep the corridor clear!"
+        ]
+      ],
+      "action": "剑刺从椅子起身望向关闭的观察门，门外倒下声；只见剑刺本人。",
+      "badge": "",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult pale MAN, tousled short black hair, charcoal jacket over black turtleneck. NO glasses, NO hearing aid. Restrained low male Mandarin voice. Fixed coherent camera. The dark-haired man stands INSIDE his private observation room beside a CLOSED opaque blue door. He turns urgently toward a dull falling sound offscreen, then calls for help. Door remains CLOSED for all ten seconds. No patient, stretcher, window or second person is shown. There are NO weapons, swords, knives, blades, sharp metal rods, needles, reflections or extra heads. No written text of any kind. Dialogue is native clear Mandarin: exactly one voice, no overlapping voices, no gibberish, no added words. Speak ONLY the following sentence once, starting at 0.5s and ending before 9.2s, lips synchronized to each audible word and closed during pauses: “走廊有人倒下了。就在我门口。韩彻，叫医生，别让其他人围过来！”. After speaking, close lips and breathe silently. Do not pronounce any scene directions."
+    },
+    {
+      "id": "62-02R",
+      "episode": 62,
+      "title": "门外还有人",
+      "cast": [
+        "jian"
+      ],
+      "refs": [
+        "jian"
+      ],
+      "duration": 10,
+      "seed": 930622,
+      "lines": [
+        [
+          "jian",
+          "他倒下时撞了额头，脸贴着地。门往里开，我能把门口让出来。",
+          "He struck his forehead and fell face-down. My door opens inward; I can clear the doorway."
+        ]
+      ],
+      "action": "剑刺从门内拉开向内开启的门，镜头只拍剑刺和门；门外病人不在画面中。",
+      "badge": "",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult pale MAN, tousled short black hair, charcoal jacket over black turtleneck. NO glasses, NO hearing aid. Restrained low male Mandarin voice. Fixed coherent camera. The dark-haired man stands inside his observation room. His EMPTY right hand grips the ordinary short curved DOOR HANDLE and gently pulls the blue door INWARD toward himself. He speaks. No other person visible. No long metal object. His hands remain empty except the ordinary fixed door handle. There are NO weapons, swords, knives, blades, sharp metal rods, needles, reflections or extra heads. No written text of any kind. Dialogue is native clear Mandarin: exactly one voice, no overlapping voices, no gibberish, no added words. Speak ONLY the following sentence once, starting at 0.5s and ending before 9.2s, lips synchronized to each audible word and closed during pauses: “他倒下时撞了额头，脸贴着地。门往里开，我能把门口让出来。”. After speaking, close lips and breathe silently. Do not pronounce any scene directions."
+    },
+    {
+      "id": "62-06R",
+      "episode": 62,
+      "title": "门外还有人",
+      "cast": [
+        "jian"
+      ],
+      "refs": [
+        "jian"
+      ],
+      "duration": 10,
+      "seed": 930626,
+      "lines": [
+        [
+          "jian",
+          "我已经松手了。为什么心跳还这么近？韩彻，你先退开。",
+          "I have let go. Why is the heartbeat still so close? Han, step away first."
+        ]
+      ],
+      "action": "剑刺靠门框，手颤，嘴角显出尖牙；背景不出现第二个剑刺。",
+      "badge": "",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult pale MAN, tousled short black hair, charcoal jacket over black turtleneck. NO glasses, NO hearing aid. Restrained low male Mandarin voice. Fixed coherent camera. Tight close-up of dark-haired man against a plain blue wall. His EMPTY hands tremble at the bottom of frame. He listens to a pounding heartbeat and struggles to retreat. Two subtle upper fangs become visible during speech. There are NO objects beside or behind his neck. There are NO weapons, swords, knives, blades, sharp metal rods, needles, reflections or extra heads. No written text of any kind. Dialogue is native clear Mandarin: exactly one voice, no overlapping voices, no gibberish, no added words. Speak ONLY the following sentence once, starting at 0.5s and ending before 9.2s, lips synchronized to each audible word and closed during pauses: “我已经松手了。为什么心跳还这么近？韩彻，你先退开。”. After speaking, close lips and breathe silently. Do not pronounce any scene directions."
+    },
+    {
+      "id": "63-04R",
+      "episode": 63,
+      "title": "这一次没有停住",
+      "cast": [
+        "lin"
+      ],
+      "refs": [
+        "lin"
+      ],
+      "duration": 10,
+      "seed": 930634,
+      "lines": [
+        [
+          "lin",
+          "把韩彻带走，隔开剑刺！叫医生止血，记录仪别关！",
+          "Move Han away and separate Jian! Get clinical help for the bleeding. Keep the body camera recording!"
+        ]
+      ],
+      "action": "林浅独自在观察门侧控制隔离门，面向画外呼叫支援，不把其他人的脸拼入画面。",
+      "badge": "",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult WOMAN, chin-length straight black bob, navy police uniform. NO glasses, NO white coat, NO hearing aid. Clear steady female Mandarin voice. Fixed coherent camera. Black-bob woman in navy police uniform is alone beside a closed blue hospital door. She holds her radio and gives a single urgent clear instruction to unseen colleagues. There are NO weapons, swords, knives, blades, sharp metal rods, needles, reflections or extra heads. No written text of any kind. Dialogue is native clear Mandarin: exactly one voice, no overlapping voices, no gibberish, no added words. Speak ONLY the following sentence once, starting at 0.5s and ending before 9.2s, lips synchronized to each audible word and closed during pauses: “把韩彻带走，隔开剑刺！叫医生止血，记录仪别关！”. After speaking, close lips and breathe silently. Do not pronounce any scene directions."
+    },
+    {
+      "id": "64-03R",
+      "episode": 64,
+      "title": "救人不能抵消",
+      "cast": [
+        "jian"
+      ],
+      "refs": [
+        "jian"
+      ],
+      "duration": 10,
+      "seed": 930643,
+      "lines": [
+        [
+          "jian",
+          "不用替我解释。我接受调查，也停止接触伤者。韩彻有权不见我。",
+          "Do not make excuses for me. I accept the investigation and no contact with patients. Han may refuse to see me."
+        ]
+      ],
+      "action": "剑刺独自在加强观察房椅上，双手可见，嘴角血已清理，门关闭。",
+      "badge": "加强观察 / Enhanced observation",
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Adult pale MAN, tousled short black hair, charcoal jacket over black turtleneck. NO glasses, NO hearing aid. Restrained low male Mandarin voice. Fixed coherent camera. Dark-haired man in charcoal jacket and black turtleneck sits alone in a clean observation room the NEXT MORNING. His face, lips, chin and clothing are COMPLETELY CLEAN, no blood or wounds. Mouth normal, no visible fangs. Hands visible on knees. He speaks with regret. There are NO weapons, swords, knives, blades, sharp metal rods, needles, reflections or extra heads. No written text of any kind. Dialogue is native clear Mandarin: exactly one voice, no overlapping voices, no gibberish, no added words. Speak ONLY the following sentence once, starting at 0.5s and ending before 9.2s, lips synchronized to each audible word and closed during pauses: “不用替我解释。我接受调查，也停止接触伤者。韩彻有权不见我。”. After speaking, close lips and breathe silently. Do not pronounce any scene directions."
     }
   ]
 }
