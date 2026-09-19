@@ -84,6 +84,11 @@
       "eca339ec-5884-4fa3-ba99-ba347e410055",
       2.5,
       "400:370:160:0"
+    ],
+    "haninjured": [
+      "a1a8d6c5-0ebd-4f06-ba10-902054f253e6",
+      2.5,
+      "720:480:0:0"
     ]
   },
   "case": "死去的人在照片里",
@@ -6251,7 +6256,7 @@
         "han"
       ],
       "refs": [
-        "han"
+        "haninjured"
       ],
       "duration": 10,
       "seed": 920646,
@@ -6264,7 +6269,7 @@
       ],
       "action": "韩彻病房近景，左臂吊带和敷料位置不变，目光坚定，不突然原谅。",
       "badge": "",
-      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Middle-aged MAN, short dark hair with gray temples, scar at RIGHT eyebrow, navy police uniform. NO glasses. Firm low male Mandarin voice. Scene chronological actions: Han alone seated in the same hospital room. Fresh white dressing on anatomical LEFT forearm and navy sling; small old white dressing on RIGHT wrist. Resolute exhausted face. Speaks calmly, no smiling, closes lips at end. Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 韩彻 says: “我现在不想见他。先查清那箱药从哪来，别让更多人受伤。”."
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Middle-aged MAN, short dark hair with gray temples, scar at RIGHT eyebrow, navy police uniform. NO glasses. Firm low male Mandarin voice. Scene chronological actions: Han alone seated in the same hospital room. Fresh white dressing on anatomical LEFT forearm resting on his lap; retain the small old RIGHT wrist dressing. Resolute exhausted face. Speaks calmly, no smiling, closes lips at end. Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 韩彻 says: “我现在不想见他。先查清那箱药从哪来，别让更多人受伤。”."
     },
     {
       "id": "65-01",
@@ -6435,7 +6440,7 @@
         "han"
       ],
       "refs": [
-        "han"
+        "haninjured"
       ],
       "duration": 10,
       "seed": 920662,
@@ -6448,7 +6453,7 @@
       ],
       "action": "韩彻病房椅上左前臂同款敷料吊带，尝试轻握左手后停下，右手保持正常。",
       "badge": "",
-      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Middle-aged MAN, short dark hair with gray temples, scar at RIGHT eyebrow, navy police uniform. NO glasses. Firm low male Mandarin voice. Scene chronological actions: Han alone in same hospital chair, LEFT forearm white dressing and navy sling, old small dressing RIGHT wrist. Gently attempts to curl left fingers, stops. Hurt and firm, not forgiving. Only moves lips during exact dialogue. Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 韩彻 says: “我的手还没恢复。别替我原谅他，也别把我写成他失控时的一块挡板。”."
+      "prompt": "10-second widescreen cinematic hand-drawn 2D anime. Match identity reference images exactly. Blue-grey suspense film lighting with readable faces, realistic adult anatomy, no photorealism. Native Mandarin dialogue with natural audible voice, no music. No text, no subtitles, no readable paper or monitor text, no logos. Exactly ONE visible face/person. No extra heads, no reflected or screen faces, no background portraits. Hands of a patient may stay outside frame only where specified. ONE continuous motivated shot, not a static poster. Middle-aged MAN, short dark hair with gray temples, scar at RIGHT eyebrow, navy police uniform. NO glasses. Firm low male Mandarin voice. Scene chronological actions: Han alone in same hospital chair, LEFT forearm white dressing resting on his lap, old small dressing RIGHT wrist. Gently attempts to curl left fingers, stops. Hurt and firm, not forgiving. Only moves lips during exact dialogue. Say ONLY the exact quoted Mandarin line ONCE. Clear speech starts at 0.4s and ends before 8.8s. Mouth moves only during audible speech; closed lips during pauses and after dialogue. No extra speech or silently moving jaws. ONLY 韩彻 says: “我的手还没恢复。别替我原谅他，也别把我写成他失控时的一块挡板。”."
     },
     {
       "id": "66-03",
