@@ -1,18 +1,10 @@
 {
   "mode": "generate",
   "clip_ids": [
-    "59-04R",
     "61-03R",
     "62-05R",
-    "63-01R",
-    "61-01R",
-    "61-02R",
-    "61-06R",
-    "62-02R",
-    "62-06R",
-    "63-04R",
-    "64-03R"
+    "66-03"
   ],
-  "max_seconds": 110,
-  "request_id": "jianci-59-66-targeted-repairs-once-20260919"
+  "max_seconds": 30,
+  "request_id": "jianci-59-66-three-missing-only-20260920"
 }
