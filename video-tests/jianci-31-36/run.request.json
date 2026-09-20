@@ -1,10 +1,8 @@
 {
   "mode": "generate",
   "clip_ids": [
-    "61-03R",
-    "62-05R",
-    "66-03"
+    "62-05S"
   ],
-  "max_seconds": 30,
-  "request_id": "jianci-59-66-three-missing-only-20260920"
+  "max_seconds": 10,
+  "request_id": "jianci62-single-simplified-handoff-20260920"
 }
