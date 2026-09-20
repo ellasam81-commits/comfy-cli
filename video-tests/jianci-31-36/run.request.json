@@ -1,8 +1,12 @@
 {
   "mode": "generate",
   "clip_ids": [
-    "62-05S"
+    "62-04C",
+    "62-05C",
+    "62-06C",
+    "63-01C",
+    "63-03C"
   ],
-  "max_seconds": 10,
-  "request_id": "jianci62-single-simplified-handoff-valid-config-20260920"
+  "max_seconds": 50,
+  "request_id": "jianci-patient-rescue-causality-20260920"
 }
