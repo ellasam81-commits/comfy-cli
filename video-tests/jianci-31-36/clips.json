@@ -9623,6 +9623,28 @@
       "badge": "郑骁讯问后 / After questioning Zheng Xiao",
       "prompt": "Use the provided image as the exact character identity reference. 10-second single continuous 16:9 hand-drawn 2D anime police suspense drama. Match reference identity exactly, same face, hairstyle and clothing, natural adult proportions. Fixed medium waist-up frame, no zoom. Adult Chinese man aged 43, neat side-part black hair, narrow long face, clean shaven, dark brown zip jacket over tan collared shirt. No glasses. Dry low-mid Mandarin male voice, cold controlled delivery. Scene: Police interview room after arrest, seated across from unseen investigator, hands flat on table, no phone. Same face and clothing as reference. No escape or freedom implied. One visible face, one speaker. Native Mandarin speak exactly once: \"拿到咬后的样本，才有尾款。我照他们说的做，他们没告诉我名字。\" Start 0.4 seconds, finish by 9.2 seconds. Clear audible speech and exact lip sync; mouth closed during silence. No extra speech, no subtitles, no music, no portraits or reflections.",
       "slot": "81-06"
+    },
+    {
+      "id": "76-03N",
+      "episode": 76,
+      "title": "伤口里的道具",
+      "cast": [
+        "shenyao"
+      ],
+      "refs": [],
+      "duration": 10,
+      "seed": 1929603,
+      "lines": [
+        [
+          "shenyao",
+          "伤是他们做的。他说，让剑刺咬我，拍下来，就放我哥哥。",
+          "They made the wounds. He said my brother goes free if I film Jian biting me."
+        ]
+      ],
+      "action": "Same protected police interview room and same costume. She places her phone on the table for an unseen investigator, keeps sleeves down. Frightened but deliberate confession.",
+      "badge": "",
+      "prompt": "10-second single continuous widescreen 16:9 cinematic hand-drawn 2D anime, clean ink lines, softly shaded cool blue-grey police suspense drama, realistic adult anime proportions. Fixed medium waist-up framing with both shoulders visible, no zoom, no lens distortion. Adult Chinese woman aged 27, long dark chestnut hair in a low loose braid over her right shoulder, oval face, straight eyebrows, cream cardigan over muted burgundy shirt. No uniform, no glasses. Soft but clear mid-register Mandarin female voice, tense measured speech. Scene: Same protected police interview room and same costume. She places her phone on the table for an unseen investigator, keeps sleeves down. Frightened but deliberate confession. Exactly one visible face and one speaker, no portraits, mirrors, subtitles or readable text. Native Mandarin audio: speak ONLY this exact dialogue once: \"伤是他们做的。他说，让剑刺咬我，拍下来，就放我哥哥。\" Start at 0.4 seconds and finish by 9.2 seconds. Every spoken syllable audible, exact lip sync, mouth closed during pauses and after speech. No extra words, narration, music or voices. Natural movement, tension without exaggerated facial deformation.",
+      "slot": "76-03"
     }
   ]
 }
