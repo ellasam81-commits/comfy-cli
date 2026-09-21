@@ -94,6 +94,16 @@
       "00c0d778-6358-4ec0-95f0-995229fc4c0e",
       2.5,
       "600:450:150:0"
+    ],
+    "hean": [
+      "9860526d-f82b-4051-be4c-cfa6531431f8",
+      6,
+      "854:480:0:0"
+    ],
+    "zhengxiao": [
+      "cfce6fbd-bc80-4a93-8b41-afd441990cfc",
+      6,
+      "854:480:0:0"
     ]
   },
   "case": "死去的人在照片里",
@@ -9543,6 +9553,76 @@
       "badge": "现场回报·后侧仓间 / On-site report · rear storeroom",
       "prompt": "10-second single continuous widescreen 16:9 cinematic hand-drawn 2D anime, clean ink lines, softly shaded cool blue-grey police suspense drama, realistic adult anime proportions. Fixed medium waist-up framing with both shoulders visible, no zoom, no lens distortion. Adult Chinese man aged 24, short black buzz cut, round face, small mole on left cheek, dusty muted teal sweatshirt. No glasses. Clear higher-register Mandarin male voice, frightened breath but intelligible words. Scene: Inside a dim factory rear storeroom. He pounds the closed metal door twice with his palm, audible metallic knocks, then turns three-quarter face toward camera and calls through the door. No visible bonds, no blood. Exactly one visible face and one speaker, no portraits, mirrors, subtitles or readable text. Native Mandarin audio: speak ONLY this exact dialogue once: \"外面有人吗？我是何安！我在后面的仓间，门锁住了！\" Start at 0.4 seconds and finish by 9.2 seconds. Every spoken syllable audible, exact lip sync, mouth closed during pauses and after speech. No extra words, narration, music or voices. Natural movement, tension without exaggerated facial deformation.",
       "slot": "80-03"
+    },
+    {
+      "id": "75-01NR",
+      "episode": 75,
+      "title": "主动求咬的人",
+      "cast": [
+        "shenyao"
+      ],
+      "refs": [],
+      "duration": 10,
+      "seed": 1929600,
+      "lines": [
+        [
+          "shenyao",
+          "我叫沈遥。有人拿我哥哥的命逼我。剑刺，请你咬我。",
+          "I am Shen Yao. Someone is threatening my brother. Jian, please bite me."
+        ]
+      ],
+      "action": "Protected police interview room, seated facing a small video-call camera, Jian is remote and never physically present. Her shaking hands clutch a closed phone. No wounds shown.",
+      "badge": "接第74集·次日 / The day after Episode 74",
+      "prompt": "10-second single continuous widescreen 16:9 cinematic hand-drawn 2D anime, clean ink lines, softly shaded cool blue-grey police suspense drama, realistic adult anime proportions. Fixed medium waist-up framing with both shoulders visible, no zoom, no lens distortion. Adult Chinese woman aged 27, long dark chestnut hair in a low loose braid over her right shoulder, oval face, straight eyebrows, cream cardigan over muted burgundy shirt. No uniform, no glasses. Soft but clear mid-register Mandarin female voice, tense measured speech. Scene: Protected police interview room, seated facing a small video-call camera, Jian is remote and never physically present. She sits calmly with hands resting on the table. No injuries shown. Exactly one visible face and one speaker, no portraits, mirrors, subtitles or readable text. Native Mandarin audio: speak ONLY this exact dialogue once: \"我叫沈遥。有人拿我哥哥的命逼我。剑刺，请你咬我。\" Start at 0.4 seconds and finish by 9.2 seconds. Every spoken syllable audible, exact lip sync, mouth closed during pauses and after speech. No extra words, narration, music or voices. Natural movement, tension without exaggerated facial deformation.",
+      "slot": "75-01"
+    },
+    {
+      "id": "80-05N",
+      "episode": 80,
+      "title": "最后一名诱饵",
+      "cast": [
+        "hean"
+      ],
+      "refs": [
+        "hean"
+      ],
+      "duration": 10,
+      "seed": 1930005,
+      "lines": [
+        [
+          "hean",
+          "门开了……我能出去了吗？谢谢你们，我以为没人会来。",
+          "The door is open... Can I leave? Thank you. I thought nobody would come."
+        ]
+      ],
+      "action": "Factory exit immediately after police rescue. The unlocked metal door stands open behind him. He takes a careful step into light and sits on an ambulance step, accepting a plain emergency blanket from offscreen gloved hands. No other visible face.",
+      "badge": "18:47·救援完成 / 18:47 · rescue complete",
+      "prompt": "Use the provided image as the exact character identity reference. 10-second single continuous widescreen 16:9 cinematic hand-drawn 2D anime, clean ink lines, softly shaded cool blue-grey police suspense drama, realistic adult anime proportions. Fixed medium waist-up framing with both shoulders visible, no zoom, no lens distortion. Adult Chinese man aged 24, short black buzz cut, round face, small mole on left cheek, dusty muted teal sweatshirt. No glasses. Clear higher-register Mandarin male voice, frightened breath but intelligible words. Scene: Factory exit immediately after police rescue. The unlocked metal door stands open behind him. He takes a careful step into light and sits on an ambulance step, accepting a plain emergency blanket from offscreen gloved hands. No other visible face. Exactly one visible face and one speaker, no portraits, mirrors, subtitles or readable text. Native Mandarin audio: speak ONLY this exact dialogue once: \"门开了……我能出去了吗？谢谢你们，我以为没人会来。\" Start at 0.4 seconds and finish by 9.2 seconds. Every spoken syllable audible, exact lip sync, mouth closed during pauses and after speech. No extra words, narration, music or voices. Natural movement, tension without exaggerated facial deformation.",
+      "slot": "80-05"
+    },
+    {
+      "id": "81-06N",
+      "episode": 81,
+      "title": "收集的不是永生",
+      "cast": [
+        "zhengxiao"
+      ],
+      "refs": [
+        "zhengxiao"
+      ],
+      "duration": 10,
+      "seed": 1938106,
+      "lines": [
+        [
+          "zhengxiao",
+          "拿到咬后的样本，才有尾款。我照他们说的做，他们没告诉我名字。",
+          "The final payment required a post-bite sample. I followed their instructions. They gave no names."
+        ]
+      ],
+      "action": "Police interview room after arrest, seated across from unseen investigator, hands flat on table, no phone. Same face and clothing as reference. No escape or freedom implied.",
+      "badge": "郑骁讯问后 / After questioning Zheng Xiao",
+      "prompt": "Use the provided image as the exact character identity reference. 10-second single continuous 16:9 hand-drawn 2D anime police suspense drama. Match reference identity exactly, same face, hairstyle and clothing, natural adult proportions. Fixed medium waist-up frame, no zoom. Adult Chinese man aged 43, neat side-part black hair, narrow long face, clean shaven, dark brown zip jacket over tan collared shirt. No glasses. Dry low-mid Mandarin male voice, cold controlled delivery. Scene: Police interview room after arrest, seated across from unseen investigator, hands flat on table, no phone. Same face and clothing as reference. No escape or freedom implied. One visible face, one speaker. Native Mandarin speak exactly once: \"拿到咬后的样本，才有尾款。我照他们说的做，他们没告诉我名字。\" Start 0.4 seconds, finish by 9.2 seconds. Clear audible speech and exact lip sync; mouth closed during silence. No extra speech, no subtitles, no music, no portraits or reflections.",
+      "slot": "81-06"
     }
   ]
 }
