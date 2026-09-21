@@ -9645,6 +9645,28 @@
       "badge": "",
       "prompt": "10-second single continuous widescreen 16:9 cinematic hand-drawn 2D anime, clean ink lines, softly shaded cool blue-grey police suspense drama, realistic adult anime proportions. Fixed medium waist-up framing with both shoulders visible, no zoom, no lens distortion. Adult Chinese woman aged 27, long dark chestnut hair in a low loose braid over her right shoulder, oval face, straight eyebrows, cream cardigan over muted burgundy shirt. No uniform, no glasses. Soft but clear mid-register Mandarin female voice, tense measured speech. Scene: Same protected police interview room and same costume. She places her phone on the table for an unseen investigator, keeps sleeves down. Frightened but deliberate confession. Exactly one visible face and one speaker, no portraits, mirrors, subtitles or readable text. Native Mandarin audio: speak ONLY this exact dialogue once: \"伤是他们做的。他说，让剑刺咬我，拍下来，就放我哥哥。\" Start at 0.4 seconds and finish by 9.2 seconds. Every spoken syllable audible, exact lip sync, mouth closed during pauses and after speech. No extra words, narration, music or voices. Natural movement, tension without exaggerated facial deformation.",
       "slot": "76-03"
+    },
+    {
+      "id": "76-03NR",
+      "episode": 76,
+      "title": "伤口里的道具",
+      "cast": [
+        "shenyao"
+      ],
+      "refs": [],
+      "duration": 10,
+      "seed": 1929704,
+      "lines": [
+        [
+          "shenyao",
+          "他们拿我哥哥逼我。我来求保护是真的，手机里还有他们的消息。",
+          "They used my brother to threaten me. I truly need protection. Their messages are still on my phone."
+        ]
+      ],
+      "action": "Same protected police interview room and same costume. She places her phone on the table for an unseen investigator, keeps sleeves down. Frightened but deliberate confession.",
+      "badge": "",
+      "prompt": "Ten second widescreen hand drawn 2D anime scene in a police interview room. An adult Chinese woman, age 27, with long chestnut hair in a loose braid over her right shoulder, cream cardigan and muted burgundy shirt. One person on screen. Medium waist-up shot, natural adult proportions, cool blue-grey lighting, fixed camera. She places her phone on the table and speaks with restrained fear, a clear mid-register Mandarin female voice. Exact native Mandarin dialogue: \"他们拿我哥哥逼我。我来求保护是真的，手机里还有他们的消息。\" Speak once from 0.4 to 9.2 seconds. Audible synchronized speech, lips closed during pauses. No other words, captions, music, reflections or portraits.",
+      "slot": "76-03"
     }
   ]
 }
