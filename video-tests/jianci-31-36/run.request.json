@@ -1,1 +1,14 @@
-{"mode":"generate","clip_ids":["84-01","84-02","84-04","85-05","86-02","86-05","87-02","87-03","87-04","88-01","88-03","88-05","89-02","89-05","83-06R"],"max_seconds":150,"request_id":"jianci-finale-new-cast-scenes-20260924"}
+{
+  "mode": "generate",
+  "provider": "segmind",
+  "clip_ids": [
+    "84-01"
+  ],
+  "max_seconds": 10,
+  "durations": {
+    "84-01": 6
+  },
+  "budget_usd": 7,
+  "prior_committed_usd": 0,
+  "request_note": "Authorized 83-90 continuation; pilot existing Lin/Tang identities; no automatic paid retries."
+}
