@@ -104,6 +104,16 @@
       "cfce6fbd-bc80-4a93-8b41-afd441990cfc",
       6,
       "854:480:0:0"
+    ],
+    "tang": [
+      "ecb89149-04b5-48db-9c2b-c2b5688f32b9",
+      3,
+      "400:440:440:0"
+    ],
+    "lu": [
+      "b376f9a9-cb97-4103-a7b6-43d4ffb7f778",
+      8.3,
+      "400:440:440:0"
     ]
   },
   "case": "死去的人在照片里",
@@ -10038,7 +10048,8 @@
         "tang"
       ],
       "refs": [
-        "lin"
+        "lin",
+        "tang"
       ],
       "lines": [
         [
@@ -10048,9 +10059,10 @@
         ]
       ],
       "action": "林浅说明录音已经开始，唐岑看着桌上的平面图。",
-      "prompt": "10-second cinematic hand-drawn 2D Japanese anime crime drama, widescreen 16:9, cool blue-grey controlled low-key lighting, readable faces. Fast natural acting and dialogue, no slow motion, no long silent poses, no unnecessary zoom. Maintain EXACT recurring character identities from attached reference images; recreate the new scene, not the reference composition. CHARACTERS: 林浅 = adult Chinese policewoman, chin-length straight black bob, navy police uniform, no glasses; steady clear Mandarin female voice; 唐岑 = adult Chinese woman age about 48, shoulder-length dark chestnut hair with a SIDE part, narrow oval face, faint tired under-eye lines, gray-blue knitted cardigan over cream shirt, no glasses or jewelry; tired but clear slightly husky Mandarin female voice; NOT a policewoman, NOT a ponytail. Attached reference order: 林浅. Show these characters together in one physically coherent two-person medium shot, distinct faces and outfits. 林浅 on SCREEN LEFT, 唐岑 on SCREEN RIGHT. Use restrained over-shoulder reactions if needed. Never swap identities, voices or screen sides. The non-speaking character LISTENS WITH MOUTH CLOSED and reacts naturally. SCENE: 林浅、唐岑同场｜受保护问询室。林浅说明录音已经开始，唐岑看着桌上的平面图。 MANDARIN dialogue only, exact order, one speaker at a time, no overlapping words, no narrator: 林浅 says “从孟川受伤以后说。只说你亲眼看见的。”. Start first line by 0.4 sec, use natural brisk Mandarin with brief responsive pauses of 0.2 seconds. Finish all words clearly by 8.8 sec. Exact audible lip sync, no silent moving mouth; every gasp or breath has matching sound. Last second contains meaningful reaction, no repeated dialogue. Natural proportions, no stretched faces or duplicated heads, no live action, no subtitles or any visible writing, no music. Subtle matching room ambience only.",
+      "prompt": "10-second cinematic hand-drawn 2D Japanese anime crime drama, widescreen 16:9, cool blue-grey controlled low-key lighting, readable faces. Fast natural acting and dialogue, no slow motion, no long silent poses, no unnecessary zoom. Maintain EXACT recurring character identities from attached reference images; recreate the new scene, not the reference composition. CHARACTERS: 林浅 = adult Chinese policewoman, chin-length straight black bob, navy police uniform, no glasses; steady clear Mandarin female voice; 唐岑 = adult Chinese woman age about 48, shoulder-length dark chestnut hair with a SIDE part, narrow oval face, faint tired under-eye lines, gray-blue knitted cardigan over cream shirt, no glasses or jewelry; tired but clear slightly husky Mandarin female voice; NOT a policewoman, NOT a ponytail. Attached reference identities in order: 林浅, 唐岑. 林浅 at screen LEFT and 唐岑 at screen RIGHT throughout. Protected interview room. Lin on left opens a voice recorder on the table and questions Tang on right. Tang silently follows the floor plan with her eyes. Speak ONLY the exact Mandarin lines below, in order. Different character voices, precise speaker-specific lip sync; all other mouths CLOSED. No overlapping speech. 林浅 says: \"从孟川受伤以后说。只说你亲眼看见的。\" Begin within 0.5 sec, natural brisk speech, each line ONCE, complete all lines clearly. After the last word, both mouths stay closed in SILENT reactions. Do not invent or read any other words. Subtle ambient sound, no music, no narration, no subtitles, no text or signs, no reflections, no duplicates, no face distortion. Maintain consistent 2D anime identities.",
       "duration": 10,
-      "seed": 2417401
+      "seed": 2417401,
+      "action_en": "Protected interview room. Lin on left opens a voice recorder on the table and questions Tang on right. Tang silently follows the floor plan with her eyes."
     },
     {
       "id": "84-02",
@@ -10061,7 +10073,8 @@
         "tang"
       ],
       "refs": [
-        "lin"
+        "lin",
+        "tang"
       ],
       "lines": [
         [
@@ -10071,9 +10084,10 @@
         ]
       ],
       "action": "唐岑指向内门，手停在图上。",
-      "prompt": "10-second cinematic hand-drawn 2D Japanese anime crime drama, widescreen 16:9, cool blue-grey controlled low-key lighting, readable faces. Fast natural acting and dialogue, no slow motion, no long silent poses, no unnecessary zoom. Maintain EXACT recurring character identities from attached reference images; recreate the new scene, not the reference composition. CHARACTERS: 唐岑 = adult Chinese woman age about 48, shoulder-length dark chestnut hair with a SIDE part, narrow oval face, faint tired under-eye lines, gray-blue knitted cardigan over cream shirt, no glasses or jewelry; tired but clear slightly husky Mandarin female voice; NOT a policewoman, NOT a ponytail; 林浅 = adult Chinese policewoman, chin-length straight black bob, navy police uniform, no glasses; steady clear Mandarin female voice. Attached reference order: 林浅. Show these characters together in one physically coherent two-person medium shot, distinct faces and outfits. 林浅 on SCREEN LEFT, 唐岑 on SCREEN RIGHT. Use restrained over-shoulder reactions if needed. Never swap identities, voices or screen sides. The non-speaking character LISTENS WITH MOUTH CLOSED and reacts naturally. SCENE: 唐岑、林浅同场｜连续问询。唐岑指向内门，手停在图上。 MANDARIN dialogue only, exact order, one speaker at a time, no overlapping words, no narrator: 唐岑 says “剑刺把自己关在里面。孟川在外面，还能说话。”. Start first line by 0.4 sec, use natural brisk Mandarin with brief responsive pauses of 0.2 seconds. Finish all words clearly by 8.8 sec. Exact audible lip sync, no silent moving mouth; every gasp or breath has matching sound. Last second contains meaningful reaction, no repeated dialogue. Natural proportions, no stretched faces or duplicated heads, no live action, no subtitles or any visible writing, no music. Subtle matching room ambience only.",
+      "prompt": "10-second cinematic hand-drawn 2D Japanese anime crime drama, widescreen 16:9, cool blue-grey controlled low-key lighting, readable faces. Fast natural acting and dialogue, no slow motion, no long silent poses, no unnecessary zoom. Maintain EXACT recurring character identities from attached reference images; recreate the new scene, not the reference composition. CHARACTERS: 唐岑 = adult Chinese woman age about 48, shoulder-length dark chestnut hair with a SIDE part, narrow oval face, faint tired under-eye lines, gray-blue knitted cardigan over cream shirt, no glasses or jewelry; tired but clear slightly husky Mandarin female voice; NOT a policewoman, NOT a ponytail; 林浅 = adult Chinese policewoman, chin-length straight black bob, navy police uniform, no glasses; steady clear Mandarin female voice. Attached reference identities in order: 林浅, 唐岑. 林浅 at screen LEFT and 唐岑 at screen RIGHT throughout. Same interview room. Tang on right points once at a plain floor plan, then speaks to Lin on left, who listens and writes one brief note. Speak ONLY the exact Mandarin lines below, in order. Different character voices, precise speaker-specific lip sync; all other mouths CLOSED. No overlapping speech. 唐岑 says: \"剑刺把自己关在里面。孟川在外面，还能说话。\" Begin within 0.5 sec, natural brisk speech, each line ONCE, complete all lines clearly. After the last word, both mouths stay closed in SILENT reactions. Do not invent or read any other words. Subtle ambient sound, no music, no narration, no subtitles, no text or signs, no reflections, no duplicates, no face distortion. Maintain consistent 2D anime identities.",
       "duration": 10,
-      "seed": 2417402
+      "seed": 2417402,
+      "action_en": "Same interview room. Tang on right points once at a plain floor plan, then speaks to Lin on left, who listens and writes one brief note."
     },
     {
       "id": "84-03",
@@ -10109,7 +10123,8 @@
         "tang"
       ],
       "refs": [
-        "lin"
+        "lin",
+        "tang"
       ],
       "lines": [
         [
@@ -10124,9 +10139,10 @@
         ]
       ],
       "action": "唐岑看见现场处置记录，停顿不超过半秒。",
-      "prompt": "10-second cinematic hand-drawn 2D Japanese anime crime drama, widescreen 16:9, cool blue-grey controlled low-key lighting, readable faces. Fast natural acting and dialogue, no slow motion, no long silent poses, no unnecessary zoom. Maintain EXACT recurring character identities from attached reference images; recreate the new scene, not the reference composition. CHARACTERS: 林浅 = adult Chinese policewoman, chin-length straight black bob, navy police uniform, no glasses; steady clear Mandarin female voice; 唐岑 = adult Chinese woman age about 48, shoulder-length dark chestnut hair with a SIDE part, narrow oval face, faint tired under-eye lines, gray-blue knitted cardigan over cream shirt, no glasses or jewelry; tired but clear slightly husky Mandarin female voice; NOT a policewoman, NOT a ponytail. Attached reference order: 林浅. Show these characters together in one physically coherent two-person medium shot, distinct faces and outfits. 林浅 on SCREEN LEFT, 唐岑 on SCREEN RIGHT. Use restrained over-shoulder reactions if needed. Never swap identities, voices or screen sides. The non-speaking character LISTENS WITH MOUTH CLOSED and reacts naturally. SCENE: 林浅、唐岑同场。唐岑看见现场处置记录，停顿不超过半秒。 MANDARIN dialogue only, exact order, one speaker at a time, no overlapping words, no narrator: 唐岑 says “他们压住孟川，不让我们叫救护车。我把那页藏了。”. 林浅 says “原件在哪里？”. Start first line by 0.4 sec, use natural brisk Mandarin with brief responsive pauses of 0.2 seconds. Finish all words clearly by 8.8 sec. Exact audible lip sync, no silent moving mouth; every gasp or breath has matching sound. Last second contains meaningful reaction, no repeated dialogue. Natural proportions, no stretched faces or duplicated heads, no live action, no subtitles or any visible writing, no music. Subtle matching room ambience only.",
+      "prompt": "10-second cinematic hand-drawn 2D Japanese anime crime drama, widescreen 16:9, cool blue-grey controlled low-key lighting, readable faces. Fast natural acting and dialogue, no slow motion, no long silent poses, no unnecessary zoom. Maintain EXACT recurring character identities from attached reference images; recreate the new scene, not the reference composition. CHARACTERS: 林浅 = adult Chinese policewoman, chin-length straight black bob, navy police uniform, no glasses; steady clear Mandarin female voice; 唐岑 = adult Chinese woman age about 48, shoulder-length dark chestnut hair with a SIDE part, narrow oval face, faint tired under-eye lines, gray-blue knitted cardigan over cream shirt, no glasses or jewelry; tired but clear slightly husky Mandarin female voice; NOT a policewoman, NOT a ponytail. Attached reference identities in order: 林浅, 唐岑. 林浅 at screen LEFT and 唐岑 at screen RIGHT throughout. Same room. Tang examines a plain-backed incident record, admits what she witnessed. Lin leans forward slightly and asks the short follow-up question. Speak ONLY the exact Mandarin lines below, in order. Different character voices, precise speaker-specific lip sync; all other mouths CLOSED. No overlapping speech. 唐岑 says: \"他们压住孟川，不让我们叫救护车。我把那页藏了。\" 林浅 says: \"原件在哪里？\" Begin within 0.5 sec, natural brisk speech, each line ONCE, complete all lines clearly. After the last word, both mouths stay closed in SILENT reactions. Do not invent or read any other words. Subtle ambient sound, no music, no narration, no subtitles, no text or signs, no reflections, no duplicates, no face distortion. Maintain consistent 2D anime identities.",
       "duration": 10,
-      "seed": 2417404
+      "seed": 2417404,
+      "action_en": "Same room. Tang examines a plain-backed incident record, admits what she witnessed. Lin leans forward slightly and asks the short follow-up question."
     },
     {
       "id": "84-05",
@@ -10286,7 +10302,8 @@
         "tang"
       ],
       "refs": [
-        "lin"
+        "lin",
+        "tang"
       ],
       "lines": [
         [
@@ -10296,9 +10313,10 @@
         ]
       ],
       "action": "唐岑在记录下交出原始页及保管经过，林浅戴手套封存。",
-      "prompt": "10-second cinematic hand-drawn 2D Japanese anime crime drama, widescreen 16:9, cool blue-grey controlled low-key lighting, readable faces. Fast natural acting and dialogue, no slow motion, no long silent poses, no unnecessary zoom. Maintain EXACT recurring character identities from attached reference images; recreate the new scene, not the reference composition. CHARACTERS: 唐岑 = adult Chinese woman age about 48, shoulder-length dark chestnut hair with a SIDE part, narrow oval face, faint tired under-eye lines, gray-blue knitted cardigan over cream shirt, no glasses or jewelry; tired but clear slightly husky Mandarin female voice; NOT a policewoman, NOT a ponytail; 林浅 = adult Chinese policewoman, chin-length straight black bob, navy police uniform, no glasses; steady clear Mandarin female voice. Attached reference order: 林浅. Show these characters together in one physically coherent two-person medium shot, distinct faces and outfits. 林浅 on SCREEN LEFT, 唐岑 on SCREEN RIGHT. Use restrained over-shoulder reactions if needed. Never swap identities, voices or screen sides. The non-speaking character LISTENS WITH MOUTH CLOSED and reacts naturally. SCENE: 唐岑、林浅同场｜交接证物。唐岑在记录下交出原始页及保管经过，林浅戴手套封存。 MANDARIN dialogue only, exact order, one speaker at a time, no overlapping words, no narrator: 唐岑 says “我当时说，是剑刺杀了他。那样，我们就都不用解释了。”. Start first line by 0.4 sec, use natural brisk Mandarin with brief responsive pauses of 0.2 seconds. Finish all words clearly by 8.8 sec. Exact audible lip sync, no silent moving mouth; every gasp or breath has matching sound. Last second contains meaningful reaction, no repeated dialogue. Natural proportions, no stretched faces or duplicated heads, no live action, no subtitles or any visible writing, no music. Subtle matching room ambience only.",
+      "prompt": "10-second cinematic hand-drawn 2D Japanese anime crime drama, widescreen 16:9, cool blue-grey controlled low-key lighting, readable faces. Fast natural acting and dialogue, no slow motion, no long silent poses, no unnecessary zoom. Maintain EXACT recurring character identities from attached reference images; recreate the new scene, not the reference composition. CHARACTERS: 唐岑 = adult Chinese woman age about 48, shoulder-length dark chestnut hair with a SIDE part, narrow oval face, faint tired under-eye lines, gray-blue knitted cardigan over cream shirt, no glasses or jewelry; tired but clear slightly husky Mandarin female voice; NOT a policewoman, NOT a ponytail; 林浅 = adult Chinese policewoman, chin-length straight black bob, navy police uniform, no glasses; steady clear Mandarin female voice. Attached reference identities in order: 林浅, 唐岑. 林浅 at screen LEFT and 唐岑 at screen RIGHT throughout. Tang voluntarily hands an old page to Lin, who wears evidence gloves and slides it into an evidence sleeve. Tang admits her earlier false accusation. No hugging or comforting touch. Speak ONLY the exact Mandarin lines below, in order. Different character voices, precise speaker-specific lip sync; all other mouths CLOSED. No overlapping speech. 唐岑 says: \"我当时说，是剑刺杀了他。那样，我们就都不用解释了。\" Begin within 0.5 sec, natural brisk speech, each line ONCE, complete all lines clearly. After the last word, both mouths stay closed in SILENT reactions. Do not invent or read any other words. Subtle ambient sound, no music, no narration, no subtitles, no text or signs, no reflections, no duplicates, no face distortion. Maintain consistent 2D anime identities.",
       "duration": 10,
-      "seed": 2417505
+      "seed": 2417505,
+      "action_en": "Tang voluntarily hands an old page to Lin, who wears evidence gloves and slides it into an evidence sleeve. Tang admits her earlier false accusation. No hugging or comforting touch."
     },
     {
       "id": "85-06",
@@ -10358,7 +10376,8 @@
         "tang"
       ],
       "refs": [
-        "lin"
+        "lin",
+        "tang"
       ],
       "lines": [
         [
@@ -10373,9 +10392,10 @@
         ]
       ],
       "action": "林浅把后来的检修记录推过去，唐岑没有逃开视线。",
-      "prompt": "10-second cinematic hand-drawn 2D Japanese anime crime drama, widescreen 16:9, cool blue-grey controlled low-key lighting, readable faces. Fast natural acting and dialogue, no slow motion, no long silent poses, no unnecessary zoom. Maintain EXACT recurring character identities from attached reference images; recreate the new scene, not the reference composition. CHARACTERS: 林浅 = adult Chinese policewoman, chin-length straight black bob, navy police uniform, no glasses; steady clear Mandarin female voice; 唐岑 = adult Chinese woman age about 48, shoulder-length dark chestnut hair with a SIDE part, narrow oval face, faint tired under-eye lines, gray-blue knitted cardigan over cream shirt, no glasses or jewelry; tired but clear slightly husky Mandarin female voice; NOT a policewoman, NOT a ponytail. Attached reference order: 林浅. Show these characters together in one physically coherent two-person medium shot, distinct faces and outfits. 林浅 on SCREEN LEFT, 唐岑 on SCREEN RIGHT. Use restrained over-shoulder reactions if needed. Never swap identities, voices or screen sides. The non-speaking character LISTENS WITH MOUTH CLOSED and reacts naturally. SCENE: 林浅、唐岑同场｜问询。林浅把后来的检修记录推过去，唐岑没有逃开视线。 MANDARIN dialogue only, exact order, one speaker at a time, no overlapping words, no narrator: 林浅 says “后来，谁打开了外门？”. 唐岑 says “是我。陆闻舟让我进去，说要转院。”. Start first line by 0.4 sec, use natural brisk Mandarin with brief responsive pauses of 0.2 seconds. Finish all words clearly by 8.8 sec. Exact audible lip sync, no silent moving mouth; every gasp or breath has matching sound. Last second contains meaningful reaction, no repeated dialogue. Natural proportions, no stretched faces or duplicated heads, no live action, no subtitles or any visible writing, no music. Subtle matching room ambience only.",
+      "prompt": "10-second cinematic hand-drawn 2D Japanese anime crime drama, widescreen 16:9, cool blue-grey controlled low-key lighting, readable faces. Fast natural acting and dialogue, no slow motion, no long silent poses, no unnecessary zoom. Maintain EXACT recurring character identities from attached reference images; recreate the new scene, not the reference composition. CHARACTERS: 林浅 = adult Chinese policewoman, chin-length straight black bob, navy police uniform, no glasses; steady clear Mandarin female voice; 唐岑 = adult Chinese woman age about 48, shoulder-length dark chestnut hair with a SIDE part, narrow oval face, faint tired under-eye lines, gray-blue knitted cardigan over cream shirt, no glasses or jewelry; tired but clear slightly husky Mandarin female voice; NOT a policewoman, NOT a ponytail. Attached reference identities in order: 林浅, 唐岑. 林浅 at screen LEFT and 唐岑 at screen RIGHT throughout. Interview room. Lin slides a plain maintenance folder toward Tang, asks the question. Tang looks at Lin and answers clearly, accepting responsibility. Speak ONLY the exact Mandarin lines below, in order. Different character voices, precise speaker-specific lip sync; all other mouths CLOSED. No overlapping speech. 林浅 says: \"后来，谁打开了外门？\" 唐岑 says: \"是我。陆闻舟让我进去，说要转院。\" Begin within 0.5 sec, natural brisk speech, each line ONCE, complete all lines clearly. After the last word, both mouths stay closed in SILENT reactions. Do not invent or read any other words. Subtle ambient sound, no music, no narration, no subtitles, no text or signs, no reflections, no duplicates, no face distortion. Maintain consistent 2D anime identities.",
       "duration": 10,
-      "seed": 2417602
+      "seed": 2417602,
+      "action_en": "Interview room. Lin slides a plain maintenance folder toward Tang, asks the question. Tang looks at Lin and answers clearly, accepting responsibility."
     },
     {
       "id": "86-03",
@@ -10438,7 +10458,8 @@
         "lu"
       ],
       "refs": [
-        "lin"
+        "lin",
+        "lu"
       ],
       "lines": [
         [
@@ -10448,9 +10469,10 @@
         ]
       ],
       "action": "陆闻舟的手离开水杯，表情第一次僵住。",
-      "prompt": "10-second cinematic hand-drawn 2D Japanese anime crime drama, widescreen 16:9, cool blue-grey controlled low-key lighting, readable faces. Fast natural acting and dialogue, no slow motion, no long silent poses, no unnecessary zoom. Maintain EXACT recurring character identities from attached reference images; recreate the new scene, not the reference composition. CHARACTERS: 林浅 = adult Chinese policewoman, chin-length straight black bob, navy police uniform, no glasses; steady clear Mandarin female voice; 陆闻舟 = adult Chinese man about 52, combed-back short black hair with subtly graying sides, long angular face, thin straight eyebrows, dark gray tailored suit over white shirt, no tie, no glasses or hearing aid; smooth restrained medium-low Mandarin male voice; NOT Jian Ci, NOT a policeman. Attached reference order: 林浅. Show these characters together in one physically coherent two-person medium shot, distinct faces and outfits. 林浅 on SCREEN LEFT, 陆闻舟 on SCREEN RIGHT. Use restrained over-shoulder reactions if needed. Never swap identities, voices or screen sides. The non-speaking character LISTENS WITH MOUTH CLOSED and reacts naturally. SCENE: 林浅、陆闻舟同场｜同一问询空间。陆闻舟的手离开水杯，表情第一次僵住。 MANDARIN dialogue only, exact order, one speaker at a time, no overlapping words, no narrator: 林浅 says “你放走的不是一个人。你是在把试验，搬到别人身边。”. Start first line by 0.4 sec, use natural brisk Mandarin with brief responsive pauses of 0.2 seconds. Finish all words clearly by 8.8 sec. Exact audible lip sync, no silent moving mouth; every gasp or breath has matching sound. Last second contains meaningful reaction, no repeated dialogue. Natural proportions, no stretched faces or duplicated heads, no live action, no subtitles or any visible writing, no music. Subtle matching room ambience only.",
+      "prompt": "10-second cinematic hand-drawn 2D Japanese anime crime drama, widescreen 16:9, cool blue-grey controlled low-key lighting, readable faces. Fast natural acting and dialogue, no slow motion, no long silent poses, no unnecessary zoom. Maintain EXACT recurring character identities from attached reference images; recreate the new scene, not the reference composition. CHARACTERS: 林浅 = adult Chinese policewoman, chin-length straight black bob, navy police uniform, no glasses; steady clear Mandarin female voice; 陆闻舟 = adult Chinese man about 52, combed-back short black hair with subtly graying sides, long angular face, thin straight eyebrows, dark gray tailored suit over white shirt, no tie, no glasses or hearing aid; smooth restrained medium-low Mandarin male voice; NOT Jian Ci, NOT a policeman. Attached reference identities in order: 林浅, 陆闻舟. 林浅 at screen LEFT and 陆闻舟 at screen RIGHT throughout. Interrogation room. Lin speaks firmly to Lu on the right. He sets his water glass down and listens in silence, expression becoming tense. Lu NEVER speaks in this shot. Speak ONLY the exact Mandarin lines below, in order. Different character voices, precise speaker-specific lip sync; all other mouths CLOSED. No overlapping speech. 林浅 says: \"你放走的不是一个人。你是在把试验，搬到别人身边。\" Begin within 0.5 sec, natural brisk speech, each line ONCE, complete all lines clearly. After the last word, both mouths stay closed in SILENT reactions. Do not invent or read any other words. Subtle ambient sound, no music, no narration, no subtitles, no text or signs, no reflections, no duplicates, no face distortion. Maintain consistent 2D anime identities.",
       "duration": 10,
-      "seed": 2417605
+      "seed": 2417605,
+      "action_en": "Interrogation room. Lin speaks firmly to Lu on the right. He sets his water glass down and listens in silence, expression becoming tense. Lu NEVER speaks in this shot."
     },
     {
       "id": "86-06",
@@ -10515,7 +10537,8 @@
         "lu"
       ],
       "refs": [
-        "lin"
+        "lin",
+        "lu"
       ],
       "lines": [
         [
@@ -10525,9 +10548,10 @@
         ]
       ],
       "action": "林浅同时放下伪造档案委托和郑骁采样条件，陆闻舟不能只凭一句话被定罪。",
-      "prompt": "10-second cinematic hand-drawn 2D Japanese anime crime drama, widescreen 16:9, cool blue-grey controlled low-key lighting, readable faces. Fast natural acting and dialogue, no slow motion, no long silent poses, no unnecessary zoom. Maintain EXACT recurring character identities from attached reference images; recreate the new scene, not the reference composition. CHARACTERS: 林浅 = adult Chinese policewoman, chin-length straight black bob, navy police uniform, no glasses; steady clear Mandarin female voice; 陆闻舟 = adult Chinese man about 52, combed-back short black hair with subtly graying sides, long angular face, thin straight eyebrows, dark gray tailored suit over white shirt, no tie, no glasses or hearing aid; smooth restrained medium-low Mandarin male voice; NOT Jian Ci, NOT a policeman. Attached reference order: 林浅. Show these characters together in one physically coherent two-person medium shot, distinct faces and outfits. 林浅 on SCREEN LEFT, 陆闻舟 on SCREEN RIGHT. Use restrained over-shoulder reactions if needed. Never swap identities, voices or screen sides. The non-speaking character LISTENS WITH MOUTH CLOSED and reacts naturally. SCENE: 林浅、陆闻舟同场。林浅同时放下伪造档案委托和郑骁采样条件，陆闻舟不能只凭一句话被定罪。 MANDARIN dialogue only, exact order, one speaker at a time, no overlapping words, no narrator: 林浅 says “先让他相信自己是凶手，再用活人逼他失控。为什么？”. Start first line by 0.4 sec, use natural brisk Mandarin with brief responsive pauses of 0.2 seconds. Finish all words clearly by 8.8 sec. Exact audible lip sync, no silent moving mouth; every gasp or breath has matching sound. Last second contains meaningful reaction, no repeated dialogue. Natural proportions, no stretched faces or duplicated heads, no live action, no subtitles or any visible writing, no music. Subtle matching room ambience only.",
+      "prompt": "10-second cinematic hand-drawn 2D Japanese anime crime drama, widescreen 16:9, cool blue-grey controlled low-key lighting, readable faces. Fast natural acting and dialogue, no slow motion, no long silent poses, no unnecessary zoom. Maintain EXACT recurring character identities from attached reference images; recreate the new scene, not the reference composition. CHARACTERS: 林浅 = adult Chinese policewoman, chin-length straight black bob, navy police uniform, no glasses; steady clear Mandarin female voice; 陆闻舟 = adult Chinese man about 52, combed-back short black hair with subtly graying sides, long angular face, thin straight eyebrows, dark gray tailored suit over white shirt, no tie, no glasses or hearing aid; smooth restrained medium-low Mandarin male voice; NOT Jian Ci, NOT a policeman. Attached reference identities in order: 林浅, 陆闻舟. 林浅 at screen LEFT and 陆闻舟 at screen RIGHT throughout. Same interrogation room. Lin places two plain-backed documents on the table and questions Lu. He listens in silence, not smiling. Lu NEVER speaks in this shot. Speak ONLY the exact Mandarin lines below, in order. Different character voices, precise speaker-specific lip sync; all other mouths CLOSED. No overlapping speech. 林浅 says: \"先让他相信自己是凶手，再用活人逼他失控。为什么？\" Begin within 0.5 sec, natural brisk speech, each line ONCE, complete all lines clearly. After the last word, both mouths stay closed in SILENT reactions. Do not invent or read any other words. Subtle ambient sound, no music, no narration, no subtitles, no text or signs, no reflections, no duplicates, no face distortion. Maintain consistent 2D anime identities.",
       "duration": 10,
-      "seed": 2417702
+      "seed": 2417702,
+      "action_en": "Same interrogation room. Lin places two plain-backed documents on the table and questions Lu. He listens in silence, not smiling. Lu NEVER speaks in this shot."
     },
     {
       "id": "87-03",
@@ -10538,7 +10562,8 @@
         "lu"
       ],
       "refs": [
-        "lin"
+        "lin",
+        "lu"
       ],
       "lines": [
         [
@@ -10553,9 +10578,10 @@
         ]
       ],
       "action": "陆闻舟平静地回答，越平静越令人不适；不配夸张邪笑。",
-      "prompt": "10-second cinematic hand-drawn 2D Japanese anime crime drama, widescreen 16:9, cool blue-grey controlled low-key lighting, readable faces. Fast natural acting and dialogue, no slow motion, no long silent poses, no unnecessary zoom. Maintain EXACT recurring character identities from attached reference images; recreate the new scene, not the reference composition. CHARACTERS: 陆闻舟 = adult Chinese man about 52, combed-back short black hair with subtly graying sides, long angular face, thin straight eyebrows, dark gray tailored suit over white shirt, no tie, no glasses or hearing aid; smooth restrained medium-low Mandarin male voice; NOT Jian Ci, NOT a policeman; 林浅 = adult Chinese policewoman, chin-length straight black bob, navy police uniform, no glasses; steady clear Mandarin female voice. Attached reference order: 林浅. Show these characters together in one physically coherent two-person medium shot, distinct faces and outfits. 林浅 on SCREEN LEFT, 陆闻舟 on SCREEN RIGHT. Use restrained over-shoulder reactions if needed. Never swap identities, voices or screen sides. The non-speaking character LISTENS WITH MOUTH CLOSED and reacts naturally. SCENE: 陆闻舟、林浅同场。陆闻舟平静地回答，越平静越令人不适；不配夸张邪笑。 MANDARIN dialogue only, exact order, one speaker at a time, no overlapping words, no narrator: 陆闻舟 says “只要能复制，之前那些失败，就都有价值。”. 林浅 says “你说的失败，是人。”. Start first line by 0.4 sec, use natural brisk Mandarin with brief responsive pauses of 0.2 seconds. Finish all words clearly by 8.8 sec. Exact audible lip sync, no silent moving mouth; every gasp or breath has matching sound. Last second contains meaningful reaction, no repeated dialogue. Natural proportions, no stretched faces or duplicated heads, no live action, no subtitles or any visible writing, no music. Subtle matching room ambience only.",
+      "prompt": "10-second cinematic hand-drawn 2D Japanese anime crime drama, widescreen 16:9, cool blue-grey controlled low-key lighting, readable faces. Fast natural acting and dialogue, no slow motion, no long silent poses, no unnecessary zoom. Maintain EXACT recurring character identities from attached reference images; recreate the new scene, not the reference composition. CHARACTERS: 陆闻舟 = adult Chinese man about 52, combed-back short black hair with subtly graying sides, long angular face, thin straight eyebrows, dark gray tailored suit over white shirt, no tie, no glasses or hearing aid; smooth restrained medium-low Mandarin male voice; NOT Jian Ci, NOT a policeman; 林浅 = adult Chinese policewoman, chin-length straight black bob, navy police uniform, no glasses; steady clear Mandarin female voice. Attached reference identities in order: 林浅, 陆闻舟. 林浅 at screen LEFT and 陆闻舟 at screen RIGHT throughout. Lu speaks with chilling, controlled calm while looking at Lin. Lin immediately answers, holding eye contact. No exaggerated villain laughter. Speak ONLY the exact Mandarin lines below, in order. Different character voices, precise speaker-specific lip sync; all other mouths CLOSED. No overlapping speech. 陆闻舟 says: \"只要能复制，之前那些失败，就都有价值。\" 林浅 says: \"你说的失败，是人。\" Begin within 0.5 sec, natural brisk speech, each line ONCE, complete all lines clearly. After the last word, both mouths stay closed in SILENT reactions. Do not invent or read any other words. Subtle ambient sound, no music, no narration, no subtitles, no text or signs, no reflections, no duplicates, no face distortion. Maintain consistent 2D anime identities.",
       "duration": 10,
-      "seed": 2417703
+      "seed": 2417703,
+      "action_en": "Lu speaks with chilling, controlled calm while looking at Lin. Lin immediately answers, holding eye contact. No exaggerated villain laughter."
     },
     {
       "id": "87-04",
@@ -10566,7 +10592,8 @@
         "tang"
       ],
       "refs": [
-        "haninjured"
+        "haninjured",
+        "tang"
       ],
       "lines": [
         [
@@ -10581,9 +10608,10 @@
         ]
       ],
       "action": "韩彻在康复室，唐岑在受保护问询区。使用明确的视频通话镜头，不假装同屋。",
-      "prompt": "10-second cinematic hand-drawn 2D Japanese anime crime drama, widescreen 16:9, cool blue-grey controlled low-key lighting, readable faces. Fast natural acting and dialogue, no slow motion, no long silent poses, no unnecessary zoom. Maintain EXACT recurring character identities from attached reference images; recreate the new scene, not the reference composition. CHARACTERS: 韩彻 = middle-aged Chinese policeman, short dark hair with gray temples, scar over RIGHT eyebrow, navy uniform, no glasses; LEFT forearm white bandage and reduced hand movement, small old RIGHT wrist dressing; firm low Mandarin male voice; 唐岑 = adult Chinese woman age about 48, shoulder-length dark chestnut hair with a SIDE part, narrow oval face, faint tired under-eye lines, gray-blue knitted cardigan over cream shirt, no glasses or jewelry; tired but clear slightly husky Mandarin female voice; NOT a policewoman, NOT a ponytail. Attached reference order: 韩彻. Show an explicit two-panel video call, each character physically in their own separate room, distinct faces and outfits. 韩彻 on SCREEN LEFT, 唐岑 on SCREEN RIGHT. Use restrained over-shoulder reactions if needed. Never swap identities, voices or screen sides. The non-speaking character LISTENS WITH MOUTH CLOSED and reacts naturally. SCENE: 韩彻、唐岑双人连线｜各自空间先建立。韩彻在康复室，唐岑在受保护问询区。使用明确的视频通话镜头，不假装同屋。 MANDARIN dialogue only, exact order, one speaker at a time, no overlapping words, no narrator: 唐岑 says “我把检修权限留给了他们。他们还能回来。”. 韩彻 says “把你知道的说全。现在还来得及救人。”. Start first line by 0.4 sec, use natural brisk Mandarin with brief responsive pauses of 0.2 seconds. Finish all words clearly by 8.8 sec. Exact audible lip sync, no silent moving mouth; every gasp or breath has matching sound. Last second contains meaningful reaction, no repeated dialogue. Natural proportions, no stretched faces or duplicated heads, no live action, no subtitles or any visible writing, no music. Subtle matching room ambience only.",
+      "prompt": "10-second cinematic hand-drawn 2D Japanese anime crime drama, widescreen 16:9, cool blue-grey controlled low-key lighting, readable faces. Fast natural acting and dialogue, no slow motion, no long silent poses, no unnecessary zoom. Maintain EXACT recurring character identities from attached reference images; recreate the new scene, not the reference composition. CHARACTERS: 韩彻 = middle-aged Chinese policeman, short dark hair with gray temples, scar over RIGHT eyebrow, navy uniform, no glasses; LEFT forearm white bandage and reduced hand movement, small old RIGHT wrist dressing; firm low Mandarin male voice; 唐岑 = adult Chinese woman age about 48, shoulder-length dark chestnut hair with a SIDE part, narrow oval face, faint tired under-eye lines, gray-blue knitted cardigan over cream shirt, no glasses or jewelry; tired but clear slightly husky Mandarin female voice; NOT a policewoman, NOT a ponytail. Attached reference identities in order: 韩彻, 唐岑. Explicit two-panel video call: Han recovering seated in his room, bandaged LEFT arm visible; Tang seated in a protected interview room. Tang speaks first, Han answers. Two separate physical spaces, no walking between panels. Speak ONLY the exact Mandarin lines below, in order. Different character voices, precise speaker-specific lip sync; all other mouths CLOSED. No overlapping speech. 唐岑 says: \"我把检修权限留给了他们。他们还能回来。\" 韩彻 says: \"把你知道的说全。现在还来得及救人。\" Begin within 0.5 sec, natural brisk speech, each line ONCE, complete all lines clearly. After the last word, both mouths stay closed in SILENT reactions. Do not invent or read any other words. Subtle ambient sound, no music, no narration, no subtitles, no text or signs, no reflections, no duplicates, no face distortion. Maintain consistent 2D anime identities.",
       "duration": 10,
-      "seed": 2417704
+      "seed": 2417704,
+      "action_en": "Explicit two-panel video call: Han recovering seated in his room, bandaged LEFT arm visible; Tang seated in a protected interview room. Tang speaks first, Han answers. Two separate physical spaces, no walking between panels."
     },
     {
       "id": "87-05",
@@ -10647,7 +10675,8 @@
         "tang"
       ],
       "refs": [
-        "lin"
+        "lin",
+        "tang"
       ],
       "lines": [
         [
@@ -10662,9 +10691,10 @@
         ]
       ],
       "action": "林浅赶到，唐岑膝部擦伤、行动受限。前方撤离路线由工作人员指引，不让警方毫无准备进入陷阱。",
-      "prompt": "10-second cinematic hand-drawn 2D Japanese anime crime drama, widescreen 16:9, cool blue-grey controlled low-key lighting, readable faces. Fast natural acting and dialogue, no slow motion, no long silent poses, no unnecessary zoom. Maintain EXACT recurring character identities from attached reference images; recreate the new scene, not the reference composition. CHARACTERS: 林浅 = adult Chinese policewoman, chin-length straight black bob, navy police uniform, no glasses; steady clear Mandarin female voice; 唐岑 = adult Chinese woman age about 48, shoulder-length dark chestnut hair with a SIDE part, narrow oval face, faint tired under-eye lines, gray-blue knitted cardigan over cream shirt, no glasses or jewelry; tired but clear slightly husky Mandarin female voice; NOT a policewoman, NOT a ponytail. Attached reference order: 林浅. Show these characters together in one physically coherent two-person medium shot, distinct faces and outfits. 林浅 on SCREEN LEFT, 唐岑 on SCREEN RIGHT. Use restrained over-shoulder reactions if needed. Never swap identities, voices or screen sides. The non-speaking character LISTENS WITH MOUTH CLOSED and reacts naturally. SCENE: 林浅、唐岑同场｜撤离走廊。林浅赶到，唐岑膝部擦伤、行动受限。前方撤离路线由工作人员指引，不让警方毫无准备进入陷阱。 MANDARIN dialogue only, exact order, one speaker at a time, no overlapping words, no narrator: 唐岑 says “他们不是来带走我，是来让我闭嘴。”. 林浅 says “看着我。沿这边走。”. Start first line by 0.4 sec, use natural brisk Mandarin with brief responsive pauses of 0.2 seconds. Finish all words clearly by 8.8 sec. Exact audible lip sync, no silent moving mouth; every gasp or breath has matching sound. Last second contains meaningful reaction, no repeated dialogue. Natural proportions, no stretched faces or duplicated heads, no live action, no subtitles or any visible writing, no music. Subtle matching room ambience only.",
+      "prompt": "10-second cinematic hand-drawn 2D Japanese anime crime drama, widescreen 16:9, cool blue-grey controlled low-key lighting, readable faces. Fast natural acting and dialogue, no slow motion, no long silent poses, no unnecessary zoom. Maintain EXACT recurring character identities from attached reference images; recreate the new scene, not the reference composition. CHARACTERS: 林浅 = adult Chinese policewoman, chin-length straight black bob, navy police uniform, no glasses; steady clear Mandarin female voice; 唐岑 = adult Chinese woman age about 48, shoulder-length dark chestnut hair with a SIDE part, narrow oval face, faint tired under-eye lines, gray-blue knitted cardigan over cream shirt, no glasses or jewelry; tired but clear slightly husky Mandarin female voice; NOT a policewoman, NOT a ponytail. Attached reference identities in order: 林浅, 唐岑. 林浅 at screen LEFT and 唐岑 at screen RIGHT throughout. Emergency-lit clinic corridor with visible exit direction. Lin on left supports adult Tang on right walking steadily toward safety. Tang has a minor covered scrape at her knee, no graphic wound. Tang speaks in fear, Lin answers and guides her. Speak ONLY the exact Mandarin lines below, in order. Different character voices, precise speaker-specific lip sync; all other mouths CLOSED. No overlapping speech. 唐岑 says: \"他们不是来带走我，是来让我闭嘴。\" 林浅 says: \"看着我。沿这边走。\" Begin within 0.5 sec, natural brisk speech, each line ONCE, complete all lines clearly. After the last word, both mouths stay closed in SILENT reactions. Do not invent or read any other words. Subtle ambient sound, no music, no narration, no subtitles, no text or signs, no reflections, no duplicates, no face distortion. Maintain consistent 2D anime identities.",
       "duration": 10,
-      "seed": 2417801
+      "seed": 2417801,
+      "action_en": "Emergency-lit clinic corridor with visible exit direction. Lin on left supports adult Tang on right walking steadily toward safety. Tang has a minor covered scrape at her knee, no graphic wound. Tang speaks in fear, Lin answers and guides her."
     },
     {
       "id": "88-02",
@@ -10702,11 +10732,12 @@
       "title": "这次先救门外的人",
       "cast": [
         "lin",
-        "jian",
-        "tang"
+        "tang",
+        "jian"
       ],
       "refs": [
         "lin",
+        "tang",
         "jian"
       ],
       "lines": [
@@ -10722,9 +10753,10 @@
         ]
       ],
       "action": "三人位置清楚：唐岑在林浅身后，剑刺在对侧。剑刺猛然向前半步，林浅停住，手仍护住唐岑。\n剑刺抓住自己衣袖，身体转向墙面，不接触任何人；獠牙与急喘清楚可见。",
-      "prompt": "10-second cinematic hand-drawn 2D Japanese anime crime drama, widescreen 16:9, cool blue-grey controlled low-key lighting, readable faces. Fast natural acting and dialogue, no slow motion, no long silent poses, no unnecessary zoom. Maintain EXACT recurring character identities from attached reference images; recreate the new scene, not the reference composition. CHARACTERS: 林浅 = adult Chinese policewoman, chin-length straight black bob, navy police uniform, no glasses; steady clear Mandarin female voice; 剑刺 = pale adult Chinese man, tousled short black hair, charcoal jacket over black turtleneck, no glasses or hearing aid; low restrained Mandarin male voice; 唐岑 = adult Chinese woman age about 48, shoulder-length dark chestnut hair with a SIDE part, narrow oval face, faint tired under-eye lines, gray-blue knitted cardigan over cream shirt, no glasses or jewelry; tired but clear slightly husky Mandarin female voice; NOT a policewoman, NOT a ponytail. Attached reference order: 林浅, 剑刺. Show these characters together in one physically coherent two-person medium shot, distinct faces and outfits. 林浅 on SCREEN LEFT, 剑刺 on SCREEN RIGHT. Use restrained over-shoulder reactions if needed. Never swap identities, voices or screen sides. The non-speaking character LISTENS WITH MOUTH CLOSED and reacts naturally. Three people only: Lin at left, Tang BEHIND Lin, Jian at right near wall. SCENE: 林浅、剑刺、唐岑同场｜同一走廊。三人位置清楚：唐岑在林浅身后，剑刺在对侧。剑刺猛然向前半步，林浅停住，手仍护住唐岑。\n剑刺抓住自己衣袖，身体转向墙面，不接触任何人；獠牙与急喘清楚可见。 MANDARIN dialogue only, exact order, one speaker at a time, no overlapping words, no narrator: 林浅 says “剑刺，停。”. 剑刺 says “我听见了。带她走。”. Start first line by 0.4 sec, use natural brisk Mandarin with brief responsive pauses of 0.2 seconds. Finish all words clearly by 8.8 sec. Exact audible lip sync, no silent moving mouth; every gasp or breath has matching sound. Last second contains meaningful reaction, no repeated dialogue. Natural proportions, no stretched faces or duplicated heads, no live action, no subtitles or any visible writing, no music. Subtle matching room ambience only. Jian visibly shows dark crimson irises and TWO distinct upper vampire fangs as specified; audible strained breathing. Frightening but still his same human face. No gore, no claws, no extra powers. ",
+      "prompt": "10-second cinematic hand-drawn 2D Japanese anime crime drama, widescreen 16:9, cool blue-grey controlled low-key lighting, readable faces. Fast natural acting and dialogue, no slow motion, no long silent poses, no unnecessary zoom. Maintain EXACT recurring character identities from attached reference images; recreate the new scene, not the reference composition. CHARACTERS: 林浅 = adult Chinese policewoman, chin-length straight black bob, navy police uniform, no glasses; steady clear Mandarin female voice; 剑刺 = pale adult Chinese man, tousled short black hair, charcoal jacket over black turtleneck, no glasses or hearing aid; low restrained Mandarin male voice; 唐岑 = adult Chinese woman age about 48, shoulder-length dark chestnut hair with a SIDE part, narrow oval face, faint tired under-eye lines, gray-blue knitted cardigan over cream shirt, no glasses or jewelry; tired but clear slightly husky Mandarin female voice; NOT a policewoman, NOT a ponytail. Attached reference identities in order: 林浅, 唐岑, 剑刺. Reference order Lin, Tang, Jian. Lin protects Tang behind her; Jian opposite them. Emergency corridor, same three people throughout. Lin on left shields Tang behind her. Jian at right by wall takes one abrupt half-step toward them, crimson irises and visible upper fangs, audible strained inhale. Lin tells him to stop. He grips HIS OWN sleeve, turns toward the wall and answers her, choosing not to approach. No biting or touching others. Tang stays behind Lin and never speaks. Speak ONLY the exact Mandarin lines below, in order. Different character voices, precise speaker-specific lip sync; all other mouths CLOSED. No overlapping speech. 林浅 says: \"剑刺，停。\" 剑刺 says: \"我听见了。带她走。\" Begin within 0.5 sec, natural brisk speech, each line ONCE, complete all lines clearly. After the last word, both mouths stay closed in SILENT reactions. Do not invent or read any other words. Subtle ambient sound, no music, no narration, no subtitles, no text or signs, no reflections, no duplicates, no face distortion. Maintain consistent 2D anime identities.",
       "duration": 10,
-      "seed": 2417803
+      "seed": 2417803,
+      "action_en": "Emergency corridor, same three people throughout. Lin on left shields Tang behind her. Jian at right by wall takes one abrupt half-step toward them, crimson irises and visible upper fangs, audible strained inhale. Lin tells him to stop. He grips HIS OWN sleeve, turns toward the wall and answers her, choosing not to approach. No biting or touching others. Tang stays behind Lin and never speaks."
     },
     {
       "id": "88-04",
@@ -10757,7 +10789,8 @@
         "tang"
       ],
       "refs": [
-        "haninjured"
+        "haninjured",
+        "tang"
       ],
       "lines": [
         [
@@ -10772,9 +10805,10 @@
         ]
       ],
       "action": "唐岑坐下后仍握住电话。韩彻没有突然出现在现场。",
-      "prompt": "10-second cinematic hand-drawn 2D Japanese anime crime drama, widescreen 16:9, cool blue-grey controlled low-key lighting, readable faces. Fast natural acting and dialogue, no slow motion, no long silent poses, no unnecessary zoom. Maintain EXACT recurring character identities from attached reference images; recreate the new scene, not the reference composition. CHARACTERS: 韩彻 = middle-aged Chinese policeman, short dark hair with gray temples, scar over RIGHT eyebrow, navy uniform, no glasses; LEFT forearm white bandage and reduced hand movement, small old RIGHT wrist dressing; firm low Mandarin male voice; 唐岑 = adult Chinese woman age about 48, shoulder-length dark chestnut hair with a SIDE part, narrow oval face, faint tired under-eye lines, gray-blue knitted cardigan over cream shirt, no glasses or jewelry; tired but clear slightly husky Mandarin female voice; NOT a policewoman, NOT a ponytail. Attached reference order: 韩彻. Show an explicit two-panel video call, each character physically in their own separate room, distinct faces and outfits. 韩彻 on SCREEN LEFT, 唐岑 on SCREEN RIGHT. Use restrained over-shoulder reactions if needed. Never swap identities, voices or screen sides. The non-speaking character LISTENS WITH MOUTH CLOSED and reacts naturally. SCENE: 韩彻、唐岑连线｜安全区。唐岑坐下后仍握住电话。韩彻没有突然出现在现场。 MANDARIN dialogue only, exact order, one speaker at a time, no overlapping words, no narrator: 唐岑 says “我开过那扇门。我会把指令和交接，都说清楚。”. 韩彻 says “救护人员到了。你先让他们检查。”. Start first line by 0.4 sec, use natural brisk Mandarin with brief responsive pauses of 0.2 seconds. Finish all words clearly by 8.8 sec. Exact audible lip sync, no silent moving mouth; every gasp or breath has matching sound. Last second contains meaningful reaction, no repeated dialogue. Natural proportions, no stretched faces or duplicated heads, no live action, no subtitles or any visible writing, no music. Subtle matching room ambience only.",
+      "prompt": "10-second cinematic hand-drawn 2D Japanese anime crime drama, widescreen 16:9, cool blue-grey controlled low-key lighting, readable faces. Fast natural acting and dialogue, no slow motion, no long silent poses, no unnecessary zoom. Maintain EXACT recurring character identities from attached reference images; recreate the new scene, not the reference composition. CHARACTERS: 韩彻 = middle-aged Chinese policeman, short dark hair with gray temples, scar over RIGHT eyebrow, navy uniform, no glasses; LEFT forearm white bandage and reduced hand movement, small old RIGHT wrist dressing; firm low Mandarin male voice; 唐岑 = adult Chinese woman age about 48, shoulder-length dark chestnut hair with a SIDE part, narrow oval face, faint tired under-eye lines, gray-blue knitted cardigan over cream shirt, no glasses or jewelry; tired but clear slightly husky Mandarin female voice; NOT a policewoman, NOT a ponytail. Attached reference identities in order: 韩彻, 唐岑. Explicit video call in two panels. Tang safely seated with phone after evacuation, Han seated in recovery room with LEFT-arm bandage. Tang confirms she will give the full account; Han gently tells her to let the medics examine her. No physical meeting. Speak ONLY the exact Mandarin lines below, in order. Different character voices, precise speaker-specific lip sync; all other mouths CLOSED. No overlapping speech. 唐岑 says: \"我开过那扇门。我会把指令和交接，都说清楚。\" 韩彻 says: \"救护人员到了。你先让他们检查。\" Begin within 0.5 sec, natural brisk speech, each line ONCE, complete all lines clearly. After the last word, both mouths stay closed in SILENT reactions. Do not invent or read any other words. Subtle ambient sound, no music, no narration, no subtitles, no text or signs, no reflections, no duplicates, no face distortion. Maintain consistent 2D anime identities.",
       "duration": 10,
-      "seed": 2417805
+      "seed": 2417805,
+      "action_en": "Explicit video call in two panels. Tang safely seated with phone after evacuation, Han seated in recovery room with LEFT-arm bandage. Tang confirms she will give the full account; Han gently tells her to let the medics examine her. No physical meeting."
     },
     {
       "id": "88-06",
@@ -10839,7 +10873,8 @@
         "lu"
       ],
       "refs": [
-        "lin"
+        "lin",
+        "lu"
       ],
       "lines": [
         [
@@ -10854,9 +10889,10 @@
         ]
       ],
       "action": "陆闻舟将一个资料文件夹推过来，林浅没有接他的交易条件。",
-      "prompt": "10-second cinematic hand-drawn 2D Japanese anime crime drama, widescreen 16:9, cool blue-grey controlled low-key lighting, readable faces. Fast natural acting and dialogue, no slow motion, no long silent poses, no unnecessary zoom. Maintain EXACT recurring character identities from attached reference images; recreate the new scene, not the reference composition. CHARACTERS: 林浅 = adult Chinese policewoman, chin-length straight black bob, navy police uniform, no glasses; steady clear Mandarin female voice; 陆闻舟 = adult Chinese man about 52, combed-back short black hair with subtly graying sides, long angular face, thin straight eyebrows, dark gray tailored suit over white shirt, no tie, no glasses or hearing aid; smooth restrained medium-low Mandarin male voice; NOT Jian Ci, NOT a policeman. Attached reference order: 林浅. Show these characters together in one physically coherent two-person medium shot, distinct faces and outfits. 林浅 on SCREEN LEFT, 陆闻舟 on SCREEN RIGHT. Use restrained over-shoulder reactions if needed. Never swap identities, voices or screen sides. The non-speaking character LISTENS WITH MOUTH CLOSED and reacts naturally. SCENE: 林浅、陆闻舟同场｜讯问。陆闻舟将一个资料文件夹推过来，林浅没有接他的交易条件。 MANDARIN dialogue only, exact order, one speaker at a time, no overlapping words, no narrator: 陆闻舟 says “治疗资料也在我手里。你们想让他一直这样？”. 林浅 says “资料依法取证。人的命，不拿来谈条件。”. Start first line by 0.4 sec, use natural brisk Mandarin with brief responsive pauses of 0.2 seconds. Finish all words clearly by 8.8 sec. Exact audible lip sync, no silent moving mouth; every gasp or breath has matching sound. Last second contains meaningful reaction, no repeated dialogue. Natural proportions, no stretched faces or duplicated heads, no live action, no subtitles or any visible writing, no music. Subtle matching room ambience only.",
+      "prompt": "10-second cinematic hand-drawn 2D Japanese anime crime drama, widescreen 16:9, cool blue-grey controlled low-key lighting, readable faces. Fast natural acting and dialogue, no slow motion, no long silent poses, no unnecessary zoom. Maintain EXACT recurring character identities from attached reference images; recreate the new scene, not the reference composition. CHARACTERS: 林浅 = adult Chinese policewoman, chin-length straight black bob, navy police uniform, no glasses; steady clear Mandarin female voice; 陆闻舟 = adult Chinese man about 52, combed-back short black hair with subtly graying sides, long angular face, thin straight eyebrows, dark gray tailored suit over white shirt, no tie, no glasses or hearing aid; smooth restrained medium-low Mandarin male voice; NOT Jian Ci, NOT a policeman. Attached reference identities in order: 林浅, 陆闻舟. 林浅 at screen LEFT and 陆闻舟 at screen RIGHT throughout. Interrogation room. Lu slides a closed medical-record folder toward Lin as a proposed bargain, speaks first. Lin keeps both hands beside the folder, refuses his condition and answers firmly. No one opens or reads written text. Speak ONLY the exact Mandarin lines below, in order. Different character voices, precise speaker-specific lip sync; all other mouths CLOSED. No overlapping speech. 陆闻舟 says: \"治疗资料也在我手里。你们想让他一直这样？\" 林浅 says: \"资料依法取证。人的命，不拿来谈条件。\" Begin within 0.5 sec, natural brisk speech, each line ONCE, complete all lines clearly. After the last word, both mouths stay closed in SILENT reactions. Do not invent or read any other words. Subtle ambient sound, no music, no narration, no subtitles, no text or signs, no reflections, no duplicates, no face distortion. Maintain consistent 2D anime identities.",
       "duration": 10,
-      "seed": 2417902
+      "seed": 2417902,
+      "action_en": "Interrogation room. Lu slides a closed medical-record folder toward Lin as a proposed bargain, speaks first. Lin keeps both hands beside the folder, refuses his condition and answers firmly. No one opens or reads written text."
     },
     {
       "id": "89-03",
@@ -10925,7 +10961,8 @@
         "tang"
       ],
       "refs": [
-        "lin"
+        "lin",
+        "tang"
       ],
       "lines": [
         [
@@ -10940,9 +10977,10 @@
         ]
       ],
       "action": "唐岑签署补充陈述，林浅收好，不拥抱赦免。",
-      "prompt": "10-second cinematic hand-drawn 2D Japanese anime crime drama, widescreen 16:9, cool blue-grey controlled low-key lighting, readable faces. Fast natural acting and dialogue, no slow motion, no long silent poses, no unnecessary zoom. Maintain EXACT recurring character identities from attached reference images; recreate the new scene, not the reference composition. CHARACTERS: 林浅 = adult Chinese policewoman, chin-length straight black bob, navy police uniform, no glasses; steady clear Mandarin female voice; 唐岑 = adult Chinese woman age about 48, shoulder-length dark chestnut hair with a SIDE part, narrow oval face, faint tired under-eye lines, gray-blue knitted cardigan over cream shirt, no glasses or jewelry; tired but clear slightly husky Mandarin female voice; NOT a policewoman, NOT a ponytail. Attached reference order: 林浅. Show these characters together in one physically coherent two-person medium shot, distinct faces and outfits. 林浅 on SCREEN LEFT, 唐岑 on SCREEN RIGHT. Use restrained over-shoulder reactions if needed. Never swap identities, voices or screen sides. The non-speaking character LISTENS WITH MOUTH CLOSED and reacts naturally. SCENE: 林浅、唐岑同场｜补充陈述。唐岑签署补充陈述，林浅收好，不拥抱赦免。 MANDARIN dialogue only, exact order, one speaker at a time, no overlapping words, no narrator: 唐岑 says “说出来，也不会变成没发生过。”. 林浅 says “是。但我们终于能把每个人，放回他做过的事里。”. Start first line by 0.4 sec, use natural brisk Mandarin with brief responsive pauses of 0.2 seconds. Finish all words clearly by 8.8 sec. Exact audible lip sync, no silent moving mouth; every gasp or breath has matching sound. Last second contains meaningful reaction, no repeated dialogue. Natural proportions, no stretched faces or duplicated heads, no live action, no subtitles or any visible writing, no music. Subtle matching room ambience only.",
+      "prompt": "10-second cinematic hand-drawn 2D Japanese anime crime drama, widescreen 16:9, cool blue-grey controlled low-key lighting, readable faces. Fast natural acting and dialogue, no slow motion, no long silent poses, no unnecessary zoom. Maintain EXACT recurring character identities from attached reference images; recreate the new scene, not the reference composition. CHARACTERS: 林浅 = adult Chinese policewoman, chin-length straight black bob, navy police uniform, no glasses; steady clear Mandarin female voice; 唐岑 = adult Chinese woman age about 48, shoulder-length dark chestnut hair with a SIDE part, narrow oval face, faint tired under-eye lines, gray-blue knitted cardigan over cream shirt, no glasses or jewelry; tired but clear slightly husky Mandarin female voice; NOT a policewoman, NOT a ponytail. Attached reference identities in order: 林浅, 唐岑. 林浅 at screen LEFT and 唐岑 at screen RIGHT throughout. Protected interview room. Tang signs a statement and looks at Lin with regret. Lin closes the folder and responds, without smiling or offering absolution. Both remain in the same shot. Speak ONLY the exact Mandarin lines below, in order. Different character voices, precise speaker-specific lip sync; all other mouths CLOSED. No overlapping speech. 唐岑 says: \"说出来，也不会变成没发生过。\" 林浅 says: \"是。但我们终于能把每个人，放回他做过的事里。\" Begin within 0.5 sec, natural brisk speech, each line ONCE, complete all lines clearly. After the last word, both mouths stay closed in SILENT reactions. Do not invent or read any other words. Subtle ambient sound, no music, no narration, no subtitles, no text or signs, no reflections, no duplicates, no face distortion. Maintain consistent 2D anime identities.",
       "duration": 10,
-      "seed": 2417905
+      "seed": 2417905,
+      "action_en": "Protected interview room. Tang signs a statement and looks at Lin with regret. Lin closes the folder and responds, without smiling or offering absolution. Both remain in the same shot."
     },
     {
       "id": "89-06",
@@ -11143,6 +11181,31 @@
       "prompt": "10-second cinematic hand-drawn 2D Japanese anime crime drama, widescreen 16:9, cool blue-grey controlled low-key lighting, readable faces. Fast natural acting and dialogue, no slow motion, no long silent poses, no unnecessary zoom. Maintain EXACT recurring character identities from attached reference images; recreate the new scene, not the reference composition. CHARACTERS: 林浅 = adult Chinese policewoman, chin-length straight black bob, navy police uniform, no glasses; steady clear Mandarin female voice; 剑刺 = pale adult Chinese man, tousled short black hair, charcoal jacket over black turtleneck, no glasses or hearing aid; low restrained Mandarin male voice. Attached reference order: 林浅, 剑刺. Show these characters together in one physically coherent two-person medium shot, distinct faces and outfits. 林浅 on SCREEN LEFT, 剑刺 on SCREEN RIGHT. Use restrained over-shoulder reactions if needed. Never swap identities, voices or screen sides. The non-speaking character LISTENS WITH MOUTH CLOSED and reacts naturally. SCENE: 同场连续｜开放结尾。路过的成年路人留在景深内。观众忽然听见一声被放大的心跳，街声降低但不断轨。剑刺脚步一停，瞳孔掠过极短的红色，手指收紧后松开。他没有看向路人的脖子，也没有扑过去。林浅察觉他的停顿，回身等他。\n剑刺闭眼呼吸一次，正常眼色，抬头跟上。\n两人继续向前。留一拍脚步声，切黑；最后一声心跳不说明来自谁。字幕：全季终。 MANDARIN dialogue only, exact order, one speaker at a time, no overlapping words, no narrator: 林浅 says “剑刺？”. 剑刺 says “我在。”. Start first line by 0.4 sec, use natural brisk Mandarin with brief responsive pauses of 0.2 seconds. Finish all words clearly by 8.8 sec. Exact audible lip sync, no silent moving mouth; every gasp or breath has matching sound. Last second contains meaningful reaction, no repeated dialogue. Natural proportions, no stretched faces or duplicated heads, no live action, no subtitles or any visible writing, no music. Subtle matching room ambience only. Jian visibly shows dark crimson irises and TWO distinct upper vampire fangs as specified; audible strained breathing. Frightening but still his same human face. No gore, no claws, no extra powers.  No spoken words except 林浅:剑刺？ and 剑刺:我在。 One amplified heartbeat sound, subtle brief red-eye flash, then controlled breathing. Do not repeat the opening walking scene. ",
       "duration": 10,
       "seed": 2418006
+    },
+    {
+      "id": "83-06R",
+      "episode": 83,
+      "title": "零号不是他",
+      "cast": [
+        "lin",
+        "tang"
+      ],
+      "refs": [
+        "tang",
+        "lin"
+      ],
+      "lines": [
+        [
+          "唐岑",
+          "你们问错了。那晚关门，和后来开门，不是同一回事。",
+          "Closing it that night and opening it later were two different things."
+        ]
+      ],
+      "action": "林浅到达约定地点，唐岑把工作证放在桌上，不用长时间展示证件特写。",
+      "prompt": "10-second cinematic 2D anime crime drama, cool blue-grey office, natural face proportions. Two adult women, distinct faces. REFERENCE 1 is TANG CEN: shoulder-length dark chestnut side-parted hair, gray-blue cardigan, cream shirt, mature lined oval face. REFERENCE 2 is LIN QIAN: young adult black bob-haired policewoman in navy uniform. Tang is on the RIGHT and is the ONLY speaking person. Lin on LEFT listens with her MOUTH CLOSED for the ENTIRE shot, no speech from Lin. Static two-person medium shot, desk between them, no touching or hugging. Tang turns toward Lin and speaks in a tired clear adult female Mandarin voice, EXACTLY ONCE: \"你们问错了。那晚关门，和后来开门，不是同一回事。\" Only Tang mouth moves in exact audible sync. Start at 0.4 sec; speak at normal conversational pace, finish around 7.5 sec. Then BOTH women silently maintain eye contact with mouths closed. No other words, no voiceover, no mumbling. No subtitles, text, music, duplicate faces, camera zoom, live action or stretched faces.",
+      "duration": 10,
+      "seed": 2483061,
+      "slot": "83-06"
     }
   ]
 }
