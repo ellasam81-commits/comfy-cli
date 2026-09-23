@@ -1,14 +1,7 @@
 {
-  "mode": "generate",
-  "provider": "segmind",
-  "clip_ids": [
-    "84-01"
+  "mode": "segmind_diagnostics",
+  "task_ids": [
+    "d4a30f07a97a97848da70d2e3d696792"
   ],
-  "max_seconds": 10,
-  "durations": {
-    "84-01": 6
-  },
-  "budget_usd": 7,
-  "prior_committed_usd": 0,
-  "request_note": "Authorized 83-90 continuation; pilot existing Lin/Tang identities; no automatic paid retries."
+  "paid_submissions": 0
 }
