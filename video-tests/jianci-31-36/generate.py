@@ -225,12 +225,15 @@ def segmind_main(req, selected):
         'maximum_after_batch_usd': float(spent + estimate),
         'actual_billing': 'Provider request history is authoritative'}))
     results = []
-    for c in selected:
-        row = execute_segmind(c, refs)
-        results.append(row)
+    workers = req.get('workers', 1)
+    assert isinstance(workers, int) and 1 <= workers <= 3
+    for start in range(0, len(selected), workers):
+        with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as pool:
+            batch = list(pool.map(lambda c: execute_segmind(c, refs), selected[start:start + workers]))
+        results.extend(batch)
         (OUT / 'batch-report.json').write_text(json.dumps(results, ensure_ascii=False, indent=2))
-        # Stop new spend on any failed/ambiguous job. Never rerun this workflow.
-        if row['state'] != 'succeeded':
+        # No new wave after failed/ambiguous jobs; accepted jobs retain receipts.
+        if any(row['state'] != 'succeeded' for row in batch):
             raise SystemExit(2)
 
 
