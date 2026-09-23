@@ -209,6 +209,9 @@ def segmind_main(req, selected):
         d = durations[c['id']]
         assert isinstance(d, int) and 2 <= d <= 10
         c['duration'] = d
+        if c['id'] in req.get('prompt_overrides', {}):
+            c['prompt'] = req['prompt_overrides'][c['id']]
+            assert isinstance(c['prompt'], str) and len(c['prompt']) <= 5000
         c['prompt'] = c['prompt'].replace('10-second', str(d) + '-second')
         c['prompt'] = c['prompt'].replace('by 8.8 sec', 'by ' + str(d - 0.5) + ' sec')
     estimate = sum(Decimal(c['duration']) * Decimal('0.05') for c in selected)
