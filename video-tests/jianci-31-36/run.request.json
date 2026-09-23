@@ -1,7 +1,17 @@
 {
-  "mode": "segmind_diagnostics",
-  "task_ids": [
-    "d4a30f07a97a97848da70d2e3d696792"
+  "mode": "generate",
+  "provider": "segmind",
+  "clip_ids": [
+    "84-01"
   ],
-  "paid_submissions": 0
+  "max_seconds": 10,
+  "durations": {
+    "84-01": 6
+  },
+  "budget_usd": 7,
+  "prior_committed_usd": 0,
+  "prompt_overrides": {
+    "84-01": "6-second hand-drawn 2D anime dialogue scene, landscape 16:9. Use the two attached adult character references for consistent faces, hairstyles and clothing. A calm, evenly lit interview room. Fixed medium two-shot: Lin Qian on the LEFT with chin-length black bob and navy uniform; Tang Cen on the RIGHT with shoulder-length chestnut hair and gray-blue cardigan. A plain floor plan rests on the table. Lin asks for a factual account while Tang listens. Both are safe and unharmed. No threat, violence, weapons, wounds, physical restraint or physical contact. Only Lin speaks, in her steady Mandarin female voice: “从那以后说。只说你亲眼看见的。” Start at 0.4 seconds and finish the complete line naturally by 4.5 seconds. Her lip movements match the words. Tang keeps her mouth closed, then nods once. After the line, both remain silent. Soft room ambience, no music or narration, no written text, no subtitles. Maintain natural head proportions and separate identities."
+  },
+  "request_note": "One corrective attempt. Prior Segmind task safety rejected with explicit no-charge receipt; reduce scene to calm unharmed adult conversation."
 }
