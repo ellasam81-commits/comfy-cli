@@ -9667,6 +9667,102 @@
       "badge": "",
       "prompt": "Ten second widescreen hand drawn 2D anime scene in a police interview room. An adult Chinese woman, age 27, with long chestnut hair in a loose braid over her right shoulder, cream cardigan and muted burgundy shirt. One person on screen. Medium waist-up shot, natural adult proportions, cool blue-grey lighting, fixed camera. She places her phone on the table and speaks with restrained fear, a clear mid-register Mandarin female voice. Exact native Mandarin dialogue: \"他们拿我哥哥逼我。我来求保护是真的，手机里还有他们的消息。\" Speak once from 0.4 to 9.2 seconds. Audible synchronized speech, lips closed during pauses. No other words, captions, music, reflections or portraits.",
       "slot": "76-03"
+    },
+    {
+      "id": "75-02V",
+      "episode": 75,
+      "title": "主动求咬的人",
+      "cast": [
+        "jian"
+      ],
+      "refs": [
+        "jian"
+      ],
+      "duration": 10,
+      "seed": 2397502,
+      "lines": [
+        [
+          "jian",
+          "她刚才说：请你咬我。林浅，别让她靠近观察房。",
+          "She just said: please bite me. Lin, keep her away from this room."
+        ]
+      ],
+      "action": "He is alone in his observation room, talking to Lin through a small offscreen speaker. At 0.2 seconds he inhales sharply with audible breath; his upper canine teeth briefly extend into clearly visible small sharp vampire fangs. He raises a hand to his mouth for one second, then lowers it and speaks, fighting the impulse. During the final phrase the fangs remain subtly visible, never exaggerated. He takes one step back from the desk, keeping his distance. No blood smell comes through the call.",
+      "badge": "隔离视频通话后 / After a separate video call",
+      "prompt": "10-second cinematic hand-drawn 2D anime, widescreen 16:9. Match the supplied Jian Ci identity reference EXACTLY: adult pale Chinese man, tousled short black hair, charcoal jacket over black turtleneck, no glasses, no hearing aid. Preserve his face shape, hair and costume throughout. Natural adult facial proportions, fixed medium chest-up frame showing both shoulders, no zoom, no camera cut, no stretching. Cool blue-grey restrained vampire suspense. He is alone in his observation room, talking to Lin through a small offscreen speaker. At 0.2 seconds he inhales sharply with audible breath; his upper canine teeth briefly extend into clearly visible small sharp vampire fangs. He raises a hand to his mouth for one second, then lowers it and speaks, fighting the impulse. During the final phrase the fangs remain subtly visible, never exaggerated. He takes one step back from the desk, keeping his distance. No blood smell comes through the call. Native Mandarin in his established restrained LOW adult male voice, clear and audible even under strain. Speak only this exact dialogue once: \"她刚才说：请你咬我。林浅，别让她靠近观察房。\" Begin by 1.0 seconds and finish by 9.3 seconds. Precise lip sync. Mouth closed when not speaking except the explicitly audible gasp. Any visible mouth movement has corresponding speech or breath audio. Subtle sound effects never mask dialogue. No additional words, no narrator, no music, no text, no subtitles, no reflections, no second face. Vampire irises and fangs MUST be visibly present as specified, not just implied by fear; no transformation of face shape, no monstrous mouth, no wounds or gore.",
+      "slot": "75-02"
+    },
+    {
+      "id": "78-04V",
+      "episode": 78,
+      "title": "我不是这样变成的",
+      "cast": [
+        "jian"
+      ],
+      "refs": [
+        "jian"
+      ],
+      "duration": 10,
+      "seed": 2397804,
+      "lines": [
+        [
+          "jian",
+          "我醒来时，手臂连着管子。之后开始怕光，闻到血就难受。",
+          "I woke with a line in my arm. Afterward light hurt, and the smell of blood overwhelmed me."
+        ]
+      ],
+      "action": "Alone in his observation room during a remote interview about his past. He looks down at his own bare forearm. His remembered fear causes BOTH irises to visibly turn dark ruby red for two seconds around seconds 4 to 6, then return to their normal dark color. Two subdued heartbeat thumps are audible under his voice; his breathing grows tight. He closes his eyes briefly between sentences and regains control. No flashback cut, no medical procedure shown.",
+      "badge": "片段记忆·仍需核查 / Fragmented memory · verification pending",
+      "prompt": "10-second cinematic hand-drawn 2D anime, widescreen 16:9. Match the supplied Jian Ci identity reference EXACTLY: adult pale Chinese man, tousled short black hair, charcoal jacket over black turtleneck, no glasses, no hearing aid. Preserve his face shape, hair and costume throughout. Natural adult facial proportions, fixed medium chest-up frame showing both shoulders, no zoom, no camera cut, no stretching. Cool blue-grey restrained vampire suspense. Alone in his observation room during a remote interview about his past. He looks down at his own bare forearm. His remembered fear causes BOTH irises to visibly turn dark ruby red for two seconds around seconds 4 to 6, then return to their normal dark color. Two subdued heartbeat thumps are audible under his voice; his breathing grows tight. He closes his eyes briefly between sentences and regains control. No flashback cut, no medical procedure shown. Native Mandarin in his established restrained LOW adult male voice, clear and audible even under strain. Speak only this exact dialogue once: \"我醒来时，手臂连着管子。之后开始怕光，闻到血就难受。\" Begin by 1.0 seconds and finish by 9.3 seconds. Precise lip sync. Mouth closed when not speaking except the explicitly audible gasp. Any visible mouth movement has corresponding speech or breath audio. Subtle sound effects never mask dialogue. No additional words, no narrator, no music, no text, no subtitles, no reflections, no second face. Vampire irises and fangs MUST be visibly present as specified, not just implied by fear; no transformation of face shape, no monstrous mouth, no wounds or gore.",
+      "slot": "78-04"
+    },
+    {
+      "id": "80-04V",
+      "episode": 80,
+      "title": "最后一名诱饵",
+      "cast": [
+        "jian"
+      ],
+      "refs": [
+        "jian"
+      ],
+      "duration": 10,
+      "seed": 2398004,
+      "lines": [
+        [
+          "jian",
+          "声音太近了……林浅，先救人。我会留在这里，不让人再替我受伤。",
+          "The sounds feel too close... Lin, save him first. I will stay here so nobody else is hurt for me."
+        ]
+      ],
+      "action": "Alone in the observation room, receiving the rescue operation by speakerphone. Audible distant metal knocks fade into a tense low ringing tone. He flinches at the sound, grips the edge of his own desk with one hand and braces his other palm against his ear, then lowers it to speak. BOTH irises briefly turn ruby red; his small vampire upper fangs become visible as he struggles to control his voice. He deliberately stays seated. Sounds trigger sensory overload; no blood smell is transmitted through a phone. No other person present.",
+      "badge": "观察房·远程连线 / Observation room · remote call",
+      "prompt": "10-second cinematic hand-drawn 2D anime, widescreen 16:9. Match the supplied Jian Ci identity reference EXACTLY: adult pale Chinese man, tousled short black hair, charcoal jacket over black turtleneck, no glasses, no hearing aid. Preserve his face shape, hair and costume throughout. Natural adult facial proportions, fixed medium chest-up frame showing both shoulders, no zoom, no camera cut, no stretching. Cool blue-grey restrained vampire suspense. Alone in the observation room, receiving the rescue operation by speakerphone. Audible distant metal knocks fade into a tense low ringing tone. He flinches at the sound, grips the edge of his own desk with one hand and braces his other palm against his ear, then lowers it to speak. BOTH irises briefly turn ruby red; his small vampire upper fangs become visible as he struggles to control his voice. He deliberately stays seated. Sounds trigger sensory overload; no blood smell is transmitted through a phone. No other person present. Native Mandarin in his established restrained LOW adult male voice, clear and audible even under strain. Speak only this exact dialogue once: \"声音太近了……林浅，先救人。我会留在这里，不让人再替我受伤。\" Begin by 1.0 seconds and finish by 9.3 seconds. Precise lip sync. Mouth closed when not speaking except the explicitly audible gasp. Any visible mouth movement has corresponding speech or breath audio. Subtle sound effects never mask dialogue. No additional words, no narrator, no music, no text, no subtitles, no reflections, no second face. Vampire irises and fangs MUST be visibly present as specified, not just implied by fear; no transformation of face shape, no monstrous mouth, no wounds or gore.",
+      "slot": "80-04"
+    },
+    {
+      "id": "82-05V",
+      "episode": 82,
+      "title": "不能许诺的永生",
+      "cast": [
+        "jian"
+      ],
+      "refs": [
+        "jian"
+      ],
+      "duration": 10,
+      "seed": 2398205,
+      "lines": [
+        [
+          "jian",
+          "我知道。许未，先把血样收走。我还没好，伤人的责任，我会承担。",
+          "I know. Xu, put the blood sample away. I am not well yet, and I will take responsibility for hurting him."
+        ]
+      ],
+      "action": "Inside the observation room during a supervised routine check. An unlabeled sealed sample tube of dark red blood sits in a closed transparent specimen box on the desk, never opened. The SIGHT of the sample triggers him, not a smell through the sealed box. He averts his eyes, his irises briefly redden and two small upper fangs are visible. He slides his own chair backward without touching the box and asks the unseen examiner to remove it. He stays in control, hands visible, no biting, no approach toward anyone. One visible face only.",
+      "badge": "",
+      "prompt": "10-second cinematic hand-drawn 2D anime, widescreen 16:9. Match the supplied Jian Ci identity reference EXACTLY: adult pale Chinese man, tousled short black hair, charcoal jacket over black turtleneck, no glasses, no hearing aid. Preserve his face shape, hair and costume throughout. Natural adult facial proportions, fixed medium chest-up frame showing both shoulders, no zoom, no camera cut, no stretching. Cool blue-grey restrained vampire suspense. Inside the observation room during a supervised routine check. An unlabeled sealed sample tube of dark red blood sits in a closed transparent specimen box on the desk, never opened. The SIGHT of the sample triggers him, not a smell through the sealed box. He averts his eyes, his irises briefly redden and two small upper fangs are visible. He slides his own chair backward without touching the box and asks the unseen examiner to remove it. He stays in control, hands visible, no biting, no approach toward anyone. One visible face only. Native Mandarin in his established restrained LOW adult male voice, clear and audible even under strain. Speak only this exact dialogue once: \"我知道。许未，先把血样收走。我还没好，伤人的责任，我会承担。\" Begin by 1.0 seconds and finish by 9.3 seconds. Precise lip sync. Mouth closed when not speaking except the explicitly audible gasp. Any visible mouth movement has corresponding speech or breath audio. Subtle sound effects never mask dialogue. No additional words, no narrator, no music, no text, no subtitles, no reflections, no second face. Vampire irises and fangs MUST be visibly present as specified, not just implied by fear; no transformation of face shape, no monstrous mouth, no wounds or gore.",
+      "slot": "82-05"
     }
   ]
 }
