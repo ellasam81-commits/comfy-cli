@@ -241,6 +241,26 @@ def main():
     req = json.loads((ROOT / 'run.request.json').read_text())
     assert os.environ.get('GITHUB_RUN_ATTEMPT', '1') == '1', 'No duplicate paid reruns'
     OUT.mkdir(parents=True, exist_ok=True)
+    if req['mode'] == 'segmind_diagnostics':
+        details = {'paid_submissions': 0, 'tasks': []}
+        credits = segmind_api('/v1/get-user-credits')
+        def numeric(v):
+            if isinstance(v, dict):
+                return {k: numeric(x) for k, x in v.items() if isinstance(x, (dict, int, float)) or (isinstance(x, str) and re.fullmatch(r'[0-9.]+', x))}
+            return v
+        details['credits'] = numeric(credits)
+        for tid in req['task_ids']:
+            assert re.fullmatch(r'[A-Za-z0-9_-]+', tid)
+            try:
+                q = segmind_api('/v2/requests/' + tid + '/status')
+            except urllib.error.HTTPError as exc:
+                body = exc.read(6000).decode('utf-8', 'replace')
+                body = body.replace(os.environ['SEGMIND_API_KEY'].strip(), '[REDACTED]')
+                q = {'http_status': exc.code, 'detail': body}
+            details['tasks'].append({'task_id': tid, 'response': q})
+        (OUT / 'segmind-diagnostics.json').write_text(json.dumps(details, ensure_ascii=False, indent=2))
+        print('Read-only Segmind diagnostics saved; no generation calls.')
+        return
     if req['mode'] == 'references':
         for name in REFS:
             reference(name)
