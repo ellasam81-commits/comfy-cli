@@ -106,6 +106,134 @@ def execute(clip, refs):
     save(row)
     return row
 
+
+class NoAuthRedirect(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        raise RuntimeError('Authenticated redirect refused')
+
+
+def segmind_api(path, body=None, upload=False):
+    key = os.environ['SEGMIND_API_KEY'].strip()
+    assert key, 'Missing SEGMIND_API_KEY'
+    assert path.startswith(('/v1/', '/v2/')) or (upload and path == '/upload-asset')
+    host = 'https://workflows-api.segmind.com' if upload else 'https://api.segmind.com'
+    req = urllib.request.Request(host + path,
+        data=None if body is None else json.dumps(body).encode(),
+        headers={'x-api-key': key, 'Content-Type': 'application/json'})
+    with urllib.request.build_opener(NoAuthRedirect).open(req, timeout=90) as res:
+        return json.load(res)
+
+
+def output_urls(value):
+    if isinstance(value, str) and value.startswith('https://'):
+        return [value]
+    if isinstance(value, list):
+        return [u for v in value for u in output_urls(v)]
+    if isinstance(value, dict):
+        return [u for k in ('output', 'video', 'video_url', 'url', 'output_url', 'data')
+                if k in value for u in output_urls(value[k])]
+    return []
+
+
+def execute_segmind(clip, refs):
+    row = {'id': clip['id'], 'provider': 'segmind', 'state': 'SUBMITTING',
+           'max_submissions': 1, 'estimated_usd': clip['duration'] * 0.05,
+           'dialogue': clip['lines']}
+    save(row)
+    try:
+        q = segmind_api('/v2/wan3.0-video', {
+            'prompt': clip['prompt'], 'reference_images': [refs[n] for n in clip['refs']],
+            'duration': clip['duration'], 'resolution': '480P', 'aspect_ratio': '16:9',
+            'audio': True, 'watermark': False, 'prompt_extend': False,
+            'enable_thinking': False, 'seed': clip['seed']})
+        tid = q['request_id']
+        assert isinstance(tid, str) and re.fullmatch(r'[A-Za-z0-9_-]+', tid)
+        row.update(task_id=tid, state='QUEUED')
+        save(row)
+        print(clip['id'], 'Segmind submitted', flush=True)
+    except urllib.error.HTTPError as exc:
+        row.update(state='SUBMISSION_HTTP_ERROR', http_status=exc.code)
+        save(row)
+        return row
+    except Exception as exc:
+        row.update(state='SUBMISSION_UNKNOWN_OR_FAILED', error=type(exc).__name__)
+        save(row)
+        return row
+    deadline = time.monotonic() + 2400
+    while time.monotonic() < deadline:
+        try:
+            path = '/v2/requests/' + tid
+            q = segmind_api(path + '/status')
+            row['state'] = q.get('status')
+            save(row)
+            if row['state'] == 'COMPLETED':
+                q = segmind_api(path)
+                urls = output_urls(q.get('output', q))
+                assert urls, 'No output URL'
+                dst = OUT / (clip['id'] + '-raw.mp4')
+                get_file(urls[0], dst)
+                meta = json.loads(subprocess.check_output(['ffprobe', '-v', 'error',
+                    '-show_streams', '-show_format', '-of', 'json', str(dst)]))
+                row['has_audio'] = any(s['codec_type'] == 'audio' for s in meta['streams'])
+                row['duration'] = meta['format']['duration']
+                row['state'] = 'succeeded' if row['has_audio'] else 'MISSING_AUDIO'
+                save(row)
+                return row
+            if row['state'] == 'FAILED':
+                return row
+        except urllib.error.HTTPError as exc:
+            if exc.code == 422:
+                row.update(state='FAILED', http_status=422)
+                save(row)
+                return row
+            row['poll_http_error'] = exc.code
+            save(row)
+        except Exception as exc:
+            row['poll_error'] = type(exc).__name__
+            save(row)
+        time.sleep(12)
+    row['state'] = 'TIMEOUT_RETAIN_TASK_ID'
+    save(row)
+    return row
+
+
+def segmind_main(req, selected):
+    # Fixed model/price and explicit prior-spend ledger; never autosubmit retries.
+    from decimal import Decimal
+    assert req['provider'] == 'segmind'
+    assert Decimal(str(req['budget_usd'])) <= Decimal('7')
+    spent = Decimal(str(req['prior_committed_usd']))
+    assert spent >= 0
+    durations = req['durations']
+    for c in selected:
+        d = durations[c['id']]
+        assert isinstance(d, int) and 2 <= d <= 10
+        c['duration'] = d
+        c['prompt'] = c['prompt'].replace('10-second', str(d) + '-second')
+        c['prompt'] = c['prompt'].replace('by 8.8 sec', 'by ' + str(d - 0.5) + ' sec')
+    estimate = sum(Decimal(c['duration']) * Decimal('0.05') for c in selected)
+    assert spent + estimate <= Decimal(str(req['budget_usd']))
+    segmind_api('/v1/get-user-credits')  # Read-only authentication check; no secret output.
+    names = sorted({n for c in selected for n in c['refs']})
+    data_urls = [reference(n) for n in names]
+    uploaded = segmind_api('/upload-asset', {'data_urls': data_urls}, upload=True)
+    urls = uploaded['file_urls']
+    assert len(urls) == len(names) and all(u.startswith('https://') for u in urls)
+    refs = dict(zip(names, urls))
+    (OUT / 'budget.json').write_text(json.dumps({'budget_usd': req['budget_usd'],
+        'prior_committed_usd': float(spent), 'batch_estimate_usd': float(estimate),
+        'maximum_after_batch_usd': float(spent + estimate),
+        'actual_billing': 'Provider request history is authoritative'}))
+    results = []
+    for c in selected:
+        row = execute_segmind(c, refs)
+        results.append(row)
+        (OUT / 'batch-report.json').write_text(json.dumps(results, ensure_ascii=False, indent=2))
+        # Stop new spend on any failed/ambiguous job. Never rerun this workflow.
+        if row['state'] != 'succeeded':
+            raise SystemExit(2)
+
+
 def main():
     req = json.loads((ROOT / 'run.request.json').read_text())
     assert os.environ.get('GITHUB_RUN_ATTEMPT', '1') == '1', 'No duplicate paid reruns'
@@ -121,6 +249,8 @@ def main():
     selected = [c for c in cfg['clips'] if c['id'] in req['clip_ids']]
     assert len(selected) == len(set(req['clip_ids'])) <= 36
     assert sum(c['duration'] for c in selected) <= req['max_seconds']
+    if req.get('provider') == 'segmind':
+        return segmind_main(req, selected)
     refs = {name: reference(name) for name in sorted({n for c in selected for n in c['refs']})}
     with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
         results = list(pool.map(lambda c: execute(c, refs), selected))
@@ -130,4 +260,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
