@@ -9763,6 +9763,102 @@
       "badge": "",
       "prompt": "10-second cinematic hand-drawn 2D anime, widescreen 16:9. Match the supplied Jian Ci identity reference EXACTLY: adult pale Chinese man, tousled short black hair, charcoal jacket over black turtleneck, no glasses, no hearing aid. Preserve his face shape, hair and costume throughout. Natural adult facial proportions, fixed medium chest-up frame showing both shoulders, no zoom, no camera cut, no stretching. Cool blue-grey restrained vampire suspense. Inside the observation room during a supervised routine check. An unlabeled sealed sample tube of dark red blood sits in a closed transparent specimen box on the desk, never opened. The SIGHT of the sample triggers him, not a smell through the sealed box. He averts his eyes, his irises briefly redden and two small upper fangs are visible. He slides his own chair backward without touching the box and asks the unseen examiner to remove it. He stays in control, hands visible, no biting, no approach toward anyone. One visible face only. Native Mandarin in his established restrained LOW adult male voice, clear and audible even under strain. Speak only this exact dialogue once: \"我知道。许未，先把血样收走。我还没好，伤人的责任，我会承担。\" Begin by 1.0 seconds and finish by 9.3 seconds. Precise lip sync. Mouth closed when not speaking except the explicitly audible gasp. Any visible mouth movement has corresponding speech or breath audio. Subtle sound effects never mask dialogue. No additional words, no narrator, no music, no text, no subtitles, no reflections, no second face. Vampire irises and fangs MUST be visibly present as specified, not just implied by fear; no transformation of face shape, no monstrous mouth, no wounds or gore.",
       "slot": "82-05"
+    },
+    {
+      "id": "67-06V",
+      "episode": 67,
+      "title": "替你记得的人",
+      "cast": [
+        "jian"
+      ],
+      "refs": [
+        "jian"
+      ],
+      "duration": 10,
+      "seed": 2402706,
+      "lines": [
+        [
+          "jian",
+          "刚才又有人发来一页：门是我锁的。杜成死了，谁在替他寄？",
+          "Another page says I locked the door. Du is dead. Who is sending it now?"
+        ]
+      ],
+      "action": "Alone in the secure observation room, he reads a newly received page on his tablet. The overhead fluorescent light briefly flickers once with an audible electrical buzz, then stabilizes. He freezes. BOTH irises visibly turn deep blood red at seconds 2 to 6. As he speaks, two distinct sharp upper vampire fangs are visible. He turns away from the tablet and forces out an audible restrained breath. The document is only an accusation, not a true memory. No second person or supernatural figure appears.",
+      "badge": "",
+      "prompt": "10-second single continuous widescreen 16:9 cinematic hand-drawn 2D anime, dark psychological vampire horror. Match supplied Jian Ci reference EXACTLY: adult pale Chinese man, tousled short black hair, charcoal jacket and black turtleneck, no glasses or hearing aid. Preserve his face and clothing throughout. Natural adult proportions, fixed medium chest-up framing showing shoulders and hands, no zoom, no face stretching. Cool blue-grey low-key film lighting, face and red irises readable, no total darkness. Alone in the secure observation room, he reads a newly received page on his tablet. The overhead fluorescent light briefly flickers once with an audible electrical buzz, then stabilizes. He freezes. BOTH irises visibly turn deep blood red at seconds 2 to 6. As he speaks, two distinct sharp upper vampire fangs are visible. He turns away from the tablet and forces out an audible restrained breath. The document is only an accusation, not a true memory. No second person or supernatural figure appears. Native clear LOW restrained adult male Mandarin voice matching reference character; audible strained breathing and subtle effects, never mask speech. Say ONLY this exact Mandarin dialogue once: \"刚才又有人发来一页：门是我锁的。杜成死了，谁在替他寄？\" Start speech by 0.7 seconds and finish by 9.2 seconds. Exact lip sync; mouth closed during pauses except the explicitly audible breath. No extra words, narration, subtitles, written text, music, reflections, duplicate faces, jump cuts, gore or new powers. Vampire red irises and TWO upper fangs MUST be visibly present, not only implied by fear.",
+      "slot": "67-06"
+    },
+    {
+      "id": "69-04V",
+      "episode": 69,
+      "title": "旧纸上的新字",
+      "cast": [
+        "jian"
+      ],
+      "refs": [
+        "jian"
+      ],
+      "duration": 10,
+      "seed": 2402904,
+      "lines": [
+        [
+          "jian",
+          "可那道门，那场雨，我都记得。为什么偏偏错的是我的名字？",
+          "But I remember the door and the rain. Why is the wrong part the accusation against me?"
+        ]
+      ],
+      "action": "Alone in the observation room during a remote interview. A hard metallic door click is heard in the corridor; he startles at it. Tightened throat, a brief audible gasp, BOTH irises visibly red for seconds 2 to 7, two sharp upper canine fangs visible while speaking. He grips the sleeve over his own forearm and fights a frightening memory. The room feels claustrophobic through lighting, not a zoom. No flashback images and no confirmation that the accusation is true.",
+      "badge": "观察房·视频连线 / Observation room · video link",
+      "prompt": "10-second single continuous widescreen 16:9 cinematic hand-drawn 2D anime, dark psychological vampire horror. Match supplied Jian Ci reference EXACTLY: adult pale Chinese man, tousled short black hair, charcoal jacket and black turtleneck, no glasses or hearing aid. Preserve his face and clothing throughout. Natural adult proportions, fixed medium chest-up framing showing shoulders and hands, no zoom, no face stretching. Cool blue-grey low-key film lighting, face and red irises readable, no total darkness. Alone in the observation room during a remote interview. A hard metallic door click is heard in the corridor; he startles at it. Tightened throat, a brief audible gasp, BOTH irises visibly red for seconds 2 to 7, two sharp upper canine fangs visible while speaking. He grips the sleeve over his own forearm and fights a frightening memory. The room feels claustrophobic through lighting, not a zoom. No flashback images and no confirmation that the accusation is true. Native clear LOW restrained adult male Mandarin voice matching reference character; audible strained breathing and subtle effects, never mask speech. Say ONLY this exact Mandarin dialogue once: \"可那道门，那场雨，我都记得。为什么偏偏错的是我的名字？\" Start speech by 0.7 seconds and finish by 9.2 seconds. Exact lip sync; mouth closed during pauses except the explicitly audible breath. No extra words, narration, subtitles, written text, music, reflections, duplicate faces, jump cuts, gore or new powers. Vampire red irises and TWO upper fangs MUST be visibly present, not only implied by fear.",
+      "slot": "69-04"
+    },
+    {
+      "id": "72-01V",
+      "episode": 72,
+      "title": "他没有赴约",
+      "cast": [
+        "jian"
+      ],
+      "refs": [
+        "jian"
+      ],
+      "duration": 10,
+      "seed": 2403201,
+      "lines": [
+        [
+          "jian",
+          "我想去。但我不会去。把消息交给林浅，别用另一个人替我冒险。",
+          "I want to go, but I will stay. Give Lin the message. Do not put someone else at risk for me."
+        ]
+      ],
+      "action": "Alone in the secure observation room after receiving a threatening invitation, he remains seated. His body leans forward abruptly at an audible distant footstep, then he catches himself by gripping the table with both normal human hands, knuckles white. BOTH irises visibly crimson and two clearly visible upper vampire fangs. A short low involuntary breath escapes, but he speaks the complete dialogue clearly and deliberately stays in his chair. Anger and predatory impulse contained at the last moment; no biting and no person within reach. His hands and face never turn monstrous.",
+      "badge": "观察房 / Observation room",
+      "prompt": "10-second single continuous widescreen 16:9 cinematic hand-drawn 2D anime, dark psychological vampire horror. Match supplied Jian Ci reference EXACTLY: adult pale Chinese man, tousled short black hair, charcoal jacket and black turtleneck, no glasses or hearing aid. Preserve his face and clothing throughout. Natural adult proportions, fixed medium chest-up framing showing shoulders and hands, no zoom, no face stretching. Cool blue-grey low-key film lighting, face and red irises readable, no total darkness. Alone in the secure observation room after receiving a threatening invitation, he remains seated. His body leans forward abruptly at an audible distant footstep, then he catches himself by gripping the table with both normal human hands, knuckles white. BOTH irises visibly crimson and two clearly visible upper vampire fangs. A short low involuntary breath escapes, but he speaks the complete dialogue clearly and deliberately stays in his chair. Anger and predatory impulse contained at the last moment; no biting and no person within reach. His hands and face never turn monstrous. Native clear LOW restrained adult male Mandarin voice matching reference character; audible strained breathing and subtle effects, never mask speech. Say ONLY this exact Mandarin dialogue once: \"我想去。但我不会去。把消息交给林浅，别用另一个人替我冒险。\" Start speech by 0.7 seconds and finish by 9.2 seconds. Exact lip sync; mouth closed during pauses except the explicitly audible breath. No extra words, narration, subtitles, written text, music, reflections, duplicate faces, jump cuts, gore or new powers. Vampire red irises and TWO upper fangs MUST be visibly present, not only implied by fear.",
+      "slot": "72-01"
+    },
+    {
+      "id": "74-05V",
+      "episode": 74,
+      "title": "把过去重新打开",
+      "cast": [
+        "jian"
+      ],
+      "refs": [
+        "jian"
+      ],
+      "duration": 10,
+      "seed": 2403405,
+      "lines": [
+        [
+          "jian",
+          "我接受。先保住还活着的人。我的过去，交给证据；这次的伤，我承担。",
+          "I accept that. Protect the living. Let evidence establish my past. I remain responsible for this injury."
+        ]
+      ],
+      "action": "Alone in the observation room, addressing the team through an offscreen speaker. Low side lighting leaves half his face in shadow while both eyes remain readable. BOTH irises briefly red and two sharp upper vampire fangs remain visible as he accepts responsibility for injuring Han. He closes his eyes, breathes audibly, opens them with their normal dark color at the end; his fingers slowly release their grip on his own sleeve. Control is effort, not a cure. No triumphant smile or absolution.",
+      "badge": "",
+      "prompt": "10-second single continuous widescreen 16:9 cinematic hand-drawn 2D anime, dark psychological vampire horror. Match supplied Jian Ci reference EXACTLY: adult pale Chinese man, tousled short black hair, charcoal jacket and black turtleneck, no glasses or hearing aid. Preserve his face and clothing throughout. Natural adult proportions, fixed medium chest-up framing showing shoulders and hands, no zoom, no face stretching. Cool blue-grey low-key film lighting, face and red irises readable, no total darkness. Alone in the observation room, addressing the team through an offscreen speaker. Low side lighting leaves half his face in shadow while both eyes remain readable. BOTH irises briefly red and two sharp upper vampire fangs remain visible as he accepts responsibility for injuring Han. He closes his eyes, breathes audibly, opens them with their normal dark color at the end; his fingers slowly release their grip on his own sleeve. Control is effort, not a cure. No triumphant smile or absolution. Native clear LOW restrained adult male Mandarin voice matching reference character; audible strained breathing and subtle effects, never mask speech. Say ONLY this exact Mandarin dialogue once: \"我接受。先保住还活着的人。我的过去，交给证据；这次的伤，我承担。\" Start speech by 0.7 seconds and finish by 9.2 seconds. Exact lip sync; mouth closed during pauses except the explicitly audible breath. No extra words, narration, subtitles, written text, music, reflections, duplicate faces, jump cuts, gore or new powers. Vampire red irises and TWO upper fangs MUST be visibly present, not only implied by fear.",
+      "slot": "74-05"
     }
   ]
 }
