@@ -183,7 +183,7 @@ def execute_segmind(clip, refs):
                 return row
         except urllib.error.HTTPError as exc:
             if exc.code == 422:
-                row.update(state='FAILED', http_status=422)
+                row.update(state='FAILED', http_status=422, detail=exc.read(4000).decode('utf-8', 'replace').replace(os.environ['SEGMIND_API_KEY'].strip(), '[REDACTED]'))
                 save(row)
                 return row
             row['poll_http_error'] = exc.code
@@ -217,6 +217,15 @@ def segmind_main(req, selected):
     estimate = sum(Decimal(c['duration']) * Decimal('0.05') for c in selected)
     assert spent + estimate <= Decimal(str(req['budget_usd']))
     segmind_api('/v1/get-user-credits')  # Read-only authentication check; no secret output.
+    diagnostics = []
+    for tid in req.get('inspect_previous_tasks', []):
+        assert re.fullmatch(r'[A-Za-z0-9_-]+', tid)
+        try:
+            info = segmind_api('/v2/requests/' + tid + '/status')
+        except urllib.error.HTTPError as exc:
+            info = {'http_status': exc.code, 'detail': exc.read(4000).decode('utf-8', 'replace').replace(os.environ['SEGMIND_API_KEY'].strip(), '[REDACTED]')}
+        diagnostics.append({'task_id': tid, 'response': info})
+    (OUT / 'previous-task-diagnostics.json').write_text(json.dumps(diagnostics, ensure_ascii=False, indent=2))
     names = sorted({n for c in selected for n in c['refs']})
     data_urls = [reference(n) for n in names]
     uploaded = segmind_api('/upload-asset', {'data_urls': data_urls}, upload=True)
@@ -236,7 +245,7 @@ def segmind_main(req, selected):
         results.extend(batch)
         (OUT / 'batch-report.json').write_text(json.dumps(results, ensure_ascii=False, indent=2))
         # No new wave after failed/ambiguous jobs; accepted jobs retain receipts.
-        if any(row['state'] != 'succeeded' for row in batch):
+        if any(row['state'] not in ('succeeded', 'FAILED') for row in batch):
             raise SystemExit(2)
 
 
