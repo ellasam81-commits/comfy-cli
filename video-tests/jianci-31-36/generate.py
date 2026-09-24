@@ -98,6 +98,8 @@ def execute(clip, refs):
                 print(clip['id'], row['state'], flush=True)
                 return row
             if row['state'] in ('failed', 'cancelled', 'expired'):
+                row['failure_details'] = {k:q[k] for k in ('error','message','code','failure_reason','usage','cost') if k in q}
+                save(row)
                 return row
         except Exception as exc:
             row['poll_error'] = type(exc).__name__
@@ -280,6 +282,15 @@ def main():
             details['tasks'].append({'task_id': tid, 'response': q})
         (OUT / 'segmind-diagnostics.json').write_text(json.dumps(details, ensure_ascii=False, indent=2))
         print('Read-only Segmind diagnostics saved; no generation calls.')
+        return
+    if req['mode'] == 'xrtoken_diagnostics':
+        results=[]
+        for tid in req['task_ids']:
+            assert re.fullmatch(r'[A-Za-z0-9_.:-]+',tid)
+            q=api('/v1/videos/generations/'+tid)
+            results.append({'task_id':tid,'response':q})
+        (OUT/'xrtoken-diagnostics.json').write_text(json.dumps(results,ensure_ascii=False,indent=2))
+        print('Read-only diagnostics complete; zero generation submissions.')
         return
     if req['mode'] == 'references':
         for name in REFS:
