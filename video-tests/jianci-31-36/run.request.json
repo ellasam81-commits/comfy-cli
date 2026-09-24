@@ -1,33 +1,14 @@
 {
   "mode": "generate",
-  "provider": "segmind",
+  "provider": "xrtoken",
   "clip_ids": [
-    "84-05",
-    "87-04",
-    "88-05",
-    "89-04"
+    "90-01R",
+    "90-06R"
   ],
-  "max_seconds": 50,
-  "durations": {
-    "84-05": 7,
-    "87-04": 9,
-    "88-05": 9,
-    "89-04": 7
-  },
-  "budget_usd": 7,
-  "prior_committed_usd": 4.5,
-  "workers": 1,
-  "prompt_overrides": {
-    "84-05": "7-second 2D hand-drawn anime object-only insert shot, cinematic suspense series, 16:9. Close shot of a speakerphone beside a closed plain case folder and rehabilitation exercise ball on a tidy desk. A small green call indicator pulses. Slow gentle camera push. No written text anywhere. Off-screen Han, a mature man with a low steady Mandarin voice, speaks through the phone. No human figures, faces, mouths, hands, portraits, photographs, or people on displays. No injury depiction, violence or weapons. Entire image stays on the objects. Native audible Mandarin dialogue delivered off-screen via speakerphone, one voice at a time: 韩彻 says: \"我的伤是真的。旧案要查，这次的责任也要查清。\". Speak every line once, brisk but clear, complete every word. Room tone underneath, no music, no narrator, no added dialogue, no subtitles. Do not read stage directions.",
-    "87-04": "9-second 2D hand-drawn anime object-only insert shot, cinematic suspense series, 16:9. Close shot of an access-control terminal beside a speakerphone on an office desk. Small green status light turns amber while a conversation is heard from the speaker. Gentle camera push. No readable text or symbols. First Tang, a mature woman with a slightly husky Mandarin voice, then Han, a mature man with a low steady Mandarin voice. No human figures, faces, mouths, hands, portraits, photographs, or people on displays. No injury depiction, violence or weapons. Entire image stays on the objects. Native audible Mandarin dialogue delivered off-screen via speakerphone, one voice at a time: 唐岑 says: \"我把检修权限留给了他们。他们还能回来。\". 韩彻 says: \"把你知道的说全。现在还来得及救人。\". Speak every line once, brisk but clear, complete every word. Room tone underneath, no music, no narrator, no added dialogue, no subtitles. Do not read stage directions.",
-    "88-05": "9-second 2D hand-drawn anime object-only insert shot, cinematic suspense series, 16:9. Close shot of a speakerphone beside a folded clean examination blanket in a quiet clinic waiting area. Out-of-focus corridor light glows behind. Gentle camera push. First Tang, a mature woman with a slightly husky Mandarin voice, then Han, a mature man with a low steady Mandarin voice, speaking remotely through the phone. No human figures, faces, mouths, hands, portraits, photographs, or people on displays. No injury depiction, violence or weapons. Entire image stays on the objects. Native audible Mandarin dialogue delivered off-screen via speakerphone, one voice at a time: 唐岑 says: \"我开过那扇门。我会把指令和交接，都说清楚。\". 韩彻 says: \"救护人员到了。你先让他们检查。\". Speak every line once, brisk but clear, complete every word. Room tone underneath, no music, no narrator, no added dialogue, no subtitles. Do not read stage directions.",
-    "89-04": "7-second 2D hand-drawn anime object-only insert shot, cinematic suspense series, 16:9. Close detail shot of an intercom speaker on a clear observation-room window with a plain closed care-plan folder on the counter. Camera slowly moves toward the intercom. Only objects and empty room in soft blue clinic lighting. Off-screen Jian, a young adult man with a quiet low Mandarin voice, speaks first. Off-screen Han, a mature man with a firm low Mandarin voice, answers. No human figures, faces, mouths, hands, portraits, photographs, or people on displays. No injury depiction, violence or weapons. Entire image stays on the objects. Native audible Mandarin dialogue delivered off-screen via speakerphone, one voice at a time: 剑刺 says: \"你的伤，我会继续承担。\". 韩彻 says: \"先把每一次接触限制，都守住。\". Speak every line once, brisk but clear, complete every word. Room tone underneath, no music, no narrator, no added dialogue, no subtitles. Do not read stage directions."
-  },
-  "request_note": "New object-only story inserts with off-screen dialogue, no characters or reference images. Serial requests avoid concurrent credit reservations. Preserve factual story events. No automatic retries.",
-  "prop_insert_ids": [
-    "84-05",
-    "87-04",
-    "88-05",
-    "89-04"
-  ]
+  "max_seconds": 18,
+  "budget_usd": 14,
+  "prior_committed_usd": 0,
+  "rate_usd_per_second": 0.035,
+  "workers": 2,
+  "request_note": "User funded xrtoken and authorized 36-shot revision. Pilot the five-character ensemble and explicit controlled-reaction ending. One submission each, no automatic retries. 18 seconds at conservative USD0.035/s = USD0.63."
 }
