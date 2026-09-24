@@ -1019,10 +1019,10 @@
           "My hand still needs rehabilitation. I will help you review these files properly."
         ]
       ],
-      "action": "Exactly THREE adults at a training table. Han CENTER foreground instructs two distinct silent adult police recruits, one LEFT and one RIGHT. His LEFT forearm wears a discreet clean brace, his RIGHT hand turns the file page. Only Han speaks; the recruits listen and take notes.",
-      "prompt": "7-second finished hand-drawn 2D anime suspense drama shot, 16:9, consistent cinematic cool neutral lighting, natural human proportions, no live action. Use the supplied images only as facial and clothing references. Image 1 is 韩彻 / Han, mature man, short black hair with gray temples, scar over RIGHT eyebrow, navy police uniform; clean white support on LEFT forearm, never switch sides. Exactly THREE adults at a training table. Han CENTER foreground instructs two distinct silent adult police recruits, one LEFT and one RIGHT. His LEFT forearm wears a discreet clean brace, his RIGHT hand turns the file page. Only Han speaks; the recruits listen and take notes. Native audible Mandarin speech only. The exact complete spoken dialogue, in this order, is: 韩彻: 「手还要康复。我先带你们，把案卷复核做好。」 Deliver naturally and briskly, once only; start promptly and finish all words with at least 0.25 seconds of room tone afterward. Match mouth movement to each syllable. Only the current visible speaker moves their lips; listeners and background people keep lips closed. Clearly off-screen voices are allowed only when the scene states them. No narrator, no extra dialogue, no English speech, no reading names or stage directions, no written text, no subtitles, no watermark. Do not add extra people, duplicated faces, extra limbs, or reflection faces. Keep the action continuous and understandable.",
+      "action": "Exactly three adults in a bright training classroom. Han sits facing camera behind a desk, with two adult trainees seen from the back at left and right. Han points at a closed case folder using his right hand; left arm rests quietly on his lap below the desktop. No medical equipment or procedures. Only Han speaks.",
+      "prompt": "7秒，16比9二维手绘动画。参考图为韩彻：成熟成年男性，短黑发带灰鬓角，右眉旧疤，藏蓝制服，保持脸型。普通明亮培训室，恰好三个成年人：韩彻坐在桌后面向镜头，两名成年学员分别在前景左边和右边，只见侧后脑和肩背。韩彻的右手指着桌上合拢的案卷，左手始终自然放在桌下膝上，不做其他动作。没有医疗用品，没有治疗过程，没有伤口。只有韩彻开口说话，台词完整且只说一遍：手还要康复。我先带你们，把案卷复核做好。不要念角色名字，不要念任何动作说明。声音清楚，自然紧凑，嘴型跟随台词。两名学员安静听讲，嘴闭合。没有其他对白，无旁白，无文字，无字幕，无水印。",
       "duration": 7,
-      "seed": 834324,
+      "seed": 834333,
       "people": 3
     },
     {
