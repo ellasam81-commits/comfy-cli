@@ -216,7 +216,10 @@ def segmind_main(req, selected):
         c['prompt'] = c['prompt'].replace('by 8.8 sec', 'by ' + str(d - 0.5) + ' sec')
     estimate = sum(Decimal(c['duration']) * Decimal('0.05') for c in selected)
     assert spent + estimate <= Decimal(str(req['budget_usd']))
-    segmind_api('/v1/get-user-credits')  # Read-only authentication check; no secret output.
+    credits = segmind_api('/v1/get-user-credits')
+    balance_before = Decimal(str(credits['credits']))
+    assert balance_before >= estimate, 'Balance insufficient for bounded request'
+    (OUT / 'balance-before.json').write_text(json.dumps({'credits': float(balance_before)}))
     diagnostics = []
     for tid in req.get('inspect_previous_tasks', []):
         assert re.fullmatch(r'[A-Za-z0-9_-]+', tid)
@@ -285,6 +288,9 @@ def main():
     assert len(selected) == len(set(req['clip_ids'])) <= 36
     assert sum(c['duration'] for c in selected) <= req['max_seconds']
     if req.get('provider') == 'segmind':
+        for name, ref in req.get('reference_overrides', {}).items():
+            assert name in REFS and isinstance(ref, list) and len(ref) == 3
+            REFS[name] = ref
         return segmind_main(req, selected)
     refs = {name: reference(name) for name in sorted({n for c in selected for n in c['refs']})}
     with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
