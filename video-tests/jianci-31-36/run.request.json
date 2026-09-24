@@ -2,17 +2,12 @@
   "mode": "generate",
   "provider": "xrtoken",
   "clip_ids": [
-    "84-05R",
-    "87-04R",
-    "89-04R",
-    "90-01R",
-    "90-03R",
-    "86-05R"
+    "90-05R"
   ],
-  "max_seconds": 48,
+  "max_seconds": 8,
   "budget_usd": 14,
-  "prior_committed_usd": 9.24,
+  "prior_committed_usd": 10.92,
   "rate_usd_per_second": 0.035,
-  "workers": 6,
-  "request_note": "Four first submissions and two single corrective submissions. Earlier neutral Han portrait visually reviewed. 86-05 substantively redesigned as calm evidence briefing with Lin/Xu/Zhou, no confrontation or suspect. No retries."
+  "workers": 1,
+  "request_note": "One paid corrective attempt for 90-05 only: remove extra spoken stage directions and repeated dialogue. No automatic retries."
 }
