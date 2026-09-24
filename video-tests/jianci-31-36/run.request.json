@@ -1,14 +1,7 @@
 {
-  "mode": "generate",
-  "provider": "xrtoken",
-  "clip_ids": [
-    "90-01R",
-    "90-06R"
-  ],
-  "max_seconds": 18,
-  "budget_usd": 14,
-  "prior_committed_usd": 0,
-  "rate_usd_per_second": 0.035,
-  "workers": 2,
-  "request_note": "User funded xrtoken and authorized 36-shot revision. Pilot the five-character ensemble and explicit controlled-reaction ending. One submission each, no automatic retries. 18 seconds at conservative USD0.035/s = USD0.63."
+  "mode": "xrtoken_diagnostics",
+  "task_ids": [
+    "91d939f6-3a73-40fd-a4e5-abd0ae3c14cf",
+    "e744536d-245b-4d2b-af11-af6b233a28ce"
+  ]
 }
