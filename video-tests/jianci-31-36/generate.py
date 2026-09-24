@@ -317,6 +317,9 @@ def main():
     estimate=sum(Decimal(c['duration'])*rate for c in selected)
     assert prior + estimate <= cap, 'Bounded task budget exceeded'
     (OUT/'budget.json').write_text(json.dumps({'cap_usd':float(cap),'prior_committed_usd':float(prior),'estimate_usd':float(estimate),'maximum_after_batch_usd':float(prior+estimate),'rate_source':'user supplied 0.035 USD/s; conservative relative to current official published 480P rate','selected_seconds':sum(c['duration'] for c in selected)}))
+    for name in req.get('reference_checks', []):
+        assert name in REFS
+        reference(name)  # Read-only retrieval for visual reference review; never submits generation.
     refs = {name: reference(name) for name in sorted({n for c in selected for n in c['refs']})}
     workers=req.get('workers', 6);assert 1 <= workers <= 6
     results=[]
