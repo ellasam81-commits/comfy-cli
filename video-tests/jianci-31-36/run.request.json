@@ -2,12 +2,12 @@
   "mode": "generate",
   "provider": "xrtoken",
   "clip_ids": [
-    "90-03R"
+    "83-02F"
   ],
-  "max_seconds": 7,
+  "max_seconds": 8,
   "budget_usd": 14,
-  "prior_committed_usd": 11.2,
+  "prior_committed_usd": 11.445,
   "rate_usd_per_second": 0.035,
   "workers": 1,
-  "request_note": "One corrective attempt after output review failure. Substantive safe alternative: ordinary classroom, no medical objects or visible injury, right-hand case-file instruction. No retries."
+  "request_note": "User flagged the addressee in episode83 scene2. One focused correction with the exact question Jian, do you know Meng Chuan? Native dialogue and picture together, no automatic retries."
 }
