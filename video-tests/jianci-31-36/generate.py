@@ -93,6 +93,7 @@ def execute(clip, refs):
                 row['has_audio'] = any(s['codec_type'] == 'audio' for s in meta['streams'])
                 row['duration'] = meta['format']['duration']
                 row['state'] = 'succeeded' if row['has_audio'] else 'MISSING_AUDIO'
+                row['billing_fields'] = {k:q[k] for k in ('usage','cost','billing','price','usage_details') if k in q}
                 save(row)
                 print(clip['id'], row['state'], flush=True)
                 return row
@@ -296,9 +297,24 @@ def main():
             assert name in REFS and isinstance(ref, list) and len(ref) == 3
             REFS[name] = ref
         return segmind_main(req, selected)
+    from decimal import Decimal
+    assert req.get('provider') == 'xrtoken'
+    cap=Decimal(str(req['budget_usd'])); prior=Decimal(str(req['prior_committed_usd']))
+    rate=Decimal(str(req['rate_usd_per_second']))
+    assert 0 < cap <= 14 and rate >= Decimal('0.035') and prior >= 0
+    assert all(isinstance(c['duration'], int) and 2 <= c['duration'] <= 10 for c in selected)
+    estimate=sum(Decimal(c['duration'])*rate for c in selected)
+    assert prior + estimate <= cap, 'Bounded task budget exceeded'
+    (OUT/'budget.json').write_text(json.dumps({'cap_usd':float(cap),'prior_committed_usd':float(prior),'estimate_usd':float(estimate),'maximum_after_batch_usd':float(prior+estimate),'rate_source':'user supplied 0.035 USD/s; conservative relative to current official published 480P rate','selected_seconds':sum(c['duration'] for c in selected)}))
     refs = {name: reference(name) for name in sorted({n for c in selected for n in c['refs']})}
-    with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
-        results = list(pool.map(lambda c: execute(c, refs), selected))
+    workers=req.get('workers', 6);assert 1 <= workers <= 6
+    results=[]
+    for i in range(0,len(selected),workers):
+        with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as pool:
+            batch=list(pool.map(lambda c: execute(c, refs),selected[i:i+workers]))
+        results.extend(batch)
+        (OUT/'batch-report.json').write_text(json.dumps(results,ensure_ascii=False,indent=2))
+        if any(r['state'] in ('SUBMISSION_HTTP_ERROR','SUBMISSION_UNKNOWN_OR_FAILED','TIMEOUT_RETAIN_TASK_ID') for r in batch):break
     (OUT / 'batch-report.json').write_text(json.dumps(results, ensure_ascii=False, indent=2))
     if any(r['state'] != 'succeeded' for r in results):
         raise SystemExit(2)
