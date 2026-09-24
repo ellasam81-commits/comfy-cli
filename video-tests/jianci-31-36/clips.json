@@ -308,7 +308,7 @@
         "韩彻"
       ],
       "refs": [
-        "hanclean"
+        "han"
       ],
       "lines": [
         [
@@ -507,23 +507,25 @@
       "title": "放出来的样本",
       "cast": [
         "林浅",
-        "陆闻舟"
+        "许未",
+        "周砺"
       ],
       "refs": [
         "lin",
-        "lu"
+        "xu",
+        "zhou"
       ],
       "lines": [
         [
           "林浅",
-          "你借转院放他出去，却继续采样。你把试验搬进了人群。",
-          "You released him under a transfer pretext and kept sampling. You moved the experiment into the public."
+          "陆闻舟借转院放人，却继续采样。试验被搬进了人群。",
+          "Lu released him under a transfer pretext and kept sampling. The experiment moved into the public."
         ]
       ],
-      "action": "Exactly THREE adults in an interview room. Lin LEFT confronts Lu RIGHT across the table; one distinct silent adult investigator sits farther back in profile taking notes. Lu sets his glass down and listens, no extra speech.",
-      "prompt": "8-second finished hand-drawn 2D anime suspense drama shot, 16:9, consistent cinematic cool neutral lighting, natural human proportions, no live action. Use the supplied images only as facial and clothing references. Image 1 is 林浅 / Lin, adult woman, straight black chin-length bob, navy police uniform, clear determined eyes. Image 2 is 陆闻舟 / Lu, 52-year-old man, slicked-back black hair gray at temples, angular face, dark gray suit over white shirt; no glasses, no tie, no police uniform. Exactly THREE adults in an interview room. Lin LEFT confronts Lu RIGHT across the table; one distinct silent adult investigator sits farther back in profile taking notes. Lu sets his glass down and listens, no extra speech. Native audible Mandarin speech only. The exact complete spoken dialogue, in this order, is: 林浅: 「你借转院放他出去，却继续采样。你把试验搬进了人群。」 Deliver naturally and briskly, once only; start promptly and finish all words with at least 0.25 seconds of room tone afterward. Match mouth movement to each syllable. Only the current visible speaker moves their lips; listeners and background people keep lips closed. Clearly off-screen voices are allowed only when the scene states them. No narrator, no extra dialogue, no English speech, no reading names or stage directions, no written text, no subtitles, no watermark. Do not add extra people, duplicated faces, extra limbs, or reflection faces. Keep the action continuous and understandable.",
+      "action": "Exactly THREE adults in a calm evidence-review office. Lin LEFT speaks to Xu CENTER and Zhou RIGHT. Lin lays a closed transfer folder beside a closed sampling folder. Xu and Zhou listen silently with their lips closed. Medium-wide view, no suspect and no confrontation; no medical procedures, blood, injury or restraint.",
+      "prompt": "8-second finished hand-drawn 2D anime procedural drama, 16:9, cool neutral office lighting. Image 1 is Lin, adult woman with black chin-length bob and navy uniform. Image 2 is Xu, adult woman with brown ponytail, green blouse and white lab coat. Image 3 is Zhou, adult man with rectangular glasses and dark gray jacket. Use images only for facial and clothing consistency. Exactly THREE adults in a calm evidence-review office. Lin LEFT speaks to Xu CENTER and Zhou RIGHT. Lin lays a closed transfer folder beside a closed sampling folder. Xu and Zhou listen silently with their lips closed. Medium-wide view, no suspect and no confrontation; no medical procedures, blood, injury or restraint. Lin alone says in clear audible Mandarin: 「陆闻舟借转院放人，却继续采样。试验被搬进了人群。」. Begin promptly, natural brisk delivery, synchronized mouth movement. Other mouths remain closed. No extra speech, no narrator, no written text, no subtitles, no duplicated faces or people.",
       "duration": 8,
-      "seed": 832505,
+      "seed": 832506,
       "action_en": "Interrogation room. Lin speaks firmly to Lu on the right. He sets his water glass down and listens in silence, expression becoming tense. Lu NEVER speaks in this shot.",
       "people": 3
     },
@@ -564,7 +566,7 @@
         "唐岑"
       ],
       "refs": [
-        "hanclean",
+        "han",
         "tang"
       ],
       "lines": [
@@ -850,7 +852,7 @@
         "剑刺"
       ],
       "refs": [
-        "hanclean",
+        "han",
         "jian"
       ],
       "lines": [
@@ -941,7 +943,7 @@
         "lin",
         "zhou",
         "xu",
-        "hanclean",
+        "han",
         "jian"
       ],
       "lines": [
@@ -959,7 +961,7 @@
       "action": "Exactly FIVE distinct adult main characters at a bright neutral archive briefing table. From LEFT to RIGHT: Lin, Zhou, Xu, Han, Jian. All five visible in a medium-wide view; only Lin then Zhou speak. Lin closes the final case file; Zhou secures a copy; Xu listens; Han’s LEFT forearm rests in a clean brace; Jian is calm, normal eyes and no fangs. No injuries shown, no duplicated faces, no extras.",
       "prompt": "9-second finished hand-drawn 2D anime suspense drama shot, 16:9, consistent cinematic cool neutral lighting, natural human proportions, no live action. Use the supplied images only as facial and clothing references. Image 1 is 林浅 / Lin, adult woman, straight black chin-length bob, navy police uniform, clear determined eyes. Image 2 is 周砺 / Zhou, adult man, neat short black hair, rectangular silver glasses, hearing aid behind RIGHT ear, dark gray jacket. Image 3 is 许未 / Xu, adult woman, brown ponytail, green blouse and white lab coat. Image 4 is 韩彻 / Han, mature man, short black hair with gray temples, scar over RIGHT eyebrow, navy police uniform; clean white support on LEFT forearm, never switch sides. Image 5 is 剑刺 / Jian, adult pale slim man, tousled short black hair, charcoal jacket over black turtleneck; his original human facial proportions remain even with two small upper fangs. Exactly FIVE distinct adult main characters at a bright neutral archive briefing table. From LEFT to RIGHT: Lin, Zhou, Xu, Han, Jian. All five visible in a medium-wide view; only Lin then Zhou speak. Lin closes the final case file; Zhou secures a copy; Xu listens; Han’s LEFT forearm rests in a clean brace; Jian is calm, normal eyes and no fangs. No injuries shown, no duplicated faces, no extras. Native audible Mandarin speech only. The exact complete spoken dialogue, in this order, is: 林浅: 「陆闻舟、郑骁获刑。旧案死亡和囚禁，也已分别判决。」 周砺: 「证据和交接，都留档了。」 Deliver naturally and briskly, once only; start promptly and finish all words with at least 0.25 seconds of room tone afterward. Match mouth movement to each syllable. Only the current visible speaker moves their lips; listeners and background people keep lips closed. Clearly off-screen voices are allowed only when the scene states them. No narrator, no extra dialogue, no English speech, no reading names or stage directions, no written text, no subtitles, no watermark. Do not add extra people, duplicated faces, extra limbs, or reflection faces. Keep the action continuous and understandable.",
       "duration": 9,
-      "seed": 834110,
+      "seed": 834111,
       "badge": "一年后 · 案件结果与后续 / One year later · Outcomes and follow-up",
       "people": 5
     },
@@ -1008,7 +1010,7 @@
         "韩彻"
       ],
       "refs": [
-        "hanclean"
+        "han"
       ],
       "lines": [
         [
