@@ -142,7 +142,7 @@ def execute_segmind(clip, refs):
     save(row)
     try:
         q = segmind_api('/v2/wan3.0-video', {
-            'prompt': clip['prompt'], 'reference_images': [refs[n] for n in clip['refs']],
+            'prompt': clip['prompt'], **({'reference_images': [refs[n] for n in clip['refs']]} if clip['refs'] else {}),
             'duration': clip['duration'], 'resolution': '480P', 'aspect_ratio': '16:9',
             'audio': True, 'watermark': False, 'prompt_extend': False,
             'enable_thinking': False, 'seed': clip['seed']})
@@ -209,6 +209,8 @@ def segmind_main(req, selected):
         d = durations[c['id']]
         assert isinstance(d, int) and 2 <= d <= 10
         c['duration'] = d
+        if c['id'] in req.get('prop_insert_ids', []):
+            c['refs'] = []  # Newly storyboarded object-only insert, with off-screen dialogue.
         if c['id'] in req.get('prompt_overrides', {}):
             c['prompt'] = req['prompt_overrides'][c['id']]
             assert isinstance(c['prompt'], str) and len(c['prompt']) <= 5000
@@ -231,7 +233,7 @@ def segmind_main(req, selected):
     (OUT / 'previous-task-diagnostics.json').write_text(json.dumps(diagnostics, ensure_ascii=False, indent=2))
     names = sorted({n for c in selected for n in c['refs']})
     data_urls = [reference(n) for n in names]
-    uploaded = segmind_api('/upload-asset', {'data_urls': data_urls}, upload=True)
+    uploaded = segmind_api('/upload-asset', {'data_urls': data_urls}, upload=True) if names else {'file_urls': []}
     urls = uploaded['file_urls']
     assert len(urls) == len(names) and all(u.startswith('https://') for u in urls)
     refs = dict(zip(names, urls))
@@ -251,6 +253,8 @@ def segmind_main(req, selected):
         if any(row['state'] not in ('succeeded', 'FAILED') for row in batch):
             raise SystemExit(2)
 
+    ending = segmind_api('/v1/get-user-credits')
+    (OUT / 'balance-after.json').write_text(json.dumps({'credits': ending['credits']}))
 
 def main():
     req = json.loads((ROOT / 'run.request.json').read_text())
