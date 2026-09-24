@@ -1,7 +1,45 @@
 {
-  "mode": "xrtoken_diagnostics",
-  "task_ids": [
-    "91d939f6-3a73-40fd-a4e5-abd0ae3c14cf",
-    "e744536d-245b-4d2b-af11-af6b233a28ce"
+  "mode": "generate",
+  "provider": "xrtoken",
+  "clip_ids": [
+    "83-01R",
+    "83-04R",
+    "83-05R",
+    "83-06R",
+    "84-01R",
+    "84-03R",
+    "84-04R",
+    "85-01R",
+    "85-03R",
+    "85-04R",
+    "85-06R",
+    "86-01R",
+    "86-02R",
+    "86-04R",
+    "86-05R",
+    "87-01R",
+    "87-05R",
+    "87-06R",
+    "88-01R",
+    "88-04R",
+    "88-05R",
+    "88-06R",
+    "89-01R",
+    "89-02R",
+    "89-03R",
+    "89-05R",
+    "89-06R",
+    "90-02R",
+    "90-04R",
+    "90-05R"
+  ],
+  "max_seconds": 246,
+  "budget_usd": 14,
+  "prior_committed_usd": 0.63,
+  "rate_usd_per_second": 0.035,
+  "workers": 6,
+  "request_note": "Thirty independent shots without the reference rejected in the pilot. Read-only retrieval of an earlier neutral Han portrait for review. One request per distinct shot, no automatic retries. The failed pilot remains conservatively charged in the upper-bound ledger.",
+  "reference_checks": [
+    "han"
   ]
 }
