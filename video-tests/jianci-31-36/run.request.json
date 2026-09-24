@@ -2,12 +2,12 @@
   "mode": "generate",
   "provider": "xrtoken",
   "clip_ids": [
-    "90-05R"
+    "90-03R"
   ],
-  "max_seconds": 8,
+  "max_seconds": 7,
   "budget_usd": 14,
-  "prior_committed_usd": 10.92,
+  "prior_committed_usd": 11.2,
   "rate_usd_per_second": 0.035,
   "workers": 1,
-  "request_note": "One paid corrective attempt for 90-05 only: remove extra spoken stage directions and repeated dialogue. No automatic retries."
+  "request_note": "One corrective attempt after output review failure. Substantive safe alternative: ordinary classroom, no medical objects or visible injury, right-hand case-file instruction. No retries."
 }
