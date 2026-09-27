@@ -1,0 +1,30 @@
+name: Mengmeng EP02-05 Pilot
+on:
+  push:
+    branches: [codex/mengmeng-ep01-20260927]
+    paths: [video-tests/mengmeng-ep02-05/pilot.request.json]
+permissions:
+  contents: read
+concurrency:
+  group: mengmeng-ep02-05-pilot
+  cancel-in-progress: false
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
+      - name: Generate four continuity and voice pilot shots
+        env:
+          XRTOKEN: ${{ secrets.XRTOKEN }}
+        run: python video-tests/mengmeng-ep02-05/generate.py --batch pilot --execute
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mengmeng-ep02-05-pilot
+          path: output/mengmeng-ep02-05
+          retention-days: 30
