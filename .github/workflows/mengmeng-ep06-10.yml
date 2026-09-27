@@ -1,0 +1,46 @@
+name: Mengmeng EP06-10 Revised Stories
+on:
+  push:
+    branches: [codex/mengmeng-ep01-20260927]
+    paths: [video-tests/mengmeng-ep06-10/request.json]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
+      - name: Read bounded request
+        id: request
+        run: |
+          python - <<'PY'
+          import json,os
+          x=json.load(open('video-tests/mengmeng-ep06-10/request.json'))
+          assert x['stage'] in ['pilot','rest']
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f:
+            f.write('stage='+x['stage']+'\n')
+            f.write('pilot_run='+str(x.get('pilot_run',''))+'\n')
+          PY
+      - uses: actions/download-artifact@v4
+        if: steps.request.outputs.stage == 'rest'
+        with:
+          name: mengmeng-ep06-10
+          path: output/mengmeng-ep06-10
+          github-token: ${{ github.token }}
+          run-id: ${{ steps.request.outputs.pilot_run }}
+      - name: Generate bounded clips without paid retries
+        env:
+          XRTOKEN: ${{ secrets.XRTOKEN }}
+        run: python video-tests/mengmeng-ep06-10/generate.py --stage ${{ steps.request.outputs.stage }} --execute
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mengmeng-ep06-10
+          path: output/mengmeng-ep06-10
+          retention-days: 30
