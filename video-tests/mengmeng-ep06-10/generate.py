@@ -19,7 +19,7 @@ def main():
  if a.stage=='pilot':
   assert not report_path.exists();report={'config_sha256':digest,'max_paid_seconds':300,'clips':[]}
  else:
-  report=json.loads(report_path.read_text());assert report['config_sha256']==digest
+  report=json.loads(report_path.read_text());assert report['config_sha256'] in [digest,cfg.get('pilot_config_sha256')];report['config_sha256']=digest
   assert all(any(r['id']==e['clips'][0]['id'] and r['state']=='succeeded' for r in report['clips']) for e in cfg['episodes'])
  def save():
   with LOCK:

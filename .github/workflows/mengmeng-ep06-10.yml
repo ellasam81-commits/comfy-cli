@@ -39,8 +39,93 @@ jobs:
           XRTOKEN: ${{ secrets.XRTOKEN }}
         run: python video-tests/mengmeng-ep06-10/generate.py --stage ${{ steps.request.outputs.stage }} --execute
       - uses: actions/upload-artifact@v4
-        if: always()
+        if: always() && steps.request.outputs.stage == 'pilot'
         with:
           name: mengmeng-ep06-10
           path: output/mengmeng-ep06-10
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.request.outputs.stage == 'rest'
+        with:
+          name: mengmeng-ep06-a
+          path: |
+            output/mengmeng-ep06-10/06_0[1-6]*
+            output/mengmeng-ep06-10/report.json
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.request.outputs.stage == 'rest'
+        with:
+          name: mengmeng-ep06-b
+          path: |
+            output/mengmeng-ep06-10/06_0[7-9]*
+            output/mengmeng-ep06-10/06_1*
+            output/mengmeng-ep06-10/report.json
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.request.outputs.stage == 'rest'
+        with:
+          name: mengmeng-ep07-a
+          path: |
+            output/mengmeng-ep06-10/07_0[1-6]*
+            output/mengmeng-ep06-10/report.json
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.request.outputs.stage == 'rest'
+        with:
+          name: mengmeng-ep07-b
+          path: |
+            output/mengmeng-ep06-10/07_0[7-9]*
+            output/mengmeng-ep06-10/07_1*
+            output/mengmeng-ep06-10/report.json
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.request.outputs.stage == 'rest'
+        with:
+          name: mengmeng-ep08-a
+          path: |
+            output/mengmeng-ep06-10/08_0[1-6]*
+            output/mengmeng-ep06-10/report.json
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.request.outputs.stage == 'rest'
+        with:
+          name: mengmeng-ep08-b
+          path: |
+            output/mengmeng-ep06-10/08_0[7-9]*
+            output/mengmeng-ep06-10/08_1*
+            output/mengmeng-ep06-10/report.json
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.request.outputs.stage == 'rest'
+        with:
+          name: mengmeng-ep09-a
+          path: |
+            output/mengmeng-ep06-10/09_0[1-6]*
+            output/mengmeng-ep06-10/report.json
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.request.outputs.stage == 'rest'
+        with:
+          name: mengmeng-ep09-b
+          path: |
+            output/mengmeng-ep06-10/09_0[7-9]*
+            output/mengmeng-ep06-10/09_1*
+            output/mengmeng-ep06-10/report.json
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.request.outputs.stage == 'rest'
+        with:
+          name: mengmeng-ep10-a
+          path: |
+            output/mengmeng-ep06-10/10_0[1-6]*
+            output/mengmeng-ep06-10/report.json
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.request.outputs.stage == 'rest'
+        with:
+          name: mengmeng-ep10-b
+          path: |
+            output/mengmeng-ep06-10/10_0[7-9]*
+            output/mengmeng-ep06-10/10_1*
+            output/mengmeng-ep06-10/report.json
           retention-days: 30
