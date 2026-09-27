@@ -1,0 +1,370 @@
+name: Mengmeng EP02-05 Remaining Shots
+on:
+  push:
+    branches: [codex/mengmeng-ep01-20260927]
+    paths: [video-tests/mengmeng-ep02-05/remaining.request.json]
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: mengmeng-ep02-05-remaining
+  cancel-in-progress: false
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          name: mengmeng-ep02-05-correction
+          path: output/mengmeng-ep02-05
+          run-id: 36292799555
+          github-token: ${{ github.token }}
+      - run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
+      - name: Generate batch 1
+        env:
+          XRTOKEN: ${{ secrets.XRTOKEN }}
+        run: python video-tests/mengmeng-ep02-05/generate.py --batch 1 --execute
+      - name: Package batch 1
+        if: always()
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json,shutil
+          root=Path('output/mengmeng-ep02-05')
+          out=Path('exports/batch1')
+          for group in ['meta','a','b']:(out/group).mkdir(parents=True,exist_ok=True)
+          if (root/'report.json').exists():
+              report=json.loads((root/'report.json').read_text())
+              shutil.copy2(root/'report.json',out/'meta/report.json')
+              for p in root.glob('*.jpg'):shutil.copy2(p,out/'meta'/p.name)
+              rows=[r for r in report['clips'] if r.get('batch')=='1' and r.get('file')]
+              for i,r in enumerate(rows):shutil.copy2(root/r['file'],out/('a' if i<3 else 'b')/r['file'])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ep02-05-batch1-meta
+          path: exports/batch1/meta
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ep02-05-batch1-a
+          path: exports/batch1/a
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ep02-05-batch1-b
+          path: exports/batch1/b
+          retention-days: 30
+      - name: Generate batch 2
+        env:
+          XRTOKEN: ${{ secrets.XRTOKEN }}
+        run: python video-tests/mengmeng-ep02-05/generate.py --batch 2 --execute
+      - name: Package batch 2
+        if: always()
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json,shutil
+          root=Path('output/mengmeng-ep02-05')
+          out=Path('exports/batch2')
+          for group in ['meta','a','b']:(out/group).mkdir(parents=True,exist_ok=True)
+          if (root/'report.json').exists():
+              report=json.loads((root/'report.json').read_text())
+              shutil.copy2(root/'report.json',out/'meta/report.json')
+              for p in root.glob('*.jpg'):shutil.copy2(p,out/'meta'/p.name)
+              rows=[r for r in report['clips'] if r.get('batch')=='2' and r.get('file')]
+              for i,r in enumerate(rows):shutil.copy2(root/r['file'],out/('a' if i<3 else 'b')/r['file'])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ep02-05-batch2-meta
+          path: exports/batch2/meta
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ep02-05-batch2-a
+          path: exports/batch2/a
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ep02-05-batch2-b
+          path: exports/batch2/b
+          retention-days: 30
+      - name: Generate batch 3
+        env:
+          XRTOKEN: ${{ secrets.XRTOKEN }}
+        run: python video-tests/mengmeng-ep02-05/generate.py --batch 3 --execute
+      - name: Package batch 3
+        if: always()
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json,shutil
+          root=Path('output/mengmeng-ep02-05')
+          out=Path('exports/batch3')
+          for group in ['meta','a','b']:(out/group).mkdir(parents=True,exist_ok=True)
+          if (root/'report.json').exists():
+              report=json.loads((root/'report.json').read_text())
+              shutil.copy2(root/'report.json',out/'meta/report.json')
+              for p in root.glob('*.jpg'):shutil.copy2(p,out/'meta'/p.name)
+              rows=[r for r in report['clips'] if r.get('batch')=='3' and r.get('file')]
+              for i,r in enumerate(rows):shutil.copy2(root/r['file'],out/('a' if i<3 else 'b')/r['file'])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ep02-05-batch3-meta
+          path: exports/batch3/meta
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ep02-05-batch3-a
+          path: exports/batch3/a
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ep02-05-batch3-b
+          path: exports/batch3/b
+          retention-days: 30
+      - name: Generate batch 4
+        env:
+          XRTOKEN: ${{ secrets.XRTOKEN }}
+        run: python video-tests/mengmeng-ep02-05/generate.py --batch 4 --execute
+      - name: Package batch 4
+        if: always()
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json,shutil
+          root=Path('output/mengmeng-ep02-05')
+          out=Path('exports/batch4')
+          for group in ['meta','a','b']:(out/group).mkdir(parents=True,exist_ok=True)
+          if (root/'report.json').exists():
+              report=json.loads((root/'report.json').read_text())
+              shutil.copy2(root/'report.json',out/'meta/report.json')
+              for p in root.glob('*.jpg'):shutil.copy2(p,out/'meta'/p.name)
+              rows=[r for r in report['clips'] if r.get('batch')=='4' and r.get('file')]
+              for i,r in enumerate(rows):shutil.copy2(root/r['file'],out/('a' if i<3 else 'b')/r['file'])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ep02-05-batch4-meta
+          path: exports/batch4/meta
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ep02-05-batch4-a
+          path: exports/batch4/a
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ep02-05-batch4-b
+          path: exports/batch4/b
+          retention-days: 30
+      - name: Generate batch 5
+        env:
+          XRTOKEN: ${{ secrets.XRTOKEN }}
+        run: python video-tests/mengmeng-ep02-05/generate.py --batch 5 --execute
+      - name: Package batch 5
+        if: always()
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json,shutil
+          root=Path('output/mengmeng-ep02-05')
+          out=Path('exports/batch5')
+          for group in ['meta','a','b']:(out/group).mkdir(parents=True,exist_ok=True)
+          if (root/'report.json').exists():
+              report=json.loads((root/'report.json').read_text())
+              shutil.copy2(root/'report.json',out/'meta/report.json')
+              for p in root.glob('*.jpg'):shutil.copy2(p,out/'meta'/p.name)
+              rows=[r for r in report['clips'] if r.get('batch')=='5' and r.get('file')]
+              for i,r in enumerate(rows):shutil.copy2(root/r['file'],out/('a' if i<3 else 'b')/r['file'])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ep02-05-batch5-meta
+          path: exports/batch5/meta
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ep02-05-batch5-a
+          path: exports/batch5/a
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ep02-05-batch5-b
+          path: exports/batch5/b
+          retention-days: 30
+      - name: Generate batch 6
+        env:
+          XRTOKEN: ${{ secrets.XRTOKEN }}
+        run: python video-tests/mengmeng-ep02-05/generate.py --batch 6 --execute
+      - name: Package batch 6
+        if: always()
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json,shutil
+          root=Path('output/mengmeng-ep02-05')
+          out=Path('exports/batch6')
+          for group in ['meta','a','b']:(out/group).mkdir(parents=True,exist_ok=True)
+          if (root/'report.json').exists():
+              report=json.loads((root/'report.json').read_text())
+              shutil.copy2(root/'report.json',out/'meta/report.json')
+              for p in root.glob('*.jpg'):shutil.copy2(p,out/'meta'/p.name)
+              rows=[r for r in report['clips'] if r.get('batch')=='6' and r.get('file')]
+              for i,r in enumerate(rows):shutil.copy2(root/r['file'],out/('a' if i<3 else 'b')/r['file'])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ep02-05-batch6-meta
+          path: exports/batch6/meta
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ep02-05-batch6-a
+          path: exports/batch6/a
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ep02-05-batch6-b
+          path: exports/batch6/b
+          retention-days: 30
+      - name: Generate batch 7
+        env:
+          XRTOKEN: ${{ secrets.XRTOKEN }}
+        run: python video-tests/mengmeng-ep02-05/generate.py --batch 7 --execute
+      - name: Package batch 7
+        if: always()
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json,shutil
+          root=Path('output/mengmeng-ep02-05')
+          out=Path('exports/batch7')
+          for group in ['meta','a','b']:(out/group).mkdir(parents=True,exist_ok=True)
+          if (root/'report.json').exists():
+              report=json.loads((root/'report.json').read_text())
+              shutil.copy2(root/'report.json',out/'meta/report.json')
+              for p in root.glob('*.jpg'):shutil.copy2(p,out/'meta'/p.name)
+              rows=[r for r in report['clips'] if r.get('batch')=='7' and r.get('file')]
+              for i,r in enumerate(rows):shutil.copy2(root/r['file'],out/('a' if i<3 else 'b')/r['file'])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ep02-05-batch7-meta
+          path: exports/batch7/meta
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ep02-05-batch7-a
+          path: exports/batch7/a
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ep02-05-batch7-b
+          path: exports/batch7/b
+          retention-days: 30
+      - name: Generate batch 8
+        env:
+          XRTOKEN: ${{ secrets.XRTOKEN }}
+        run: python video-tests/mengmeng-ep02-05/generate.py --batch 8 --execute
+      - name: Package batch 8
+        if: always()
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json,shutil
+          root=Path('output/mengmeng-ep02-05')
+          out=Path('exports/batch8')
+          for group in ['meta','a','b']:(out/group).mkdir(parents=True,exist_ok=True)
+          if (root/'report.json').exists():
+              report=json.loads((root/'report.json').read_text())
+              shutil.copy2(root/'report.json',out/'meta/report.json')
+              for p in root.glob('*.jpg'):shutil.copy2(p,out/'meta'/p.name)
+              rows=[r for r in report['clips'] if r.get('batch')=='8' and r.get('file')]
+              for i,r in enumerate(rows):shutil.copy2(root/r['file'],out/('a' if i<3 else 'b')/r['file'])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ep02-05-batch8-meta
+          path: exports/batch8/meta
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ep02-05-batch8-a
+          path: exports/batch8/a
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ep02-05-batch8-b
+          path: exports/batch8/b
+          retention-days: 30
+      - name: Generate batch 9
+        env:
+          XRTOKEN: ${{ secrets.XRTOKEN }}
+        run: python video-tests/mengmeng-ep02-05/generate.py --batch 9 --execute
+      - name: Package batch 9
+        if: always()
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json,shutil
+          root=Path('output/mengmeng-ep02-05')
+          out=Path('exports/batch9')
+          for group in ['meta','a','b']:(out/group).mkdir(parents=True,exist_ok=True)
+          if (root/'report.json').exists():
+              report=json.loads((root/'report.json').read_text())
+              shutil.copy2(root/'report.json',out/'meta/report.json')
+              for p in root.glob('*.jpg'):shutil.copy2(p,out/'meta'/p.name)
+              rows=[r for r in report['clips'] if r.get('batch')=='9' and r.get('file')]
+              for i,r in enumerate(rows):shutil.copy2(root/r['file'],out/('a' if i<3 else 'b')/r['file'])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ep02-05-batch9-meta
+          path: exports/batch9/meta
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ep02-05-batch9-a
+          path: exports/batch9/a
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ep02-05-batch9-b
+          path: exports/batch9/b
+          retention-days: 30
+
