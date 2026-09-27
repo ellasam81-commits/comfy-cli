@@ -1,0 +1,27 @@
+name: Mengmeng EP04 Two Acting Fixes
+on:
+  push:
+    branches: [codex/mengmeng-ep01-20260927]
+    paths: [video-tests/mengmeng-ep04-twofix/request.json]
+permissions:
+  contents: read
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
+      - name: Generate two five-second acting corrections
+        env:
+          XRTOKEN: ${{ secrets.XRTOKEN }}
+        run: python video-tests/mengmeng-ep04-twofix/generate.py --batch pilot --execute
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mengmeng-ep04-twofix
+          path: output/mengmeng-ep02-05
+          retention-days: 30
