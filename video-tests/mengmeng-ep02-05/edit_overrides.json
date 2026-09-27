@@ -1,0 +1,102 @@
+{
+  "04_02": {
+    "sub_end": 4.7
+  },
+  "04_10": {
+    "vf": "crop=352:198:480:212,scale=854:480,fps=24,setsar=1",
+    "rerender": true
+  },
+  "04_11": {
+    "vf": "delogo=x=260:y=423:w=330:h=40,delogo=x=620:y=25:w=222:h=44,scale=854:480,fps=24,setsar=1",
+    "rerender": true
+  },
+  "05_02": {
+    "vf": "crop=480:270:374:66,scale=854:480,fps=24,setsar=1",
+    "rerender": true
+  },
+  "03_11": {
+    "duration": 1.65,
+    "sub_end": 1.58,
+    "rerender": true
+  },
+  "03_01": {
+    "vf": "crop=640:360:160:0,scale=854:480,fps=24,setsar=1",
+    "rerender": true
+  },
+  "03_04": {
+    "vf": "crop=640:360:160:0,scale=854:480,fps=24,setsar=1",
+    "rerender": true
+  },
+  "05_03": {
+    "vf": "crop=480:270:120:0,scale=854:480,fps=24,setsar=1",
+    "rerender": true
+  },
+  "02_04": {
+    "vf": "split=2[a][b];[a]trim=end=2.7,setpts=PTS-STARTPTS,scale=854:480[a1];[b]trim=start=2.7,setpts=PTS-STARTPTS,crop=400:225:160:140,scale=854:480[b1];[a1][b1]concat=n=2:v=1:a=0,fps=24,setsar=1",
+    "af": "afade=t=out:st=2.55:d=0.15",
+    "sub_end": 2.65,
+    "rerender": true
+  },
+  "04_04": {
+    "duration": 3,
+    "sub_end": 2.75,
+    "rerender": true
+  },
+  "05_04": {
+    "duration": 2.9,
+    "vf": "scale=854:480,fps=24,setsar=1,fade=t=out:st=2.72:d=0.18:color=0xD8F0E1",
+    "af": "afade=t=out:st=2.16:d=0.12",
+    "sub_end": 2.23,
+    "rerender": true
+  },
+  "05_05": {
+    "vf": "scale=854:480,fps=24,setsar=1,fade=t=in:d=0.18:color=0xD8F0E1",
+    "rerender": true
+  },
+  "03_05": {
+    "vf": "crop=400:225:220:170,scale=854:480,fps=24,setsar=1",
+    "rerender": true
+  },
+  "04_05": {
+    "vf": "crop=400:225:145:175,scale=854:480,fps=24,setsar=1",
+    "rerender": true
+  },
+  "03_07": {
+    "vf": "crop=400:225:45:125,scale=854:480,fps=24,setsar=1",
+    "rerender": true
+  },
+  "04_06": {
+    "vf": "crop=400:225:0:125,scale=854:480,fps=24,setsar=1",
+    "rerender": true
+  },
+  "02_06": {
+    "vf": "crop=640:360:0:0,scale=854:480,fps=24,setsar=1",
+    "rerender": true
+  },
+  "02_07": {
+    "vf": "crop=480:270:0:180,scale=854:480,fps=24,setsar=1",
+    "rerender": true
+  },
+  "04_07": {
+    "vf": "crop=480:270:330:0,scale=854:480,fps=24,setsar=1",
+    "rerender": true
+  },
+  "03_12": {
+    "inpoint": 1.4,
+    "duration": 3.6,
+    "sub_start": 0.03,
+    "sub_end": 2.05,
+    "rerender": true
+  },
+  "02_12": {
+    "sub_start": 0.5
+  },
+  "05_12": {
+    "vf": "split=2[a][b];[a]trim=end=2.5,setpts=PTS-STARTPTS,crop=480:270:374:66,scale=854:480[a1];[b]trim=start=2.5,setpts=PTS-STARTPTS,scale=854:480[b1];[a1][b1]concat=n=2:v=1:a=0,fps=24,setsar=1",
+    "rerender": true
+  },
+  "04_12": {
+    "vf": "delogo=x=620:y=25:w=222:h=44,scale=854:480,fps=24,setsar=1",
+    "rerender": true
+  }
+}

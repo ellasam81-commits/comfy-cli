@@ -1,0 +1,82 @@
+[
+  {
+    "file": "萌萌谈_EP02_千万别再说我没事.mp4",
+    "bytes": 7854162,
+    "duration": 60.0,
+    "streams": [
+      {
+        "type": "video",
+        "codec": "h264",
+        "width": 854,
+        "height": 480
+      },
+      {
+        "type": "audio",
+        "codec": "aac",
+        "width": null,
+        "height": null
+      }
+    ],
+    "full_decode": "passed"
+  },
+  {
+    "file": "萌萌谈_EP03_这只鸭子会把真心话喊出来.mp4",
+    "bytes": 6810974,
+    "duration": 55.25,
+    "streams": [
+      {
+        "type": "video",
+        "codec": "h264",
+        "width": 854,
+        "height": 480
+      },
+      {
+        "type": "audio",
+        "codec": "aac",
+        "width": null,
+        "height": null
+      }
+    ],
+    "full_decode": "passed"
+  },
+  {
+    "file": "萌萌谈_EP04_拖延鸽把咖啡推迟了五分钟.mp4",
+    "bytes": 7379377,
+    "duration": 58.0,
+    "streams": [
+      {
+        "type": "video",
+        "codec": "h264",
+        "width": 854,
+        "height": 480
+      },
+      {
+        "type": "audio",
+        "codec": "aac",
+        "width": null,
+        "height": null
+      }
+    ],
+    "full_decode": "passed"
+  },
+  {
+    "file": "萌萌谈_EP05_社恐兔把顾客传送没了.mp4",
+    "bytes": 7408284,
+    "duration": 57.916667,
+    "streams": [
+      {
+        "type": "video",
+        "codec": "h264",
+        "width": 854,
+        "height": 480
+      },
+      {
+        "type": "audio",
+        "codec": "aac",
+        "width": null,
+        "height": null
+      }
+    ],
+    "full_decode": "passed"
+  }
+]
