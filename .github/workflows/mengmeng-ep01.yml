@@ -1,0 +1,33 @@
+name: Mengmeng EP01 XRToken 60s
+on:
+  push:
+    branches: [codex/mengmeng-ep01-20260927]
+    paths: [video-tests/mengmeng-ep01/run.request.json]
+permissions:
+  contents: read
+concurrency:
+  group: mengmeng-ep01-paid
+  cancel-in-progress: false
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 175
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install media tools
+        run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg fonts-noto-cjk
+      - name: Generate EP01 once and assemble bilingual edit
+        env:
+          XRTOKEN: ${{ secrets.XRTOKEN }}
+          MENGMENG_EXECUTE: '1'
+        run: python video-tests/mengmeng-ep01/generate.py
+      - name: Save videos and task IDs even if interrupted
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mengmeng-ep01-xrtoken
+          path: output/mengmeng-ep01
+          retention-days: 30
