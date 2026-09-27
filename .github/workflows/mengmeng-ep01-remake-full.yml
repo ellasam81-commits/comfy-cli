@@ -1,0 +1,70 @@
+name: Mengmeng EP01 Remake Remaining Shots
+on:
+  push:
+    branches: [codex/mengmeng-ep01-20260927]
+    paths: [video-tests/mengmeng-ep01-remake/remaining.request.json]
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: mengmeng-ep01-remake-remaining
+  cancel-in-progress: false
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          name: mengmeng-ep01-remake-pilot
+          path: output/mengmeng-ep01-remake
+          run-id: 36285013406
+          github-token: ${{ github.token }}
+      - run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
+      - name: Generate remaining final shots once
+        env:
+          XRTOKEN: ${{ secrets.XRTOKEN }}
+        run: python video-tests/mengmeng-ep01-remake/generate.py --phase remaining --execute
+      - name: Package recoverable compact artifacts
+        if: always()
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import shutil
+          root=Path('output/mengmeng-ep01-remake')
+          for d in ['meta','raw1','raw2','raw3']:Path('exports',d).mkdir(parents=True,exist_ok=True)
+          for p in root.glob('*'):
+              if p.name.endswith('-raw.mp4'):
+                  group=(int(p.name[:2])-1)//4+1
+                  shutil.copy2(p,Path('exports','raw'+str(group),p.name))
+              elif p.suffix in ['.json','.jpg']:
+                  shutil.copy2(p,Path('exports','meta',p.name))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mengmeng-remake-meta
+          path: exports/meta
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mengmeng-remake-raw1
+          path: exports/raw1
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mengmeng-remake-raw2
+          path: exports/raw2
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mengmeng-remake-raw3
+          path: exports/raw3
+          retention-days: 30
