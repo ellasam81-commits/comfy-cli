@@ -1,0 +1,30 @@
+name: Mengmeng EP01 Remake Opening and Entry
+on:
+  push:
+    branches: [codex/mengmeng-ep01-20260927]
+    paths: [video-tests/mengmeng-ep01-remake/pilot.request.json]
+permissions:
+  contents: read
+concurrency:
+  group: mengmeng-ep01-remake-pilot
+  cancel-in-progress: false
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
+      - name: Generate two final-use shots once
+        env:
+          XRTOKEN: ${{ secrets.XRTOKEN }}
+        run: python video-tests/mengmeng-ep01-remake/generate.py --phase pilot --execute
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mengmeng-ep01-remake-pilot
+          path: output/mengmeng-ep01-remake
+          retention-days: 30
