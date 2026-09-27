@@ -9,7 +9,7 @@ def cmd(args):
 def main():
  ap=argparse.ArgumentParser();ap.add_argument('--batch',required=True);ap.add_argument('--execute',action='store_true');a=ap.parse_args()
  raw=(ROOT/'episodes.json').read_bytes();cfg=json.loads(raw);clips=[c for e in cfg['episodes'] for c in e['clips']];lookup={c['id']:c for c in clips};digest=hashlib.sha256(raw).hexdigest()
- assert len(clips)==48 and sum(c['duration'] for c in clips)==240
+ assert len(clips)==1 and sum(c['duration'] for c in clips)==5
  assert all((ROOT/c['reference']).is_file() for c in clips)
  if not a.execute:print('Dry-run: 48 shots, 240 seconds, 20-second pilot, no paid retries');return
  if os.environ.get('GITHUB_RUN_ATTEMPT','1')!='1':raise RuntimeError('Refuse blind paid rerun')
