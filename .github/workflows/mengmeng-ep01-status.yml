@@ -1,0 +1,34 @@
+name: Mengmeng XRToken Read Only Status
+on:
+  push:
+    branches: [codex/mengmeng-ep01-20260927]
+    paths: [.github/workflows/mengmeng-ep01-status.yml]
+permissions:
+  contents: read
+jobs:
+  status:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - name: Read latest task states only
+        env:
+          XRTOKEN: ${{ secrets.XRTOKEN }}
+        run: |
+          python - <<'PY'
+          import json, os, urllib.request
+          key=os.environ['XRTOKEN'].strip()
+          request=urllib.request.Request('https://api.xrtoken.ai/v1/videos/generations?limit=20',headers={'Authorization':'Bearer '+key,'Accept':'application/json'})
+          with urllib.request.urlopen(request, timeout=90) as r:
+              obj=json.load(r)
+          print('Response keys:', list(obj) if isinstance(obj,dict) else type(obj).__name__)
+          def visit(x):
+              if isinstance(x,dict):
+                  if 'id' in x and ('status' in x or 'state' in x):
+                      print(json.dumps({k:x[k] for k in ['id','status','state','model','created_at','updated_at','duration','error'] if k in x},ensure_ascii=False).replace(key,'[REDACTED]'))
+                  for v in x.values():
+                      if isinstance(v,(list,dict)): visit(v)
+              elif isinstance(x,list):
+                  for v in x: visit(v)
+          visit(obj)
+          print('Paid requests: 0')
+          PY
