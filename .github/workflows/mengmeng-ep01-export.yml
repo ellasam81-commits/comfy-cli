@@ -1,0 +1,58 @@
+name: Mengmeng EP01 Export Review Files
+on:
+  push:
+    branches: [codex/mengmeng-ep01-20260927]
+    paths: [.github/workflows/mengmeng-ep01-export.yml]
+permissions:
+  contents: read
+  actions: read
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: mengmeng-ep01-xrtoken
+          path: source
+          run-id: 36281316684
+          github-token: ${{ github.token }}
+      - name: Prepare compact files for review
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import shutil,json
+          src=Path('source')
+          for name in ['final','raw1','raw2','raw3']:Path(name).mkdir()
+          for p in src.iterdir():
+              if p.name=='Mengmeng_EP01_60s_ZH_EN.mp4' or p.suffix in ['.json','.ass'] or p.name.endswith('-preview.jpg'):
+                  shutil.copy2(p,Path('final')/p.name)
+              if p.name.endswith('-raw.mp4'):
+                  group=(int(p.name[:2])-1)//4+1
+                  shutil.copy2(p,Path('raw'+str(group))/p.name)
+          for d in ['final','raw1','raw2','raw3']:
+              print(d,sum(p.stat().st_size for p in Path(d).iterdir()))
+          report=json.loads((src/'report.json').read_text())
+          print('Generation results:',[(x['id'],x['state']) for x in report['clips']])
+          print('Duration:',report.get('final_duration'))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mengmeng-ep01-final
+          path: final
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mengmeng-ep01-raw1
+          path: raw1
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mengmeng-ep01-raw2
+          path: raw2
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mengmeng-ep01-raw3
+          path: raw3
+          retention-days: 30
