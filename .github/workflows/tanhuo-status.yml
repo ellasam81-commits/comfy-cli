@@ -1,0 +1,22 @@
+name: Tanhuo Read Only Generation Status
+on:
+  push:
+    branches: [codex/tanhuo-mv-67s-20260929]
+    paths: [video-tests/tanhuo-mv/status.py]
+permissions:
+  contents: read
+jobs:
+  status:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Query only, no paid generation requests
+        env:
+          XRTOKEN: ${{ secrets.XRTOKEN }}
+        run: python video-tests/tanhuo-mv/status.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tanhuo-readonly-status
+          path: output/tanhuo-status
+          retention-days: 7
