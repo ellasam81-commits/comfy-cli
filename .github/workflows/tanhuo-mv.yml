@@ -1,0 +1,40 @@
+name: Tanhuo 67s Original Music Anime MV
+on:
+  push:
+    branches: [codex/tanhuo-mv-67s-20260929]
+    paths: [video-tests/tanhuo-mv/request.json]
+permissions:
+  contents: read
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
+      - name: Validate bounded generation
+        run: python video-tests/tanhuo-mv/generate.py
+      - name: Generate seven clips once and preserve original song
+        env:
+          XRTOKEN: ${{ secrets.XRTOKEN }}
+        run: python video-tests/tanhuo-mv/generate.py --execute
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tanhuo-final-67s
+          path: |
+            output/tanhuo-mv/Tanhuo_With_You_67s.mp4
+            output/tanhuo-mv/report.json
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tanhuo-source-clips
+          path: |
+            output/tanhuo-mv/*-raw.mp4
+            output/tanhuo-mv/*.jpg
+            output/tanhuo-mv/report.json
+          retention-days: 30
