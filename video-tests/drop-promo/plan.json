@@ -1,0 +1,43 @@
+{
+  "source_start": 90,
+  "source_end": 120,
+  "common": "Fully animated high-end 2D anime supernatural mystery promo, black obsidian and deep crimson palette, silver-white face highlights, 16:9. Image 1 is this shot's scene and framing anchor. Image 2 is the canonical adult character identity reference. Same handsome adult East Asian male with short wavy black hair, delicate sharp face, WHITE geometric angular-shoulder long coat, black collar and black-white trousers. Same adult flame woman Tanhuo, the Mirror Guide: delicate face, long flowing red-orange flame hair with dark crimson roots, amber-red eyes, opaque fitted black-burgundy dress with ember seams and long sleeves, small black teardrop collar ornament. Preserve both faces and costumes, never turn the man's white coat black. Same gothic black-stone hall, shallow mirror water, pointed arches, tall freestanding obsidian mirror and crimson eclipse. Readable cinematic chiaroscuro, rich hand-painted anime, natural acting and smooth motion, not static zoom or a slideshow. Mystery and supernatural tension, no romance kiss, no gore, no weapons, no jump scare, no strobe, no captions, no logos, no borders, no extra characters. Motion in bodies, eyes, water, smoke and cloth. No talking or lip movement. Silent output, original song added later. Keep a single coherent camera movement unless explicitly directed. ",
+  "shots": [
+    {
+      "id": "01",
+      "ref": "01",
+      "duration": 6,
+      "action": "THE ANOMALY. Only man physically present. Low wide follow camera as he takes three measured steps through ankle-shallow dark water toward the obsidian mirror. His white coat sways and red reflections ripple outward with each footfall. He stops; his reflected silhouette in the mirror subtly lifts its head BEFORE he does, then he reacts with narrowed eyes. Keep it subtle, no duplicated physical man. Finish holding his suspicious gaze toward the mirror."
+    },
+    {
+      "id": "02",
+      "ref": "02",
+      "duration": 5,
+      "action": "THE MIRROR GUIDE. Man stands at frame left looking into mirror at right. Woman exists ONLY behind its glass. Initially faint red embers outline her silhouette; her already intact face and body become clearly visible behind the mirror as thin smoke clears. She slowly lifts her chin, makes eye contact and gives a barely perceptible knowing smile. Her hair-fire trails downward like falling liquid. Slow push-in toward her face, keep the mirror rim visible and man in foreground. No monster transformation."
+    },
+    {
+      "id": "03",
+      "ref": "03",
+      "duration": 5,
+      "action": "CONTACT. Medium close side angle, man left outside mirror, woman right inside glass. He slowly reaches his left hand forward. She raises her right hand to meet it from inside. Their fingertips touch the mirror surface in the middle, causing concentric red ripples like liquid. Camera follows their hands toward the contact point and holds. Hands remain separated by fluid glass, no extra fingers or fused limbs; identities and hair stable."
+    },
+    {
+      "id": "04",
+      "ref": "04",
+      "duration": 5,
+      "action": "THE DROP. Wide view INSIDE the mirror dimension. Man left and woman right float upright in the inverted gothic hall, the same black pointed arches suspended overhead, crimson eclipse behind and below them. Their bodies slowly descend while red embers drift upward. White coat and black-red skirt billow elegantly with gravity. The camera cranes gently downward with them, producing unsettling depth. Their feet approach the black reflective floor in the last second. No tumbling, no body mutation, no flight wings."
+    },
+    {
+      "id": "05",
+      "ref": "05",
+      "duration": 5,
+      "action": "THE CHOICE. Both now stand on solid black reflective floor. Man left foreground, woman right behind him. She slowly extends one arm and points toward the red doorway at frame right. He follows her gesture with his eyes, turns his shoulders toward the doorway and takes one deliberate step. Camera tracks slightly right. She watches him with a small unreadable smile, her crimson flame hair flows downward. No teleporting, no outfit changes."
+    },
+    {
+      "id": "06",
+      "ref": "06",
+      "duration": 4,
+      "action": "THE UNANSWERED LOOK. Extreme medium close-up of the same man seen in the obsidian mirror, white angular shoulder visible. He slowly turns his face toward the viewer. A crimson eclipse glints in ONE eye; keep eye anatomy normal. In the far reflected background the female black-red silhouette watches motionlessly, only her flame hair moving. Slow final push toward his eye and hold the ominous gaze for one second. No additional characters, no fangs, no text. End with moving embers and a clear readable face."
+    }
+  ]
+}
