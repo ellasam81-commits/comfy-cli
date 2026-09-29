@@ -1,0 +1,27 @@
+name: Drop Segmind Horror Insert
+on:
+  push:
+    branches: [codex/drop-black-red-20260929]
+    paths: [video-tests/drop-promo/segmind-request.json]
+permissions:
+  contents: read
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install 'segmind==1.2.0' requests
+      - name: One ten-second horror insert
+        env:
+          SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+        run: python video-tests/drop-promo/segmind_horror.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: drop-segmind-horror
+          path: output/drop-horror/*
+          retention-days: 30
