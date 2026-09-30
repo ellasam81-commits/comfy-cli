@@ -1,8 +1,5 @@
 name: Agnes video connection test
 on:
-  push:
-    branches: [agnes-video-test-20260930]
-    paths: [.github/workflows/agnes-video-test.yml]
   workflow_dispatch:
 permissions:
   contents: read
@@ -50,8 +47,8 @@ jobs:
                       return json.load(response)
               except urllib.error.HTTPError as error:
                   detail = error.read(4096).decode("utf-8", errors="replace").replace(key, "[REDACTED]")
-              print("Agnes error detail:", detail, flush=True)
-              sys.exit(f"::error::Agnes API returned HTTP {error.code}. No new generation will be submitted.")
+                  print("Agnes error detail:", detail, flush=True)
+                  sys.exit(f"::error::Agnes API returned HTTP {error.code}. No new generation will be submitted.")
 
           payload = {
               "model": model,
