@@ -1,100 +1,82 @@
-name: Agnes video connection test
+name: Agnes Huanhuo anime test
 on:
+  push:
+    branches: [agnes-video-test-20260930]
+    paths: [.github/workflows/agnes-video-test.yml]
   workflow_dispatch:
 permissions:
   contents: read
 concurrency:
-  group: agnes-video-test
+  group: agnes-huanhuo-test
   cancel-in-progress: false
 jobs:
   test:
     runs-on: ubuntu-latest
     timeout-minutes: 18
     steps:
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-      - name: Generate one five-second video
+      - name: Generate one anime clip
         env:
           AGNES_API_KEY: ${{ secrets.AGNES_API_KEY || secrets.Agnes_api }}
         run: |
-          python - <<'PY'
-          import json
-          import os
-          import pathlib
-          import sys
-          import time
-          import urllib.error
-          import urllib.parse
-          import urllib.request
-
+          python3 - <<'PY'
+          import json, os, pathlib, sys, time, urllib.error, urllib.parse, urllib.request
           key = os.environ.get("AGNES_API_KEY", "").strip()
           if not key:
-              sys.exit("::error::AGNES_API_KEY is missing. Add it in repository Actions secrets.")
+              sys.exit("Agnes API secret is missing.")
           root = "https://apihub.agnes-ai.com"
           model = "agnes-video-2.5-flash"
           out = pathlib.Path("output")
           out.mkdir(exist_ok=True)
-
           def api(path, payload=None):
-              request = urllib.request.Request(
-                  root + path,
+              req = urllib.request.Request(root + path,
                   data=json.dumps(payload).encode() if payload is not None else None,
-                  headers={"Authorization": "Bearer " + key, "Content-Type": "application/json"},
-              )
+                  headers={"Authorization": "Bearer " + key, "Content-Type": "application/json"})
               try:
-                  with urllib.request.urlopen(request, timeout=60) as response:
+                  with urllib.request.urlopen(req, timeout=60) as response:
                       return json.load(response)
-              except urllib.error.HTTPError as error:
-                  detail = error.read(4096).decode("utf-8", errors="replace").replace(key, "[REDACTED]")
-                  print("Agnes error detail:", detail, flush=True)
-                  sys.exit(f"::error::Agnes API returned HTTP {error.code}. No new generation will be submitted.")
-
+              except urllib.error.HTTPError as exc:
+                  detail = exc.read(4096).decode(errors="replace").replace(key, "[REDACTED]")
+                  (out / "error.json").write_text(json.dumps({"http_status": exc.code, "detail": detail}))
+                  sys.exit("Agnes HTTP " + str(exc.code) + ": " + detail)
           payload = {
-              "model": model,
-              "prompt": "A cute orange kitten in cinematic 2D Japanese anime style sits on a moonlit windowsill, then slowly turns its head toward the camera and blinks. One continuous shot, gentle natural motion, stable character design, soft blue lighting, no text, no subtitles.",
-              "mode": "text",
-              "seconds": "5",
-              "size": "720P",
-              "aspect_ratio": "9:16",
-              "n": 1,
+              "model": model, "mode": "keyframe", "seconds": "5", "size": "720P",
+              "aspect_ratio": "16:9", "n": 1,
+              "first_frame": "https://cdn.creativeclaw.co/u/b3866ea4/images/1a195014-a5f3-4d5a-af2b-dc82ea64ef81.png",
+              "prompt": "One continuous artistic 2D Japanese anime music-video shot. Preserve exactly the two anime character designs in the first frame, clean ink outlines and flat cel shaded faces. A slender adult man with wavy black hair and a black suit slowly lifts his eyes toward the elegant flame woman Tanhuo. Fine silver threads between them gradually become orange light; her flame hair flows gently and her fingers extend toward him. Camera slowly dollies backward to reveal cold cyan floating geometric planes. Her face stays stable and beautiful, restrained emotional expressions, smooth anatomical movement. Strong spatial depth with hand-painted anime background, soft warm flame against cyan. No realistic live action, no 3D CGI characters, no face changes, no extra people, no subtitles, no text, no logos, no fast rotation, no wave distortion, no strobing. No dialogue, music added later."
           }
+          (out / "request.json").write_text(json.dumps(payload, indent=2))
           created = api("/v1/videos", payload)
-          video_id = created.get("video_id") or created.get("id") or created.get("task_id")
+          video_id = created.get("video_id")
           if not video_id:
-              sys.exit("::error::Agnes returned no video task ID.")
+              (out / "create_response.json").write_text(json.dumps(created))
+              sys.exit("No video_id returned. Do not resubmit automatically.")
           (out / "task.json").write_text(json.dumps({"video_id": video_id, "model": model}))
-          print("One generation submitted; polling its existing task.", flush=True)
+          print("Submitted ONE generation. Task:", video_id, flush=True)
           query = urllib.parse.urlencode({"video_id": video_id, "model_name": model})
           deadline = time.monotonic() + 900
           while time.monotonic() < deadline:
               result = api("/agnesapi?" + query)
+              (out / "result.json").write_text(json.dumps(result))
               status = str(result.get("status", "")).lower()
-              print("Status:", status, "Progress:", result.get("progress", ""), flush=True)
+              print("Status:", status, "Progress:", result.get("progress"), flush=True)
               if status in {"failed", "error", "cancelled", "canceled"}:
-                  sys.exit("::error::Agnes video generation failed. No automatic regeneration.")
+                  sys.exit("Generation failed. No automatic regeneration.")
               if status in {"completed", "succeeded", "success", "done"}:
-                  url = result.get("url") or result.get("video_url")
+                  url = result.get("url")
                   if not isinstance(url, str) or urllib.parse.urlsplit(url).scheme != "https":
-                      sys.exit("::error::Completed task returned no HTTPS video URL.")
-                  with urllib.request.urlopen(url, timeout=120) as response:
-                      with (out / "agnes-test-5s.mp4").open("wb") as target:
-                          while chunk := response.read(1024 * 1024):
-                              target.write(chunk)
+                      sys.exit("Completed task has no HTTPS video URL.")
+                  with urllib.request.urlopen(url, timeout=120) as response, (out / "Huanhuo_Agnes_Anime_Test_5s.mp4").open("wb") as target:
+                      while chunk := response.read(1024 * 1024):
+                          target.write(chunk)
                   print("Video downloaded.", flush=True)
                   break
               time.sleep(15)
           else:
-              sys.exit("::error::Timed out. Existing task ID is saved; do not submit again.")
+              sys.exit("Timeout. Saved task ID. Do not resubmit.")
           PY
-      - name: Inspect video and audio streams
-        run: |
-          ffprobe -v error -show_entries format=duration:stream=codec_type,width,height -of json output/agnes-test-5s.mp4 > output/probe.json
-          cat output/probe.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: agnes-video-test
+          name: huanhuo-agnes-anime-test
           path: output/
-          if-no-files-found: ignore
           retention-days: 7
