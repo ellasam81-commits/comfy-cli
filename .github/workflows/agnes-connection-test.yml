@@ -1,0 +1,49 @@
+name: Agnes connection test
+on:
+  push:
+    branches: [agnes-connection-test-20260930]
+    paths: [.github/workflows/agnes-connection-test.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Test free Agnes Flash text API
+        env:
+          AGNES_API_KEY: ${{ secrets.AGNES_API_KEY || secrets.AGNES_API || secrets.AGNES_TOKEN || secrets.AGNES }}
+        shell: python
+        run: |
+          import json, os, urllib.request, urllib.error
+          key = os.environ.get("AGNES_API_KEY", "").strip()
+          if not key:
+              print("No Agnes key found. Expected repository secret: AGNES_API_KEY (also checked AGNES_API, AGNES_TOKEN, AGNES).")
+              raise SystemExit(1)
+          payload = {"model": "agnes-2.5-flash", "messages": [{"role": "user", "content": "Reply only: Agnes connection successful"}], "max_tokens": 32}
+          request = urllib.request.Request(
+              "https://apihub.agnes-ai.com/v1/chat/completions",
+              data=json.dumps(payload).encode(),
+              headers={"Authorization": "Bearer " + key, "Content-Type": "application/json"},
+          )
+          try:
+              with urllib.request.urlopen(request, timeout=60) as response:
+                  result = json.load(response)
+                  print("HTTP status:", response.status)
+              choices = result.get("choices", [])
+              if not choices:
+                  print("Response did not contain chat choices.")
+                  raise SystemExit(1)
+              answer = str(choices[0].get("message", {}).get("content", ""))
+              print("Model:", result.get("model", "unknown"))
+              print("Reply:", answer.replace(key, "[REDACTED]")[:300])
+              print("Usage:", json.dumps(result.get("usage", {})))
+              with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as summary:
+                  summary.write("Agnes Flash connection succeeded.\n")
+          except urllib.error.HTTPError as error:
+              print("Agnes returned HTTP", error.code)
+              raise SystemExit(1)
+          except (urllib.error.URLError, TimeoutError):
+              print("Agnes network request failed or timed out.")
+              raise SystemExit(1)
