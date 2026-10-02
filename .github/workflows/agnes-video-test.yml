@@ -1,4 +1,4 @@
-name: Agnes Huanhuo anime test
+name: Agnes Silk Sheets availability test
 on:
   push:
     branches: [agnes-video-test-20260930]
@@ -7,7 +7,7 @@ on:
 permissions:
   contents: read
 concurrency:
-  group: agnes-huanhuo-test
+  group: agnes-silk-sheets-test
   cancel-in-progress: false
 jobs:
   test:
@@ -39,10 +39,10 @@ jobs:
                   (out / "error.json").write_text(json.dumps({"http_status": exc.code, "detail": detail}))
                   sys.exit("Agnes HTTP " + str(exc.code) + ": " + detail)
           payload = {
-              "model": model, "mode": "keyframe", "seconds": "5", "size": "720P",
+              "model": model, "mode": "text", "seconds": "5", "size": "720P",
               "aspect_ratio": "16:9", "n": 1,
-              "first_frame": "https://cdn.creativeclaw.co/u/b3866ea4/images/1a195014-a5f3-4d5a-af2b-dc82ea64ef81.png",
-              "prompt": "One continuous artistic 2D Japanese anime music-video shot. Preserve exactly the two anime character designs in the first frame, clean ink outlines and flat cel shaded faces. A slender adult man with wavy black hair and a black suit slowly lifts his eyes toward the elegant flame woman Tanhuo. Fine silver threads between them gradually become orange light; her flame hair flows gently and her fingers extend toward him. Camera slowly dollies backward to reveal cold cyan floating geometric planes. Her face stays stable and beautiful, restrained emotional expressions, smooth anatomical movement. Strong spatial depth with hand-painted anime background, soft warm flame against cyan. No realistic live action, no 3D CGI characters, no face changes, no extra people, no subtitles, no text, no logos, no fast rotation, no wave distortion, no strobing. No dialogue, music added later."
+
+              "prompt": "One continuous cinematic anime shot, 5 seconds. An adult slender man with wet tousled black hair, pale skin, silver earrings and a black shimmering shirt sits in shallow reflective water at night. Translucent silver lavender silk ribbons float gently around him. He slowly raises his face toward a luminous rectangular doorway with a large moon behind it. The camera gently pulls back, revealing white lotus flowers and ripples catching moonlight. Dreamy dark purple and silver palette, delicate anime facial design, strong spatial depth, natural subtle breathing and cloth motion, stable male identity, graceful anatomy. No collage, no storyboard panels, no text, no titles, no subtitles, no logos. Quiet water ambience, no spoken dialogue."
           }
           (out / "request.json").write_text(json.dumps(payload, indent=2))
           created = api("/v1/videos", payload)
@@ -65,7 +65,7 @@ jobs:
                   url = result.get("url")
                   if not isinstance(url, str) or urllib.parse.urlsplit(url).scheme != "https":
                       sys.exit("Completed task has no HTTPS video URL.")
-                  with urllib.request.urlopen(url, timeout=120) as response, (out / "Huanhuo_Agnes_Anime_Test_5s.mp4").open("wb") as target:
+                  with urllib.request.urlopen(url, timeout=120) as response, (out / "Silk_Sheets_Agnes_Test_5s.mp4").open("wb") as target:
                       while chunk := response.read(1024 * 1024):
                           target.write(chunk)
                   print("Video downloaded.", flush=True)
@@ -77,6 +77,6 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: huanhuo-agnes-anime-test
+          name: silk-sheets-agnes-test
           path: output/
           retention-days: 7
