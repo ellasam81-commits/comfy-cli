@@ -9,7 +9,7 @@ from pathlib import Path
 
 import requests
 
-NAMES = ("spear", "leap")
+NAMES = ("spear",)
 if sys.argv[1] == "prepare":
     local = "http://127.0.0.1:8188"
     for _ in range(100):

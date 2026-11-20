@@ -1,11 +1,11 @@
-name: Xie Queshan · Two continuous motion repairs
+name: Xie Queshan · Extended mounted duel
 on:
   push:
     branches: ['render/xie-two-motion-fix-20261121']
     paths: ['.github/workflows/xie-ink-gallop-wan3.yml', 'shots/ink-gallop/render.py']
 concurrency:
   group: xie-two-motion-fix
-  cancel-in-progress: false
+  cancel-in-progress: true
 permissions:
   contents: read
 jobs:
@@ -50,7 +50,7 @@ jobs:
           server_pid=$!
           trap 'kill "$server_pid" 2>/dev/null || true' EXIT
           python shots/ink-gallop/render.py prepare
-      - name: Generate the 8-second duel and 6-second leap through Segmind
+      - name: Generate one 8-second mounted duel through Segmind
         env:
           SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
         run: python shots/ink-gallop/render.py generate
@@ -58,7 +58,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: Xie-Queshan-Wan3-Two-Motion-Fixes
+          name: Xie-Queshan-Wan3-Extended-Duel
           path: result/
           if-no-files-found: ignore
           retention-days: 7
