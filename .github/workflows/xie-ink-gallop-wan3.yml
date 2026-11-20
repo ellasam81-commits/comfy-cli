@@ -1,10 +1,10 @@
-name: Xie Queshan · Original mounted duel A 8 seconds
+name: Xie Queshan · Original mounted duel B 10 seconds
 on:
   push:
-    branches: ['render/xie-original-mounted-a8-20261121']
+    branches: ['render/xie-original-mounted-b10-20261121']
     paths: ['.github/workflows/xie-ink-gallop-wan3.yml', 'shots/ink-gallop/render.py']
 concurrency:
-  group: xie-original-mounted-a8
+  group: xie-original-mounted-b10
   cancel-in-progress: true
 permissions:
   contents: read
@@ -58,7 +58,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: Xie-Queshan-Wan3-Original-Mounted-A8
+          name: Xie-Queshan-Wan3-Original-Mounted-B10
           path: result/
           if-no-files-found: ignore
           retention-days: 7

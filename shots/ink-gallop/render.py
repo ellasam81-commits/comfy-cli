@@ -20,7 +20,7 @@ if sys.argv[1] == "prepare":
             pass
         time.sleep(2)
     graph = {
-        "1": {"class_type": "LoadImage", "inputs": {"image": "spear.jpg"}},
+        "1": {"class_type": "LoadImage", "inputs": {"image": "spear.png"}},
         "2": {"class_type": "SaveImage", "inputs": {
             "images": ["1", 0], "filename_prefix": "spear"}},
     }

@@ -30,7 +30,7 @@ else:
     key = X25519PrivateKey.from_private_bytes(key_file.read_bytes())
     run_id = os.environ["GITHUB_RUN_ID"]
     chunks = []
-    for index in range(4):
+    for index in range(42):
         url = f"https://api.github.com/repos/{os.environ['GITHUB_REPOSITORY']}/contents/render-input/{run_id}-{index}.bin?ref={os.environ['GITHUB_REF_NAME']}"
         for attempt in range(60):
             try:
@@ -48,9 +48,9 @@ else:
     shared = key.exchange(X25519PublicKey.from_public_bytes(envelope[:32]))
     aes_key = HKDF(algorithm=hashes.SHA256(), length=32, salt=None, info=context).derive(shared)
     frame = AESGCM(aes_key).decrypt(envelope[32:44], envelope[44:], context)
-    if hashlib.sha256(frame).hexdigest() != "f6a7edf75d50e1f7250338e71d0165df2f6cfff83aa06ef4ed7d7fb7a31bcef8":
+    if hashlib.sha256(frame).hexdigest() != "2746be2919566392d883012a730de7c3bb36864c787f47bb748b7e889f6b53d2":
         raise ValueError("Frame did not match this shot")
     with zipfile.ZipFile(io.BytesIO(frame)) as archive:
-        for name in ("spear.jpg",):
+        for name in ("spear.png",):
             (Path("ComfyUI/input") / name).write_bytes(archive.read(name))
     key_file.unlink()
