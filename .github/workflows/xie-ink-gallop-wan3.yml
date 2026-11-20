@@ -1,8 +1,12 @@
 name: Xie Queshan · One leap in ink
 on:
+  workflow_dispatch:
   push:
-    branches: ['render/xie-one-leap-20261121']
+    branches: ['render/xie-ink-gallop-wan3-20261121']
     paths: ['.github/workflows/xie-ink-gallop-wan3.yml']
+concurrency:
+  group: xie-ink-30s
+  cancel-in-progress: false
 permissions:
   contents: read
 jobs:
