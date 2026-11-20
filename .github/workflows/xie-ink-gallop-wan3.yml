@@ -1,11 +1,10 @@
-name: Xie Queshan · Ink transitions
+name: Xie Queshan · Spear and shield
 on:
-  workflow_dispatch:
   push:
-    branches: ['render/xie-ink-gallop-wan3-20261121']
+    branches: ['render/xie-two-ink-duels-20261121']
     paths: ['.github/workflows/xie-ink-gallop-wan3.yml', 'shots/ink-gallop/render.py']
 concurrency:
-  group: xie-ink-30s
+  group: xie-two-ink-duels-12s
   cancel-in-progress: false
 permissions:
   contents: read
@@ -41,9 +40,9 @@ jobs:
       - name: Set up CPU ComfyUI for the starter frame
         run: |
           python -m pip install -q --index-url https://download.pytorch.org/whl/cpu torch torchvision torchaudio
-          python -m pip install -q -r ComfyUI/requirements.txt 'segmind>=1.2.0' requests
+          python -m pip install -q -r ComfyUI/requirements.txt 'segmind>=1.5.1' requests
           python -m pip install -q 'git+https://github.com/ellasam81-commits/comfy-cli.git@e8daaf26bbee25419ca06bd86732b743c125beb3'
-      - name: Extract opening and reveal frames with ComfyUI
+      - name: Extract spear and shield action references with ComfyUI
         run: |
           mkdir -p ComfyUI/input
           python shots/ink-gallop/receive.py get
@@ -51,7 +50,7 @@ jobs:
           server_pid=$!
           trap 'kill "$server_pid" 2>/dev/null || true' EXIT
           python shots/ink-gallop/render.py prepare
-      - name: Generate the 30-second film through Segmind
+      - name: Generate both fights as one 12-second clip through Segmind
         env:
           SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
         run: python shots/ink-gallop/render.py generate
@@ -59,7 +58,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: Xie-Queshan-Wan3-gallop
+          name: Xie-Queshan-Wan3-Two-Fights
           path: result/
           if-no-files-found: ignore
           retention-days: 7
