@@ -9,14 +9,21 @@ from pathlib import Path
 
 import requests
 
-workflow = {
-    "1": {"class_type": "LoadImage", "inputs": {"image": "ink-gallop.jpg"}},
-    "2": {
+# Both 608 × 342 crops sit inside the panel gutters. The opening crop
+# keeps the horse's grounded forehoof; the final crop keeps the hero's eyes.
+workflow = {"1": {"class_type": "LoadImage", "inputs": {"image": "storyboard.jpg"}}}
+for node, prefix, x, y in [(2, "opening", 9, 52), (5, "reveal", 630, 849)]:
+    workflow[str(node)] = {
+        "class_type": "ImageCrop",
+        "inputs": {"image": ["1", 0], "width": 608, "height": 342, "x": x, "y": y},
+    }
+    workflow[str(node + 1)] = {
         "class_type": "ImageScale",
-        "inputs": {"image": ["1", 0], "upscale_method": "lanczos", "width": 1280, "height": 720, "crop": "center"},
-    },
-    "3": {"class_type": "SaveImage", "inputs": {"images": ["2", 0], "filename_prefix": "wan-starter"}},
-}
+        "inputs": {"image": [str(node), 0], "upscale_method": "lanczos", "width": 1024, "height": 576, "crop": "disabled"},
+    }
+    workflow[str(node + 2)] = {
+        "class_type": "SaveImage", "inputs": {"images": [str(node + 1), 0], "filename_prefix": prefix},
+    }
 
 if sys.argv[1] == "prepare":
     local = "http://127.0.0.1:8188"
@@ -34,42 +41,43 @@ if sys.argv[1] == "prepare":
          "--workflow", str(graph_path), "--wait"],
         check=True,
     )
-    frames = sorted(Path("ComfyUI/output").glob("wan-starter*.png"))
-    if len(frames) != 1:
-        raise RuntimeError("Expected one prepared starter from ComfyUI CLI")
-    Path("starter.png").write_bytes(frames[0].read_bytes())
+    for prefix in ("opening", "reveal"):
+        frames = list(Path("ComfyUI/output").glob(prefix + "_*.png"))
+        if len(frames) != 1:
+            raise RuntimeError("Missing ComfyUI output for " + prefix)
+        Path(prefix + ".png").write_bytes(frames[0].read_bytes())
     sys.exit()
 
 from segmind import SegmindClient
 
-frame = base64.b64encode(Path("starter.png").read_bytes()).decode("ascii")
-uploaded = requests.post(
-    "https://workflows-api.segmind.com/upload-asset",
-    headers={"x-api-key": os.environ["SEGMIND_API_KEY"], "accept": "application/json, text/plain, */*"},
-    json={"data_urls": ["data:image/png;base64," + frame]},
-    timeout=90,
-)
-uploaded.raise_for_status()
-first_frame = uploaded.json()["file_urls"][0]
+def upload_frame(prefix):
+    encoded = base64.b64encode(Path(prefix + ".png").read_bytes()).decode("ascii")
+    uploaded = requests.post(
+        "https://workflows-api.segmind.com/upload-asset",
+        headers={"x-api-key": os.environ["SEGMIND_API_KEY"]},
+        json={"data_urls": ["data:image/png;base64," + encoded]},
+        timeout=90,
+    )
+    uploaded.raise_for_status()
+    return uploaded.json()["file_urls"][0]
+
 prompt = (
-    "One uninterrupted, side-on tracking shot of ONE clean equestrian leap. Same ordinary fictional anime face, "
-    "black-silver armor and silver half mask as the artwork. Show the whole horse and all hooves. "
-    "In the first second collect into the approach. A shallow ink-dark stream crosses the path. "
-    "The hind legs compress and drive off the near bank; the horse and rider leap from left to right "
-    "over the water ONCE. At the apex forelegs fold under the chest and hind legs trail, then tuck. "
-    "The rider rises slightly in the stirrups, folds forward over the neck and keeps the reins soft. "
-    "Extend the forelegs, land forefeet first on the far bank around 3.1s, then hind feet. "
-    "The camera tracks level and wide, with a continuous visible arc and clear air beneath all four hooves. "
-    "Hold the landing long enough to see contact. On contact, a black ink splash blooms under the hoof "
-    "and rises diagonally toward the lens, calligraphic bristles and ink bleeding on paper. "
-    "High ponytail and cape stream left. Restrained original anime eyes, no identifiable real person's face. "
-    "Keep pale mountains, charcoal line work and the lone red flag. Audio: approach hoofbeats, a hush "
-    "during suspension, a firm wet hoof landing and short brush swish. No speech or music."
+    "Single uninterrupted side tracking shot, exquisite cel-drawn wuxia on warm xuan paper. "
+    "Same masked young general and one black horse moving left to right. Preserve silver armor, red flag and ink mountains. "
+    "0–0.65s approach the near riverbank at a gallop; 0.65–1.15s hindquarters push off once, "
+    "rider folds over neck with soft reins. 1.15–1.9s a single clear flight arc over the brook with all four hooves airborne. "
+    "1.9–2.35s extend forelegs and land forefeet first on the far bank, then the hind feet, audible wet hoof thud. "
+    "At contact a dense stroke of black ink sweeps diagonally right up across the lens. Bristles and droplets on paper. "
+    "2.35–2.95s the black ink opens onto one unmasked eye, ivory collar, and a restrained cinnabar flag. "
+    "2.95–4s hold the same general unmasked, now in white robes, loose black hair lifting, calmly looking up. "
+    "End on the supplied white-robed frame. Keep eyes and nose clearly drawn in anime style. "
+    "Sound: hoofbeats, hush while airborne, brush swish, then a low offscreen Mandarin narrator says exactly "
+    "‘是他，谢却山。’ as his unmasked face appears. His mouth stays still."
 )
 payload = {
-    "image": first_frame, "prompt": prompt, "duration": 4, "resolution": "480P",
-    "aspect_ratio": "16:9", "audio": True, "prompt_extend": False, "watermark": False,
-    "negative_prompt": "repeated jumping, endless gallop, hidden landing, static horse, sliding feet, floating horse, duplicate legs, drifting mask, new rider, camera cuts, captions, photorealism",
+    "image": upload_frame("opening"), "last_frame": upload_frame("reveal"), "prompt": prompt,
+    "duration": 4, "resolution": "480P", "aspect_ratio": "16:9", "audio": True, "prompt_extend": False,
+    "watermark": False, "negative_prompt": "extra jumps, second horse, wrong screen direction, missing feet, slideshow, panels, captions, speaking rider, photorealistic celebrity",
 }
 output_dir = Path("result")
 output_dir.mkdir(exist_ok=True)

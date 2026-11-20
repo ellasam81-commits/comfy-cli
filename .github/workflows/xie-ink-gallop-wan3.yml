@@ -1,12 +1,8 @@
 name: Xie Queshan · One leap in ink
 on:
-  workflow_dispatch:
   push:
-    branches: ['render/xie-ink-gallop-wan3-20261121']
+    branches: ['render/xie-one-leap-20261121']
     paths: ['.github/workflows/xie-ink-gallop-wan3.yml']
-concurrency:
-  group: xie-leap-one-shot
-  cancel-in-progress: false
 permissions:
   contents: read
 jobs:
@@ -43,7 +39,7 @@ jobs:
           python -m pip install -q --index-url https://download.pytorch.org/whl/cpu torch torchvision torchaudio
           python -m pip install -q -r ComfyUI/requirements.txt 'segmind>=1.2.0' requests
           python -m pip install -q 'git+https://github.com/ellasam81-commits/comfy-cli.git@e8daaf26bbee25419ca06bd86732b743c125beb3'
-      - name: Prepare one frame with ComfyUI
+      - name: Extract opening and reveal frames with ComfyUI
         run: |
           mkdir -p ComfyUI/input
           python shots/ink-gallop/receive.py get
@@ -51,7 +47,7 @@ jobs:
           server_pid=$!
           trap 'kill "$server_pid" 2>/dev/null || true' EXIT
           python shots/ink-gallop/render.py prepare
-      - name: Generate four seconds through Segmind
+      - name: Generate one four-second storyboard shot through Segmind
         env:
           SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
         run: python shots/ink-gallop/render.py generate

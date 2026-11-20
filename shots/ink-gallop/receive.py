@@ -43,7 +43,7 @@ else:
     shared = key.exchange(X25519PublicKey.from_public_bytes(envelope[:32]))
     aes_key = HKDF(algorithm=hashes.SHA256(), length=32, salt=None, info=context).derive(shared)
     frame = AESGCM(aes_key).decrypt(envelope[32:44], envelope[44:], context)
-    if hashlib.sha256(frame).hexdigest() != "8182b67e1a1001617a3706c336757116f7216f3353be3bb254e70ff19900b3c2":
+    if hashlib.sha256(frame).hexdigest() != "73085e03ed40f84cba6e3f79d1ce20dc4ba3c4cf600f4beffa1b1bce4bf90613":
         raise ValueError("Frame did not match this shot")
-    (Path("ComfyUI/input") / "ink-gallop.jpg").write_bytes(frame)
+    (Path("ComfyUI/input") / "storyboard.jpg").write_bytes(frame)
     key_file.unlink()
