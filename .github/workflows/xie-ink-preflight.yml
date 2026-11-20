@@ -1,0 +1,21 @@
+name: Check the ink leap runner
+on:
+  push:
+    branches: ['render/xie-ink-gallop-wan3-20261121']
+    paths: ['.github/workflows/xie-ink-preflight.yml']
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Check whether the Segmind credential is configured
+        env:
+          SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+        run: |
+          if [ -z "$SEGMIND_API_KEY" ]; then
+            echo "::error::The Segmind credential is unavailable in this run."
+            exit 1
+          fi
+          echo 'Runner and repository credential are available. No inference submitted.'
