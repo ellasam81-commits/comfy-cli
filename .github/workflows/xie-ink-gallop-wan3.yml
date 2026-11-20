@@ -43,6 +43,8 @@ jobs:
           python -m pip install -q -r ComfyUI/requirements.txt 'segmind>=1.5.1' requests
           python -m pip install -q 'git+https://github.com/ellasam81-commits/comfy-cli.git@e8daaf26bbee25419ca06bd86732b743c125beb3'
       - name: Prepare exact original frame with ComfyUI
+        env:
+          GH_CONTENTS_TOKEN: ${{ github.token }}
         run: |
           mkdir -p ComfyUI/input
           python shots/ink-gallop/receive.py get
