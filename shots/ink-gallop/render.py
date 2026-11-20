@@ -61,26 +61,36 @@ def upload_frame(prefix):
     return uploaded.json()["file_urls"][0]
 
 prompt = (
-    "Thirty-second widescreen 2D anime wuxia film on xuan paper. Use precise ink linework, warm ivory paper, "
-    "black silver beast-head armor, asymmetric silver mask, black ponytail; only accent is a torn red flag. "
-    "Opening 0–8s: extreme close-up masked eye reflecting vermilion, flag on the city gate, armored rider "
-    "emerging from mist, black-gloved fingers gathering reins, hooves drumming dry ground, wide view of both banks. "
-    "8–12s keep one continuous lateral tracking shot, full horse and rider always moving left to right. "
-    "Collect at the near bank, push from hind legs, ascend, float at apex, extend front legs and land once "
-    "on the far bank. Show a clear gap under all four hooves. Only ONE jump across the stream. "
-    "12–20s: close hoof impact throws droplets. Wet black ink sweeps diagonally from actual point of contact, "
-    "wipes across the lens, briefly covers the full frame, capillaries spread on paper. An iris of white paper "
-    "reveals one unmasked eye, then loose hair and the fold of white robes. "
-    "20–30s: before the misty gate, white-robed figure and crimson silk, sleeve detail, lowered chin, eyes "
-    "lifting, full unmasked hero portrait, then settle in the final wide chest-up composition, quiet wind. "
-    "Ordinary fictional anime face. Restrained offscreen Mandarin storyteller at end says ‘是他，谢却山。’ "
-    "The character stays silent. Hoofbeats, hush when airborne, damp hoof strike and paper-brush swish. "
-    "No titles or captions."
+    "30s cinematic Chinese ink-wash anime, 16:9. Warm rice paper, charcoal, moon silver, and vermilion silk. "
+    "Fictional ordinary donghua face, black beast-head armor, asymmetric silver half mask, black ponytail and horse. "
+    "Give every transition a motivated visual transformation. Keep the moon, the red flag and the hero's eye as recurring anchors. "
+    "0–8s: a red flag reflected in his masked pupil swells to a real silk flag. Hem lifts to expose the closing gate; "
+    "two civilians slip inside as he stays out. Mist divides in the shape of the gate and reveals the black rider. "
+    "First clash with an opposing rider: the metallic contact opens a hairline silver crescent in the fog; briefly see "
+    "both riders through the crescent, it lengthens into the glint on the hero's mask. Second rider crosses foreground, "
+    "cape covers lens momentarily, torn flag tip separates into two swallow-shaped red scraps, one unfurls back to a ribbon. "
+    "Follow its curve into the bent rushes to reveal both banks of the river. Riders separate visibly after each clash. "
+    "8–12.5s: uninterrupted side track, complete horse and all hooves visible, screen direction always right, one jump only. "
+    "Rushes bow to expose the bank, silver rim travels over hind hoof as it pushes, flying grit falls away from rising hooves, "
+    "a thin mane strand trails on the edge of frame. At apex ribbon and red reflection briefly align like two wings under horse, "
+    "no wing attaches to horse. Wind rush drops to hush. On descent reflection and real forehoof approach. Forehoof lands on "
+    "far bank's wet edge before the hind hooves. Only the reflected white moon fractures, the actual moon remains whole. "
+    "12.5–20.5s: wet hoof thud. Water beads magnify tiny upside-down flags, then reflected crescent fragments dissolve to ink; "
+    "ink wave swings from lower right to upper left across the lens. Vermilion silk bleeds into the ink as a cinnabar vein, "
+    "black pigment feathers into paper fibers. A dry-brush slit opens on the same eye as the first frame, now unmasked. "
+    "The taper of the brush becomes a strand of hair, flying whites of the stroke become folds of an ivory robe. "
+    "20.5–30s: from white robe to a long shot at the city gate, pale paper margins become gate mist. Red ribbon brushes past "
+    "his shoulder, its edge aligns with his sleeve seam. A lifted lock of hair reveals his eye; close-up on both eyes, then widen "
+    "to the white-robed portrait. The tiny flag reflected in his eye aligns with the real distant flag in the final frame. "
+    "Hold the final two seconds on his calm face, a breath of wind in loose hair. Unobtrusive mist, no cuts during leap, "
+    "no text or graphic overlays. Mandarin offscreen witness: early '他让我们先走。' After landing '一蹄踏碎半河月。' "
+    "At the reveal '墨尽，方知是故人。' As he lifts his eyes, after a half beat '是他，谢却山。' His lips stay closed. "
+    "Sound design: silver chime, torn silk, wind suspended midair, wet hoof impact, brush dragging over paper, hush."
 )
 payload = {
     "image": upload_frame("opening"), "last_frame": upload_frame("reveal"), "prompt": prompt,
     "duration": 30, "resolution": "480P", "aspect_ratio": "16:9", "audio": True, "prompt_extend": False,
-    "watermark": False, "negative_prompt": "extra jumps, second horse, wrong screen direction, missing feet, slideshow, panels, captions, speaking rider, photorealistic celebrity",
+    "watermark": False, "negative_prompt": "extra jumps, cloned protagonist, cloned foreground horse, wrong screen direction, missing feet, slideshow, panels, captions, speaking rider, photorealistic celebrity",
 }
 output_dir = Path("result")
 output_dir.mkdir(exist_ok=True)
