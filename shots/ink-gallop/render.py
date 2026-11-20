@@ -1,4 +1,4 @@
-"""Prepare a contact-first starter with ComfyUI, then generate one 6-second shot."""
+"""Prepare the exact original frame with ComfyUI, then generate one longer continuous shot."""
 import base64
 import json
 import os
@@ -19,16 +19,12 @@ if sys.argv[1] == "prepare":
         except requests.ConnectionError:
             pass
         time.sleep(2)
-    graph = {}
-    for index, name in enumerate(NAMES):
-        node = index * 3 + 1
-        graph[str(node)] = {"class_type": "LoadImage", "inputs": {"image": name + ".jpg"}}
-        graph[str(node + 1)] = {"class_type": "ImageScale", "inputs": {
-            "image": [str(node), 0], "upscale_method": "lanczos", "width": 1024,
-            "height": 576, "crop": "disabled"}}
-        graph[str(node + 2)] = {"class_type": "SaveImage", "inputs": {
-            "images": [str(node + 1), 0], "filename_prefix": name}}
-    graph_path = Path("contact-first-starter.json")
+    graph = {
+        "1": {"class_type": "LoadImage", "inputs": {"image": "spear.jpg"}},
+        "2": {"class_type": "SaveImage", "inputs": {
+            "images": ["1", 0], "filename_prefix": "spear"}},
+    }
+    graph_path = Path("exact-original-starter.json")
     graph_path.write_text(json.dumps(graph))
     subprocess.run(["comfy", "run", "--where", "local", "--host", "127.0.0.1",
                     "--port", "8188", "--workflow", str(graph_path), "--wait"], check=True)
@@ -70,6 +66,9 @@ def output_urls(value):
 
 
 prompts = json.loads(Path("shots/ink-gallop/prompts.json").read_text())
+settings = json.loads(Path("shots/ink-gallop/shot.json").read_text())
+assert 2 <= settings["duration"] <= 30
+assert settings["resolution"] in ("480P", "720P", "1080P")
 output_dir = Path("result")
 output_dir.mkdir(exist_ok=True)
 client = SegmindClient()
@@ -77,10 +76,10 @@ urls = upload_assets(client, [name + ".png" for name in NAMES])
 failures = []
 for name, url in zip(NAMES, urls):
     payload = {
-        "image": url, "prompt": prompts[name], "duration": 6, "resolution": "480P",
+        "image": url, "prompt": prompts[name], "duration": settings["duration"], "resolution": settings["resolution"],
         "aspect_ratio": "16:9", "audio": False, "prompt_extend": False,
         "watermark": False,
-        "negative_prompt": "rider dismounting, hero on foot, teleportation, spear through horse, duplicated weapons, missed contact, weapons passing through each other, weapons merging, horse colliding with soldier, frozen pose, time reversal, repeated attack cycle, extra limbs, duplicated character, multiple camera cuts, panel grid, captions, text, logo, graphic injury",
+        "negative_prompt": "different face, different mask, changed armor design, changed hairstyle, changed horse, rider dismounting, hero on foot, teleportation, spear through horse, duplicated weapons, missed contact, weapons passing through each other, weapons merging, horse colliding with soldier, slow motion, low frame rate, stuttering, held pose, paper cutout animation, rigid horse legs, frozen pose, time reversal, repeated attack cycle, extra limbs, duplicated character, multiple camera cuts, panel grid, captions, text, logo, graphic injury",
     }
     try:
         # A single accepted request per shot. Record before waiting; never resubmit a paid request.
