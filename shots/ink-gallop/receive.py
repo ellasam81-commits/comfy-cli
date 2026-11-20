@@ -34,7 +34,7 @@ else:
         url = f"https://api.github.com/repos/{os.environ['GITHUB_REPOSITORY']}/contents/render-input/{run_id}-{index}.bin?ref={os.environ['GITHUB_REF_NAME']}"
         for attempt in range(60):
             try:
-                request = Request(url, headers={"Accept": "application/vnd.github.raw+json", "Authorization": "Bearer " + os.environ["GH_CONTENTS_TOKEN"]})
+                request = Request(url, headers={"Accept": "application/vnd.github.raw+json", "Authorization": "Bearer " + os.environ["GITHUB_TOKEN"]})
                 with urlopen(request, timeout=20) as response:
                     chunks.append(response.read())
                 break

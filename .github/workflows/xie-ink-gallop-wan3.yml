@@ -42,12 +42,14 @@ jobs:
           python -m pip install -q --index-url https://download.pytorch.org/whl/cpu torch torchvision torchaudio
           python -m pip install -q -r ComfyUI/requirements.txt 'segmind>=1.5.1' requests
           python -m pip install -q 'git+https://github.com/ellasam81-commits/comfy-cli.git@e8daaf26bbee25419ca06bd86732b743c125beb3'
-      - name: Prepare exact original frame with ComfyUI
+      - name: Receive the exact continuation frame
         env:
-          GH_CONTENTS_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ github.token }}
         run: |
           mkdir -p ComfyUI/input
           python shots/ink-gallop/receive.py get
+      - name: Prepare exact original frame with ComfyUI
+        run: |
           python ComfyUI/main.py --cpu --listen 127.0.0.1 --disable-all-custom-nodes > "$RUNNER_TEMP/comfy.log" 2>&1 &
           server_pid=$!
           trap 'kill "$server_pid" 2>/dev/null || true' EXIT
