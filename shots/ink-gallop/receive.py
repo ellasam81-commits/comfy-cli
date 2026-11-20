@@ -18,6 +18,7 @@ import sys
 folder = Path(os.environ["RUNNER_TEMP"])
 key_file = folder / "frame-transfer.key"
 context = b"xie-ink-gallop-v1"
+TRANSFER_CHUNKS = 8
 if sys.argv[1] == "open":
     key = X25519PrivateKey.generate()
     key_file.write_bytes(key.private_bytes(serialization.Encoding.Raw, serialization.PrivateFormat.Raw, serialization.NoEncryption()))
@@ -30,7 +31,7 @@ else:
     key = X25519PrivateKey.from_private_bytes(key_file.read_bytes())
     run_id = os.environ["GITHUB_RUN_ID"]
     chunks = []
-    for index in range(42):
+    for index in range(TRANSFER_CHUNKS):
         url = f"https://api.github.com/repos/{os.environ['GITHUB_REPOSITORY']}/contents/render-input/{run_id}-{index}.bin?ref={os.environ['GITHUB_REF_NAME']}"
         for attempt in range(60):
             try:
@@ -48,9 +49,9 @@ else:
     shared = key.exchange(X25519PublicKey.from_public_bytes(envelope[:32]))
     aes_key = HKDF(algorithm=hashes.SHA256(), length=32, salt=None, info=context).derive(shared)
     frame = AESGCM(aes_key).decrypt(envelope[32:44], envelope[44:], context)
-    if hashlib.sha256(frame).hexdigest() != "2746be2919566392d883012a730de7c3bb36864c787f47bb748b7e889f6b53d2":
+    if hashlib.sha256(frame).hexdigest() != "92dbd5133f02fa319fdb2a44fc6bb91dfee8bc4c765d97aca7541f5550c349f9":
         raise ValueError("Frame did not match this shot")
     with zipfile.ZipFile(io.BytesIO(frame)) as archive:
-        for name in ("spear.png",):
+        for name in ("identity_front.jpg", "identity_profile.jpg", "style_reference.mp4",):
             (Path("ComfyUI/input") / name).write_bytes(archive.read(name))
     key_file.unlink()
