@@ -11,7 +11,7 @@ import requests
 
 # Opening and final frames are stacked vertically in the private input.
 workflow = {"1": {"class_type": "LoadImage", "inputs": {"image": "storyboard.jpg"}}}
-for node, prefix, x, y in [(2, "arrival", 0, 0), (5, "parry", 0, 432), (8, "buckler", 0, 864), (11, "crescent", 0, 1296)]:
+for node, prefix, x, y in [(2, "rider", 0, 0), (5, "shield", 0, 432)]:
     workflow[str(node)] = {
         "class_type": "ImageCrop",
         "inputs": {"image": ["1", 0], "width": 768, "height": 432, "x": x, "y": y},
@@ -40,7 +40,7 @@ if sys.argv[1] == "prepare":
          "--workflow", str(graph_path), "--wait"],
         check=True,
     )
-    for prefix in ("arrival", "parry", "buckler", "crescent"):
+    for prefix in ("rider", "shield"):
         frames = list(Path("ComfyUI/output").glob(prefix + "_*.png"))
         if len(frames) != 1:
             raise RuntimeError("Missing ComfyUI output for " + prefix)
@@ -68,32 +68,29 @@ def upload_assets(client, names):
         return urls
 
 prompt = (
-    "Create a 12-second animated action sequence in TWO scenes, a 6-second spear exchange followed by a 6-second shield exchange. "
-    "Interpret the reference video as a compact ordered combat storyboard. Expand the actions into fluent new animated footage, with weight, footwork, galloping strides and clear bodily reactions. "
-    "Original hand-drawn Chinese wuxia anime. Cool moonlit stone causeway, silver river, dark gate, realistic wet reflections in watercolor. Single lead: slim masked black-armored rider Xie, black horse, red hair ribbon. His opponents are helmeted foot soldiers with red scarves. "
-    "FIRST SCENE 0-6 sec: start wide in profile, black rider at left, spear guard at right. The horse gallops toward the guard, muscle and leg motion clearly visible. "
-    "The guard rushes forward and brings his long pole across the rider's path; Xie leans down, intercepts it. Close dynamic angle at the instant the shafts visibly cross with a pinpoint of amber sparks. "
-    "Follow through: the rider turns, redirects the pole and rides past. The guard stumbles back, a thin silver-rimmed ink brush continues the direction of the sword. "
-    "At precisely six seconds, the guard's red scarf whips across the lens and cuts into the NEXT distinct encounter. "
-    "SECOND SCENE 6-12 sec: low angle. A DIFFERENT helmeted foot guard in the rider's path braces a large circular steel shield; keep the shield big and legible. Xie approaches from screen left. "
-    "His shoulders rotate, his sword draws a low sweeping arc; blade visibly strikes the round shield, we see point of contact, then the guard's elbow gives and the shield tilts. "
-    "The sword's follow-through paints a huge ragged black crescent with a shining silver edge over both bodies. Shield spins free, hits the wet stone, guard steps back and black horse runs out to screen right. "
-    "Snappy cadence, brief held contact followed immediately by explosive release. Exactly one masked general. Full movie frame, ordinary anime faces. Natural synced foley: hooves, metal ringing, dull shield strike, hissing ink. No speech, singing or music."
+    "A SIX SECOND single wuxia anime fight shot on the rain-wet causeway at moonrise. Match the masked rider, black horse, helmeted foot guard and ROUND STEEL SHIELD in the two reference stills. "
+    "Use the supplied video ONLY for the fluid body weight, lateral tracking, and speed of a mounted swing. In this film the focal object is the raised shield and the sword light skimming its circumference. "
+    "0–1.4s: dynamic three-quarter side angle at the shield's height; mounted Xie rides in from left, leans into the blow. Stocky guard on the right raises the large circular shield, rim visible to camera. "
+    "1.4–3.1s: silver sword makes a single sharp grazing contact at the upper outside rim. THE SHIELD JOLTS AND TURNS AT THAT SAME INSTANT, forearm bends, cloak snaps, guard slides one foot back in the wet stone spray. "
+    "Keep the actual sword, wrist and shield visible together. Follow the bright pinpoint of contact: a THIN LIVELY SILVER STROKE travels clockwise along the actual turned metal edge in close perspective, hugs the near half of the elliptical rim, briefly vanishes BEHIND its far edge, catches light on the lower edge and breaks away. "
+    "This is specular light written by the passing blade around the shield; it is always the size of that shield. One incomplete sweep, with a short frayed black ink tail rising into the air only when the sword departs. "
+    "3.1–6s: the rider's sword and shoulder finish the stroke; guard regains his footing as the shield dips, rider and black horse carry through toward screen right, falling droplets and light fade. One readable counterpressure and release. "
+    "Polished hand-drawn donghua action timing, crisp silver-on-indigo, lyrical moon mist, distinct red scarf. Silent picture. No extra characters, graphics or lettering."
 )
 client = SegmindClient()
-names = ["arrival.png", "parry.png", "buckler.png", "crescent.png", "motion.mp4"]
+names = ["rider.png", "shield.png", "motion.mp4"]
 urls = upload_assets(client, names)
 payload = {
-    "reference_images": urls[:-1], "reference_videos": [urls[-1]], "prompt": prompt,
-    "duration": 12, "resolution": "480P", "aspect_ratio": "16:9", "audio": False,
+    "reference_images": urls[:2], "reference_videos": [urls[2]], "prompt": prompt,
+    "duration": 6, "resolution": "480P", "aspect_ratio": "16:9", "audio": False,
     "prompt_extend": False, "watermark": False,
-    "negative_prompt": "contact sheet, frozen slideshow, repeated still frames, panel grid, dissolve between poses, clone rider, second black horse, broken weapons, glued blades, graphic injury, subtitles, logo, text, dialogue, music, white robe",
+    "negative_prompt": "giant circle in front of both actors, separate glowing hoop, floating halo, energy shield bubble, looping rings, five swipes, delayed reaction, distant crowd, green robe, chestnut horse, duplication, frozen tableau, contact sheet, subtitles, graphic injury",
 }
 output_dir = Path("result")
 output_dir.mkdir(exist_ok=True)
 job = client.submit_async("wan3.0-video", **payload)
 (output_dir / "request-id.txt").write_text(job.request_id + "\n")
-print("Segmind accepted the 12-second two-scene sequence. Waiting for the video.", flush=True)
+print("Segmind accepted the 6-second shield strike. Waiting for the video.", flush=True)
 result = job.wait(timeout=1500, interval=5)
 def output_urls(value):
     if isinstance(value, str) and value.startswith("https://"):
@@ -109,7 +106,7 @@ for url in output_urls(result.get("output", result)):
     if not response.ok:
         continue
     if response.content[4:8] == b"ftyp":
-        (output_dir / "Xie_Queshan_Two_Fights_Wan3.mp4").write_bytes(response.content)
+        (output_dir / "Xie_Queshan_Silver_Shield_Wan3.mp4").write_bytes(response.content)
         break
 else:
     raise RuntimeError("The completed request returned no MP4")
