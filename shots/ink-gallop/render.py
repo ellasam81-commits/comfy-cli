@@ -61,36 +61,16 @@ def upload_frame(prefix):
     return uploaded.json()["file_urls"][0]
 
 prompt = (
-    "30s cinematic Chinese ink-wash anime, 16:9. Warm rice paper, charcoal, moon silver, and vermilion silk. "
-    "Fictional ordinary donghua face, black beast-head armor, asymmetric silver half mask, black ponytail and horse. "
-    "Give every transition a motivated visual transformation. Keep the moon, the red flag and the hero's eye as recurring anchors. "
-    "0–8s: a red flag reflected in his masked pupil swells to a real silk flag. Hem lifts to expose the closing gate; "
-    "two civilians slip inside as he stays out. Mist divides in the shape of the gate and reveals the black rider. "
-    "First clash with an opposing rider: the metallic contact opens a hairline silver crescent in the fog; briefly see "
-    "both riders through the crescent, it lengthens into the glint on the hero's mask. Second rider crosses foreground, "
-    "cape covers lens momentarily, torn flag tip separates into two swallow-shaped red scraps, one unfurls back to a ribbon. "
-    "Follow its curve into the bent rushes to reveal both banks of the river. Riders separate visibly after each clash. "
-    "8–12.5s: uninterrupted side track, complete horse and all hooves visible, screen direction always right, one jump only. "
-    "Rushes bow to expose the bank, silver rim travels over hind hoof as it pushes, flying grit falls away from rising hooves, "
-    "a thin mane strand trails on the edge of frame. At apex ribbon and red reflection briefly align like two wings under horse, "
-    "no wing attaches to horse. Wind rush drops to hush. On descent reflection and real forehoof approach. Forehoof lands on "
-    "far bank's wet edge before the hind hooves. Only the reflected white moon fractures, the actual moon remains whole. "
-    "12.5–20.5s: wet hoof thud. Water beads magnify tiny upside-down flags, then reflected crescent fragments dissolve to ink; "
-    "ink wave swings from lower right to upper left across the lens. Vermilion silk bleeds into the ink as a cinnabar vein, "
-    "black pigment feathers into paper fibers. A dry-brush slit opens on the same eye as the first frame, now unmasked. "
-    "The taper of the brush becomes a strand of hair, flying whites of the stroke become folds of an ivory robe. "
-    "20.5–30s: from white robe to a long shot at the city gate, pale paper margins become gate mist. Red ribbon brushes past "
-    "his shoulder, its edge aligns with his sleeve seam. A lifted lock of hair reveals his eye; close-up on both eyes, then widen "
-    "to the white-robed portrait. The tiny flag reflected in his eye aligns with the real distant flag in the final frame. "
-    "Hold the final two seconds on his calm face, a breath of wind in loose hair. Unobtrusive mist, no cuts during leap, "
-    "no text or graphic overlays. Mandarin offscreen witness: early '他让我们先走。' After landing '一蹄踏碎半河月。' "
-    "At the reveal '墨尽，方知是故人。' As he lifts his eyes, after a half beat '是他，谢却山。' His lips stay closed. "
-    "Sound design: silver chime, torn silk, wind suspended midair, wet hoof impact, brush dragging over paper, hush."
+    "Thirty seconds of cinematic widescreen original 2D donghua. Sharp grey cel shadows, wet charcoal ink mountains, ragged brushstrokes, cool silver moonlight, one trace of vermilion silk. Match the supplied eye and final portrait. ONE fictional man Xie Queshan in the entire film. In the first act he wears black beast-head lamellar armor, an asymmetrical black-silver mask, high black ponytail, on one black horse. Even in the clash the unseen opponent is represented solely by a blade and a plain iron gauntlet entering from outside the frame. No visible opponent face or body. "
+    "0–8s: start close on the red flag reflected in Xie's masked eye; open to the same red flag above the river gate. Silk lifts to uncover a pale gap in the clouds; the single black rider bursts out of the gap. Blades meet in tight POV, a pinpoint of silver releases a long dry-brush crescent that follows the blade's physical swing; cut on its direction to the knight riding free. His horse's mane draws a stroke toward the reeds, revealing the river and both banks. "
+    "8–13s is a single smoothly animated uninterrupted side track. Never reset or jump again. Reeds bend on last stride. Hind hooves compress and extend, spitting grit; grit falls as forelegs tuck. Black mane and one narrow red ribbon stream backward; highlight at the apex slides off the ribbon onto the moon reflected below. The forelegs reach, one front hoof lands on the far bank's wet edge; as weight comes down, the reflection breaks. Keep camera rightward, one human, one proportional horse, no duplicate limbs or bodies, no cut to a second angle in the air. "
+    "13–20.5s: landing throws water out in a crown, concentric lines split the silver moon reflection, not the real moon. Push into an individual bead. The moving black mane enters its outline; pigment spirals into the river. A brush stroke wipes the lens completely opaque black for a beat. No face or human is visible at the change of clothes. A narrow dry-brush seam gradually uncovers his same eye, now with loose dark hair, then a white collar and shoulder. White is seen on the hero only, after the full ink wipe. "
+    "20.5–30s: cool gate mist opens onto the full figure at the gate. Close on the fingers brushing wet stone, little reflected flag wavers in the water. Damp hair grazes his brow, he looks down. He raises his eyes to the viewer; spare final hold with wind moving a few strands of hair. No lip movement. No titles. A low, unhurried Mandarin witness narrates at 1s ‘他让我们先走。’, at 13s ‘一蹄踏碎半河月。’, at 20s ‘墨尽，方知是故人。’, and at 27s ‘是他，谢却山。’ Sound: paired metal ring, breath of wind over water during the jump, one wet impact, fading paper-brush hiss. Accent every transition with the motivated motion of light, cloth, hooves, water, ink, or mist. Animators' continuous body motion, never a slide show. "
 )
 payload = {
     "image": upload_frame("opening"), "last_frame": upload_frame("reveal"), "prompt": prompt,
     "duration": 30, "resolution": "480P", "aspect_ratio": "16:9", "audio": True, "prompt_extend": False,
-    "watermark": False, "negative_prompt": "extra jumps, cloned protagonist, cloned foreground horse, wrong screen direction, missing feet, slideshow, panels, captions, speaking rider, photorealistic celebrity",
+    "watermark": False, "negative_prompt": "second visible actor, visible white-robed enemy, clone, double exposure, double figure, parallel horse, second jump, broken anatomy, wrong screen direction, jump cuts during leap, slideshow, animated panel borders, captions, speaking rider, live action, celebrity likeness",
 }
 output_dir = Path("result")
 output_dir.mkdir(exist_ok=True)
