@@ -3,6 +3,7 @@ import base64
 import json
 import os
 import sys
+import subprocess
 import time
 from pathlib import Path
 
@@ -26,22 +27,17 @@ if sys.argv[1] == "prepare":
         except requests.ConnectionError:
             pass
         time.sleep(2)
-    submitted = requests.post(local + "/prompt", json={"prompt": workflow}, timeout=20)
-    submitted.raise_for_status()
-    prompt_id = submitted.json()["prompt_id"]
-    for _ in range(90):
-        history = requests.get(local + "/history/" + prompt_id, timeout=4).json()
-        if prompt_id in history:
-            finished = history[prompt_id]
-            if finished["status"]["status_str"] != "success":
-                raise RuntimeError("ComfyUI image preparation failed")
-            image = finished["outputs"]["3"]["images"][0]
-            source = Path("ComfyUI/output") / image["subfolder"] / image["filename"]
-            Path("starter.png").write_bytes(source.read_bytes())
-            break
-        time.sleep(1)
-    else:
-        raise TimeoutError("ComfyUI did not return its prepared frame")
+    graph_path = Path("ink-starter-workflow.json")
+    graph_path.write_text(json.dumps(workflow))
+    subprocess.run(
+        ["comfy", "run", "--where", "local", "--host", "127.0.0.1", "--port", "8188",
+         "--workflow", str(graph_path), "--wait"],
+        check=True,
+    )
+    frames = sorted(Path("ComfyUI/output").glob("wan-starter*.png"))
+    if len(frames) != 1:
+        raise RuntimeError("Expected one prepared starter from ComfyUI CLI")
+    Path("starter.png").write_bytes(frames[0].read_bytes())
     sys.exit()
 
 from segmind import SegmindClient
@@ -56,21 +52,24 @@ uploaded = requests.post(
 uploaded.raise_for_status()
 first_frame = uploaded.json()["file_urls"][0]
 prompt = (
-    "One fluid uninterrupted lateral tracking shot, already moving at frame one. "
-    "Animate the black horse galloping to screen right with repeated coordinated four-beat strides; "
-    "show hindquarter push-off, suspension, extended foreleg landing and natural weight transfer. "
-    "Keep the hooves readable. The lean masked general rides low; his hips and shoulders absorb each landing. "
-    "Keep his eyes forward and the silver asymmetrical mask, armor and reins consistent. "
-    "Ponytail, cloak and mane stream left and ripple at their ends. Camera tracks smoothly alongside: "
-    "rider stays near center, foreground flag sweeps quickly left once, pale distant ink mountains drift slowly. "
-    "Small ink spatters release backward only at hoof impact. Preserve the original 2D brush-and-ink look, "
-    "paper whites, charcoal blacks and the small dark red flag. Audio: synchronized galloping hooves, "
-    "soft tack and wind. No speech or music."
+    "One uninterrupted, side-on tracking shot of ONE clean equestrian leap. Same ordinary fictional anime face, "
+    "black-silver armor and silver half mask as the artwork. Show the whole horse and all hooves. "
+    "In the first second collect into the approach. A shallow ink-dark stream crosses the path. "
+    "The hind legs compress and drive off the near bank; the horse and rider leap from left to right "
+    "over the water ONCE. At the apex forelegs fold under the chest and hind legs trail, then tuck. "
+    "The rider rises slightly in the stirrups, folds forward over the neck and keeps the reins soft. "
+    "Extend the forelegs, land forefeet first on the far bank around 3.1s, then hind feet. "
+    "The camera tracks level and wide, with a continuous visible arc and clear air beneath all four hooves. "
+    "Hold the landing long enough to see contact. On contact, a black ink splash blooms under the hoof "
+    "and rises diagonally toward the lens, calligraphic bristles and ink bleeding on paper. "
+    "High ponytail and cape stream left. Restrained original anime eyes, no identifiable real person's face. "
+    "Keep pale mountains, charcoal line work and the lone red flag. Audio: approach hoofbeats, a hush "
+    "during suspension, a firm wet hoof landing and short brush swish. No speech or music."
 )
 payload = {
     "image": first_frame, "prompt": prompt, "duration": 4, "resolution": "480P",
     "aspect_ratio": "16:9", "audio": True, "prompt_extend": False, "watermark": False,
-    "negative_prompt": "static horse, sliding feet, floating horse, duplicate legs, drifting mask, new rider, camera cuts, captions, photorealism",
+    "negative_prompt": "repeated jumping, endless gallop, hidden landing, static horse, sliding feet, floating horse, duplicate legs, drifting mask, new rider, camera cuts, captions, photorealism",
 }
 output_dir = Path("result")
 output_dir.mkdir(exist_ok=True)
