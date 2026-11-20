@@ -48,9 +48,9 @@ else:
     shared = key.exchange(X25519PublicKey.from_public_bytes(envelope[:32]))
     aes_key = HKDF(algorithm=hashes.SHA256(), length=32, salt=None, info=context).derive(shared)
     frame = AESGCM(aes_key).decrypt(envelope[32:44], envelope[44:], context)
-    if hashlib.sha256(frame).hexdigest() != "0c9a7f2c1e80b1468cb4510dfeb8389310de8aeebf9125f2194414ab500f19d1":
+    if hashlib.sha256(frame).hexdigest() != "c55a126e2fbce181200595aa8541d9360f33679e4a21f759e3c51227484f1262":
         raise ValueError("Frame did not match this shot")
     with zipfile.ZipFile(io.BytesIO(frame)) as archive:
-        (Path("ComfyUI/input") / "storyboard.jpg").write_bytes(archive.read("storyboard.jpg"))
-        Path("motion.mp4").write_bytes(archive.read("motion.mp4"))
+        for name in ("spear.jpg", "leap.jpg"):
+            (Path("ComfyUI/input") / name).write_bytes(archive.read(name))
     key_file.unlink()
