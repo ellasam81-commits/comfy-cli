@@ -9,13 +9,12 @@ from pathlib import Path
 
 import requests
 
-# Both 608 × 342 crops sit inside the panel gutters. The opening crop
-# keeps the horse's grounded forehoof; the final crop keeps the hero's eyes.
+# Opening and final frames are stacked vertically in the private input.
 workflow = {"1": {"class_type": "LoadImage", "inputs": {"image": "storyboard.jpg"}}}
-for node, prefix, x, y in [(2, "opening", 9, 52), (5, "reveal", 630, 849)]:
+for node, prefix, x, y in [(2, "opening", 0, 0), (5, "reveal", 0, 432)]:
     workflow[str(node)] = {
         "class_type": "ImageCrop",
-        "inputs": {"image": ["1", 0], "width": 608, "height": 342, "x": x, "y": y},
+        "inputs": {"image": ["1", 0], "width": 768, "height": 432, "x": x, "y": y},
     }
     workflow[str(node + 1)] = {
         "class_type": "ImageScale",
@@ -62,21 +61,25 @@ def upload_frame(prefix):
     return uploaded.json()["file_urls"][0]
 
 prompt = (
-    "Single uninterrupted side tracking shot, exquisite cel-drawn wuxia on warm xuan paper. "
-    "Same masked young general and one black horse moving left to right. Preserve silver armor, red flag and ink mountains. "
-    "0–0.65s approach the near riverbank at a gallop; 0.65–1.15s hindquarters push off once, "
-    "rider folds over neck with soft reins. 1.15–1.9s a single clear flight arc over the brook with all four hooves airborne. "
-    "1.9–2.35s extend forelegs and land forefeet first on the far bank, then the hind feet, audible wet hoof thud. "
-    "At contact a dense stroke of black ink sweeps diagonally right up across the lens. Bristles and droplets on paper. "
-    "2.35–2.95s the black ink opens onto one unmasked eye, ivory collar, and a restrained cinnabar flag. "
-    "2.95–4s hold the same general unmasked, now in white robes, loose black hair lifting, calmly looking up. "
-    "End on the supplied white-robed frame. Keep eyes and nose clearly drawn in anime style. "
-    "Sound: hoofbeats, hush while airborne, brush swish, then a low offscreen Mandarin narrator says exactly "
-    "‘是他，谢却山。’ as his unmasked face appears. His mouth stays still."
+    "Thirty-second widescreen 2D anime wuxia film on xuan paper. Use precise ink linework, warm ivory paper, "
+    "black silver beast-head armor, asymmetric silver mask, black ponytail; only accent is a torn red flag. "
+    "Opening 0–8s: extreme close-up masked eye reflecting vermilion, flag on the city gate, armored rider "
+    "emerging from mist, black-gloved fingers gathering reins, hooves drumming dry ground, wide view of both banks. "
+    "8–12s keep one continuous lateral tracking shot, full horse and rider always moving left to right. "
+    "Collect at the near bank, push from hind legs, ascend, float at apex, extend front legs and land once "
+    "on the far bank. Show a clear gap under all four hooves. Only ONE jump across the stream. "
+    "12–20s: close hoof impact throws droplets. Wet black ink sweeps diagonally from actual point of contact, "
+    "wipes across the lens, briefly covers the full frame, capillaries spread on paper. An iris of white paper "
+    "reveals one unmasked eye, then loose hair and the fold of white robes. "
+    "20–30s: before the misty gate, white-robed figure and crimson silk, sleeve detail, lowered chin, eyes "
+    "lifting, full unmasked hero portrait, then settle in the final wide chest-up composition, quiet wind. "
+    "Ordinary fictional anime face. Restrained offscreen Mandarin storyteller at end says ‘是他，谢却山。’ "
+    "The character stays silent. Hoofbeats, hush when airborne, damp hoof strike and paper-brush swish. "
+    "No titles or captions."
 )
 payload = {
     "image": upload_frame("opening"), "last_frame": upload_frame("reveal"), "prompt": prompt,
-    "duration": 4, "resolution": "480P", "aspect_ratio": "16:9", "audio": True, "prompt_extend": False,
+    "duration": 30, "resolution": "480P", "aspect_ratio": "16:9", "audio": True, "prompt_extend": False,
     "watermark": False, "negative_prompt": "extra jumps, second horse, wrong screen direction, missing feet, slideshow, panels, captions, speaking rider, photorealistic celebrity",
 }
 output_dir = Path("result")

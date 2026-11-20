@@ -47,7 +47,7 @@ jobs:
           server_pid=$!
           trap 'kill "$server_pid" 2>/dev/null || true' EXIT
           python shots/ink-gallop/render.py prepare
-      - name: Generate one four-second storyboard shot through Segmind
+      - name: Generate the 30-second film through Segmind
         env:
           SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
         run: python shots/ink-gallop/render.py generate
