@@ -77,7 +77,7 @@ output_dir.mkdir(exist_ok=True)
 client = SegmindClient()
 job = client.submit_async("wan3.0-video", **payload)
 (output_dir / "request-id.txt").write_text(job.request_id + "\n")
-print("Segmind accepted the shot.", flush=True)
+print("Segmind accepted the 30-second shot. Waiting for the video.", flush=True)
 result = job.wait(timeout=1500, interval=5)
 def output_urls(value):
     if isinstance(value, str) and value.startswith("https://"):
@@ -90,7 +90,8 @@ def output_urls(value):
             yield from output_urls(item)
 for url in output_urls(result.get("output", result)):
     response = requests.get(url, timeout=100)
-    response.raise_for_status()
+    if not response.ok:
+        continue
     if response.content[4:8] == b"ftyp":
         (output_dir / "Xie_Queshan_Ink_Gallop_Wan3.mp4").write_bytes(response.content)
         break
