@@ -1,4 +1,4 @@
-"""Prepare two independent starter frames with ComfyUI, then generate each once."""
+"""Prepare a contact-first starter with ComfyUI, then generate one 6-second shot."""
 import base64
 import json
 import os
@@ -28,7 +28,7 @@ if sys.argv[1] == "prepare":
             "height": 576, "crop": "disabled"}}
         graph[str(node + 2)] = {"class_type": "SaveImage", "inputs": {
             "images": [str(node + 1), 0], "filename_prefix": name}}
-    graph_path = Path("two-shot-starters.json")
+    graph_path = Path("contact-first-starter.json")
     graph_path.write_text(json.dumps(graph))
     subprocess.run(["comfy", "run", "--where", "local", "--host", "127.0.0.1",
                     "--port", "8188", "--workflow", str(graph_path), "--wait"], check=True)
@@ -77,10 +77,10 @@ urls = upload_assets(client, [name + ".png" for name in NAMES])
 failures = []
 for name, url in zip(NAMES, urls):
     payload = {
-        "image": url, "prompt": prompts[name], "duration": (8 if name == "spear" else 6), "resolution": "480P",
+        "image": url, "prompt": prompts[name], "duration": 6, "resolution": "480P",
         "aspect_ratio": "16:9", "audio": False, "prompt_extend": False,
         "watermark": False,
-        "negative_prompt": "frozen pose, slow motion, hovering, duplicated body, merged bodies, extra limbs, teleportation, multiple camera cuts, time reversal, pose morph, panel grid, captions, text, logo, graphic injury",
+        "negative_prompt": "rider dismounting, hero on foot, teleportation, spear through horse, duplicated weapons, missed contact, weapons passing through each other, weapons merging, horse colliding with soldier, frozen pose, time reversal, repeated attack cycle, extra limbs, duplicated character, multiple camera cuts, panel grid, captions, text, logo, graphic injury",
     }
     try:
         # A single accepted request per shot. Record before waiting; never resubmit a paid request.
