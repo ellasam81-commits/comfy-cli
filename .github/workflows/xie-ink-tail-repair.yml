@@ -1,0 +1,68 @@
+name: Xie Queshan · Single horse ink exit repair
+on:
+  push:
+    branches: ['render/xie-ink-tail-single-horse-20261121']
+    paths: ['.github/workflows/xie-ink-tail-repair.yml', 'shots/ink-tail-repair/render.py']
+concurrency:
+  group: xie-ink-tail-single-horse
+  cancel-in-progress: true
+permissions:
+  contents: read
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Check Segmind configuration
+        env:
+          SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+        run: test -n "$SEGMIND_API_KEY" || { echo "::error::SEGMIND_API_KEY is missing"; exit 1; }
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -q cryptography
+      - id: receiver
+        run: python shots/ink-tail-repair/receive.py open
+      - uses: actions/upload-artifact@v4
+        with:
+          name: receiver-${{ steps.receiver.outputs.public }}
+          path: ${{ runner.temp }}/receiver.txt
+          retention-days: 1
+      - uses: actions/checkout@v4
+        with:
+          repository: Comfy-Org/ComfyUI
+          ref: a277b5bf213e8a44fa34817b7770b54f86ef4cea
+          path: ComfyUI
+          persist-credentials: false
+      - name: Set up CPU ComfyUI for the starter frame
+        run: |
+          python -m pip install -q --index-url https://download.pytorch.org/whl/cpu torch torchvision torchaudio
+          python -m pip install -q -r ComfyUI/requirements.txt 'segmind>=1.5.1' requests
+          python -m pip install -q 'git+https://github.com/ellasam81-commits/comfy-cli.git@e8daaf26bbee25419ca06bd86732b743c125beb3'
+      - name: Receive the reference media
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p ComfyUI/input
+          python shots/ink-tail-repair/receive.py get
+      - name: Prepare original identity images with ComfyUI
+        run: |
+          python ComfyUI/main.py --cpu --listen 127.0.0.1 --disable-all-custom-nodes > "$RUNNER_TEMP/comfy.log" 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          python shots/ink-tail-repair/render.py prepare
+      - name: Generate one single horse ink exit through Wan
+        env:
+          SEGMIND_API_KEY: ${{ secrets.SEGMIND_API_KEY }}
+        run: python shots/ink-tail-repair/render.py generate
+      - name: Save the video and the accepted request ID
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Xie-Queshan-Ink-Tail-Single-Horse
+          path: result/
+          if-no-files-found: ignore
+          retention-days: 7
